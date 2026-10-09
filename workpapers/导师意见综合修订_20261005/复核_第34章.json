@@ -1,0 +1,327 @@
+{
+  "verdict": "已检查的第3、4章20张数值表396个单元格均与冻结证据一致；896项独立重聚合/统计复算均无实质差异。已发现的可补日志缺口为v8完成率，现已从服务器原始小JSON恢复。",
+  "manuscript": "/home/erzhu419/mine_code/Thesis/output/排版完成_导师意见复核_20261005.docx",
+  "table_cells_checked": 396,
+  "tables_checked": [
+    "3-1",
+    "3-2",
+    "3-3",
+    "3-4",
+    "3-5",
+    "3-6",
+    "3-7",
+    "3-8",
+    "3-9",
+    "3-10",
+    "4-1",
+    "4-2",
+    "4-3",
+    "4-4",
+    "4-5",
+    "4-6",
+    "4-7",
+    "4-8",
+    "4-9",
+    "4-10",
+    "4-11"
+  ],
+  "numeric_tables_checked": [
+    "3-1",
+    "3-10",
+    "3-2",
+    "3-3",
+    "3-4",
+    "3-5",
+    "3-6",
+    "3-7",
+    "3-8",
+    "3-9",
+    "4-10",
+    "4-11",
+    "4-2",
+    "4-3",
+    "4-4",
+    "4-5",
+    "4-6",
+    "4-7",
+    "4-8",
+    "4-9"
+  ],
+  "numeric_mismatches": [],
+  "raw_reaggregation_checks": 896,
+  "raw_mismatches": [],
+  "aggregation_and_claims": [
+    {
+      "scope": "摘要中英文（当前独立提取66/76）",
+      "status": "correct",
+      "evidence": "enhancement_v1/summary.json：嵌入相对独热的成本降幅5.508183%、1.411092%、4.914682%；resac_native_recipe_v8/analysis_summary.json：6场景等权时距差-5.004201秒、不平衡差-7.355749秒，均与摘要四舍五入一致。"
+    },
+    {
+      "scope": "摘要中英文（67/77）、§4.4.7、表4-10/11",
+      "status": "correct",
+      "evidence": "采用2个训练种子的逐运行日均值再等权，降幅是组均值之比而非逐种子百分比均值。58.82–69.79%、27.10–36.55%、0.068–0.268%与cs_results独立计算一致。单种子大幅退化及稳定组复用策略已说明，未归因为单个组件或符号/IRM作用。"
+    },
+    {
+      "scope": "表3-1",
+      "status": "correct",
+      "evidence": "历史种子与2种子扩展分开；均值±SD中的SD是两个训练重复的样本标准差。历史SAC隐藏宽32、扩展宽64已披露。"
+    },
+    {
+      "scope": "§3.4.6和表3-3",
+      "status": "correct_to_frozen_diagnostic_record",
+      "evidence": "UNCERTAINTY_PROTOCOL.md:1494–1508,1662–1673,3068–3070,3298–3301,3446–3455,3565–3575。训练更新预算、晚期窗口、全部种子差、SE/t区间、后续动作回报差、126日折拟合的测试误差吻合。保留负续接结果，不由MSE推出策略改进。"
+    },
+    {
+      "scope": "图3-11、§3.4.8.5",
+      "status": "correct",
+      "evidence": "五训练种子先平均运行日；actor/critic因子先在另一因子两设置上等权；df4描述性t区间未多重校正。快速切换actor回报8089.8618[5424.9054,10754.8183]，不均衡-2.297771[-3.300871,-1.294672]；评论家三场景奖励及时距区间均跨0。"
+    },
+    {
+      "scope": "表3-10及§3.4.9",
+      "status": "correct",
+      "evidence": "5训练种子、各3测试种子、24000秒；norm=.01/BC=.001两组均启用；对照仅取消beta/beta_ood。6个配对差及df4 t区间与逐训练种子均值一致；时距区间跨0、乘客时间区间负均已正确说明。"
+    },
+    {
+      "scope": "表4-2至4-5、图4-2至4-6",
+      "status": "matches_reported_source",
+      "evidence": "csbapr_reported_tables.csv：10种子，ID均值/SD、OOD中位数、低回报比例与最差值一致。图4-5说明中位数之差不是配对差中位数；尾部失败未隐去。"
+    },
+    {
+      "scope": "§4.4.6.2、表4-7",
+      "status": "correct",
+      "evidence": "300秒不重叠窗口、连续3窗口共15分钟；2训练种子下三方法均未在脉冲结束后210分钟内恢复。万人小时单位转换正确。"
+    },
+    {
+      "scope": "§4.4.6.3",
+      "status": "correct",
+      "evidence": "直接读取BAPR/reproducibility/v32/analysis.json及10份audits/seed_*/audit.json，回报3297.0640/2360.1627、差936.9013、df9 t区间337.0671–1536.7354、9/10种子及27/30事件改善、98.5487%模式准确率、3步中位延迟、840万交互一致。"
+    },
+    {
+      "scope": "表4-8及图4-10",
+      "status": "correct",
+      "evidence": "135份原始运行记录：每运行日先算配对比例，再平均每个训练种子的3个测试日，再平均3训练种子。图线是最小至最大种子差，不是置信区间。"
+    },
+    {
+      "scope": "表4-9和§4.4.6.5",
+      "status": "correct",
+      "evidence": "20次训练、180次评价，5训练种子；结构因子包含输出头正则。无BC的算术增量24.47/29.55/36.00千与结构因子16.06/14.03/13.71千区间均跨0，文本正确。"
+    }
+  ],
+  "coverage_limits": [
+    "表3-2逐次seed8评价原始文件未定位，仅核对RE-SAC原论文冻结表及论文中现有单次评价说明；不能把这一核对称为从仿真重新生成。",
+    "表4-2至4-5及旧尾部数据核对到独立项目保留的reported_tables.csv和本项目同源冻结表；本轮未重算旧CS-BAPR十种子逐次原始日志。",
+    "本轮图的统计口径核对到图源与正文，不含Word嵌入图像逐像素核查；公式机制由其他代理独立检查。",
+    "v8原始72份评价JSON只保存cost、completion_rate、generated_passengers及动作/时距信息，未保存wait/ride积分，因此无法从现存记录唯一恢复候车/车内时间分解。"
+  ],
+  "v8_recovered_completion": {
+    "source": "node007:/home/zhengliang01/scheduleurm_work/Thesis/experiments/resac_native_recipe_v8/runs/holding/passenger/{resac,sac}_seed{64001,64002}/budget100/eval_{00..17}.json",
+    "local_summary": "workpapers/导师意见综合修订_20261005/v8_completion_remote.json",
+    "mean_rule": "每种子3日等权，2种子等权；总体对6场景等权。非按乘客人数加权。",
+    "rows": [
+      {
+        "arm": "resac",
+        "scene": "normal",
+        "evaluations": 6,
+        "cost": 11443.91129136692,
+        "completion_percent": 39.83603220641676,
+        "generated_mean": 97047.33333333333,
+        "completion_by_seed": {
+          "64001": 39.708082999347894,
+          "64002": 39.96398141348563
+        }
+      },
+      {
+        "arm": "resac",
+        "scene": "pulse5",
+        "evaluations": 6,
+        "cost": 15291.759120125364,
+        "completion_percent": 31.393958106200476,
+        "generated_mean": 135790.33333333334,
+        "completion_by_seed": {
+          "64001": 31.28703855651322,
+          "64002": 31.50087765588773
+        }
+      },
+      {
+        "arm": "resac",
+        "scene": "repeated5",
+        "evaluations": 6,
+        "cost": 13401.219165475191,
+        "completion_percent": 22.89415649372412,
+        "generated_mean": 212821.66666666666,
+        "completion_by_seed": {
+          "64001": 22.80052077803701,
+          "64002": 22.987792209411232
+        }
+      },
+      {
+        "arm": "resac",
+        "scene": "static5",
+        "evaluations": 6,
+        "cost": 16115.366114895449,
+        "completion_percent": 11.91868165053912,
+        "generated_mean": 484978.3333333333,
+        "completion_by_seed": {
+          "64001": 11.86459268403883,
+          "64002": 11.97277061703941
+        }
+      },
+      {
+        "arm": "resac",
+        "scene": "static10",
+        "evaluations": 6,
+        "cost": 16984.475904516294,
+        "completion_percent": 6.43757712236033,
+        "generated_mean": 969621,
+        "completion_by_seed": {
+          "64001": 6.424238841255059,
+          "64002": 6.4509154034656
+        }
+      },
+      {
+        "arm": "resac",
+        "scene": "burst50",
+        "evaluations": 6,
+        "cost": 21025.416659203478,
+        "completion_percent": 20.175544280496364,
+        "generated_mean": 256639,
+        "completion_by_seed": {
+          "64001": 20.092143015999135,
+          "64002": 20.258945544993594
+        }
+      },
+      {
+        "arm": "resac",
+        "scene": "six_scene_equal_mean",
+        "evaluations": 36,
+        "cost": 15710.358042597116,
+        "completion_percent": 22.10932497662286,
+        "generated_mean": 359482.94444444444,
+        "completion_by_seed": {
+          "64001": 22.02943614586519,
+          "64002": 22.189213807380533
+        }
+      },
+      {
+        "arm": "sac",
+        "scene": "normal",
+        "evaluations": 6,
+        "cost": 11383.843827615074,
+        "completion_percent": 39.878587361377,
+        "generated_mean": 97047.33333333333,
+        "completion_by_seed": {
+          "64001": 39.815899554846716,
+          "64002": 39.941275167907285
+        }
+      },
+      {
+        "arm": "sac",
+        "scene": "pulse5",
+        "evaluations": 6,
+        "cost": 15235.802848487523,
+        "completion_percent": 31.42191229421768,
+        "generated_mean": 135790.33333333334,
+        "completion_by_seed": {
+          "64001": 31.36277615600073,
+          "64002": 31.481048432434623
+        }
+      },
+      {
+        "arm": "sac",
+        "scene": "repeated5",
+        "evaluations": 6,
+        "cost": 13367.578294583906,
+        "completion_percent": 22.888125277617437,
+        "generated_mean": 212821.66666666666,
+        "completion_by_seed": {
+          "64001": 22.8094311908648,
+          "64002": 22.96681936437007
+        }
+      },
+      {
+        "arm": "sac",
+        "scene": "static5",
+        "evaluations": 6,
+        "cost": 16107.171153453535,
+        "completion_percent": 11.853049762770281,
+        "generated_mean": 484978.3333333333,
+        "completion_by_seed": {
+          "64001": 11.73895074412147,
+          "64002": 11.967148781419096
+        }
+      },
+      {
+        "arm": "sac",
+        "scene": "static10",
+        "evaluations": 6,
+        "cost": 16990.31973276277,
+        "completion_percent": 6.350703909171675,
+        "generated_mean": 969621,
+        "completion_by_seed": {
+          "64001": 6.2493237095607235,
+          "64002": 6.452084108782627
+        }
+      },
+      {
+        "arm": "sac",
+        "scene": "burst50",
+        "evaluations": 6,
+        "cost": 20999.594392522802,
+        "completion_percent": 20.15843100146509,
+        "generated_mean": 256639,
+        "completion_by_seed": {
+          "64001": 20.054060227971497,
+          "64002": 20.26280177495868
+        }
+      },
+      {
+        "arm": "sac",
+        "scene": "six_scene_equal_mean",
+        "evaluations": 36,
+        "cost": 15680.718374904269,
+        "completion_percent": 22.091801601103196,
+        "generated_mean": 359482.94444444444,
+        "completion_by_seed": {
+          "64001": 22.005073597227657,
+          "64002": 22.17852960497873
+        }
+      }
+    ],
+    "interpretation": "正常需求RE-SAC/SAC完成率39.8360%/39.8786%，窗口未完成负担在基准需求下已明显存在；6场景均值22.1093%/22.0918%，仅为小差异，不能由广义成本的量级推出服务改善。"
+  },
+  "cells_by_table": {
+    "3-1": 32,
+    "3-2": 8,
+    "3-3": 12,
+    "3-4": 18,
+    "3-5": 32,
+    "3-6": 18,
+    "3-7": 24,
+    "4-9": 12,
+    "3-8": 32,
+    "3-9": 24,
+    "3-10": 18,
+    "4-2": 12,
+    "4-3": 36,
+    "4-4": 24,
+    "4-5": 18,
+    "4-6": 20,
+    "4-7": 6,
+    "4-8": 20,
+    "4-10": 24,
+    "4-11": 6
+  },
+  "reaggregation_by_source": {
+    "/home/erzhu419/mine_code/Thesis/manuscript/figures/source_data/resac_archive_evaluation.json": 16,
+    "experiments/enhancement_v1/runs/legacy/*/results/eval_*.json": 360,
+    "experiments/enhancement_v1/runs/cs/*/results/eval_*.json": 60,
+    "/home/erzhu419/mine_code/Thesis/experiments/csbapr_bus/runs/repeated_v1": 60,
+    "/home/erzhu419/mine_code/Thesis/experiments/enhancement_v1/summary.json": 186,
+    "/home/erzhu419/mine_code/Thesis/experiments/legacy_bus/runs/representation_v1": 18,
+    "/home/erzhu419/mine_code/Thesis/experiments/legacy_bus/runs/paired_v1": 40,
+    "/home/erzhu419/mine_code/Thesis/experiments/legacy_bus/runs/reward_v1": 32,
+    "/home/erzhu419/mine_code/Thesis/experiments/review_round3/runs/ensemble": 120,
+    "/home/erzhu419/mine_code/BAPR/reproducibility/v32": 4
+  },
+  "reproducible_audit_script": "workpapers/导师意见综合修订_20261005/audit_ch34.py"
+}

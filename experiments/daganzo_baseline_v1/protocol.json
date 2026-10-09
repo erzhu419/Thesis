@@ -1,0 +1,27 @@
+{
+  "name": "thesis-daganzo-baseline-v1",
+  "methods": ["daganzo_duet", "forward_proportional"],
+  "execution_layers": ["native", "early60"],
+  "duet_gain": 0.5,
+  "forward_gain": 0.6,
+  "max_hold_seconds": 60.0,
+  "speed_multiplier": 1.0,
+  "evaluation_horizon_seconds": 24000,
+  "deployment_hold_scale": 1.0,
+  "departure_jitter_seconds": 120,
+  "evaluation_demand_scales": [1.0, 1.25],
+  "evaluation_blocks": [
+    {"demand_seed": 48101, "sumo_seed": 49101},
+    {"demand_seed": 48102, "sumo_seed": 49102},
+    {"demand_seed": 48103, "sumo_seed": 49103},
+    {"demand_seed": 48104, "sumo_seed": 49104},
+    {"demand_seed": 48105, "sumo_seed": 49105}
+  ],
+  "missing_neighbor": "Use that neighbor's scheduled target headway, as provided by the existing SUMO observation adapter.",
+  "timetable": "Keep the current SUMO timetable and fleet; do not substitute TransitDuet's fixed-360-second timetable.",
+  "policy_training": "None. Reuse all completed v3 learned-policy evaluations without selection or retraining.",
+  "primary_comparison": "Compare each rule plus early60 with normalized MC-WM and H2O+ using the same early60 execution layer.",
+  "native_reference": "Report standalone rule results separately; contrasts with guarded learned policies do not isolate the learning algorithm.",
+  "scope": "Additional fixed-parameter references on the existing evaluation days, not new independent confirmation.",
+  "attribution": "daganzo_duet reproduces TransitDuet's Daganzo-style holding formula in the current SUMO task; forward_proportional implements the heuristic already specified in thesis equation 5-005. Neither is claimed as an exact reproduction of Daganzo 2009."
+}

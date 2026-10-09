@@ -1,0 +1,466 @@
+{
+  "source": "/home/erzhu419/mine_code/Thesis/workpapers/导师意见综合修订_20261005/修改前.docx",
+  "paragraph_index_convention": "0-based w:body direct child w:p; exclude table paragraphs",
+  "locked_abstract_range": {
+    "first": 61,
+    "last": 79,
+    "count": 19,
+    "includes": [
+      "摘要标题",
+      "中文摘要正文",
+      "中文关键词",
+      "Abstract标题",
+      "英文摘要正文",
+      "英文Keywords"
+    ],
+    "boundary_next_paragraph": {
+      "index": 80,
+      "text": "目录"
+    },
+    "requirement": "所有19段的文字、段落属性、原生结构与原底稿一致；不改写、不插入引文、不在摘要内统一术语。"
+  },
+  "locked_abstract_paragraphs": [
+    {
+      "index": 61,
+      "text": "摘要"
+    },
+    {
+      "index": 62,
+      "text": "随机客流和路况变化使公交车头时距失衡，增加串车风险和乘客等待时间。驻站可调节车辆离站时刻，但受到车辆与站点差异、环境条件及动作上限的制约。强化学习可依据状态选择动作，却难以在实际运营中反复试错，最终策略又面临训练与使用环境的分布偏移，使其现实部署面临困难。本文围绕从仿真到现实的驻站控制，先研究未预先获得目标域训练数据时的平稳随机鲁棒学习与非平稳随机适应学习，再研究获得目标域离线数据后的跨保真训练及模型修正。"
+    },
+    {
+      "index": 63,
+      "text": "本文以车辆完成必要上下客后的到站事件为决策时刻，将车辆与站点信息、前后车头时距、驻站动作及乘客时间成本纳入统一控制模型。多线路实验沿用现有长沙公交路网、线路、乘客起讫点（Origin-Destination，OD）需求及时刻表资料。自建简易仿真用于低成本训练，城市交通微观仿真平台（Simulation of Urban MObility，SUMO）用于表示更细致的道路交通和车辆相互作用，作为现实环境的仿真代理。跨保真迁移采用SUMO离线数据与简易仿真中在线交互产生的新数据训练策略，再于未参与训练的SUMO运行场景中评价。本文公交控制研究统一采用单一驻站动作。主要研究内容与结果如下。"
+    },
+    {
+      "index": 64,
+      "text": "（1）针对不同车辆与站点的差异及随机运行中的动作价值估计波动，提出结合类别特征嵌入与连续状态的共享驻站策略，并提出鲁棒集成软演员评论家方法（Robust Ensemble Soft Actor-Critic，RE-SAC）。以候车时间的两倍与车内时间之和作为广义乘客时间，在学习器及训练设置一致的类别表征比较中，学习嵌入相对独热编码在正常运行、客流激增和快速切换下，分别降低5.51%、1.41%和4.91%的人均广义乘客时间。单一驻站动作、车头时距目标下，RE-SAC相对主流对照在所测随机环境中具有更低的计划时距偏差和更稳定的价值评价。结果表明，在高不确定性环境中，引入保守偏移以提高价值评价稳定性，可以带来更好的控制效果；但不同运营目标仍存在取舍。"
+    },
+    {
+      "index": 65,
+      "text": "（2）针对运行规律随时间变化、而驻站只能局部改变车辆离站时刻的问题，提出贝叶斯自适应策略正则化（Bayesian Adaptive Policy Regularization，BAPR），通过环境识别和模式置信调节形成条件适应；进一步提出因果符号贝叶斯自适应策略正则化（Causal-Symbolic Bayesian Adaptive Policy Regularization，CS-BAPR）。在正常需求、单次与重复环境变化、持续高需求及短时极端需求下，训练稳定化方法相对前序BAPR均降低平均时距奖励惩罚，单一驻站动作下的降幅为58.82%至69.79%。与RE-SAC的匹配比较表明，CS-BAPR在运行规律发生变化时具有更强的条件适应能力，其结构化输出并非在每种条件下都带来额外收益。改用乘客时间目标后，服务成本差异缩小，说明时距目标收益不能直接解释为同等幅度的乘客时间收益。"
+    },
+    {
+      "index": 66,
+      "text": "（3）针对现实目标环境难以持续通过试错采集训练数据的问题，在混合离线与在线强化学习（Hybrid Offline-and-Online Reinforcement Learning，H2O）及其改进框架（Improved Framework for Hybrid Offline-and-Online Reinforcement Learning with Dynamics Gaps，H2O+）基础上建立公交跨保真训练流程。固定SUMO离线数据与简易仿真交互共同支持策略训练，同时到站车辆编码、允许车辆不额外停站或增加驻站时长的单一驻站动作，以及运行末段载客较少且后续接续车辆不足时的完成保障，共同构成控制器。在十个新环境块、三档需求和九种控制器的1350次配对评价中，完成保障相对相同学习策略的直接父控制器，使窗口内人均广义乘客时间减少92.12秒、下降3.71%，完成率提高0.466个百分点。同更新预算比较支持混合训练方案相对纯离线方案的收益。"
+    },
+    {
+      "index": 67,
+      "text": "（4）针对源目标转移关系失配，提出基于模型修正的世界模型方法（Model-Corrected World Model，MC-WM），以留出预测误差选择残差修正或直接目标模型，并以对数置信评价加权一步模型样本。公交扩展采用固定目标离线数据与混合事件模型，并以归一化置信备份缓解模型作用衰减。单一驻站动作、乘客时间目标下，在正常标定、联合50%和联合75%源参数偏差三种条件下，相对采用共同完成保障的Daganzo式规则，人均广义乘客时间分别减少57.67、70.67和76.26秒。联合偏差同时改变道路平均速度、乘客OD、路口延误和基本停站服务时间等转移参数。车头时距目标下，高偏差条件下MC-WM相对H2O+也显示出改善。结果支持利用目标离线数据修正源仿真训练，并显示这一作用可服务于两种运营目标。"
+    },
+    {
+      "index": 68,
+      "text": "上述研究分别从随机性、运行变化、目标经验和预测修正四个方面，建立单一驻站策略应对训练与使用环境差异的方法。"
+    },
+    {
+      "index": 69,
+      "text": "在目标离线数据可获得时，本文以精细仿真历史数据提供目标运行经验，结合简易仿真交互训练，并在未参与训练的SUMO场景中检验策略泛化。这一信息分工为后续以真实公交历史记录替代SUMO离线数据、利用可交互仿真训练驻站策略提供了研究依据。"
+    },
+    {
+      "index": 70,
+      "text": "关键词： 公交驻站控制；鲁棒强化学习；分布偏移；仿真到现实；世界模型"
+    },
+    {
+      "index": 71,
+      "text": "Abstract"
+    },
+    {
+      "index": 72,
+      "text": "Random passenger demand and changing road traffic disrupt bus headways, promote bunching, and increase passenger waiting time. Holding control regulates departure times, but its effectiveness depends on vehicle and stop characteristics, operating conditions, and the maximum permitted holding time. Reinforcement learning can select actions from operational observations, yet repeated trial-and-error learning on an operating fleet is impractical, and the resulting policy may encounter a distribution shift between training and deployment environments. This thesis studies sim-to-real bus holding control: robust learning under stationary stochastic conditions and adaptive learning under non-stationary stochastic conditions first address settings without pre-collected target-domain training data; cross-fidelity learning and model correction then incorporate target-domain offline data."
+    },
+    {
+      "index": 73,
+      "text": "An arrival-event-based control model takes decisions after required passenger boarding and alighting and connects vehicle and stop information, forward and backward headways, a holding action, and passenger time costs. Multi-line experiments use an existing Changsha road network, bus routes, origin-destination (OD) demand, and timetables. An in-house simplified simulator supports low-cost training. Simulation of Urban MObility (SUMO) represents road traffic and vehicle interactions in greater detail and serves as a simulated proxy for the real operating environment. Cross-fidelity transfer combines SUMO offline data with new data collected through online interaction in the simplified simulator and evaluates the resulting policy in SUMO operating scenarios not used for training. All bus-control studies in the thesis use a single holding action. The main contributions and results are as follows."
+    },
+    {
+      "index": 74,
+      "text": "To address differences among vehicles and stops and fluctuations in action-value estimates during stochastic operations, this thesis proposes a shared holding policy combining categorical feature embeddings with continuous observations and develops Robust Ensemble Soft Actor-Critic (RE-SAC). Generalized passenger time is defined as twice waiting time plus onboard time. With the same learner and training settings, learned embeddings reduce generalized passenger time relative to one-hot encoding by 5.51%, 1.41%, and 4.91% under routine operations, demand surges, and rapid switching. With a single holding action and a headway objective, RE-SAC achieves lower planned-headway deviation and more stable value evaluation than the tested mainstream baselines. These results show that introducing a conservative bias to stabilize value evaluation can improve control under high uncertainty, while different operating objectives retain tradeoffs."
+    },
+    {
+      "index": 75,
+      "text": "To address changing operating laws and the limited ability of holding to alter departure times, this thesis proposes Bayesian Adaptive Policy Regularization (BAPR), using environment identification and operating-mode confidence adjustment, and subsequently develops Causal-Symbolic Bayesian Adaptive Policy Regularization (CS-BAPR). Across routine demand, single and repeated environmental changes, sustained high demand, and brief extreme demand, training stabilization reduces the mean headway-reward penalty relative to the preceding BAPR configuration by 58.82% to 69.79% with a single holding action. Matched comparisons with RE-SAC support stronger conditional adaptation when operating laws change, while structured policy outputs do not provide an additional benefit in every condition. Under a passenger-time objective, service-cost differences narrow, so headway gains cannot be interpreted as equal reductions in passenger time."
+    },
+    {
+      "index": 76,
+      "text": "To reduce dependence on repeated trial-and-error data collection in the target operating environment, this thesis develops a bus-specific cross-fidelity workflow based on Hybrid Offline-and-Online Reinforcement Learning (H2O) and the Improved Framework for Hybrid Offline-and-Online Reinforcement Learning with Dynamics Gaps (H2O+). Fixed SUMO offline data and simplified-simulator interaction jointly support policy training. Simultaneous-arrival encoding, a single action that adds either no extra holding or a positive holding duration, and a completion reserve for late-operation states with low onboard loads and insufficient following service form the complete controller. In 1,350 paired evaluations covering 10 new environment blocks, three demand levels, and nine controllers, the reserve reduces within-window generalized passenger time by 92.12 seconds, or 3.71%, and increases completion by 0.466 percentage points relative to the direct parent with the same learned policy. An update-budget-matched comparison supports hybrid training over the tested offline-only scheme."
+    },
+    {
+      "index": 77,
+      "text": "To address source-target transition mismatch, this thesis proposes the Model-Corrected World Model (MC-WM), selecting residual correction or direct target modeling using held-out prediction errors and weighting one-step model samples through log-confidence evaluation. The bus extension uses fixed target offline data and hybrid event models, with a normalized confidence backup limiting attenuation of model updates. With a single holding action and a passenger-time objective, generalized passenger time decreases relative to a Daganzo-style rule with the same completion reserve by 57.67, 70.67, and 76.26 seconds under calibrated, joint 50%, and joint 75% source-parameter mismatch, respectively. Joint mismatch changes road speeds, passenger OD demand, intersection delays, and required stopping-service times together. With a headway objective, MC-WM also improves over H2O+ under large source mismatch. These results support using target offline data to correct source-simulator training for both operating objectives."
+    },
+    {
+      "index": 78,
+      "text": "The thesis connects stationary robust control, non-stationary adaptation, cross-fidelity transfer, and world-model correction through target-domain data availability. Its central mechanism combines records from a detailed simulator with interaction in a simplified simulator to learn holding policies that generalize to unseen SUMO scenarios. The results support replacing SUMO offline data with real bus-operation records and continuing training in an interactive simulator as a pathway from simulation toward real bus holding control."
+    },
+    {
+      "index": 79,
+      "text": "Keywords: bus holding control; robust reinforcement learning; distribution shift; sim-to-real transfer; world models"
+    }
+  ],
+  "standards": [
+    {
+      "concept": "研究主题",
+      "chinese": "公交驻站控制",
+      "english": "bus holding control",
+      "source_paragraphs": [
+        62,
+        70,
+        72,
+        79
+      ],
+      "body_handling": "正文控制动作以驻站为主称；法定上下客等必要服务停站不替换。"
+    },
+    {
+      "concept": "迁移任务",
+      "chinese": "仿真到现实",
+      "english": "sim-to-real transfer",
+      "source_paragraphs": [
+        62,
+        70,
+        72,
+        79
+      ],
+      "body_handling": "正文自述可统一仿真到现实；文献真实题名保留原文。"
+    },
+    {
+      "concept": "研究阶段一",
+      "chinese": "平稳随机鲁棒学习",
+      "english": "robust learning under stationary stochastic conditions",
+      "source_paragraphs": [
+        62,
+        72
+      ],
+      "body_handling": "区分规律固定下随机波动与规律改变。"
+    },
+    {
+      "concept": "研究阶段二",
+      "chinese": "非平稳随机适应学习",
+      "english": "adaptive learning under non-stationary stochastic conditions",
+      "source_paragraphs": [
+        62,
+        72
+      ],
+      "body_handling": "不把模式变化与模式内部随机性混为一项。"
+    },
+    {
+      "concept": "研究阶段三",
+      "chinese": "跨保真训练",
+      "english": "cross-fidelity learning",
+      "source_paragraphs": [
+        62,
+        72
+      ],
+      "body_handling": "正文跨保真迁移或跨保真训练均可按实际含义使用；不强制改写真实文献题名。"
+    },
+    {
+      "concept": "模型方法",
+      "chinese": "模型修正",
+      "english": "model correction",
+      "source_paragraphs": [
+        62,
+        72
+      ],
+      "body_handling": "模型修正为摘要用语；残差模型与直接目标模型按各自定义。"
+    },
+    {
+      "concept": "公交事件",
+      "chinese": "到站事件",
+      "english": "arrival event",
+      "source_paragraphs": [
+        63,
+        73
+      ],
+      "body_handling": "作决策在必要上下客完成后。"
+    },
+    {
+      "concept": "需求",
+      "chinese": "乘客起讫点（OD）需求",
+      "english": "origin-destination (OD) demand",
+      "source_paragraphs": [
+        63,
+        73
+      ],
+      "body_handling": "中文全称按摘要；引用题名及代码字段保留。"
+    },
+    {
+      "concept": "训练仿真",
+      "chinese": "简易仿真",
+      "english": "in-house simplified simulator",
+      "source_paragraphs": [
+        63,
+        73
+      ],
+      "body_handling": "正文现有用词已一致；不把必要低保真比较删掉。"
+    },
+    {
+      "concept": "目标仿真",
+      "chinese": "城市交通微观仿真平台（SUMO）",
+      "english": "Simulation of Urban MObility (SUMO)",
+      "source_paragraphs": [
+        63,
+        73
+      ],
+      "body_handling": "SUMO为现实环境的仿真代理，不写成实际道路部署。"
+    },
+    {
+      "concept": "训练数据",
+      "chinese": "目标域离线数据",
+      "english": "target-domain offline data",
+      "source_paragraphs": [
+        62,
+        72
+      ],
+      "body_handling": "首次说清域别后可简称目标离线数据；非目标在线试错。"
+    },
+    {
+      "concept": "动作",
+      "chinese": "单一驻站动作",
+      "english": "single holding action",
+      "source_paragraphs": [
+        63,
+        73
+      ],
+      "body_handling": "指额外驻站时长的一维控制，包含零额外驻站。"
+    },
+    {
+      "concept": "类别表征",
+      "chinese": "类别特征嵌入",
+      "english": "categorical feature embeddings",
+      "source_paragraphs": [
+        64,
+        74
+      ],
+      "body_handling": "模型结构和贡献叙述采用此词；学习嵌入可作简写。"
+    },
+    {
+      "concept": "共享控制",
+      "chinese": "共享驻站策略",
+      "english": "shared holding policy",
+      "source_paragraphs": [
+        64,
+        74
+      ],
+      "body_handling": "同一学习器统一处理不同车辆事件；不把共享策略误写为独立逐车策略。"
+    },
+    {
+      "concept": "方法RE-SAC",
+      "chinese": "鲁棒集成软演员评论家方法",
+      "english": "Robust Ensemble Soft Actor-Critic",
+      "source_paragraphs": [
+        64,
+        74
+      ],
+      "body_handling": "正文展开用摘要全称；参考文献采用原题名。"
+    },
+    {
+      "concept": "运营指标",
+      "chinese": "广义乘客时间",
+      "english": "generalized passenger time",
+      "source_paragraphs": [
+        64,
+        74
+      ],
+      "body_handling": "候车时间两倍与车内时间之和；上下文明确时可保留广义时间简称。"
+    },
+    {
+      "concept": "方法BAPR",
+      "chinese": "贝叶斯自适应策略正则化",
+      "english": "Bayesian Adaptive Policy Regularization",
+      "source_paragraphs": [
+        65,
+        75
+      ],
+      "body_handling": "用户指定摘要命名为正文标准；不能改成Bayesian Amnesic Piecewise-Robust SAC。"
+    },
+    {
+      "concept": "方法CS-BAPR",
+      "chinese": "因果符号贝叶斯自适应策略正则化",
+      "english": "Causal-Symbolic Bayesian Adaptive Policy Regularization",
+      "source_paragraphs": [
+        65,
+        75
+      ],
+      "body_handling": "正文扩展全称沿用摘要；无需给用户未发表扩展杜撰文献。"
+    },
+    {
+      "concept": "非平稳机制",
+      "chinese": "模式置信",
+      "english": "operating-mode confidence",
+      "source_paragraphs": [
+        65,
+        75
+      ],
+      "body_handling": "模式后验或信念状态可用于解释，但不能全面替换抽象置信。"
+    },
+    {
+      "concept": "方法H2O",
+      "chinese": "混合离线与在线强化学习",
+      "english": "Hybrid Offline-and-Online Reinforcement Learning",
+      "source_paragraphs": [
+        66,
+        76
+      ],
+      "body_handling": "原H2O框架与本文公交研究引用分开。"
+    },
+    {
+      "concept": "方法H2O+",
+      "chinese": "改进框架",
+      "english": "Improved Framework for Hybrid Offline-and-Online Reinforcement Learning with Dynamics Gaps",
+      "source_paragraphs": [
+        66,
+        76
+      ],
+      "body_handling": "正文与摘要保持相同展开；原H2O+参考文献题名保留RL缩写原文。"
+    },
+    {
+      "concept": "执行机制",
+      "chinese": "完成保障",
+      "english": "completion reserve",
+      "source_paragraphs": [
+        66,
+        76
+      ],
+      "body_handling": "行程完成保障可作更明确同义表述；不与训练正则化混淆。"
+    },
+    {
+      "concept": "方法MC-WM",
+      "chinese": "基于模型修正的世界模型方法",
+      "english": "Model-Corrected World Model",
+      "source_paragraphs": [
+        67,
+        77
+      ],
+      "body_handling": "正文与摘要展开一致；公开论文题名按原文。"
+    },
+    {
+      "concept": "模型选择",
+      "chinese": "残差修正或直接目标模型",
+      "english": "residual correction or direct target modeling",
+      "source_paragraphs": [
+        67,
+        77
+      ],
+      "body_handling": "留出误差选择模型类别，不能把所有分支都称为残差修正。"
+    },
+    {
+      "concept": "模型评价",
+      "chinese": "对数置信评价",
+      "english": "log-confidence evaluation",
+      "source_paragraphs": [
+        67,
+        77
+      ],
+      "body_handling": "概念与原方法及原数学定义对齐。"
+    },
+    {
+      "concept": "公交扩展",
+      "chinese": "混合事件模型",
+      "english": "hybrid event models",
+      "source_paragraphs": [
+        67,
+        77
+      ],
+      "body_handling": "公交状态变量的离散连续组成，不等同于混合离线在线数据。"
+    },
+    {
+      "concept": "模型使用",
+      "chinese": "归一化置信备份",
+      "english": "normalized confidence backup",
+      "source_paragraphs": [
+        67,
+        77
+      ],
+      "body_handling": "用于公交扩展，不倒写成所有受控任务实现均使用归一化版本。"
+    },
+    {
+      "concept": "失配设置",
+      "chinese": "联合源参数偏差",
+      "english": "joint source-parameter mismatch",
+      "source_paragraphs": [
+        67,
+        77
+      ],
+      "body_handling": "联合50%或75%不是任意分布距离或逐参数实测误差。"
+    }
+  ],
+  "minimal_body_proposals": [
+    {
+      "paragraph_index": 517,
+      "old": "本文提出的RE-SAC由这一思路出发",
+      "new": "本文提出的鲁棒集成软演员评论家方法（Robust Ensemble Soft Actor-Critic，RE-SAC）由这一思路出发",
+      "reason": "正文首次明确方法全称，与摘要一致；若整段重写，保留同一展开即可。"
+    },
+    {
+      "paragraph_index": 521,
+      "old": "本文提出BAPR，用环境识别与模式置信更新调节策略学习；进一步提出CS-BAPR",
+      "new": "本文提出贝叶斯自适应策略正则化（Bayesian Adaptive Policy Regularization，BAPR），用环境识别与模式置信更新调节策略学习；进一步提出因果符号贝叶斯自适应策略正则化（Causal-Symbolic Bayesian Adaptive Policy Regularization，CS-BAPR）",
+      "reason": "正文首次出现的方法展开按摘要锁定，随后用简称。"
+    },
+    {
+      "paragraph_index": 527,
+      "old": "仿真到现实（simulation-to-reality，sim2real）",
+      "new": "仿真到现实（sim-to-real transfer）",
+      "reason": "正文主题术语与英文关键词一致；其余sim2real可改中文仿真到现实，避免新增简称。"
+    },
+    {
+      "paragraph_index": 527,
+      "old": "Zhao等的sim2real综述",
+      "new": "Zhao等的仿真到现实综述",
+      "reason": "主题用语统一，不改文献题名。"
+    },
+    {
+      "paragraph_index": 580,
+      "old": "两章沿用sim2real问题",
+      "new": "两章沿用仿真到现实问题",
+      "reason": "同上。"
+    },
+    {
+      "paragraph_index": 855,
+      "old": "从sim2real的技术路线看",
+      "new": "从仿真到现实的技术路线看",
+      "reason": "同上。"
+    },
+    {
+      "paragraph_index": 1165,
+      "old": "两章沿用相同的sim2real信息起点",
+      "new": "两章沿用相同的仿真到现实信息起点",
+      "reason": "同上。"
+    },
+    {
+      "paragraph_index": 576,
+      "old": "第6章进一步研究MC-WM",
+      "new": "第6章进一步研究基于模型修正的世界模型方法（Model-Corrected World Model，MC-WM）",
+      "reason": "正文首次明确简称含义，与摘要保持一致。"
+    },
+    {
+      "paragraph_index": 2033,
+      "old": "共享停站决策映射",
+      "new": "共享驻站决策映射",
+      "reason": "自述控制机制名称使用摘要中的驻站。"
+    }
+  ],
+  "bapr_public_name_difference": {
+    "verified_url": "https://arxiv.org/abs/2605.16170",
+    "version": "v2, revised 2026-05-19",
+    "authors": [
+      "Yifan Zhang",
+      "Liang Zheng"
+    ],
+    "real_reference_title": "BAPR: Bayesian amnesic piecewise-robust reinforcement learning for non-stationary continuous control",
+    "public_method_expansion": "Bayesian Amnesic Piecewise-Robust SAC",
+    "thesis_body_expansion": "Bayesian Adaptive Policy Regularization",
+    "decision": "两者存在客观命名差异。按照用户当前授权锁定摘要命名为正文命名，参考文献条目保留真实题名；不能把论文标题改成摘要全称。",
+    "optional_single_sentence_in_chapter4": "本章的贝叶斯自适应策略正则化（BAPR）以已有的模式置信与变化检测研究为基础，其前序论文以Bayesian Amnesic Piecewise-Robust SAC命名。",
+    "optional_sentence_citation": "句末接实际新增BAPR参考文献编号；不沿用旧稿[80]，原底稿[80]是Ghosh的Epistemic POMDPs。",
+    "necessity_judgment": "推荐仅在第4章首次回顾前序BAPR时说明一次，避免读者检索后误以为题名引用错误；不要在摘要加说明。"
+  },
+  "no_global_replacements": [
+    "原参考文献论文题名",
+    "基本停站服务时间与必要上下客停站",
+    "模式驻留区间/驻留时间（不等于公交驻站）",
+    "广义时间（已定义的简写）",
+    "高保真/低保真（用于真实建模粒度比较）",
+    "直接目标模型（与残差模型的真实分支差异）"
+  ],
+  "read_only_result": "未修改Word；仅本JSON为新增分析产物。"
+}

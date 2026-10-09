@@ -1,0 +1,170 @@
+{
+  "host": "jtl110gpu2",
+  "boot_epoch": 1790602351,
+  "time": 1790602992.4492934,
+  "parents": [
+    "t101974",
+    "t101975",
+    "t101976",
+    "t101977",
+    "t102765",
+    "t102775",
+    "t102785",
+    "t102795"
+  ],
+  "corrections": [
+    {
+      "id": "t101975",
+      "previous_status": "done",
+      "previous_diagnosis": {
+        "is_crash": false,
+        "reason": "normal exit (success marker found); terminal state synced after remote probe was unknown for 1064s (16 probe cycle(s))",
+        "tail": "(no log)",
+        "lifetime_s": 28503,
+        "log_size": 0,
+        "log_path": "/tmp/sched_t101975.log",
+        "success_marker": "result_artifact:summary.json",
+        "offline_sync_s": 1064,
+        "offline_probe_unknown_count": 16,
+        "offline_probe_unknown_reason": "local backend ssh/proc probe failed on jtl110gpu2: rc=255: ssh: connect to host tf290q6n.zjz-service.cn port 23035: Connection refused"
+      }
+    },
+    {
+      "id": "t101976",
+      "previous_status": "done",
+      "previous_diagnosis": {
+        "is_crash": false,
+        "reason": "normal exit (success marker found); terminal state synced after remote probe was unknown for 1065s (16 probe cycle(s))",
+        "tail": "(no log)",
+        "lifetime_s": 28504,
+        "log_size": 0,
+        "log_path": "/tmp/sched_t101976.log",
+        "success_marker": "result_artifact:summary.json",
+        "offline_sync_s": 1065,
+        "offline_probe_unknown_count": 16,
+        "offline_probe_unknown_reason": "local backend ssh/proc probe failed on jtl110gpu2: rc=255: ssh: connect to host tf290q6n.zjz-service.cn port 23035: Connection refused"
+      }
+    },
+    {
+      "id": "t101977",
+      "previous_status": "done",
+      "previous_diagnosis": {
+        "is_crash": false,
+        "reason": "normal exit (success marker found); terminal state synced after remote probe was unknown for 84s (1 probe cycle(s))",
+        "tail": "(no log)",
+        "lifetime_s": 28713,
+        "log_size": 0,
+        "log_path": "/tmp/sched_t101977.log",
+        "success_marker": "result_artifact:summary.json",
+        "offline_sync_s": 84,
+        "offline_probe_unknown_count": 1,
+        "offline_probe_unknown_reason": "local backend ssh/proc probe failed on jtl110gpu2: rc=255: ssh login route down: direct: outer ssh route timed out after 15s"
+      }
+    }
+  ],
+  "recovery_ids": [
+    "t103595",
+    "t103600",
+    "t103601",
+    "t103602",
+    "t103603",
+    "t103604",
+    "t103605",
+    "t103606"
+  ],
+  "last_status_check": 1790603343.862677,
+  "status": [
+    {
+      "id": "t103595",
+      "signature": "RE-SAC/bus-component-factorial-20260928/base_8401",
+      "status": "running",
+      "parent_id": "t101974",
+      "require_node": "jtl110gpu2",
+      "resume_from": "/home/erzhu419/mine_code/RE-SAC/jax_experiments/diagnostics/bus_component_factorial_20260928/checkpoints/base_8401/latest.pt",
+      "resume_flag": "--resume-from",
+      "skip_resume_scan": false,
+      "last_block_reason": null
+    },
+    {
+      "id": "t103600",
+      "signature": "RE-SAC/bus-component-factorial-20260928/norm_8401",
+      "status": "queued",
+      "parent_id": "t101975",
+      "require_node": "jtl110gpu2",
+      "resume_from": "/home/erzhu419/mine_code/RE-SAC/jax_experiments/diagnostics/bus_component_factorial_20260928/checkpoints/norm_8401/latest.pt",
+      "resume_flag": "--resume-from",
+      "skip_resume_scan": true,
+      "last_block_reason": "no fit (require=jtl110gpu2 prio=normal): local=outside-allowed-nodes | jtl110gpu=outside-allowed-nodes | jtl110gpu2=node-ok-but-GPU0=tasks 4/4/GPU1=tasks 4/4 | jtl311linux=outside-allowed-nodes | node007=outside-allowed-nodes"
+    },
+    {
+      "id": "t103601",
+      "signature": "RE-SAC/bus-component-factorial-20260928/bundle_8401",
+      "status": "queued",
+      "parent_id": "t101976",
+      "require_node": "jtl110gpu2",
+      "resume_from": "/home/erzhu419/mine_code/RE-SAC/jax_experiments/diagnostics/bus_component_factorial_20260928/checkpoints/bundle_8401/latest.pt",
+      "resume_flag": "--resume-from",
+      "skip_resume_scan": true,
+      "last_block_reason": "no fit (require=jtl110gpu2 prio=normal): local=outside-allowed-nodes | jtl110gpu=outside-allowed-nodes | jtl110gpu2=node-ok-but-GPU0=tasks 4/4/GPU1=tasks 4/4 | jtl311linux=outside-allowed-nodes | node007=outside-allowed-nodes"
+    },
+    {
+      "id": "t103602",
+      "signature": "RE-SAC/bus-component-factorial-20260928/full_8401",
+      "status": "queued",
+      "parent_id": "t101977",
+      "require_node": "jtl110gpu2",
+      "resume_from": "/home/erzhu419/mine_code/RE-SAC/jax_experiments/diagnostics/bus_component_factorial_20260928/checkpoints/full_8401/latest.pt",
+      "resume_flag": "--resume-from",
+      "skip_resume_scan": true,
+      "last_block_reason": "no fit (require=jtl110gpu2 prio=normal): local=outside-allowed-nodes | jtl110gpu=outside-allowed-nodes | jtl110gpu2=node-ok-but-GPU0=tasks 4/4/GPU1=tasks 4/4 | jtl311linux=outside-allowed-nodes | node007=outside-allowed-nodes"
+    },
+    {
+      "id": "t103603",
+      "signature": "thesis-enhancement-v1/runs/legacy/learned_full_seed22103/train",
+      "status": "queued",
+      "parent_id": "t102765",
+      "require_node": "jtl110gpu2",
+      "resume_from": null,
+      "resume_flag": "",
+      "skip_resume_scan": true,
+      "last_block_reason": "no fit (require=jtl110gpu2 prio=normal): local=require!=jtl110gpu2 | jtl110gpu=require!=jtl110gpu2 | jtl110gpu2=node-ok-but-GPU0=tasks 4/4/GPU1=tasks 4/4 | jtl311linux=require!=jtl110gpu2 | node007=require!=jtl110gpu2"
+    },
+    {
+      "id": "t103604",
+      "signature": "thesis-enhancement-v1/runs/legacy/masked_full_seed22103/train",
+      "status": "queued",
+      "parent_id": "t102775",
+      "require_node": "jtl110gpu2",
+      "resume_from": null,
+      "resume_flag": "",
+      "skip_resume_scan": true,
+      "last_block_reason": "no fit (require=jtl110gpu2 prio=normal): local=require!=jtl110gpu2 | jtl110gpu=require!=jtl110gpu2 | jtl110gpu2=node-ok-but-GPU0=tasks 4/4/GPU1=tasks 4/4 | jtl311linux=require!=jtl110gpu2 | node007=require!=jtl110gpu2"
+    },
+    {
+      "id": "t103605",
+      "signature": "thesis-enhancement-v1/runs/legacy/onehot_full_seed22103/train",
+      "status": "queued",
+      "parent_id": "t102785",
+      "require_node": "jtl110gpu2",
+      "resume_from": null,
+      "resume_flag": "",
+      "skip_resume_scan": true,
+      "last_block_reason": "no fit (require=jtl110gpu2 prio=normal): local=require!=jtl110gpu2 | jtl110gpu=require!=jtl110gpu2 | jtl110gpu2=node-ok-but-GPU0=tasks 4/4/GPU1=tasks 4/4 | jtl311linux=require!=jtl110gpu2 | node007=require!=jtl110gpu2"
+    },
+    {
+      "id": "t103606",
+      "signature": "thesis-enhancement-v1/runs/legacy/critic_off_seed22103/train",
+      "status": "queued",
+      "parent_id": "t102795",
+      "require_node": "jtl110gpu2",
+      "resume_from": null,
+      "resume_flag": "",
+      "skip_resume_scan": true,
+      "last_block_reason": "no fit (require=jtl110gpu2 prio=normal): local=require!=jtl110gpu2 | jtl110gpu=require!=jtl110gpu2 | jtl110gpu2=node-ok-but-GPU0=tasks 4/4/GPU1=tasks 4/4 | jtl311linux=require!=jtl110gpu2 | node007=require!=jtl110gpu2"
+    }
+  ],
+  "checkpoint_metadata_files": [
+    "jtl110gpu2_resac_recovery_checkpoints.json",
+    "jtl110gpu2_legacy_recovery_checkpoints.json"
+  ]
+}

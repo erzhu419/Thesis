@@ -1,0 +1,20 @@
+{
+  "name": "thesis-mcwm-context-control-v10",
+  "training_seeds": [6201, 6202],
+  "arms": ["fixed0250", "recognized_full", "recognized_physical", "physical_window4_fallback"],
+  "fixed_coefficients": {"fixed0250": 0.25},
+  "real_td_coefficient": 0.75,
+  "training_nodes": ["node001", "node002", "node003", "node004", "node005", "node006"],
+  "training_device": "cpu",
+  "window_blocks": 4,
+  "fallback_score_margin": 0.15,
+  "test_blocks": [
+    {"demand_seed": 68501, "sumo_seed": 69501},
+    {"demand_seed": 68502, "sumo_seed": 69502},
+    {"demand_seed": 68503, "sumo_seed": 69503},
+    {"demand_seed": 68504, "sumo_seed": 69504},
+    {"demand_seed": 68505, "sumo_seed": 69505}
+  ],
+  "selection": "Frozen v7 coefficients selected only from the other seed's development days. Recognizers fitted only on the other seed's fixed-policy source blocks. No dependency on v8 and no new coefficient selection in this campaign.",
+  "interpretation": "Independent prospective bus-policy comparison following source-only filter diagnosis. Two reused offline initializer seeds, not independent research confirmation. Compare a fresh fixed-0.25 control, original eight-feature context, three-feature context, and four-block averaged three-feature context with a fixed score-margin fallback. The old context coefficient mapping remains intentionally unchanged, including its cross-seed instability. Source budgets, observed TD scaling, normalized trust, actor mixture and deployment safeguard stay fixed."
+}

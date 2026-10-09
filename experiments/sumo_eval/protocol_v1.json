@@ -1,0 +1,40 @@
+{
+  "name": "bus-world-model-feasibility-v1",
+  "scope": "One-step nonterminal model feasibility, not MC-WM control performance",
+  "h2o_root": "/home/erzhu419/mine_code/sumo-rl/H2Oplus",
+  "dataset": "bus_h2o/datasets_v7/formal_v2_full/transit_smdp_v7_formal_v2.h5",
+  "target_blocks": {
+    "fit": [1201, 1202, 1203, 1204, 1205, 1206],
+    "stop": [1207],
+    "calibrate": [1208],
+    "test": [1209, 1210]
+  },
+  "rows_per_target_trajectory": 64,
+  "analytic_checks_per_block": 512,
+  "data_seed": 5301,
+  "source_episodes": [
+    {"seed": 9101, "demand_scale": 0.75, "split": "fit"},
+    {"seed": 9102, "demand_scale": 1.0, "split": "fit"},
+    {"seed": 9103, "demand_scale": 1.25, "split": "fit"},
+    {"seed": 9104, "demand_scale": 1.0, "split": "stop"}
+  ],
+  "source_rows_per_episode": 4096,
+  "source_policy": {"zero_probability": 0.8, "positive_beta": [1.0, 3.0]},
+  "horizon_seconds": 24000,
+  "passenger_arrival_end_seconds": 18000,
+  "model_seed": 5501,
+  "ensemble_members": 3,
+  "updates_per_member": 400,
+  "batch_size": 128,
+  "learning_rate": 0.0003,
+  "validation_every": 100,
+  "selector": "Minimum mean six-head loss on calibration block 1208; residual versus direct only",
+  "diagnostic_baseline": "Constant target-fit marginal predictor, not eligible for model-family selection",
+  "limitations": [
+    "No policy updates, imagined rollouts, Bellman correction, or target online training.",
+    "Terminal tails are audited separately, not fitted by this nonterminal pilot.",
+    "Only two model-test environment blocks; not independent control confirmation.",
+    "Neural output residual is a bus interface pilot, not the full sparse MC-WM adapter.",
+    "Prior H2O initializers saw all ten blocks and are not reused."
+  ]
+}

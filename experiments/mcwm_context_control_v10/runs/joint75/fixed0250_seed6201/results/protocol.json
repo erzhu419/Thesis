@@ -1,0 +1,246 @@
+{
+  "protocol": {
+    "name": "thesis-mcwm-context-control-v10",
+    "training_seeds": [
+      6201,
+      6202
+    ],
+    "arms": [
+      "fixed0250",
+      "recognized_full",
+      "recognized_physical",
+      "physical_window4_fallback"
+    ],
+    "scenarios": [
+      {
+        "name": "calibrated",
+        "speed_factor": 1.0,
+        "od_factor": 1.0,
+        "extra_signal_fraction": 0.0,
+        "dwell_factor": 1.0,
+        "empirical_runtime": true
+      },
+      {
+        "name": "joint50",
+        "speed_factor": 0.5,
+        "od_factor": 1.5,
+        "extra_signal_fraction": 0.5,
+        "dwell_factor": 1.5,
+        "empirical_runtime": true
+      },
+      {
+        "name": "joint75",
+        "speed_factor": 0.25,
+        "od_factor": 1.75,
+        "extra_signal_fraction": 0.75,
+        "dwell_factor": 1.75,
+        "empirical_runtime": true
+      }
+    ],
+    "offline_updates_in_initializer": 50000,
+    "warmup_events": 5000,
+    "source_event_budget": 25000,
+    "source_seed_offset": 30000,
+    "collection_interval": 32,
+    "actor_taper_event": 15000,
+    "actor_taper_multiplier": 0.25,
+    "model_refresh_events": [
+      5000,
+      10000,
+      15000,
+      20000
+    ],
+    "model_updates_per_member": 1000,
+    "model_refit_updates": 300,
+    "model_ensemble_members": 3,
+    "model_max_fit_rows": 8192,
+    "model_max_validation_rows": 2048,
+    "policy_reference_rows": 512,
+    "model_fraction": 0.25,
+    "model_batch_size": 128,
+    "model_start_max_horizon_fraction": 0.75,
+    "qdelta_gamma": 0.9,
+    "qdelta_updates_per_extra_step": 1,
+    "trust_update_every": 4,
+    "deployment_hold_scale": 1.0,
+    "evaluation_demand_scales": [
+      1.0,
+      1.25
+    ],
+    "evaluation_blocks": [
+      {
+        "demand_seed": 48101,
+        "sumo_seed": 49101
+      },
+      {
+        "demand_seed": 48102,
+        "sumo_seed": 49102
+      },
+      {
+        "demand_seed": 48103,
+        "sumo_seed": 49103
+      },
+      {
+        "demand_seed": 48104,
+        "sumo_seed": 49104
+      },
+      {
+        "demand_seed": 48105,
+        "sumo_seed": 49105
+      }
+    ],
+    "departure_jitter_seconds": 120,
+    "evaluation_horizon_seconds": 24000,
+    "target_only_arm": "offline_only",
+    "diagnostic_rows": 512,
+    "coverage_fit_rows": 2048,
+    "coverage_quantile": 0.95,
+    "source_repair_max_horizon_fraction": 0.75,
+    "fixed_model_weight": 0.5,
+    "minimum_relevant_time_improvement_seconds": 5.0,
+    "maximum_completion_decrease_percentage_points": 0.1,
+    "fixed_coefficients": {
+      "fixed0250": 0.25
+    },
+    "real_td_coefficient": 0.75,
+    "context_window_physical_rows": 64,
+    "context_hazard": 0.002,
+    "context_prior_exponent": 0.98,
+    "context_evidence_scale": 1.0,
+    "context_variance_floor": 0.05,
+    "development_blocks": [
+      {
+        "demand_seed": 58101,
+        "sumo_seed": 59101
+      },
+      {
+        "demand_seed": 58102,
+        "sumo_seed": 59102
+      },
+      {
+        "demand_seed": 58103,
+        "sumo_seed": 59103
+      },
+      {
+        "demand_seed": 58104,
+        "sumo_seed": 59104
+      },
+      {
+        "demand_seed": 58105,
+        "sumo_seed": 59105
+      }
+    ],
+    "test_blocks": [
+      {
+        "demand_seed": 68501,
+        "sumo_seed": 69501
+      },
+      {
+        "demand_seed": 68502,
+        "sumo_seed": 69502
+      },
+      {
+        "demand_seed": 68503,
+        "sumo_seed": 69503
+      },
+      {
+        "demand_seed": 68504,
+        "sumo_seed": 69504
+      },
+      {
+        "demand_seed": 68505,
+        "sumo_seed": 69505
+      }
+    ],
+    "selection": "Frozen v7 coefficients selected only from the other seed's development days. Recognizers fitted only on the other seed's fixed-policy source blocks. No dependency on v8 and no new coefficient selection in this campaign.",
+    "causal_scope": "Static source training contexts only. At each source collection boundary, update belief using newly completed nonterminal positive-duration transitions, resetting the history at episode terminals. Change only the generated-model TD coefficient; no online target gradients and no deployed context actor.",
+    "context_features": [
+      "log_global_event_duration",
+      "eligible_demand_ratio",
+      "base_dwell_scaled",
+      "queue_capacity_ratio",
+      "onboard_capacity_ratio",
+      "system_waiting_scaled",
+      "system_onboard_scaled",
+      "executed_source_hold_scaled"
+    ],
+    "primary_comparison": "Fresh fixed-original, cross-fitted best-global-fixed, true-context, and causal recognized-context on ten test days per seed/context; all three fixed coefficients are retained",
+    "interpretation": "Independent prospective bus-policy comparison following source-only filter diagnosis. Two reused offline initializer seeds, not independent research confirmation. Compare a fresh fixed-0.25 control, original eight-feature context, three-feature context, and four-block averaged three-feature context with a fixed score-margin fallback. The old context coefficient mapping remains intentionally unchanged, including its cross-seed instability. Source budgets, observed TD scaling, normalized trust, actor mixture and deployment safeguard stay fixed.",
+    "training_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006"
+    ],
+    "training_device": "cpu",
+    "window_blocks": 4,
+    "fallback_score_margin": 0.15,
+    "arm": "fixed0250",
+    "training_seed": 6201,
+    "relative_out": "runs/joint75/fixed0250_seed6201"
+  },
+  "arm": "fixed0250",
+  "scenario": {
+    "name": "joint75",
+    "speed_factor": 0.25,
+    "od_factor": 1.75,
+    "extra_signal_fraction": 0.75,
+    "dwell_factor": 1.75,
+    "empirical_runtime": true
+  },
+  "training_seed": 6201,
+  "config": {
+    "ensemble_size": 2,
+    "hidden_dim": 256,
+    "batch_size": 256,
+    "reward_scale": 0.0001,
+    "critic_loss": "huber",
+    "huber_delta": 1.0,
+    "activation": "relu",
+    "actor_layer_norm": false,
+    "critic_layer_norm": false,
+    "value_layer_norm": false,
+    "online_fraction": 0.5,
+    "actor_learning_rate": 0.0003,
+    "critic_learning_rate": 0.0003,
+    "value_learning_rate": 0.0003,
+    "alpha_learning_rate": 0.0003,
+    "ratio_learning_rate": 0.0001,
+    "soft_target_rate": 0.005,
+    "target_subset_size": 2,
+    "target_subset_replacement": false,
+    "target_entropy": 0.0,
+    "initial_temperature": 1.0,
+    "backup_entropy": true,
+    "bootstrap_probability": 1.0,
+    "offline_objective": "iql",
+    "online_backup": "h2oplus",
+    "actor_q_reduction": "min-all",
+    "online_actor_update_interval": 1,
+    "online_actor_batch_mode": "latest",
+    "online_update_order": "actor-before-critic",
+    "offline_cql_alpha": 0.0,
+    "online_cql_alpha": 0.0,
+    "cql_n_actions": 10,
+    "cql_max_target_backup": false,
+    "mixed_backup_lambda": 0.1,
+    "iql_expectile": 0.7,
+    "iql_advantage_temperature": 3.0,
+    "iql_max_weight": 100.0,
+    "ratio_min_weight": 1e-05,
+    "ratio_max_weight": 1.0,
+    "use_ratio_correction": false,
+    "ratio_update_interval": 4,
+    "gradient_clip_norm": null,
+    "cql_penalty_subset_size": null,
+    "cql_penalty_subset_replacement": false,
+    "offline_update_order": "critic-before-actor",
+    "temperature_state_source": "actor",
+    "offline_temperature_action_samples": 1
+  },
+  "offline_rows": 3284718,
+  "target_online_training_events": 0,
+  "context_provider": null
+}

@@ -1,0 +1,1167 @@
+{
+  "3.4.9": {
+    "source": "experiments/bus_legacy_dual_v1/summary.json seed_means; experiments/reward_cross_v1/legacy.py:44-47; experiments/legacy_bus/runtime/BAPR/bus_experiments/frozen_policy_bank_core.py:34-57,377-421",
+    "protocol": {
+      "training_seeds": [
+        64001,
+        64002,
+        64003,
+        64004,
+        64005
+      ],
+      "evaluation_seeds": [
+        64101,
+        64102,
+        64103
+      ],
+      "episodes": 100,
+      "horizon_seconds": 24000,
+      "selection": "末次固定端点",
+      "reuse": "holding全部复用reward_cross_v1，两种奖励分开训练。bus_legacy_dual_v1汇总不是新增holding训练。",
+      "common": {
+        "critics": 10,
+        "hidden": 64,
+        "batch": 2048,
+        "lr": 1e-05,
+        "weight_reg": 0.01,
+        "beta_bc": 0.001,
+        "temperature_cap": 0.6,
+        "reward_normalization": "批内减均值除标准差再乘10"
+      },
+      "difference": "RE-SAC beta_ood=0.01,beta=-2；集成参照二者=0，其余含范数项和BC保持。并非移除所有正则。"
+    },
+    "rows": [
+      {
+        "objective": "headway",
+        "scene": "normal",
+        "seeds": [
+          64001,
+          64002,
+          64003,
+          64004,
+          64005
+        ],
+        "paired_differences": [
+          -4.752958660611753,
+          1.6642735816544416,
+          -3.8517738310736007,
+          -6.44496971822192,
+          0.5143992837388041
+        ],
+        "mean": -2.574205868902806,
+        "paired_t95": [
+          -6.914090039153576,
+          1.7656783013479647
+        ],
+        "reference_mean": 44.24699629805568,
+        "resac_mean": 41.67279042915287
+      },
+      {
+        "objective": "headway",
+        "scene": "demand_surge",
+        "seeds": [
+          64001,
+          64002,
+          64003,
+          64004,
+          64005
+        ],
+        "paired_differences": [
+          -4.849282069421932,
+          2.397885211346903,
+          -5.039732687827112,
+          -11.356616867426084,
+          2.3762740230467685
+        ],
+        "mean": -3.2942944780562913,
+        "paired_t95": [
+          -10.508293919244771,
+          3.9197049631321885
+        ],
+        "reference_mean": 46.296390793377924,
+        "resac_mean": 43.00209631532163
+      },
+      {
+        "objective": "headway",
+        "scene": "fast_switch",
+        "seeds": [
+          64001,
+          64002,
+          64003,
+          64004,
+          64005
+        ],
+        "paired_differences": [
+          -4.954437630245444,
+          -0.5954772644522492,
+          -2.8391701756194934,
+          -6.182310374197897,
+          0.07490818742486027
+        ],
+        "mean": -2.8992974514180445,
+        "paired_t95": [
+          -6.251725686713838,
+          0.45313078387774874
+        ],
+        "reference_mean": 57.393091686273245,
+        "resac_mean": 54.4937942348552
+      },
+      {
+        "objective": "passenger",
+        "scene": "normal",
+        "seeds": [
+          64001,
+          64002,
+          64003,
+          64004,
+          64005
+        ],
+        "paired_differences": [
+          -359.68988030912806,
+          -326.72680282641363,
+          26.806459860013774,
+          -93.87791025755723,
+          -365.0037933712681
+        ],
+        "mean": -223.69838538087066,
+        "paired_t95": [
+          -446.4047584714694,
+          -0.9920122902719299
+        ],
+        "reference_mean": 1575.4922024086252,
+        "resac_mean": 1351.7938170277546
+      },
+      {
+        "objective": "passenger",
+        "scene": "demand_surge",
+        "seeds": [
+          64001,
+          64002,
+          64003,
+          64004,
+          64005
+        ],
+        "paired_differences": [
+          -436.8148329222713,
+          -380.94784634982534,
+          33.53321115039489,
+          -329.011213113602,
+          -469.6229198730989
+        ],
+        "mean": -316.5727202216805,
+        "paired_t95": [
+          -568.5690063620696,
+          -64.57643408129147
+        ],
+        "reference_mean": 7869.0546375132135,
+        "resac_mean": 7552.481917291533
+      },
+      {
+        "objective": "passenger",
+        "scene": "fast_switch",
+        "seeds": [
+          64001,
+          64002,
+          64003,
+          64004,
+          64005
+        ],
+        "paired_differences": [
+          -363.6778099524597,
+          -342.4887444205133,
+          16.07062610348271,
+          -123.88892080392725,
+          -379.86630380483416
+        ],
+        "mean": -238.77023057565034,
+        "paired_t95": [
+          -457.7480819315509,
+          -19.79237921974979
+        ],
+        "reference_mean": 2115.3651517778408,
+        "resac_mean": 1876.5949212021903
+      }
+    ],
+    "ci_note": "先每种子平均3评价日，再对5个配对差用t(4)区间；描述性95%，未做多重比较校正。三条时距区间都跨零。"
+  },
+  "6.4.3.9": {
+    "source": "experiments/mcwm_headway_holding_v19/protocol.json,analysis_summary.json,collect_results.py:16-20,60-68",
+    "protocol": {
+      "new_mcwm_trainings": 4,
+      "reused_h2oplus_trainings": 4,
+      "training_seeds": [
+        66001,
+        66002
+      ],
+      "source_scenes": [
+        "calibrated",
+        "joint75"
+      ],
+      "new_evaluations": 80,
+      "reused_h2oplus_evaluations": 80,
+      "per_policy": {
+        "test_cases": 10,
+        "executors": 2
+      },
+      "mean_rule": "每策略在10个既有测试情形上等权平均，再在2种子间平均。",
+      "model_coefficient": 0.125,
+      "observed_coefficient": 0.75,
+      "coefficient_origin": "v17已探索固定0.125，v19补单holding；同一既有10测试情形，不能叫未接触的独立确认。",
+      "completion": "2026-10-05通过既有node007连接读取v19/v18服务器160个评价小JSON，在服务器计算8策略×2执行层共16行均值，仅返回该小摘要；已补入rows，completion为0到1比例，乘100为百分数。原始记录无顶层sumo_version，未由其他队列倒填。"
+    },
+    "rows": [
+      {
+        "scene": "calibrated",
+        "layer": "guarded",
+        "mcwm": {
+          "cost": 2724.1835974403875,
+          "reward": -308.5346606403605,
+          "plan": 148.96157613847043,
+          "imbalance": 279.2035306715897,
+          "completion": 0.950496427324526,
+          "wait": 834.8675831735599,
+          "ride": 1054.4484310932678
+        },
+        "h2oplus": {
+          "cost": 2725.2137374381596,
+          "reward": -308.5856759481803,
+          "plan": 148.87035596635673,
+          "imbalance": 279.190455827091,
+          "completion": 0.9505619988778178,
+          "wait": 834.5419743110534,
+          "ride": 1056.1297888160525
+        },
+        "delta": {
+          "cost": -1.0301399977720394,
+          "reward": 0.05101530781979591,
+          "plan": 0.09122017211372224,
+          "imbalance": 0.013074844498731863,
+          "completion": -6.557155329178777e-05,
+          "wait": 0.32560886250644216,
+          "ride": -1.6813577227846963
+        },
+        "per_seed": [
+          {
+            "seed": 66001,
+            "cost": -2.60091903078046,
+            "reward": -0.28010240535206776,
+            "plan": -0.1400917980890597,
+            "imbalance": 0.14445709173980958,
+            "completion": -4.902033405540518e-05,
+            "wait": -0.49707126365603926,
+            "ride": -1.6067765034679269
+          },
+          {
+            "seed": 66002,
+            "cost": 0.5406390352363815,
+            "reward": 0.3821330209916596,
+            "plan": 0.3225321423165042,
+            "imbalance": -0.11830740274234586,
+            "completion": -8.212277252805933e-05,
+            "wait": 1.1482889886689236,
+            "ride": -1.755938942101693
+          }
+        ]
+      },
+      {
+        "scene": "calibrated",
+        "layer": "direct",
+        "mcwm": {
+          "cost": 2833.4463523998757,
+          "reward": -273.667522646628,
+          "plan": 130.3997603103909,
+          "imbalance": 271.76802102431253,
+          "completion": 0.9443278473727608,
+          "wait": 898.0486635531719,
+          "ride": 1037.3490252935321
+        },
+        "h2oplus": {
+          "cost": 2833.98966086769,
+          "reward": -273.18717994932143,
+          "plan": 129.96308747966464,
+          "imbalance": 271.0939183631202,
+          "completion": 0.9442746883145786,
+          "wait": 898.4242167654877,
+          "ride": 1037.141227336715
+        },
+        "delta": {
+          "cost": -0.5433084678145406,
+          "reward": -0.4803426973065825,
+          "plan": 0.43667283072623775,
+          "imbalance": 0.6741026611922791,
+          "completion": 5.315905818215061e-05,
+          "wait": -0.37555321231582184,
+          "ride": 0.2077979568171031
+        },
+        "per_seed": [
+          {
+            "seed": 66001,
+            "cost": 2.6784070783751304,
+            "reward": -1.5136715612002263,
+            "plan": 1.1380921902962484,
+            "imbalance": 0.842386290075865,
+            "completion": 5.4736823789758304e-05,
+            "wait": -0.5691812271807066,
+            "ride": 3.8167695327363163
+          },
+          {
+            "seed": 66002,
+            "cost": -3.7650240140042115,
+            "reward": 0.5529861665870612,
+            "plan": -0.2647465288437729,
+            "imbalance": 0.5058190323086933,
+            "completion": 5.1581292574653936e-05,
+            "wait": -0.18192519745082336,
+            "ride": -3.4011736191023374
+          }
+        ]
+      },
+      {
+        "scene": "joint75",
+        "layer": "guarded",
+        "mcwm": {
+          "cost": 2716.96193707157,
+          "reward": -308.40770022906594,
+          "plan": 148.1285804139045,
+          "imbalance": 278.90804302670915,
+          "completion": 0.9508713205743908,
+          "wait": 830.0786625068683,
+          "ride": 1056.8046120578333
+        },
+        "h2oplus": {
+          "cost": 2730.321959616772,
+          "reward": -308.14669724251416,
+          "plan": 148.32051421218608,
+          "imbalance": 278.7870123012647,
+          "completion": 0.9503735622859186,
+          "wait": 837.5791377097933,
+          "ride": 1055.1636841971854
+        },
+        "delta": {
+          "cost": -13.3600225452019,
+          "reward": -0.2610029865517731,
+          "plan": -0.19193379828159607,
+          "imbalance": 0.12103072544442739,
+          "completion": 0.0004977582884722054,
+          "wait": -7.5004752029249175,
+          "ride": 1.6409278606479347
+        },
+        "per_seed": [
+          {
+            "seed": 66001,
+            "cost": -12.65490561440265,
+            "reward": -0.3496535116697146,
+            "plan": 0.14429982271238373,
+            "imbalance": 0.5193979821597168,
+            "completion": 0.00041508228487807663,
+            "wait": -7.6284211450772546,
+            "ride": 2.6019366757518583
+          },
+          {
+            "seed": 66002,
+            "cost": -14.06513947600115,
+            "reward": -0.17235246143383165,
+            "plan": -0.5281674192755759,
+            "imbalance": -0.277336531270862,
+            "completion": 0.0005804342920661121,
+            "wait": -7.372529260772808,
+            "ride": 0.6799190455442385
+          }
+        ]
+      },
+      {
+        "scene": "joint75",
+        "layer": "direct",
+        "mcwm": {
+          "cost": 2840.1365524112634,
+          "reward": -281.7288521140926,
+          "plan": 133.186463120901,
+          "imbalance": 274.50621132089964,
+          "completion": 0.9450257198572387,
+          "wait": 892.777281301957,
+          "ride": 1054.5819898073491
+        },
+        "h2oplus": {
+          "cost": 2837.793699433087,
+          "reward": -275.4618607869207,
+          "plan": 131.2120191855493,
+          "imbalance": 272.4001996270797,
+          "completion": 0.9444612709427256,
+          "wait": 898.5181645319547,
+          "ride": 1040.7573703691776
+        },
+        "delta": {
+          "cost": 2.3428529781763245,
+          "reward": -6.266991327171922,
+          "plan": 1.974443935351701,
+          "imbalance": 2.1060116938199087,
+          "completion": 0.0005644489145131271,
+          "wait": -5.740883229997621,
+          "ride": 13.824619438171567
+        },
+        "per_seed": [
+          {
+            "seed": 66001,
+            "cost": -6.172548924911098,
+            "reward": -6.443573017056053,
+            "plan": 1.9654202580533138,
+            "imbalance": 3.664522070410328,
+            "completion": 0.0009108654404549332,
+            "wait": -9.816356612502318,
+            "ride": 13.460164300093993
+          },
+          {
+            "seed": 66002,
+            "cost": 10.858254881263747,
+            "reward": -6.090409637287792,
+            "plan": 1.983467612650088,
+            "imbalance": 0.5475013172294894,
+            "completion": 0.00021803238857109886,
+            "wait": -1.6654098474929242,
+            "ride": 14.189074576249368
+          }
+        ]
+      }
+    ],
+    "interpretation": "完成保障下正常平均广义时间低1.03014秒，两个种子−2.60092/+0.54064秒；joint75低13.35844秒，两个种子均低。保障下时距奖励近乎持平，计划偏差与不平衡微增，不支持时距指标改善；直接层joint75成本反而平均高2.34285秒。",
+    "completion_source": "workpapers/导师意见综合修订_20261005/v19_completion_remote.json; remote Thesis/experiments/{mcwm_headway_holding_v19,mcwm_action_matrix_v18}/runs/headway/{calibrated,joint75}/{mcwm,h2oplus}_seed{66001,66002}/{direct,guarded}/case00..09.json passengers.{completion_rate,accrued_wait_seconds_per_departed_passenger,accrued_in_vehicle_seconds_per_departed_passenger}"
+  },
+  "15710": {
+    "source": "experiments/resac_native_recipe_v8/analysis_summary.json aggregates/contrasts; run.py:102-106",
+    "rows": [
+      {
+        "arm": "resac",
+        "six_scene_equal_mean": 15710.358042597116,
+        "scenes": [
+          {
+            "scene": "normal",
+            "cost": 11443.91129136692,
+            "mean_generated": 97047.33333333333
+          },
+          {
+            "scene": "pulse5",
+            "cost": 15291.759120125364,
+            "mean_generated": 135790.33333333334
+          },
+          {
+            "scene": "repeated5",
+            "cost": 13401.219165475191,
+            "mean_generated": 212821.66666666666
+          },
+          {
+            "scene": "static5",
+            "cost": 16115.366114895449,
+            "mean_generated": 484978.3333333333
+          },
+          {
+            "scene": "static10",
+            "cost": 16984.475904516294,
+            "mean_generated": 969621
+          },
+          {
+            "scene": "burst50",
+            "cost": 21025.416659203478,
+            "mean_generated": 256639
+          }
+        ]
+      },
+      {
+        "arm": "sac",
+        "six_scene_equal_mean": 15680.718374904269,
+        "scenes": [
+          {
+            "scene": "normal",
+            "cost": 11383.843827615074,
+            "mean_generated": 97047.33333333333
+          },
+          {
+            "scene": "pulse5",
+            "cost": 15235.802848487523,
+            "mean_generated": 135790.33333333334
+          },
+          {
+            "scene": "repeated5",
+            "cost": 13367.578294583906,
+            "mean_generated": 212821.66666666666
+          },
+          {
+            "scene": "static5",
+            "cost": 16107.171153453535,
+            "mean_generated": 484978.3333333333
+          },
+          {
+            "scene": "static10",
+            "cost": 16990.31973276277,
+            "mean_generated": 969621
+          },
+          {
+            "scene": "burst50",
+            "cost": 20999.594392522802,
+            "mean_generated": 256639
+          }
+        ]
+      }
+    ],
+    "verified": "15710.35804与15680.71837是6类需求的等权均值，2训练种子×3评价日×6需求共36回合；不是正常需求单场景或按总乘客加权的总体均值。每回合为(2*系统候车积分+车内积分)/本回合生成乘客数，18000秒时窗，含未完成乘客已累积时间。正常需求约97047人，持续10倍约969621人；高需求和短时50倍压力占六情形中的五情形；广义加权时间允许超过18000秒。",
+    "remaining": "完成率已从服务器原始小JSON恢复并汇总；候车/车内积分未保留，不能唯一恢复分解。",
+    "completion_recovery": {
+      "source": "node007:/home/zhengliang01/scheduleurm_work/Thesis/experiments/resac_native_recipe_v8/runs/holding/passenger/{resac,sac}_seed{64001,64002}/budget100/eval_{00..17}.json",
+      "local_summary": "workpapers/导师意见综合修订_20261005/v8_completion_remote.json",
+      "mean_rule": "每种子3日等权，2种子等权；总体对6场景等权。非按乘客人数加权。",
+      "rows": [
+        {
+          "arm": "resac",
+          "scene": "normal",
+          "evaluations": 6,
+          "cost": 11443.91129136692,
+          "completion_percent": 39.83603220641676,
+          "generated_mean": 97047.33333333333,
+          "completion_by_seed": {
+            "64001": 39.708082999347894,
+            "64002": 39.96398141348563
+          }
+        },
+        {
+          "arm": "resac",
+          "scene": "pulse5",
+          "evaluations": 6,
+          "cost": 15291.759120125364,
+          "completion_percent": 31.393958106200476,
+          "generated_mean": 135790.33333333334,
+          "completion_by_seed": {
+            "64001": 31.28703855651322,
+            "64002": 31.50087765588773
+          }
+        },
+        {
+          "arm": "resac",
+          "scene": "repeated5",
+          "evaluations": 6,
+          "cost": 13401.219165475191,
+          "completion_percent": 22.89415649372412,
+          "generated_mean": 212821.66666666666,
+          "completion_by_seed": {
+            "64001": 22.80052077803701,
+            "64002": 22.987792209411232
+          }
+        },
+        {
+          "arm": "resac",
+          "scene": "static5",
+          "evaluations": 6,
+          "cost": 16115.366114895449,
+          "completion_percent": 11.91868165053912,
+          "generated_mean": 484978.3333333333,
+          "completion_by_seed": {
+            "64001": 11.86459268403883,
+            "64002": 11.97277061703941
+          }
+        },
+        {
+          "arm": "resac",
+          "scene": "static10",
+          "evaluations": 6,
+          "cost": 16984.475904516294,
+          "completion_percent": 6.43757712236033,
+          "generated_mean": 969621,
+          "completion_by_seed": {
+            "64001": 6.424238841255059,
+            "64002": 6.4509154034656
+          }
+        },
+        {
+          "arm": "resac",
+          "scene": "burst50",
+          "evaluations": 6,
+          "cost": 21025.416659203478,
+          "completion_percent": 20.175544280496364,
+          "generated_mean": 256639,
+          "completion_by_seed": {
+            "64001": 20.092143015999135,
+            "64002": 20.258945544993594
+          }
+        },
+        {
+          "arm": "resac",
+          "scene": "six_scene_equal_mean",
+          "evaluations": 36,
+          "cost": 15710.358042597116,
+          "completion_percent": 22.10932497662286,
+          "generated_mean": 359482.94444444444,
+          "completion_by_seed": {
+            "64001": 22.02943614586519,
+            "64002": 22.189213807380533
+          }
+        },
+        {
+          "arm": "sac",
+          "scene": "normal",
+          "evaluations": 6,
+          "cost": 11383.843827615074,
+          "completion_percent": 39.878587361377,
+          "generated_mean": 97047.33333333333,
+          "completion_by_seed": {
+            "64001": 39.815899554846716,
+            "64002": 39.941275167907285
+          }
+        },
+        {
+          "arm": "sac",
+          "scene": "pulse5",
+          "evaluations": 6,
+          "cost": 15235.802848487523,
+          "completion_percent": 31.42191229421768,
+          "generated_mean": 135790.33333333334,
+          "completion_by_seed": {
+            "64001": 31.36277615600073,
+            "64002": 31.481048432434623
+          }
+        },
+        {
+          "arm": "sac",
+          "scene": "repeated5",
+          "evaluations": 6,
+          "cost": 13367.578294583906,
+          "completion_percent": 22.888125277617437,
+          "generated_mean": 212821.66666666666,
+          "completion_by_seed": {
+            "64001": 22.8094311908648,
+            "64002": 22.96681936437007
+          }
+        },
+        {
+          "arm": "sac",
+          "scene": "static5",
+          "evaluations": 6,
+          "cost": 16107.171153453535,
+          "completion_percent": 11.853049762770281,
+          "generated_mean": 484978.3333333333,
+          "completion_by_seed": {
+            "64001": 11.73895074412147,
+            "64002": 11.967148781419096
+          }
+        },
+        {
+          "arm": "sac",
+          "scene": "static10",
+          "evaluations": 6,
+          "cost": 16990.31973276277,
+          "completion_percent": 6.350703909171675,
+          "generated_mean": 969621,
+          "completion_by_seed": {
+            "64001": 6.2493237095607235,
+            "64002": 6.452084108782627
+          }
+        },
+        {
+          "arm": "sac",
+          "scene": "burst50",
+          "evaluations": 6,
+          "cost": 20999.594392522802,
+          "completion_percent": 20.15843100146509,
+          "generated_mean": 256639,
+          "completion_by_seed": {
+            "64001": 20.054060227971497,
+            "64002": 20.26280177495868
+          }
+        },
+        {
+          "arm": "sac",
+          "scene": "six_scene_equal_mean",
+          "evaluations": 36,
+          "cost": 15680.718374904269,
+          "completion_percent": 22.091801601103196,
+          "generated_mean": 359482.94444444444,
+          "completion_by_seed": {
+            "64001": 22.005073597227657,
+            "64002": 22.17852960497873
+          }
+        }
+      ],
+      "interpretation": "正常需求RE-SAC/SAC完成率39.8360%/39.8786%，窗口未完成负担在基准需求下已明显存在；6场景均值22.1093%/22.0918%，仅为小差异，不能由广义成本的量级推出服务改善。"
+    }
+  },
+  "4.4.7": {
+    "source": "experiments/bus_alignment_followup_v5/protocol.json,followup_common.py:56-70,summary.json cs_results/cs_contrasts",
+    "protocol": "每方法2训练种子64001/64002，各100回合末次。pristine_mlp新增训练；stabilized_mlp和stabilized_nau复用reward_cross_v1对应末次演员。各冻结演员6需求×3共同评价日78101/78102/78103=18环境回合，18000秒。前序BAPR BC=.001、actor weight decay=0；稳定化两组BC=0、decay=1e-4，故是完整配方而非单稳定项因果消融。",
+    "per_seed_contrasts": [
+      {
+        "family": "cs_recipe",
+        "mode": "holding",
+        "objective": "headway",
+        "arm": "stabilized_mlp",
+        "baseline": "pristine_mlp",
+        "seed": 64001,
+        "scene": "normal",
+        "cases": 3,
+        "complete": true,
+        "cost_delta": -8.277994271020361,
+        "recorded_return_delta": 82400.6474188596,
+        "decisions_delta": 2.6666666666666665,
+        "recorded_reward_per_decision_delta": 8.71925706808562,
+        "plan_mae_delta": -0.25659511407593527,
+        "imbalance_delta": 1.7763787951445618,
+        "completion_delta": 0.00030262832514138527,
+        "speed_delta": 0.0,
+        "holding_delta": 0.7479300479281908,
+        "cost_pct": -0.07143938285452123
+      },
+      {
+        "family": "cs_recipe",
+        "mode": "holding",
+        "objective": "headway",
+        "arm": "stabilized_mlp",
+        "baseline": "pristine_mlp",
+        "seed": 64001,
+        "scene": "pulse5",
+        "cases": 3,
+        "complete": true,
+        "cost_delta": -8.773733344006056,
+        "recorded_return_delta": 56540.1153910195,
+        "decisions_delta": 6.333333333333333,
+        "recorded_reward_per_decision_delta": 6.020199767478275,
+        "plan_mae_delta": -0.23721539867847716,
+        "imbalance_delta": 2.6474479036272434,
+        "completion_delta": 0.00015017788192075074,
+        "speed_delta": 0.0,
+        "holding_delta": 0.36131784450753796,
+        "cost_pct": -0.05689576038331312
+      },
+      {
+        "family": "cs_recipe",
+        "mode": "holding",
+        "objective": "headway",
+        "arm": "stabilized_mlp",
+        "baseline": "pristine_mlp",
+        "seed": 64001,
+        "scene": "repeated5",
+        "cases": 3,
+        "complete": true,
+        "cost_delta": -10.75191958652249,
+        "recorded_return_delta": 36255.039284362145,
+        "decisions_delta": 43.0,
+        "recorded_reward_per_decision_delta": 4.226367615451456,
+        "plan_mae_delta": -1.3535674884018931,
+        "imbalance_delta": 2.589313587913471,
+        "completion_delta": 0.0009495456329353299,
+        "speed_delta": 0.0,
+        "holding_delta": -0.32527136264325546,
+        "cost_pct": -0.07977036829654634
+      },
+      {
+        "family": "cs_recipe",
+        "mode": "holding",
+        "objective": "headway",
+        "arm": "stabilized_mlp",
+        "baseline": "pristine_mlp",
+        "seed": 64001,
+        "scene": "static5",
+        "cases": 3,
+        "complete": true,
+        "cost_delta": -34.14119386310631,
+        "recorded_return_delta": 4463.780195558637,
+        "decisions_delta": 231.66666666666666,
+        "recorded_reward_per_decision_delta": 2.70082259838226,
+        "plan_mae_delta": -0.8873889538218691,
+        "imbalance_delta": 3.534259952728282,
+        "completion_delta": 0.002767126410177595,
+        "speed_delta": 0.0,
+        "holding_delta": -7.187805773815914,
+        "cost_pct": -0.21096934674683654
+      },
+      {
+        "family": "cs_recipe",
+        "mode": "holding",
+        "objective": "headway",
+        "arm": "stabilized_mlp",
+        "baseline": "pristine_mlp",
+        "seed": 64001,
+        "scene": "static10",
+        "cases": 3,
+        "complete": true,
+        "cost_delta": -48.40296631083644,
+        "recorded_return_delta": 37585.06362079515,
+        "decisions_delta": 367.6666666666667,
+        "recorded_reward_per_decision_delta": 8.21638221587998,
+        "plan_mae_delta": 2.336252345138874,
+        "imbalance_delta": 0.5914839812682734,
+        "completion_delta": 0.0027446890327859122,
+        "speed_delta": 0.0,
+        "holding_delta": -18.573525734812392,
+        "cost_pct": -0.28400544721096654
+      },
+      {
+        "family": "cs_recipe",
+        "mode": "holding",
+        "objective": "headway",
+        "arm": "stabilized_mlp",
+        "baseline": "pristine_mlp",
+        "seed": 64001,
+        "scene": "burst50",
+        "cases": 3,
+        "complete": true,
+        "cost_delta": -48.882185827184,
+        "recorded_return_delta": -19761.76512315516,
+        "decisions_delta": 122.0,
+        "recorded_reward_per_decision_delta": -0.9449576509221723,
+        "plan_mae_delta": 2.7912887107166378,
+        "imbalance_delta": 4.619287955130171,
+        "completion_delta": 0.0022663645500880145,
+        "speed_delta": 0.0,
+        "holding_delta": -5.054911620466476,
+        "cost_pct": -0.23137810761483615
+      },
+      {
+        "family": "cs_recipe",
+        "mode": "holding",
+        "objective": "headway",
+        "arm": "stabilized_mlp",
+        "baseline": "pristine_mlp",
+        "seed": 64002,
+        "scene": "normal",
+        "cases": 3,
+        "complete": true,
+        "cost_delta": -262.1041353339363,
+        "recorded_return_delta": 3272689.5555632752,
+        "decisions_delta": 236.66666666666666,
+        "recorded_reward_per_decision_delta": 357.41458762567817,
+        "plan_mae_delta": -118.10099185917095,
+        "imbalance_delta": -247.6823769855081,
+        "completion_delta": 0.008446336928369139,
+        "speed_delta": 0.0,
+        "holding_delta": -18.662260985710237,
+        "cost_pct": -2.2064019523001077
+      },
+      {
+        "family": "cs_recipe",
+        "mode": "holding",
+        "objective": "headway",
+        "arm": "stabilized_mlp",
+        "baseline": "pristine_mlp",
+        "seed": 64002,
+        "scene": "pulse5",
+        "cases": 3,
+        "complete": true,
+        "cost_delta": -224.73057414681412,
+        "recorded_return_delta": 3443586.8983530556,
+        "decisions_delta": 243.33333333333334,
+        "recorded_reward_per_decision_delta": 376.4308519373373,
+        "plan_mae_delta": -119.14113618259961,
+        "imbalance_delta": -255.87905806772187,
+        "completion_delta": 0.007078091437885421,
+        "speed_delta": 0.0,
+        "holding_delta": -18.131601252920174,
+        "cost_pct": -1.4358393513520529
+      },
+      {
+        "family": "cs_recipe",
+        "mode": "holding",
+        "objective": "headway",
+        "arm": "stabilized_mlp",
+        "baseline": "pristine_mlp",
+        "seed": 64002,
+        "scene": "repeated5",
+        "cases": 3,
+        "complete": true,
+        "cost_delta": -156.3166372194737,
+        "recorded_return_delta": 3307389.8094412107,
+        "decisions_delta": 264.3333333333333,
+        "recorded_reward_per_decision_delta": 362.7377568309964,
+        "plan_mae_delta": -115.80284781053793,
+        "imbalance_delta": -247.21475750846378,
+        "completion_delta": 0.00553945153427024,
+        "speed_delta": 0.0,
+        "holding_delta": -18.26609936556255,
+        "cost_pct": -1.1457311051587833
+      },
+      {
+        "family": "cs_recipe",
+        "mode": "holding",
+        "objective": "headway",
+        "arm": "stabilized_mlp",
+        "baseline": "pristine_mlp",
+        "seed": 64002,
+        "scene": "static5",
+        "cases": 3,
+        "complete": true,
+        "cost_delta": -90.31310364500193,
+        "recorded_return_delta": 3011386.9516638904,
+        "decisions_delta": 321.6666666666667,
+        "recorded_reward_per_decision_delta": 331.75524683822886,
+        "plan_mae_delta": -107.20227378858719,
+        "imbalance_delta": -229.47173291813866,
+        "completion_delta": 0.0037489027855541154,
+        "speed_delta": 0.0,
+        "holding_delta": -18.28272688694078,
+        "cost_pct": -0.5553169605481911
+      },
+      {
+        "family": "cs_recipe",
+        "mode": "holding",
+        "objective": "headway",
+        "arm": "stabilized_mlp",
+        "baseline": "pristine_mlp",
+        "seed": 64002,
+        "scene": "static10",
+        "cases": 3,
+        "complete": true,
+        "cost_delta": -66.06590412595081,
+        "recorded_return_delta": 2457936.125944518,
+        "decisions_delta": 392.0,
+        "recorded_reward_per_decision_delta": 272.93432325172284,
+        "plan_mae_delta": -82.02960472771507,
+        "imbalance_delta": -182.90876955396303,
+        "completion_delta": 0.0029544396539261247,
+        "speed_delta": 0.0,
+        "holding_delta": -24.103502273751463,
+        "cost_pct": -0.3868943778317184
+      },
+      {
+        "family": "cs_recipe",
+        "mode": "holding",
+        "objective": "headway",
+        "arm": "stabilized_mlp",
+        "baseline": "pristine_mlp",
+        "seed": 64002,
+        "scene": "burst50",
+        "cases": 3,
+        "complete": true,
+        "cost_delta": -155.50383831258296,
+        "recorded_return_delta": 3265045.448393388,
+        "decisions_delta": 265.6666666666667,
+        "recorded_reward_per_decision_delta": 357.6837349747004,
+        "plan_mae_delta": -104.59701282471578,
+        "imbalance_delta": -228.5281194194753,
+        "completion_delta": 0.004961096262256724,
+        "speed_delta": 0.0,
+        "holding_delta": -17.44161140705971,
+        "cost_pct": -0.7310580716820114
+      }
+    ],
+    "normal_seed_comparison": "正常需求前序BAPR两种子奖励惩罚90.392/439.496，稳定化81.673/82.081；计划偏差100.962/223.393降至100.705/105.292。平均大降幅主要伴随第二种子消除退化。"
+  },
+  "recovery": {
+    "source": "experiments/csbapr_bus/evaluate_recovery.py:30-34,54,116; scripts/supplement_results.py:151-161; manuscript/figures/source_data/csbapr_recovery_results.csv",
+    "fact": "连续不重叠5分钟窗口，无10分钟二次聚合。连续3窗=15分钟，恢复时间记首次满足3窗的第一窗起点减冲击结束。既有6组全未恢复，210分钟后仍无达标，改文字不改变恢复结果。"
+  },
+  "R04_direct_comparison": {
+    "source": "experiments/resac_native_recipe_v8/analysis_summary.json cs_comparisons and aggregates",
+    "rows": [
+      {
+        "objective": "headway",
+        "scene": "normal",
+        "reference": {
+          "cost": 11798.04602164718,
+          "reward": -100.08216715811781,
+          "plan": 101.11952861092709,
+          "imbalance": 120.36277953040343
+        },
+        "csbapr": {
+          "cost": 11599.38648834279,
+          "reward": -81.87699203625486,
+          "plan": 102.99863872454344,
+          "imbalance": 124.70878973967729
+        },
+        "delta": {
+          "cost": -198.65953330439,
+          "reward": 18.20517512186295,
+          "plan": 1.879110113616349,
+          "imbalance": 4.346010209273857
+        },
+        "per_seed": [
+          {
+            "seed": 64001,
+            "cost": -257.3713685350667,
+            "reward": 21.627012798791913,
+            "plan": -3.607984014576431,
+            "imbalance": -2.1526289442733693
+          },
+          {
+            "seed": 64002,
+            "cost": -139.94769807371327,
+            "reward": 14.783337444933986,
+            "plan": 7.366204241809129,
+            "imbalance": 10.844649362821082
+          }
+        ]
+      },
+      {
+        "objective": "headway",
+        "scene": "repeated5",
+        "reference": {
+          "cost": 13595.479586443187,
+          "reward": -101.65576858220697,
+          "plan": 101.22030743240231,
+          "imbalance": 118.20799568708404
+        },
+        "csbapr": {
+          "cost": 13475.295956414673,
+          "reward": -83.88865723420615,
+          "plan": 103.71646973541034,
+          "imbalance": 124.81783865559643
+        },
+        "delta": {
+          "cost": -120.18363002851432,
+          "reward": 17.767111348000824,
+          "plan": 2.4961623030080298,
+          "imbalance": 6.609842968512403
+        },
+        "per_seed": [
+          {
+            "seed": 64001,
+            "cost": -155.06019904413066,
+            "reward": 21.55145501129741,
+            "plan": -1.890762182438048,
+            "imbalance": 1.9639752456017068
+          },
+          {
+            "seed": 64002,
+            "cost": -85.30706101289798,
+            "reward": 13.982767684704237,
+            "plan": 6.883086788454108,
+            "imbalance": 11.255710691423099
+          }
+        ]
+      },
+      {
+        "objective": "passenger",
+        "scene": "normal",
+        "reference": {
+          "cost": 11443.91129136692,
+          "reward": -6956716.852832442,
+          "plan": 144.94786642779994,
+          "imbalance": 219.41386337062642
+        },
+        "csbapr": {
+          "cost": 11386.178986641618,
+          "reward": -6658988.6405976135,
+          "plan": 136.29020899229826,
+          "imbalance": 204.49119291568516
+        },
+        "delta": {
+          "cost": -57.732304725300615,
+          "reward": 297728.2122348291,
+          "plan": -8.657657435501667,
+          "imbalance": -14.922670454941263
+        },
+        "per_seed": [
+          {
+            "seed": 64001,
+            "cost": -143.69555455413138,
+            "reward": 745555.073530461,
+            "plan": -18.017707656640358,
+            "imbalance": -27.255805938231106
+          },
+          {
+            "seed": 64002,
+            "cost": 28.23094510353015,
+            "reward": -150098.64906080285,
+            "plan": 0.7023927856370259,
+            "imbalance": -2.5895349716514224
+          }
+        ]
+      },
+      {
+        "objective": "passenger",
+        "scene": "repeated5",
+        "reference": {
+          "cost": 13401.219165475191,
+          "reward": -18695226.727020048,
+          "plan": 145.46721818886778,
+          "imbalance": 220.15641938592566
+        },
+        "csbapr": {
+          "cost": 13365.534377611006,
+          "reward": -17978611.400184345,
+          "plan": 131.84546615996427,
+          "imbalance": 191.865269507371
+        },
+        "delta": {
+          "cost": -35.684787864186546,
+          "reward": 716615.3268357044,
+          "plan": -13.621752028903499,
+          "imbalance": -28.291149878554663
+        },
+        "per_seed": [
+          {
+            "seed": 64001,
+            "cost": -99.19561743156676,
+            "reward": 2094131.113250402,
+            "plan": -23.2262712875439,
+            "imbalance": -40.92107591056007
+          },
+          {
+            "seed": 64002,
+            "cost": 27.82604170319367,
+            "reward": -660900.4595789934,
+            "plan": -4.017232770263097,
+            "imbalance": -15.661223846549253
+          }
+        ]
+      }
+    ],
+    "note": "本地已完成直接匹配结果存在。时距奖励有优势但计划偏差和前后不均衡变差，须写具体指标的取舍。CS稳定化主配置不用符号发现，本结果不能归于完整符号组件。"
+  },
+  "v8_coefficients": {
+    "source": "experiments/resac_native_recipe_v8/agent.py:24-31",
+    "rows": [
+      {
+        "arm": "resac",
+        "critics": 10,
+        "weight_reg": 0.01,
+        "beta_bc": 0.001,
+        "beta": -2,
+        "beta_ood": 0.01
+      },
+      {
+        "arm": "sac",
+        "critics": 2,
+        "weight_reg": 0,
+        "beta_bc": 0,
+        "beta": 0,
+        "beta_ood": 0
+      },
+      {
+        "arm": "aleatoric_only",
+        "critics": 10,
+        "weight_reg": 0.01,
+        "beta_bc": 0,
+        "beta": 0,
+        "beta_ood": 0
+      },
+      {
+        "arm": "epistemic_only",
+        "critics": 10,
+        "weight_reg": 0,
+        "beta_bc": 0,
+        "beta": -2,
+        "beta_ood": 0.01
+      }
+    ],
+    "note": "v8组合还改变BC，不能冒称单独通道消融。"
+  },
+  "R18": {
+    "source": "experiments/sumo_eval/runtime/H2Oplus/bus_h2o/sim_core/bus.py:194-263,311,411,600-618; sumo_env/rl_bridge.py:370-383,955-972,1240-1272; experiments/legacy_bus/runtime/BAPR/env/bus.py:191-209",
+    "facts": "第5/6章源简易仿真在必要服务、等决策、附加驻站阶段允许新增乘客按容量上车；驻站中新增上客直接更新载客数，不追加逐人服务时长，驻站倒计时不重置，至<=1秒离站。SUMO按照2.5秒/人的车种上客参数执行，基准服务完成后桥接把剩余stop duration设置为hold；不是base+hold。一次到站只决策一次，实际离站仍受SUMO停站/上客状态约束。源简化的即时新增上客与SUMO微观上客时长并不完全相同。第3章旧走廊只在到站时exchange_passengers，驻站过程中不再新增上客，必须分平台说明。"
+  },
+  "R27": {
+    "source": "experiments/sumo_eval/attribution_v1/runs/shard21/results/case165.json",
+    "formal_sumo_version": [
+      22,
+      "SUMO 1.25.0"
+    ],
+    "known": "正式SUMO评价版本1.25.0，sumo_version数组首项22是TraCI协议号。",
+    "unresolved": "离线240回合采集、标定的独立SUMO/TraCI包版本未在本地小记录定位，不能用正式评价版本倒填。"
+  },
+  "R19": {
+    "source": "experiments/legacy_bus/runtime/BAPR/env/station.py:14,22-51; env/sim.py:154-172,196-203,302-304,330; experiments/legacy_bus/evaluate_pair.py:85-94,127-136",
+    "fact": "旧走廊五种子表征及3.4.9只在实际仿真时刻生成Passenger(current_time)，立即进入候车队列与total_passenger；reset重新生成空站，评价于24000秒停止，不预生成窗外乘客，也没有换乘分段生成。因此generated_passengers等于[0,24000)内首次进入系统的人数，与本文已出发乘客定义一致（已出发指进入系统而非已上车）。候车和车内积分覆盖同一时窗，并保留未完成乘客截至窗末的已累积时间。",
+    "suggested_text": "本章旧走廊的乘客在仿真进行时逐秒生成，生成后立即进入站点候车队列，未预生成窗口外乘客，也未将换乘分段重复计数。因此，24000秒评价窗口内的生成乘客数即首次进入系统的已出发乘客数；此处“已出发”不要求已经上车。"
+  },
+  "R20": {
+    "source": "experiments/legacy_bus/runtime/BAPR/bus_experiments/frozen_policy_bank_core.py:641-674,399; env/sim.py:266-283; experiments/reward_cross_v1/legacy.py:17-33,44-47",
+    "fact": "3.4.9复用的旧走廊学习器按vehicle id收集前后两个观测，只有站号不同才存replay。所有已存转移done=False；自然回合末未结算的尾部转移不补d=1，episode reset清空env state。物理车辆完成班次后可由同id再发车，env.state未按trip重置，两个观测可跨班次续接（同站号会跳过）。评价的24000秒截断不产生训练转移。",
+    "suggested_text": "本组沿用旧走廊的同车事件接口：相邻两个观测的站点编号不同才写入经验，已写入转移的终止掩码均取0。物理车辆跨班次复用时仍按同一车辆编号续接；回合结束时尚无下一观测的尾部转移不写入经验，回合重置后重新收集。因此，该组采用持续过程的近似备份，未单独设置班次终止掩码；24000秒评价窗口仅用于冻结策略的服务统计。",
+    "interpretation": "不能把第5/6章更严格事件接口的终止语义追溯归给本组，也不能宣称所有班次边界已显式mask。"
+  }
+}

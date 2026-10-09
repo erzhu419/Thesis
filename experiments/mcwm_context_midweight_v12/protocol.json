@@ -1,0 +1,14 @@
+{
+  "name": "thesis-mcwm-context-midweight-v12",
+  "arms": ["fixed0250", "fixed0300", "fixed03125", "shared_gated"],
+  "fixed_coefficients": {"fixed0250": 0.25, "fixed0300": 0.30, "fixed03125": 0.3125},
+  "test_blocks": [
+    {"demand_seed": 68701, "sumo_seed": 69701},
+    {"demand_seed": 68702, "sumo_seed": 69702},
+    {"demand_seed": 68703, "sumo_seed": 69703},
+    {"demand_seed": 68704, "sumo_seed": 69704},
+    {"demand_seed": 68705, "sumo_seed": 69705}
+  ],
+  "selection": "Prespecified fixed 0.30 and 0.3125 bracket the approximately 0.309 update-average coefficient of v11 shared_gated under joint75. Reuse the frozen other-seed v10 physical recognizer and unchanged v11 shared_gated rule. No fitting, coefficient selection or checkpoint selection on v12 test days.",
+  "interpretation": "Four fresh CPU continuation policies per seed and static source condition, using the same two resident offline initializers as v11. Compare intermediate constant TD coefficients against fixed 0.25 and the unchanged gated coefficient schedule. Training loop, source and update budgets, observed TD coefficient 0.75, normalized trust, actor schedule and deployment safeguards are unchanged. Target-domain online training remains zero. Context changes the training loss only; this is not a deployment-time routing or within-day scenario-switch experiment. New test days provide paired evaluation, not additional independent training seeds."
+}

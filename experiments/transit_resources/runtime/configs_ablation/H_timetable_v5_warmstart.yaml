@@ -1,0 +1,14 @@
+# H_timetable_v5_warmstart: v5 timetable training with a fixed-300s lower
+# warm start. Unlike the independent-assembly ablation, the lower controller is
+# allowed to continue adapting after warm-start.
+_extends: H_timetable_v5_stable.yaml
+_name: H_timetable_v5_warmstart
+
+lower:
+  action_bins: [0.0, 3.0, 6.0, 9.0, 12.0, 15.0, 20.0, 30.0, 45.0, 60.0]
+  warmstart_from: logs/H_fixed_timetable_300_seed{seed}/checkpoints/lower_ep*.pt
+  require_warmstart: true
+  freeze_training: false
+
+coupling:
+  upper_warmup_eps: 0

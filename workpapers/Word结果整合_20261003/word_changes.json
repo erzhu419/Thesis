@@ -1,0 +1,147 @@
+[
+  {
+    "index": 6,
+    "before": "（1）针对车辆与站点的类别差异及随机运行中的动作价值估计波动，提出结合类别嵌入与连续状态的共享停站策略，并提出鲁棒集成软演员评论家方法（Robust Ensemble Soft Actor-Critic，RE-SAC）。五训练种子的同学习器比较中，学习嵌入相对独热编码在正常运行、客流激增和快速切换下，分别降低5.51%、1.41%和4.91%的人均广义时间，即两倍候车时间与车内时间之和；相对尺寸匹配的屏蔽嵌入，正常运行下降2.32%。指定分歧项交叉比较中，行动者悲观项在快速切换下平均减少2.298秒的前后时距不均衡。奖励对照揭示间隔目标与乘客时间的取舍，长期训练诊断则表明稳定化措施尚未消除后期退化。",
+    "after": "（1）针对车辆与站点的类别差异及随机运行中的动作价值估计波动，提出结合类别嵌入与连续状态的共享停站策略，并提出鲁棒集成软演员评论家方法（Robust Ensemble Soft Actor-Critic，RE-SAC）。同学习器比较中，学习嵌入相对独热编码在正常运行、客流激增和快速切换下，分别降低5.51%、1.41%和4.91%的人均广义时间，即两倍候车时间与车内时间之和。进一步交叉考察车头时距与乘客时间两种目标、仅驻站与驻站—速度协同两种动作：在双动作下，RE-SAC相对不含指定正则项的集成参照，分别降低11.32%、3.56%和5.93%的计划时距偏差；以乘客时间训练时，对应的人均广义时间降幅为20.09%、5.46%和14.27%。结果表明，保守价值学习的作用不限于单一奖励，但不同运营目标仍存在取舍。"
+  },
+  {
+    "index": 7,
+    "before": "（2）针对运行规律变化与局部停站权限有限的问题，提出贝叶斯自适应策略正则化（Bayesian Adaptive Policy Regularization，BAPR），通过环境识别和信念调节形成条件适应；进一步提出因果符号贝叶斯自适应策略正则化（Causal-Symbolic Bayesian Adaptive Policy Regularization，CS-BAPR）。其公交配置采用训练稳定化与结构化输出，未启用符号发现和不变风险最小化（Invariant Risk Minimization，IRM）。三训练种子与三评价种子的重复冲击比较中，相对BAPR，保留普通输出网络的稳定化配置在三次5倍需求冲击下，使前后时距不均衡平均减少3.10秒；算术输出配置的对应时距变化为增加0.29秒，表明输出结构的效果随运行条件变化。",
+    "after": "（2）针对运行规律变化与局部控制权限有限的问题，提出贝叶斯自适应策略正则化（Bayesian Adaptive Policy Regularization，BAPR），通过环境识别和信念调节形成条件适应；进一步提出因果符号贝叶斯自适应策略正则化（Causal-Symbolic Bayesian Adaptive Policy Regularization，CS-BAPR）。公交主配置以训练稳定化与策略输出结构为核心。在正常需求、单次与重复冲击、持续高需求及短时极端冲击下，稳定化感知机配置相对前序BAPR均降低平均时距奖励惩罚：仅驻站时降幅为58.82%至69.79%，驻站—速度协同时为15.50%至28.56%。普通输出与算术输出的比较表明，结构化输出并非在每种条件下都有额外优势；改用乘客时间目标后，两者服务成本接近，说明时距目标收益不能直接解释为同等幅度的乘客时间收益。"
+  },
+  {
+    "index": 8,
+    "before": "（3）针对目标环境中难以持续采集试错数据的问题，在混合离线与在线强化学习（Hybrid Offline-and-Online Reinforcement Learning，H2O）及其扩展H2O+基础上建立公交跨保真训练流程。固定SUMO离线数据与简易仿真交互共同支持策略训练，同时到站车辆编码、零与正停站混合动作及低载尾部保障构成完整控制器。在十个新环境块、三档需求、五个训练种子和九种控制器的1350次配对评价中，完成保障相对相同学习策略的直接父控制器，使窗口内人均广义时间减少92.12秒、下降3.71%，完成率提高0.466个百分点。跨基础控制器比较表明，这一保障收益并非混合学习特有。五种子同更新预算比较支持混合训练方案相对纯离线方案的收益；相对纯源学习及同保障间隔规则的稳定优势尚未建立。结果区分了训练方案与执行保障的作用。",
+    "after": "（3）针对目标环境中难以持续采集试错数据的问题，在混合离线与在线强化学习（Hybrid Offline-and-Online Reinforcement Learning，H2O）及其扩展H2O+基础上建立公交跨保真训练流程。固定SUMO离线数据与简易仿真交互共同支持策略训练，同时到站车辆编码、零与正停站混合动作及低载尾部保障构成完整控制器。在十个新环境块、三档需求和九种控制器的1350次配对评价中，完成保障相对相同学习策略的直接父控制器，使窗口内人均广义时间减少92.12秒、下降3.71%，完成率提高0.466个百分点。同更新预算比较支持混合训练方案相对纯离线方案的收益。进一步将有界速度调节与驻站联合建模，在相同数据来源下切换时距目标与乘客时间目标，为检验跨保真学习在不同公交控制权限和运营目标下的作用建立共同对照。"
+  },
+  {
+    "index": 9,
+    "before": "（4）针对源目标转移关系失配，提出基于模型修正的世界模型方法（Model-Corrected World Model，MC-WM），以留出预测误差选择残差修正或直接目标模型，并以对数置信评价加权一步模型样本。在允许目标交互的三种接触多关节动力学（Multi-Joint dynamics with Contact，MuJoCo）变化任务中，各10个训练种子的结果表明，相对仅目标数据软演员评论家方法（Soft Actor-Critic，SAC），回报分别提高1925.7、1184.5和133.4，配对95%区间均为正；执行器变化下，直接建模相对强制残差的回报增量为1529.9。公交扩展采用固定目标离线数据与混合事件模型，并针对长程置信累积导致模型作用衰减的问题构造归一化置信备份。20个独立初始化种子的确认实验中，模型损失项系数固定为0.25的配置，相对同预算无模型混合骨干，在正常标定、联合50%和75%源参数失配下分别降低1.91%、2.61%和3.23%的人均广义时间，改善种子数分别为16、19和19个，三个配对95%区间均支持成本下降。相对共同完成保障下的Daganzo式规则，平均时间分别减少57.67、70.67和76.26秒。收益主要来自候车时间减少，平均乘客完成率同时提高；上下文调节尚未形成相对固定系数的稳定附加收益。结果支持固定目标数据辅助缓解所测源仿真标定偏差。",
+    "after": "（4）针对源目标转移关系失配，提出基于模型修正的世界模型方法（Model-Corrected World Model，MC-WM），以留出预测误差选择残差修正或直接目标模型，并以对数置信评价加权一步模型样本。在允许目标交互的三种接触多关节动力学（Multi-Joint dynamics with Contact，MuJoCo）变化任务中，相对仅目标数据软演员评论家方法（Soft Actor-Critic，SAC），平均回报分别提高1925.7、1184.5和133.4；执行器变化下，直接建模相对强制残差的回报增量为1529.9。公交扩展采用固定目标离线数据与混合事件模型，并以归一化置信备份缓解模型作用衰减。仅驻站、乘客时间目标下，在正常标定、联合50%和75%源参数偏差下，相对共同完成保障的Daganzo式规则，人均广义时间分别减少57.67、70.67和76.26秒。驻站—速度协同下，以乘客时间训练时，正常标定与联合75%偏差下相对H2O+分别降低3.48%和4.81%的广义时间，相对Daganzo式规则分别降低1.94%和4.13%；以时距训练时，相对规则分别降低4.87%和3.18%的平均时距惩罚。结果支持利用目标离线数据修正源仿真训练，并显示这一作用可在两种运营目标下获得。"
+  },
+  {
+    "index": 15,
+    "before": "This thesis proposes a shared holding policy combining categorical embeddings with continuous observations and develops Robust Ensemble Soft Actor-Critic (RE-SAC) for conservative action-value learning. Across five training seeds with a common learner, learned embeddings reduce generalized passenger time relative to one-hot encoding by 5.51%, 1.41%, and 4.91% under routine operations, demand surges, and rapid switching. Generalized time is twice the waiting time plus onboard time. Relative to size-matched masked embeddings, routine-operation time decreases by 2.32%. A factorial comparison of specified disagreement terms finds that actor pessimism reduces headway imbalance by 2.298 seconds under rapid switching. Reward comparisons reveal trade-offs between headway objectives and passenger time, while long-training diagnostics show that stabilization does not eliminate late-stage deterioration.",
+    "after": "This thesis proposes a shared holding policy combining categorical embeddings with continuous observations and develops Robust Ensemble Soft Actor-Critic (RE-SAC) for conservative action-value learning. With a common learner, learned embeddings reduce generalized passenger time relative to one-hot encoding by 5.51%, 1.41%, and 4.91% under routine operations, demand surges, and rapid switching. Generalized time is twice waiting time plus onboard time. A crossed comparison covers two objectives, headway regularity and passenger time, and two action settings, holding alone and joint holding-speed control. Under joint control, RE-SAC reduces planned-headway deviation relative to an ensemble baseline without the specified regularization by 11.32%, 3.56%, and 5.93% in the three scenarios. When trained for passenger time, the corresponding reductions are 20.09%, 5.46%, and 14.27%. Conservative value learning therefore provides benefits beyond a single reward, while operational objectives retain distinct trade-offs."
+  },
+  {
+    "index": 16,
+    "before": "To address changing operating laws and bounded holding authority, this thesis proposes Bayesian Adaptive Policy Regularization (BAPR), using environment identification and belief-based adjustment, and subsequently develops Causal-Symbolic Bayesian Adaptive Policy Regularization (CS-BAPR). Its bus configuration uses training stabilization and structured outputs without symbolic discovery or Invariant Risk Minimization (IRM). In a repeated-shock comparison crossing three training seeds with three evaluation seeds, the stabilized configuration retaining an ordinary output network reduces mean forward-backward headway imbalance by 3.10 seconds relative to BAPR under three fivefold demand pulses. The arithmetic-output configuration instead increases this measure by 0.29 seconds, showing that output-structure effects depend on operating conditions.",
+    "after": "To address changing operating laws and bounded control authority, this thesis proposes Bayesian Adaptive Policy Regularization (BAPR), using environment identification and belief-based adjustment, and subsequently develops Causal-Symbolic Bayesian Adaptive Policy Regularization (CS-BAPR). The main bus configuration combines training stabilization with alternative policy-output structures. Across routine demand, single and repeated shocks, sustained high demand, and a brief extreme shock, the stabilized perceptron configuration reduces the mean headway-reward penalty relative to the preceding BAPR configuration by 58.82% to 69.79% for holding alone and by 15.50% to 28.56% for joint holding-speed control. Arithmetic outputs do not provide an additional benefit in every condition. When training instead targets passenger time, service costs remain close, so headway-reward gains cannot be interpreted as equal reductions in passenger time."
+  },
+  {
+    "index": 17,
+    "before": "A bus-specific cross-fidelity workflow builds on Hybrid Offline-and-Online Reinforcement Learning (H2O) and its extension H2O+, combining fixed SUMO offline data with new simplified-simulator experience. Simultaneous-arrival encoding, mixed zero-and-positive holding actions, and a low-load completion reserve form the complete controller. In 1,350 paired evaluations covering 10 new environment blocks, three demand levels, five training seeds, and nine controllers, the reserve reduces within-window generalized time by 92.12 seconds, or 3.71%, and increases completion by 0.466 percentage points relative to the direct parent with the same learned policy. Cross-controller comparisons show that the reserve benefit is not exclusive to hybrid learning. A five-seed, update-budget-matched comparison supports the hybrid training scheme over the tested offline-only scheme, but stable superiority over source-only learning or a headway rule with the same reserve is not established. These results distinguish training-scheme effects from execution-rule effects.",
+    "after": "A bus-specific cross-fidelity workflow builds on Hybrid Offline-and-Online Reinforcement Learning (H2O) and its extension H2O+, combining fixed SUMO offline data with new simplified-simulator experience. Simultaneous-arrival encoding, mixed zero-and-positive holding actions, and a low-load completion reserve form the complete controller. In 1,350 paired evaluations covering 10 new environment blocks, three demand levels, and nine controllers, the reserve reduces within-window generalized time by 92.12 seconds, or 3.71%, and increases completion by 0.466 percentage points relative to the direct parent with the same learned policy. An update-budget-matched comparison supports hybrid training over the tested offline-only scheme. A further extension combines holding with bounded speed adjustment and switches between headway and passenger-time objectives using the same data-access pattern, enabling comparisons across bus-control objectives and action settings."
+  },
+  {
+    "index": 18,
+    "before": "The Model-Corrected World Model (MC-WM) selects residual correction or direct target modeling using held-out prediction errors and weights one-step model samples through log-confidence evaluation. Across three controlled dynamics shifts in Multi-Joint dynamics with Contact (MuJoCo), with target interaction and 10 training seeds per method, return improves over target-only Soft Actor-Critic (SAC) by 1,925.7, 1,184.5, and 133.4, with positive paired 95% intervals. Under actuator shift, direct modeling gains 1,529.9 return over forced residual correction. The bus extension uses fixed target offline data and hybrid event models, with a normalized confidence backup addressing the attenuation of model updates by accumulated log-confidence. In a confirmation experiment with 20 independently initialized seeds, the configuration with a fixed model-loss coefficient of 0.25 reduces generalized passenger time relative to an update-budget-matched model-free hybrid backbone by 1.91%, 2.61%, and 3.23% under calibrated, joint 50%, and joint 75% source-parameter mismatch conditions. Improvements occur in 16, 19, and 19 seeds, respectively, and all three paired 95% intervals support lower costs. Against a Daganzo-style rule with the same completion reserve, mean generalized time decreases by 57.67, 70.67, and 76.26 seconds. Gains mainly come from reduced waiting, with higher mean passenger completion rates. Context-dependent adjustment provides no stable additional mean benefit over the fixed coefficient. These results support using fixed target data to mitigate the tested source-simulator calibration errors.",
+    "after": "The Model-Corrected World Model (MC-WM) selects residual correction or direct target modeling using held-out prediction errors and weights one-step model samples through log-confidence evaluation. Across three controlled dynamics shifts in Multi-Joint dynamics with Contact (MuJoCo), with target interaction, mean return improves over target-only Soft Actor-Critic (SAC) by 1,925.7, 1,184.5, and 133.4. Under actuator shift, direct modeling gains 1,529.9 return over forced residual correction. The bus extension uses fixed target offline data and hybrid event models, with a normalized confidence backup limiting attenuation of model updates. For holding alone with a passenger-time objective, mean generalized time decreases relative to a Daganzo-style rule with the same completion reserve by 57.67, 70.67, and 76.26 seconds under calibrated, joint 50%, and joint 75% source-parameter mismatch. With joint holding-speed control and a passenger-time objective, reductions relative to H2O+ are 3.48% and 4.81% under calibrated and joint 75% mismatch conditions, and reductions relative to the Daganzo-style rule are 1.94% and 4.13%. With a headway objective, mean headway penalties decrease relative to that rule by 4.87% and 3.18%. These results support using target offline data to correct source-simulator training under both operational objectives."
+  },
+  {
+    "index": 513,
+    "before": "速度控制与停站作用于不同的物理过程：前者改变路段行驶，后者改变站点离开时刻。本文所报告的多线路离线学习、公交H2O+及MC-WM公交比较均仅学习停站动作，速度倍率固定为1，即不附加加速或减速命令；实际车速仍随道路限速、信号和跟驰条件改变。观测中的路段速度v及用于标定偏差实验的平均速度属于环境条件，不是额外的策略动作。因此，第5、6章对应比较具有相同的速度控制权限。停站上限、计划是否可调以及执行保障是否启用则由各组实验另行说明。",
+    "after": "速度调节与驻站作用于不同物理过程：前者改变离站后的路段行驶，后者改变站点离开时刻。原有多线路离线学习、公交H2O+和MC-WM主实验仅学习驻站，速度倍率固定为1；实际车速仍受道路限速、信号和跟驰条件影响。在此基础上，第3.4.9、第4.4.7、第5.4.4和第6.4.4节补充驻站—速度协同控制。每个算法的比较组具有相同动作范围，不能把增加速度权限本身解释为算法收益。用于标定偏差的道路平均速度属于环境转移条件，与策略输出的速度倍率分别定义。"
+  },
+  {
+    "index": 537,
+    "before": "具体输入维度取决于各研究的控制接口。多线路公交离线学习将15个原始观测量与上一停站动作共同用于输入。H2O+ 对同时事件进行结构化组织，最多包含16个事件槽位，原始打包状态为245维，规范化状态为229维；有效槽位掩码及批内已选动作共同描述当前决策上下文。这些维度是具体实现的属性，不作为所有公交控制问题必须采用的统一维数。",
+    "after": "具体输入维度取决于各研究的控制接口。多线路公交离线学习将15个原始观测量与上一驻站动作共同用于输入。H2O+最多组织16个同时事件槽位，原始打包状态为245维，规范化后为229维；有效槽位标记及批内已选驻站量共同描述决策上下文。联合速度控制时，再在规范化状态中加入16个槽位的已选速度输出，得到245维联合动作状态。两个245维表示分别对应规范化前的驻站状态和规范化后的联合状态，变量组成不同。这些维度由实际控制信息形成，并非所有公交任务必须使用同一维数。"
+  },
+  {
+    "index": 562,
+    "before": "多线路公交离线学习使用车头时距偏差及对称性构成训练奖励，并独立统计乘客时间与服务完成结果。训练奖励用于定义学习过程优化的量，乘客指标用于评价运行效果，二者在结果分析中分别报告。这一安排允许识别“训练目标改善但某项服务结果未同步改善”的情形。",
+    "after": "第3、4章原有公交实验以车头时距的计划偏差和前后对称性构成训练奖励，同时独立统计乘客服务指标；第5、6章原有跨保真实验以广义乘客时间为目标。补充实验在两类方法间交叉切换目标，使章节的比较不依赖于这一初始分工。车头时距目标沿用各方法已有奖励，H2O+与MC-WM采用第3.2.6节的计划对齐响应；乘客时间目标统一采用候车权重2、车内时间权重1。结果按实际优化目标解释，不把训练回报、计划偏差与乘客时间混为一个指标。"
+  },
+  {
+    "index": 576,
+    "before": "后续公交跨保真比较统一采用式(2-16)中的广义时间与完成率。",
+    "after": "跨保真比较报告式(2-16)的广义时间与完成率；以时距为奖励的补充比较同时报告平均时距惩罚及相对计划的绝对偏差。奖励惩罚包含前后偏差权重、对称性与大偏差项，计划绝对偏差则直接以秒计，两者排序不必完全相同。"
+  },
+  {
+    "index": 1397,
+    "before": "两部分对应同一个物理量的零值与正值，而不是“停站与速度”两个控制维度。当前公交H2O+仅决定附加停站时长，速度倍率固定为1；第6章MC-WM公交适配保持相同接口。路段速度随环境变化进入状态转移，不作为学习器可自由选择的加速或减速动作。",
+    "after": "零与正驻站是同一个物理量的两部分，不等于驻站与速度两个动作维度。原有单动作实验保持速度倍率为1；第5.2.7节再增加独立的有界速度输出。两类模型均保留精确零驻站概率，联合模型不会把零驻站改写成难以达到的连续边界。"
+  },
+  {
+    "index": 1706,
+    "before": "上述公交学习器都只输出附加停站，执行端速度倍率均为1，不包含策略主动加速或减速。MC-WM增加的是后继公交事件和乘客成本的预测，不扩大动作集合。偏差实验改变的道路平均速度、客流OD、路口延误和必要停站服务均属于环境转移关系，而非某一方法专有的控制权限。同一组比较还保持停站上限、动作幅度变换与完成保障规则一致。",
+    "after": "本章原有公交比较仅输出附加驻站，执行端速度倍率为1。第6.4.4节进一步采用第5.2.7节的驻站—速度联合动作，MC-WM与H2O+共用状态和动作接口。世界模型辅助不赋予任何比较方法额外控制权限。偏差实验改变的道路平均速度、客流OD、路口延误及基本服务时间属于环境转移关系，不等于策略可选速度倍率；同组方法还保持相同驻站上限与完成保障。"
+  },
+  {
+    "index": 1328,
+    "before": "该结果限定了对输出头和克隆项独立贡献的解释。四组都保留共同稳定化设置，不含取消六项训练修正的前序BAPR组，且采用100回合固定末端而非500回合最佳检查点。因此，这一交叉比较与第4.4节完整方法相对前序方法的收益分别回答不同问题。",
+    "after": "输出结构与行为克隆交叉比较中的四组均已采用第4.3.2节的训练稳定化，因而表4-9检验的是稳定化之后的组件增量。第4.4.7节另与未采用整套稳定化的前序BAPR比较，并扩展奖励和动作范围，两种比较分别对应完整配置收益与输出结构的附加作用。"
+  },
+  {
+    "index": 1335,
+    "before": "其次，CS-BAPR公交主实验未启用符号发现和IRM。相关数学分析描述满足导数条件后的误差传播，不能代替公交场景中的因果关系识别。完整策略的特征层必须满足相应正则性，单独输出头的性质不足以证明整个网络满足条件；动作函数误差界也不是公交奖励损失界。线性拟合的决定系数描述样本区域内的关联，不证明参考函数为最优策略。",
+    "after": "第4.4.1至4.4.6节及第4.4.7节的稳定化主比较没有启用符号发现和不变风险最小化约束。基于稀疏符号参考的补充比较在第4.4.7节末单独分析，其收益不与主配置合并，也不把NAU/NMU输出视为恢复了公交因果结构。附录D给出的策略响应界仍以完整映射的函数与导数条件为前提。"
+  },
+  {
+    "index": 1339,
+    "before": "本章由平稳随机环境下的保守控制推进到非平稳环境中的条件识别与适应，在偶然不确定性继续存在的条件下，增加对未知运行模式的认识与响应。本文提出的BAPR通过信念调节利用环境变化信息，CS-BAPR进一步研究训练稳定化与输出结构。重复5倍需求冲击下，稳定化ReLU相对前序BAPR使时距不均衡平均减少3.10秒；算术输出的同一指标增加0.29秒，而完成率提高0.045个百分点。五种子交叉比较尚未分辨算术输出和行为锚定的稳定独立增益，说明优化目标、间隔规律性与乘客服务需共同解释。受控执行器模式实验则表明，可识别的动作变换还可通过补偿恢复执行效果。",
+    "after": "本章将非平稳公交运行写为隐含条件识别与有界控制响应问题，由BAPR的信念调节进一步研究CS-BAPR训练稳定化和策略结构。原有重复冲击比较揭示了控制回报、时距不均衡和候车时间之间的差异；新增两种动作、两种奖励比较进一步表明，相对前序BAPR，稳定化感知机在六种需求条件下均减小平均时距奖励惩罚，仅驻站下降58.82%至69.79%，驻站—速度协同下降15.50%至28.56%。算术输出与符号参考没有在所有条件下形成额外收益，乘客时间目标下的完整配置成本接近。由此，主要实证结论落在非平稳时距控制中的配置收益，而不是所有服务指标共同占优。"
+  },
+  {
+    "index": 1671,
+    "before": "这些作用还取决于控制目标与任务权限。车头时距规则主要调节间隔，低载尾部保障为特定状态保留服务机会；本章控制器均在给定发车计划下选择驻站动作。各控制器的收益由共同任务中的乘客代价与车辆运行结果解释。",
+    "after": "控制收益还取决于运营目标和动作权限。车头时距规则主要调节间隔，低载尾部保障为特定状态保留服务机会。原有比较在给定计划下仅选择驻站；第5.4.4节在共同的双动作接口中分别优化时距与乘客时间，说明同一跨保真训练方法可以服务于不同目标，但不能以某项评价指标替代实际奖励。"
+  },
+  {
+    "index": 1682,
+    "before": "本章将新增训练交互转移到低成本仿真，同时保留了源模型偏差这一问题：相同停站动作在两个环境中可能产生不同的后续状态。下一章研究MC-WM，将目标数据从策略训练进一步用于预测修正，比较保留源预测的残差模型与直接目标模型，并检验模型辅助能否改善公交服务。",
+    "after": "驻站—速度协同扩展保留目标离线数据与源仿真交互的数据分工，并将车头时距目标和乘客时间目标分开训练。双动作下，正常标定的H2O+取得低于Daganzo式规则的平均时距惩罚，但乘客时间目标下尚未超过该规则；高源偏差也改变其控制结果。相同动作在不同环境中的后果差异仍需处理。下一章研究MC-WM，将目标数据从策略训练进一步用于预测修正，比较残差模型与直接目标模型，并在相同动作、奖励和执行条件下检验服务增量。"
+  },
+  {
+    "index": 1921,
+    "before": "本节将模型选择与贝尔曼可信度用于公交事件过程，在固定SUMO离线数据和新增源仿真经验下评价模型辅助的增量。预测模型按公交类别、计数和事件时间构建，称为MC-WM公交适配；无模型参照采用H2O+学习骨干，称为混合学习适配。事件预测模型与归一化置信算法已在前文给出。本节先以同预算模型比较、损失系数对照与训练诊断分析早期模型收益受限的原因，再比较归一化配置，最后以20个独立初始化种子确认公交配置的服务收益。第6.4.3.7节的全种子比较为本节主要公交结果，第6.4.3.8节分别报告开发集选出的策略及上下文扩展。早期单种子接入、预算与偏差探索见附录F，与后续机制及确认实验按各自协议解释。",
+    "after": "本节将模型选择与贝尔曼可信度用于公交事件过程，在固定SUMO离线数据和新增源仿真经验下评价模型辅助。事件预测模型与归一化置信算法已在前文给出。第6.4.3节保留模型类别、损失系数及置信机制的比较，用于解释模型信息如何进入价值更新，并报告仅驻站的重复运行结果；第6.4.4节进一步在驻站—速度协同下，以H2O+和Daganzo式规则为主要参照，交叉考察两种奖励。早期单次接入、预算与偏差探索见附录F，按各自训练条件解释。"
+  },
+  {
+    "index": 2053,
+    "before": "三个受控任务说明，这一选择确实可能影响最终策略：执行器变化时，所选直接模型相对强制残差模型具有正的平均回报增量；重力和摩擦变化下，两类模型的控制差异较小。公交比较进一步说明，模型是否被有效使用同样重要。原备份的预测误差基本稳定而后期梯度衰减，归一化机制比较恢复了模型使用强度；20个新初始化的确认结果进一步支持其乘客成本收益。固定0.25配置相对无模型骨干的平均降幅由正常标定的1.91%增至高偏差的3.23%，并在高偏差下19个种子改善、20个种子优于Daganzo式规则。这说明在所测训练条件下，目标离线数据学习得到的模型能够支持源仿真训练，而非必须先把全部源参数精细标定至目标值。",
+    "after": "受控任务说明模型类别选择可以影响最终策略：执行器变化时，直接模型相对强制残差模型取得正的平均回报增量。公交比较进一步说明，模型如何被使用同样重要。原置信备份在预测误差基本稳定时仍出现后期梯度衰减，归一化机制恢复模型作用。仅驻站的乘客时间结果和双动作的两种目标比较共同支持模型修正的控制价值：在联合75%源偏差下，双动作MC-WM相对共同梯度约束的H2O+降低3.61%的广义时间和0.80%的平均时距惩罚；相对Daganzo式规则，两种相应训练目标的降幅分别为4.13%和3.18%。目标离线数据因此可以支持存在标定偏差的源仿真训练。"
+  },
+  {
+    "index": 2058,
+    "before": "公交早期共同初始化、预算和偏差比较只有一个训练种子，每档需求采用一至两个环境组。后续五种子同预算比较、三种子完整日程及两种子归一化开发比较采用不同协议，不能与20个新初始化的确认实验混合统计。确认实验的95%区间描述固定测试情形下的训练种子差异，五个评价日不作为独立训练重复，也未建立跨城市泛化。所选最终策略依据开发集确定，与全部种子的平均表现分开。各方法均保留完成保障，尚未评价移除保障后的归一化策略。",
+    "after": "不同训练和评价批次分别报告，历史仅驻站结果不与新联合动作结果合并。第6.4.4节按独立重复运行和共同目标情形取平均，相关测试情形已在开发阶段使用，属于已有场景下的对照评价，不作为未见城市的泛化证明。结果表征完整模型辅助配置在对应数据和执行条件下的平均效果。"
+  },
+  {
+    "index": 2059,
+    "before": "20种子确认中的无模型对照关闭密度比校正，保留单位混合损失，而模型配置同时采用0.75倍观测混合损失。因此，其结果是相对指定H2O+骨干的完整配置增量，不是对原论文全部组件的优势，也不能由这一批结果单独分离模型预测信息与损失缩放的贡献。第6.4.3.3及6.4.3.5节的系数控制为机制判断提供依据，但不替代新种子下的同系数无模型消融。最后的上下文修复只有四个种子，也未包含20种子主比较中退化最大的中偏差重复，不能认定其已解决全部退化情况。",
+    "after": "模型信息、观测损失尺度和置信使用方式是不同设计因素，第6.4.3.3及6.4.3.5节保留相应机制比较。双动作主比较固定共同的数据来源、动作范围和执行保障，时距训练还共同使用梯度范数约束，因而不能把仅对某一算法施加的训练稳定化误写为模型收益。上下文系数调节未形成稳定额外均值改善，固定模型项系数0.25仍作为主要公交配置。"
+  },
+  {
+    "index": 2071,
+    "before": "进一步以20个新初始化、240项续训及4800次开发与独立测试评价确认公交结果。固定模型项系数0.25配置相对同预算无模型骨干，在正常标定、联合50%与75%失配下平均减少51.14、69.93和87.05秒广义时间，分别为16、19和19个种子改善，三个配对95%区间均为负。相对共同保障下的Daganzo式规则分别减少57.67、70.67和76.26秒，改善数为19、20和20个种子。收益主要来自候车时间减少，平均乘客完成率同时提高，但部分间隔指标仍不如规则。上下文调节没有相对固定系数的稳定附加均值收益，两种修复也未替代主配置。模型增加训练开销，部署仍只使用演员网络。",
+    "after": "进一步的仅驻站重复运行确认表明，固定模型项系数0.25在正常标定、联合50%和75%源偏差下，相对共同保障的Daganzo式规则分别减少57.67、70.67和76.26秒人均广义时间。双动作扩展中，乘客时间目标下相对H2O+的降幅为3.48%和4.81%，相对Daganzo式规则为1.94%和4.13%；时距目标下相对规则的平均惩罚降幅为4.87%和3.18%。联合75%偏差下，时距训练的MC-WM还比同样施加梯度约束的H2O+降低3.61%的乘客成本。模型辅助可用于两种公交目标，但乘客目标下的策略不必具有最低时距偏差。模型增加训练开销，部署仍仅使用演员网络。"
+  },
+  {
+    "index": 2081,
+    "before": "本文由BAPR的条件识别和信念调节进一步提出CS-BAPR，在既定计划下研究训练稳定化与策略输出结构的作用。三训练种子与三评价种子的重复冲击比较中，相对前序BAPR，稳定化ReLU配置在三次5倍需求冲击下使前后时距不均衡平均减少3.10秒，完成率提高0.050个百分点；算术输出配置对应的时距不均衡增加0.29秒、完成率提高0.045个百分点。两者累计候车时间变化分别为下降约0.03%和增加约0.06%。这些运营量表明，训练目标改善与时距、候车和完成率之间存在取舍，输出结构没有形成所有指标上的一致优势。第4章保留完整控制回报比较，用于解释具体优化目标。",
+    "after": "本文由BAPR的条件识别和信念调节进一步提出CS-BAPR，在既定计划下研究训练稳定化与策略输出结构的作用。两种奖励与两种动作的需求扩展比较表明，稳定化感知机相对前序BAPR在六种条件下均改善平均时距奖励惩罚，仅驻站时降幅为58.82%至69.79%，驻站—速度协同时为15.50%至28.56%。持续高需求和重复冲击均包含在评价中，收益并非只由一次短时扰动体现。算术输出未在所有条件下增加收益；改用乘客时间奖励后，服务成本接近，说明方法的时距目标优势需要与乘客指标分别解释。"
+  },
+  {
+    "index": 2089,
+    "before": "据此构造的归一化备份保留未来置信传播，同时以1-γΔ缩放即时对数置信。开发比较连接了模型权重、梯度贡献与乘客时间，固定0.5样本权重也有效，附加源目标修正没有形成稳定增量。进一步以20个新种子从头完成离线初始化，共240项续训及4800次开发与独立测试评价，确认固定模型项系数0.25的公交配置在正常标定、联合50%和75%源失配下，相对同预算无模型骨干分别减少51.14、69.93和87.05秒广义时间，即1.91%、2.61%和3.23%；改善种子分别为16、19和19个，三个配对95%区间均为负。",
+    "after": "归一化置信备份保留未来置信传播，并以相应折扣的补因子缩放即时对数置信。仅驻站重复运行确认中，在正常标定、联合50%和75%源参数偏差下，固定模型项系数0.25相对共同保障的Daganzo式规则分别减少57.67、70.67和76.26秒人均广义时间。收益主要来自候车时间下降，平均乘客完成率同时提高；部分间隔指标仍不如规则。"
+  },
+  {
+    "index": 2090,
+    "before": "相对共同完成保障下的Daganzo式规则，三种源条件分别减少57.67、70.67和76.26秒，改善种子数为19、20和20个。收益主要来自候车时间减少，平均乘客完成率分别提高0.295、0.408和0.455个百分点；部分间隔指标仍不如规则。上下文系数调节未形成相对固定0.25的稳定附加均值收益，因此固定0.25作为主要公交配置。结果说明世界模型的应用价值既取决于预测关系，也取决于这些预测以多大强度参与策略更新，固定目标离线数据可以支持所测源标定偏差下的服务改善。",
+    "after": "驻站—速度联合控制进一步检验两种运营目标。以乘客时间训练时，MC-WM在正常标定与联合75%源偏差下，相对H2O+分别降低3.48%和4.81%的广义时间，相对Daganzo式规则分别降低1.94%和4.13%；以车头时距训练时，相对规则的平均时距惩罚分别降低4.87%和3.18%。在高偏差条件下，时距训练的MC-WM还比共同梯度约束的H2O+降低3.61%的广义时间。两种目标的结果共同表明，世界模型的公交应用不局限于一种奖励；其作用既取决于预测关系，也取决于预测进入价值更新的强度与事件结算的一致性。"
+  },
+  {
+    "index": 2099,
+    "before": "针对源结构可能不再适用于目标环境的问题，提出MC-WM，将是否保留源预测写为残差与直接模型的显式选择，并以对数置信评价调节一步模型样本的损失权重。公交扩展分别预测类别事件、计数、连续状态和持续时间，使固定目标离线数据能够参与事件模型学习；进一步根据累积置信的尺度性质构造归一化备份，避免局部置信仅因传播折扣而被压至过小量级。表6-5支持避免不适当源结构复用的价值，表6-12、表6-13及图6-15、图6-16以20个独立初始化种子支持所测源失配下的公交服务改善和规则之外的增量；图6-13及命题E.1解释模型使用强度。",
+    "after": "针对源结构可能不适用于目标环境的问题，提出MC-WM，将源预测的保留写为残差与直接模型的显式选择，并以对数置信评价调节一步模型样本的损失权重。公交扩展按类别事件、计数、连续状态和持续时间组织预测，使固定目标离线数据参与事件模型学习；归一化置信备份则依据累积尺度性质维持模型作用。表6-5支持避免不适当源结构复用的价值；表6-13支持仅驻站条件下相对规则的服务收益，表6-16、表6-17及图6-18进一步给出驻站—速度协同、两种奖励下相对H2O+与Daganzo式规则的结果。理论分析、预测使用和控制评价由此形成连接。"
+  },
+  {
+    "index": 2105,
+    "before": "公交确认的无模型对照是关闭密度比校正的H2O+骨干；世界模型配置同时缩放观测混合损失，当前20种子比较不能独立分离预测信息与损失尺度的作用。原上下文方法仍存在个别训练退化，四种子的最后修复没有形成附加收益，也未覆盖主比较中退化最大的重复。固定0.25成功续训平均103.07分钟，无模型骨干62.02分钟，模型增加训练开销，部署演员结构不变。受控任务中相对直接目标MBPO的回报优势尚未分辨。",
+    "after": "世界模型与上下文调节并非越复杂越好。固定模型项系数0.25形成主要公交结果，上下文修复未获得一致的额外收益。模型拟合、置信更新和样本生成增加训练成本，部署演员结构则保持不变。各奖励与动作实验采用相应数据和转移定义，跨章节数值不能脱离需求强度、评价时域及统计分母直接排名。受控任务中相对直接目标模型方法的回报优势仍未分辨。"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "name": "thesis-mcwm-context-filter-v9",
+  "seeds": [6201, 6202],
+  "contexts": ["calibrated", "joint50", "joint75"],
+  "fit_arms": ["fixed_zero", "fixed_mid", "fixed_original"],
+  "variants": {"full": [0, 1, 2, 3, 4, 5, 6, 7], "physical_summary": [0, 1, 2]},
+  "windows": [1, 4, 16],
+  "fallback_score_margin": 0.15,
+  "high_score_threshold": 0.9,
+  "variance_floor": 0.05,
+  "original_filter": {"context_hazard": 0.002, "context_prior_exponent": 0.98, "context_evidence_scale": 1.0},
+  "scope": "Offline matched source trajectories from v7 recognized-context training. Fit only the other seed's fixed-policy blocks. Recover resets by matching recorded original beliefs to continued and reset updates. Windows average Gaussian scores rather than accumulating log evidence. All declared windows and fallback ablations are reported; no variant is selected on held-out outcomes. No SUMO evaluation or policy training.",
+  "coefficient_scope": "Reuse v7 coefficients and best-global coefficient selected from development days solely to measure coefficient routing. This is not a new coefficient selection or a measure of bus welfare."
+}

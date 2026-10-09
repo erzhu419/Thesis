@@ -1,0 +1,42 @@
+{
+  "name": "bus-control-feasibility-v1",
+  "purpose": "Small doctoral-thesis supplement, not a publication-level confirmation matrix",
+  "training_seed": 6201,
+  "offline_initializer": "reproducibility/h2oplus_v8_fewshot_results/training/h2oplus_seed6201/checkpoints/offline_initializer.pt",
+  "offline_subsample_rows": 150000,
+  "offline_subsample_seed": 62101,
+  "source_days": [
+    {"seed": 14101, "demand_scale": 0.75},
+    {"seed": 14102, "demand_scale": 1.0},
+    {"seed": 14103, "demand_scale": 1.25}
+  ],
+  "source_collection_policy": "Common frozen offline initializer, stochastic raw actions",
+  "training_mode": "Same fixed source-simulator replay for both hybrid branches",
+  "methods": ["offline_prefix", "offline_continue", "h2o_mixed", "mcwm_assisted"],
+  "continuation_updates": 2000,
+  "extra_critic_every": 4,
+  "extra_batch_size": 128,
+  "model_fraction_in_extra_loss": 0.25,
+  "model_rollout_steps": 1,
+  "model_start_max_horizon_fraction": 0.75,
+  "qdelta_gamma": 0.9,
+  "qdelta_updates_per_extra_step": 1,
+  "qdelta_error": "Frozen selected hybrid model six-head prediction loss on target-fit transitions",
+  "deployment_hold_scale": 0.25,
+  "deployment_rule": "H2O v19 quarter-load-sixty, shared by every learned method",
+  "evaluation_demand_scales": [1.0, 1.25],
+  "evaluation_blocks": [
+    {"demand_seed": 13201, "sumo_seed": 13101},
+    {"demand_seed": 13202, "sumo_seed": 13102}
+  ],
+  "departure_jitter_seconds": 120,
+  "evaluation_horizon_seconds": 24000,
+  "evaluation_workers": 3,
+  "notes": [
+    "Existing offline initializer used all original data blocks; former model-test blocks are not pipeline holdouts.",
+    "SUMO evaluation scenes are generated for this comparison, never used for continuation updates.",
+    "Terminal transitions remain in real offline and source replay; model augmentation is nonterminal and one-step.",
+    "Policy gradient budgets match across continuation methods; model and trust fitting are additional computation.",
+    "MC-WM-assisted denotes the hybrid event-model and Bellman-confidence bus adaptation, not an unchanged generic-task implementation."
+  ]
+}

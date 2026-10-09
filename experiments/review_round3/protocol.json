@@ -1,0 +1,60 @@
+{
+  "name": "thesis-review-round3-20260929",
+  "frozen_before_results": true,
+  "mcwm": {
+    "parent_protocol": "mcwm_alignment_v2/protocol.json",
+    "seeds": [6201, 6202, 6203],
+    "arms": ["h2o_matched", "scaled_nomodel", "mcwm"],
+    "scenarios": ["calibrated", "joint25", "joint50"],
+    "diagnostic_interval": 1000,
+    "diagnostic_rows": 512,
+    "evaluation_blocks": [
+      {"demand_seed": 39101, "sumo_seed": 39201},
+      {"demand_seed": 39102, "sumo_seed": 39202},
+      {"demand_seed": 39103, "sumo_seed": 39203},
+      {"demand_seed": 39104, "sumo_seed": 39204},
+      {"demand_seed": 39105, "sumo_seed": 39205}
+    ]
+  },
+  "ensemble": {
+    "seeds": [32101, 32102, 32103, 32104, 32105],
+    "sizes": [2, 5, 10, 20],
+    "episodes": 100,
+    "scenes": ["normal", "fast_switch"],
+    "evaluation_seeds": [39301, 39302, 39303]
+  },
+  "reward": {
+    "arms": ["ridge", "exp60", "exp60_hold", "exp1_hold"],
+    "training_seeds": [17001, 17002, 17003],
+    "scenes": ["normal", "fast_switch"],
+    "evaluation_seeds": [39301, 39302, 39303]
+  },
+  "guard": {
+    "methods": ["hybrid", "offline", "source", "zero"],
+    "layers": ["no_floor", "early60"],
+    "demands": [0.75, 1.0, 1.25],
+    "blocks": [
+      {"demand_seed": 39401, "sumo_seed": 39501},
+      {"demand_seed": 39402, "sumo_seed": 39502},
+      {"demand_seed": 39403, "sumo_seed": 39503}
+    ],
+    "deployment_hold_scale": 0.25,
+    "horizon_seconds": 24000
+  },
+  "response": {
+    "domains": ["source", "sumo"],
+    "holds_seconds": [0, 20, 60],
+    "demands": [0.75, 1.0, 1.25],
+    "seeds": [39601, 39602, 39603],
+    "horizon_seconds": 24000,
+    "low_load_fraction": 0.25,
+    "late_seconds": 20000
+  },
+  "ratio": {
+    "enhancement_seeds": [22101, 22102, 22103, 22104, 22105],
+    "validation_seeds": [39701, 39702, 39703],
+    "max_diagnostic_rows": 2048,
+    "holdout_horizon_seconds": 24000,
+    "short_budget_cell": "blocks6_calibrated_h2o"
+  }
+}

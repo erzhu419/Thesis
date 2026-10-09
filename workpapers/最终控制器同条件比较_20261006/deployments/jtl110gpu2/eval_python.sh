@@ -1,0 +1,3 @@
+#!/bin/bash
+set -e
+exec '/home/erzhu419/mine_code/Thesis/workpapers/H2O纯源同执行诊断_20261006/runtime/proot' -R '/home/erzhu419/mine_code/Thesis/workpapers/H2O纯源同执行诊断_20261006/runtime/guestroot' -b /home -w '/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006' /usr/bin/env PATH=/home/erzhu419/anaconda3/envs/LSTM-RL/bin:/usr/bin:/bin LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libcurl.so.4 'PYTHONPATH=/home/erzhu419/mine_code/Thesis/workpapers/H2O纯源同执行诊断_20261006/runtime/workspace/H2Oplus' LIBSUMO_AS_TRACI=quiet OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 /home/erzhu419/anaconda3/envs/LSTM-RL/bin/python "$@"

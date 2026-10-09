@@ -1,0 +1,55 @@
+# TransitDuet Configuration
+# =========================
+
+env:
+  path: "env"
+  route_sigma: 1.5
+  max_agent_num: 25
+  effective_trip_num: 264
+
+upper:
+  state_dim: 5                  # [hour, demand, fleet, prev_hw, holding_ratio]
+  action_dim: 3                 # [H_peak, H_off_peak, H_transition]
+  action_low: [180, 300, 240]
+  action_high: [600, 1200, 900]
+  hidden_dim: 64
+  lr: 0.0003
+  gamma: 0.95                   # shorter horizon for planning decisions
+  N_fleet: 12
+  # RE-SAC specific
+  ensemble_size: 10
+  resac_beta: -2.0
+  replay_capacity: 50000
+  batch_size: 64                # smaller batch (fewer transitions)
+  updates_per_episode: 10
+
+lower:
+  hidden_dim: 64
+  action_range: 60.0
+  cost_limit: 0.5              # relaxed from 0.15
+  batch_size: 512
+  updates_per_episode: 30
+  lr: 0.0003
+  lambda_lr: 0.001
+  gamma: 0.99
+  soft_tau: 0.005
+  auto_entropy: true
+  maximum_alpha: 0.3
+  reward_scale: 1.0
+  # RE-SAC specific
+  ensemble_size: 10
+  resac_beta: -2.0
+  beta_ood: 0.01
+  weight_reg: 0.01
+
+coupling:
+  beta_warmup_eps: 50
+  beta_ramp_eps: 100
+  beta_max: 0.5
+  measurement_lr: 0.01
+
+training:
+  total_episodes: 300
+  eval_freq: 5
+  save_freq: 50
+  replay_buffer_size: 500000

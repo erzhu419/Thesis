@@ -1,0 +1,12 @@
+{
+  "purpose": "Compare frozen learned actors against the existing strongest rule reference and guard-only backbone",
+  "baseline_methods": ["zero", "headway"],
+  "implementation": "Existing attribution_v1 rule_action and execute; no parameter changes",
+  "execution_layer": "early60",
+  "deployment_hold_scale": 1.0,
+  "evaluation_horizon_seconds": 24000,
+  "evaluation_cases": "All ten frozen mcwm_usage_v3 cases: two demands, five paired blocks",
+  "training": "None; reuse every existing learned-policy outcome",
+  "statistical_unit": "Five paired environment days per demand, report each of the two trained actors separately",
+  "scope": "Additional reference evaluation after viewing the learned-method comparison; not a new independent confirmation"
+}

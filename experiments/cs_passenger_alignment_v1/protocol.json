@@ -1,0 +1,21 @@
+{
+  "name": "thesis-cs-passenger-alignment-v1",
+  "arms": ["local_overlap", "observed_overlap", "global_event", "global_shaped"],
+  "training_seeds": [64001, 64002],
+  "evaluation_seeds": [78101, 78102, 78103],
+  "episodes": 100,
+  "horizon_seconds": 18000,
+  "updates_per_episode": 400,
+  "buffer_size": 100000,
+  "state_dim": 92,
+  "reward_scale": 100000,
+  "scenes": {
+    "normal": [[0, 1]],
+    "pulse5": [[0, 1], [3600, 5], [5400, 1]],
+    "repeated5": [[0, 1], [3600, 5], [5400, 1], [9000, 5], [10800, 1], [14400, 5], [16200, 1]],
+    "static5": [[0, 5]],
+    "static10": [[0, 10]],
+    "burst50": [[0, 1], [3600, 50], [4200, 1]]
+  },
+  "nodes": ["node001", "node002", "node003", "node004", "node005", "node006", "node007", "jtl110gpu", "jtl110gpu2", "jtl311linux"]
+}

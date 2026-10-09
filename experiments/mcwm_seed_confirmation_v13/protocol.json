@@ -1,0 +1,26 @@
+{
+  "name": "thesis-mcwm-seed-confirmation-v13",
+  "training_seeds": [63001, 63002, 63003, 63004, 63005, 63006, 63007, 63008, 63009, 63010, 63011, 63012, 63013, 63014, 63015, 63016, 63017, 63018, 63019, 63020],
+  "arms": ["h2o_matched", "fixed0250", "fixed0300", "shared_gated"],
+  "training_arms": ["h2o_matched", "fixed0250", "fixed0300", "shared_gated"],
+  "fixed_coefficients": {"h2o_matched": 0.0, "fixed0250": 0.25, "fixed0300": 0.30},
+  "initializer_experiment": "mcwm_seed_confirmation_v13",
+  "development_blocks": [
+    {"demand_seed": 68801, "sumo_seed": 69801},
+    {"demand_seed": 68802, "sumo_seed": 69802},
+    {"demand_seed": 68803, "sumo_seed": 69803},
+    {"demand_seed": 68804, "sumo_seed": 69804},
+    {"demand_seed": 68805, "sumo_seed": 69805}
+  ],
+  "test_blocks": [
+    {"demand_seed": 68901, "sumo_seed": 69901},
+    {"demand_seed": 68902, "sumo_seed": 69902},
+    {"demand_seed": 68903, "sumo_seed": 69903},
+    {"demand_seed": 68904, "sumo_seed": 69904},
+    {"demand_seed": 68905, "sumo_seed": 69905}
+  ],
+  "rules": ["daganzo_duet", "headway"],
+  "evaluation_cases": 20,
+  "selection": "Train 20 new 50000-update IQL initializers from scratch. All four policies for a seed reuse only that seed's initializer. The frozen recognizers alternate between the two old v10 providers by prespecified seed index. Select one final policy per method and source condition only by mean generalized passenger time over all ten development cases, breaking ties by seed number. Preserve all seeds and evaluate all final policies on disjoint test days. No seed, coefficient or checkpoint changes based on test results.",
+  "interpretation": "Independent new initialization seeds, paired within seed and source condition. H2O+ backbone control omits world-model training and uses the original unscaled real TD loss; model arms use observed TD coefficient 0.75. Source interaction and policy-update budgets, actor taper, data, normalized model trust and execution safeguards are matched. Context acts only during source-domain training. Report all-seed test outcomes separately from development-selected final-policy outcomes. Rule results have no training-seed repetitions. This campaign is separate from the last context-repair branch."
+}

@@ -1,0 +1,73 @@
+{
+  "selected_family": "direct",
+  "calibration": {
+    "direct": {
+      "rows": 1024,
+      "selection_loss": 1.8938469886779785,
+      "head_losses": {
+        "global": 0.8447862267494202,
+        "local": 0.827155590057373,
+        "count": 2.6734235286712646,
+        "line": 2.4837307929992676,
+        "station": 3.852421283721924,
+        "neighbor": 0.6815650463104248
+      },
+      "duration_mae_s": 1.2388484477996826,
+      "cost_mae_passenger_s": 2588.7880859375,
+      "duration_log_rmse": 0.45230793952941895,
+      "cost_log_rmse": 0.9965537786483765,
+      "waiting_increment_mae_passengers": 1.3101390600204468,
+      "onboard_increment_mae_passengers": 1.3659693002700806,
+      "count_accuracy": 0.6396484375,
+      "line_accuracy_on_true_active_slots": 0.11745406687259674,
+      "station_accuracy_on_true_active_slots": 0.025590550154447556,
+      "slot_identity_accuracy": 0.005905511789023876,
+      "local_rmse_on_true_active_slots": 0.2193973809480667,
+      "neighbor_accuracy_on_true_active_slots": 0.6830708384513855,
+      "label_conditioning": "True active slots only index scoring; all predictions use current state and action only"
+    }
+  },
+  "source_split": {
+    "fit": {
+      "day": 0,
+      "rows": 4096
+    },
+    "stop": {
+      "day": 1,
+      "rows": 1024
+    }
+  },
+  "target_split": {
+    "fit": [
+      1201,
+      1202,
+      1203,
+      1204
+    ],
+    "stop": [
+      1205
+    ],
+    "calibrate": [
+      1206
+    ]
+  },
+  "training": {
+    "direct_0": {
+      "selected_step": 2,
+      "stop_loss": 1.8978294134140015,
+      "history": [
+        {
+          "step": 2,
+          "validation_loss": 1.8978294134140015
+        }
+      ]
+    }
+  },
+  "model_gradient_updates": 2,
+  "parameters": {
+    "source": 0,
+    "direct": 606948,
+    "residual": 0
+  },
+  "parameter_note": "Residual entries include the frozen source base; do not sum families."
+}

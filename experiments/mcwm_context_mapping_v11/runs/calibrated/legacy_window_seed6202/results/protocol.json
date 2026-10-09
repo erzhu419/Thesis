@@ -1,0 +1,389 @@
+{
+  "protocol": {
+    "name": "thesis-mcwm-context-mapping-v11",
+    "training_seeds": [
+      6201,
+      6202
+    ],
+    "arms": [
+      "fixed0250",
+      "fixed0375",
+      "legacy_window",
+      "shared_soft",
+      "shared_gated"
+    ],
+    "scenarios": [
+      {
+        "name": "calibrated",
+        "speed_factor": 1.0,
+        "od_factor": 1.0,
+        "extra_signal_fraction": 0.0,
+        "dwell_factor": 1.0,
+        "empirical_runtime": true
+      },
+      {
+        "name": "joint50",
+        "speed_factor": 0.5,
+        "od_factor": 1.5,
+        "extra_signal_fraction": 0.5,
+        "dwell_factor": 1.5,
+        "empirical_runtime": true
+      },
+      {
+        "name": "joint75",
+        "speed_factor": 0.25,
+        "od_factor": 1.75,
+        "extra_signal_fraction": 0.75,
+        "dwell_factor": 1.75,
+        "empirical_runtime": true
+      }
+    ],
+    "offline_updates_in_initializer": 50000,
+    "warmup_events": 5000,
+    "source_event_budget": 25000,
+    "source_seed_offset": 30000,
+    "collection_interval": 32,
+    "actor_taper_event": 15000,
+    "actor_taper_multiplier": 0.25,
+    "model_refresh_events": [
+      5000,
+      10000,
+      15000,
+      20000
+    ],
+    "model_updates_per_member": 1000,
+    "model_refit_updates": 300,
+    "model_ensemble_members": 3,
+    "model_max_fit_rows": 8192,
+    "model_max_validation_rows": 2048,
+    "policy_reference_rows": 512,
+    "model_fraction": 0.25,
+    "model_batch_size": 128,
+    "model_start_max_horizon_fraction": 0.75,
+    "qdelta_gamma": 0.9,
+    "qdelta_updates_per_extra_step": 1,
+    "trust_update_every": 4,
+    "deployment_hold_scale": 1.0,
+    "evaluation_demand_scales": [
+      1.0,
+      1.25
+    ],
+    "evaluation_blocks": [
+      {
+        "demand_seed": 48101,
+        "sumo_seed": 49101
+      },
+      {
+        "demand_seed": 48102,
+        "sumo_seed": 49102
+      },
+      {
+        "demand_seed": 48103,
+        "sumo_seed": 49103
+      },
+      {
+        "demand_seed": 48104,
+        "sumo_seed": 49104
+      },
+      {
+        "demand_seed": 48105,
+        "sumo_seed": 49105
+      }
+    ],
+    "departure_jitter_seconds": 120,
+    "evaluation_horizon_seconds": 24000,
+    "target_only_arm": "offline_only",
+    "diagnostic_rows": 512,
+    "coverage_fit_rows": 2048,
+    "coverage_quantile": 0.95,
+    "source_repair_max_horizon_fraction": 0.75,
+    "fixed_model_weight": 0.5,
+    "minimum_relevant_time_improvement_seconds": 5.0,
+    "maximum_completion_decrease_percentage_points": 0.1,
+    "fixed_coefficients": {
+      "fixed0250": 0.25,
+      "fixed0375": 0.375
+    },
+    "real_td_coefficient": 0.75,
+    "context_window_physical_rows": 64,
+    "context_hazard": 0.002,
+    "context_prior_exponent": 0.98,
+    "context_evidence_scale": 1.0,
+    "context_variance_floor": 0.05,
+    "development_blocks": [
+      {
+        "demand_seed": 58101,
+        "sumo_seed": 59101
+      },
+      {
+        "demand_seed": 58102,
+        "sumo_seed": 59102
+      },
+      {
+        "demand_seed": 58103,
+        "sumo_seed": 59103
+      },
+      {
+        "demand_seed": 58104,
+        "sumo_seed": 59104
+      },
+      {
+        "demand_seed": 58105,
+        "sumo_seed": 59105
+      }
+    ],
+    "test_blocks": [
+      {
+        "demand_seed": 68601,
+        "sumo_seed": 69601
+      },
+      {
+        "demand_seed": 68602,
+        "sumo_seed": 69602
+      },
+      {
+        "demand_seed": 68603,
+        "sumo_seed": 69603
+      },
+      {
+        "demand_seed": 68604,
+        "sumo_seed": 69604
+      },
+      {
+        "demand_seed": 68605,
+        "sumo_seed": 69605
+      }
+    ],
+    "selection": "Prespecified shared mapping motivated by exploratory v8/v10 outcomes, not selected from v11 evaluation. Reuse each seed's frozen v10 three-feature recognizer trained on the other seed's source blocks. Retain the old cross-seed mapping in legacy_window. No fitting or selection on the new test days.",
+    "causal_scope": "Static source training contexts only. At each source collection boundary, update belief using newly completed nonterminal positive-duration transitions, resetting the history at episode terminals. Change only the generated-model TD coefficient; no online target gradients and no deployed context actor.",
+    "context_features": [
+      "log_global_event_duration",
+      "eligible_demand_ratio",
+      "base_dwell_scaled",
+      "queue_capacity_ratio",
+      "onboard_capacity_ratio",
+      "system_waiting_scaled",
+      "system_onboard_scaled",
+      "executed_source_hold_scaled"
+    ],
+    "primary_comparison": "Fresh fixed-original, cross-fitted best-global-fixed, true-context, and causal recognized-context on ten test days per seed/context; all three fixed coefficients are retained",
+    "interpretation": "Two reused offline initializer seeds; five fresh CPU-trained arms per static source condition. shared_soft changes only the coefficient mapping of the v10 window filter. shared_gated additionally leaves the baseline coefficient unchanged unless the accepted top-scoring class is joint75, then applies the same belief-weighted upward residual. Oracle shared-context control is exactly the fixed policy named in oracle_policy_arms because each training run has a constant source condition; these results are aliases, not additional independent runs. Target-domain online training, interaction budget, normalized model trust, observed TD coefficient, actor schedule and deployment safeguards remain unchanged. Context operates during training only.",
+    "training_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006"
+    ],
+    "training_device": "cpu",
+    "window_blocks": 4,
+    "fallback_score_margin": 0.15,
+    "shared_coefficients": {
+      "calibrated": 0.25,
+      "joint50": 0.25,
+      "joint75": 0.375
+    },
+    "global_coefficient": 0.25,
+    "adjusted_context": "joint75",
+    "oracle_policy_arms": {
+      "calibrated": "fixed0250",
+      "joint50": "fixed0250",
+      "joint75": "fixed0375"
+    },
+    "arm": "legacy_window",
+    "training_seed": 6202,
+    "relative_out": "runs/calibrated/legacy_window_seed6202"
+  },
+  "arm": "legacy_window",
+  "scenario": {
+    "name": "calibrated",
+    "speed_factor": 1.0,
+    "od_factor": 1.0,
+    "extra_signal_fraction": 0.0,
+    "dwell_factor": 1.0,
+    "empirical_runtime": true
+  },
+  "training_seed": 6202,
+  "config": {
+    "ensemble_size": 2,
+    "hidden_dim": 256,
+    "batch_size": 256,
+    "reward_scale": 0.0001,
+    "critic_loss": "huber",
+    "huber_delta": 1.0,
+    "activation": "relu",
+    "actor_layer_norm": false,
+    "critic_layer_norm": false,
+    "value_layer_norm": false,
+    "online_fraction": 0.5,
+    "actor_learning_rate": 0.0003,
+    "critic_learning_rate": 0.0003,
+    "value_learning_rate": 0.0003,
+    "alpha_learning_rate": 0.0003,
+    "ratio_learning_rate": 0.0001,
+    "soft_target_rate": 0.005,
+    "target_subset_size": 2,
+    "target_subset_replacement": false,
+    "target_entropy": 0.0,
+    "initial_temperature": 1.0,
+    "backup_entropy": true,
+    "bootstrap_probability": 1.0,
+    "offline_objective": "iql",
+    "online_backup": "h2oplus",
+    "actor_q_reduction": "min-all",
+    "online_actor_update_interval": 1,
+    "online_actor_batch_mode": "latest",
+    "online_update_order": "actor-before-critic",
+    "offline_cql_alpha": 0.0,
+    "online_cql_alpha": 0.0,
+    "cql_n_actions": 10,
+    "cql_max_target_backup": false,
+    "mixed_backup_lambda": 0.1,
+    "iql_expectile": 0.7,
+    "iql_advantage_temperature": 3.0,
+    "iql_max_weight": 100.0,
+    "ratio_min_weight": 1e-05,
+    "ratio_max_weight": 1.0,
+    "use_ratio_correction": false,
+    "ratio_update_interval": 4,
+    "gradient_clip_norm": null,
+    "cql_penalty_subset_size": null,
+    "cql_penalty_subset_replacement": false,
+    "offline_update_order": "critic-before-actor",
+    "temperature_state_source": "actor",
+    "offline_temperature_action_samples": 1
+  },
+  "offline_rows": 3284718,
+  "target_online_training_events": 0,
+  "context_provider": {
+    "consumer_seed": 6202,
+    "provider_seed": 6201,
+    "coefficients": {
+      "calibrated": 0.25,
+      "joint50": 0.125,
+      "joint75": 0.25
+    },
+    "recognizer": {
+      "classes": [
+        "calibrated",
+        "joint50",
+        "joint75"
+      ],
+      "mean": [
+        1.0415244459293322,
+        0.03183147525941821,
+        0.0981281334467071,
+        0.03488572494150849,
+        0.3869003191729037,
+        0.07347259124482922,
+        0.14716537640752672,
+        0.275134796741603
+      ],
+      "scale": [
+        0.21417560339156172,
+        0.01913514541160798,
+        0.03588752158236665,
+        0.044094832739744946,
+        0.17305770691954148,
+        0.05974924677820548,
+        0.11423094405788013,
+        0.1364526888596932
+      ],
+      "centers": [
+        [
+          -0.13705324160199517,
+          -0.47025537342772367,
+          -1.1236300129311199,
+          -0.6954908568386893,
+          -0.5776274981458123,
+          -0.8836882702729212,
+          -0.8327272708894978,
+          0.16162873197078045
+        ],
+        [
+          -0.021128763048963377,
+          0.14414713374392712,
+          0.12668346352912319,
+          -0.12706536998859114,
+          0.058993892355747764,
+          -0.1362682546629232,
+          -0.16544498123180254,
+          -0.08819365437018299
+        ],
+        [
+          0.1502612920335412,
+          0.3062703600977276,
+          0.9421690609212077,
+          0.7816894227532054,
+          0.4902662990865074,
+          0.9688843852775402,
+          0.9487906730958927,
+          -0.06792610918710495
+        ]
+      ],
+      "variance": [
+        0.9836938015332434,
+        0.8791184583102313,
+        0.2765714135877386,
+        0.6158799236854205,
+        0.8061318595284698,
+        0.4120519220256829,
+        0.44697154721223437,
+        0.9982856703624255
+      ],
+      "rows_per_class": [
+        811,
+        827,
+        856
+      ]
+    },
+    "physical_recognizer": {
+      "classes": [
+        "calibrated",
+        "joint50",
+        "joint75"
+      ],
+      "mean": [
+        1.0415244459293322,
+        0.03183147525941821,
+        0.0981281334467071
+      ],
+      "scale": [
+        0.21417560339156172,
+        0.01913514541160798,
+        0.03588752158236665
+      ],
+      "centers": [
+        [
+          -0.13705324160199517,
+          -0.47025537342772367,
+          -1.1236300129311199
+        ],
+        [
+          -0.021128763048963377,
+          0.14414713374392712,
+          0.12668346352912319
+        ],
+        [
+          0.1502612920335412,
+          0.3062703600977276,
+          0.9421690609212077
+        ]
+      ],
+      "variance": [
+        0.9836938015332434,
+        0.8791184583102313,
+        0.2765714135877386
+      ],
+      "rows_per_class": [
+        811,
+        827,
+        856
+      ]
+    },
+    "global_coefficient": 0.25,
+    "selection_scope": "Frozen v7 coefficients selected only from the other seed's development days. Recognizers fitted only on the other seed's fixed-policy source blocks. No dependency on v8 and no new coefficient selection in this campaign.",
+    "test_outcomes_used": false
+  }
+}

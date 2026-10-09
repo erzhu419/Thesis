@@ -1,0 +1,73 @@
+{
+  "affinity_cpus": 192,
+  "checkpoint_load_seconds": 0.1508465027436614,
+  "config": {
+    "batch_size": 2048,
+    "beta": -2.0,
+    "beta_bc": 0.001,
+    "beta_ood": 0.01,
+    "checkpoint_interval": 5,
+    "critic_actor_ratio": 2,
+    "ensemble_size": 10,
+    "fixed_mode": "normal",
+    "gamma": 0.99,
+    "hidden_dim": 64,
+    "learning_rate": 1e-05,
+    "max_episodes": 100,
+    "maximum_alpha": 0.6,
+    "mode_switch_max": 7200,
+    "mode_switch_min": 1800,
+    "replay_capacity": 1000000,
+    "reward_scale": 10.0,
+    "role": "specialist",
+    "route_sigma": 1.5,
+    "seed": 17001,
+    "soft_tau": 0.01,
+    "training_freq": 5,
+    "weight_reg": 0.01
+  },
+  "device": "cpu",
+  "episode": {
+    "counts": {
+      "environment_step": 49370,
+      "learner_including_sample": 954,
+      "policy_inference": 5234,
+      "replay_push": 4972,
+      "replay_sample": 954
+    },
+    "elapsed_s": 44.99626080086455,
+    "intra_op_threads": 16,
+    "seconds": {
+      "environment_step": 9.001555121038109,
+      "learner_excluding_sample": 30.943171504419297,
+      "learner_including_sample": 31.3822684972547,
+      "loop_other": 1.9604279873892665,
+      "policy_inference": 2.5168843516148627,
+      "replay_push": 0.04593439167365432,
+      "replay_sample": 0.4390969928354025,
+      "reset_initialize": 0.08919045189395547
+    },
+    "transitions": 4972
+  },
+  "thread_benchmarks": [
+    {
+      "mean_update_ms": 29.74369440926239,
+      "median_update_ms": 29.526767786592245,
+      "threads": 16,
+      "updates": 8
+    },
+    {
+      "mean_update_ms": 28.74299680115655,
+      "median_update_ms": 28.589475667104125,
+      "threads": 32,
+      "updates": 8
+    },
+    {
+      "mean_update_ms": 38.06781827006489,
+      "median_update_ms": 37.393088452517986,
+      "threads": 64,
+      "updates": 8
+    }
+  ],
+  "torch_version": "2.5.1+cu121"
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "project": "Thesis",
+    "description": "Review R3 mcwm/h2o_matched eval0",
+    "signature": "thesis-review-round3-20260929/smoke/mcwm/h2o_matched/eval0",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/review_round3",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/zhengliang01/scheduleurm_work/Thesis/experiments/review_round3/mcwm.py --seed 6201 --out /home/zhengliang01/scheduleurm_work/Thesis/experiments/review_round3/smoke/mcwm/h2o_matched --arm h2o_matched --scenario calibrated --case 0 --evaluate --smoke",
+    "require_node": "node001",
+    "cpu": 1,
+    "ram_mb": 2500,
+    "vram": 0,
+    "env": {
+      "THESIS_H2O_ROOT": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/runtime/H2Oplus",
+      "THESIS_MCWM_ROOT": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/MC-WM",
+      "THESIS_SOURCE_ENV": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/source_env",
+      "THESIS_DATASET": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/contract.h5",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "MPLBACKEND": "Agg",
+      "SDL_VIDEODRIVER": "dummy",
+      "THESIS_SUMO_ROOT": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/assets/SUMO_ruiguang",
+      "SUMO_HOME": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/assets/SUMO_ruiguang",
+      "PYTHONPATH": "/home/zhengliang01/scheduleurm_work/runtimes/h2oplus-eval-v7-sumo125-overlay-v1/site-packages"
+    },
+    "resource_family": "thesis-review-round3-20260929/mcwm/eval0",
+    "vram_resource_family": "thesis-review-round3-20260929/mcwm/eval0/node001",
+    "ram_resource_family": "thesis-review-round3-20260929/mcwm/eval0",
+    "skip_launch_staging": true,
+    "stage_excludes": [
+      "runs",
+      "smoke",
+      "inputs",
+      "gates"
+    ],
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "allow_gpu_over_one_third": true
+  }
+]

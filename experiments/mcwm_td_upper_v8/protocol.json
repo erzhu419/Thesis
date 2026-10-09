@@ -1,0 +1,25 @@
+{
+  "name": "thesis-mcwm-td-upper-v8",
+  "training_seeds": [6201, 6202, 6203],
+  "arms": ["td0125", "td0250", "td0375", "td0500"],
+  "fixed_coefficients": {"td0125": 0.125, "td0250": 0.25, "td0375": 0.375, "td0500": 0.5},
+  "real_td_coefficient": 0.75,
+  "training_nodes": ["jtl110gpu", "jtl110gpu2"],
+  "expected_gpu_model": "RTX 3080 Ti",
+  "development_blocks": [
+    {"demand_seed": 68101, "sumo_seed": 69101},
+    {"demand_seed": 68102, "sumo_seed": 69102},
+    {"demand_seed": 68103, "sumo_seed": 69103},
+    {"demand_seed": 68104, "sumo_seed": 69104},
+    {"demand_seed": 68105, "sumo_seed": 69105}
+  ],
+  "test_blocks": [
+    {"demand_seed": 68301, "sumo_seed": 69301},
+    {"demand_seed": 68302, "sumo_seed": 69302},
+    {"demand_seed": 68303, "sumo_seed": 69303},
+    {"demand_seed": 68304, "sumo_seed": 69304},
+    {"demand_seed": 68305, "sumo_seed": 69305}
+  ],
+  "selection": "Freeze each consumer seed's global and per-context coefficients using only the other two seeds' development outcomes. Reuse the corresponding already-trained fixed policies for test comparisons; do not retrain an identical-coefficient oracle.",
+  "interpretation": "Independent fixed-TD-weight development campaign, not merged with v6 or v7. Three independent reused offline initializer seeds, including the additional 6203 seed. Observed TD scale, normalized confidence, model fitting, actor mixture, source budgets and deployment safeguard unchanged. No adaptive context policy is trained in this campaign."
+}

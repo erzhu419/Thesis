@@ -1,0 +1,25 @@
+{
+  "range": "PDF物理页1–100",
+  "method": "查看5张每20页总览；PDF43、81另放大核对；PDF10目录异常另以pdftotext确认",
+  "status": "needs_fix",
+  "findings": [
+    {
+      "page": 10,
+      "severity": "必须修正",
+      "description": "目录摘要和ABSTRACT两条页码显示“错误!未定义书签。”",
+      "action": "修复TOC引用/书签或正确缓存；摘要原有19段文字与格式保持不变。"
+    }
+  ],
+  "other_observations": [
+    "其他所查页未发现明显整页丢失、页面裁切、表格或公式越出页边。",
+    "PDF43、62在整张图换页之前留白较多，但后续页对应图完整；未据此认定内容缺失。",
+    "PDF81长章标题页眉换为两行，放大检查未压住正文。",
+    "PDF6为中文摘要的稀疏末页，按本轮保护要求保留。"
+  ],
+  "limits": "总览只支持版面形态判断，未逐字逐式复审100页。",
+  "final_resolution": {
+    "page10_toc_bookmarks": "resolved in final native Word export",
+    "verification": "PDF最终核对.json; 页面检查/目录最终.png",
+    "other_1_to_100_pages_text_unchanged": true
+  }
+}

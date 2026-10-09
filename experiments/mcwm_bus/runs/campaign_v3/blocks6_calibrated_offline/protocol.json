@@ -1,0 +1,138 @@
+{
+  "name": "bus-data-interaction-budget-v2",
+  "training_seed": 6201,
+  "offline_block_counts": [
+    2,
+    6
+  ],
+  "offline_blocks": [
+    1201,
+    1202,
+    1203,
+    1204,
+    1205,
+    1206
+  ],
+  "offline_updates": 10000,
+  "source_event_budgets": [
+    4096,
+    16384
+  ],
+  "source_seed": 14201,
+  "source_demand_scale": 1.0,
+  "mismatch_block_count": 6,
+  "mismatch_scenarios": [
+    {
+      "name": "calibrated",
+      "speed_factor": 1.0,
+      "od_factor": 1.0,
+      "extra_signal_fraction": 0.0,
+      "dwell_factor": 1.0,
+      "empirical_runtime": true
+    },
+    {
+      "name": "speed25",
+      "speed_factor": 0.75,
+      "od_factor": 1.0,
+      "extra_signal_fraction": 0.0,
+      "dwell_factor": 1.0,
+      "empirical_runtime": true
+    },
+    {
+      "name": "od25",
+      "speed_factor": 1.0,
+      "od_factor": 1.25,
+      "extra_signal_fraction": 0.0,
+      "dwell_factor": 1.0,
+      "empirical_runtime": true
+    },
+    {
+      "name": "signals25",
+      "speed_factor": 1.0,
+      "od_factor": 1.0,
+      "extra_signal_fraction": 0.25,
+      "dwell_factor": 1.0,
+      "empirical_runtime": true
+    },
+    {
+      "name": "dwell25",
+      "speed_factor": 1.0,
+      "od_factor": 1.0,
+      "extra_signal_fraction": 0.0,
+      "dwell_factor": 1.25,
+      "empirical_runtime": true
+    },
+    {
+      "name": "joint25",
+      "speed_factor": 0.75,
+      "od_factor": 1.25,
+      "extra_signal_fraction": 0.25,
+      "dwell_factor": 1.25,
+      "empirical_runtime": true
+    },
+    {
+      "name": "joint50",
+      "speed_factor": 0.5,
+      "od_factor": 1.5,
+      "extra_signal_fraction": 0.5,
+      "dwell_factor": 1.5,
+      "empirical_runtime": true
+    },
+    {
+      "name": "mechanistic",
+      "speed_factor": 1.0,
+      "od_factor": 1.0,
+      "extra_signal_fraction": 0.0,
+      "dwell_factor": 1.0,
+      "empirical_runtime": false
+    }
+  ],
+  "collection_interval": 32,
+  "policy_updates_per_interval": 4,
+  "model_refresh_events": [
+    1024,
+    8192
+  ],
+  "model_updates_per_member": 400,
+  "model_ensemble_members": 3,
+  "model_max_fit_rows": 4096,
+  "model_max_validation_rows": 1024,
+  "extra_critic_every": 4,
+  "extra_batch_size": 128,
+  "model_fraction_in_extra_loss": 0.25,
+  "model_start_max_horizon_fraction": 0.75,
+  "qdelta_gamma": 0.9,
+  "qdelta_updates_per_extra_step": 1,
+  "deployment_hold_scale": 0.25,
+  "evaluation_demand_scales": [
+    1.0,
+    1.25
+  ],
+  "evaluation_blocks": [
+    {
+      "demand_seed": 13401,
+      "sumo_seed": 13301
+    }
+  ],
+  "departure_jitter_seconds": 120,
+  "evaluation_horizon_seconds": 24000,
+  "evaluation_workers": 8,
+  "notes": [
+    "Every offline initializer is trained from scratch on its permitted complete blocks, not loaded from the full-data initializer.",
+    "World-model fit, stopping, calibration and trust learning use only the same permitted offline pool.",
+    "All source-model data come from the current branch's counted live source interactions.",
+    "Source batches are not split; actual event counts are at most the nominal budget and reported explicitly.",
+    "Same original H2O+ ratio correction and update budget in both continuation methods.",
+    "Single-factor speed, OD intensity, additional signal density and base dwell biases change source transitions; SUMO stays fixed.",
+    "Empirical running times already include baseline junction delay. Additional signal encounters represent only the excess junction density, not a second baseline delay.",
+    "OD intensity scales the OD matrix uniformly; spatial redistribution is not part of this first study.",
+    "Mechanistic disables empirical segment-runtime sampling and uses the original speed/acceleration/signal dynamics. OD, topology and dwell inputs remain unchanged.",
+    "Mismatch branches use the six-block offline pool; their final interaction budget is evaluated first.",
+    "One training seed and one new paired evaluation block per demand; this is a small budget study, not a speed benchmark or broad confirmation."
+  ],
+  "methods": [
+    "blocks6_offline",
+    "blocks6_offline_events4096",
+    "blocks6_offline_events16384"
+  ]
+}

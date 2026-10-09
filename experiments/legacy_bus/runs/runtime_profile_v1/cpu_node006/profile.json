@@ -1,0 +1,204 @@
+{
+  "affinity_cpus": 192,
+  "checkpoint_load_seconds": 0.26202152017503977,
+  "config": {
+    "batch_size": 2048,
+    "beta": -2.0,
+    "beta_bc": 0.001,
+    "beta_ood": 0.01,
+    "checkpoint_interval": 5,
+    "critic_actor_ratio": 2,
+    "ensemble_size": 10,
+    "fixed_mode": "normal",
+    "gamma": 0.99,
+    "hidden_dim": 64,
+    "learning_rate": 1e-05,
+    "max_episodes": 100,
+    "maximum_alpha": 0.6,
+    "mode_switch_max": 7200,
+    "mode_switch_min": 1800,
+    "replay_capacity": 1000000,
+    "reward_scale": 10.0,
+    "role": "specialist",
+    "route_sigma": 1.5,
+    "seed": 17001,
+    "soft_tau": 0.01,
+    "training_freq": 5,
+    "weight_reg": 0.01
+  },
+  "device": "cpu",
+  "episode": {
+    "counts": {
+      "environment_step": 49331,
+      "learner_including_sample": 946,
+      "policy_inference": 5234,
+      "replay_push": 4972,
+      "replay_sample": 946
+    },
+    "elapsed_s": 88.05382031109184,
+    "seconds": {
+      "environment_step": 10.276679801754653,
+      "learner_excluding_sample": 72.76042029866949,
+      "learner_including_sample": 73.55009552743286,
+      "loop_other": 1.6310208458453417,
+      "policy_inference": 2.45108740311116,
+      "replay_push": 0.05589400650933385,
+      "replay_sample": 0.7896752287633717,
+      "reset_initialize": 0.08904272643849254
+    },
+    "transitions": 4972
+  },
+  "evaluation": {
+    "cells": 6,
+    "max_outcome_difference": 0.0,
+    "parallel": [
+      {
+        "arrived_passengers": 10081,
+        "elapsed_seconds": 5.961161781102419,
+        "evaluation_seed": 15001,
+        "generalized_seconds_per_passenger": 1418.325561558146,
+        "onboard_tail": 385,
+        "scene": "normal",
+        "waiting_tail": 85
+      },
+      {
+        "arrived_passengers": 10043,
+        "elapsed_seconds": 6.055624621920288,
+        "evaluation_seed": 15002,
+        "generalized_seconds_per_passenger": 1353.9527476706598,
+        "onboard_tail": 397,
+        "scene": "normal",
+        "waiting_tail": 78
+      },
+      {
+        "arrived_passengers": 10021,
+        "elapsed_seconds": 6.116453459952027,
+        "evaluation_seed": 15003,
+        "generalized_seconds_per_passenger": 1373.03641910573,
+        "onboard_tail": 389,
+        "scene": "normal",
+        "waiting_tail": 79
+      },
+      {
+        "arrived_passengers": 11185,
+        "elapsed_seconds": 6.439564498141408,
+        "evaluation_seed": 15001,
+        "generalized_seconds_per_passenger": 2065.9097355468425,
+        "onboard_tail": 538,
+        "scene": "fast_switch",
+        "waiting_tail": 264
+      },
+      {
+        "arrived_passengers": 11199,
+        "elapsed_seconds": 6.37545113498345,
+        "evaluation_seed": 15002,
+        "generalized_seconds_per_passenger": 1943.6969975746424,
+        "onboard_tail": 503,
+        "scene": "fast_switch",
+        "waiting_tail": 255
+      },
+      {
+        "arrived_passengers": 11103,
+        "elapsed_seconds": 5.5391517309471965,
+        "evaluation_seed": 15003,
+        "generalized_seconds_per_passenger": 1892.3459145931406,
+        "onboard_tail": 513,
+        "scene": "fast_switch",
+        "waiting_tail": 280
+      }
+    ],
+    "parallel_seconds_including_startup": 14.105980976019055,
+    "serial": [
+      {
+        "arrived_passengers": 10081,
+        "elapsed_seconds": 5.42348149465397,
+        "evaluation_seed": 15001,
+        "generalized_seconds_per_passenger": 1418.325561558146,
+        "onboard_tail": 385,
+        "scene": "normal",
+        "waiting_tail": 85
+      },
+      {
+        "arrived_passengers": 10043,
+        "elapsed_seconds": 5.372773610986769,
+        "evaluation_seed": 15002,
+        "generalized_seconds_per_passenger": 1353.9527476706598,
+        "onboard_tail": 397,
+        "scene": "normal",
+        "waiting_tail": 78
+      },
+      {
+        "arrived_passengers": 10021,
+        "elapsed_seconds": 5.200337233953178,
+        "evaluation_seed": 15003,
+        "generalized_seconds_per_passenger": 1373.03641910573,
+        "onboard_tail": 389,
+        "scene": "normal",
+        "waiting_tail": 79
+      },
+      {
+        "arrived_passengers": 11185,
+        "elapsed_seconds": 5.359919619746506,
+        "evaluation_seed": 15001,
+        "generalized_seconds_per_passenger": 2065.9097355468425,
+        "onboard_tail": 538,
+        "scene": "fast_switch",
+        "waiting_tail": 264
+      },
+      {
+        "arrived_passengers": 11199,
+        "elapsed_seconds": 5.499055501073599,
+        "evaluation_seed": 15002,
+        "generalized_seconds_per_passenger": 1943.6969975746424,
+        "onboard_tail": 503,
+        "scene": "fast_switch",
+        "waiting_tail": 255
+      },
+      {
+        "arrived_passengers": 11103,
+        "elapsed_seconds": 5.6642094720155,
+        "evaluation_seed": 15003,
+        "generalized_seconds_per_passenger": 1892.3459145931406,
+        "onboard_tail": 513,
+        "scene": "fast_switch",
+        "waiting_tail": 280
+      }
+    ],
+    "serial_seconds": 33.78301006369293,
+    "speedup": 2.3949422674768885,
+    "workers": 6
+  },
+  "thread_benchmarks": [
+    {
+      "mean_update_ms": 92.52280227374285,
+      "median_update_ms": 100.3217687830329,
+      "threads": 1,
+      "updates": 20
+    },
+    {
+      "mean_update_ms": 41.64185645058751,
+      "median_update_ms": 39.13630801253021,
+      "threads": 2,
+      "updates": 20
+    },
+    {
+      "mean_update_ms": 37.35211482271552,
+      "median_update_ms": 38.12303254380822,
+      "threads": 4,
+      "updates": 20
+    },
+    {
+      "mean_update_ms": 36.793678579851985,
+      "median_update_ms": 34.364230930805206,
+      "threads": 8,
+      "updates": 20
+    },
+    {
+      "mean_update_ms": 28.727801982313395,
+      "median_update_ms": 29.392561176791787,
+      "threads": 16,
+      "updates": 20
+    }
+  ],
+  "torch_version": "2.5.1+cu121"
+}

@@ -1,0 +1,14 @@
+# H_tpc: TransitDuet full + TPC-Lower (target-policy-corrected lower SAC)
+# Designed to beat the Fixed baseline by preventing upper-exploration noise
+# from contaminating the lower's training distribution. See runner_v2.py
+# _build_tpc_weight_fn for IS weight computation.
+_extends: ../config_v2.yaml
+_name: H_tpc
+
+coupling:
+  tpc:
+    enable: true
+    eps_explore: 0.25
+    sigma_tgt: 20.0
+    w_max: 5.0
+    ema_tau: 0.005

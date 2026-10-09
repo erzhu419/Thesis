@@ -1,0 +1,82 @@
+# TransitDuet v2 Configuration
+# ============================
+# Per-trip departure adjustment + holding feedback coupling
+
+env:
+  path: "env"
+  route_sigma: 1.5
+  demand_noise: 0.15             # per-hour multiplier std (0=deterministic, 0.15=±15%)
+  max_agent_num: 25
+  effective_trip_num: 264
+
+upper:
+  state_dim: 11                 # v2k: +1 for N_fleet budget
+  action_dim: 1                 # v2: single δ_t per dispatch
+  delta_max: 120.0              # max departure shift (seconds)
+  hidden_dim: 64
+  lr: 0.0003
+  gamma: 0.95
+  N_fleet: 12                   # default when fleet_mode=fixed
+  fleet_mode: elastic           # 'fixed' or 'elastic'
+  fleet_min: 8                  # min N_fleet for elastic sampling
+  fleet_max: 16                 # max N_fleet for elastic sampling
+  ensemble_size: 10
+  resac_beta: -2.0
+  maximum_alpha: 0.05             # low: 1D action needs less entropy
+  replay_capacity: 50000
+  batch_size: 64
+  updates_per_episode: 10
+
+lower:
+  hidden_dim: 64
+  action_range: 60.0
+  cost_limit: 0.5
+  batch_size: 512
+  updates_per_episode: 30
+  lr: 0.0003
+  lambda_lr: 0.0001              # reduced: prevent λ oscillation
+  gamma: 0.99
+  soft_tau: 0.005
+  auto_entropy: true
+  maximum_alpha: 0.1               # reduced: let δ_t converge
+  reward_scale: 1.0
+  ensemble_size: 10
+  resac_beta: -2.0
+  beta_ood: 0.1               # increased: accelerate ensemble convergence
+  weight_reg: 0.01
+
+coupling:
+  upper_warmup_eps: 30          # lower trains alone first
+  alpha_holding: 0.5            # weight on holding penalty in upper reward
+  feedback_window: 10           # rolling window for holding stats
+  measurement_lr: 0.01          # θ-OGD learning rate
+  # CS-BAPR belief (non-stationarity detection)
+  surprise_ema: 0.3
+  belief_max_H: 20
+  belief_hazard: 0.05
+  belief_alpha_boost: 2.0        # max exploration boost on changepoint
+  # TPC-Lower (Target-Policy-Corrected lower SAC). Defaults off; A_full_tpc
+  # ablation flips enable=true to address the lower-distribution-drift problem
+  # that lets the Fixed baseline beat us on mean wait under noisy/elastic env.
+  tpc:
+    enable: false
+    eps_explore: 0.25            # behaviour mixture: 25% π_U + 75% N(target, σ_tgt)
+    sigma_tgt: 20.0              # std (sec) of target-mode Gaussian around EMA mean
+    w_max: 5.0                   # IS weight clip
+    ema_tau: 0.005               # Polyak rate for target upper
+    meta_max_size: 200000        # max stored dispatch metadata entries
+
+  # v3 cross-level coupling mode (runner_v3 only). Default 'channels' = current v2.
+  coupling_mode: channels        # one of: channels | haar | hiro
+  haar:
+    beta: 0.5                    # weight on clipped advantage injected to lower reward
+    clip: 0.5                    # |A_U| clip bound (advantage scale control)
+    use_reach_gate: true         # PIPER-style reachability gate on the bonus
+    reach_lr: 1.0e-3
+    reach_threshold: 0.5         # |gap_dev| < threshold ⇒ label = reachable
+
+training:
+  total_episodes: 300
+  eval_freq: 5
+  save_freq: 50
+  replay_buffer_size: 500000

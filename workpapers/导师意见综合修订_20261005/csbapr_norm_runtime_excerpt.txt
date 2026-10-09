@@ -1,0 +1,29 @@
+source: node007:/home/zhengliang01/scheduleurm_work/Thesis/experiments/enhancement_v1/runtime/cs/CS-BAPR/csbapr/utils.py lines 18-45
+def compute_reg_norm(model: nn.Module) -> torch.Tensor:
+    """
+    Compute L1 regularization norm for critic parameters.
+    Adapted from BAPR/sac_ensemble_bapr.py:compute_reg_norm
+    
+    Returns: [ensemble_size] tensor of per-critic L1 norms
+    """
+    weight_norms = []
+    bias_norms = []
+    for name, param in model.named_parameters():
+        if 'critic' in name:
+            if 'weight' in name:
+                weight_norms.append(torch.norm(param, p=1, dim=[1, 2]))
+            elif 'bias' in name:
+                bias_norms.append(torch.norm(param, p=1, dim=[1, 2]))
+    
+    if not weight_norms:
+        return torch.zeros(1, device=next(model.parameters()).device)
+    
+    reg = torch.sum(torch.stack(weight_norms), dim=0)
+    if bias_norms:
+        reg = reg + torch.sum(torch.stack(bias_norms[:-1]), dim=0)
+    return reg
+
+
+class ReplayBuffer:
+    """
+    Standard replay buffer.

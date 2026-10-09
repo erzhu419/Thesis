@@ -1,0 +1,28 @@
+[
+  {
+    "project": "Thesis",
+    "description": "TransitDuet feedback benchmark/evaluation_smoke",
+    "signature": "thesis-feedback-v1/benchmark/evaluation_smoke",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/zhengliang01/scheduleurm_work/Thesis/experiments/transit_feedback/run.py --eval-smoke --arm masked",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/transit_feedback",
+    "cpu": 2,
+    "ram_mb": 2500,
+    "vram": 0,
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MPLBACKEND": "Agg",
+      "SDL_VIDEODRIVER": "dummy",
+      "PYGAME_HIDE_SUPPORT_PROMPT": "1"
+    },
+    "skip_launch_staging": true,
+    "require_node": "node003",
+    "result_dir": "/home/erzhu419/mine_code/Thesis/experiments/transit_feedback/benchmarks",
+    "local_result_dir": "/home/erzhu419/mine_code/Thesis/experiments/transit_feedback/benchmarks",
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Matched bus training uses one thread; independent seeds and post-training test episodes are parallelized.",
+    "allow_no_resume": true,
+    "allow_no_ckpt": true
+  }
+]

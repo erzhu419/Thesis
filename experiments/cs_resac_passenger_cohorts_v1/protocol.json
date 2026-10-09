@@ -1,0 +1,19 @@
+{
+  "name": "thesis-cs-resac-passenger-cohorts-v1",
+  "methods": ["resac", "csbapr"],
+  "training_seeds": [64001, 64002],
+  "evaluation_seeds": [78101, 78102, 78103],
+  "scenes": ["normal", "burst50"],
+  "objective": "passenger",
+  "action": "holding",
+  "horizon_seconds": 18000,
+  "burst_start": 3600,
+  "burst_end": 4200,
+  "extra_multiplier": 49,
+  "nodes": ["node001", "node002", "node003", "node004", "node005", "node006", "node007", "jtl110gpu", "jtl110gpu2", "jtl311linux"],
+  "checkpoints": {
+    "resac": "resac_native_recipe_v8/runs/holding/passenger/resac_seed{seed}/budget100/policy.pt",
+    "csbapr": "reward_cross_v1/runs/cs/passenger/normal/csbapr_no_nau_seed{seed}/policy.pt"
+  },
+  "contract": "Frozen 100-episode passenger-objective actors; no training. Baseline Poisson arrivals use a dedicated per-line stream shared across methods and scenes. A separate stream adds 49 times the baseline rate during the 600-second burst. Simultaneous baseline and extra arrivals are randomly interleaved without giving baseline passengers priority. Passenger timestamps define waiting and onboard time accumulated within the fixed horizon, including unfinished trips. Compare each method's baseline cohort in burst50 with that same method and cohort in normal. These are new paired diagnostic evaluations, not a retrospective partition of the old unlabelled results."
+}

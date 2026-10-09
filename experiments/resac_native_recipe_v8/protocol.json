@@ -1,0 +1,17 @@
+{
+  "name": "thesis-resac-native-recipe-v8",
+  "training_seeds": [64001, 64002],
+  "modes": ["holding", "dual"],
+  "objectives": ["headway", "passenger"],
+  "arms": ["resac", "sac", "aleatoric_only", "epistemic_only"],
+  "episodes": 100,
+  "checkpoints": [100],
+  "horizon_seconds": 18000,
+  "hidden_dim": 64,
+  "ensemble_size": 10,
+  "batch_size": 2048,
+  "learning_rate": 0.00001,
+  "training_freq": 5,
+  "training_nodes": ["node001", "node002", "node003", "node004", "node005", "node006", "node007"],
+  "interpretation": "Restore the original PyTorch bus optimization recipe and channel definitions: shared actor/critic category embedding, learning rate 1e-5, batch 2048, ten critics (two for the archived SAC configuration), without-replacement replay samples and five settled transitions per update. Retain the frozen multi-line observations, normalization, same-vehicle feedback, physical actions and evaluation days; this is not the original single-corridor environment. All new methods and reused CS references have 100 training episodes. Archived 500-episode original-environment results remain separate. The recipe restoration is a bundle, not a single-factor learning-rate attribution."
+}

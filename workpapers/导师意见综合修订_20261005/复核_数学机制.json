@@ -1,0 +1,130 @@
+{
+  "document": "/home/erzhu419/mine_code/Thesis/output/排版完成_导师意见复核_20261005.docx",
+  "scope": "独立核对最终保存Word的数学/机制文字与原生OMML，对照两份审阅文本、GPT_last_round_opinion.md、math_findings.json、math_followup.json及已闭合的实现来源；未导出或重试PDF。段落ID为当前文件直接body段落0-based。",
+  "confirmed_correct": [
+    {
+      "review": "R01",
+      "location": "table269, B-25",
+      "evidence": "三行eqArr保留KL链式恒等式、求和符号、两个完整条件核与乘积续行；编号仍在独立单元格。",
+      "status": "语义正确，视觉未验证"
+    },
+    {
+      "review": "R02",
+      "location": "p2304",
+      "evidence": "增益矩阵紧接“对角执行器增益为”，其后才说明无量纲执行信号和命令加噪截断。"
+    },
+    {
+      "review": "R03",
+      "location": "p2663, table390 D-58",
+      "evidence": "已明确逐环境基准函数值误差、连接线段上的导数界和统一ε_val条件，足以支持引用命题D.4。"
+    },
+    {
+      "review": "R07局部公式",
+      "location": "table70, 3-24",
+      "evidence": "phi_j目标上标已经由撇号统一为负号，原生上标结构保留。"
+    },
+    {
+      "review": "R08",
+      "location": "p1752",
+      "evidence": "平均违例次数OMML已紧接对应名词，验证索引与peak/final解释位置正确，恢复规则未改。"
+    },
+    {
+      "review": "R15/R16",
+      "location": "p1174,p1195,p1207-1209",
+      "evidence": "显式模式后验与公交运行长度证据权重已分开；完整惊异度、指数证据、hazard移位、截断归一化、加权系数和冻结执行链均已写入。参数对应服务器保存训练config与驻留源码，不是默认推测。"
+    },
+    {
+      "review": "R17及BC差异",
+      "location": "p1197,p1203,p1347",
+      "evidence": "首次算法介绍提前说明主配置不启用符号发现/IRM；100回合稳定化MLP和NAU均BC=0，前序BC=.001及权重衰减差别明确，与实际配置相符。"
+    },
+    {
+      "review": "R21关键补充比较",
+      "location": "p1136,p1140-1141",
+      "evidence": "多线路与旧走廊分别给出评论家数量、范数通道、分歧通道、演员悲观系数、BC及续接终止规则，未将不同控制器混称为同一消融。"
+    },
+    {
+      "review": "R22",
+      "location": "p987",
+      "evidence": "已改为当前演员采样后继动作，未再暗示额外目标演员。"
+    },
+    {
+      "review": "R25",
+      "location": "p1714,p1717,p1721-1725, table177 6-8",
+      "evidence": "标题与解释均区分线性逐输出连接及神经余项特征并集；一维m_sup形状保留，未宣称完整神经残差保持逐输出稀疏关系。"
+    },
+    {
+      "review": "R26",
+      "location": "p1862-1864",
+      "evidence": "已给源/残差状态RMSE比值、分母下限10^-6及[2,4.5)直接模型阈值；与正式联合标准化校准误差选模分别解释，匹配冻结协议和源码。"
+    },
+    {
+      "review": "R36",
+      "location": "p2284及附录A适用范围",
+      "evidence": "权重范数和不能替代Lipschitz范数乘积、不能自动解释为环境方差和鲁棒下界的正确限制完整保留。没有为了公开摘要反向增强主张。"
+    },
+    {
+      "review": "GPT正文小项：奖励交换对称",
+      "location": "p888-894,p1351",
+      "evidence": "现文用间隔不平衡描述惩罚对象，没有声称含ε稳定常数的权重严格交换对称。无需修改实际奖励或追加无必要推导。"
+    }
+  ],
+  "remaining_actionable": [
+    {
+      "severity": "minor_notation",
+      "location": "p465对p1733及第6章目标置信公式",
+      "problem": "符号总约定仍称“目标网络参数统一以上标负号标记”，但第6章明确使用横线ξ表示目标置信评价器；各公式本身已有定义，问题是总约定过强。",
+      "suggested_text": "第3、4章目标网络参数以上标负号标记，第6章目标置信评价器采用其首次定义的横线记号。"
+    },
+    {
+      "severity": "implementation_reporting",
+      "location": "p1198-1199, table102 4-5",
+      "problem": "式4-5只展示min-Q与熵，而实际公交价值更新还保留正范数目标偏移和评论家分歧损失。新增运行长度链闭合了演员系数，但尚未说明这两项，因此式4-5容易被当成完整实际目标。",
+      "suggested_text": "式(4-5)突出最小值聚合与熵项。公交主配置对每个目标评论家还保留系数0.01的正参数范数偏移；该范数为全部权重和非输出层偏置的L1范数之和，并与聚合值一起乘以折扣及非终止掩码。评论家回归损失另加入系数0.1的当前批动作价值集成标准差均值。因而，式(4-5)所示聚合、固定目标偏移和集成分歧正则共同构成实际价值更新。",
+      "evidence": [
+        "csbapr_runtime_readback.json: agent_ranges.681-730",
+        "csbapr_runtime_readback.json: 两个实际训练run_configs均weight_reg=.01,beta_ood=.1",
+        "csbapr_norm_runtime_excerpt.txt: node007对应驻留utils.py 18-45行，范数非负且包含权重及非输出层偏置"
+      ],
+      "note": "符号确实是正偏移，不能写成减去非负范数；无需改实验或反推新结果。"
+    }
+  ],
+  "unadopted_presentation_suggestions": [
+    {
+      "review": "R41",
+      "status": "未执行合并；不是数学错误",
+      "evidence": "附录仍分别保留截断、非负归一化及三角不等式等工具性命题。合并会涉及既有命题编号/交叉引用，不应称该结构建议已经落实。"
+    },
+    {
+      "review": "R42/文字审校示例10",
+      "location": "p2348,p2465",
+      "status": "部分字形解释仍未精简；不是数学错误",
+      "evidence": "p2348仍写“普通字形的递归更新映射…”并区分花体；p2465仍重复普通字形与花体区别。",
+      "p2348_suggested_text": "设初始置信为ρ₀，转移记录为ξ₀,ξ₁,…。记U为置信更新映射，S为动作选择映射。第k个动作仅使用前k个已完成转移，并由当前置信及状态确定命令："
+    }
+  ],
+  "controlled_experiment_tables": {
+    "source_final_confirmation": "/home/erzhu419/mine_code/MC-WM/paper/generated/final_confirmation/algorithm_confirmation_results.json",
+    "source_final_exact_routing": "/home/erzhu419/mine_code/MC-WM/paper/generated/final_exact_routing/algorithm_confirmation_results.json",
+    "training_seeds": [
+      952414860,
+      497490726,
+      976484671,
+      1203477667,
+      649309737,
+      1948270621,
+      295539546,
+      2083804829,
+      2067011602,
+      173749511
+    ],
+    "table_6_2_to_6_4_cells_checked": 36,
+    "table_6_5_cells_checked": 6,
+    "number_of_displayed_numeric_values_checked": 90,
+    "all_matches": true,
+    "mismatches": [],
+    "interpretation": "Tables 6-2 to 6-4 quote final_confirmation, not the older root-level algorithm_confirmation_results or confirmatory_results. Table 6-5 quotes final_exact_routing. 4084.9±2105.9 is the Ant mean and sample standard deviation across 10 seeds in that original frozen final batch. The table values are correct; no substitution with another cohort is warranted."
+  },
+  "visual_status": "本轮没有成功PDF可供复查；B-25遮挡、章节留白、跨页等视觉项目保持未验证，不能据原生XML宣称排版已经全部通过。",
+  "verdict": "此前确认的核心数学修复与运行长度/稀疏/选模机制均已实际落实；表6-2至6-5的90个数字正确对应原冻结批次。仍有上列2处记号/实现说明可补，另2类呈现建议并未全部采用。"
+}

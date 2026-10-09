@@ -1,0 +1,10 @@
+# H_fixed_timetable: fixed 360 s rolling timetable with the same lower SAC
+# architecture as H_timetable_disc. The upper stays inactive for all training
+# episodes, so this is the strict fixed-timetable SAC baseline.
+_extends: H_timetable_disc.yaml
+_name: H_fixed_timetable
+
+coupling:
+  upper_warmup_eps: 1000000
+  timetable:
+    base_headway: 360.0

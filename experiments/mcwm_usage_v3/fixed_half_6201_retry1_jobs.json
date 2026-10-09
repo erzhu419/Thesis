@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Thesis",
+    "description": "MC-WM use joint75/fixed_half_seed6201 train (retry after prelaunch SSH failure)",
+    "signature": "thesis-mcwm-usage-v3/runs/joint75/fixed_half_seed6201/train/ssh-retry1",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_usage_v3",
+    "cmd": "/home/erzhu419/.venvs/scheduleurm-torch-bench/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/mcwm_usage_v3/run.py --arm fixed_half --scenario joint75 --seed 6201 --out /home/erzhu419/mine_code/Thesis/experiments/mcwm_usage_v3/runs/joint75/fixed_half_seed6201",
+    "require_node": "jtl311linux",
+    "cpu": 1,
+    "ram_mb": 13000,
+    "vram": 1024,
+    "env": {
+      "THESIS_H2O_ROOT": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_bus/runtime/H2Oplus",
+      "THESIS_MCWM_ROOT": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_bus/runtime/MC-WM",
+      "THESIS_SOURCE_ENV": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_bus/runtime/source_env",
+      "THESIS_DATASET": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_bus/runtime/dataset.h5",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "MPLBACKEND": "Agg",
+      "SDL_VIDEODRIVER": "dummy"
+    },
+    "resource_family": "thesis-mcwm-usage-v3/train",
+    "ram_resource_family": "thesis-mcwm-usage-v3/train",
+    "vram_resource_family": "thesis-mcwm-usage-v3/train/jtl311linux",
+    "skip_launch_staging": true,
+    "stage_excludes": [
+      "runs",
+      "smoke",
+      "gates"
+    ],
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "allow_gpu_over_one_third": true
+  }
+]

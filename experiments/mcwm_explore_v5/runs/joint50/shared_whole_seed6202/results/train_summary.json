@@ -1,0 +1,219 @@
+{
+  "arm": "shared_whole",
+  "seed": 6202,
+  "scenario": "joint50",
+  "source_events": 25000,
+  "continuation_updates": 20000,
+  "total_policy_updates": 70000,
+  "total_critic_updates": 70000,
+  "target_online_training_events": 0,
+  "model_history": [
+    {
+      "source_events": 5000,
+      "selected_family": "direct",
+      "calibration_loss": {
+        "direct": 1.456627607345581,
+        "residual": 1.4567838907241821
+      },
+      "mechanism_loss": {
+        "direct": {
+          "event": 2.3409621715545654,
+          "duration": 0.5357140898704529,
+          "service": 0.5308709144592285,
+          "headway": 0.7486790418624878,
+          "cost": 0.5934333801269531
+        },
+        "residual": {
+          "event": 2.338209867477417,
+          "duration": 0.5448725819587708,
+          "service": 0.5338714122772217,
+          "headway": 0.7481563687324524,
+          "cost": 0.6097432374954224
+        }
+      },
+      "selected_mechanisms": {
+        "event": "direct",
+        "duration": "direct",
+        "service": "direct",
+        "headway": "direct",
+        "cost": "direct"
+      },
+      "heterogeneous_selection": false
+    },
+    {
+      "source_events": 10001,
+      "selected_family": "residual",
+      "calibration_loss": {
+        "direct": 1.4730985164642334,
+        "residual": 1.4724981784820557
+      },
+      "mechanism_loss": {
+        "direct": {
+          "event": 2.3498942852020264,
+          "duration": 0.5290061235427856,
+          "service": 0.5896451473236084,
+          "headway": 0.7694222927093506,
+          "cost": 0.5839270353317261
+        },
+        "residual": {
+          "event": 2.348176956176758,
+          "duration": 0.5344531536102295,
+          "service": 0.5891448259353638,
+          "headway": 0.7692531943321228,
+          "cost": 0.584330141544342
+        }
+      },
+      "selected_mechanisms": {
+        "event": "residual",
+        "duration": "residual",
+        "service": "residual",
+        "headway": "residual",
+        "cost": "residual"
+      },
+      "heterogeneous_selection": false,
+      "fit_weight_range": [
+        0.10000000149011612,
+        1.0
+      ]
+    },
+    {
+      "source_events": 15001,
+      "selected_family": "residual",
+      "calibration_loss": {
+        "direct": 1.449629545211792,
+        "residual": 1.4463218450546265
+      },
+      "mechanism_loss": {
+        "direct": {
+          "event": 2.328190803527832,
+          "duration": 0.5796443223953247,
+          "service": 0.5124047994613647,
+          "headway": 0.7393977642059326,
+          "cost": 0.6086400747299194
+        },
+        "residual": {
+          "event": 2.3226723670959473,
+          "duration": 0.5829141139984131,
+          "service": 0.5132980942726135,
+          "headway": 0.7363976836204529,
+          "cost": 0.6082008481025696
+        }
+      },
+      "selected_mechanisms": {
+        "event": "residual",
+        "duration": "residual",
+        "service": "residual",
+        "headway": "residual",
+        "cost": "residual"
+      },
+      "heterogeneous_selection": false,
+      "fit_weight_range": [
+        0.10000000149011612,
+        1.0
+      ]
+    },
+    {
+      "source_events": 20001,
+      "selected_family": "residual",
+      "calibration_loss": {
+        "direct": 1.4634954929351807,
+        "residual": 1.4629230499267578
+      },
+      "mechanism_loss": {
+        "direct": {
+          "event": 2.3569159507751465,
+          "duration": 0.5090317130088806,
+          "service": 0.5344159007072449,
+          "headway": 0.7580917477607727,
+          "cost": 0.5615046620368958
+        },
+        "residual": {
+          "event": 2.354250192642212,
+          "duration": 0.5137447714805603,
+          "service": 0.5364686250686646,
+          "headway": 0.7590725421905518,
+          "cost": 0.5600033402442932
+        }
+      },
+      "selected_mechanisms": {
+        "event": "residual",
+        "duration": "residual",
+        "service": "residual",
+        "headway": "residual",
+        "cost": "residual"
+      },
+      "heterogeneous_selection": false,
+      "fit_weight_range": [
+        0.10000000149011612,
+        1.0
+      ]
+    }
+  ],
+  "phases": {
+    "dataset_loading": {
+      "wall_seconds": 25.318615057040006,
+      "cpu_seconds": 24.838072114,
+      "calls": 1
+    },
+    "source_collection": {
+      "wall_seconds": 323.91179850976914,
+      "cpu_seconds": 323.9270886340026,
+      "calls": 629
+    },
+    "source_model_fit": {
+      "wall_seconds": 33.68697022926062,
+      "cpu_seconds": 33.715684303,
+      "calls": 3
+    },
+    "target_model_fit": {
+      "wall_seconds": 75.12057445012033,
+      "cpu_seconds": 75.15757526200001,
+      "calls": 6
+    },
+    "model_refresh": {
+      "wall_seconds": 200.521435782779,
+      "cpu_seconds": 200.54615363500022,
+      "calls": 4
+    },
+    "bellman_trust_update": {
+      "wall_seconds": 54.51223611924797,
+      "cpu_seconds": 54.512411076995676,
+      "calls": 5000
+    },
+    "model_training_batch": {
+      "wall_seconds": 732.1155688050203,
+      "cpu_seconds": 732.2762829419877,
+      "calls": 20000
+    },
+    "policy_update": {
+      "wall_seconds": 2028.3286926224828,
+      "cpu_seconds": 2028.3813356140154,
+      "calls": 20000
+    },
+    "mechanism_diagnostics": {
+      "wall_seconds": 5.947117179166526,
+      "cpu_seconds": 5.941943444000458,
+      "calls": 20
+    },
+    "policy_fit_weights": {
+      "wall_seconds": 13.428596598096192,
+      "cpu_seconds": 13.432610201999864,
+      "calls": 3
+    },
+    "target_model_refit": {
+      "wall_seconds": 74.81610905146226,
+      "cpu_seconds": 74.81911369400007,
+      "calls": 3
+    },
+    "refresh_trust_errors": {
+      "wall_seconds": 1.310191557276994,
+      "cpu_seconds": 1.3110615020001433,
+      "calls": 3
+    }
+  },
+  "training_wall_seconds": 2586.5453481576405,
+  "reused_offline_updates": 50000,
+  "peak_host_rss_mb": 8427.08984375,
+  "peak_gpu_allocated_mb": 212.056640625,
+  "peak_gpu_reserved_mb": 300.0
+}

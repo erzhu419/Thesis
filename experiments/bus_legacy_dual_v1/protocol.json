@@ -1,0 +1,36 @@
+{
+  "name": "thesis-bus-legacy-dual-v1",
+  "objectives": ["headway", "passenger"],
+  "episodes": 100,
+  "modes": ["holding", "dual"],
+  "training_modes": ["dual"],
+  "native_seeds": [64001, 64002, 64003, 64004, 64005],
+  "symbolic_seeds": [64001, 64002],
+  "arms": {
+    "resac": ["resac", "ensemble_sac_control"],
+    "cs_native": ["legacy_nau", "legacy_mlp"],
+    "cs_symbolic": ["smooth_soft", "soft_no_symbolic"]
+  },
+  "evaluation_seeds": {
+    "resac": [64101, 64102, 64103],
+    "cs_native": [64101, 64102, 64103],
+    "cs_symbolic": [74101, 74102, 74103]
+  },
+  "legacy_scenes": ["normal", "demand_surge", "fast_switch"],
+  "cs_scenes": {
+    "normal": [[0, 1.0]],
+    "pulse": [[0, 1.0], [3600, 5.0], [5400, 1.0]],
+    "repeated": [[0, 1.0], [3600, 5.0], [5400, 1.0], [9000, 5.0], [10800, 1.0], [14400, 5.0], [16200, 1.0]]
+  },
+  "horizon_seconds": {"resac": 24000, "cs_native": 18000, "cs_symbolic": 18000},
+  "threads": {"resac": 4, "cs_native": 1, "cs_symbolic": 1},
+  "nodes": ["node001", "node002", "node003", "node004", "node005", "node006", "node007"],
+  "hold_seconds": [0, 60],
+  "speed_ratio": [0.8, 1.2],
+  "resac_action": "Both actor coordinates use the existing 0..60 policy units. Coordinate 0 is holding seconds; coordinate 1 maps affinely to speed ratio 0.8..1.2. Replay and critic retain both original policy coordinates.",
+  "cs_action": "Both actor coordinates remain in -1..1. Holding is 30*(a0+1); speed ratio is 1+0.2*a1. Replay retains the complete normalized action, not physical commands.",
+  "reward": "Headway retains each frozen environment's native rigid/ridge reward. Passenger is -(2*global_wait_increment+global_in_vehicle_increment) over the unchanged same-vehicle observation interval. Operating metrics use one independent system integral, not a sum of overlapping rewards.",
+  "symbolic_extension": "Reuse the frozen one-control SINDy holding reference and repaired normalized Jacobian penalties only on the holding output. No speed-effect reference is inferred from data that contained no speed interventions. The second policy output and its critic coupling are learned through SAC.",
+  "comparison": "Reuse all existing uninterrupted 100-episode holding endpoints and their exact evaluation seeds. The NAU/MLP and symbolic cohorts have distinct evaluation days and are reported separately. New dual policies use all prespecified seeds and final endpoints; no test-based selection. Include zero-holding fixed-speed 1.2 controls separately from learned policies.",
+  "preservation": "Only this new experiment directory is edited. Existing Thesis branches and active RE-SAC, CS-BAPR, CFCMT and sumo-rl projects are unchanged. Server-resident policies, runtime snapshots and identification data are reused without downloading them. Only compact analysis is retrieved."
+}

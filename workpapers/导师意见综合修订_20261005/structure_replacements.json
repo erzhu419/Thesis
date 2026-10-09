@@ -1,0 +1,254 @@
+[
+  {
+    "paragraph_id": 62,
+    "old": "随机客流和路况变化使公交车头时距失衡，增加串车风险和乘客等待时间。驻站可调节车辆离站时刻，但受到车辆与站点差异、环境条件及动作上限的制约。强化学习可依据状态选择动作，却难以在实际运营中反复试错，最终策略又面临训练与使用环境的分布偏移，使其现实部署面临困难。本文围绕从仿真到现实的驻站控制，先研究未预先获得目标域训练数据时的平稳随机鲁棒学习与非平稳随机适应学习，再研究获得目标域离线数据后的跨保真训练及模型修正。",
+    "new": "客流到达与道路运行时间的随机波动容易造成公交车头时距失衡，增加串车风险和乘客等待时间。驻站控制通过主动延迟车辆离站调节相邻车辆间隔，但其效果受到车辆状态、运行条件和允许驻站时长的制约。针对实际公交运营中训练交互受限，以及仿真训练与目标环境之间存在分布差异的问题，本文围绕共享策略的鲁棒学习、非平稳运行中的条件响应、目标离线数据支持的跨保真训练和世界模型修正开展研究。",
+    "reason": "从交通问题引入四项研究，减少信息条件的重复。"
+  },
+  {
+    "paragraph_id": 64,
+    "old": "（1）针对不同车辆与站点的差异及随机运行中的动作价值估计波动，提出结合类别特征嵌入与连续状态的共享驻站策略，并提出鲁棒集成软演员评论家方法（Robust Ensemble Soft Actor-Critic，RE-SAC）。以候车时间的两倍与车内时间之和作为广义乘客时间，在学习器及训练设置一致的类别表征比较中，学习嵌入相对独热编码在正常运行、客流激增和快速切换下，分别降低5.51%、1.41%和4.91%的人均广义乘客时间。单一驻站动作、车头时距目标下，RE-SAC相对主流对照在所测随机环境中具有更低的计划时距偏差和更稳定的价值评价。结果表明，在高不确定性环境中，引入保守偏移以提高价值评价稳定性，可以带来更好的控制效果；但不同运营目标仍存在取舍。",
+    "new": "（1）针对车辆与站点差异及随机运行中的动作价值估计波动，构建结合类别特征嵌入与连续状态的共享驻站策略，提出鲁棒集成软演员评论家方法（Robust Ensemble Soft Actor-Critic，RE-SAC），通过集成价值估计、目标偏移和分歧惩罚调节策略更新。以候车时间的两倍与车内时间之和作为广义乘客时间，在学习器及训练设置一致的类别表征比较中，学习嵌入相对独热编码在正常运行、客流激增和快速切换下分别降低5.51%、1.41%和4.91%的人均广义乘客时间。多线路车头时距目标实验中，RE-SAC相对SAC使计划时距偏差和前后时距不均衡分别降低5.00秒和7.36秒。结果说明，类别信息与保守价值评价有助于改善所测条件下的驻站控制，但间隔规律性与乘客时间的改善取决于具体训练目标。",
+    "reason": "以明确机制和匹配比较替代对主流对照的笼统优势表述。"
+  },
+  {
+    "paragraph_id": 65,
+    "old": "（2）针对运行规律随时间变化、而驻站只能局部改变车辆离站时刻的问题，提出贝叶斯自适应策略正则化（Bayesian Adaptive Policy Regularization，BAPR），通过环境识别和模式置信调节形成条件适应；进一步提出因果符号贝叶斯自适应策略正则化（Causal-Symbolic Bayesian Adaptive Policy Regularization，CS-BAPR）。在正常需求、单次与重复环境变化、持续高需求及短时极端需求下，训练稳定化方法相对前序BAPR均降低平均时距奖励惩罚，单一驻站动作下的降幅为58.82%至69.79%。与RE-SAC的匹配比较表明，CS-BAPR在运行规律发生变化时具有更强的条件适应能力，其结构化输出并非在每种条件下都带来额外收益。改用乘客时间目标后，服务成本差异缩小，说明时距目标收益不能直接解释为同等幅度的乘客时间收益。",
+    "new": "（2）针对客流与道路运行规律发生变化的问题，研究贝叶斯自适应策略正则化（Bayesian Adaptive Policy Regularization，BAPR）的置信调节，进一步提出因果符号贝叶斯自适应策略正则化（Causal-Symbolic Bayesian Adaptive Policy Regularization，CS-BAPR）。公交实现利用训练期近期运行信息调节保守程度，结合训练稳定化与策略输出结构，评价固定策略对变化条件的响应。在正常需求、单次与重复环境变化、持续高需求及短时极端需求等六种条件下，稳定化感知机配置相对前序BAPR降低58.82%至69.79%的平均时距奖励惩罚，计划绝对偏差下降27.10%至36.55%。算术输出的附加收益随条件变化；改用乘客时间目标后，稳定化感知机的广义时间增加0.068%至0.268%。因此，该配置的主要改善体现为时距控制。",
+    "reason": "R04/R15/R17：分清方法、训练期适应和比较对象，保留不利结果。"
+  },
+  {
+    "paragraph_id": 66,
+    "old": "（3）针对现实目标环境难以持续通过试错采集训练数据的问题，在混合离线与在线强化学习（Hybrid Offline-and-Online Reinforcement Learning，H2O）及其改进框架（Improved Framework for Hybrid Offline-and-Online Reinforcement Learning with Dynamics Gaps，H2O+）基础上建立公交跨保真训练流程。固定SUMO离线数据与简易仿真交互共同支持策略训练，同时到站车辆编码、允许车辆不额外停站或增加驻站时长的单一驻站动作，以及运行末段载客较少且后续接续车辆不足时的完成保障，共同构成控制器。在十个新环境块、三档需求和九种控制器的1350次配对评价中，完成保障相对相同学习策略的直接父控制器，使窗口内人均广义乘客时间减少92.12秒、下降3.71%，完成率提高0.466个百分点。同更新预算比较支持混合训练方案相对纯离线方案的收益。",
+    "new": "（3）针对目标环境难以持续通过试错采集训练数据的问题，在混合离线与在线强化学习（Hybrid Offline-and-Online Reinforcement Learning，H2O）及其改进框架（Improved Framework for Hybrid Offline-and-Online Reinforcement Learning with Dynamics Gaps，H2O+）基础上建立公交跨保真训练流程。该流程结合固定SUMO离线数据与简易仿真交互，设计同时到站车辆的状态编码，以及零驻站和正时长驻站的混合动作表示，并在指定服务时窗内对低载且无在途后随车辆的状态实施行程完成保障。在十个新环境块、三档需求和九种控制器的1350次配对评价中，完成保障相对采用相同学习策略但未加入该保障的控制器，使窗口内人均广义乘客时间减少92.12秒、下降3.71%，完成率提高0.466个百分点。同更新预算下，混合训练相对纯离线训练在正常及1.25倍需求下分别减少16.66秒和19.75秒的人均广义乘客时间。",
+    "reason": "R05/R30：更正触发范围并分列执行保障与混合训练的作用。"
+  },
+  {
+    "paragraph_id": 67,
+    "old": "（4）针对源目标转移关系失配，提出基于模型修正的世界模型方法（Model-Corrected World Model，MC-WM），以留出预测误差选择残差修正或直接目标模型，并以对数置信评价加权一步模型样本。公交扩展采用固定目标离线数据与混合事件模型，并以归一化置信备份缓解模型作用衰减。单一驻站动作、乘客时间目标下，在正常标定、联合50%和联合75%源参数偏差三种条件下，相对采用共同完成保障的Daganzo式规则，人均广义乘客时间分别减少57.67、70.67和76.26秒。联合偏差同时改变道路平均速度、乘客OD、路口延误和基本停站服务时间等转移参数。车头时距目标下，高偏差条件下MC-WM相对H2O+也显示出改善。结果支持利用目标离线数据修正源仿真训练，并显示这一作用可服务于两种运营目标。",
+    "new": "（4）针对源仿真与目标环境的转移规律失配，提出基于模型修正的世界模型方法（Model-Corrected World Model，MC-WM）。该方法在目标留出数据上比较残差修正模型与直接目标模型，并以对数置信评价加权一步预测样本，辅助价值更新。公交扩展采用混合事件预测模型，并引入归一化置信备份，缓解模型样本在训练中作用减弱的问题。在以广义乘客时间为目标的20次独立初始化实验中，按测试情形等权汇总，固定模型损失系数为0.25时，正常标定、联合50%和联合75%源参数偏差下的人均广义乘客时间相对无世界模型的混合学习基线分别减少51.14秒、69.93秒和87.05秒。改善主要来自候车时间下降。以车头时距奖励训练的补充实验进一步报告策略的乘客服务表现，但其训练重复和模型系数与上述实验不同。结果表明，目标数据支持的模型修正能够改善所测源参数偏差下的公交驻站训练效果。",
+    "reason": "R06/R31：主结论直接对比无世界模型基线；时距组尚未补齐目标指标，先限定为乘客服务表现。"
+  },
+  {
+    "paragraph_id": 72,
+    "old": "Random passenger demand and changing road traffic disrupt bus headways, promote bunching, and increase passenger waiting time. Holding control regulates departure times, but its effectiveness depends on vehicle and stop characteristics, operating conditions, and the maximum permitted holding time. Reinforcement learning can select actions from operational observations, yet repeated trial-and-error learning on an operating fleet is impractical, and the resulting policy may encounter a distribution shift between training and deployment environments. This thesis studies sim-to-real bus holding control: robust learning under stationary stochastic conditions and adaptive learning under non-stationary stochastic conditions first address settings without pre-collected target-domain training data; cross-fidelity learning and model correction then incorporate target-domain offline data.",
+    "new": "Random passenger arrivals and travel-time fluctuations disrupt bus headways, promote bunching, and increase passenger waiting time. Holding control regulates headways by delaying departures, but its effectiveness depends on vehicle states, operating conditions, and the permitted holding duration. To address limited opportunities for training interaction in real bus operations and distribution differences between simulation and target environments, this thesis studies robust shared-policy learning, conditional responses to non-stationary operations, cross-fidelity training supported by target offline data, and world-model correction.",
+    "reason": "与修改后中文摘要开头对应。"
+  },
+  {
+    "paragraph_id": 74,
+    "old": "To address differences among vehicles and stops and fluctuations in action-value estimates during stochastic operations, this thesis proposes a shared holding policy combining categorical feature embeddings with continuous observations and develops Robust Ensemble Soft Actor-Critic (RE-SAC). Generalized passenger time is defined as twice waiting time plus onboard time. With the same learner and training settings, learned embeddings reduce generalized passenger time relative to one-hot encoding by 5.51%, 1.41%, and 4.91% under routine operations, demand surges, and rapid switching. With a single holding action and a headway objective, RE-SAC achieves lower planned-headway deviation and more stable value evaluation than the tested mainstream baselines. These results show that introducing a conservative bias to stabilize value evaluation can improve control under high uncertainty, while different operating objectives retain tradeoffs.",
+    "new": "To address vehicle and stop differences and fluctuating action-value estimates, this thesis constructs a shared holding policy combining categorical embeddings with continuous states and develops Robust Ensemble Soft Actor-Critic (RE-SAC). Ensemble value estimates, target shifts, and disagreement penalties regulate policy updates. Generalized passenger time is defined as twice waiting time plus onboard time. With the same learner and training settings, learned embeddings reduce generalized passenger time relative to one-hot encoding by 5.51%, 1.41%, and 4.91% under routine operations, demand surges, and rapid switching, respectively. In the multi-line experiment with a headway objective, RE-SAC reduces planned-headway deviation and forward-backward headway imbalance relative to SAC by 5.00 and 7.36 seconds, respectively. The results show that categorical information and conservative value evaluation can improve holding control under the tested conditions, while gains in headway regularity and passenger time depend on the training objective.",
+    "reason": "与中文第1项对应，保留具体参照和单位。"
+  },
+  {
+    "paragraph_id": 75,
+    "old": "To address changing operating laws and the limited ability of holding to alter departure times, this thesis proposes Bayesian Adaptive Policy Regularization (BAPR), using environment identification and operating-mode confidence adjustment, and subsequently develops Causal-Symbolic Bayesian Adaptive Policy Regularization (CS-BAPR). Across routine demand, single and repeated environmental changes, sustained high demand, and brief extreme demand, training stabilization reduces the mean headway-reward penalty relative to the preceding BAPR configuration by 58.82% to 69.79% with a single holding action. Matched comparisons with RE-SAC support stronger conditional adaptation when operating laws change, while structured policy outputs do not provide an additional benefit in every condition. Under a passenger-time objective, service-cost differences narrow, so headway gains cannot be interpreted as equal reductions in passenger time.",
+    "new": "To address changes in passenger demand and operating dynamics, this thesis studies confidence adjustment in Bayesian Adaptive Policy Regularization (BAPR) and develops Causal-Symbolic Bayesian Adaptive Policy Regularization (CS-BAPR). The bus implementation adjusts conservatism using recent operating information during training and combines training stabilization with policy output structures to evaluate fixed-policy responses to changing conditions. Across six conditions covering routine demand, single and repeated changes, sustained high demand, and brief extreme demand, the stabilized multilayer-perceptron configuration reduces the mean headway-reward penalty by 58.82% to 69.79% and absolute planned-headway deviation by 27.10% to 36.55% relative to the preceding BAPR configuration. The additional benefit of arithmetic outputs varies across conditions. With a passenger-time objective, the stabilized configuration increases generalized passenger time by 0.068% to 0.268%. Its main improvement therefore concerns headway control.",
+    "reason": "R04/R15/R44，中英文同步，避免changing operating laws。"
+  },
+  {
+    "paragraph_id": 76,
+    "old": "To reduce dependence on repeated trial-and-error data collection in the target operating environment, this thesis develops a bus-specific cross-fidelity workflow based on Hybrid Offline-and-Online Reinforcement Learning (H2O) and the Improved Framework for Hybrid Offline-and-Online Reinforcement Learning with Dynamics Gaps (H2O+). Fixed SUMO offline data and simplified-simulator interaction jointly support policy training. Simultaneous-arrival encoding, a single action that adds either no extra holding or a positive holding duration, and a completion reserve for late-operation states with low onboard loads and insufficient following service form the complete controller. In 1,350 paired evaluations covering 10 new environment blocks, three demand levels, and nine controllers, the reserve reduces within-window generalized passenger time by 92.12 seconds, or 3.71%, and increases completion by 0.466 percentage points relative to the direct parent with the same learned policy. An update-budget-matched comparison supports hybrid training over the tested offline-only scheme.",
+    "new": "To reduce dependence on repeated trial-and-error data collection in the target environment, this thesis develops a bus-specific cross-fidelity workflow based on Hybrid Offline-and-Online Reinforcement Learning (H2O) and the Improved Framework for Hybrid Offline-and-Online Reinforcement Learning with Dynamics Gaps (H2O+). Fixed SUMO offline data are combined with simplified-simulator interaction. The workflow uses structured encoding of simultaneous arrivals and a mixed action representation for zero or positive holding, together with a trip-completion safeguard for low-load states without an active following vehicle within a specified service window. In 1,350 paired evaluations covering 10 new environment blocks, three demand levels, and nine controllers, the safeguard reduces within-window generalized passenger time by 92.12 seconds, or 3.71%, and increases completion by 0.466 percentage points relative to the same learned policy without this safeguard. With matched update budgets, hybrid training reduces generalized passenger time relative to offline-only training by 16.66 and 19.75 seconds under routine and 1.25-fold demand, respectively.",
+    "reason": "R05/R30/R44，与中文第3项对应。"
+  },
+  {
+    "paragraph_id": 77,
+    "old": "To address source-target transition mismatch, this thesis proposes the Model-Corrected World Model (MC-WM), selecting residual correction or direct target modeling using held-out prediction errors and weighting one-step model samples through log-confidence evaluation. The bus extension uses fixed target offline data and hybrid event models, with a normalized confidence backup limiting attenuation of model updates. With a single holding action and a passenger-time objective, generalized passenger time decreases relative to a Daganzo-style rule with the same completion reserve by 57.67, 70.67, and 76.26 seconds under calibrated, joint 50%, and joint 75% source-parameter mismatch, respectively. Joint mismatch changes road speeds, passenger OD demand, intersection delays, and required stopping-service times together. With a headway objective, MC-WM also improves over H2O+ under large source mismatch. These results support using target offline data to correct source-simulator training for both operating objectives.",
+    "new": "To address source-target transition mismatch, this thesis proposes the Model-Corrected World Model (MC-WM). Held-out target data are used to compare residual correction with direct target modeling, and log-confidence evaluation weights one-step predicted samples for value updates. The bus extension combines hybrid event prediction with a normalized confidence backup to limit attenuation of the model contribution during training. In experiments with a passenger-time objective and 20 independent initializations, a fixed model-loss coefficient of 0.25 reduces generalized passenger time relative to the hybrid-learning baseline without a world model by 51.14, 69.93, and 87.05 seconds under calibrated, joint 50%, and joint 75% source-parameter mismatch, respectively, with equal weighting of test conditions. The reductions mainly arise from shorter waiting times. Supplementary experiments trained with a headway reward also report passenger-service outcomes, using different training repetitions and model coefficients. The results show that target-data-supported model correction can improve bus holding training under the tested source-parameter mismatches.",
+    "reason": "R06/R31：中英文一致，待时距证据核实后根代理可补具体指标。"
+  },
+  {
+    "paragraph_id": 78,
+    "old": "The thesis connects stationary robust control, non-stationary adaptation, cross-fidelity transfer, and world-model correction through target-domain data availability. Its central mechanism combines records from a detailed simulator with interaction in a simplified simulator to learn holding policies that generalize to unseen SUMO scenarios. The results support replacing SUMO offline data with real bus-operation records and continuing training in an interactive simulator as a pathway from simulation toward real bus holding control.",
+    "new": "The thesis develops bus holding methods that address stochastic operations, changing operating conditions, target-data use, and prediction correction. Detailed-simulator records and simplified-simulator interaction support policy training, while unseen SUMO scenarios evaluate generalization. This workflow provides a basis for future studies using real bus-operation records together with interactive simulation.",
+    "reason": "避免由代理验证直接宣称已支持真实数据替换的效果。"
+  },
+  {
+    "paragraph_id": 475,
+    "old": "学习方法同时增加了训练数据和评价条件的重要性。公交车辆不是始终同步行动的固定对象，其决策往往由到站、完成服务或实际发车事件触发；不同站点、班次和时段产生的样本也不均衡。有限训练数据上的策略改善，需要进一步接受新需求、新路况和新运行日的检验。为应对这些问题，本论文从类别状态与共享策略出发，逐步研究价值估计稳定性、非平稳运行适应及目标数据支持的迁移。",
+    "new": "学习策略的性能不仅取决于算法设计，还取决于训练数据的覆盖范围和评价场景的设置。公交车辆的决策通常由到站、完成服务或实际发车事件触发，不同站点、班次和时段产生的样本量也不均衡。因此，需要在共享运行经验的同时保留车辆与站点差异，并在新需求、新路况和新运行日中检验策略。本文据此从类别状态与共享策略出发，逐步研究价值估计稳定性、非平稳运行中的条件响应，以及目标数据支持的迁移。",
+    "reason": "明确训练数据与方法性能的关系。"
+  },
+  {
+    "paragraph_id": 479,
+    "old": "H2O及其扩展H2O+将目标环境中预先采集的离线数据与训练仿真中新产生的交互经验结合，提供了不同于纯离线学习和目标在线微调的数据利用方式。[9,10] 对公交驻站控制而言，这一思想具有明确吸引力：保留仿真试错的低成本，同时利用目标记录减少学习对源模型的完全依赖。然而，把通用学习框架用于实际公交运营，还需要处理异步事件、零停站动作、运行时域以及未完成服务等具体问题。",
+    "new": "H2O及其扩展H2O+将目标环境中预先采集的离线数据与训练仿真中新产生的交互经验结合，提供了不同于纯离线学习和目标在线微调的数据利用方式。[9,10] 这一方法在保留仿真交互低成本优势的同时，利用目标环境记录减少策略训练对源模型的依赖，适用于目标环境交互受限的公交驻站控制研究。将其用于公交任务还需要处理异步事件、零驻站动作、运行时域以及未完成行程等问题。",
+    "reason": "以具体用途替代“具有明确吸引力”。"
+  },
+  {
+    "paragraph_id": 570,
+    "old": "第3章在给定运行条件的规律下，将类别特征嵌入与连续观测组合，由同一策略处理车队各车辆的决策事件；在SAC基础上研究RE-SAC的集成价值评价、目标偏移和分歧惩罚。解释计划间隔目标和有界停站的作用范围，联系正则化与鲁棒评价，分析表征、奖励、集成规模及动作价值与乘客服务的关系。",
+    "new": "针对车辆与站点差异以及随机运行中的价值估计波动，将类别特征嵌入与连续观测组合，构建处理车队异步决策事件的共享策略。在SAC基础上提出RE-SAC，以集成价值评价、目标偏移和分歧惩罚调节策略学习。通过类别表征、奖励函数、集成规模和动作价值的对照实验，分析保守评价对间隔规律性与乘客服务的影响。",
+    "reason": "研究内容写做什么，章号留给1.5。"
+  },
+  {
+    "paragraph_id": 572,
+    "old": "第4章在随机运行基础上允许客流和路况规律变化，以隐模式及运行历史描述当前条件的不确定性。由BAPR的识别与模式置信调节出发，进一步研究CS-BAPR的训练稳定化和策略输出结构。讨论哪些信息能够反映变化，以及如何形成条件响应，最后分析固定需求放大、单次冲击和重复变化下的控制效果。",
+    "new": "针对客流和路况规律随时间变化的问题，以隐含运行模式和近期运行历史描述当前条件。由BAPR的置信调节出发，研究CS-BAPR的训练稳定化与策略输出结构，并分别评价固定需求放大、单次冲击和重复变化下的驻站效果。公交实验分析训练期置信调节后的固定策略表现，受控执行器实验检验模式识别与动作补偿的关系。",
+    "reason": "消除目录复述并明确训练/执行层区别。"
+  },
+  {
+    "paragraph_id": 574,
+    "old": "第5章在已有目标数据条件下，先通过离线学习与目标在线微调研究目标交互的作用，再在H2O/H2O+基础上建立利用源仿真续训的公交混合训练流程。其重点是区分保真度、状态转移差异与有限采样误差，并给出两类任务各自的观测、动作和奖励，其中跨保真任务采用同时到站编码与不额外停站或增加驻站时长的动作。主要工作是组织离线初始化、混合价值更新和执行保障；最后依次分析目标数据利用、完整控制器效果及训练与执行组件的作用。",
+    "new": "针对目标环境交互受限及源目标转移规律不一致的问题，基于H2O/H2O+构建公交驻站的跨保真训练方法。首先比较固定目标数据上的离线学习与追加目标交互的在线微调，再研究固定目标离线数据与简易仿真交互相结合的训练流程。设计同时到站车辆的状态编码以及零驻站、正时长驻站的混合动作表示，结合驻站幅度变换与行程完成保障形成控制器，并通过匹配对照分析混合训练和执行规则的作用。",
+    "reason": "保留两项任务与继承关系，改为问题—处理—评价。"
+  },
+  {
+    "paragraph_id": 576,
+    "old": "第6章进一步研究MC-WM，以留出预测误差选择残差修正或直接目标模型，并以对数置信评价调节一步模型样本的训练权重。受控动力学任务用于分析模型类别选择，公交事件模型用于检验固定目标数据下的应用。公交扩展进一步利用归一化置信备份处理模型更新作用衰减，现有多种子结果分别比较模型使用方式与服务效果。",
+    "new": "针对源模型的转移预测可能不适用于目标环境的问题，提出MC-WM，利用目标留出数据比较残差修正模型与直接目标模型，并以对数置信评价调节一步预测样本对价值更新的作用。通过受控动力学任务分析模型类别选择，进一步构建公交混合事件模型，在固定目标离线数据条件下检验模型辅助训练。引入归一化置信备份，分析预测误差、模型损失权重与乘客服务效果之间的关系。",
+    "reason": "突出方法问题与产出，删除批次叙述。"
+  },
+  {
+    "paragraph_id": 596,
+    "old": "公交车队驻站控制的基本任务，是在车辆完成必要上下客后决定驻站时长，使车辆运行规律性与乘客服务成本相协调。从仿真训练到现实应用，这一任务既需要明确车辆、乘客和控制动作之间的关系，也需要说明训练时可以获得什么信息，以及运行规律变化后哪些模型假设仍然成立。本章围绕这一共同问题介绍经典公交控制建模、强化学习、公交仿真平台、跨环境数据修正与世界模型，为后续各章提供统一基础。",
+    "new": "公交车队驻站控制需要在调节车辆间隔与减少乘客时间成本之间取得平衡。建立学习模型之前，需要明确车辆传播、乘客服务和附加驻站动作之间的关系，以及策略训练和运行评价所使用的信息。本章先比较经典公交反馈控制与预测优化模型，再介绍与本文直接相关的强化学习方法，并说明简易仿真与SUMO的搭建、标定和分工。",
+    "reason": "章首先解释本章任务，减少重复总览。"
+  },
+  {
+    "paragraph_id": 597,
+    "old": "本章首先明确车辆传播、驻站权限和乘客评价之间的关系，继而给出强化学习、仿真平台及跨环境数据利用的共同基础。各章的数据访问条件、统计单位和平台适用范围在本章统一说明，后续研究重点阐明新增假设及方法。",
+    "new": "在上述基础上，本章给出跨环境数据修正与世界模型的基本方法，统一说明事件状态、动作范围、乘客评价指标和统计单位。后续研究据此分别引入平稳随机运行、非平稳运行、目标离线数据和模型预测修正等条件，分析相应驻站策略。",
+    "reason": "与上一段承担不同内容。"
+  },
+  {
+    "paragraph_id": 846,
+    "old": "共同任务接口下，源目标仿真的自然运行和驻站响应近似相容。在21个非零策略与需求组合中，广义时间归一化响应差的最大绝对95%区间端点为3.90%，完成率响应差的对应值为0.574个百分点。这为后续源仿真训练提供运行依据；各章仍在目标环境中独立评价策略的服务效果。",
+    "new": "在共同任务接口下，两类仿真在所测条件下具有相近的运行指标和驻站响应。21个非零策略与需求组合中，广义时间归一化响应差的最大绝对95%区间端点为3.90%，完成率响应差的对应值为0.574个百分点。这些结果说明，简易仿真能够为后续策略训练提供相应的运行环境，所学策略的服务效果则在SUMO中评价。",
+    "reason": "用测得的相近响应替代“近似相容”。"
+  },
+  {
+    "paragraph_id": 849,
+    "old": "本章以客流和路况的描述性统计信息（见第2.1.1节）作为运行条件的基础，不预先使用目标域转移样本进行策略训练，研究在平稳随机运行规律下如何学习可跨车辆复用、并能承受客流与路况随机波动的驻站策略。这里的平稳性要求给定运行条件下的随机生成规律保持不变，均值、方差等描述性统计量用于刻画这些条件。",
+    "new": "公交车辆在相同计划和运行条件下仍会受到随机客流、路段行驶和上下客时间的影响，不同车辆与站点的训练经验也不均衡。本章研究在未预先获得目标域转移训练数据时，如何利用可交互仿真学习跨车辆共享的驻站策略。给定线路、站点与时段等条件后，假定随机生成规律保持不变，以此分析平稳随机运行下的策略学习。",
+    "reason": "以实际控制困难开篇，平稳性只定义一次。"
+  },
+  {
+    "paragraph_id": 850,
+    "old": "先说明平稳随机假设和单智能体共享决策的适用范围，再建立类别特征嵌入、事件触发和计划对齐目标，随后提出RE-SAC并以单一驻站动作完成表征、价值评价和服务效果的对照。结果重点回答随机环境中的价值评价稳定性，而不把局部时距改善直接等同于乘客时间改善。",
+    "new": "本章首先建立类别特征与连续状态结合的事件决策模型，再提出RE-SAC，以集成价值估计和保守正则化调节动作选择。通过共享表征、奖励函数、集成规模及长期训练等对照实验，分析价值估计与策略表现的关系，并分别评价车头时距、候车时间和车内时间的变化。",
+    "reason": "章首说明研究过程，去“回答稳定性”和反面提醒。"
+  },
+  {
+    "paragraph_id": 1160,
+    "old": "前一章假定给定运行条件下的随机生成规律保持不变，客流和路况的均值、方差等描述性统计量用于刻画这些条件。本章进一步考虑客流和道路条件随时间漂移、突变或重复变化的情形。目标域转移训练数据仍不在训练前直接提供，控制器只能根据运行历史逐步判断当前条件，因而问题从平稳随机鲁棒学习推进到非平稳随机适应。",
+    "new": "大型活动、交通管制和持续需求增长会改变公交运行规律，使既有经验难以直接代表当前条件。与上一章给定条件下的随机波动相比，本章关注客流与道路条件的突变、持续变化和重复冲击，研究在既定线路、发车计划和驻站范围内如何保持有效控制。",
+    "reason": "先进入交通问题。"
+  },
+  {
+    "paragraph_id": 1161,
+    "old": "本章依次讨论隐含运行模式、模式置信调节和CS-BAPR的训练稳定化与策略结构，并在统一的单一驻站动作接口下比较正常需求、环境突变和重复变化。结果同时报告时距目标与乘客时间目标，区分方法对非平稳时距控制的收益、输出结构的附加作用及其服务指标边界。",
+    "new": "本章以隐含运行模式描述条件变化，由BAPR的置信调节进一步研究CS-BAPR的训练稳定化与策略输出结构。公交实验利用训练期近期运行信息调节保守程度，在正常需求、环境突变及重复变化条件下评价固定策略；受控执行器实验分析模式识别与动作补偿。最后分别采用时距和乘客时间目标，比较训练稳定化、输出结构及其服务效果。",
+    "reason": "明确实作层次，避免暗示所有公交测试都在线更新后验。"
+  },
+  {
+    "paragraph_id": 1362,
+    "old": "本章针对非平稳公交运行，建立隐含模式与条件响应模型，研究结合置信调节、训练稳定化和结构化输出的CS-BAPR驻站策略。重复需求冲击实验表明，控制回报、时距不均衡和候车时间的变化并不一致；单一驻站动作下的两种奖励比较进一步表明，相对前序BAPR，稳定化感知机在六种需求条件下均减小平均时距奖励惩罚，降幅为58.82%至69.79%，计划绝对偏差下降27.10%至36.55%。算术输出没有在所有条件下形成额外收益；乘客时间目标下，稳定化感知机的广义时间增加0.068%至0.268%，两种配置的服务成本接近。由此，主要实证结论落在非平稳时距控制中的配置收益。",
+    "new": "本章针对非平稳公交运行，建立隐含模式与条件响应模型，研究结合置信调节、训练稳定化和结构化输出的CS-BAPR驻站策略。单一驻站动作下，稳定化感知机相对前序BAPR在六种需求条件中均减小平均时距奖励惩罚，降幅为58.82%至69.79%，计划绝对偏差下降27.10%至36.55%。算术输出没有在所有条件下增加收益。改用乘客时间目标后，稳定化感知机的广义时间增加0.068%至0.268%。因此，稳定化训练改善了所测非平稳环境下的时距控制，但没有降低该组乘客时间目标实验中的平均广义时间。",
+    "reason": "数据直接承接结论，保留不利结果。"
+  },
+  {
+    "paragraph_id": 1366,
+    "old": "本章增加固定目标离线数据这一信息条件，但仍限制目标环境中的持续试错，将研究重点转向目标经验与源仿真交互如何在同一驻站控制接口下协同。",
+    "new": "目标环境中的反复试错具有较高成本，既有运行数据却难以覆盖所有驻站动作及其后续影响。本章研究如何结合固定目标离线数据与低成本简易仿真交互，训练能够在目标环境中运行的公交驻站策略。",
+    "reason": "第5章从具体困难进入方法。"
+  },
+  {
+    "paragraph_id": 1367,
+    "old": "本章先区分纯离线学习、目标环境中在线微调和跨保真续训的数据条件，再建立H2O+公交流程，分析离线学习、源环境二次训练、样本加权及完成保障的作用。正式结果以SUMO离线数据与简易仿真交互为训练基础，以新的SUMO运行场景为评价环境，重点回答固定目标环境的经验能否支持低成本源仿真训练，以及执行保障带来的服务收益是否应与学习算法收益分开归因。",
+    "new": "本章首先比较纯离线学习与目标环境在线微调，分析既有数据和新增目标交互对控制效果的影响。其次，基于H2O+构建公交混合训练流程，设计同时到站车辆编码和零驻站、正时长驻站的混合动作表示，并结合驻站幅度变换与行程完成保障形成控制器。最后，在未参与训练的SUMO场景中评价乘客时间、行程完成率、车头时距和训练开销，通过匹配对照分析混合训练与执行保障的作用。",
+    "reason": "按导师要求写研究路线，替代归因审查式提问。"
+  },
+  {
+    "paragraph_id": 1669,
+    "old": "第5章在经验与价值更新层面结合目标离线数据和源环境仿真交互，本章进一步把目标数据用于学习和修正源环境的转移关系。当源仿真中的道路速度、客流到达、路口延误和停站服务时间存在标定偏差时，问题不再只是如何混合两类经验，还包括哪些源预测值得保留，以及预测信息应以多大强度参与策略学习。",
+    "new": "源仿真中的道路速度、客流到达、路口延误和必要停站服务时间存在标定偏差时，相同驻站动作可能产生不同的后续状态与乘客成本。固定目标离线数据除了用于策略训练，还可用于检验源模型预测，并修正源目标之间的转移差异。本章据此研究世界模型辅助的公交驻站控制。",
+    "reason": "第6章从转移偏差进入方法。"
+  },
+  {
+    "paragraph_id": 1670,
+    "old": "本章提出MC-WM，以留出目标数据在残差模型和直接目标模型之间作选择，再以归一化置信备份调节模型样本对价值更新的影响。受控任务用于解释模型类别选择，公交任务在固定SUMO离线数据、简易仿真交互和单一驻站动作下检验模型辅助对乘客服务的作用，并通过多训练种子和消融比较区分模型拟合、模型使用强度与实际控制收益。",
+    "new": "本章提出MC-WM，在目标留出数据上比较残差修正模型与直接目标模型，再用可信度加权的一步预测样本辅助价值更新。针对公交事件的类别、连续状态和持续时间，构建混合事件预测模型，并引入归一化置信备份。受控动力学任务用于分析模型类别选择，固定SUMO离线数据下的公交实验用于评价模型辅助训练的服务效果和计算代价。",
+    "reason": "将方法总览集中于章首。"
+  },
+  {
+    "paragraph_id": 1672,
+    "old": "固定目标离线数据为检验源预测提供依据。本章围绕两项关联决策展开：一是如何在残差修正与直接目标建模之间选择，二是如何使选定模型的预测以适当强度参与驻站策略更新。前者决定模型形式，后者决定预测信息能否转化为服务收益。",
+    "new": "公交驻站改变车辆离站时刻，继而影响到达下一站的时间、可服务乘客及前后车辆间隔。源仿真的这些预测若存在系统偏差，策略便可能在训练中高估某些动作。目标离线记录提供了检验预测的观测，但数据覆盖和拟合预算有限，需要判断直接建立目标模型与修正源预测各自适用的条件。",
+    "reason": "6.1改为具体问题，不再次总览算法。"
+  },
+  {
+    "paragraph_id": 1673,
+    "old": "与第3、4章主要根据训练扰动和运行历史应对不确定性相比，目标数据为检验源模型提供了直接依据。与第5章主要在经验与价值更新层面结合两类数据相比，本章显式预测后继状态和奖励，将目标知识用于修正或替代源预测。模型学习减少的是有限知识与源模型近似造成的预测偏差；即使条件预测正确，乘客到达和车辆运行中的随机性仍然存在。跨保真训练的核心也由“如何混合经验”进一步推进到“何种预测值得复用”。",
+    "new": "本章允许从源仿真持续采集训练经验；公交目标数据则在训练前固定，不追加SUMO训练交互。所研究的模型辅助过程需要同时处理两项限制：模型拟合只能利用已有目标样本，生成的预测又会影响策略和价值估计。即使平均预测误差下降，也仍需检查模型样本是否改变了驻站动作选择及乘客服务结果。",
+    "reason": "将6.1重复主线改为已知条件与研究困难。"
+  },
+  {
+    "paragraph_id": 1674,
+    "old": "第2章已介绍世界模型及其与强化学习的连接。本章提出MC-WM：同时拟合保留源预测的残差模型与直接目标模型，以留出数据上的预测误差选择类别，再以可信度加权的一步预测样本支持策略学习。模型类别与模型使用强度分别回答源知识是否适用、预测如何影响控制两个问题。",
+    "new": "因此，本章研究两项相互关联的决策：依据目标预测误差选择模型形式，以及确定模型样本参与价值更新的权重。前者控制源模型预测的保留程度，后者调节预测误差对策略训练的影响。",
+    "reason": "代替第三次完整介绍MC-WM。"
+  },
+  {
+    "paragraph_id": 1675,
+    "old": "本章依次按问题、模型、算法与结果分析组织。第6.2节先说明共同的源目标预测关系，再分别定义受控连续任务与公交事件任务的预测对象和数据条件。第6.3节给出模型类别选择、可信样本辅助更新及公交归一化置信算法，并在算法之后分析预测误差与权重尺度如何影响价值更新。第6.4节集中报告结果：受控动力学任务检验完整方法和模型类别选择，公交任务检验固定目标数据下的模型使用强度及乘客服务收益。受控任务允许追加目标交互，公交任务保持目标离线数据固定，二者共同检验模型复用与使用机制，各自采用相应的信息条件。",
+    "new": "模型评价同时考虑预测结果与控制结果。受控连续任务允许追加目标交互，用于比较残差修正和直接建模；公交任务保持目标离线数据固定，用于分析事件预测及其在驻站训练中的作用。两类任务分别采用相应的数据条件和评价指标。",
+    "reason": "删除目录式复述，保留信息条件差异。"
+  },
+  {
+    "paragraph_id": 1677,
+    "old": "本章的共同建模对象是给定状态和动作后的目标环境转移。冻结源预测可以作为候选模型的基础，目标数据既可用于拟合源预测的残差，也可直接用于拟合目标模型。两类候选由同一组留出目标证据比较，所选预测再接入策略学习。受控连续任务以固定步长的状态增量和奖励为输出，公交任务则预测不等长事件之间的类别、计数、连续量与乘客成本。下面先明确两类任务的数据访问条件，再给出各自的预测表示。",
+    "new": "本章预测给定状态和动作后的目标环境转移。受控连续任务采用固定步长，以状态增量和奖励为输出；公交任务的相邻事件间隔不固定，需要预测下一事件的类别、计数、连续状态、持续时间及乘客成本。以下先定义两类任务的数据条件，再建立相应预测模型。",
+    "reason": "6.2聚焦预测对象，避免重复模型选择流程。"
+  },
+  {
+    "paragraph_id": 1687,
+    "old": "构建两个候选模型是一次有成本的选择过程。该过程的目的不是预先断言某一类别更优，而是让同一组目标观测对源结构的保留价值作出判断。受控连续任务在初始目标数据上选定类别，并在本次训练中保持不变；后续目标数据只更新已选择的模型。公交的一次拟合协议也固定初始选择，完整日程协议则在源交互增加后重新拟合目标候选并再次选择，具体更新接口见第6.3.6节。",
+    "new": "在同一组目标留出数据上比较两类候选模型的预测误差，据此选择残差修正或直接目标建模。受控连续任务在初始目标数据上选定类别，并在本次训练中保持不变；后续目标数据只更新已选择的模型。公交的一次拟合协议也固定初始选择，完整日程协议则在源交互增加后重新拟合目标候选并再次选择，具体更新接口见第6.3.6节。",
+    "reason": "明确实际计算，去拟人化表述。"
+  },
+  {
+    "paragraph_id": 1870,
+    "old": "本节将模型选择与贝尔曼可信度用于公交事件过程，在固定SUMO离线数据和新增源仿真经验下评价模型辅助。事件预测模型与归一化置信算法已在前文给出。第6.4.3节保留模型类别、损失系数及置信机制的比较，用于解释模型信息如何进入价值更新，并报告单一驻站的多种子乘客时间结果与时距目标复核。早期共同初始化接入、数据与交互预算、源转移偏差探索分别见附录F.1、F.2和F.3，按各自训练条件解释。",
+    "new": "本节在固定SUMO离线数据和新增源仿真经验下评价模型辅助驻站。主要公交结果见第6.4.3.7节：20次独立初始化的重复训练中，采用归一化置信备份、乘客时间目标及固定0.25模型损失系数后，正常标定、联合50%和75%源参数偏差下的人均广义乘客时间相对无世界模型的混合学习基线分别减少51.14秒、69.93秒和87.05秒。前六小节分析模型类别、损失缩放及置信累积对价值更新的作用，以解释该配置的形成；后两小节分别报告上下文系数调节和时距奖励训练的补充实验。各组使用各自规定的训练与评价条件，早期接入和偏差探索见附录F。",
+    "reason": "R40：先给20种子主结果，再说明前面机制比较的阅读用途。"
+  },
+  {
+    "paragraph_id": 2009,
+    "old": "本章针对源仿真与目标环境的转移规律差异，提出MC-WM。该方法以冻结源预测为基础建立残差模型和直接目标模型，利用留出目标数据判断源结构是否值得保留，并以可信度加权的一步预测辅助价值更新。公交实现进一步采用混合事件预测与归一化置信，使固定SUMO离线数据同时用于策略训练和源模型修正。",
+    "new": "本章针对源仿真与目标环境的转移规律差异，提出MC-WM。该方法固定源模型参数，在目标留出数据上比较残差修正模型与直接目标模型，并以可信度加权的一步预测样本辅助价值更新。公交实现进一步采用混合事件预测与归一化置信备份，使固定SUMO离线数据同时用于策略训练和源模型修正。",
+    "reason": "固定的是参数而非预测值，方法过程直接表达。"
+  },
+  {
+    "paragraph_id": 2012,
+    "old": "上述结果说明，模型选择与更新尺度共同决定预测信息能否转化为服务收益。早期公交协议未识别稳定模型增益，固定样本权重也有效，额外源目标修正与上下文系数调节未形成稳定附加收益。另以时距目标、模型项系数0.125复核两个独立初始化，在完成保障执行层下，正常标定相对H2O+低1.03秒/人，接近持平；联合75%偏差下低13.36秒/人。结果支持利用有限目标数据缓解所测源仿真标定偏差，并表明收益取决于训练目标、源失配和执行条件。",
+    "new": "早期公交实验中，模型辅助组与无模型组的时间差较小；归一化置信备份后的主要比较取得了乘客时间改善，固定样本权重也能产生收益。额外源目标修正与上下文系数调节没有持续增加平均收益。以时距奖励训练的补充实验采用0.125模型项系数和两个独立初始化，在完成保障执行层下，正常标定及联合75%偏差条件的人均广义时间相对H2O+分别减少1.03秒和13.36秒。上述结果说明，模型辅助的服务效果受到训练目标、源模型偏差和执行条件共同影响。",
+    "reason": "小结保留负结果和补充实验数值，避免“时距复核”暗示目标指标已验证。"
+  },
+  {
+    "paragraph_id": 2033,
+    "old": "针对车辆异步执行班次、类别差异与样本不均衡，将运行类别特征嵌入、车辆内事件转移和共享经验结合，构建保留身份信息的共享停站决策映射，并提出RE-SAC进行保守动作价值评价。公交建模增量在于类别身份、异步转移和共享控制的结合，算法研究进一步分析指定分歧项对动作选择的作用。表3-6的五种子比较支持所测条件下学习嵌入相对独热编码的服务收益，表3-7支持快速切换中的行动者项作用。",
+    "new": "针对公交车辆异步执行班次、类别差异和样本不均衡的问题，将类别特征嵌入、车辆内事件转移与共享经验结合，构建保留车辆和站点身份信息的共享驻站策略。在此基础上提出RE-SAC，通过集成动作价值估计、目标偏移和分歧惩罚调节策略更新，将运行类别表示与随机环境中的保守评价相结合。",
+    "reason": "创新点写新增处理，证据已在7.1。"
+  },
+  {
+    "paragraph_id": 2035,
+    "old": "针对运行规律改变后的条件识别与动作响应问题，提出BAPR及CS-BAPR，将置信调节、训练稳定化与策略输出结构纳入给定计划下的适应过程。模型以运行历史补充当前观测，算法在有界驻站权限内调整保守程度与动作响应。重复冲击和输出结构交叉比较说明，训练稳定化与结构化输出需要分别评价，回报改善也需要由时距、候车与完成率解释。",
+    "new": "针对运行规律变化后的驻站控制问题，提出BAPR及CS-BAPR，以隐含运行模式描述当前条件，并将置信调节、训练稳定化和策略输出结构结合。公交实现利用训练期近期运行信息调整保守程度，构建适用于有界驻站动作的策略响应；受控执行器模型进一步分析模式识别与动作补偿的关系。",
+    "reason": "创新对象具体化，公交训练与执行器机制分开。"
+  },
+  {
+    "paragraph_id": 2037,
+    "old": "针对目标训练访问受限、公交事件异步且精确零动作频繁的问题，在H2O/H2O+基础上构造同时到站编码和不额外停站或增加驻站时长的混合策略，将固定目标离线数据与源仿真训练接入一致的事件控制接口，并设计低载且无后车时的服务保障。本文的新增内容是公交任务适配和服务规则，不将混合数据学习框架本身列为原创。表5-3和图5-13支持保障的窗口内服务作用，表5-9支持混合方案相对所测纯离线方案的收益；同保障强规则及纯源对照则界定了复杂学习方案的附加价值。",
+    "new": "在H2O/H2O+框架基础上，面向公交到站事件异步发生和零驻站动作频繁出现的特点，构建同时到站车辆的结构化状态编码与零驻站、正时长驻站的混合策略，将固定目标离线数据和源仿真交互数据用于一致的事件决策过程，并设计指定服务时窗内低载且无在途后随车辆条件下的行程完成保障规则。新增内容集中于公交事件表示、动作建模和执行规则。",
+    "reason": "以继承框架正面陈述新增贡献，删除表号证据索引。"
+  },
+  {
+    "paragraph_id": 2039,
+    "old": "针对源结构可能不适用于目标环境的问题，提出MC-WM，将源预测的保留写为残差与直接模型的显式选择，并以对数置信评价调节一步模型样本的损失权重。公交扩展按类别事件、计数、连续状态和持续时间组织预测，使固定目标离线数据参与事件模型学习；归一化置信备份则依据累积尺度性质维持模型作用。表6-5支持避免不适当源结构复用的价值；表6-13支持单一驻站乘客时间任务下相对规则的服务收益，第6.4.3.9节补充独立时距目标协议下的模型辅助比较。理论分析、预测使用和控制评价由此形成连接。",
+    "new": "针对源模型预测可能不适用于目标环境的问题，提出MC-WM，将源模型复用表述为残差修正模型与直接目标模型之间的选择问题，并利用预测误差构造模型样本的可信权重。针对对数置信累积造成的模型作用衰减，引入归一化置信备份，调节模型样本对价值更新的贡献；进一步将方法扩展到包含事件类别、计数、连续状态和持续时间的公交预测任务。",
+    "reason": "创新点明确技术区别，删除“写为”“形成连接”和证据清单。"
+  }
+]

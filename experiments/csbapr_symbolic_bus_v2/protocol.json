@@ -1,0 +1,31 @@
+{
+  "name": "thesis-csbapr-symbolic-bus-v2",
+  "training_seeds": [64001, 64002],
+  "objectives": ["headway", "passenger"],
+  "arms": ["centered_symbolic", "uncentered_symbolic", "centered_no_symbolic", "legacy_nau", "legacy_mlp"],
+  "episodes": 100,
+  "horizon_seconds": 18000,
+  "identification_days": 4,
+  "identification_seed_offset": 150000,
+  "evaluation_seeds": [74101, 74102, 74103],
+  "scenes": {
+    "normal": [[0, 1.0]],
+    "pulse": [[0, 1.0], [3600, 5.0], [5400, 1.0]],
+    "repeated": [[0, 1.0], [3600, 5.0], [5400, 1.0], [9000, 5.0], [10800, 1.0], [14400, 5.0], [16200, 1.0]]
+  },
+  "nodes": ["node001", "node002", "node003", "node004", "node005", "node006", "node007"],
+  "sindy_features": [5, 6, 7, 8, 9, 11, 12, 13, 14],
+  "sindy_degree": 2,
+  "sindy_threshold": 0.01,
+  "reference_temperature": 0.05,
+  "reference_horizon": 2,
+  "reference_discount": 0.99,
+  "reference_hold_grid": [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60],
+  "reference_action_clip": 0.999,
+  "center": "Keep the current line, bus, station, time, demand, speed and timetable context; replace forward/backward headways by the timetable target. Neural policy residual is zero at this projected state, not the complete holding command.",
+  "symbolic_reference": "Per-line controlled SINDy increments plus sparse station-interval cost regression; two-station constant-action rollout and smooth softmin over admissible holding candidates. It is an approximate fitted feedback, not an optimal controller or an identified full Markov model.",
+  "no_symbolic": "Replace the fitted reference by Daganzo for headway or zero-extra-holding for passenger, and disable both symbolic losses. This removes the symbolic bundle, not just one loss.",
+  "cost": "Headway uses the unchanged native CS bus reward. Passenger uses -(2*global_wait_increment+global_in_vehicle_increment) between same-vehicle observations; overlapping rewards are not summed for system evaluation.",
+  "selection": "Final uninterrupted 100-episode endpoint, both paired seeds and all nine test cases retained. No selection by test outcome.",
+  "preservation": "All new artifacts live inside csbapr_symbolic_bus_v2. Legacy runners and their frozen runtime are used unchanged for reruns with a new output path. CS-BAPR source is copied from the completed validation-v8 snapshot, not the active working tree. No original checkpoint, result or thesis text is replaced. Identification costs and direct fitted-feedback controls are reported separately."
+}

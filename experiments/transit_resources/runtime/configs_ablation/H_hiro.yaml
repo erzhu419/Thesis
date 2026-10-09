@@ -1,0 +1,20 @@
+# H_hiro: TransitDuet v3 with HIRO/SHIRO-style goal-conditioned coupling.
+#
+# δ_t is reinterpreted as a target-headway shift instead of a launch-time shift.
+# Lower's Lagrangian cost becomes goal-conditioned (deviation from H_base + δ_t)
+# instead of deviation from a fixed baseline. There is NO upper-advantage
+# injection into the lower reward — this variant tests whether the simpler
+# goal-distance coupling is sufficient on its own.
+#
+# Reference: HIRO (Nachum et al., NeurIPS 2018) / SHIRO (Watanabe et al., 2022).
+_extends: ../config_v2.yaml
+_name: H_hiro
+
+coupling:
+  coupling_mode: hiro
+  tpc:
+    enable: true                 # keep TPC for lower-side covariate-shift fix
+    eps_explore: 0.25
+    sigma_tgt: 20.0
+    w_max: 5.0
+    ema_tau: 0.005

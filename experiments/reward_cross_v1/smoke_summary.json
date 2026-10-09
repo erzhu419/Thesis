@@ -1,0 +1,452 @@
+{
+  "experiment": "thesis-reward-cross-v1",
+  "analysis_location": "server",
+  "smoke": true,
+  "initializers": [
+    {
+      "objective": "headway",
+      "seed": 64001,
+      "offline_updates": 64
+    },
+    {
+      "objective": "passenger",
+      "seed": 64001,
+      "offline_updates": 64
+    }
+  ],
+  "policies": [
+    {
+      "kind": "legacy",
+      "objective": "headway",
+      "arm": "resac",
+      "seed": 64001,
+      "scene": "normal",
+      "smoke": true
+    },
+    {
+      "kind": "legacy",
+      "objective": "headway",
+      "arm": "ensemble_sac_control",
+      "seed": 64001,
+      "scene": "normal",
+      "smoke": true
+    },
+    {
+      "kind": "legacy",
+      "objective": "passenger",
+      "arm": "resac",
+      "seed": 64001,
+      "scene": "normal",
+      "smoke": true
+    },
+    {
+      "kind": "legacy",
+      "objective": "passenger",
+      "arm": "ensemble_sac_control",
+      "seed": 64001,
+      "scene": "normal",
+      "smoke": true
+    },
+    {
+      "kind": "cs",
+      "objective": "headway",
+      "arm": "csbapr",
+      "seed": 64001,
+      "scene": "normal",
+      "smoke": true
+    },
+    {
+      "kind": "cs",
+      "objective": "headway",
+      "arm": "csbapr_no_nau",
+      "seed": 64001,
+      "scene": "normal",
+      "smoke": true
+    },
+    {
+      "kind": "cs",
+      "objective": "passenger",
+      "arm": "csbapr",
+      "seed": 64001,
+      "scene": "normal",
+      "smoke": true
+    },
+    {
+      "kind": "cs",
+      "objective": "passenger",
+      "arm": "csbapr_no_nau",
+      "seed": 64001,
+      "scene": "normal",
+      "smoke": true
+    },
+    {
+      "kind": "mc",
+      "objective": "headway",
+      "arm": "h2oplus",
+      "seed": 64001,
+      "scene": "joint75",
+      "smoke": true
+    },
+    {
+      "kind": "mc",
+      "objective": "headway",
+      "arm": "h2o_matched",
+      "seed": 64001,
+      "scene": "joint75",
+      "smoke": true
+    },
+    {
+      "kind": "mc",
+      "objective": "headway",
+      "arm": "fixed0250",
+      "seed": 64001,
+      "scene": "joint75",
+      "smoke": true
+    },
+    {
+      "kind": "mc",
+      "objective": "passenger",
+      "arm": "h2oplus",
+      "seed": 64001,
+      "scene": "joint75",
+      "smoke": true
+    },
+    {
+      "kind": "mc",
+      "objective": "passenger",
+      "arm": "h2o_matched",
+      "seed": 64001,
+      "scene": "joint75",
+      "smoke": true
+    },
+    {
+      "kind": "mc",
+      "objective": "passenger",
+      "arm": "fixed0250",
+      "seed": 64001,
+      "scene": "joint75",
+      "smoke": true
+    }
+  ],
+  "initialization_ready": 2,
+  "training_ready": 14,
+  "evaluation_ready": 14,
+  "expected_training": 14,
+  "expected_evaluation": 14,
+  "complete": true,
+  "seed_means": [
+    {
+      "kind": "cs",
+      "objective": "headway",
+      "source_scene": "normal",
+      "evaluation_scene": "normal",
+      "arm": "csbapr",
+      "seed": 64001,
+      "cases": 1,
+      "passenger_seconds": 11655.525343118665,
+      "completion": 0.3902174024456494,
+      "plan_mae_seconds": 128.75512799419164,
+      "imbalance_seconds": 178.772080257362
+    },
+    {
+      "kind": "cs",
+      "objective": "headway",
+      "source_scene": "normal",
+      "evaluation_scene": "normal",
+      "arm": "csbapr_no_nau",
+      "seed": 64001,
+      "cases": 1,
+      "passenger_seconds": 11669.11656297086,
+      "completion": 0.3899509025122744,
+      "plan_mae_seconds": 133.91229844099436,
+      "imbalance_seconds": 194.07868129327818
+    },
+    {
+      "kind": "cs",
+      "objective": "passenger",
+      "source_scene": "normal",
+      "evaluation_scene": "normal",
+      "arm": "csbapr",
+      "seed": 64001,
+      "cases": 1,
+      "passenger_seconds": 11583.121411219647,
+      "completion": 0.3939894015026496,
+      "plan_mae_seconds": 140.67471168873536,
+      "imbalance_seconds": 211.0995818643557
+    },
+    {
+      "kind": "cs",
+      "objective": "passenger",
+      "source_scene": "normal",
+      "evaluation_scene": "normal",
+      "arm": "csbapr_no_nau",
+      "seed": 64001,
+      "cases": 1,
+      "passenger_seconds": 11592.108588472853,
+      "completion": 0.3936716515820871,
+      "plan_mae_seconds": 139.54568948599555,
+      "imbalance_seconds": 206.26949886419558
+    },
+    {
+      "kind": "legacy",
+      "objective": "headway",
+      "source_scene": "normal",
+      "evaluation_scene": "normal",
+      "arm": "ensemble_sac_control",
+      "seed": 64001,
+      "cases": 1,
+      "passenger_seconds": 1450.5719744006112,
+      "completion": 0.9532906676855478,
+      "plan_mae_seconds": 85.58864637577317,
+      "imbalance_seconds": 140.94171152122442
+    },
+    {
+      "kind": "legacy",
+      "objective": "headway",
+      "source_scene": "normal",
+      "evaluation_scene": "normal",
+      "arm": "resac",
+      "seed": 64001,
+      "cases": 1,
+      "passenger_seconds": 1381.2377495462795,
+      "completion": 0.9569204317508836,
+      "plan_mae_seconds": 77.86471322103392,
+      "imbalance_seconds": 128.49813065347792
+    },
+    {
+      "kind": "legacy",
+      "objective": "passenger",
+      "source_scene": "normal",
+      "evaluation_scene": "normal",
+      "arm": "ensemble_sac_control",
+      "seed": 64001,
+      "cases": 1,
+      "passenger_seconds": 1303.8101060273189,
+      "completion": 0.9588308338905339,
+      "plan_mae_seconds": 77.8152038231257,
+      "imbalance_seconds": 134.3717659429797
+    },
+    {
+      "kind": "legacy",
+      "objective": "passenger",
+      "source_scene": "normal",
+      "evaluation_scene": "normal",
+      "arm": "resac",
+      "seed": 64001,
+      "cases": 1,
+      "passenger_seconds": 1298.819371477696,
+      "completion": 0.9587353137835515,
+      "plan_mae_seconds": 77.28245758573324,
+      "imbalance_seconds": 133.16799926156364
+    },
+    {
+      "kind": "mc",
+      "objective": "headway",
+      "source_scene": "joint75",
+      "evaluation_scene": 1.0,
+      "arm": "fixed0250",
+      "seed": 64001,
+      "cases": 1,
+      "passenger_seconds": 1089.537037037037,
+      "completion": 0.037037037037037035,
+      "plan_mae_seconds": 137.36328161755878,
+      "imbalance_seconds": 339.8930340973444
+    },
+    {
+      "kind": "mc",
+      "objective": "headway",
+      "source_scene": "joint75",
+      "evaluation_scene": 1.0,
+      "arm": "h2o_matched",
+      "seed": 64001,
+      "cases": 1,
+      "passenger_seconds": 1089.388888888889,
+      "completion": 0.018518518518518517,
+      "plan_mae_seconds": 137.06112615919434,
+      "imbalance_seconds": 326.94045182885054
+    },
+    {
+      "kind": "mc",
+      "objective": "headway",
+      "source_scene": "joint75",
+      "evaluation_scene": 1.0,
+      "arm": "h2oplus",
+      "seed": 64001,
+      "cases": 1,
+      "passenger_seconds": 1089.5555555555557,
+      "completion": 0.018518518518518517,
+      "plan_mae_seconds": 137.29095405767998,
+      "imbalance_seconds": 328.86836650575276
+    },
+    {
+      "kind": "mc",
+      "objective": "passenger",
+      "source_scene": "joint75",
+      "evaluation_scene": 1.0,
+      "arm": "fixed0250",
+      "seed": 64001,
+      "cases": 1,
+      "passenger_seconds": 1089.5555555555557,
+      "completion": 0.037037037037037035,
+      "plan_mae_seconds": 137.15676232047528,
+      "imbalance_seconds": 325.79777925603895
+    },
+    {
+      "kind": "mc",
+      "objective": "passenger",
+      "source_scene": "joint75",
+      "evaluation_scene": 1.0,
+      "arm": "h2o_matched",
+      "seed": 64001,
+      "cases": 1,
+      "passenger_seconds": 1089.5555555555557,
+      "completion": 0.037037037037037035,
+      "plan_mae_seconds": 137.15676232047528,
+      "imbalance_seconds": 325.79777925603895
+    },
+    {
+      "kind": "mc",
+      "objective": "passenger",
+      "source_scene": "joint75",
+      "evaluation_scene": 1.0,
+      "arm": "h2oplus",
+      "seed": 64001,
+      "cases": 1,
+      "passenger_seconds": 1089.5555555555557,
+      "completion": 0.037037037037037035,
+      "plan_mae_seconds": 137.15676232047528,
+      "imbalance_seconds": 325.79777925603895
+    }
+  ],
+  "paired_contrasts": [],
+  "training": [
+    {
+      "kind": "legacy",
+      "objective": "headway",
+      "arm": "resac",
+      "seed": 64001,
+      "scene": "normal",
+      "smoke": true,
+      "training_wall_seconds": 88.61093498719856
+    },
+    {
+      "kind": "legacy",
+      "objective": "headway",
+      "arm": "ensemble_sac_control",
+      "seed": 64001,
+      "scene": "normal",
+      "smoke": true,
+      "training_wall_seconds": 77.86000622902066
+    },
+    {
+      "kind": "legacy",
+      "objective": "passenger",
+      "arm": "resac",
+      "seed": 64001,
+      "scene": "normal",
+      "smoke": true,
+      "training_wall_seconds": 67.77842015912756
+    },
+    {
+      "kind": "legacy",
+      "objective": "passenger",
+      "arm": "ensemble_sac_control",
+      "seed": 64001,
+      "scene": "normal",
+      "smoke": true,
+      "training_wall_seconds": 86.60057448875159
+    },
+    {
+      "kind": "cs",
+      "objective": "headway",
+      "arm": "csbapr",
+      "seed": 64001,
+      "scene": "normal",
+      "smoke": true
+    },
+    {
+      "kind": "cs",
+      "objective": "headway",
+      "arm": "csbapr_no_nau",
+      "seed": 64001,
+      "scene": "normal",
+      "smoke": true
+    },
+    {
+      "kind": "cs",
+      "objective": "passenger",
+      "arm": "csbapr",
+      "seed": 64001,
+      "scene": "normal",
+      "smoke": true
+    },
+    {
+      "kind": "cs",
+      "objective": "passenger",
+      "arm": "csbapr_no_nau",
+      "seed": 64001,
+      "scene": "normal",
+      "smoke": true
+    },
+    {
+      "kind": "mc",
+      "objective": "headway",
+      "arm": "h2oplus",
+      "seed": 64001,
+      "scene": "joint75",
+      "smoke": true,
+      "training_wall_seconds": 37.34012793796137,
+      "peak_host_rss_mb": 708.81640625
+    },
+    {
+      "kind": "mc",
+      "objective": "headway",
+      "arm": "h2o_matched",
+      "seed": 64001,
+      "scene": "joint75",
+      "smoke": true,
+      "training_wall_seconds": 27.75737580191344,
+      "peak_host_rss_mb": 712.015625
+    },
+    {
+      "kind": "mc",
+      "objective": "headway",
+      "arm": "fixed0250",
+      "seed": 64001,
+      "scene": "joint75",
+      "smoke": true,
+      "training_wall_seconds": 34.2391559057869,
+      "peak_host_rss_mb": 724.39453125
+    },
+    {
+      "kind": "mc",
+      "objective": "passenger",
+      "arm": "h2oplus",
+      "seed": 64001,
+      "scene": "joint75",
+      "smoke": true,
+      "training_wall_seconds": 30.827846225351095,
+      "peak_host_rss_mb": 702.26953125
+    },
+    {
+      "kind": "mc",
+      "objective": "passenger",
+      "arm": "h2o_matched",
+      "seed": 64001,
+      "scene": "joint75",
+      "smoke": true,
+      "training_wall_seconds": 27.165848188102245,
+      "peak_host_rss_mb": 717.67578125
+    },
+    {
+      "kind": "mc",
+      "objective": "passenger",
+      "arm": "fixed0250",
+      "seed": 64001,
+      "scene": "joint75",
+      "smoke": true,
+      "training_wall_seconds": 39.44993895897642,
+      "peak_host_rss_mb": 721.4296875
+    }
+  ]
+}

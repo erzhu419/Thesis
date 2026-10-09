@@ -1,0 +1,43 @@
+{
+  "name": "thesis-enhancement-v1",
+  "training_seeds": [22101, 22102, 22103, 22104, 22105],
+  "episodes": 100,
+  "evaluation_seeds": [23101, 23102, 23103],
+  "legacy_arms": ["learned_full", "masked_full", "onehot_full", "critic_off", "actor_off", "both_off"],
+  "legacy_scenes": ["normal", "demand_surge", "fast_switch"],
+  "cs_arms": ["nau_bc0", "nau_bc1", "mlp_bc0", "mlp_bc1"],
+  "cs_scenes": {
+    "normal": [[0, 1.0]],
+    "single5": [[0, 1.0], [3600, 5.0], [5400, 1.0]],
+    "repeated5": [[0, 1.0], [3600, 5.0], [4200, 1.0], [7200, 5.0], [7800, 1.0], [10800, 5.0], [11400, 1.0]]
+  },
+  "mc_arms": ["source_only", "offline_only", "mixed_nomodel", "fixed_direct", "fixed_residual", "calibrated_selection"],
+  "offline_blocks": [1201, 1202, 1203, 1204, 1205, 1206],
+  "prefix_updates": 10000,
+  "adaptation_days": 3,
+  "updates_per_day": 2048,
+  "source_day_seed_base": 24100,
+  "source_fit_day": 0,
+  "source_stop_day": 1,
+  "model_updates_per_member": 400,
+  "model_ensemble_members": 3,
+  "model_max_fit_rows": 4096,
+  "model_max_validation_rows": 1024,
+  "extra_critic_every": 4,
+  "extra_batch_size": 128,
+  "model_fraction_in_extra_loss": 0.25,
+  "model_start_max_horizon_fraction": 0.75,
+  "qdelta_gamma": 0.9,
+  "qdelta_updates_per_extra_step": 1,
+  "deployment_hold_scale": 0.25,
+  "evaluation_demand_scales": [1.0, 1.25],
+  "evaluation_blocks": [
+    {"demand_seed": 25101, "sumo_seed": 26101},
+    {"demand_seed": 25102, "sumo_seed": 26102},
+    {"demand_seed": 25103, "sumo_seed": 26103},
+    {"demand_seed": 25104, "sumo_seed": 26104},
+    {"demand_seed": 25105, "sumo_seed": 26105}
+  ],
+  "departure_jitter_seconds": 120,
+  "evaluation_horizon_seconds": 24000
+}

@@ -1,0 +1,38 @@
+# H_timetable_v4: constrained rolling timetable optimization pilot.
+#
+# Compared with H_timetable_disc, this version anchors the rolling plan around
+# the strong fixed-300s timetable, limits accumulated drift from the baseline,
+# and gives the upper policy direct penalties for holding, passenger time,
+# timetable lateness, planned-shift magnitude, and action magnitude.
+_extends: H_timetable_disc.yaml
+_name: H_timetable_v4
+
+upper:
+  action_bins: [-60.0, -30.0, 0.0, 30.0, 60.0, 90.0, 120.0]
+  maximum_alpha: 0.08
+
+lower:
+  action_bins: [0.0, 3.0, 6.0, 9.0, 12.0, 15.0, 20.0, 30.0, 45.0]
+  maximum_alpha: 0.10
+
+coupling:
+  upper_warmup_eps: 20
+  timetable:
+    base_headway: 300.0
+    min_headway: 240.0
+    max_headway: 420.0
+    min_notice: 60.0
+    max_shift_abs: 1800.0
+    reward:
+      holding_weight: 0.20
+      total_time_weight: 0.12
+      onboard_weight: 0.06
+      lateness_weight: 0.20
+      shift_weight: 0.08
+      action_weight: 0.04
+      holding_scale: 60.0
+      total_time_scale: 30.0
+      onboard_scale: 30.0
+      lateness_scale: 300.0
+      shift_scale: 1800.0
+      action_scale: 120.0

@@ -1,0 +1,330 @@
+{
+  "total_updates": 62000,
+  "arm": "td0500",
+  "real_td_coefficient": 0.75,
+  "model_td_coefficient": 0.5,
+  "metrics": {
+    "train/offline_terminal_rows": 0.0,
+    "train/offline_terminal_abs_td": 0.0,
+    "train/offline_nonterminal_abs_td": 0.21153756976127625,
+    "train/offline_terminal_loss_fraction": 0.0,
+    "train/offline_max_abs_td": 2.20294189453125,
+    "train/sim_terminal_rows": 0.0,
+    "train/sim_terminal_abs_td": 0.0,
+    "train/sim_nonterminal_abs_td": 0.26199597120285034,
+    "train/sim_terminal_loss_fraction": 0.0,
+    "train/sim_max_abs_td": 1.1181259155273438,
+    "train/update": 62000.0,
+    "train/online_critic_update": 12000.0,
+    "train/critic_loss": 0.06383435428142548,
+    "train/offline_td_loss": 0.055054306983947754,
+    "train/sim_td_loss": 0.0726143941283226,
+    "train/cql_penalty": 0.0,
+    "train/value_loss": 0.13782410323619843,
+    "train/value_advantage": 0.02969936840236187,
+    "train/actor_updated": 1.0,
+    "train/actor_loss": 34.383819580078125,
+    "train/alpha_loss": -3.146106719970703,
+    "train/alpha": 0.02804909646511078,
+    "train/q_data_mean": -32.81922149658203,
+    "train/critic_grad_norm": 67.60948181152344,
+    "train/value_grad_norm": 124.16494750976562,
+    "train/actor_grad_norm": 0.07022463530302048,
+    "train/hybrid_entropy": 0.8803901672363281,
+    "train/hybrid_gate_entropy": 0.5906733274459839,
+    "train/hybrid_weighted_positive_entropy": 0.2897169291973114,
+    "train/hold_probability": 0.6876189708709717,
+    "train/positive_action_mean": -0.1820279359817505,
+    "model_td_loss": 0.03858650103211403,
+    "model_weight_mean": 0.4844088852405548
+  },
+  "real_td_loss": 0.05938813462853432,
+  "real_gradient_norm": 61.97263717651367,
+  "model_gradient_norm": 42.41644287109375,
+  "scaled_real_gradient_norm": 46.479477882385254,
+  "scaled_model_gradient_norm": 21.208221435546875,
+  "gradient_cosine": 0.9946326613426208,
+  "model": {
+    "selected_family": "residual",
+    "tau": 1.525363860723571,
+    "fit": {
+      "unweighted_prediction_loss": {
+        "n": 512,
+        "mean": 1.6413509079720825,
+        "p10": 1.206094539165497,
+        "median": 1.5439885258674622,
+        "p90": 2.158679246902466
+      },
+      "local_confidence": {
+        "n": 512,
+        "mean": 0.49066717657842673,
+        "p10": 0.41404624879360197,
+        "median": 0.49696606397628784,
+        "p90": 0.5584429919719696
+      },
+      "qdelta": {
+        "n": 512,
+        "mean": -0.7249430394731462,
+        "p10": -0.7593650043010711,
+        "median": -0.7311591804027557,
+        "p90": -0.6808081865310669
+      },
+      "weights": {
+        "n": 512,
+        "mean": 0.48457906307885423,
+        "p10": 0.46796348690986633,
+        "median": 0.48135071992874146,
+        "p90": 0.5062077164649963
+      },
+      "effective_sample_size": 511.51611328125,
+      "weight_sum": 248.1044921875,
+      "components": {
+        "rows": 512,
+        "selection_loss": 1.6413509845733643,
+        "head_losses": {
+          "global": 1.0670819282531738,
+          "local": 1.5179702043533325,
+          "count": 0.9007274508476257,
+          "line": 2.3941636085510254,
+          "station": 3.667675733566284,
+          "neighbor": 0.300486296415329
+        },
+        "duration_mae_s": 1.1449425220489502,
+        "cost_mae_passenger_s": 1935.61376953125,
+        "duration_log_rmse": 0.4002233147621155,
+        "cost_log_rmse": 0.6177379488945007,
+        "waiting_increment_mae_passengers": 1.254425287246704,
+        "onboard_increment_mae_passengers": 1.3464056253433228,
+        "count_accuracy": 0.6796875,
+        "line_accuracy_on_true_active_slots": 0.15466666221618652,
+        "station_accuracy_on_true_active_slots": 0.04266666620969772,
+        "slot_identity_accuracy": 0.013333333656191826,
+        "local_rmse_on_true_active_slots": 0.19961480796337128,
+        "neighbor_accuracy_on_true_active_slots": 0.8766666650772095,
+        "label_conditioning": "True active slots only index scoring; all predictions use current state and action only"
+      },
+      "actual_weights": {
+        "n": 512,
+        "mean": 0.48457906307885423,
+        "p10": 0.46796348690986633,
+        "median": 0.48135071992874146,
+        "p90": 0.5062077164649963
+      },
+      "support_fraction": 0.966796875,
+      "holding_at_least_30s": {
+        "rows": 19,
+        "selection_loss": 2.0184807777404785,
+        "head_losses": {
+          "global": 0.8759265542030334,
+          "local": 3.3668124675750732,
+          "count": 1.066089391708374,
+          "line": 2.532351493835449,
+          "station": 3.8550970554351807,
+          "neighbor": 0.4146069884300232
+        },
+        "duration_mae_s": 0.8947193622589111,
+        "cost_mae_passenger_s": 1828.4444580078125,
+        "duration_log_rmse": 0.36974257230758667,
+        "cost_log_rmse": 0.5869091153144836,
+        "waiting_increment_mae_passengers": 1.4621249437332153,
+        "onboard_increment_mae_passengers": 1.119612216949463,
+        "count_accuracy": 0.5789473652839661,
+        "line_accuracy_on_true_active_slots": 0.06451612710952759,
+        "station_accuracy_on_true_active_slots": 0.032258063554763794,
+        "slot_identity_accuracy": 0.0,
+        "local_rmse_on_true_active_slots": 0.2159653604030609,
+        "neighbor_accuracy_on_true_active_slots": 0.8548386693000793,
+        "label_conditioning": "True active slots only index scoring; all predictions use current state and action only"
+      }
+    },
+    "stop": {
+      "unweighted_prediction_loss": {
+        "n": 512,
+        "mean": 1.6650300143519416,
+        "p10": 1.2258144736289978,
+        "median": 1.5544298887252808,
+        "p90": 2.1579002380371093
+      },
+      "local_confidence": {
+        "n": 512,
+        "mean": 0.4870346611714922,
+        "p10": 0.41413370668888094,
+        "median": 0.4952811896800995,
+        "p90": 0.5544402301311493
+      },
+      "qdelta": {
+        "n": 512,
+        "mean": -0.7251358722569421,
+        "p10": -0.7606526136398315,
+        "median": -0.7316644191741943,
+        "p90": -0.6801713585853576
+      },
+      "weights": {
+        "n": 512,
+        "mean": 0.4844928545644507,
+        "p10": 0.4673613250255585,
+        "median": 0.48110759258270264,
+        "p90": 0.506530225276947
+      },
+      "effective_sample_size": 511.50054931640625,
+      "weight_sum": 248.06033325195312,
+      "components": {
+        "rows": 512,
+        "selection_loss": 1.6650298833847046,
+        "head_losses": {
+          "global": 1.1546449661254883,
+          "local": 1.511889934539795,
+          "count": 0.910029411315918,
+          "line": 2.392669200897217,
+          "station": 3.7164881229400635,
+          "neighbor": 0.3044581413269043
+        },
+        "duration_mae_s": 1.0278995037078857,
+        "cost_mae_passenger_s": 1848.6090087890625,
+        "duration_log_rmse": 0.39050376415252686,
+        "cost_log_rmse": 0.6199202537536621,
+        "waiting_increment_mae_passengers": 1.2768477201461792,
+        "onboard_increment_mae_passengers": 1.3545739650726318,
+        "count_accuracy": 0.62890625,
+        "line_accuracy_on_true_active_slots": 0.1607378125190735,
+        "station_accuracy_on_true_active_slots": 0.023715415969491005,
+        "slot_identity_accuracy": 0.0065876152366399765,
+        "local_rmse_on_true_active_slots": 0.20292042195796967,
+        "neighbor_accuracy_on_true_active_slots": 0.8781291246414185,
+        "label_conditioning": "True active slots only index scoring; all predictions use current state and action only"
+      },
+      "actual_weights": {
+        "n": 512,
+        "mean": 0.4844928545644507,
+        "p10": 0.4673613250255585,
+        "median": 0.48110759258270264,
+        "p90": 0.506530225276947
+      },
+      "support_fraction": 0.9375,
+      "holding_at_least_30s": {
+        "rows": 22,
+        "selection_loss": 1.7253440618515015,
+        "head_losses": {
+          "global": 0.9613723158836365,
+          "local": 2.0368154048919678,
+          "count": 0.9694928526878357,
+          "line": 2.3672704696655273,
+          "station": 3.774897336959839,
+          "neighbor": 0.24221615493297577
+        },
+        "duration_mae_s": 0.7101545333862305,
+        "cost_mae_passenger_s": 1489.060791015625,
+        "duration_log_rmse": 0.27716559171676636,
+        "cost_log_rmse": 0.40954551100730896,
+        "waiting_increment_mae_passengers": 1.146872639656067,
+        "onboard_increment_mae_passengers": 1.4833660125732422,
+        "count_accuracy": 0.5909091234207153,
+        "line_accuracy_on_true_active_slots": 0.14705882966518402,
+        "station_accuracy_on_true_active_slots": 0.0,
+        "slot_identity_accuracy": 0.0,
+        "local_rmse_on_true_active_slots": 0.24932248890399933,
+        "neighbor_accuracy_on_true_active_slots": 0.9117646813392639,
+        "label_conditioning": "True active slots only index scoring; all predictions use current state and action only"
+      }
+    },
+    "calibrate": {
+      "unweighted_prediction_loss": {
+        "n": 512,
+        "mean": 1.6712740273214877,
+        "p10": 1.2326258420944214,
+        "median": 1.5528009533882141,
+        "p90": 2.14224328994751
+      },
+      "local_confidence": {
+        "n": 512,
+        "mean": 0.48689258701051585,
+        "p10": 0.4159018754959106,
+        "median": 0.4955432862043381,
+        "p90": 0.5530708849430084
+      },
+      "qdelta": {
+        "n": 512,
+        "mean": -0.7246836456470191,
+        "p10": -0.7595082700252533,
+        "median": -0.7307742536067963,
+        "p90": -0.6823959171772003
+      },
+      "weights": {
+        "n": 512,
+        "mean": 0.4846988675999455,
+        "p10": 0.4678964585065842,
+        "median": 0.48153603076934814,
+        "p90": 0.5054046452045441
+      },
+      "effective_sample_size": 511.5285339355469,
+      "weight_sum": 248.1658172607422,
+      "components": {
+        "rows": 512,
+        "selection_loss": 1.671274185180664,
+        "head_losses": {
+          "global": 1.1791653633117676,
+          "local": 1.5451182126998901,
+          "count": 0.886327862739563,
+          "line": 2.3816568851470947,
+          "station": 3.719740867614746,
+          "neighbor": 0.3156350255012512
+        },
+        "duration_mae_s": 1.1211063861846924,
+        "cost_mae_passenger_s": 1938.481689453125,
+        "duration_log_rmse": 0.3980274200439453,
+        "cost_log_rmse": 0.6147128343582153,
+        "waiting_increment_mae_passengers": 1.2510795593261719,
+        "onboard_increment_mae_passengers": 1.3734755516052246,
+        "count_accuracy": 0.650390625,
+        "line_accuracy_on_true_active_slots": 0.14800000190734863,
+        "station_accuracy_on_true_active_slots": 0.024000000208616257,
+        "slot_identity_accuracy": 0.0013333333190530539,
+        "local_rmse_on_true_active_slots": 0.2041044384241104,
+        "neighbor_accuracy_on_true_active_slots": 0.8679999709129333,
+        "label_conditioning": "True active slots only index scoring; all predictions use current state and action only"
+      },
+      "actual_weights": {
+        "n": 512,
+        "mean": 0.4846988675999455,
+        "p10": 0.4678964585065842,
+        "median": 0.48153603076934814,
+        "p90": 0.5054046452045441
+      },
+      "support_fraction": 0.9609375,
+      "holding_at_least_30s": {
+        "rows": 14,
+        "selection_loss": 1.6364997625350952,
+        "head_losses": {
+          "global": 0.671795666217804,
+          "local": 1.6256258487701416,
+          "count": 1.0660769939422607,
+          "line": 2.4484641551971436,
+          "station": 3.6198720932006836,
+          "neighbor": 0.3871642053127289
+        },
+        "duration_mae_s": 0.7201864123344421,
+        "cost_mae_passenger_s": 1225.554931640625,
+        "duration_log_rmse": 0.29682061076164246,
+        "cost_log_rmse": 0.6424546837806702,
+        "waiting_increment_mae_passengers": 1.064986228942871,
+        "onboard_increment_mae_passengers": 1.0959479808807373,
+        "count_accuracy": 0.5,
+        "line_accuracy_on_true_active_slots": 0.08695652335882187,
+        "station_accuracy_on_true_active_slots": 0.0,
+        "slot_identity_accuracy": 0.0,
+        "local_rmse_on_true_active_slots": 0.2170695960521698,
+        "neighbor_accuracy_on_true_active_slots": 0.8260869979858398,
+        "label_conditioning": "True active slots only index scoring; all predictions use current state and action only"
+      }
+    },
+    "trust_training_error": {
+      "n": 8192,
+      "mean": 1.6430148219515104,
+      "p10": 1.211647140979767,
+      "median": 1.5340343117713928,
+      "p90": 2.1483011722564695
+    },
+    "coverage_radius": 0.6362364888191223,
+    "weight_mode": "td0500"
+  }
+}

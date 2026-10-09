@@ -1,0 +1,15 @@
+{
+  "name": "thesis-mcwm-attribution-v15",
+  "training_seeds": [63001, 63002, 63003, 63004, 63005],
+  "scenes": ["calibrated", "joint75"],
+  "arms": ["scaled_zero", "target_replay", "direct_only", "residual_only"],
+  "reference_arms": ["h2o_matched", "fixed0250"],
+  "cases": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+  "real_td_coefficient": 0.75,
+  "model_fraction": 0.25,
+  "replay_weight": 0.5,
+  "source_event_budget": 25000,
+  "warmup_events": 5000,
+  "training_nodes": ["node001", "node002", "node003", "node004", "node005", "node006"],
+  "interpretation": "Reuse the first five prespecified v13 IQL initializers and completed reference evaluations. No test-based seed selection. Extra target replay uses recorded actions and a fixed 0.5 weight; synthetic models use current-policy actions and normalized confidence, so these are not identical action distributions. Fit both model banks in forced-family arms, changing only the selected bank. Development diagnosis on already-used days, not a fresh held-out confirmation."
+}

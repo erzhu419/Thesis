@@ -1,0 +1,132 @@
+{
+  "runtime": "original_RE-SAC",
+  "seed": 64001,
+  "policy": "recognizable per-vehicle/trip/station 0,7,23,60s commands",
+  "completed": true,
+  "simulation_seconds": 49291.0,
+  "wall_seconds": 17.517972172994632,
+  "counts": {
+    "latches_without_emitted_decision": 25,
+    "positive_latches_without_decision": 0,
+    "verified_releases": 5257,
+    "release_duration_mismatches": 0,
+    "emitted_events": 5232,
+    "controlled_latches": 5232,
+    "latch_action_mismatches": 0,
+    "cross_trip_suppressed_rows": 245,
+    "replay_rows": 4970,
+    "wrong_vehicle_rows": 0,
+    "replay_action_mismatches": 0,
+    "reward_event_mismatches": 0,
+    "reward_formula_mismatches": 0,
+    "cross_trip_rows": 0,
+    "same_trip_nonadjacent_station_rows": 0
+  },
+  "examples": [
+    {
+      "state_event": {
+        "bus": 0,
+        "trip": 0,
+        "station": 6,
+        "time": 415.0,
+        "reward": -0.0,
+        "direction": 1,
+        "forward_present": false,
+        "backward_present": true
+      },
+      "next_event": {
+        "bus": 0,
+        "trip": 0,
+        "station": 7,
+        "time": 500.0,
+        "reward": -8.009999999999991,
+        "direction": 1,
+        "forward_present": false,
+        "backward_present": true
+      },
+      "replay_hold": 23.0,
+      "executed": {
+        "time": 416.0,
+        "hold": 23.0,
+        "identity": [
+          0,
+          0,
+          6
+        ]
+      },
+      "release_elapsed": 23.0,
+      "reward": -8.009999999999991,
+      "cross_trip": false
+    },
+    {
+      "state_event": {
+        "bus": 2,
+        "trip": 2,
+        "station": 1,
+        "time": 422.0,
+        "reward": -8.009999999999991,
+        "direction": 1,
+        "forward_present": true,
+        "backward_present": false
+      },
+      "next_event": {
+        "bus": 2,
+        "trip": 2,
+        "station": 2,
+        "time": 510.0,
+        "reward": -17.99000000000001,
+        "direction": 1,
+        "forward_present": true,
+        "backward_present": false
+      },
+      "replay_hold": 7.0,
+      "executed": {
+        "time": 423.0,
+        "hold": 7.0,
+        "identity": [
+          2,
+          2,
+          1
+        ]
+      },
+      "release_elapsed": 7.0,
+      "reward": -17.99000000000001,
+      "cross_trip": false
+    },
+    {
+      "state_event": {
+        "bus": 2,
+        "trip": 2,
+        "station": 2,
+        "time": 510.0,
+        "reward": -17.99000000000001,
+        "direction": 1,
+        "forward_present": true,
+        "backward_present": false
+      },
+      "next_event": {
+        "bus": 2,
+        "trip": 2,
+        "station": 3,
+        "time": 608.0,
+        "reward": -34.99000000000001,
+        "direction": 1,
+        "forward_present": true,
+        "backward_present": false
+      },
+      "replay_hold": 23.0,
+      "executed": {
+        "time": 511.0,
+        "hold": 23.0,
+        "identity": [
+          2,
+          2,
+          2
+        ]
+      },
+      "release_elapsed": 23.0,
+      "reward": -34.99000000000001,
+      "cross_trip": false
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "thesis-mcwm-headway-td-v17",
+  "training_seeds": [66001, 66002],
+  "scenes": ["calibrated", "joint75"],
+  "arms": ["mc_td0", "mc_td0125"],
+  "coefficients": {"mc_td0": 0.0, "mc_td0125": 0.125},
+  "observed_td_coefficient": 0.75,
+  "cases": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "executors": ["direct", "guarded"],
+  "training_nodes": ["node001", "node002", "node003", "node004", "node005", "node006", "node007"],
+  "interpretation": "Paired model-TD usage intervention on v16 mc_state. Retain model fitting, generation, RNG isolation, same-vehicle headway rewards and all observed training settings. The zero arm removes the model TD gradient, not the model fitting cost. Reuse v16 mc_state (0.25), H2O+ and rules as references; no new data or initializer."
+}

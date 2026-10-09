@@ -1,0 +1,64 @@
+{
+  "total_updates": 8,
+  "partitions": {
+    "offline": {
+      "ratio_train": 1642365,
+      "ratio_validation": 328450
+    },
+    "online": {
+      "ratio_train": 27360,
+      "ratio_validation": 13679
+    }
+  },
+  "use_ratio_correction": true,
+  "ratio_update_interval": 4,
+  "min_weight": 1e-05,
+  "max_weight": 1.0,
+  "validation_available": true,
+  "metrics": {
+    "ratio/validation_loss": 1.3853132724761963,
+    "ratio/validation_joint_loss": 0.6926006078720093,
+    "ratio/validation_state_action_loss": 0.6927127242088318,
+    "ratio/validation_joint_auc": 0.6226431131362915,
+    "ratio/validation_joint_accuracy": 0.51513671875,
+    "ratio/validation_joint_brier": 0.24972672760486603,
+    "ratio/validation_joint_real_logit_mean": -0.01451948657631874,
+    "ratio/validation_joint_sim_logit_mean": -0.016839731484651566,
+    "ratio/validation_state_action_auc": 0.6240451335906982,
+    "ratio/validation_state_action_accuracy": 0.515869140625,
+    "ratio/validation_state_action_brier": 0.2497827708721161,
+    "ratio/validation_state_action_real_logit_mean": -0.018489273265004158,
+    "ratio/validation_state_action_sim_logit_mean": -0.020430032163858414,
+    "ratio/validation_weight_min": 0.9800695776939392,
+    "ratio/validation_weight_max": 1.0,
+    "ratio/validation_weight_mean": 0.9997981786727905,
+    "ratio/validation_ess_fraction": 0.9999985098838806,
+    "ratio/validation_raw_ess_fraction": 0.9999924302101135,
+    "ratio/validation_clip_fraction": 0.9208984375,
+    "ratio/validation_low_clip_fraction": 0.0,
+    "ratio/validation_high_clip_fraction": 0.9208984375,
+    "ratio/validation_log_weight_mean": 0.0035903011448681355,
+    "ratio/validation_log_weight_std": 0.0027687170077115297
+  },
+  "weight_distribution": {
+    "n": 2048,
+    "mean": 0.9997982253553346,
+    "p10": 1.0,
+    "median": 1.0,
+    "p90": 1.0
+  },
+  "ess": 2047.9969482421875,
+  "offline_holdout_blocks": [
+    1202
+  ],
+  "scope": "Held out from classifier fitting, not from actor/value training. Does not establish the correctness of a conditional density ratio.",
+  "source_holdout": "original classifier trajectory partition",
+  "source_train_days": [
+    0,
+    2
+  ],
+  "source_validation_days": [
+    1
+  ],
+  "split_revision": "day_id_before_replay_append"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "thesis-bus-algorithm-matrix-v6",
+  "training_seeds": [64001, 64002],
+  "modes": ["holding", "dual"],
+  "objectives": ["headway", "passenger"],
+  "arms": ["resac", "ensemble_sac_control", "actor_off", "critic_off"],
+  "episodes": 100,
+  "horizon_seconds": 18000,
+  "hidden_dim": 64,
+  "ensemble_size": 3,
+  "batch_size": 256,
+  "learning_rate": 0.0003,
+  "evaluation_seeds": [78101, 78102, 78103],
+  "scenes": {
+    "normal": [[0, 1.0]],
+    "pulse5": [[0, 1.0], [3600, 5.0], [5400, 1.0]],
+    "repeated5": [[0, 1.0], [3600, 5.0], [5400, 1.0], [9000, 5.0], [10800, 1.0], [14400, 5.0], [16200, 1.0]],
+    "static5": [[0, 5.0]],
+    "static10": [[0, 10.0]],
+    "burst50": [[0, 1.0], [3600, 50.0], [4200, 1.0]]
+  },
+  "training_nodes": ["node001", "node002", "node003", "node004", "node005", "node006", "node007"],
+  "interpretation": "Adapt the existing RE-SAC learner to the frozen CS multi-line simulator without changing its update equations. Common raw observation information, same-vehicle replay, normalized execution, reward ledger, 100 training days and test days. RE-SAC embeds five genuine categorical fields and keeps ten normalized continuous fields. Batch size, critic count, hidden width and learning rate match the frozen CS recipe; other RE-SAC settings are retained. ensemble_sac_control disables both RE-SAC uncertainty regularizers; it is a matched ensemble-SAC control, not a claim of a separate vanilla SAC implementation. CS reference endpoints are reused, with holding symbolic endpoints evaluated on the same days. This is a new matched-environment cohort, not pooled with native RE-SAC."
+}

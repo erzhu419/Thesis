@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="../b_network/5g_changsha_bus_network_with_signal_d.net.xml"/>
+        <additional-files value="../b_network/3_bus_station.add.xml"/>
+        <route-files value="../c_social_vehicle_rou/5_design_social_vehicle.rou.xml,../c_social_vehicle_rou/5_design_social_vehicle_add_addline_lesscar.rou.xml, ../d_bus_rou/2_bus_timetable.rou.xml, ../e_passenger_rou/3_modified_period_workday_passenger_VC_0805.rou.xml, ../e_passenger_rou/3_modified_transfer_passenger_0805.rou.xml"/>
+    </input>
+	
+    <output>
+		<write-license value="true"/>
+        <statistic-output value="output_file/statistic_output.xml"/>
+        <tripinfo-output.write-unfinished value="t"/>
+		<fcd-output value="output_file/PreSimFcd.xml" attributes="Bus"/>
+		<fcd-output.attributes value="x, y, z, type, speed, pos, lane, edge, slope, signals, distance, odometer"/>
+    </output>
+	
+    <report>
+	    <log value="output_file/report_log.xml"/>
+		<duration-log.statistics value="t"/>
+    </report>
+	
+	<fcd_device>
+        <device.fcd.explicit value="80000, 7S_0, 7S_1, 7S_2, 7S_3, 7S_4, 7S_5, 7S_6, 7S_7, 7S_8, 7S_9, 7S_10, 7S_11, 7S_12, 7S_13, 7S_14, 7S_15, 7S_16, 7S_17, 7S_18, 7S_19, 7S_20, 7S_21, 7S_22, 7S_23, 7S_24, 7S_25, 7S_26, 7S_27, 7S_28, 7S_29, 7S_30, 7S_31, 7S_32, 7S_33, 7S_34, 7S_35, 7S_36, 7S_37, 7S_38, 7S_39, 7S_40, 7S_41, 7S_42, 7S_43, 7S_44, 7S_45, 7S_46, 7S_47, 7S_48, 7S_49, 7S_50, 7S_51, 7S_52, 7X_0, 7X_1, 7X_2, 7X_3, 7X_4, 7X_5, 7X_6, 7X_7, 7X_8, 7X_9, 7X_10, 7X_11, 7X_12, 7X_13, 7X_14, 7X_15, 7X_16, 7X_17, 7X_18, 7X_19, 7X_20, 7X_21, 7X_22, 7X_23, 7X_24, 7X_25, 7X_26, 7X_27, 7X_28, 7X_29, 7X_30, 7X_31, 7X_32, 7X_33, 7X_34, 7X_35, 7X_36, 7X_37, 7X_38, 7X_39, 7X_40, 7X_41, 7X_42, 7X_43, 7X_44, 7X_45, 7X_46, 7X_47, 7X_48, 7X_49, 7X_50, 102S_0, 102S_1, 102S_2, 102S_3, 102S_4, 102S_5, 102S_6, 102S_7, 102S_8, 102S_9, 102S_10, 102S_11, 102S_12, 102S_13, 102S_14, 102S_15, 102S_16, 102S_17, 102S_18, 102S_19, 102S_20, 102S_21, 102S_22, 102S_23, 102S_24, 102S_25, 102S_26, 102S_27, 102S_28, 102S_29, 102S_30, 102S_31, 102S_32, 102S_33, 102S_34, 102S_35, 102X_0, 102X_1, 102X_2, 102X_3, 102X_4, 102X_5, 102X_6, 102X_7, 102X_8, 102X_9, 102X_10, 102X_11, 102X_12, 102X_13, 102X_14, 102X_15, 102X_16, 102X_17, 102X_18, 102X_19, 102X_20, 102X_21, 102X_22, 102X_23, 102X_24, 102X_25, 102X_26, 102X_27, 102X_28, 102X_29, 102X_30, 102X_31, 122S_0, 122S_1, 122S_2, 122S_3, 122S_4, 122S_5, 122S_6, 122S_7, 122S_8, 122S_9, 122S_10, 122S_11, 122S_12, 122S_13, 122S_14, 122S_15, 122S_16, 122S_17, 122S_18, 122S_19, 122S_20, 122S_21, 122S_22, 122S_23, 122S_24, 122S_25, 122S_26, 122S_27, 122S_28, 122S_29, 122S_30, 122S_31, 122S_32, 122S_33, 122X_0, 122X_1, 122X_2, 122X_3, 122X_4, 122X_5, 122X_6, 122X_7, 122X_8, 122X_9, 122X_10, 122X_11, 122X_12, 122X_13, 122X_14, 122X_15, 122X_16, 122X_17, 122X_18, 122X_19, 122X_20, 122X_21, 122X_22, 122X_23, 122X_24, 122X_25, 122X_26, 122X_27, 122X_28, 122X_29, 122X_30, 122X_31, 122X_32, 311S_0, 311S_1, 311S_2, 311S_3, 311S_4, 311S_5, 311S_6, 311S_7, 311S_8, 311S_9, 311S_10, 311S_11, 311S_12, 311S_13, 311S_14, 311S_15, 311S_16, 311S_17, 311S_18, 311S_19, 311S_20, 311S_21, 311S_22, 311S_23, 311S_24, 311S_25, 311S_26, 311S_27, 311S_28, 311X_0, 311X_1, 311X_2, 311X_3, 311X_4, 311X_5, 311X_6, 311X_7, 311X_8, 311X_9, 311X_10, 311X_11, 311X_12, 311X_13, 311X_14, 311X_15, 311X_16, 311X_17, 311X_18, 311X_19, 311X_20, 311X_21, 311X_22, 311X_23, 311X_24, 311X_25, 311X_26, 406S_0, 406S_1, 406S_2, 406S_3, 406S_4, 406S_5, 406S_6, 406S_7, 406S_8, 406S_9, 406S_10, 406S_11, 406S_12, 406S_13, 406S_14, 406S_15, 406S_16, 406S_17, 406S_18, 406S_19, 406S_20, 406S_21, 406S_22, 406S_23, 406S_24, 406S_25, 406S_26, 406S_27, 406S_28, 406X_0, 406X_1, 406X_2, 406X_3, 406X_4, 406X_5, 406X_6, 406X_7, 406X_8, 406X_9, 406X_10, 406X_11, 406X_12, 406X_13, 406X_14, 406X_15, 406X_16, 406X_17, 406X_18, 406X_19, 406X_20, 406X_21, 406X_22, 406X_23, 406X_24, 406X_25, 406X_26, 406X_27, 406X_28, 705S_0, 705S_1, 705S_2, 705S_3, 705S_4, 705S_5, 705S_6, 705S_7, 705S_8, 705S_9, 705S_10, 705S_11, 705S_12, 705S_13, 705S_14, 705S_15, 705S_16, 705S_17, 705S_18, 705S_19, 705S_20, 705S_21, 705S_22, 705S_23, 705S_24, 705S_25, 705X_0, 705X_1, 705X_2, 705X_3, 705X_4, 705X_5, 705X_6, 705X_7, 705X_8, 705X_9, 705X_10, 705X_11, 705X_12, 705X_13, 705X_14, 705X_15, 705X_16, 705X_17, 705X_18, 705X_19, 705X_20, 705X_21"/>
+		<person-device.fcd.explicit value="workday6_6477.0"/>
+    </fcd_device>
+
+	
+</configuration>

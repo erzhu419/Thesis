@@ -1,0 +1,203 @@
+{
+  "protocol": {
+    "name": "thesis-enhancement-v1",
+    "training_seeds": [
+      22101,
+      22102,
+      22103,
+      22104,
+      22105
+    ],
+    "episodes": 100,
+    "evaluation_seeds": [
+      23101,
+      23102,
+      23103
+    ],
+    "legacy_arms": [
+      "learned_full",
+      "masked_full",
+      "onehot_full",
+      "critic_off",
+      "actor_off",
+      "both_off"
+    ],
+    "legacy_scenes": [
+      "normal",
+      "demand_surge",
+      "fast_switch"
+    ],
+    "cs_arms": [
+      "nau_bc0",
+      "nau_bc1",
+      "mlp_bc0",
+      "mlp_bc1"
+    ],
+    "cs_scenes": {
+      "normal": [
+        [
+          0,
+          1.0
+        ]
+      ],
+      "single5": [
+        [
+          0,
+          1.0
+        ],
+        [
+          3600,
+          5.0
+        ],
+        [
+          5400,
+          1.0
+        ]
+      ],
+      "repeated5": [
+        [
+          0,
+          1.0
+        ],
+        [
+          3600,
+          5.0
+        ],
+        [
+          4200,
+          1.0
+        ],
+        [
+          7200,
+          5.0
+        ],
+        [
+          7800,
+          1.0
+        ],
+        [
+          10800,
+          5.0
+        ],
+        [
+          11400,
+          1.0
+        ]
+      ]
+    },
+    "mc_arms": [
+      "source_only",
+      "offline_only",
+      "mixed_nomodel",
+      "fixed_direct",
+      "fixed_residual",
+      "calibrated_selection"
+    ],
+    "offline_blocks": [
+      1201,
+      1202,
+      1203,
+      1204,
+      1205,
+      1206
+    ],
+    "prefix_updates": 10000,
+    "adaptation_days": 3,
+    "updates_per_day": 2048,
+    "source_day_seed_base": 24100,
+    "source_fit_day": 0,
+    "source_stop_day": 1,
+    "model_updates_per_member": 400,
+    "model_ensemble_members": 3,
+    "model_max_fit_rows": 4096,
+    "model_max_validation_rows": 1024,
+    "extra_critic_every": 4,
+    "extra_batch_size": 128,
+    "model_fraction_in_extra_loss": 0.25,
+    "model_start_max_horizon_fraction": 0.75,
+    "qdelta_gamma": 0.9,
+    "qdelta_updates_per_extra_step": 1,
+    "deployment_hold_scale": 0.25,
+    "evaluation_demand_scales": [
+      1.0,
+      1.25
+    ],
+    "evaluation_blocks": [
+      {
+        "demand_seed": 25101,
+        "sumo_seed": 26101
+      },
+      {
+        "demand_seed": 25102,
+        "sumo_seed": 26102
+      },
+      {
+        "demand_seed": 25103,
+        "sumo_seed": 26103
+      },
+      {
+        "demand_seed": 25104,
+        "sumo_seed": 26104
+      },
+      {
+        "demand_seed": 25105,
+        "sumo_seed": 26105
+      }
+    ],
+    "departure_jitter_seconds": 120,
+    "evaluation_horizon_seconds": 24000,
+    "training_seed": 22105
+  },
+  "config": {
+    "ensemble_size": 2,
+    "hidden_dim": 256,
+    "batch_size": 256,
+    "reward_scale": 0.0001,
+    "critic_loss": "huber",
+    "huber_delta": 1.0,
+    "activation": "relu",
+    "actor_layer_norm": false,
+    "critic_layer_norm": false,
+    "value_layer_norm": false,
+    "online_fraction": 0.5,
+    "actor_learning_rate": 0.0003,
+    "critic_learning_rate": 0.0003,
+    "value_learning_rate": 0.0003,
+    "alpha_learning_rate": 0.0003,
+    "ratio_learning_rate": 0.0001,
+    "soft_target_rate": 0.005,
+    "target_subset_size": 2,
+    "target_subset_replacement": false,
+    "target_entropy": 0.0,
+    "initial_temperature": 1.0,
+    "backup_entropy": true,
+    "bootstrap_probability": 1.0,
+    "offline_objective": "iql",
+    "online_backup": "h2oplus",
+    "actor_q_reduction": "min-all",
+    "online_actor_update_interval": 1,
+    "online_actor_batch_mode": "latest",
+    "online_update_order": "actor-before-critic",
+    "offline_cql_alpha": 0.0,
+    "online_cql_alpha": 0.0,
+    "cql_n_actions": 10,
+    "cql_max_target_backup": false,
+    "mixed_backup_lambda": 0.1,
+    "iql_expectile": 0.7,
+    "iql_advantage_temperature": 3.0,
+    "iql_max_weight": 100.0,
+    "ratio_min_weight": 1e-05,
+    "ratio_max_weight": 1.0,
+    "use_ratio_correction": true,
+    "ratio_update_interval": 4,
+    "gradient_clip_norm": null,
+    "cql_penalty_subset_size": null,
+    "cql_penalty_subset_replacement": false,
+    "offline_update_order": "critic-before-actor",
+    "temperature_state_source": "actor",
+    "offline_temperature_action_samples": 1
+  },
+  "arm": "offline_only",
+  "initialization": "random; no pretrained weights",
+  "actor_updates_per_critic_update": 1
+}

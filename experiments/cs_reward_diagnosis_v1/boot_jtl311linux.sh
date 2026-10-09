@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /home/erzhu419/.venvs/scheduleurm-torch-bench/bin/python -u "$(dirname "$0")/diagnose.py" "$@"

@@ -1,0 +1,151 @@
+{
+  "baseline": "workpapers/导师意见综合修订_20261005/修改前.docx",
+  "indexing": "0-based direct body w:p and w:tbl, matching manuscript.json/tables.json",
+  "findings": [
+    {
+      "review": "R01",
+      "table_id": 268,
+      "status": "confirmed_layout_source",
+      "problem": "B-25第二行条件KL项过长；两行含字面&。恒等式本身正确。",
+      "edit": "保留第1行 D_KL(pP_obs,1||qP_obs,2)=D_KL(p||q)。第2行 +Σ_hobs p(h_obs)。把第二行最后的D_KL sSub节点、其后的d节点和句点移到新第三行m:e，前缀乘号×。删除两处m:t中的&及不必要零宽字符。保持现字号与原生公式，不修改编号单元格或SEQ域。",
+      "verification": "导出后查看本式右端条件变量和编号是否分离；若未分离则继续调整本式断行。"
+    },
+    {
+      "review": "R02",
+      "paragraph_id": 2295,
+      "status": "confirmed",
+      "problem": "G_z=diag(...)原生公式移到公交秒数句后。",
+      "edit": "原段落直接子节点8是增益矩阵m:oMath；移到子节点6后、原节点7前。原节点7改为“，其对角元素按动作坐标编号。名义信号与加噪后的实际执行信号均为无量纲执行器量，不表示公交驻站秒数”。后面的“。命令”及所有原生公式保持。"
+    },
+    {
+      "review": "R03",
+      "paragraph_id": 2654,
+      "table_id": 389,
+      "status": "confirmed",
+      "replacement_text": "对所考察环境集合中的每个环境e，进一步假设存在相应基准点x₀，且下述基准函数值误差界对所有这些环境使用同一个ε_val成立：",
+      "anchor_source_table_id": 354,
+      "anchor_source": "(D-22)中的首个m:eqArr/m:e，文本为 ||μ_det(x0)−f_ref(x0)||&≤ε_val,",
+      "anchor_edit": "复制该m:e内部OMML子节点到无编号公式段，去掉&，只把f的下标ref改为e，末尾逗号改句号。",
+      "after_anchor_text": "若式(D-57)的导数误差界覆盖连接该基准点与所考察点的整条线段，则逐环境应用命题D.4，得到",
+      "existing_result": "保留原(D-58)编号公式；x₀可以随e选择，在每次逐环境应用时取该环境的基准点。无需要求全空间，只需覆盖相应线段。"
+    },
+    {
+      "review": "R07",
+      "table_id": 70,
+      "status": "confirmed",
+      "edit": "(3-24)中phi_j上标的唯一m:t撇号改为−，仍为上标结构，不修改数学对象。",
+      "nonfinding": "第6章置信目标网络ξ的横线在p1726已经明文说明，不应仅为了统一外形替换它。"
+    },
+    {
+      "review": "R08",
+      "paragraph_id": 1745,
+      "status": "confirmed",
+      "edit": "将原直接子节点12（平均违例次数的m:oMath）移到“与每回合平均违例次数”后。原节点5拆成“与每回合平均违例次数”以及后续“，其中”或“。相应均值的下标”；后接原u公式和“表示验证序号”。peak/final句末移除原来插入的公式。全部保存/恢复条件保持。",
+      "desired_opening": "每5,000步进行一次固定种子的验证，记录平均回报J̄_u与每回合平均违例次数N̄_viol,u，其中u表示验证序号；peak和final分别标记历史峰值与训练终点。"
+    },
+    {
+      "review": "R25",
+      "status": "confirmed_semantics",
+      "sources": [
+        {
+          "file": "/home/erzhu419/mine_code/MC-WM/mc_wm/residual/sindy_nau_adapter.py",
+          "lines": "986-1008;1427-1443",
+          "evidence": "线性系数梯度乘逐输出active_mask；神经余项输入掩码则是mask.sum(axis=0)>0。"
+        },
+        {
+          "file": "/home/erzhu419/mine_code/MC-WM/mc_wm/networks/residual_head.py",
+          "lines": "22-41",
+          "evidence": "一维feature_mask仅作用于网络输入。"
+        }
+      ],
+      "paragraph_edits": [
+        {
+          "id": 1707,
+          "text": "6.3.2 固定候选特征子集的稀疏残差"
+        },
+        {
+          "id": 1710,
+          "replace_from": "固定支持集使后续在线更新仍在同一组关系上调整系数，便于比较同一适应过程中的结构与控制变化。",
+          "replace_to": "线性分支在选定的输出—特征连接上调整系数，神经余项则使用各输出保留特征的并集。固定这一候选特征子集，便于比较适应过程中模型修正与控制结果的变化。"
+        },
+        {
+          "id": 1714,
+          "text": "式(6-8)中的神经余项使用线性分支各输出保留特征的并集，二者共享的是候选输入特征集合。"
+        },
+        {
+          "id": 1715,
+          "append": "这一掩码约束神经余项的输入范围；其各输出仍可组合并集中的全部特征，因而完整残差的逐输出依赖关系不由线性系数支持唯一确定。",
+          "preserve": "当前p1715已正确给出一维m_sup形状，不应改成矩阵。"
+        },
+        {
+          "id": 1717,
+          "text": "候选正交特征的最大估计系数绝对值若超过5，则在上述比较之前被剔除；总特征预算不超过100。完成选择后，特征顺序、线性分支的逐输出连接掩码及神经余项的输入特征并集固定。在线更新调整保留连接的系数及神经余项参数，不继续加入特征。"
+        },
+        {
+          "id": 1718,
+          "text": "单次拟合后，可以从线性分支的系数读出各状态坐标使用的候选项，也可以从输入掩码检查神经余项可使用的特征集合。神经余项改变了完整残差的输出依赖，因此稀疏方程解释的是线性修正部分。不同训练种子是否选中相同的线性项集，由跨种子支持重叠进一步评价。"
+        }
+      ],
+      "toc": "更新p274对应目录文字或刷新目录字段。"
+    },
+    {
+      "review": "R15/R16",
+      "status": "implementation_chain_confirmed_in_local_runtime_snapshot",
+      "scope": "确认为Thesis本地保存csbapr_symbolic_bus_v2 runtime继承的公交稳定化模块；与历史主配置是否所有参数完全相同需由主代理的日志/配置映射决定，不把新增符号约束归入主配置。",
+      "sources": [
+        {
+          "file": "experiments/csbapr_symbolic_bus_v2/runtime/csbapr/belief/tracker.py",
+          "lines": "15-64"
+        },
+        {
+          "file": "experiments/csbapr_symbolic_bus_v2/runtime/csbapr/belief/surprise.py",
+          "lines": "50-88"
+        },
+        {
+          "file": "experiments/csbapr_symbolic_bus_v2/runtime/csbapr/agent.py",
+          "lines": "342-389;465-475;569-593;595-598"
+        },
+        {
+          "file": "experiments/csbapr_symbolic_bus_v2/runtime/csbapr/config.py",
+          "lines": "42-47;86-100"
+        }
+      ],
+      "problem": "数学式(4-2)是显式模式后验模型；实际公交模块的belief是有限运行长度权重，不是正常/拥堵/需求等环境模式的后验。exp(-s²/(2v_h))缺少随h变化的高斯归一化项，应称启发式证据权重，不能直接称完整概率模型的高斯似然。",
+      "paragraph_edits": [
+        {
+          "id": 1173,
+          "replace_from": "早期BAPR采用贝叶斯模式置信和变化检测调节保守价值学习。模式置信指候选运行模式的后验概率分布，表达当前证据对各模式的支持程度。",
+          "replace_to": "BAPR框架用历史证据调节对运行条件的认识。先在显式概率模式模型下定义模式置信：候选运行模式的后验概率分布表达当前证据对各模式的支持程度。公交实现采用的运行长度证据权重及其进入训练损失的方式见第4.3.2节。"
+        },
+        {
+          "id": 1194,
+          "replace_from": "评价期间冻结网络参数，控制器仍可根据当前状态生成不同动作；只有在明确启用模式估计和补偿的实验中，历史证据才进一步改变执行映射。",
+          "replace_to": "公交评价期间冻结网络参数，由当前观测直接产生动作，不再更新训练期的运行长度权重与保守系数。受控执行器实验另行启用模式估计和动作补偿，使已完成转移进一步改变执行映射。"
+        },
+        {
+          "insert_after": 1205,
+          "text": "公交实现将近期证据经过三个步骤送入策略更新。首先，取近期奖励均值相对运行均值的标准化偏差、式(4-7)的评价器分歧上升量，以及在线与目标评价器权重范数差的一半，取最大值后作指数平滑，得到惊异度。其次，在有限运行长度索引上维护归一化权重，以惊异度的指数衰减函数形成证据权重，再执行变化点重置、运行长度移位及截断归一化。最后，以运行长度上的指数衰减惩罚求加权和，经过前100次训练迭代的预热后调节演员损失中的集成标准差系数。这里的运行长度权重是训练用证据调节量，与式(4-2)中有明确模式似然的后验分布分别定义。"
+        },
+        {
+          "optional_parameter_paragraph": "该模块的运行长度索引为0至19，初值均匀，变化率为0.02；证据权重为exp[−S²/(2(1+0.05h))]，惊异度平滑系数为0.1。记归一化运行长度权重为b(h)，加权量为w_λ=Σ_h b(h)exp(−0.1h)，预热之后演员标准差系数为β_eff=−2−2w_λ。该权重更新是所用证据模型的归一化调节，不解释为已识别的环境类别概率。",
+          "only_if": "可用主配置或训练元数据确认这些默认参数；否则只保留前段机制链而不把默认值称成历史运行值。"
+        }
+      ],
+      "nonfinding": "已有p1194区分冻结评价与执行器补偿，方向正确；需把训练量/概率模型对象讲准确，不应删除这种区分。"
+    },
+    {
+      "review": "R22",
+      "paragraph_id": 989,
+      "status": "manuscript_inconsistency",
+      "edit": "将“利用目标演员动作和各自目标评论家构造续接”改为“利用当前演员采样的后继动作和各自目标评论家构造续接”，与本章当前π采样式一致；若主代理代码检查发现该实验另有目标演员则以具体版本为准。"
+    }
+  ],
+  "memory_used": [
+    {
+      "file": "MEMORY.md",
+      "lines": "73-80",
+      "rollout_id": "01a0fc83-4e18-78a0-82a8-0c434f793b24",
+      "purpose": "direct DOCX preservation and distinguish local verification scope"
+    }
+  ]
+}

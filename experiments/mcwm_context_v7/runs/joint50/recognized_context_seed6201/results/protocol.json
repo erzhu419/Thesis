@@ -1,0 +1,346 @@
+{
+  "protocol": {
+    "name": "thesis-mcwm-context-v7",
+    "training_seeds": [
+      6201,
+      6202
+    ],
+    "arms": [
+      "fixed_zero",
+      "fixed_mid",
+      "fixed_original",
+      "oracle_context",
+      "recognized_context"
+    ],
+    "scenarios": [
+      {
+        "name": "calibrated",
+        "speed_factor": 1.0,
+        "od_factor": 1.0,
+        "extra_signal_fraction": 0.0,
+        "dwell_factor": 1.0,
+        "empirical_runtime": true
+      },
+      {
+        "name": "joint50",
+        "speed_factor": 0.5,
+        "od_factor": 1.5,
+        "extra_signal_fraction": 0.5,
+        "dwell_factor": 1.5,
+        "empirical_runtime": true
+      },
+      {
+        "name": "joint75",
+        "speed_factor": 0.25,
+        "od_factor": 1.75,
+        "extra_signal_fraction": 0.75,
+        "dwell_factor": 1.75,
+        "empirical_runtime": true
+      }
+    ],
+    "offline_updates_in_initializer": 50000,
+    "warmup_events": 5000,
+    "source_event_budget": 25000,
+    "source_seed_offset": 30000,
+    "collection_interval": 32,
+    "actor_taper_event": 15000,
+    "actor_taper_multiplier": 0.25,
+    "model_refresh_events": [
+      5000,
+      10000,
+      15000,
+      20000
+    ],
+    "model_updates_per_member": 1000,
+    "model_refit_updates": 300,
+    "model_ensemble_members": 3,
+    "model_max_fit_rows": 8192,
+    "model_max_validation_rows": 2048,
+    "policy_reference_rows": 512,
+    "model_fraction": 0.25,
+    "model_batch_size": 128,
+    "model_start_max_horizon_fraction": 0.75,
+    "qdelta_gamma": 0.9,
+    "qdelta_updates_per_extra_step": 1,
+    "trust_update_every": 4,
+    "deployment_hold_scale": 1.0,
+    "evaluation_demand_scales": [
+      1.0,
+      1.25
+    ],
+    "evaluation_blocks": [
+      {
+        "demand_seed": 48101,
+        "sumo_seed": 49101
+      },
+      {
+        "demand_seed": 48102,
+        "sumo_seed": 49102
+      },
+      {
+        "demand_seed": 48103,
+        "sumo_seed": 49103
+      },
+      {
+        "demand_seed": 48104,
+        "sumo_seed": 49104
+      },
+      {
+        "demand_seed": 48105,
+        "sumo_seed": 49105
+      }
+    ],
+    "departure_jitter_seconds": 120,
+    "evaluation_horizon_seconds": 24000,
+    "target_only_arm": "offline_only",
+    "diagnostic_rows": 512,
+    "coverage_fit_rows": 2048,
+    "coverage_quantile": 0.95,
+    "source_repair_max_horizon_fraction": 0.75,
+    "fixed_model_weight": 0.5,
+    "minimum_relevant_time_improvement_seconds": 5.0,
+    "maximum_completion_decrease_percentage_points": 0.1,
+    "fixed_coefficients": {
+      "fixed_zero": 0.0,
+      "fixed_mid": 0.125,
+      "fixed_original": 0.25
+    },
+    "real_td_coefficient": 0.75,
+    "context_window_physical_rows": 64,
+    "context_hazard": 0.002,
+    "context_prior_exponent": 0.98,
+    "context_evidence_scale": 1.0,
+    "context_variance_floor": 0.05,
+    "development_blocks": [
+      {
+        "demand_seed": 58101,
+        "sumo_seed": 59101
+      },
+      {
+        "demand_seed": 58102,
+        "sumo_seed": 59102
+      },
+      {
+        "demand_seed": 58103,
+        "sumo_seed": 59103
+      },
+      {
+        "demand_seed": 58104,
+        "sumo_seed": 59104
+      },
+      {
+        "demand_seed": 58105,
+        "sumo_seed": 59105
+      }
+    ],
+    "test_blocks": [
+      {
+        "demand_seed": 58301,
+        "sumo_seed": 59301
+      },
+      {
+        "demand_seed": 58302,
+        "sumo_seed": 59302
+      },
+      {
+        "demand_seed": 58303,
+        "sumo_seed": 59303
+      },
+      {
+        "demand_seed": 58304,
+        "sumo_seed": 59304
+      },
+      {
+        "demand_seed": 58305,
+        "sumo_seed": 59305
+      }
+    ],
+    "selection": "For each training seed, choose each context coefficient and the best global fixed coefficient using only the other seed's ten development days. Fit a frozen shared-diagonal Gaussian context recognizer on the other seed's nonoverlapping physical-transition blocks from all fixed arms. Deterministic tie order is ascending coefficient.",
+    "causal_scope": "Static source training contexts only. At each source collection boundary, update belief using newly completed nonterminal positive-duration transitions, resetting the history at episode terminals. Change only the generated-model TD coefficient; no online target gradients and no deployed context actor.",
+    "context_features": [
+      "log_global_event_duration",
+      "eligible_demand_ratio",
+      "base_dwell_scaled",
+      "queue_capacity_ratio",
+      "onboard_capacity_ratio",
+      "system_waiting_scaled",
+      "system_onboard_scaled",
+      "executed_source_hold_scaled"
+    ],
+    "primary_comparison": "Fresh fixed-original, cross-fitted best-global-fixed, true-context, and causal recognized-context on ten test days per seed/context; all three fixed coefficients are retained",
+    "interpretation": "Prospective development branch with disjoint coefficient-selection and final test days; two reused offline initializer seeds, not independent research confirmation. No coefficient mapping is taken from v5 evaluation outcomes. All positive and negative results retained. Single-factor and within-day switching tests follow only after the static control-space study.",
+    "training_seed": 6201,
+    "arm": "recognized_context",
+    "relative_out": "runs/joint50/recognized_context_seed6201"
+  },
+  "arm": "recognized_context",
+  "scenario": {
+    "name": "joint50",
+    "speed_factor": 0.5,
+    "od_factor": 1.5,
+    "extra_signal_fraction": 0.5,
+    "dwell_factor": 1.5,
+    "empirical_runtime": true
+  },
+  "training_seed": 6201,
+  "config": {
+    "ensemble_size": 2,
+    "hidden_dim": 256,
+    "batch_size": 256,
+    "reward_scale": 0.0001,
+    "critic_loss": "huber",
+    "huber_delta": 1.0,
+    "activation": "relu",
+    "actor_layer_norm": false,
+    "critic_layer_norm": false,
+    "value_layer_norm": false,
+    "online_fraction": 0.5,
+    "actor_learning_rate": 0.0003,
+    "critic_learning_rate": 0.0003,
+    "value_learning_rate": 0.0003,
+    "alpha_learning_rate": 0.0003,
+    "ratio_learning_rate": 0.0001,
+    "soft_target_rate": 0.005,
+    "target_subset_size": 2,
+    "target_subset_replacement": false,
+    "target_entropy": 0.0,
+    "initial_temperature": 1.0,
+    "backup_entropy": true,
+    "bootstrap_probability": 1.0,
+    "offline_objective": "iql",
+    "online_backup": "h2oplus",
+    "actor_q_reduction": "min-all",
+    "online_actor_update_interval": 1,
+    "online_actor_batch_mode": "latest",
+    "online_update_order": "actor-before-critic",
+    "offline_cql_alpha": 0.0,
+    "online_cql_alpha": 0.0,
+    "cql_n_actions": 10,
+    "cql_max_target_backup": false,
+    "mixed_backup_lambda": 0.1,
+    "iql_expectile": 0.7,
+    "iql_advantage_temperature": 3.0,
+    "iql_max_weight": 100.0,
+    "ratio_min_weight": 1e-05,
+    "ratio_max_weight": 1.0,
+    "use_ratio_correction": false,
+    "ratio_update_interval": 4,
+    "gradient_clip_norm": null,
+    "cql_penalty_subset_size": null,
+    "cql_penalty_subset_replacement": false,
+    "offline_update_order": "critic-before-actor",
+    "temperature_state_source": "actor",
+    "offline_temperature_action_samples": 1
+  },
+  "offline_rows": 3284718,
+  "target_online_training_events": 0,
+  "context_provider": {
+    "provider_seed": 6202,
+    "consumer_seed": 6201,
+    "coefficients": {
+      "calibrated": 0.25,
+      "joint50": 0.25,
+      "joint75": 0.125
+    },
+    "selected_arms": {
+      "calibrated": "fixed_original",
+      "joint50": "fixed_original",
+      "joint75": "fixed_mid"
+    },
+    "mapping_has_context_effect": true,
+    "best_global_fixed_arm": "fixed_original",
+    "development_costs": {
+      "calibrated": {
+        "fixed_zero": 2716.0870323396866,
+        "fixed_mid": 2703.010868446552,
+        "fixed_original": 2605.087778115778
+      },
+      "joint50": {
+        "fixed_zero": 2721.6006686313794,
+        "fixed_mid": 2632.308130520763,
+        "fixed_original": 2600.836689994111
+      },
+      "joint75": {
+        "fixed_zero": 2724.071428684294,
+        "fixed_mid": 2617.9585398583313,
+        "fixed_original": 2633.756442205233
+      }
+    },
+    "recognizer": {
+      "classes": [
+        "calibrated",
+        "joint50",
+        "joint75"
+      ],
+      "mean": [
+        1.0398653655478889,
+        0.031808560135155615,
+        0.09788790963632002,
+        0.0340325283553957,
+        0.38468086113368444,
+        0.07282403759067103,
+        0.14524433026901773,
+        0.24038739649864455
+      ],
+      "scale": [
+        0.21578212409850456,
+        0.01914509908329533,
+        0.03575092105539255,
+        0.04370629833989975,
+        0.1725706134250185,
+        0.05978078705549504,
+        0.11411125641777375,
+        0.13281997172406787
+      ],
+      "centers": [
+        [
+          -0.14294449854001806,
+          -0.47295375977251347,
+          -1.125433644026888,
+          -0.6904456648698332,
+          -0.5758349948892397,
+          -0.8805037995891636,
+          -0.8331172738340982,
+          0.0642269214151244
+        ],
+        [
+          -0.018898469031002486,
+          0.13755991258394856,
+          0.1353246562269531,
+          -0.13346763774960435,
+          0.061401443462951295,
+          -0.14045574468048605,
+          -0.1721677357867811,
+          -0.20071199190329617
+        ],
+        [
+          0.154541632746358,
+          0.31756965873471454,
+          0.9416171002935481,
+          0.7873113649711037,
+          0.48937427730897287,
+          0.975223955653072,
+          0.9607677530914467,
+          0.13314374935712428
+        ]
+      ],
+      "variance": [
+        0.9837582107516538,
+        0.8773378515058896,
+        0.27462924594549815,
+        0.6159502188683762,
+        0.8070963382152873,
+        0.40999126555505216,
+        0.4392255380742907,
+        0.9781910730205708
+      ],
+      "rows_per_class": [
+        813,
+        826,
+        853
+      ]
+    },
+    "selection_scope": "For each training seed, choose each context coefficient and the best global fixed coefficient using only the other seed's ten development days. Fit a frozen shared-diagonal Gaussian context recognizer on the other seed's nonoverlapping physical-transition blocks from all fixed arms. Deterministic tie order is ascending coefficient.",
+    "test_outcomes_used": false
+  }
+}

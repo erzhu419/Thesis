@@ -1,0 +1,32 @@
+{
+  "name": "thesis-mcwm-context-last-v14",
+  "training_seeds": [63001, 63002, 63003, 63004],
+  "arms": ["fixed0250", "fixed0300", "shared_gated", "hysteresis0300", "gradient_gated"],
+  "training_arms": ["hysteresis0300", "gradient_gated"],
+  "reference_arms": ["fixed0250", "fixed0300", "shared_gated"],
+  "reference_experiment": "mcwm_seed_confirmation_v13",
+  "initializer_experiment": "mcwm_seed_confirmation_v13",
+  "rules": [],
+  "hysteresis_enter_blocks": 2,
+  "hysteresis_enter_margin": 0.15,
+  "hysteresis_exit_margin": 0.05,
+  "context_high_coefficient": 0.30,
+  "gradient_probe_interval": 128,
+  "gradient_min_cosine": 0.0,
+  "development_blocks": [
+    {"demand_seed": 68821, "sumo_seed": 69821},
+    {"demand_seed": 68822, "sumo_seed": 69822},
+    {"demand_seed": 68823, "sumo_seed": 69823},
+    {"demand_seed": 68824, "sumo_seed": 69824},
+    {"demand_seed": 68825, "sumo_seed": 69825}
+  ],
+  "test_blocks": [
+    {"demand_seed": 68921, "sumo_seed": 69921},
+    {"demand_seed": 68922, "sumo_seed": 69922},
+    {"demand_seed": 68923, "sumo_seed": 69923},
+    {"demand_seed": 68924, "sumo_seed": 69924},
+    {"demand_seed": 68925, "sumo_seed": 69925}
+  ],
+  "selection": "One last prespecified context repair, separate from the 20-seed main campaign. Reuse its first four new independent initializers and three matched resident control policies, but evaluate all five policies on this branch's own disjoint days. Hysteresis requires persistent high-context evidence and uses hard 0.30 rather than belief-weighted 0.375. The second intervention additionally permits upward routing only after a positive observed/model critic-gradient cosine; probes affect the next update, never the current loss. No new recognizer fitting or test-driven coefficient selection. Development-selected policies are reported separately from all four-seed test outcomes.",
+  "interpretation": "24 new context-repair continuations, 36 explicitly reused main-campaign controls and 1200 branch-specific daily evaluations. Reused controls are not additional training repetitions. Fixed source conditions and no target online training; recognizers and normalized world-model fitting stay frozen. Gradient agreement is a local training-loss diagnostic, not a guarantee of passenger-cost improvement. This final bounded branch does not change or select the main campaign."
+}

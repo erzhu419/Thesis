@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering
+\caption{Passenger and service metrics for selected learned checkpoints. Values are mean $\pm$ standard deviation across training seeds after averaging ten common SUMO seeds within each training seed. Passenger measures are per completed passenger leg; line CV is the mean coefficient of variation of headways across lines. Bold type marks the lowest value in each outcome column and does not identify an overall winner.}
+\label{tab:operational-metrics}
+\scriptsize
+\renewcommand{\arraystretch}{1.00}
+\setlength{\tabcolsep}{1.5pt}
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+Method & Wait (s) & In-vehicle (s) & Total (s) & Headway deviation (s) & Mean line CV & Bunching & Excess hold (s) \\
+\midrule
+BC & 309 $\pm$ 5 & \textbf{919 $\pm$ 30} & \textbf{1,228 $\pm$ 27} & 43 $\pm$ 7 & 0.335 $\pm$ 0.018 & 0.025 $\pm$ 0.006 & \textbf{2 $\pm$ 1} \\
+CQL & 308 $\pm$ 6 & 946 $\pm$ 19 & 1,253 $\pm$ 19 & 39 $\pm$ 2 & 0.314 $\pm$ 0.006 & 0.017 $\pm$ 0.003 & \textbf{2 $\pm$ 1} \\
+RE-SAC & 302 $\pm$ 2 & 959 $\pm$ 16 & 1,260 $\pm$ 17 & 28 $\pm$ 0 & 0.300 $\pm$ 0.002 & 0.011 $\pm$ 0.001 & 3 $\pm$ 1 \\
+OnlineSAC & \textbf{296 $\pm$ 7} & 1,062 $\pm$ 56 & 1,358 $\pm$ 57 & 31 $\pm$ 2 & 0.302 $\pm$ 0.008 & 0.014 $\pm$ 0.005 & 9 $\pm$ 4 \\
+WSRL & 301 $\pm$ 4 & 965 $\pm$ 17 & 1,266 $\pm$ 18 & \textbf{27 $\pm$ 1} & 0.304 $\pm$ 0.003 & 0.013 $\pm$ 0.003 & 3 $\pm$ 1 \\
+RLPD-0.50 & 301 $\pm$ 10 & 981 $\pm$ 23 & 1,283 $\pm$ 33 & 28 $\pm$ 1 & 0.297 $\pm$ 0.002 & \textbf{0.010 $\pm$ 0.002} & 4 $\pm$ 1 \\
+WSRL-E10 & 306 $\pm$ 2 & 955 $\pm$ 16 & 1,261 $\pm$ 16 & 29 $\pm$ 1 & 0.297 $\pm$ 0.004 & \textbf{0.010 $\pm$ 0.003} & \textbf{2 $\pm$ 1} \\
+RLPD-E10 & 299 $\pm$ 2 & 960 $\pm$ 21 & 1,259 $\pm$ 23 & \textbf{27 $\pm$ 1} & \textbf{0.296 $\pm$ 0.003} & \textbf{0.010 $\pm$ 0.001} & 3 $\pm$ 1 \\
+\bottomrule
+\end{tabular}
+\end{table*}

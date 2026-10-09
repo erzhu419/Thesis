@@ -1,0 +1,19 @@
+{
+  "name": "thesis-cs-symbolic-temperature-v1",
+  "reference_campaign": "cs_symbolic_frozen_v1",
+  "variants": {"temp005": 0.05, "temp001": 0.01, "minimum": null},
+  "original_temperature": 0.25,
+  "training_seeds": [64001, 64002],
+  "horizon_seconds": 18000,
+  "source_days": [69421, 69422, 69423, 69424, 69425],
+  "source_scenes": ["normal", "static2", "static3", "pulse3", "repeated3"],
+  "source_weights": {"normal": 0.4, "static2": 0.2, "static3": 0.2, "pulse3": 0.1, "repeated3": 0.1},
+  "target_days": [78101, 78102, 78103],
+  "target_scenes": ["normal", "static10", "burst50"],
+  "nodes": ["node001", "node002", "node003", "node004", "node005", "node006", "node007", "jtl110gpu", "jtl110gpu2", "jtl311linux"],
+  "minimum_rule": "First minimum on the unchanged ascending 0..60 second grid; ties choose the shorter holding command",
+  "soft_action_rule": "Keep the original normalized action clipping; change temperature only",
+  "reward": "Unchanged global event passenger credit; generalized cost equals 2*waiting+onboard",
+  "selection": "Report all fitted-model repetitions; choose feedback candidate by source weighted cost only, not target results",
+  "preservation": "New directory only; frozen coefficients, checkpoints, normalization, simulator and manuscript unchanged"
+}

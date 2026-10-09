@@ -1,0 +1,177 @@
+{
+  "method": "policy",
+  "demand_scale": 1.0,
+  "demand_seed": 58301,
+  "sumo_seed": 59301,
+  "sumo_version": [
+    22,
+    "SUMO 1.25.0"
+  ],
+  "horizon_seconds": 1200.0,
+  "elapsed_seconds": 9.176199121866375,
+  "generalized_passenger_seconds": 56453.0,
+  "generalized_seconds_per_departed_passenger": 1008.0892857142857,
+  "passengers": {
+    "accounting_semantics": "one-second integration of SUMO bus-stop waiting counts and transit-vehicle person counts",
+    "legacy_sampled_trip_histories_used_for_welfare": false,
+    "departed_passengers": 56,
+    "completed_passengers": 2,
+    "completion_rate": 0.03571428571428571,
+    "unfinished_passengers": 54,
+    "state_counts_at_horizon": {
+      "waiting": 51,
+      "in_vehicle": 3,
+      "other_active": 0
+    },
+    "active_state_count_balance_error": 0,
+    "unfinished_departure_seconds": {
+      "n": 54,
+      "mean": 661.2962962962963,
+      "std": 334.38101810515894,
+      "p50": 649.5,
+      "p90": 1133.9,
+      "p95": 1145.75,
+      "min": 51.0,
+      "max": 1177.0
+    },
+    "unfinished_elapsed_seconds_at_horizon": {
+      "n": 54,
+      "mean": 538.7037037037037,
+      "std": 334.38101810515894,
+      "p50": 550.5,
+      "p90": 941.0,
+      "p95": 1081.85,
+      "min": 23.0,
+      "max": 1149.0
+    },
+    "completed_journey_seconds": {
+      "n": 2,
+      "mean": 356.5,
+      "std": 241.1234123846127,
+      "p50": 356.5,
+      "p90": 492.9,
+      "p95": 509.95,
+      "min": 186.0,
+      "max": 527.0
+    },
+    "accrued_wait_seconds_total": 27287.0,
+    "accrued_wait_seconds_per_departed_passenger": 487.26785714285717,
+    "accrued_in_vehicle_seconds_total": 1879.0,
+    "accrued_in_vehicle_seconds_per_departed_passenger": 33.55357142857143,
+    "accrued_wait_plus_in_vehicle_seconds_total": 29166.0,
+    "accrued_wait_plus_in_vehicle_seconds_per_departed_passenger": 520.8214285714286
+  },
+  "service": {
+    "departed_trips": 5,
+    "completed_trips": 0,
+    "completion_rate": 0.0,
+    "active_trips_at_horizon": 5,
+    "completed_trip_duration_seconds": null
+  },
+  "headway": {
+    "valid_forward_events": 20,
+    "valid_backward_events": 25,
+    "forward_ratio": {
+      "n": 20,
+      "mean": 1.0736875000000001,
+      "std": 0.0640777857601523,
+      "p50": 1.0575,
+      "p90": 1.1377083333333333,
+      "p95": 1.1397916666666668,
+      "min": 0.90625,
+      "max": 1.14375
+    },
+    "backward_ratio": {
+      "n": 25,
+      "mean": 0.5910618359883626,
+      "std": 0.09489126236547997,
+      "p50": 0.5890008290608724,
+      "p90": 0.7253327814737957,
+      "p95": 0.730896110534668,
+      "min": 0.41483949025472006,
+      "max": 0.7378116607666015
+    },
+    "normalized_absolute_error": {
+      "n": 45,
+      "mean": 0.26410453556202074,
+      "std": 0.18119997592727236,
+      "p50": 0.27236906687418616,
+      "p90": 0.4830043856302897,
+      "p95": 0.5624374898274738,
+      "min": 0.0,
+      "max": 0.5851605097452799
+    },
+    "bunching_rate": 0.0,
+    "large_gap_rate": 0.0
+  },
+  "mean_hold_seconds": 2.4236332672398264,
+  "decision_events": 41,
+  "time_series": [
+    {
+      "time_seconds": 504.0,
+      "waiting": 20,
+      "onboard": 0,
+      "wait_passenger_seconds": 3854.0,
+      "ride_passenger_seconds": 0.0
+    },
+    {
+      "time_seconds": 606.0,
+      "waiting": 22,
+      "onboard": 1,
+      "wait_passenger_seconds": 5937.0,
+      "ride_passenger_seconds": 77.0
+    },
+    {
+      "time_seconds": 928.0,
+      "waiting": 36,
+      "onboard": 3,
+      "wait_passenger_seconds": 15858.0,
+      "ride_passenger_seconds": 986.0
+    },
+    {
+      "time_seconds": 1200.0,
+      "waiting": 51,
+      "onboard": 3,
+      "wait_passenger_seconds": 27287.0,
+      "ride_passenger_seconds": 1879.0
+    }
+  ],
+  "arm": "fixed_mid",
+  "scenario": "joint75",
+  "training_seed": 6201,
+  "case": 0,
+  "deployment_hold_scale": 1.0,
+  "policy_inference_ms": {
+    "n": 41,
+    "mean": 1.6688412600537625,
+    "p10": 1.3739191927015781,
+    "median": 1.4942591078579426,
+    "p90": 1.9585667178034782
+  },
+  "inference_scope": "CPU batch-one actor forward only; model and trust networks are not deployed; concurrent-server wall latency, not an isolated hardware benchmark",
+  "execution_actions": {
+    "raw_holding_seconds": {
+      "n": 41,
+      "mean": 15.88782926885093,
+      "p10": 0.0,
+      "median": 23.834287643432617,
+      "p90": 24.30289077758789
+    },
+    "transformed_holding_seconds": {
+      "n": 41,
+      "mean": 2.4236332672398264,
+      "p10": 0.0,
+      "median": 2.9837071895599365,
+      "p90": 3.044684410095215
+    },
+    "executed_holding_seconds": {
+      "n": 41,
+      "mean": 2.4236332672398264,
+      "p10": 0.0,
+      "median": 2.9837071895599365,
+      "p90": 3.044684410095215
+    },
+    "reserve_changed_fraction": 0.0,
+    "final_60s_fraction": 0.0
+  }
+}

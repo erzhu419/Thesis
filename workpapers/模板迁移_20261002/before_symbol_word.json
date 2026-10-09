@@ -1,0 +1,1145 @@
+{
+  "InputDocument": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\erzhu419\\mine_code\\Thesis\\output\\排版完成.docx",
+  "OutputPdf": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\erzhu419\\mine_code\\Thesis\\output\\排版预览.pdf",
+  "Status": "completed",
+  "StartedAt": "2026-10-03T01:10:11.7650629+08:00",
+  "Word": {
+    "Name": "Microsoft Word",
+    "Version": "16.0",
+    "Build": "16.0.14334",
+    "Path": "C:\\Program Files\\Microsoft Office\\Root\\Office16",
+    "ProcessId": 42628,
+    "PreexistingProcessIds": [
+      45772,
+      48444,
+      56516
+    ]
+  },
+  "Iterations": [
+    {
+      "Iteration": 1,
+      "Pages": 306,
+      "TocCharacters": 6881,
+      "SamePageCount": false,
+      "SameTocText": false
+    },
+    {
+      "Iteration": 2,
+      "Pages": 306,
+      "TocCharacters": 6881,
+      "SamePageCount": true,
+      "SameTocText": true
+    }
+  ],
+  "Stable": true,
+  "Pages": 306,
+  "TocText": "摘要\tI\rABSTRACT\tIV\r主要符号说明\tXVIII\r第1章 绪论\t1\r1.1 研究背景与意义\t1\r1.1.1 公交运行规律性与乘客服务\t1\r1.1.2 学习控制与仿真训练的作用\t1\r1.1.3 从仿真到现实的核心困难\t2\r1.2 国内外研究现状\t3\r1.2.1 公交在途控制方式、建模路线与驻站控制选择\t3\r1.2.2 强化学习方法体系及交通与公交控制应用\t5\r1.2.3 仿真到现实、离线与混合强化学习\t10\r1.2.4 研究现状评述与本文切入点\t14\r1.3 研究目标与关键问题\t16\r1.3.1 总体研究目标\t16\r1.3.2 四个关键研究问题\t16\r1.4 研究内容与技术路线\t16\r1.4.1 平稳随机环境中的单智能体鲁棒驻站控制\t16\r1.4.2 非平稳环境中的单智能体鲁棒驻站控制\t17\r1.4.3 目标离线数据支持的跨保真迁移强化学习\t17\r1.4.4 目标数据支持的世界模型修正与策略学习\t17\r1.4.5 不确定性、目标信息与全文主线\t17\r1.5 论文结构\t19\r第2章 公交在途控制建模基础理论与方法介绍\t21\r2.1 公交在途控制的经典建模方法\t21\r2.1.1 线路、方向性服务、班次与车辆\t21\r2.1.2 运行偏差与车头时距传播\t22\r2.1.3 时刻表、车头时距与预测优化模型\t23\r2.1.4 本文的控制对象与动作权限\t24\r2.2 公交驻站控制的强化学习共同基础\t25\r2.2.1 事件决策与半马尔可夫模型\t25\r2.2.2 类别特征、连续状态与共享策略\t26\r2.2.3 控制信息的来源与时间含义\t27\r2.2.4 动作映射与实际执行\t28\r2.2.5 训练奖励与乘客服务目标\t29\r2.2.6 价值函数、策略学习与模型学习\t31\r2.2.7 软演员评论家与共享策略更新\t32\r2.2.8 随机性、运行规律变化与目标信息\t33\r2.2.9 随机化、不确定集合与最坏情形优化\t33\r2.2.10 正则化、鲁棒优化与尾部风险的联系\t34\r2.3 公交仿真平台、路网数据与标定\t35\r2.3.1 长沙路网与交通需求资料\t35\r2.3.2 简易事件仿真与SUMO的研究分工\t36\r2.3.3 共同任务与不同运行机制\t37\r2.3.4 平台构建与源环境标定\t38\r2.3.5 离线数据形成与跨环境训练流程\t39\r2.4 重要性采样与世界模型基础\t40\r2.4.1 由采样分布到目标分布的重加权\t40\r2.4.2 状态动作偏移与条件转移偏移\t41\r2.4.3 世界模型的预测对象与训练方式\t41\r2.4.4 模型预测如何进入控制学习\t42\r2.5 仿真基础的运行与控制响应检验\t42\r2.5.1 标定运行时间与公交时空过程\t42\r2.5.2 未参与标定环境中的自然运行比较\t44\r2.5.3 非零停站的响应一致性\t46\r2.5.4 关键服务状态下的转移响应\t47\r2.6 实验预算与统计单位\t49\r2.6.1 数据与环境访问条件\t49\r2.6.2 训练种子与环境块\t49\r2.6.3 策略选择与训练终点\t50\r2.6.4 研究任务与评价对象\t50\r2.6.5 跨保真比较的协议区分\t50\r2.6.6 数学分析与实证问题的对应\t52\r2.7 代理验证的解释与局限\t53\r2.8 本章小结\t53\r第3章 平稳随机环境下基于单智能体鲁棒强化学习的公交车队驻站控制\t55\r3.1 问题：平稳随机环境中的公交车队驻站控制\t55\r3.1.1 从仿真到现实的平稳随机性问题\t55\r3.1.2 单智能体共享控制与研究目标\t55\r3.2 模型：平稳随机运行与单智能体事件决策\t56\r3.2.1 运行假设与信息条件\t56\r3.2.2 由车队多对象控制到共享决策映射\t56\r3.2.3 类别嵌入\t57\r3.2.4 事件触发的停站动作\t58\r3.2.5 异步运行经验的组织与共享范围\t58\r3.2.6 车头时距对称与计划对齐\t59\r3.2.7 停站动作的可调方向与有限作用范围\t60\r3.2.8 风险评价、鲁棒目标与正则化学习\t62\r3.2.9 从时距平衡到乘客时间的局部权衡\t63\r3.3 算法：基于正则化与集成评价的RE-SAC\t64\r3.3.1 最大熵共享策略的学习基础\t65\r3.3.2 随机运行与估计不确定性的区分\t66\r3.3.3 集成均值与分歧\t66\r3.3.4 固定目标偏移与评论家更新\t67\r3.3.5 演员更新与温度\t68\r3.3.6 算子稳定性\t68\r3.3.7 从保守评价到停站动作选择\t70\r3.4 结果分析：策略表征、鲁棒学习与控制后果\t71\r3.4.1 实验场景与实现\t71\r3.4.2 类别共享策略的早期结果\t73\r3.4.3 集成规模与跨种子比较\t74\r3.4.4 运行规律性与乘客时间的权衡\t77\r3.4.5 集成规模结果的运行解释\t78\r3.4.6 长期训练与温度变化的后续诊断\t79\r3.4.7 价值误差与控制决策的关系\t81\r3.4.8 共同训练设置下的表征、奖励与分歧项比较\t83\r3.5 讨论与局限\t94\r3.6 本章小结\t95\r第4章 非平稳环境下基于单智能体鲁棒强化学习的公交车队驻站控制\t97\r4.1 问题：非平稳运行中的公交车队驻站控制\t97\r4.2 模型：隐含运行模式与条件适应\t97\r4.2.1 运行条件变化的表示\t97\r4.2.2 变化识别与控制响应的时间差\t98\r4.2.3 隐模式、部分可观测性与元学习\t99\r4.3 算法：信念调节与CS-BAPR驻站策略学习\t100\r4.3.1 信念调节与动作响应\t100\r4.3.2 训练稳定化设计\t101\r4.3.3 结构化策略输出\t102\r4.3.4 分布外响应的条件误差界\t103\r4.4 结果分析：需求变化下的控制响应与服务后果\t105\r4.4.1 场景与比较设置\t105\r4.4.2 训练分布与固定需求放大\t106\r4.4.3 突变与反复变化\t108\r4.4.4 跨种子尾部表现\t111\r4.4.5 需求压力与控制能力的关系\t112\r4.4.6 冻结控制器的运行变化与控制效果\t113\r4.5 讨论与局限\t122\r4.5.1 完整方法与组件作用\t122\r4.5.2 适用条件与研究局限\t122\r4.6 本章小结\t123\r第5章 跨保真运行环境下基于迁移强化学习的公交车队驻站控制\t124\r5.1 问题：目标交互受限下的跨保真驻站学习\t124\r5.2 模型：源目标数据条件与公交驻站决策\t124\r5.2.1 目标数据可获得条件与经验来源\t124\r5.2.2 保真度差异、分布偏移与有限采样\t126\r5.2.3 固定离线学习的观测与控制接口\t128\r5.2.4 混合训练的共享任务与乘客目标\t129\r5.2.5 同时到站车辆的状态编码\t129\r5.2.6 零驻站与正驻站时长的混合动作模型\t130\r5.3 算法：离线策略学习与跨保真混合续训\t131\r5.3.1 固定目标数据下的离线策略学习\t131\r5.3.2 新增目标交互下的在线衔接\t132\r5.3.3 运营规则参照\t133\r5.3.4 公交H2O+离线初始化与源仿真续训\t133\r5.3.5 条件转移比率与样本加权\t136\r5.3.6 驻站幅度校准\t136\r5.3.7 低载尾部车辆的行程完成保障\t137\r5.3.8 控制器开发与冻结比较\t138\r5.4 结果分析：目标交互、跨保真控制与组件作用\t138\r5.4.1 固定离线数据与新增目标交互\t138\r5.4.2 跨保真控制器的目标环境确认\t144\r5.4.3 训练方案与执行保障的作用\t154\r5.5 讨论与局限\t162\r5.5.1 学习方法与执行规则的不同作用\t162\r5.5.2 现有结果的限制\t162\r5.5.3 仿真标定与进一步模型修正\t163\r5.6 本章小结\t163\r第6章 分布偏移下基于世界模型的公交车队驻站控制\t164\r6.1 问题：源目标转移失配下的模型辅助驻站控制\t164\r6.2 模型：源目标转移关系与公交事件预测\t164\r6.2.1 源目标关系与数据访问条件\t165\r6.2.2 残差模型与直接目标模型\t165\r6.2.3 公交事件模型及其与共享驻站任务的连接\t166\r6.3 算法：模型选择与可信样本辅助的策略更新\t167\r6.3.1 留出校准数据上的模型类别选择\t167\r6.3.2 支持集固定的稀疏残差\t168\r6.3.3 面向当前策略分布的更新\t169\r6.3.4 对数置信评价与一步模型样本\t170\r6.3.5 违例代价与策略更新\t171\r6.3.6 公交可信度学习与混合价值更新\t173\r6.3.7 公交归一化置信与源目标修正\t174\r6.3.8 模型误差、价值误差与置信尺度分析\t175\r6.4 结果分析：模型选择、使用强度与公交服务\t178\r6.4.1 受控动力学分布偏移的主比较\t178\r6.4.2 模型类别选择与组件作用\t185\r6.4.3 固定目标离线数据下的公交驻站结果\t191\r6.5 讨论与局限\t211\r6.5.1 从仿真标定到数据驱动的模型选择\t211\r6.5.2 现有结果的限制\t212\r6.5.3 对公交控制研究的意义\t213\r6.6 本章小结\t213\r第7章 总结与展望\t215\r7.1 研究总结\t215\r7.1.1 类别表征与集成价值学习支持共享公交控制\t215\r7.1.2 非平稳运行需要条件识别与策略响应\t215\r7.1.3 固定运行数据与简易仿真能够共同支持公交策略训练\t215\r7.1.4 目标数据支持条件模型复用与公交事件扩展\t216\r7.2 主要创新\t217\r7.2.1 面向公交类别差异与随机运行的共享策略学习\t217\r7.2.2 面向非平稳运行的条件适应与结构化策略响应\t217\r7.2.3 面向有限使用环境数据的公交跨保真学习\t217\r7.2.4 面向训练与使用环境差异的世界模型修正\t218\r7.3 局限与研究展望\t218\r7.3.1 现有研究的局限\t218\r7.3.2 从高保真仿真走向实际运营\t219\r7.3.3 非平稳运行的识别与适应\t219\r7.3.4 预测改进与控制收益的联系\t219\r参考文献\t220\r附录A RE-SAC贝尔曼算子的数学证明\t235\rA.1 定义与假设\t235\rA.1.1 有限状态动作空间\t235\rA.1.2 转移、折扣与固定惩罚\t235\rA.1.3 两类动作聚合与贝尔曼算子\t235\rA.2 动作聚合的共同条件\t236\rA.3 固定贝尔曼算子的共同性质\t236\rA.4 熵正则化备份\t237\rA.5 精确迭代的固定点推论\t238\rA.6 依赖价值函数的附加反馈\t238\rA.7 鲁棒评价、正则化与尾部风险的联系\t239\rA.7.1 最不利期望的正则化表示\t239\rA.7.2 分布距离下界与网络代理\t239\rA.7.3 CVaR的风险包络表示\t240\rA.8 适用范围\t240\r附录B BAPR动作补偿与模式误判的数学证明\t242\rB.1 执行器模型与符号\t242\rB.1.1 有界命令与执行信号\t242\rB.1.2 规范策略与参考模式\t242\rB.2 精确补偿的可行条件\t243\rB.2.1 截断不改变输入的充要条件\t243\rB.2.2 逆命令与有界执行\t243\rB.2.3 极性变换保持动作边界\t243\rB.3 共同噪声下的逐路径等价\t244\rB.3.1 执行量一致\t244\rB.3.2 有限时域运行的递归定义\t244\rB.3.3 任意极性切换序列\t245\rB.4 因果信息与模式可辨识性\t245\rB.4.1 已完成转移的前缀性质\t245\rB.4.2 无激励时的运行不可区分\t246\rB.4.3 相同观察下的二元识别\t246\rB.4.4 有限正概率核的相对熵链式分解\t246\rB.5 模式误判的动作加权误差\t247\rB.5.1 名义信号差\t247\rB.5.2 误差平方与欧氏范数\t248\rB.6 逐路径性能差恒等式\t248\rB.6.1 同一状态上的参照续接价值\t248\rB.6.2 回报差沿因果轨迹展开\t249\rB.6.3 局部动作价值界的累计\t249\rB.7 有限外生噪声下的期望性能差\t249\rB.7.1 有限概率模型\t249\rB.7.2 期望回报差恒等式\t250\rB.7.3 条件期望回报界\t251\rB.8 极性误判对应的条件回报界\t251\rB.9 解释与适用范围\t252\r附录C 早期BAPR信念加权算子的数学证明\t253\rC.1 模式条件贝尔曼算子\t253\rC.1.1 空间与概率条件\t253\rC.1.2 固定信念混合\t253\rC.2 固定信念下的等价随机核\t254\rC.3 固定信念算子的性质\t254\rC.3.1 共同定理的应用\t254\rC.3.2 联合模式空间\t255\rC.4 信念更新与边缘分布\t255\rC.4.1 非负证据的归一化更新\t255\rC.4.2 联合信念的两个边缘\t255\rC.4.3 边缘合法性与信息保持\t256\rC.5 保守系数的单调性\t256\rC.6 模式价值函数的统一表示\t257\rC.7 价值依赖权重的线性反馈\t257\rC.7.1 单状态双模式构造\t257\rC.7.2 精确距离因子\t257\rC.7.3 合法概率输入对上的解释\t258\rC.8 假定证据形式下的比值增长\t258\rC.8.1 预设比值模型\t258\rC.8.2 达到给定比值的充分条件\t258\rC.8.3 单调性与步数表达\t259\rC.9 适用范围\t259\r附录D CS-BAPR策略响应与贝尔曼算子的数学证明\t260\rD.1 记号与基本条件\t260\rD.1.1 标量导数一致性\t260\rD.1.2 向量情形\t260\rD.2 标量误差增长\t261\rD.2.1 一致导数误差下的线性界\t261\rD.2.2 线性增长导数误差下的二次界\t261\rD.2.3 由基准一致性构造导数误差界\t261\rD.3 向量误差与路径分析\t262\rD.3.1 一致雅可比误差\t262\rD.3.2 向量路径的边界比较\t262\rD.3.3 完整映射的二次误差界\t263\rD.3.4 统一导数上界得到的较宽界\t264\rD.3.5 系数的紧性与线性参照\t264\rD.4 算术函数与导数跳跃\t264\rD.4.1 线性加法单元\t264\rD.4.2 二次乘性函数\t264\rD.4.3 ReLU导数不满足全局Lipschitz条件\t265\rD.4.4 一般导数跳跃\t265\rD.5 特征映射与输出头的复合\t265\rD.5.1 从有界导数到函数Lipschitz\t265\rD.5.2 标量复合的导数界\t266\rD.5.3 向量复合与反例\t266\rD.6 固定惩罚的模式贝尔曼算子\t267\rD.6.1 算子定义\t267\rD.6.2 固定符号惩罚下的推论\t267\rD.7 信念更新与输入依赖反馈\t268\rD.7.1 更新信念的适用条件\t268\rD.7.2 输入依赖符号惩罚的仿射模型\t268\rD.8 符号模型误差与策略误差的组合\t268\rD.8.1 有限基函数重构\t268\rD.8.2 同一符号模型连接两个误差\t269\rD.9 多环境一致性\t269\rD.9.1 共同系数与环境列表\t269\rD.9.2 共享部分与环境相关部分\t270\rD.10 基准泛化误差的条件传播\t270\rD.11 适用范围\t270\r附录E MC-WM残差模型与条件排序的数学分析\t272\rE.1 有限决策过程与残差核\t272\rE.1.1 基本对象\t272\rE.1.2 残差核的合法性\t272\rE.2 贝尔曼收缩与价值固定点\t273\rE.2.1 概率加权的非扩张性\t273\rE.2.2 固定策略下的收缩\t273\rE.2.3 固定点及价值上界\t273\rE.3 转移误差引起的价值误差\t274\rE.3.1 总变差与期望差\t274\rE.3.2 同奖励模型的全局误差界\t274\rE.3.3 同时存在奖励误差\t275\rE.3.4 限定访问范围所需条件\t275\rE.3.5 误差趋零的结论\t276\rE.4 数据覆盖之外的反例\t276\rE.5 残差更新算子的条件性分析\t276\rE.5.1 与价值迭代不同的算子\t276\rE.5.2 固定点存在、唯一与迭代界\t277\rE.5.3 组合常数的含义\t277\rE.6 置信信号的条件排序等价\t277\rE.6.1 代数假设与符号\t277\rE.6.2 单一误差与正值信号的排序\t278\rE.6.3 均匀拟合误差下的排序一致\t278\rE.6.4 有界拟合变化下的排序间隔\t279\rE.7 理论分析与模型适应的关系\t279\rE.8 适用范围\t280\rE.9 归一化对数置信备份的尺度性质\t280\r附录F 公交世界模型的探索性比较\t282\rF.1 共同初始化的单种子接入比较\t282\rF.2 单种子的数据与交互预算探索\t283\rF.3 单种子的源转移偏差探索\t285\r",
+  "Sections": [
+    {
+      "Index": 1,
+      "Start": 0,
+      "End": 29,
+      "FirstPhysicalPage": 1,
+      "LastPhysicalPage": 1,
+      "FirstAdjustedPage": 1,
+      "LastAdjustedPage": 1,
+      "StartType": 2,
+      "DifferentFirstPage": 0,
+      "OddAndEvenPages": 0,
+      "HeadersFooters": [
+        {
+          "Kind": "Headers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        }
+      ]
+    },
+    {
+      "Index": 2,
+      "Start": 29,
+      "End": 38776,
+      "FirstPhysicalPage": 2,
+      "LastPhysicalPage": 20,
+      "FirstAdjustedPage": 1,
+      "LastAdjustedPage": 19,
+      "StartType": 2,
+      "DifferentFirstPage": 0,
+      "OddAndEvenPages": 0,
+      "HeadersFooters": [
+        {
+          "Kind": "Headers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": true,
+          "StartingNumber": 1,
+          "NumberStyle": 1
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": true,
+          "StartingNumber": 1,
+          "NumberStyle": 1
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": true,
+          "StartingNumber": 1,
+          "NumberStyle": 1
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": true,
+          "StartingNumber": 1,
+          "NumberStyle": 1
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": true,
+          "StartingNumber": 1,
+          "NumberStyle": 1
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": true,
+          "StartingNumber": 1,
+          "NumberStyle": 1
+        }
+      ]
+    },
+    {
+      "Index": 3,
+      "Start": 38776,
+      "End": 65979,
+      "FirstPhysicalPage": 21,
+      "LastPhysicalPage": 40,
+      "FirstAdjustedPage": 1,
+      "LastAdjustedPage": 20,
+      "StartType": 2,
+      "DifferentFirstPage": 0,
+      "OddAndEvenPages": 0,
+      "HeadersFooters": [
+        {
+          "Kind": "Headers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": true,
+          "StartingNumber": 1,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": true,
+          "StartingNumber": 1,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": true,
+          "StartingNumber": 1,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": true,
+          "StartingNumber": 1,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": true,
+          "StartingNumber": 1,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": true,
+          "StartingNumber": 1,
+          "NumberStyle": 0
+        }
+      ]
+    },
+    {
+      "Index": 4,
+      "Start": 65979,
+      "End": 99972,
+      "FirstPhysicalPage": 41,
+      "LastPhysicalPage": 74,
+      "FirstAdjustedPage": 21,
+      "LastAdjustedPage": 54,
+      "StartType": 2,
+      "DifferentFirstPage": 0,
+      "OddAndEvenPages": 0,
+      "HeadersFooters": [
+        {
+          "Kind": "Headers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        }
+      ]
+    },
+    {
+      "Index": 5,
+      "Start": 99972,
+      "End": 138084,
+      "FirstPhysicalPage": 75,
+      "LastPhysicalPage": 116,
+      "FirstAdjustedPage": 55,
+      "LastAdjustedPage": 96,
+      "StartType": 2,
+      "DifferentFirstPage": 0,
+      "OddAndEvenPages": 0,
+      "HeadersFooters": [
+        {
+          "Kind": "Headers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        }
+      ]
+    },
+    {
+      "Index": 6,
+      "Start": 138084,
+      "End": 162448,
+      "FirstPhysicalPage": 117,
+      "LastPhysicalPage": 143,
+      "FirstAdjustedPage": 97,
+      "LastAdjustedPage": 123,
+      "StartType": 2,
+      "DifferentFirstPage": 0,
+      "OddAndEvenPages": 0,
+      "HeadersFooters": [
+        {
+          "Kind": "Headers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        }
+      ]
+    },
+    {
+      "Index": 7,
+      "Start": 162448,
+      "End": 199194,
+      "FirstPhysicalPage": 144,
+      "LastPhysicalPage": 183,
+      "FirstAdjustedPage": 124,
+      "LastAdjustedPage": 163,
+      "StartType": 2,
+      "DifferentFirstPage": 0,
+      "OddAndEvenPages": 0,
+      "HeadersFooters": [
+        {
+          "Kind": "Headers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        }
+      ]
+    },
+    {
+      "Index": 8,
+      "Start": 199194,
+      "End": 244886,
+      "FirstPhysicalPage": 184,
+      "LastPhysicalPage": 234,
+      "FirstAdjustedPage": 164,
+      "LastAdjustedPage": 214,
+      "StartType": 2,
+      "DifferentFirstPage": 0,
+      "OddAndEvenPages": 0,
+      "HeadersFooters": [
+        {
+          "Kind": "Headers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        }
+      ]
+    },
+    {
+      "Index": 9,
+      "Start": 244886,
+      "End": 250042,
+      "FirstPhysicalPage": 235,
+      "LastPhysicalPage": 239,
+      "FirstAdjustedPage": 215,
+      "LastAdjustedPage": 219,
+      "StartType": 2,
+      "DifferentFirstPage": 0,
+      "OddAndEvenPages": 0,
+      "HeadersFooters": [
+        {
+          "Kind": "Headers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        }
+      ]
+    },
+    {
+      "Index": 10,
+      "Start": 250042,
+      "End": 286319,
+      "FirstPhysicalPage": 240,
+      "LastPhysicalPage": 254,
+      "FirstAdjustedPage": 220,
+      "LastAdjustedPage": 234,
+      "StartType": 2,
+      "DifferentFirstPage": 0,
+      "OddAndEvenPages": 0,
+      "HeadersFooters": [
+        {
+          "Kind": "Headers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        }
+      ]
+    },
+    {
+      "Index": 11,
+      "Start": 286319,
+      "End": 294702,
+      "FirstPhysicalPage": 255,
+      "LastPhysicalPage": 261,
+      "FirstAdjustedPage": 235,
+      "LastAdjustedPage": 241,
+      "StartType": 2,
+      "DifferentFirstPage": 0,
+      "OddAndEvenPages": 0,
+      "HeadersFooters": [
+        {
+          "Kind": "Headers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        }
+      ]
+    },
+    {
+      "Index": 12,
+      "Start": 294702,
+      "End": 307715,
+      "FirstPhysicalPage": 262,
+      "LastPhysicalPage": 272,
+      "FirstAdjustedPage": 242,
+      "LastAdjustedPage": 252,
+      "StartType": 2,
+      "DifferentFirstPage": 0,
+      "OddAndEvenPages": 0,
+      "HeadersFooters": [
+        {
+          "Kind": "Headers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        }
+      ]
+    },
+    {
+      "Index": 13,
+      "Start": 307715,
+      "End": 315437,
+      "FirstPhysicalPage": 273,
+      "LastPhysicalPage": 279,
+      "FirstAdjustedPage": 253,
+      "LastAdjustedPage": 259,
+      "StartType": 2,
+      "DifferentFirstPage": 0,
+      "OddAndEvenPages": 0,
+      "HeadersFooters": [
+        {
+          "Kind": "Headers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        }
+      ]
+    },
+    {
+      "Index": 14,
+      "Start": 315437,
+      "End": 328224,
+      "FirstPhysicalPage": 280,
+      "LastPhysicalPage": 291,
+      "FirstAdjustedPage": 260,
+      "LastAdjustedPage": 271,
+      "StartType": 2,
+      "DifferentFirstPage": 0,
+      "OddAndEvenPages": 0,
+      "HeadersFooters": [
+        {
+          "Kind": "Headers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        }
+      ]
+    },
+    {
+      "Index": 15,
+      "Start": 328224,
+      "End": 339363,
+      "FirstPhysicalPage": 292,
+      "LastPhysicalPage": 301,
+      "FirstAdjustedPage": 272,
+      "LastAdjustedPage": 281,
+      "StartType": 2,
+      "DifferentFirstPage": 0,
+      "OddAndEvenPages": 0,
+      "HeadersFooters": [
+        {
+          "Kind": "Headers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        }
+      ]
+    },
+    {
+      "Index": 16,
+      "Start": 339363,
+      "End": 342512,
+      "FirstPhysicalPage": 302,
+      "LastPhysicalPage": 306,
+      "FirstAdjustedPage": 282,
+      "LastAdjustedPage": 286,
+      "StartType": 2,
+      "DifferentFirstPage": 0,
+      "OddAndEvenPages": 0,
+      "HeadersFooters": [
+        {
+          "Kind": "Headers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Headers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 1,
+          "Exists": true,
+          "LinkToPrevious": false,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 2,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        },
+        {
+          "Kind": "Footers",
+          "Variant": 3,
+          "Exists": false,
+          "LinkToPrevious": true,
+          "RestartNumberingAtSection": false,
+          "StartingNumber": 0,
+          "NumberStyle": 0
+        }
+      ]
+    }
+  ],
+  "FloatingShapes": [],
+  "InlineShapeCount": 63,
+  "Error": null,
+  "CleanupErrors": [],
+  "FinishedAt": "2026-10-03T01:12:28.9955755+08:00",
+  "InitialExportError": "此文件正由另一应用程序或用户使用。",
+  "ExportRetry": {
+    "Status": "completed",
+    "InputDocument": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\erzhu419\\mine_code\\Thesis\\output\\排版完成.docx",
+    "OutputPdf": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\erzhu419\\mine_code\\Thesis\\workpapers\\模板迁移_20261002\\final_preview_word.pdf",
+    "Error": null,
+    "ProcessId": 36176,
+    "Version": "16.0",
+    "Pages": 306,
+    "PagesAfterExport": 306
+  },
+  "PagesAfterExport": 306,
+  "DeliveredPdf": "/home/erzhu419/mine_code/Thesis/output/排版预览.pdf"
+}

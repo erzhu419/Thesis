@@ -1,0 +1,17 @@
+{
+  "name": "thesis-mcwm-explore-v5",
+  "arms": ["normalized", "decision_confidence", "source_weighted", "shared_whole", "shared_gated"],
+  "decision_draws": 2,
+  "decision_loss_coefficient": 1.0,
+  "decision_scale_floor": 0.001,
+  "source_weight_floor": 0.25,
+  "source_residual_scale_floor": 0.1,
+  "source_weight_rule": "floor + (1-floor)*exp(-0.5*mean(squared standardized global residual)); outside target support use floor; zero-time and terminal transitions retain unit weight",
+  "decision_reference": "Frozen deterministic-policy target-critic/IQL mixture at each model refresh; no entropy term; calibration proxy, not the stochastic training backup",
+  "selection_data": "Existing target calibration split only; stopping split determines normalizing scales; no SUMO evaluation outcomes used",
+  "actor_data": "Unchanged 50:50 target offline and source online states for all arms",
+  "source_weight_scope": "Source physical nonterminal real TD loss only; offline TD, actor batches and generated model TD remain unchanged",
+  "shared_heads": "One encoder per member; independent event, duration, service, headway and cost heads; no input masks or cost-on-predicted-global conditioning",
+  "primary_comparison": "Every new arm against a fresh same-budget normalized arm, with paired seeds and evaluation days",
+  "interpretation": "Development exploration on previously used evaluation scenarios; preserve all negative results; no independent confirmation claim"
+}

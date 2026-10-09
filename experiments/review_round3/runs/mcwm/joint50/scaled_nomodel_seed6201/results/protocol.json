@@ -1,0 +1,157 @@
+{
+  "protocol": {
+    "name": "thesis-mcwm-alignment-v2",
+    "training_seeds": [
+      6201,
+      6202,
+      6203
+    ],
+    "arms": [
+      "h2o_matched",
+      "mcwm"
+    ],
+    "scenarios": [
+      {
+        "name": "calibrated",
+        "speed_factor": 1.0,
+        "od_factor": 1.0,
+        "extra_signal_fraction": 0.0,
+        "dwell_factor": 1.0,
+        "empirical_runtime": true
+      },
+      {
+        "name": "joint25",
+        "speed_factor": 0.75,
+        "od_factor": 1.25,
+        "extra_signal_fraction": 0.25,
+        "dwell_factor": 1.25,
+        "empirical_runtime": true
+      },
+      {
+        "name": "joint50",
+        "speed_factor": 0.5,
+        "od_factor": 1.5,
+        "extra_signal_fraction": 0.5,
+        "dwell_factor": 1.5,
+        "empirical_runtime": true
+      }
+    ],
+    "offline_updates_in_initializer": 50000,
+    "warmup_events": 5000,
+    "source_event_budget": 25000,
+    "source_seed_offset": 30000,
+    "collection_interval": 32,
+    "actor_taper_event": 15000,
+    "actor_taper_multiplier": 0.25,
+    "model_refresh_events": [
+      5000,
+      10000,
+      15000,
+      20000
+    ],
+    "model_updates_per_member": 1000,
+    "model_refit_updates": 300,
+    "model_ensemble_members": 3,
+    "model_max_fit_rows": 8192,
+    "model_max_validation_rows": 2048,
+    "policy_reference_rows": 512,
+    "model_fraction": 0.25,
+    "model_batch_size": 128,
+    "model_start_max_horizon_fraction": 0.75,
+    "qdelta_gamma": 0.9,
+    "qdelta_updates_per_extra_step": 1,
+    "trust_update_every": 4,
+    "deployment_hold_scale": 1.0,
+    "evaluation_demand_scales": [
+      1.0,
+      1.25
+    ],
+    "evaluation_blocks": [
+      {
+        "demand_seed": 39101,
+        "sumo_seed": 39201
+      },
+      {
+        "demand_seed": 39102,
+        "sumo_seed": 39202
+      },
+      {
+        "demand_seed": 39103,
+        "sumo_seed": 39203
+      },
+      {
+        "demand_seed": 39104,
+        "sumo_seed": 39204
+      },
+      {
+        "demand_seed": 39105,
+        "sumo_seed": 39205
+      }
+    ],
+    "departure_jitter_seconds": 120,
+    "evaluation_horizon_seconds": 24000,
+    "training_seed": 6201
+  },
+  "arm": "scaled_nomodel",
+  "scenario": {
+    "name": "joint50",
+    "speed_factor": 0.5,
+    "od_factor": 1.5,
+    "extra_signal_fraction": 0.5,
+    "dwell_factor": 1.5,
+    "empirical_runtime": true
+  },
+  "training_seed": 6201,
+  "config": {
+    "ensemble_size": 2,
+    "hidden_dim": 256,
+    "batch_size": 256,
+    "reward_scale": 0.0001,
+    "critic_loss": "huber",
+    "huber_delta": 1.0,
+    "activation": "relu",
+    "actor_layer_norm": false,
+    "critic_layer_norm": false,
+    "value_layer_norm": false,
+    "online_fraction": 0.5,
+    "actor_learning_rate": 0.0003,
+    "critic_learning_rate": 0.0003,
+    "value_learning_rate": 0.0003,
+    "alpha_learning_rate": 0.0003,
+    "ratio_learning_rate": 0.0001,
+    "soft_target_rate": 0.005,
+    "target_subset_size": 2,
+    "target_subset_replacement": false,
+    "target_entropy": 0.0,
+    "initial_temperature": 1.0,
+    "backup_entropy": true,
+    "bootstrap_probability": 1.0,
+    "offline_objective": "iql",
+    "online_backup": "h2oplus",
+    "actor_q_reduction": "min-all",
+    "online_actor_update_interval": 1,
+    "online_actor_batch_mode": "latest",
+    "online_update_order": "actor-before-critic",
+    "offline_cql_alpha": 0.0,
+    "online_cql_alpha": 0.0,
+    "cql_n_actions": 10,
+    "cql_max_target_backup": false,
+    "mixed_backup_lambda": 0.1,
+    "iql_expectile": 0.7,
+    "iql_advantage_temperature": 3.0,
+    "iql_max_weight": 100.0,
+    "ratio_min_weight": 1e-05,
+    "ratio_max_weight": 1.0,
+    "use_ratio_correction": false,
+    "ratio_update_interval": 4,
+    "gradient_clip_norm": null,
+    "cql_penalty_subset_size": null,
+    "cql_penalty_subset_replacement": false,
+    "offline_update_order": "critic-before-actor",
+    "temperature_state_source": "actor",
+    "offline_temperature_action_samples": 1
+  },
+  "offline_rows": 3284718,
+  "target_online_training_events": 0,
+  "initializer_updates": 50000
+}

@@ -1,0 +1,11 @@
+{
+  "name": "thesis-mcwm-factored-v4",
+  "structures": ["factored", "unmasked"],
+  "arms": ["normalized", "source_repair"],
+  "training_seeds": [6201, 6202],
+  "model_design": "Five independent structured encoders and heads: event identity, elapsed time, passenger service, headway, passenger cost. Cost conditions on predicted duration and passenger increments. Fixed parent restrictions, not learned causal identification.",
+  "model_selection": "Preserve the existing whole-model direct versus residual calibration selection; no new per-mechanism gate.",
+  "references": "Reuse all frozen usage_v3 outcomes on the same evaluation days; unmasked has identical capacity, loss and schedule to factored.",
+  "decision": "Keep normalized v3 unless a candidate reduces cost by at least 5 seconds averaged over joint50/joint75 and both demand levels, improves both training-seed averages, and no high-mismatch cell loses over 0.1 completion percentage points or increases cost over 5 seconds. Prefer fewer modifications if differences are under 5 seconds. Report every cell, including normal calibration.",
+  "scope": "Development comparison on existing days; no independent confirmation claim. No target online training. No adaptive selection of days or seeds."
+}

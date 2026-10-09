@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering
+\caption{Learned-policy final-checkpoint performance under full-episode evaluation. Values are mean $\pm$ standard deviation across training seeds after averaging the ten common SUMO seeds within each training seed. Return is shaped return; return per decision and decisions per episode provide event-count context. Bold type marks column-best return, return per decision, headway deviation, and bunching rate.}
+\label{tab:learned-final-checkpoint}
+\scriptsize
+\renewcommand{\arraystretch}{1.00}
+\setlength{\tabcolsep}{1.5pt}
+\begin{tabular}{@{}llrrrrrr@{}}
+\toprule
+Method & Training family & Return & Return/decision & Decisions/episode & Headway deviation (s) & Bunching rate & Mean hold (s) \\
+\midrule
+BC & Offline imitation & -1,449,793 $\pm$ 241,669 & -117 $\pm$ 19 & 12,337 $\pm$ 49 & 51 $\pm$ 8 & 0.030 $\pm$ 0.007 & 3 $\pm$ 4 \\
+CQL & Offline RL & -1,137,603 $\pm$ 145,334 & -93 $\pm$ 12 & 12,291 $\pm$ 39 & 43 $\pm$ 6 & 0.021 $\pm$ 0.006 & 10 $\pm$ 4 \\
+RE-SAC & Offline ensemble SAC & -735,626 $\pm$ 12,414 & -60 $\pm$ 1 & 12,222 $\pm$ 23 & 28 $\pm$ 0 & 0.011 $\pm$ 0.001 & 13 $\pm$ 1 \\
+OnlineSAC & Online RL & -796,868 $\pm$ 34,626 & -66 $\pm$ 3 & 12,154 $\pm$ 97 & 31 $\pm$ 2 & 0.014 $\pm$ 0.004 & 23 $\pm$ 9 \\
+WSRL & Offline-to-online RL & \textbf{-730,584 $\pm$ 14,758} & \textbf{-59 $\pm$ 1} & 12,283 $\pm$ 36 & \textbf{27 $\pm$ 1} & 0.015 $\pm$ 0.002 & 11 $\pm$ 2 \\
+RLPD-0.50 & Offline-to-online RL & -740,084 $\pm$ 12,200 & -60 $\pm$ 1 & 12,243 $\pm$ 49 & 28 $\pm$ 0 & 0.011 $\pm$ 0.002 & 15 $\pm$ 2 \\
+WSRL-E10 & Architecture matched & -778,954 $\pm$ 18,359 & -64 $\pm$ 1 & 12,220 $\pm$ 48 & 30 $\pm$ 1 & 0.010 $\pm$ 0.003 & 12 $\pm$ 1 \\
+RLPD-E10 & Architecture matched & -732,784 $\pm$ 11,676 & -60 $\pm$ 1 & 12,215 $\pm$ 30 & 28 $\pm$ 1 & \textbf{0.009 $\pm$ 0.001} & 14 $\pm$ 1 \\
+\bottomrule
+\end{tabular}
+\end{table*}

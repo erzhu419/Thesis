@@ -1,0 +1,65 @@
+[
+  {
+    "project": "Thesis",
+    "description": "thesis-resac-native-recipe-v8 preflight/cpu",
+    "signature": "thesis-resac-native-recipe-v8/preflight/cpu",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/resac_native_recipe_v8",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/resac_native_recipe_v8/node_run.py --phase preflight --device cpu --seed 64001",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006",
+      "node007"
+    ],
+    "cpu": 1,
+    "ram_mb": 3500,
+    "vram": 0,
+    "resource_family": "thesis-resac-native-recipe-v8/train",
+    "ram_resource_family": "thesis-resac-native-recipe-v8/train",
+    "vram_resource_family": "thesis-resac-native-recipe-v8/train",
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "skip_launch_staging": true,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Independent single-thread paired learners; shared server data, no GPU requirement."
+  },
+  {
+    "project": "Thesis",
+    "description": "thesis-resac-native-recipe-v8 preflight/cuda",
+    "signature": "thesis-resac-native-recipe-v8/preflight/cuda",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/resac_native_recipe_v8",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/resac_native_recipe_v8/node_run.py --phase preflight --device cuda --seed 64001",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006",
+      "node007"
+    ],
+    "cpu": 1,
+    "ram_mb": 3500,
+    "vram": 1600,
+    "resource_family": "thesis-resac-native-recipe-v8/train",
+    "ram_resource_family": "thesis-resac-native-recipe-v8/train",
+    "vram_resource_family": "thesis-resac-native-recipe-v8/train",
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "skip_launch_staging": true,
+    "allow_gpu_over_one_third": true
+  }
+]

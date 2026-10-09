@@ -1,0 +1,146 @@
+{
+  "arm": "decision_balanced",
+  "seed": 6201,
+  "scenario": "joint75",
+  "source_events": 194,
+  "continuation_updates": 64,
+  "total_policy_updates": 50064,
+  "total_critic_updates": 50064,
+  "target_online_training_events": 0,
+  "model_history": [
+    {
+      "source_events": 128,
+      "selected_family": "direct",
+      "calibration_loss": {
+        "direct": 1.8605453968048096,
+        "residual": 1.8638287782669067
+      },
+      "decision_components": {
+        "direct": {
+          "proper_error": 3.830596446990967,
+          "backup_absolute_error": 3.0499494075775146,
+          "normalized_proper_error": 1.106188178062439,
+          "normalized_decision_error": 0.7543572783470154
+        },
+        "residual": {
+          "proper_error": 3.853127956390381,
+          "backup_absolute_error": 3.0369176864624023,
+          "normalized_proper_error": 1.1126947402954102,
+          "normalized_decision_error": 0.7511340975761414
+        }
+      },
+      "prediction_scale": 3.4628796577453613,
+      "decision_scale": 4.043109893798828,
+      "stopping_backup_error_rms_by_family": {
+        "direct": 4.038999080657959,
+        "residual": 4.047216415405273
+      },
+      "scale_mode": "Root mean square of the two candidate models' average absolute backup errors on the stopping split; the same scale is used for both families"
+    },
+    {
+      "source_events": 160,
+      "selected_family": "direct",
+      "calibration_loss": {
+        "direct": 1.5939435958862305,
+        "residual": 1.5972745418548584
+      },
+      "decision_components": {
+        "direct": {
+          "proper_error": 3.7610812187194824,
+          "backup_absolute_error": 3.393505334854126,
+          "normalized_proper_error": 1.0984036922454834,
+          "normalized_decision_error": 0.8003057241439819
+        },
+        "residual": {
+          "proper_error": 3.8424060344696045,
+          "backup_absolute_error": 3.320309638977051,
+          "normalized_proper_error": 1.1221542358398438,
+          "normalized_decision_error": 0.7830436825752258
+        }
+      },
+      "prediction_scale": 3.424133777618408,
+      "decision_scale": 4.240261077880859,
+      "stopping_backup_error_rms_by_family": {
+        "direct": 4.241547584533691,
+        "residual": 4.238974571228027
+      },
+      "scale_mode": "Root mean square of the two candidate models' average absolute backup errors on the stopping split; the same scale is used for both families",
+      "fit_weight_range": [
+        0.10000000149011612,
+        1.0
+      ]
+    }
+  ],
+  "phases": {
+    "dataset_loading": {
+      "wall_seconds": 14.316510403063148,
+      "cpu_seconds": 13.726093088000002,
+      "calls": 1
+    },
+    "source_collection": {
+      "wall_seconds": 8.114712623879313,
+      "cpu_seconds": 8.119822262,
+      "calls": 3
+    },
+    "source_model_fit": {
+      "wall_seconds": 0.45307500194758177,
+      "cpu_seconds": 0.4532913080000043,
+      "calls": 1
+    },
+    "target_model_fit": {
+      "wall_seconds": 0.09700847929343581,
+      "cpu_seconds": 0.09690632799999577,
+      "calls": 2
+    },
+    "decision_trust_errors": {
+      "wall_seconds": 0.18324949406087399,
+      "cpu_seconds": 0.18329039399999658,
+      "calls": 2
+    },
+    "model_refresh": {
+      "wall_seconds": 2.7796949320472777,
+      "cpu_seconds": 2.759514246000002,
+      "calls": 2
+    },
+    "policy_fit_weights": {
+      "wall_seconds": 0.06424230290576816,
+      "cpu_seconds": 0.06424423699999693,
+      "calls": 1
+    },
+    "target_model_refit": {
+      "wall_seconds": 0.11336001707240939,
+      "cpu_seconds": 0.11327930600000258,
+      "calls": 1
+    },
+    "refresh_trust_errors": {
+      "wall_seconds": 0.008447142317891121,
+      "cpu_seconds": 0.008448373999996761,
+      "calls": 1
+    },
+    "bellman_trust_update": {
+      "wall_seconds": 0.5341309350915253,
+      "cpu_seconds": 0.534118626999998,
+      "calls": 16
+    },
+    "model_training_batch": {
+      "wall_seconds": 3.4148588427342474,
+      "cpu_seconds": 3.416637889000043,
+      "calls": 64
+    },
+    "policy_update": {
+      "wall_seconds": 15.100609234999865,
+      "cpu_seconds": 15.096040922000036,
+      "calls": 64
+    },
+    "mechanism_diagnostics": {
+      "wall_seconds": 3.404279597569257,
+      "cpu_seconds": 3.405956526000004,
+      "calls": 4
+    }
+  },
+  "training_wall_seconds": 49.00159418489784,
+  "reused_offline_updates": 50000,
+  "peak_host_rss_mb": 1545.734375,
+  "peak_gpu_allocated_mb": 82.091796875,
+  "peak_gpu_reserved_mb": 98.0
+}

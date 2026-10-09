@@ -1,0 +1,52 @@
+[
+  {
+    "project": "Thesis",
+    "description": "Bus runtime decomposition, CPU threads and six independent evaluation cells",
+    "signature": "thesis-runtime-profile-v1/cpu_node006",
+    "require_node": "node006",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/legacy_bus",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u profile_runtime.py --run /home/erzhu419/mine_code/Thesis/experiments/legacy_bus/runs/reward_v1/exp60_hold_seed17001 --device cpu --out /home/erzhu419/mine_code/Thesis/experiments/legacy_bus/runs/runtime_profile_v1/cpu_node006",
+    "cpu": 16,
+    "ram_mb": 12000,
+    "vram": 0,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Read-only timing benchmark, not a scientific training run; sweep at most sixteen intra-op threads and six independent CPU evaluation workers.",
+    "skip_launch_staging": true,
+    "env": {"OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1", "MPLBACKEND": "Agg", "SDL_VIDEODRIVER": "dummy"},
+    "result_dir": "/home/erzhu419/mine_code/Thesis/experiments/legacy_bus/runs/runtime_profile_v1/cpu_node006",
+    "local_result_dir": "/home/erzhu419/mine_code/Thesis/experiments/legacy_bus/runs/runtime_profile_v1/cpu_node006"
+  },
+  {
+    "project": "Thesis",
+    "description": "Bus runtime decomposition on an idle GPU, unchanged learner and batch",
+    "signature": "thesis-runtime-profile-v1/gpu_node007",
+    "require_node": "node007",
+    "require_gpu_idx": 2,
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/legacy_bus",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u profile_runtime.py --run /home/erzhu419/mine_code/Thesis/experiments/legacy_bus/runs/reward_v1/exp60_hold_seed17001 --device cuda --threads 1 --evaluation-workers 0 --out /home/erzhu419/mine_code/Thesis/experiments/legacy_bus/runs/runtime_profile_v1/gpu_node007",
+    "cpu": 2,
+    "ram_mb": 3000,
+    "vram": 2400,
+    "skip_launch_staging": true,
+    "env": {"OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1", "MPLBACKEND": "Agg", "SDL_VIDEODRIVER": "dummy"},
+    "result_dir": "/home/erzhu419/mine_code/Thesis/experiments/legacy_bus/runs/runtime_profile_v1/gpu_node007",
+    "local_result_dir": "/home/erzhu419/mine_code/Thesis/experiments/legacy_bus/runs/runtime_profile_v1/gpu_node007"
+  },
+  {
+    "project": "Thesis",
+    "description": "Bus CPU high-thread sweep and complete sixteen-thread episode",
+    "signature": "thesis-runtime-profile-v1/cpu_node006_16",
+    "require_node": "node006",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/legacy_bus",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u profile_runtime.py --run /home/erzhu419/mine_code/Thesis/experiments/legacy_bus/runs/reward_v1/exp60_hold_seed17001 --device cpu --threads 16 32 64 --updates 8 --episode-threads 16 --evaluation-workers 0 --out /home/erzhu419/mine_code/Thesis/experiments/legacy_bus/runs/runtime_profile_v1/cpu_node006_16",
+    "cpu": 64,
+    "ram_mb": 3000,
+    "vram": 0,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Read-only timing benchmark; test actual gains from sixteen, thirty-two and sixty-four intra-op threads without changing live training.",
+    "skip_launch_staging": true,
+    "env": {"OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1", "MPLBACKEND": "Agg", "SDL_VIDEODRIVER": "dummy"},
+    "result_dir": "/home/erzhu419/mine_code/Thesis/experiments/legacy_bus/runs/runtime_profile_v1/cpu_node006_16",
+    "local_result_dir": "/home/erzhu419/mine_code/Thesis/experiments/legacy_bus/runs/runtime_profile_v1/cpu_node006_16"
+  }
+]

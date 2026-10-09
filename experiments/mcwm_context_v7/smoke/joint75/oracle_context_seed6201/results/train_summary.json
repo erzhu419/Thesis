@@ -1,0 +1,107 @@
+{
+  "arm": "oracle_context",
+  "seed": 6201,
+  "scenario": "joint75",
+  "source_events": 192,
+  "continuation_updates": 64,
+  "total_policy_updates": 50064,
+  "total_critic_updates": 50064,
+  "target_online_training_events": 0,
+  "model_history": [
+    {
+      "source_events": 128,
+      "selected_family": "direct",
+      "calibration_loss": {
+        "direct": 3.8319625854492188,
+        "residual": 3.856376886367798
+      }
+    },
+    {
+      "source_events": 161,
+      "selected_family": "direct",
+      "calibration_loss": {
+        "direct": 3.289733409881592,
+        "residual": 3.365471363067627
+      },
+      "fit_weight_range": [
+        0.10000000149011612,
+        1.0
+      ]
+    }
+  ],
+  "phases": {
+    "dataset_loading": {
+      "wall_seconds": 15.820479006972164,
+      "cpu_seconds": 15.169582828999998,
+      "calls": 1
+    },
+    "source_collection": {
+      "wall_seconds": 3.2015610178932548,
+      "cpu_seconds": 3.193457473999999,
+      "calls": 3
+    },
+    "context_observation": {
+      "wall_seconds": 0.005090606864541769,
+      "cpu_seconds": 0.005081368999999114,
+      "calls": 3
+    },
+    "source_model_fit": {
+      "wall_seconds": 0.047515347599983215,
+      "cpu_seconds": 0.047096960000001076,
+      "calls": 1
+    },
+    "target_model_fit": {
+      "wall_seconds": 0.09877901012077928,
+      "cpu_seconds": 0.09854858800000343,
+      "calls": 2
+    },
+    "model_refresh": {
+      "wall_seconds": 0.4489382808096707,
+      "cpu_seconds": 0.42668387400000185,
+      "calls": 2
+    },
+    "policy_fit_weights": {
+      "wall_seconds": 0.024960646871477365,
+      "cpu_seconds": 0.024903727000001652,
+      "calls": 1
+    },
+    "target_model_refit": {
+      "wall_seconds": 0.10823675896972418,
+      "cpu_seconds": 0.10798485500000155,
+      "calls": 1
+    },
+    "refresh_trust_errors": {
+      "wall_seconds": 0.010990381240844727,
+      "cpu_seconds": 0.010965198000000953,
+      "calls": 1
+    },
+    "bellman_trust_update": {
+      "wall_seconds": 0.10768477711826563,
+      "cpu_seconds": 0.10745626699998923,
+      "calls": 16
+    },
+    "model_training_batch": {
+      "wall_seconds": 1.9605267788283527,
+      "cpu_seconds": 1.9437542560000054,
+      "calls": 64
+    },
+    "policy_update": {
+      "wall_seconds": 8.541344554629177,
+      "cpu_seconds": 8.482461531999984,
+      "calls": 64
+    },
+    "mechanism_diagnostics": {
+      "wall_seconds": 0.20846895221620798,
+      "cpu_seconds": 0.2079713830000003,
+      "calls": 4
+    }
+  },
+  "training_wall_seconds": 33.437969502061605,
+  "reused_offline_updates": 50000,
+  "real_td_coefficient": 0.75,
+  "final_model_coefficient": 0.25,
+  "context_blocks": 21,
+  "context_provider_seed": 6202,
+  "peak_host_rss_mb": 735.91796875,
+  "peak_gpu_allocated_mb": 0.0
+}

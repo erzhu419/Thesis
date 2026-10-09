@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "arm": "identity",
+      "passed": true,
+      "checks": {
+        "actor_gradient_matches_sum_loss": true,
+        "teacher_gradient_absent": true,
+        "shorter_action_has_no_penalty": true,
+        "passed": true,
+        "final_actor_identical": true,
+        "two_episode_execution_identical": true
+      },
+      "anchor": {
+        "weight": 0.0,
+        "source_normal_observations": 0,
+        "retained_states": 0,
+        "anchor_updates": 0,
+        "mean_anchor_loss": 0.0,
+        "mean_anchor_gradient_norm": 0.0
+      },
+      "training_wall_seconds": 10.306053287349641
+    },
+    {
+      "arm": "anchor1",
+      "passed": true,
+      "checks": {
+        "persistent_source_bank_active_during_shock": true
+      },
+      "anchor": {
+        "weight": 1.0,
+        "source_normal_observations": 480,
+        "retained_states": 480,
+        "anchor_updates": 80,
+        "mean_anchor_loss": 0.5821776449680328,
+        "mean_anchor_gradient_norm": 2.745651885194586
+      },
+      "training_wall_seconds": 10.405262971296906
+    },
+    {
+      "arm": "anchor10",
+      "passed": true,
+      "checks": {
+        "persistent_source_bank_active_during_shock": true
+      },
+      "anchor": {
+        "weight": 10.0,
+        "source_normal_observations": 479,
+        "retained_states": 479,
+        "anchor_updates": 80,
+        "mean_anchor_loss": 0.561449995264411,
+        "mean_anchor_gradient_norm": 25.430686117891103
+      },
+      "training_wall_seconds": 10.371056815143675
+    }
+  ]
+}

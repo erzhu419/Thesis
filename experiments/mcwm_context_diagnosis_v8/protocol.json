@@ -1,0 +1,10 @@
+{
+  "name": "thesis-mcwm-context-diagnosis-v8",
+  "seeds": [6201, 6202],
+  "contexts": ["calibrated", "joint50", "joint75"],
+  "fit_arms": ["fixed_zero", "fixed_mid", "fixed_original"],
+  "test_arms": ["fixed_zero", "fixed_mid", "fixed_original", "recognized_context"],
+  "variants": {"full": [0,1,2,3,4,5,6,7], "without_action": [0,1,2,3,4,5,6], "physical_summary": [0,1,2]},
+  "variance_floor": 0.05,
+  "scope": "Offline feature diagnosis only, using v7 source transition blocks. Fit on the other seed's fixed-policy blocks; evaluate the consumer seed's fixed and adaptive-policy blocks. No SUMO cost or evaluation files are read. Independent-block classification, not a replay of the sticky online filter: old blocks do not retain episode reset positions. The three physical summary features are global event duration, eligible demand and base dwell, not per-bus speed or measured dwell residuals. Softmax scores are not calibrated probabilities."
+}

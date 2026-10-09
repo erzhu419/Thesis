@@ -1,0 +1,23 @@
+{
+  "name": "thesis-cs-policy-response-v1",
+  "drivers": ["fixed0", "coverage_64001", "coverage_64002"],
+  "days": [78101, 78102, 78103],
+  "scenes": {
+    "normal": [[0, 1]],
+    "static3": [[0, 3]],
+    "static10": [[0, 10]],
+    "burst50": [[0, 1], [3600, 50], [4200, 1]]
+  },
+  "actors": {
+    "coverage_64001": "cs_terminal_coverage_v1/runs/global_coverage/seed64001/policy.pt",
+    "coverage_64002": "cs_terminal_coverage_v1/runs/global_coverage/seed64002/policy.pt",
+    "norm0_64001": "cs_global_norm_ablation_v1/runs/global_event/seed64001/policy.pt",
+    "norm0_64002": "cs_global_norm_ablation_v1/runs/global_event/seed64002/policy.pt",
+    "observed_64001": "cs_passenger_alignment_v1/runs/observed_overlap/seed64001/policy.pt",
+    "observed_64002": "cs_passenger_alignment_v1/runs/observed_overlap/seed64002/policy.pt"
+  },
+  "time_bin_seconds": 1800,
+  "sensitivity_sample_limit": 2048,
+  "nodes": ["node001", "node002", "node003", "node004", "node005", "node006", "node007", "jtl110gpu", "jtl311linux"],
+  "unavailable_node": "jtl110gpu2: SSH connection reset during deployment"
+}

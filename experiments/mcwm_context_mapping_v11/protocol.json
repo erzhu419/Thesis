@@ -1,0 +1,23 @@
+{
+  "name": "thesis-mcwm-context-mapping-v11",
+  "training_seeds": [6201, 6202],
+  "arms": ["fixed0250", "fixed0375", "legacy_window", "shared_soft", "shared_gated"],
+  "fixed_coefficients": {"fixed0250": 0.25, "fixed0375": 0.375},
+  "shared_coefficients": {"calibrated": 0.25, "joint50": 0.25, "joint75": 0.375},
+  "global_coefficient": 0.25,
+  "adjusted_context": "joint75",
+  "oracle_policy_arms": {"calibrated": "fixed0250", "joint50": "fixed0250", "joint75": "fixed0375"},
+  "training_device": "cpu",
+  "training_nodes": ["node001", "node002", "node003", "node004", "node005", "node006"],
+  "window_blocks": 4,
+  "fallback_score_margin": 0.15,
+  "test_blocks": [
+    {"demand_seed": 68601, "sumo_seed": 69601},
+    {"demand_seed": 68602, "sumo_seed": 69602},
+    {"demand_seed": 68603, "sumo_seed": 69603},
+    {"demand_seed": 68604, "sumo_seed": 69604},
+    {"demand_seed": 68605, "sumo_seed": 69605}
+  ],
+  "selection": "Prespecified shared mapping motivated by exploratory v8/v10 outcomes, not selected from v11 evaluation. Reuse each seed's frozen v10 three-feature recognizer trained on the other seed's source blocks. Retain the old cross-seed mapping in legacy_window. No fitting or selection on the new test days.",
+  "interpretation": "Two reused offline initializer seeds; five fresh CPU-trained arms per static source condition. shared_soft changes only the coefficient mapping of the v10 window filter. shared_gated additionally leaves the baseline coefficient unchanged unless the accepted top-scoring class is joint75, then applies the same belief-weighted upward residual. Oracle shared-context control is exactly the fixed policy named in oracle_policy_arms because each training run has a constant source condition; these results are aliases, not additional independent runs. Target-domain online training, interaction budget, normalized model trust, observed TD coefficient, actor schedule and deployment safeguards remain unchanged. Context operates during training only."
+}

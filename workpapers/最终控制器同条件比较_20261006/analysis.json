@@ -1,0 +1,1265 @@
+{
+  "status": "complete",
+  "completed_evaluations": 225,
+  "expected_evaluations": 225,
+  "scope": "Five training seeds, five new environment blocks and three demand scales. All controllers use the v19 quarter-load-sixty execution transform with deployment scale 1.0 and a 24000-second horizon. MC-WM uses newly aligned continuation policies; H2O+ and SAC reuse frozen policies. Each primary interval uses five paired training-seed means, each first averaging all 15 evaluation conditions. The 225 episodes are not independent training replicates. Environment-block intervals are descriptive conditional on these fixed policies. Intervals are unadjusted paired t intervals; no practical-superiority margin is imposed. SAC has no 50000-update offline initialization, so its comparison is not a compute-matched ablation.",
+  "training_seeds": [
+    6201,
+    6202,
+    6203,
+    6204,
+    6205
+  ],
+  "sumo_seeds": [
+    108101,
+    108102,
+    108103,
+    108104,
+    108105
+  ],
+  "demand_seeds": [
+    108201,
+    108202,
+    108203,
+    108204,
+    108205
+  ],
+  "demand_scales": [
+    0.75,
+    1.0,
+    1.25
+  ],
+  "aggregation": "Equal weight per evaluation cell; each training-seed mean averages 15 conditions. No passenger pooling across conditions.",
+  "difference_units": {
+    "completion_percent": "percentage points",
+    "bus_completion_percent": "percentage points",
+    "nonzero_hold_percent": "percentage points"
+  },
+  "aggregate_method_means": {
+    "mcwm_aligned": {
+      "cost_seconds": 2360.4896847635023,
+      "completion_percent": 96.84445752923959,
+      "wait_seconds": 647.4764747963383,
+      "in_vehicle_seconds": 1065.5367351708258,
+      "hold_seconds_per_decision": 7.7590571032032365,
+      "nonzero_hold_percent": 91.21715161968834,
+      "unfinished_passengers": 544.28,
+      "bus_completion_percent": 100.0
+    },
+    "h2oplus_final": {
+      "cost_seconds": 2383.510506352898,
+      "completion_percent": 96.68638955402531,
+      "wait_seconds": 660.5136637901229,
+      "in_vehicle_seconds": 1062.4831787726523,
+      "hold_seconds_per_decision": 7.023809088927216,
+      "nonzero_hold_percent": 59.02180582808163,
+      "unfinished_passengers": 570.7733333333333,
+      "bus_completion_percent": 100.0
+    },
+    "sac_guarded": {
+      "cost_seconds": 2400.744091638351,
+      "completion_percent": 96.58189463417746,
+      "wait_seconds": 667.0026402913583,
+      "in_vehicle_seconds": 1066.7388110556346,
+      "hold_seconds_per_decision": 6.732689874942077,
+      "nonzero_hold_percent": 47.74641125818998,
+      "unfinished_passengers": 589.4,
+      "bus_completion_percent": 100.0
+    }
+  },
+  "method_means_by_training_seed": {
+    "mcwm_aligned": {
+      "6201": {
+        "cost_seconds": 2363.2871797479916,
+        "completion_percent": 96.88057031746848,
+        "wait_seconds": 643.4800104788523,
+        "in_vehicle_seconds": 1076.327158790287,
+        "hold_seconds_per_decision": 8.485097735927841,
+        "nonzero_hold_percent": 98.95876101610162,
+        "unfinished_passengers": 538.6,
+        "bus_completion_percent": 100.0
+      },
+      "6202": {
+        "cost_seconds": 2357.205976502661,
+        "completion_percent": 96.86022701862535,
+        "wait_seconds": 645.9085765888091,
+        "in_vehicle_seconds": 1065.3888233250427,
+        "hold_seconds_per_decision": 7.886466934666057,
+        "nonzero_hold_percent": 99.22905202527393,
+        "unfinished_passengers": 542.0666666666667,
+        "bus_completion_percent": 100.0
+      },
+      "6203": {
+        "cost_seconds": 2358.14198540655,
+        "completion_percent": 96.87178725024245,
+        "wait_seconds": 643.6498545232346,
+        "in_vehicle_seconds": 1070.8422763600806,
+        "hold_seconds_per_decision": 8.375234877718539,
+        "nonzero_hold_percent": 97.69884068136044,
+        "unfinished_passengers": 540.0666666666667,
+        "bus_completion_percent": 100.0
+      },
+      "6204": {
+        "cost_seconds": 2352.3256118163663,
+        "completion_percent": 96.86704182684409,
+        "wait_seconds": 645.0774090654398,
+        "in_vehicle_seconds": 1062.1707936854868,
+        "hold_seconds_per_decision": 7.624191244153277,
+        "nonzero_hold_percent": 81.69274019894353,
+        "unfinished_passengers": 540.6,
+        "bus_completion_percent": 100.0
+      },
+      "6205": {
+        "cost_seconds": 2371.4876703439427,
+        "completion_percent": 96.7426612330176,
+        "wait_seconds": 659.2665233253557,
+        "in_vehicle_seconds": 1052.954623693231,
+        "hold_seconds_per_decision": 6.424294723550467,
+        "nonzero_hold_percent": 78.50636417676219,
+        "unfinished_passengers": 560.0666666666667,
+        "bus_completion_percent": 100.0
+      }
+    },
+    "h2oplus_final": {
+      "6201": {
+        "cost_seconds": 2350.6272440902876,
+        "completion_percent": 96.85757965613261,
+        "wait_seconds": 645.0063612703898,
+        "in_vehicle_seconds": 1060.614521549508,
+        "hold_seconds_per_decision": 7.712657569612267,
+        "nonzero_hold_percent": 85.95348782694913,
+        "unfinished_passengers": 542.3333333333334,
+        "bus_completion_percent": 100.0
+      },
+      "6202": {
+        "cost_seconds": 2426.119150850063,
+        "completion_percent": 96.39699443123956,
+        "wait_seconds": 685.6783123192608,
+        "in_vehicle_seconds": 1054.7625262115412,
+        "hold_seconds_per_decision": 5.288775340344192,
+        "nonzero_hold_percent": 15.531311374361389,
+        "unfinished_passengers": 619,
+        "bus_completion_percent": 100.0
+      },
+      "6203": {
+        "cost_seconds": 2415.000577320423,
+        "completion_percent": 96.4933530523491,
+        "wait_seconds": 678.8362731546041,
+        "in_vehicle_seconds": 1057.3280310112148,
+        "hold_seconds_per_decision": 6.194659670991635,
+        "nonzero_hold_percent": 36.958828202960866,
+        "unfinished_passengers": 602.8,
+        "bus_completion_percent": 100.0
+      },
+      "6204": {
+        "cost_seconds": 2358.095416016549,
+        "completion_percent": 96.8060955047608,
+        "wait_seconds": 650.4693223504445,
+        "in_vehicle_seconds": 1057.1567713156599,
+        "hold_seconds_per_decision": 6.9796729800515225,
+        "nonzero_hold_percent": 69.94347801089603,
+        "unfinished_passengers": 550.8666666666667,
+        "bus_completion_percent": 100.0
+      },
+      "6205": {
+        "cost_seconds": 2367.710143487169,
+        "completion_percent": 96.87792512564445,
+        "wait_seconds": 642.5780498559157,
+        "in_vehicle_seconds": 1082.5540437753375,
+        "hold_seconds_per_decision": 8.94327988363646,
+        "nonzero_hold_percent": 86.72192372524073,
+        "unfinished_passengers": 538.8666666666667,
+        "bus_completion_percent": 100.0
+      }
+    },
+    "sac_guarded": {
+      "6201": {
+        "cost_seconds": 2377.2187511994352,
+        "completion_percent": 96.6930067771461,
+        "wait_seconds": 652.8712492462668,
+        "in_vehicle_seconds": 1071.4762527069017,
+        "hold_seconds_per_decision": 7.358798147075004,
+        "nonzero_hold_percent": 62.05563578889733,
+        "unfinished_passengers": 572.1333333333333,
+        "bus_completion_percent": 100.0
+      },
+      "6202": {
+        "cost_seconds": 2395.5934292002735,
+        "completion_percent": 96.59350940815236,
+        "wait_seconds": 662.0096905407244,
+        "in_vehicle_seconds": 1071.5740481188247,
+        "hold_seconds_per_decision": 7.07657486140809,
+        "nonzero_hold_percent": 54.57332731413855,
+        "unfinished_passengers": 588.8,
+        "bus_completion_percent": 100.0
+      },
+      "6203": {
+        "cost_seconds": 2426.3777859373135,
+        "completion_percent": 96.39281092318987,
+        "wait_seconds": 684.4452021149825,
+        "in_vehicle_seconds": 1057.4873817073485,
+        "hold_seconds_per_decision": 5.609725711392857,
+        "nonzero_hold_percent": 22.595766537445783,
+        "unfinished_passengers": 620.3333333333334,
+        "bus_completion_percent": 100.0
+      },
+      "6204": {
+        "cost_seconds": 2401.480722738938,
+        "completion_percent": 96.66793608338328,
+        "wait_seconds": 672.6714577411298,
+        "in_vehicle_seconds": 1056.1378072566783,
+        "hold_seconds_per_decision": 6.399229113604032,
+        "nonzero_hold_percent": 50.12412811637505,
+        "unfinished_passengers": 571.5333333333333,
+        "bus_completion_percent": 100.0
+      },
+      "6205": {
+        "cost_seconds": 2403.049769115795,
+        "completion_percent": 96.56220997901566,
+        "wait_seconds": 663.0156018136878,
+        "in_vehicle_seconds": 1077.0185654884192,
+        "hold_seconds_per_decision": 7.2191215412304,
+        "nonzero_hold_percent": 49.38319853409317,
+        "unfinished_passengers": 594.2,
+        "bus_completion_percent": 100.0
+      }
+    }
+  },
+  "method_means_by_environment_block": {
+    "mcwm_aligned": {
+      "108101": {
+        "cost_seconds": 2359.912524864328,
+        "completion_percent": 96.87580969511212,
+        "wait_seconds": 647.5370690010436,
+        "in_vehicle_seconds": 1064.838386862241,
+        "hold_seconds_per_decision": 7.786671467721514,
+        "nonzero_hold_percent": 91.190556783779,
+        "unfinished_passengers": 540,
+        "bus_completion_percent": 100.0
+      },
+      "108102": {
+        "cost_seconds": 2342.8359025363898,
+        "completion_percent": 96.94511904840026,
+        "wait_seconds": 637.9167486186208,
+        "in_vehicle_seconds": 1067.002405299148,
+        "hold_seconds_per_decision": 7.762924319767895,
+        "nonzero_hold_percent": 91.30245614607158,
+        "unfinished_passengers": 526.0666666666667,
+        "bus_completion_percent": 100.0
+      },
+      "108103": {
+        "cost_seconds": 2356.9071723598877,
+        "completion_percent": 96.88053901100884,
+        "wait_seconds": 645.9093877990376,
+        "in_vehicle_seconds": 1065.0883967618126,
+        "hold_seconds_per_decision": 7.768439610333176,
+        "nonzero_hold_percent": 91.16575444273946,
+        "unfinished_passengers": 536.2,
+        "bus_completion_percent": 100.0
+      },
+      "108104": {
+        "cost_seconds": 2377.1393173958845,
+        "completion_percent": 96.76765376254691,
+        "wait_seconds": 656.0306158401443,
+        "in_vehicle_seconds": 1065.078085715596,
+        "hold_seconds_per_decision": 7.749640028473429,
+        "nonzero_hold_percent": 91.15881105220228,
+        "unfinished_passengers": 561.4666666666667,
+        "bus_completion_percent": 100.0
+      },
+      "108105": {
+        "cost_seconds": 2365.6535066610213,
+        "completion_percent": 96.75316612912984,
+        "wait_seconds": 649.9885527228452,
+        "in_vehicle_seconds": 1065.676401215331,
+        "hold_seconds_per_decision": 7.727610089720167,
+        "nonzero_hold_percent": 91.26817967364939,
+        "unfinished_passengers": 557.6666666666666,
+        "bus_completion_percent": 100.0
+      }
+    },
+    "h2oplus_final": {
+      "108101": {
+        "cost_seconds": 2380.6861638151554,
+        "completion_percent": 96.70572664036476,
+        "wait_seconds": 660.5012890647481,
+        "in_vehicle_seconds": 1059.6835856856594,
+        "hold_seconds_per_decision": 7.0252461135267295,
+        "nonzero_hold_percent": 58.96666028953179,
+        "unfinished_passengers": 568.1333333333333,
+        "bus_completion_percent": 100.0
+      },
+      "108102": {
+        "cost_seconds": 2364.7513643746393,
+        "completion_percent": 96.79152045208093,
+        "wait_seconds": 650.2612129224659,
+        "in_vehicle_seconds": 1064.2289385297074,
+        "hold_seconds_per_decision": 7.017015148502326,
+        "nonzero_hold_percent": 58.978596366338294,
+        "unfinished_passengers": 551.6,
+        "bus_completion_percent": 100.0
+      },
+      "108103": {
+        "cost_seconds": 2382.1845238575575,
+        "completion_percent": 96.71848244237015,
+        "wait_seconds": 659.5835720184414,
+        "in_vehicle_seconds": 1063.0173798206752,
+        "hold_seconds_per_decision": 7.055109054355915,
+        "nonzero_hold_percent": 59.09581113021698,
+        "unfinished_passengers": 562.9333333333333,
+        "bus_completion_percent": 100.0
+      },
+      "108104": {
+        "cost_seconds": 2400.329766701716,
+        "completion_percent": 96.61754986648388,
+        "wait_seconds": 668.7410830461698,
+        "in_vehicle_seconds": 1062.8476006093763,
+        "hold_seconds_per_decision": 7.022356474898453,
+        "nonzero_hold_percent": 59.06653372910891,
+        "unfinished_passengers": 587.4666666666667,
+        "bus_completion_percent": 100.0
+      },
+      "108105": {
+        "cost_seconds": 2389.600713015422,
+        "completion_percent": 96.59866836882682,
+        "wait_seconds": 663.4811618987897,
+        "in_vehicle_seconds": 1062.638389217843,
+        "hold_seconds_per_decision": 6.999318653352655,
+        "nonzero_hold_percent": 59.00142762521217,
+        "unfinished_passengers": 583.7333333333333,
+        "bus_completion_percent": 100.0
+      }
+    },
+    "sac_guarded": {
+      "108101": {
+        "cost_seconds": 2396.8963912279714,
+        "completion_percent": 96.61017992739488,
+        "wait_seconds": 666.248293700423,
+        "in_vehicle_seconds": 1064.3998038271252,
+        "hold_seconds_per_decision": 6.756614623151098,
+        "nonzero_hold_percent": 47.68346402621291,
+        "unfinished_passengers": 585.1333333333333,
+        "bus_completion_percent": 100.0
+      },
+      "108102": {
+        "cost_seconds": 2380.019560130504,
+        "completion_percent": 96.67746696967765,
+        "wait_seconds": 655.791948226872,
+        "in_vehicle_seconds": 1068.43566367676,
+        "hold_seconds_per_decision": 6.720878282474213,
+        "nonzero_hold_percent": 47.69939234293106,
+        "unfinished_passengers": 571.0666666666667,
+        "bus_completion_percent": 100.0
+      },
+      "108103": {
+        "cost_seconds": 2403.953761132854,
+        "completion_percent": 96.59656965664173,
+        "wait_seconds": 668.1179487231966,
+        "in_vehicle_seconds": 1067.7178636864608,
+        "hold_seconds_per_decision": 6.747027016405229,
+        "nonzero_hold_percent": 47.66162612316459,
+        "unfinished_passengers": 584.8666666666667,
+        "bus_completion_percent": 100.0
+      },
+      "108104": {
+        "cost_seconds": 2418.5965916561563,
+        "completion_percent": 96.50394368587565,
+        "wait_seconds": 676.3193302446841,
+        "in_vehicle_seconds": 1065.957931166788,
+        "hold_seconds_per_decision": 6.720648008388407,
+        "nonzero_hold_percent": 47.85609665861585,
+        "unfinished_passengers": 607.6,
+        "bus_completion_percent": 100.0
+      },
+      "108105": {
+        "cost_seconds": 2404.2541540442694,
+        "completion_percent": 96.52131293129735,
+        "wait_seconds": 668.5356805616153,
+        "in_vehicle_seconds": 1067.1827929210388,
+        "hold_seconds_per_decision": 6.718281444291435,
+        "nonzero_hold_percent": 47.83147714002548,
+        "unfinished_passengers": 598.3333333333334,
+        "bus_completion_percent": 100.0
+      }
+    }
+  },
+  "method_means_by_demand_scale": {
+    "mcwm_aligned": {
+      "0.75": {
+        "cost_seconds": 1867.398163242411,
+        "completion_percent": 99.17827275517854,
+        "wait_seconds": 397.52610436324005,
+        "in_vehicle_seconds": 1072.345954515931,
+        "hold_seconds_per_decision": 7.754675504821697,
+        "nonzero_hold_percent": 90.32869947976086,
+        "unfinished_passengers": 92.8,
+        "bus_completion_percent": 100.0
+      },
+      "1.0": {
+        "cost_seconds": 2216.915631010014,
+        "completion_percent": 97.70329597453411,
+        "wait_seconds": 569.6071675840573,
+        "in_vehicle_seconds": 1077.7012958418993,
+        "hold_seconds_per_decision": 7.724262308840841,
+        "nonzero_hold_percent": 91.89789756993822,
+        "unfinished_passengers": 346.32,
+        "bus_completion_percent": 100.0
+      },
+      "1.25": {
+        "cost_seconds": 2997.1552600380815,
+        "completion_percent": 93.65180385800612,
+        "wait_seconds": 975.2961524417175,
+        "in_vehicle_seconds": 1046.5629551546467,
+        "hold_seconds_per_decision": 7.79823349594717,
+        "nonzero_hold_percent": 91.42485780936595,
+        "unfinished_passengers": 1193.72,
+        "bus_completion_percent": 100.0
+      }
+    },
+    "h2oplus_final": {
+      "0.75": {
+        "cost_seconds": 1874.3232398357627,
+        "completion_percent": 99.12015984328704,
+        "wait_seconds": 401.8167158255384,
+        "in_vehicle_seconds": 1070.689808184686,
+        "hold_seconds_per_decision": 7.371834472232749,
+        "nonzero_hold_percent": 58.183236989754185,
+        "unfinished_passengers": 99.36,
+        "bus_completion_percent": 100.0
+      },
+      "1.0": {
+        "cost_seconds": 2236.504837190795,
+        "completion_percent": 97.56031567080045,
+        "wait_seconds": 581.0122846342596,
+        "in_vehicle_seconds": 1074.480267922276,
+        "hold_seconds_per_decision": 7.011011450497919,
+        "nonzero_hold_percent": 58.995909195426854,
+        "unfinished_passengers": 367.88,
+        "bus_completion_percent": 100.0
+      },
+      "1.25": {
+        "cost_seconds": 3039.7034420321365,
+        "completion_percent": 93.37869314798843,
+        "wait_seconds": 998.7119909105709,
+        "in_vehicle_seconds": 1042.2794602109946,
+        "hold_seconds_per_decision": 6.68858134405098,
+        "nonzero_hold_percent": 59.88627129906385,
+        "unfinished_passengers": 1245.08,
+        "bus_completion_percent": 100.0
+      }
+    },
+    "sac_guarded": {
+      "0.75": {
+        "cost_seconds": 1880.5965885097125,
+        "completion_percent": 99.10986905962399,
+        "wait_seconds": 401.2337132504104,
+        "in_vehicle_seconds": 1078.1291620088916,
+        "hold_seconds_per_decision": 7.339228146086079,
+        "nonzero_hold_percent": 49.02245871785693,
+        "unfinished_passengers": 100.52,
+        "bus_completion_percent": 100.0
+      },
+      "1.0": {
+        "cost_seconds": 2246.037856621792,
+        "completion_percent": 97.49877312819153,
+        "wait_seconds": 584.328191524637,
+        "in_vehicle_seconds": 1077.381473572518,
+        "hold_seconds_per_decision": 6.799506068270473,
+        "nonzero_hold_percent": 49.6193444328731,
+        "unfinished_passengers": 377.16,
+        "bus_completion_percent": 100.0
+      },
+      "1.25": {
+        "cost_seconds": 3075.5978297835486,
+        "completion_percent": 93.13704171471684,
+        "wait_seconds": 1015.4460160990274,
+        "in_vehicle_seconds": 1044.7057975854939,
+        "hold_seconds_per_decision": 6.059335410469677,
+        "nonzero_hold_percent": 44.597430623839905,
+        "unfinished_passengers": 1290.52,
+        "bus_completion_percent": 100.0
+      }
+    }
+  },
+  "comparisons": {
+    "mcwm_aligned_minus_h2oplus_final": {
+      "paired_episodes": 75,
+      "independent_training_seed_pairs": 5,
+      "mean_difference": {
+        "cost_seconds": -23.020821589395908,
+        "completion_percent": 0.1580679752142847,
+        "wait_seconds": -13.037188993784682,
+        "in_vehicle_seconds": 3.0535563981734293,
+        "hold_seconds_per_decision": 0.7352480142760205,
+        "nonzero_hold_percent": 32.19534579160671,
+        "unfinished_passengers": -26.493333333333332,
+        "bus_completion_percent": 0.0
+      },
+      "cost_reduction_percent_of_right_mean": 0.965836799461856,
+      "training_seed_paired_t95_interval": {
+        "cost_seconds": [
+          -69.22994517388248,
+          23.188301995090672
+        ],
+        "completion_percent": [
+          -0.15568800783155132,
+          0.4718239582601207
+        ],
+        "wait_seconds": [
+          -42.68009388652831,
+          16.605715898958948
+        ],
+        "in_vehicle_seconds": [
+          -20.15165423915088,
+          26.25876703549774
+        ],
+        "hold_seconds_per_decision": [
+          -1.7602584304773001,
+          3.230754459029341
+        ],
+        "nonzero_hold_percent": [
+          -15.437631440814734,
+          79.82832302402815
+        ],
+        "unfinished_passengers": [
+          -78.11396496271834,
+          25.127298296051666
+        ],
+        "bus_completion_percent": [
+          0.0,
+          0.0
+        ]
+      },
+      "descriptive_environment_block_t95_interval": {
+        "cost_seconds": [
+          -25.193781435242364,
+          -20.847861743549444
+        ],
+        "completion_percent": [
+          0.14812653069723664,
+          0.16800941973133277
+        ],
+        "wait_seconds": [
+          -13.718722727518745,
+          -12.355655260050618
+        ],
+        "in_vehicle_seconds": [
+          1.5156023306658675,
+          4.591510465680991
+        ],
+        "hold_seconds_per_decision": [
+          0.7120924372778658,
+          0.7584035912741752
+        ],
+        "nonzero_hold_percent": [
+          32.05822940882267,
+          32.332462174390756
+        ],
+        "unfinished_passengers": [
+          -27.749536254424353,
+          -25.237130412242312
+        ],
+        "bus_completion_percent": [
+          0.0,
+          0.0
+        ]
+      },
+      "direction_counts": {
+        "cost_seconds": {
+          "training_seeds": {
+            "improved": 3,
+            "equal": 0,
+            "worsened": 2
+          },
+          "environment_blocks": {
+            "improved": 5,
+            "equal": 0,
+            "worsened": 0
+          },
+          "paired_episodes_descriptive_only": {
+            "improved": 47,
+            "equal": 0,
+            "worsened": 28
+          }
+        },
+        "completion_percent": {
+          "training_seeds": {
+            "improved": 4,
+            "equal": 0,
+            "worsened": 1
+          },
+          "environment_blocks": {
+            "improved": 5,
+            "equal": 0,
+            "worsened": 0
+          },
+          "paired_episodes_descriptive_only": {
+            "improved": 56,
+            "equal": 1,
+            "worsened": 18
+          }
+        }
+      },
+      "by_training_seed": {
+        "6201": {
+          "cost_seconds": 12.659935657704015,
+          "completion_percent": 0.022990661335861282,
+          "wait_seconds": -1.5263507915374892,
+          "in_vehicle_seconds": 15.712637240778955,
+          "hold_seconds_per_decision": 0.7724401663155738,
+          "nonzero_hold_percent": 13.005273189152483,
+          "unfinished_passengers": -3.7333333333333334,
+          "bus_completion_percent": 0.0
+        },
+        "6202": {
+          "cost_seconds": -68.91317434740186,
+          "completion_percent": 0.46323258738578565,
+          "wait_seconds": -39.769735730451835,
+          "in_vehicle_seconds": 10.626297113501687,
+          "hold_seconds_per_decision": 2.5976915943218644,
+          "nonzero_hold_percent": 83.69774065091255,
+          "unfinished_passengers": -76.93333333333334,
+          "bus_completion_percent": 0.0
+        },
+        "6203": {
+          "cost_seconds": -56.85859191387309,
+          "completion_percent": 0.3784341978933554,
+          "wait_seconds": -35.186418631369506,
+          "in_vehicle_seconds": 13.514245348865886,
+          "hold_seconds_per_decision": 2.1805752067269037,
+          "nonzero_hold_percent": 60.74001247839958,
+          "unfinished_passengers": -62.733333333333334,
+          "bus_completion_percent": 0.0
+        },
+        "6204": {
+          "cost_seconds": -5.769804200182262,
+          "completion_percent": 0.06094632208327274,
+          "wait_seconds": -5.391913285004656,
+          "in_vehicle_seconds": 5.014022369827095,
+          "hold_seconds_per_decision": 0.6445182641017538,
+          "nonzero_hold_percent": 11.74926218804749,
+          "unfinished_passengers": -10.266666666666667,
+          "bus_completion_percent": 0.0
+        },
+        "6205": {
+          "cost_seconds": 3.7775268567736777,
+          "completion_percent": -0.13526389262685162,
+          "wait_seconds": 16.688473469440073,
+          "in_vehicle_seconds": -29.599420082106477,
+          "hold_seconds_per_decision": -2.518985160085993,
+          "nonzero_hold_percent": -8.215559548478534,
+          "unfinished_passengers": 21.2,
+          "bus_completion_percent": 0.0
+        }
+      },
+      "by_environment_block": {
+        "108101": {
+          "cost_seconds": -20.773638950827564,
+          "completion_percent": 0.17008305474736857,
+          "wait_seconds": -12.964220063704571,
+          "in_vehicle_seconds": 5.154801176581532,
+          "hold_seconds_per_decision": 0.7614253541947844,
+          "nonzero_hold_percent": 32.22389649424722,
+          "unfinished_passengers": -28.133333333333333,
+          "bus_completion_percent": 0.0
+        },
+        "108102": {
+          "cost_seconds": -21.915461838249726,
+          "completion_percent": 0.153598596319326,
+          "wait_seconds": -12.344464303845173,
+          "in_vehicle_seconds": 2.7734667694405593,
+          "hold_seconds_per_decision": 0.7459091712655691,
+          "nonzero_hold_percent": 32.32385977973328,
+          "unfinished_passengers": -25.533333333333335,
+          "bus_completion_percent": 0.0
+        },
+        "108103": {
+          "cost_seconds": -25.27735149766995,
+          "completion_percent": 0.16205656863867735,
+          "wait_seconds": -13.674184219403722,
+          "in_vehicle_seconds": 2.071016941137456,
+          "hold_seconds_per_decision": 0.7133305559772608,
+          "nonzero_hold_percent": 32.069943312522476,
+          "unfinished_passengers": -26.733333333333334,
+          "bus_completion_percent": 0.0
+        },
+        "108104": {
+          "cost_seconds": -23.190449305831347,
+          "completion_percent": 0.15010389606302682,
+          "wait_seconds": -12.710467206025536,
+          "in_vehicle_seconds": 2.230485106219779,
+          "hold_seconds_per_decision": 0.7272835535749766,
+          "nonzero_hold_percent": 32.09227732309337,
+          "unfinished_passengers": -26,
+          "bus_completion_percent": 0.0
+        },
+        "108105": {
+          "cost_seconds": -23.94720635440094,
+          "completion_percent": 0.15449776030302473,
+          "wait_seconds": -13.492609175944404,
+          "in_vehicle_seconds": 3.03801199748782,
+          "hold_seconds_per_decision": 0.7282914363675117,
+          "nonzero_hold_percent": 32.26675204843721,
+          "unfinished_passengers": -26.066666666666666,
+          "bus_completion_percent": 0.0
+        }
+      },
+      "by_demand_scale": {
+        "0.75": {
+          "cost_seconds": -6.925076593351596,
+          "completion_percent": 0.05811291189150552,
+          "wait_seconds": -4.290611462298321,
+          "in_vehicle_seconds": 1.6561463312449813,
+          "hold_seconds_per_decision": 0.3828410325889486,
+          "nonzero_hold_percent": 32.14546249000667,
+          "unfinished_passengers": -6.56,
+          "bus_completion_percent": 0.0
+        },
+        "1.0": {
+          "cost_seconds": -19.589206180781222,
+          "completion_percent": 0.142980303733666,
+          "wait_seconds": -11.40511705020228,
+          "in_vehicle_seconds": 3.2210279196233116,
+          "hold_seconds_per_decision": 0.7132508583429222,
+          "nonzero_hold_percent": 32.90198837451137,
+          "unfinished_passengers": -21.56,
+          "bus_completion_percent": 0.0
+        },
+        "1.25": {
+          "cost_seconds": -42.5481819940549,
+          "completion_percent": 0.27311071001768256,
+          "wait_seconds": -23.415838468853444,
+          "in_vehicle_seconds": 4.283494943651995,
+          "hold_seconds_per_decision": 1.1096521518961908,
+          "nonzero_hold_percent": 31.538586510302093,
+          "unfinished_passengers": -51.36,
+          "bus_completion_percent": 0.0
+        }
+      },
+      "role": "primary",
+      "left": "mcwm_aligned",
+      "right": "h2oplus_final"
+    },
+    "mcwm_aligned_minus_sac_guarded": {
+      "paired_episodes": 75,
+      "independent_training_seed_pairs": 5,
+      "mean_difference": {
+        "cost_seconds": -40.25440687484877,
+        "completion_percent": 0.2625628950621393,
+        "wait_seconds": -19.526165495019942,
+        "in_vehicle_seconds": -1.2020758848088826,
+        "hold_seconds_per_decision": 1.0263672282611598,
+        "nonzero_hold_percent": 43.470740361498365,
+        "unfinished_passengers": -45.12,
+        "bus_completion_percent": 0.0
+      },
+      "cost_reduction_percent_of_right_mean": 1.6767470974958336,
+      "training_seed_paired_t95_interval": {
+        "cost_seconds": [
+          -65.35103133775857,
+          -15.157782411938964
+        ],
+        "completion_percent": [
+          0.10643127506272557,
+          0.4186945150615531
+        ],
+        "wait_seconds": [
+          -37.9517337771652,
+          -1.1005972128746855
+        ],
+        "in_vehicle_seconds": [
+          -19.28509924512612,
+          16.880947475508357
+        ],
+        "hold_seconds_per_decision": [
+          -0.5488403245010476,
+          2.601574781023367
+        ],
+        "nonzero_hold_percent": [
+          20.30234274149113,
+          66.6391379815056
+        ],
+        "unfinished_passengers": [
+          -70.67317827337406,
+          -19.566821726625932
+        ],
+        "bus_completion_percent": [
+          0.0,
+          0.0
+        ]
+      },
+      "descriptive_environment_block_t95_interval": {
+        "cost_seconds": [
+          -45.4650140682584,
+          -35.04379968143914
+        ],
+        "completion_percent": [
+          0.239020805447408,
+          0.2861049846768706
+        ],
+        "wait_seconds": [
+          -21.68796792065129,
+          -17.364363069388595
+        ],
+        "in_vehicle_seconds": [
+          -2.587393010730801,
+          0.18324124111303597
+        ],
+        "hold_seconds_per_decision": [
+          1.01140028902737,
+          1.0413341674949497
+        ],
+        "nonzero_hold_percent": [
+          43.332841506018994,
+          43.608639216977735
+        ],
+        "unfinished_passengers": [
+          -48.71077359097019,
+          -41.5292264090298
+        ],
+        "bus_completion_percent": [
+          0.0,
+          0.0
+        ]
+      },
+      "direction_counts": {
+        "cost_seconds": {
+          "training_seeds": {
+            "improved": 5,
+            "equal": 0,
+            "worsened": 0
+          },
+          "environment_blocks": {
+            "improved": 5,
+            "equal": 0,
+            "worsened": 0
+          },
+          "paired_episodes_descriptive_only": {
+            "improved": 69,
+            "equal": 0,
+            "worsened": 6
+          }
+        },
+        "completion_percent": {
+          "training_seeds": {
+            "improved": 5,
+            "equal": 0,
+            "worsened": 0
+          },
+          "environment_blocks": {
+            "improved": 5,
+            "equal": 0,
+            "worsened": 0
+          },
+          "paired_episodes_descriptive_only": {
+            "improved": 66,
+            "equal": 3,
+            "worsened": 6
+          }
+        }
+      },
+      "by_training_seed": {
+        "6201": {
+          "cost_seconds": -13.931571451443718,
+          "completion_percent": 0.18756354032237918,
+          "wait_seconds": -9.391238767414466,
+          "in_vehicle_seconds": 4.850906083385174,
+          "hold_seconds_per_decision": 1.1262995888528369,
+          "nonzero_hold_percent": 36.903125227204285,
+          "unfinished_passengers": -33.53333333333333,
+          "bus_completion_percent": 0.0
+        },
+        "6202": {
+          "cost_seconds": -38.38745269761248,
+          "completion_percent": 0.26671761047300035,
+          "wait_seconds": -16.10111395191531,
+          "in_vehicle_seconds": -6.185224793781936,
+          "hold_seconds_per_decision": 0.8098920732579669,
+          "nonzero_hold_percent": 44.65572471113538,
+          "unfinished_passengers": -46.733333333333334,
+          "bus_completion_percent": 0.0
+        },
+        "6203": {
+          "cost_seconds": -68.23580053076388,
+          "completion_percent": 0.4789763270525858,
+          "wait_seconds": -40.795347591747955,
+          "in_vehicle_seconds": 13.354894652732021,
+          "hold_seconds_per_decision": 2.7655091663256828,
+          "nonzero_hold_percent": 75.10307414391465,
+          "unfinished_passengers": -80.26666666666667,
+          "bus_completion_percent": 0.0
+        },
+        "6204": {
+          "cost_seconds": -49.155110922571446,
+          "completion_percent": 0.1991057434607967,
+          "wait_seconds": -27.594048675689926,
+          "in_vehicle_seconds": 6.032986428808484,
+          "hold_seconds_per_decision": 1.2249621305492449,
+          "nonzero_hold_percent": 31.568612082568475,
+          "unfinished_passengers": -30.933333333333334,
+          "bus_completion_percent": 0.0
+        },
+        "6205": {
+          "cost_seconds": -31.56209877185232,
+          "completion_percent": 0.18045125400193457,
+          "wait_seconds": -3.7490784883320507,
+          "in_vehicle_seconds": -24.063941795188157,
+          "hold_seconds_per_decision": -0.7948268176799326,
+          "nonzero_hold_percent": 29.123165642669026,
+          "unfinished_passengers": -34.13333333333333,
+          "bus_completion_percent": 0.0
+        }
+      },
+      "by_environment_block": {
+        "108101": {
+          "cost_seconds": -36.9838663636433,
+          "completion_percent": 0.26562976771723945,
+          "wait_seconds": -18.711224699379482,
+          "in_vehicle_seconds": 0.43858303511565283,
+          "hold_seconds_per_decision": 1.030056844570416,
+          "nonzero_hold_percent": 43.5070927575661,
+          "unfinished_passengers": -45.13333333333333,
+          "bus_completion_percent": 0.0
+        },
+        "108102": {
+          "cost_seconds": -37.18365759411457,
+          "completion_percent": 0.2676520787226091,
+          "wait_seconds": -17.875199608251247,
+          "in_vehicle_seconds": -1.4332583776121282,
+          "hold_seconds_per_decision": 1.0420460372936817,
+          "nonzero_hold_percent": 43.603063803140515,
+          "unfinished_passengers": -45,
+          "bus_completion_percent": 0.0
+        },
+        "108103": {
+          "cost_seconds": -47.04658877296626,
+          "completion_percent": 0.28396935436708853,
+          "wait_seconds": -22.208560924158984,
+          "in_vehicle_seconds": -2.6294669246482196,
+          "hold_seconds_per_decision": 1.0214125939279461,
+          "nonzero_hold_percent": 43.50412831957487,
+          "unfinished_passengers": -48.666666666666664,
+          "bus_completion_percent": 0.0
+        },
+        "108104": {
+          "cost_seconds": -41.4572742602718,
+          "completion_percent": 0.2637100766712602,
+          "wait_seconds": -20.288714404539903,
+          "in_vehicle_seconds": -0.879845451191962,
+          "hold_seconds_per_decision": 1.0289920200850229,
+          "nonzero_hold_percent": 43.302714393586434,
+          "unfinished_passengers": -46.13333333333333,
+          "bus_completion_percent": 0.0
+        },
+        "108105": {
+          "cost_seconds": -38.6006473832479,
+          "completion_percent": 0.23185319783249933,
+          "wait_seconds": -18.547127838770095,
+          "in_vehicle_seconds": -1.506391705707756,
+          "hold_seconds_per_decision": 1.0093286454287322,
+          "nonzero_hold_percent": 43.43670253362391,
+          "unfinished_passengers": -40.666666666666664,
+          "bus_completion_percent": 0.0
+        }
+      },
+      "by_demand_scale": {
+        "0.75": {
+          "cost_seconds": -13.198425267301372,
+          "completion_percent": 0.06840369555455084,
+          "wait_seconds": -3.7076088871703474,
+          "in_vehicle_seconds": -5.7832074929607185,
+          "hold_seconds_per_decision": 0.41544735873561783,
+          "nonzero_hold_percent": 41.30624076190393,
+          "unfinished_passengers": -7.72,
+          "bus_completion_percent": 0.0
+        },
+        "1.0": {
+          "cost_seconds": -29.122225611777996,
+          "completion_percent": 0.20452284634259285,
+          "wait_seconds": -14.721023940579617,
+          "in_vehicle_seconds": 0.3198222693812568,
+          "hold_seconds_per_decision": 0.9247562405703681,
+          "nonzero_hold_percent": 42.27855313706513,
+          "unfinished_passengers": -30.84,
+          "bus_completion_percent": 0.0
+        },
+        "1.25": {
+          "cost_seconds": -78.44256974546694,
+          "completion_percent": 0.5147621432892743,
+          "wait_seconds": -40.14986365730986,
+          "in_vehicle_seconds": 1.8571575691528142,
+          "hold_seconds_per_decision": 1.7388980854774934,
+          "nonzero_hold_percent": 46.82742718552604,
+          "unfinished_passengers": -96.8,
+          "bus_completion_percent": 0.0
+        }
+      },
+      "role": "primary",
+      "left": "mcwm_aligned",
+      "right": "sac_guarded"
+    },
+    "h2oplus_final_minus_sac_guarded": {
+      "paired_episodes": 75,
+      "independent_training_seed_pairs": 5,
+      "mean_difference": {
+        "cost_seconds": -17.23358528545286,
+        "completion_percent": 0.10449491984785463,
+        "wait_seconds": -6.4889765012352605,
+        "in_vehicle_seconds": -4.255632282982312,
+        "hold_seconds_per_decision": 0.29111921398513924,
+        "nonzero_hold_percent": 11.275394569891652,
+        "unfinished_passengers": -18.626666666666665,
+        "bus_completion_percent": 0.0
+      },
+      "cost_reduction_percent_of_right_mean": 0.7178434946680246,
+      "training_seed_paired_t95_interval": {
+        "cost_seconds": [
+          -53.51143171441179,
+          19.04426114350607
+        ],
+        "completion_percent": [
+          -0.12778190893984365,
+          0.33677174863555287
+        ],
+        "wait_seconds": [
+          -29.33031697396969,
+          16.35236397149917
+        ],
+        "in_vehicle_seconds": [
+          -15.732759901719305,
+          7.221495335754682
+        ],
+        "hold_seconds_per_decision": [
+          -1.2977106180487596,
+          1.8799490460190382
+        ],
+        "nonzero_hold_percent": [
+          -25.206070873917746,
+          47.75686001370105
+        ],
+        "unfinished_passengers": [
+          -57.20638351430895,
+          19.953050180975612
+        ],
+        "bus_completion_percent": [
+          0.0,
+          0.0
+        ]
+      },
+      "descriptive_environment_block_t95_interval": {
+        "cost_seconds": [
+          -20.81115546477518,
+          -13.656015106130544
+        ],
+        "completion_percent": [
+          0.08215889653845357,
+          0.12683094315725568
+        ],
+        "wait_seconds": [
+          -8.34074158437189,
+          -4.637211418098631
+        ],
+        "in_vehicle_seconds": [
+          -5.090306018727048,
+          -3.4209585472375745
+        ],
+        "hold_seconds_per_decision": [
+          0.271171358855105,
+          0.31106706911517346
+        ],
+        "nonzero_hold_percent": [
+          11.15025770177891,
+          11.400531438004395
+        ],
+        "unfinished_passengers": [
+          -22.180612804356244,
+          -15.072720528977085
+        ],
+        "bus_completion_percent": [
+          0.0,
+          0.0
+        ]
+      },
+      "direction_counts": {
+        "cost_seconds": {
+          "training_seeds": {
+            "improved": 4,
+            "equal": 0,
+            "worsened": 1
+          },
+          "environment_blocks": {
+            "improved": 5,
+            "equal": 0,
+            "worsened": 0
+          },
+          "paired_episodes_descriptive_only": {
+            "improved": 53,
+            "equal": 0,
+            "worsened": 22
+          }
+        },
+        "completion_percent": {
+          "training_seeds": {
+            "improved": 4,
+            "equal": 0,
+            "worsened": 1
+          },
+          "environment_blocks": {
+            "improved": 5,
+            "equal": 0,
+            "worsened": 0
+          },
+          "paired_episodes_descriptive_only": {
+            "improved": 54,
+            "equal": 1,
+            "worsened": 20
+          }
+        }
+      },
+      "by_training_seed": {
+        "6201": {
+          "cost_seconds": -26.591507109147734,
+          "completion_percent": 0.1645728789865179,
+          "wait_seconds": -7.864887975876976,
+          "in_vehicle_seconds": -10.861731157393782,
+          "hold_seconds_per_decision": 0.35385942253726316,
+          "nonzero_hold_percent": 23.897852038051802,
+          "unfinished_passengers": -29.8,
+          "bus_completion_percent": 0.0
+        },
+        "6202": {
+          "cost_seconds": 30.52572164978939,
+          "completion_percent": -0.19651497691278527,
+          "wait_seconds": 23.668621778536522,
+          "in_vehicle_seconds": -16.811521907283623,
+          "hold_seconds_per_decision": -1.7877995210638973,
+          "nonzero_hold_percent": -39.042015939777166,
+          "unfinished_passengers": 30.2,
+          "bus_completion_percent": 0.0
+        },
+        "6203": {
+          "cost_seconds": -11.377208616890782,
+          "completion_percent": 0.10054212915923036,
+          "wait_seconds": -5.608928960378451,
+          "in_vehicle_seconds": -0.1593506961338638,
+          "hold_seconds_per_decision": 0.5849339595987789,
+          "nonzero_hold_percent": 14.363061665515081,
+          "unfinished_passengers": -17.533333333333335,
+          "bus_completion_percent": 0.0
+        },
+        "6204": {
+          "cost_seconds": -43.38530672238918,
+          "completion_percent": 0.13815942137752396,
+          "wait_seconds": -22.20213539068527,
+          "in_vehicle_seconds": 1.0189640589813886,
+          "hold_seconds_per_decision": 0.5804438664474911,
+          "nonzero_hold_percent": 19.819349894520983,
+          "unfinished_passengers": -20.666666666666668,
+          "bus_completion_percent": 0.0
+        },
+        "6205": {
+          "cost_seconds": -35.339625628625996,
+          "completion_percent": 0.3157151466287862,
+          "wait_seconds": -20.437551957772126,
+          "in_vehicle_seconds": 5.535478286918321,
+          "hold_seconds_per_decision": 1.7241583424060605,
+          "nonzero_hold_percent": 37.33872519114756,
+          "unfinished_passengers": -55.333333333333336,
+          "bus_completion_percent": 0.0
+        }
+      },
+      "by_environment_block": {
+        "108101": {
+          "cost_seconds": -16.210227412815737,
+          "completion_percent": 0.09554671296987086,
+          "wait_seconds": -5.74700463567491,
+          "in_vehicle_seconds": -4.716218141465879,
+          "hold_seconds_per_decision": 0.26863149037563144,
+          "nonzero_hold_percent": 11.28319626331888,
+          "unfinished_passengers": -17,
+          "bus_completion_percent": 0.0
+        },
+        "108102": {
+          "cost_seconds": -15.268195755864841,
+          "completion_percent": 0.11405348240328313,
+          "wait_seconds": -5.530735304406074,
+          "in_vehicle_seconds": -4.206725147052688,
+          "hold_seconds_per_decision": 0.2961368660281127,
+          "nonzero_hold_percent": 11.279204023407232,
+          "unfinished_passengers": -19.466666666666665,
+          "bus_completion_percent": 0.0
+        },
+        "108103": {
+          "cost_seconds": -21.769237275296305,
+          "completion_percent": 0.12191278572841119,
+          "wait_seconds": -8.534376704755262,
+          "in_vehicle_seconds": -4.700483865785675,
+          "hold_seconds_per_decision": 0.30808203795068534,
+          "nonzero_hold_percent": 11.434185007052392,
+          "unfinished_passengers": -21.933333333333334,
+          "bus_completion_percent": 0.0
+        },
+        "108104": {
+          "cost_seconds": -18.266824954440455,
+          "completion_percent": 0.11360618060823337,
+          "wait_seconds": -7.578247198514365,
+          "in_vehicle_seconds": -3.110330557411741,
+          "hold_seconds_per_decision": 0.3017084665100463,
+          "nonzero_hold_percent": 11.210437070493061,
+          "unfinished_passengers": -20.133333333333333,
+          "bus_completion_percent": 0.0
+        },
+        "108105": {
+          "cost_seconds": -14.653441028846965,
+          "completion_percent": 0.07735543752947459,
+          "wait_seconds": -5.05451866282569,
+          "in_vehicle_seconds": -4.5444037031955755,
+          "hold_seconds_per_decision": 0.2810372090612205,
+          "nonzero_hold_percent": 11.169950485186694,
+          "unfinished_passengers": -14.6,
+          "bus_completion_percent": 0.0
+        }
+      },
+      "by_demand_scale": {
+        "0.75": {
+          "cost_seconds": -6.273348673949776,
+          "completion_percent": 0.010290783663045318,
+          "wait_seconds": 0.5830025751279732,
+          "in_vehicle_seconds": -7.4393538242057,
+          "hold_seconds_per_decision": 0.032606326146669244,
+          "nonzero_hold_percent": 9.160778271897254,
+          "unfinished_passengers": -1.16,
+          "bus_completion_percent": 0.0
+        },
+        "1.0": {
+          "cost_seconds": -9.533019430996774,
+          "completion_percent": 0.06154254260892685,
+          "wait_seconds": -3.3159068903773368,
+          "in_vehicle_seconds": -2.9012056502420545,
+          "hold_seconds_per_decision": 0.2115053822274459,
+          "nonzero_hold_percent": 9.376564762553755,
+          "unfinished_passengers": -9.28,
+          "bus_completion_percent": 0.0
+        },
+        "1.25": {
+          "cost_seconds": -35.89438775141203,
+          "completion_percent": 0.24165143327159172,
+          "wait_seconds": -16.734025188456418,
+          "in_vehicle_seconds": -2.4263373744991803,
+          "hold_seconds_per_decision": 0.6292459335813025,
+          "nonzero_hold_percent": 15.288840675223947,
+          "unfinished_passengers": -45.44,
+          "bus_completion_percent": 0.0
+        }
+      },
+      "role": "supporting",
+      "left": "h2oplus_final",
+      "right": "sac_guarded"
+    }
+  },
+  "conclusions": [
+    "对齐续训 MC-WM减正式 H2O+：广义乘客时间差-23.02秒，配对 t95 区间[-69.23, +23.19]秒；五个训练种子的配对 t95 区间包含零，尚不能据此确定稳定的时间优势。5个训练种子中3个改善、0个持平、2个变差。乘客完成率差+0.1581个百分点。",
+    "对齐续训 MC-WM减同执行规则纯源 SAC：广义乘客时间差-40.25秒，配对 t95 区间[-65.35, -15.16]秒；五个训练种子的配对 t95 区间整体低于零。5个训练种子中5个改善、0个持平、0个变差。乘客完成率差+0.2626个百分点。",
+    "正式 H2O+减同执行规则纯源 SAC：广义乘客时间差-17.23秒，配对 t95 区间[-53.51, +19.04]秒；五个训练种子的配对 t95 区间包含零，尚不能据此确定稳定的时间优势。5个训练种子中4个改善、0个持平、1个变差。乘客完成率差+0.1045个百分点。"
+  ]
+}

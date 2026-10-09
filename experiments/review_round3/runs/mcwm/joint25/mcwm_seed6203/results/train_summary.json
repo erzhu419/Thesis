@@ -1,0 +1,123 @@
+{
+  "arm": "mcwm",
+  "seed": 6203,
+  "scenario": "joint25",
+  "source_events": 25000,
+  "continuation_updates": 20000,
+  "total_policy_updates": 70000,
+  "total_critic_updates": 70000,
+  "target_online_training_events": 0,
+  "model_history": [
+    {
+      "source_events": 5000,
+      "selected_family": "direct",
+      "calibration_loss": {
+        "direct": 1.5275542736053467,
+        "residual": 1.5303839445114136
+      }
+    },
+    {
+      "source_events": 10000,
+      "selected_family": "direct",
+      "calibration_loss": {
+        "direct": 1.561874270439148,
+        "residual": 1.5644036531448364
+      },
+      "fit_weight_range": [
+        0.10000000149011612,
+        1.0
+      ]
+    },
+    {
+      "source_events": 15001,
+      "selected_family": "direct",
+      "calibration_loss": {
+        "direct": 1.5098909139633179,
+        "residual": 1.5115350484848022
+      },
+      "fit_weight_range": [
+        0.10000000149011612,
+        1.0
+      ]
+    },
+    {
+      "source_events": 20000,
+      "selected_family": "residual",
+      "calibration_loss": {
+        "direct": 1.5123555660247803,
+        "residual": 1.5095025300979614
+      },
+      "fit_weight_range": [
+        0.10000000149011612,
+        1.0
+      ]
+    }
+  ],
+  "phases": {
+    "dataset_loading": {
+      "wall_seconds": 20.710626083426178,
+      "cpu_seconds": 20.697761758,
+      "calls": 1
+    },
+    "source_collection": {
+      "wall_seconds": 206.99098238814622,
+      "cpu_seconds": 206.92799979699964,
+      "calls": 629
+    },
+    "source_model_fit": {
+      "wall_seconds": 26.575080725364387,
+      "cpu_seconds": 26.590915759999987,
+      "calls": 3
+    },
+    "target_model_fit": {
+      "wall_seconds": 58.90520638041198,
+      "cpu_seconds": 58.93466596099999,
+      "calls": 6
+    },
+    "model_refresh": {
+      "wall_seconds": 151.92192157544196,
+      "cpu_seconds": 151.98462216399997,
+      "calls": 4
+    },
+    "bellman_trust_update": {
+      "wall_seconds": 38.332501280121505,
+      "cpu_seconds": 38.37476719700291,
+      "calls": 5000
+    },
+    "model_training_batch": {
+      "wall_seconds": 455.7554661510512,
+      "cpu_seconds": 455.5457527870048,
+      "calls": 20000
+    },
+    "policy_update": {
+      "wall_seconds": 1293.5627407329157,
+      "cpu_seconds": 1293.783549723003,
+      "calls": 20000
+    },
+    "mechanism_diagnostics": {
+      "wall_seconds": 0.5581548232585192,
+      "cpu_seconds": 0.5578729020001276,
+      "calls": 20
+    },
+    "policy_fit_weights": {
+      "wall_seconds": 11.493893810547888,
+      "cpu_seconds": 11.47777650899991,
+      "calls": 3
+    },
+    "target_model_refit": {
+      "wall_seconds": 53.13544884137809,
+      "cpu_seconds": 53.169133038000155,
+      "calls": 3
+    },
+    "refresh_trust_errors": {
+      "wall_seconds": 0.48269669245928526,
+      "cpu_seconds": 0.4827767430001586,
+      "calls": 3
+    }
+  },
+  "training_wall_seconds": 1680.2237907303497,
+  "reused_offline_updates": 50000,
+  "peak_host_rss_mb": 11436.890625,
+  "peak_gpu_allocated_mb": 216.40625,
+  "peak_gpu_reserved_mb": 296.0
+}

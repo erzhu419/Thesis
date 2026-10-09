@@ -1,0 +1,95 @@
+{
+  "name": "frozen-bus-policy-execution-attribution-v1",
+  "status": "frozen-before-new-evaluation",
+  "training_seed": 6201,
+  "evaluation_horizon_seconds": 24000,
+  "departure_jitter_seconds": 120,
+  "deployment_hold_scale": 0.25,
+  "evaluation_demand_scales": [
+    0.75,
+    1.0,
+    1.25
+  ],
+  "evaluation_blocks": [
+    {
+      "sumo_seed": 18301,
+      "demand_seed": 18401
+    },
+    {
+      "sumo_seed": 18302,
+      "demand_seed": 18402
+    },
+    {
+      "sumo_seed": 18303,
+      "demand_seed": 18403
+    },
+    {
+      "sumo_seed": 18304,
+      "demand_seed": 18404
+    },
+    {
+      "sumo_seed": 18305,
+      "demand_seed": 18405
+    },
+    {
+      "sumo_seed": 18306,
+      "demand_seed": 18406
+    }
+  ],
+  "methods": [
+    "hybrid",
+    "offline",
+    "source",
+    "zero",
+    "headway",
+    "welfare"
+  ],
+  "execution_layers": [
+    "no_floor",
+    "late20",
+    "early60"
+  ],
+  "native_rule_references": [
+    "headway",
+    "welfare"
+  ],
+  "policy_exports": {
+    "hybrid": {
+      "cell": "blocks6_calibrated_h2o",
+      "tag": "blocks6_h2o_events16384"
+    },
+    "offline": {
+      "cell": "blocks6_calibrated_offline",
+      "tag": "blocks6_offline_events16384"
+    },
+    "source": {
+      "cell": "blocks0_calibrated_online",
+      "tag": "blocks0_online_events16384"
+    }
+  },
+  "expected_cases": 360,
+  "shards": 36,
+  "workers_per_shard": 10,
+  "primary_outcomes": [
+    "generalized_seconds_per_departed_passenger",
+    "completion_rate"
+  ],
+  "primary_comparisons": [
+    "hybrid-minus-offline",
+    "hybrid-minus-source"
+  ],
+  "secondary_comparisons": [
+    "each-policy-early60-minus-no_floor",
+    "each-policy-early60-minus-late20",
+    "hybrid-minus-each-rule",
+    "hybrid-guard-effect-minus-rule-guard-effect"
+  ],
+  "analysis": "Report paired differences for each demand and execution layer; aggregate demands equally within each of six environment blocks before block-level uncertainty estimation. Retain all directions. These are frozen-policy comparisons, not six independent training seeds.",
+  "limitations": [
+    "One existing training seed; actors selected by the largest existing calibrated budget, not new evaluation outcomes.",
+    "Offline and hybrid share a 10000-update offline prefix; source has no prefix. Only continuation update counts are matched, not total compute.",
+    "The bounded-budget hybrid uses ratio correction; it is not the unit-weight actor in the original formal completion-guard experiment.",
+    "Fixed-horizon passenger cost includes accrued costs of unfinished passengers, not their full remaining journeys.",
+    "The common layer scales proposed holds by 0.25 and applies the existing headway reserve. Native rule references bypass these transformations and are outside the execution-factor comparison."
+  ]
+}

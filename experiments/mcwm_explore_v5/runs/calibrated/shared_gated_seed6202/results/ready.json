@@ -1,0 +1,224 @@
+{
+  "arm": "shared_gated",
+  "seed": 6202,
+  "scenario": "calibrated",
+  "source_events": 25000,
+  "continuation_updates": 20000,
+  "total_policy_updates": 70000,
+  "total_critic_updates": 70000,
+  "target_online_training_events": 0,
+  "model_history": [
+    {
+      "source_events": 5000,
+      "selected_family": "residual",
+      "calibration_loss": {
+        "direct": 1.6585766077041626,
+        "residual": 1.6572675704956055
+      },
+      "mechanism_loss": {
+        "direct": {
+          "event": 2.340691566467285,
+          "duration": 0.6361162662506104,
+          "service": 1.559234857559204,
+          "headway": 0.8750357031822205,
+          "cost": 0.7221530675888062
+        },
+        "residual": {
+          "event": 2.3361411094665527,
+          "duration": 0.632379412651062,
+          "service": 1.5612040758132935,
+          "headway": 0.8780372142791748,
+          "cost": 0.7282724976539612
+        }
+      },
+      "selected_mechanisms": {
+        "event": "residual",
+        "duration": "residual",
+        "service": "direct",
+        "headway": "direct",
+        "cost": "direct"
+      },
+      "heterogeneous_selection": true
+    },
+    {
+      "source_events": 10000,
+      "selected_family": "direct",
+      "calibration_loss": {
+        "direct": 1.7150561809539795,
+        "residual": 1.7168598175048828
+      },
+      "mechanism_loss": {
+        "direct": {
+          "event": 2.359226942062378,
+          "duration": 0.6041598320007324,
+          "service": 1.8158153295516968,
+          "headway": 0.9259515404701233,
+          "cost": 0.6985437870025635
+        },
+        "residual": {
+          "event": 2.356902599334717,
+          "duration": 0.601963996887207,
+          "service": 1.8265777826309204,
+          "headway": 0.9323563575744629,
+          "cost": 0.6990917325019836
+        }
+      },
+      "selected_mechanisms": {
+        "event": "residual",
+        "duration": "residual",
+        "service": "direct",
+        "headway": "direct",
+        "cost": "direct"
+      },
+      "heterogeneous_selection": true,
+      "fit_weight_range": [
+        0.10000000149011612,
+        1.0
+      ]
+    },
+    {
+      "source_events": 15000,
+      "selected_family": "residual",
+      "calibration_loss": {
+        "direct": 1.6240293979644775,
+        "residual": 1.6225847005844116
+      },
+      "mechanism_loss": {
+        "direct": {
+          "event": 2.3193254470825195,
+          "duration": 0.701276957988739,
+          "service": 1.4113909006118774,
+          "headway": 0.8437528610229492,
+          "cost": 0.7619189023971558
+        },
+        "residual": {
+          "event": 2.3144519329071045,
+          "duration": 0.6872715353965759,
+          "service": 1.4164600372314453,
+          "headway": 0.8460789322853088,
+          "cost": 0.769914984703064
+        }
+      },
+      "selected_mechanisms": {
+        "event": "residual",
+        "duration": "residual",
+        "service": "direct",
+        "headway": "direct",
+        "cost": "direct"
+      },
+      "heterogeneous_selection": true,
+      "fit_weight_range": [
+        0.10000000149011612,
+        1.0
+      ]
+    },
+    {
+      "source_events": 20000,
+      "selected_family": "direct",
+      "calibration_loss": {
+        "direct": 1.613081932067871,
+        "residual": 1.6131343841552734
+      },
+      "mechanism_loss": {
+        "direct": {
+          "event": 2.3551130294799805,
+          "duration": 0.56154465675354,
+          "service": 1.2958910465240479,
+          "headway": 0.8591551184654236,
+          "cost": 0.6679039001464844
+        },
+        "residual": {
+          "event": 2.351978302001953,
+          "duration": 0.5617741942405701,
+          "service": 1.3020166158676147,
+          "headway": 0.8607875108718872,
+          "cost": 0.6744611859321594
+        }
+      },
+      "selected_mechanisms": {
+        "event": "residual",
+        "duration": "direct",
+        "service": "direct",
+        "headway": "direct",
+        "cost": "direct"
+      },
+      "heterogeneous_selection": true,
+      "fit_weight_range": [
+        0.10000000149011612,
+        1.0
+      ]
+    }
+  ],
+  "phases": {
+    "dataset_loading": {
+      "wall_seconds": 31.562763071997324,
+      "cpu_seconds": 31.583338108,
+      "calls": 1
+    },
+    "source_collection": {
+      "wall_seconds": 255.21638175407134,
+      "cpu_seconds": 255.3552642909989,
+      "calls": 629
+    },
+    "source_model_fit": {
+      "wall_seconds": 42.286527586999,
+      "cpu_seconds": 42.29619958399999,
+      "calls": 3
+    },
+    "target_model_fit": {
+      "wall_seconds": 93.90316016299766,
+      "cpu_seconds": 93.91409448000002,
+      "calls": 6
+    },
+    "gated_trust_errors": {
+      "wall_seconds": 3.735635695993551,
+      "cpu_seconds": 3.7371921930001406,
+      "calls": 4
+    },
+    "model_refresh": {
+      "wall_seconds": 253.456332413989,
+      "cpu_seconds": 253.48724975700006,
+      "calls": 4
+    },
+    "bellman_trust_update": {
+      "wall_seconds": 37.015044765750645,
+      "cpu_seconds": 37.01159052499119,
+      "calls": 5000
+    },
+    "model_training_batch": {
+      "wall_seconds": 887.3174731101899,
+      "cpu_seconds": 887.8966709430103,
+      "calls": 20000
+    },
+    "policy_update": {
+      "wall_seconds": 1854.1531219230965,
+      "cpu_seconds": 1854.67683678999,
+      "calls": 20000
+    },
+    "mechanism_diagnostics": {
+      "wall_seconds": 4.086466510023456,
+      "cpu_seconds": 4.088775548000115,
+      "calls": 20
+    },
+    "policy_fit_weights": {
+      "wall_seconds": 22.686741915982566,
+      "cpu_seconds": 22.68722206999996,
+      "calls": 3
+    },
+    "target_model_refit": {
+      "wall_seconds": 87.64890843800094,
+      "cpu_seconds": 87.65597534300002,
+      "calls": 3
+    },
+    "refresh_trust_errors": {
+      "wall_seconds": 1.015734323009383,
+      "cpu_seconds": 1.0160382959999197,
+      "calls": 3
+    }
+  },
+  "training_wall_seconds": 2400.8387829970015,
+  "reused_offline_updates": 50000,
+  "peak_host_rss_mb": 8490.6171875,
+  "peak_gpu_allocated_mb": 212.056640625,
+  "peak_gpu_reserved_mb": 306.0
+}

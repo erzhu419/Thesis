@@ -1,0 +1,323 @@
+{
+  "source": "output/排版完成_导师意见复核_20261005.docx",
+  "indexing": "lxml root.find(w:body).findall(w:p), zero-based; tables excluded; captured before new edits",
+  "bibliography_total": 154,
+  "bibliography": [
+    {
+      "paper_key": "categorical",
+      "existing_number": 43,
+      "paragraph_index": 2110,
+      "existing_text": "[43] ZHANG Y, ZHENG L, ZHANG Q, et al. Single agent robust deep reinforcement learning for bus fleet control[J/OL]. Transportation Safety and Environment, 2026, 8(2): tdag005. DOI:10.1093/tse/tdag005.",
+      "identifier": "tdag005",
+      "proposed_append_number": null
+    },
+    {
+      "paper_key": "resac",
+      "existing_number": 67,
+      "paragraph_index": 2134,
+      "existing_text": "[67] ZHANG Y, ZHENG L. RE-SAC: Disentangling aleatoric and epistemic risks in bus fleet control: A stable and robust ensemble DRL approach[EB/OL]. arXiv, 2026[2026-09-29]. https://arxiv.org/abs/2603.18396.",
+      "identifier": "2603.18396",
+      "proposed_append_number": null
+    },
+    {
+      "paper_key": "bapr",
+      "existing_number": null,
+      "paragraph_index": null,
+      "existing_text": null,
+      "identifier": "2605.16170",
+      "proposed_append_number": 155
+    },
+    {
+      "paper_key": "bus_h2o",
+      "existing_number": null,
+      "paragraph_index": null,
+      "existing_text": null,
+      "identifier": "2609.39868",
+      "proposed_append_number": 156
+    },
+    {
+      "paper_key": "mcwm",
+      "existing_number": null,
+      "paragraph_index": null,
+      "existing_text": null,
+      "identifier": "2610.01001",
+      "proposed_append_number": 157
+    }
+  ],
+  "body_recommendations": [
+    {
+      "paragraph_index": 509,
+      "original": "本论文采用另一条互补路径，以类别身份和连续状态共同构造共享策略。相关单智能体公交研究将车辆、站点和服务情境输入同一决策映射，处理双向按时刻表运行中的样本共享与对象差异。[43] 本文在给定计划下由单一共享策略处理车队中各车辆的驻站事件，后续各章改变环境与数据假设，保持这一共同控制对象。",
+      "recommended_text": "本论文采用另一条互补路径，以类别身份和连续状态共同构造共享策略。作者与合作者的前期单智能体公交研究将类别特征嵌入与连续状态结合，使车辆、站点和服务情境进入同一决策映射，处理双向按时刻表运行中的样本共享与对象差异。[43] 本文沿用这一共享控制框架，在给定计划下由单一策略处理车队中各车辆的驻站事件，后续各章进一步改变环境与数据假设。",
+      "reason": "原文称相关研究，宜明确文献43是本人前期类别特征与单智能体控制成果。",
+      "paper_keys": [
+        "categorical"
+      ],
+      "priority": "recommended"
+    },
+    {
+      "paragraph_index": 518,
+      "original": "鲁棒强化学习从模型集合出发处理不确定性。鲁棒动态规划在给定不确定集合及矩形性条件下，用最不利转移评价决策；正则化马尔可夫决策过程（Markov Decision Process，MDP）则在价值或策略目标中加入正则项。[30,65] 两者并非互不相关的技术：Derman等证明，指定奖励与转移不确定集合的鲁棒问题，可以通过与该集合对应的策略和价值正则项表达。[66] 这使不利分布评价与可计算的正则化更新建立联系。本文提出的RE-SAC由这一思路出发，在SAC中加入目标价值偏移和集成保守评价；第3章模型部分及附录A.7区分精确对应、分布距离下界与网络代理惩罚，第3.3节再讨论固定参数算子的性质。[67]",
+      "recommended_text": "鲁棒强化学习从模型集合出发处理不确定性。鲁棒动态规划在给定不确定集合及矩形性条件下，用最不利转移评价决策；正则化马尔可夫决策过程（Markov Decision Process，MDP）则在价值或策略目标中加入正则项。[30,65] 两者并非互不相关的技术：Derman等证明，指定奖励与转移不确定集合的鲁棒问题，可以通过与该集合对应的策略和价值正则项表达。[66] 这使不利分布评价与可计算的正则化更新建立联系。作者前期提出的RE-SAC由这一思路出发，在SAC中加入目标价值偏移和集成保守评价。[67] 第3章模型部分及附录A.7区分精确对应、分布距离下界与网络代理惩罚，第3.3节再讨论固定参数算子的性质。",
+      "reason": "将原有67引文紧接方法来源，避免只像支撑本次附录修订。",
+      "paper_keys": [
+        "resac"
+      ],
+      "priority": "recommended"
+    },
+    {
+      "paragraph_index": 522,
+      "original": "另一类方法从历史转移中推断当前环境。隐参数马尔可夫决策过程（Hidden Parameter Markov Decision Process，HiP-MDP）以潜在因素表示相近任务之间的动力学差异；通用策略与在线系统辨识（Universal Policy with Online System Identification，UP-OSI）将近期状态动作历史推断的系统参数输入通用策略。[75,76] 概率嵌入式演员评论家方法（Probabilistic Embeddings for Actor-Critic Reinforcement Learning，PEARL）通过概率上下文分离任务推断与控制，变分贝叶斯自适应深度强化学习（Variational Bayes-Adaptive Deep Reinforcement Learning，VariBAD）将任务不确定性纳入动作选择，快速运动适应方法（Rapid Motor Adaptation，RMA）则组合基本策略与快速适应模块。[77,78,79] 本文提出BAPR，用环境识别与模式置信更新调节策略学习；进一步提出CS-BAPR，其中公交实验采用训练稳定化和神经算术输出配置。",
+      "recommended_text": "另一类方法从历史转移中推断当前环境。隐参数马尔可夫决策过程（Hidden Parameter Markov Decision Process，HiP-MDP）以潜在因素表示相近任务之间的动力学差异；通用策略与在线系统辨识（Universal Policy with Online System Identification，UP-OSI）将近期状态动作历史推断的系统参数输入通用策略。[75,76] 概率嵌入式演员评论家方法（Probabilistic Embeddings for Actor-Critic Reinforcement Learning，PEARL）通过概率上下文分离任务推断与控制，变分贝叶斯自适应深度强化学习（Variational Bayes-Adaptive Deep Reinforcement Learning，VariBAD）将任务不确定性纳入动作选择，快速运动适应方法（Rapid Motor Adaptation，RMA）则组合基本策略与快速适应模块。[77,78,79] 作者的BAPR研究用环境识别与置信调节组织条件适应。[{bapr}] 本文在早期置信调节框架上进一步研究CS-BAPR，其公交实验采用训练稳定化和神经算术输出配置。",
+      "reason": "相关工作中首次引出BAPR，单独标明本人论文，不将CS-BAPR扩展强行归入该文献。",
+      "paper_keys": [
+        "bapr"
+      ],
+      "priority": "recommended"
+    },
+    {
+      "paragraph_index": 540,
+      "original": "CQL、IQL与Cal-QL着重处理行为覆盖、价值外推或离线到在线的价值尺度；动力学重要性采样则调整源转移在目标期望中的权重。二者可以组合，不能据此将算法划分成“修正Q”与“纯重要性采样”两个互斥阵营。H2O+同时包含离线与在线价值更新的衔接和动力学差异处理，是混合训练框架。公交实现中哪些修正项真正启用、哪些仅用于诊断，将在第5章按实际训练目标说明。[10,87,88,102]",
+      "recommended_text": "CQL、IQL与Cal-QL着重处理行为覆盖、价值外推或离线到在线的价值尺度；动力学重要性采样则调整源转移在目标期望中的权重。二者可以组合，不能据此将算法划分成“修正Q”与“纯重要性采样”两个互斥阵营。H2O+同时包含离线与在线价值更新的衔接和动力学差异处理，是混合训练框架。上述通用框架与离线学习方法的关系见文献[10,87,88,102]。作者与合作者进一步将H2O+用于公交驻站控制，研究事件状态、混合动作和服务执行规则。[{bus_h2o}] 公交实现中哪些修正项真正启用、哪些仅用于诊断，将在第5章按实际训练目标说明。",
+      "reason": "清楚区分Niu原H2O+与作者公交应用论文；此处已有原框架引用。",
+      "paper_keys": [
+        "bus_h2o"
+      ],
+      "priority": "recommended"
+    },
+    {
+      "paragraph_index": 551,
+      "original": "对于公交迁移，世界模型研究提供的是源运行关系如何被保留和修正的方法视角。本文提出的MC-WM源于公交H2O+对仿真标定的依赖。公交实验检验世界模型辅助训练对乘客服务的影响；另一组实验以接触多关节动力学平台（Multi-Joint dynamics with Contact，MuJoCo）为基础，[130] 分别改变执行器、重力或摩擦，分析残差修正与直接建模的选择机制。两类实验分别回答公交中是否有用和模型为何需要选择的问题。",
+      "recommended_text": "对于公交迁移，世界模型研究提供的是源运行关系如何被保留和修正的方法视角。作者提出MC-WM，在残差修正与直接目标建模之间进行选择，并利用模型可信度辅助策略学习。[{mcwm}] 本论文进一步将这一方法与公交H2O+研究衔接，处理源仿真标定偏差。[{bus_h2o}]公交实验检验世界模型辅助训练对乘客服务的影响；另一组实验以接触多关节动力学平台（Multi-Joint dynamics with Contact，MuJoCo）为基础，[130] 分别改变执行器、重力或摩擦，分析残差修正与直接建模的选择机制。两类实验分别回答公交中是否有用和模型为何需要选择的问题。",
+      "reason": "补MC-WM首述的自有论文引用，避免称只有本博士论文才首次提出。",
+      "paper_keys": [
+        "mcwm",
+        "bus_h2o"
+      ],
+      "priority": "recommended"
+    },
+    {
+      "paragraph_index": 847,
+      "original": "本章首先建立类别特征与连续状态结合的事件决策模型，再提出RE-SAC，以集成价值估计和保守正则化调节动作选择。通过共享表征、奖励函数、集成规模及长期训练等对照实验，分析价值估计与策略表现的关系，并分别评价车头时距、候车时间和车内时间的变化。",
+      "recommended_text": "本章整合作者与合作者的类别特征嵌入共享公交控制研究[43]以及作者提出的RE-SAC方法[67]。首先建立类别特征与连续状态结合的事件决策模型，再以集成价值估计和保守正则化调节动作选择。通过共享表征、奖励函数、集成规模及长期训练等对照实验，分析价值估计与策略表现的关系，并分别评价车头时距、候车时间和车内时间的变化。",
+      "reason": "章首交代两个自有成果及其递进，后续新增实验不冒充已在旧论文发表。",
+      "paper_keys": [
+        "categorical",
+        "resac"
+      ],
+      "priority": "recommended"
+    },
+    {
+      "paragraph_index": 868,
+      "original": "可训练类别向量的基本思想来自实体嵌入：为每个类别分配向量，并使其随预测任务共同更新，从数据中形成类别之间的关系。[44] 本章将这一表示用于公交策略和价值函数，使站点、方向等身份信息与控制目标共同学习。共享网络则承担跨对象的经验利用，其作用与多任务学习中的共享表征相联系。[45]",
+      "recommended_text": "可训练类别向量的基本思想来自实体嵌入：为每个类别分配向量，并使其随预测任务共同更新，从数据中形成类别之间的关系。[44] 作者前期将这一表示用于公交策略和价值函数，使站点、方向等身份信息与控制目标共同学习。[43] 本章沿用该共享表示。共享网络则承担跨对象的经验利用，其作用与多任务学习中的共享表征相联系。[45]",
+      "reason": "实体嵌入通用来源44保留，同时明确公交应用来源43。",
+      "paper_keys": [
+        "categorical"
+      ],
+      "priority": "recommended"
+    },
+    {
+      "paragraph_index": 928,
+      "original": "RE-SAC以SAC的熵正则化演员评论家结构为基础，引入面向随机运行环境的集成估计与保守评价。[28]",
+      "recommended_text": "RE-SAC[67]以SAC的熵正则化演员评论家结构为基础，引入面向随机运行环境的集成估计与保守评价。[28]",
+      "reason": "算法小节首段补原方法引用，不替代原SAC引文。",
+      "paper_keys": [
+        "resac"
+      ],
+      "priority": "recommended"
+    },
+    {
+      "paragraph_index": 936,
+      "original": "类别特征嵌入同时进入策略和价值估计，使行动选择与评价都能够利用站点、车辆、方向和时段信息。初始类别特征嵌入软演员评论家方法（Embedding Soft Actor-Critic，Embedding-SAC） 使用三个宽度为32的隐藏层；后续 RE-SAC 公交实验使用三个宽度为64的隐藏层。二者属于相继研究的实现配置，而非同一次实验内仅有嵌入开关的消融。",
+      "recommended_text": "类别特征嵌入同时进入策略和价值估计，使行动选择与评价都能够利用站点、车辆、方向和时段信息。初始类别特征嵌入软演员评论家方法（Embedding Soft Actor-Critic，Embedding-SAC）[43]使用三个宽度为32的隐藏层；后续RE-SAC研究[67]的公交实验使用三个宽度为64的隐藏层。二者属于相继研究的实现配置，而非同一次实验内仅有嵌入开关的消融。",
+      "reason": "两种网络历史配置分别挂接对应论文。",
+      "paper_keys": [
+        "categorical",
+        "resac"
+      ],
+      "priority": "recommended"
+    },
+    {
+      "paragraph_index": 1005,
+      "original": "原研究[43]的学习曲线不确定性带来自15次评价回合；其中Embedding-SAC的批量为2048，MADDPG为128，网络结构也不同。该比较反映各完整方案在原设置下的表现。随后RE-SAC在共享公交策略框架内进一步研究价值学习与集成设计。",
+      "recommended_text": "作者与合作者的前期研究[43]的学习曲线不确定性带来自15次评价回合；其中Embedding-SAC的批量为2048，MADDPG为128，网络结构也不同。该比较反映各完整方案在原设置下的表现。随后RE-SAC在共享公交策略框架内进一步研究价值学习与集成设计。",
+      "reason": "已有正确43引用，仅明确归属。",
+      "paper_keys": [
+        "categorical"
+      ],
+      "priority": "recommended"
+    },
+    {
+      "paragraph_index": 1163,
+      "original": "本章以隐含运行模式描述条件变化，由BAPR的置信调节进一步研究CS-BAPR的训练稳定化与策略输出结构。公交实验利用训练期近期运行信息调节保守程度，在正常需求、环境突变及重复变化条件下评价固定策略；受控执行器实验分析模式识别与动作补偿。最后分别采用时距和乘客时间目标，比较训练稳定化、输出结构及其服务效果。",
+      "recommended_text": "本章承接作者的BAPR研究，以隐含运行模式描述条件变化。[{bapr}] 在早期置信调节框架上，进一步研究CS-BAPR的训练稳定化与策略输出结构。公交实验利用训练期近期运行信息调节保守程度，在正常需求、环境突变及重复变化条件下评价固定策略；受控执行器实验分析模式识别与动作补偿。最后分别采用时距和乘客时间目标，比较训练稳定化、输出结构及其服务效果。",
+      "reason": "章首明确来源并区分CS-BAPR公交扩展。",
+      "paper_keys": [
+        "bapr"
+      ],
+      "priority": "recommended"
+    },
+    {
+      "paragraph_index": 1193,
+      "original": "BAPR研究后续引入置信感知的策略重参数化机制，以执行器动作补偿为核心：当动作语义或执行极性改变时，通过模式条件变换恢复期望的执行效果。这一机制侧重动作坐标与环境执行之间的关系。附录B中，定理B.1先给出有界命令的精确补偿条件，定理B.2再证明极性变换保持动作边界；随后通过逐路径比较和性能差恒等式分析模式误判。第4.4.6.3节在HalfCheetah的受控执行器模式条件下检验这一机制，公交需求变化的实证依据则来自第4.4节和第4.4.6.2节。附录B.3说明正确补偿在共同噪声下保持逐路径等价，B.4分析无充分激励时模式不可辨识的原因，并以相对熵链式分解表达连续观测所累积的信息。B.5把误判转化为动作加权误差，B.6和B.7再将局部动作价值差分别沿固定噪声路径和随机轨迹累计；B.8据此得到极性误判的条件回报界。因此，识别准确率只有结合当时的动作幅度及局部价值敏感性，才足以解释控制损失。",
+      "recommended_text": "作者的BAPR研究进一步引入置信感知的策略重参数化机制，以执行器动作补偿为核心：当动作语义或执行极性改变时，通过模式条件变换恢复期望的执行效果。[{bapr}]这一机制侧重动作坐标与环境执行之间的关系。附录B中，定理B.1先给出有界命令的精确补偿条件，定理B.2再证明极性变换保持动作边界；随后通过逐路径比较和性能差恒等式分析模式误判。第4.4.6.3节在HalfCheetah的受控执行器模式条件下检验这一机制，公交需求变化的实证依据则来自第4.4节和第4.4.6.2节。附录B.3说明正确补偿在共同噪声下保持逐路径等价，B.4分析无充分激励时模式不可辨识的原因，并以相对熵链式分解表达连续观测所累积的信息。B.5把误判转化为动作加权误差，B.6和B.7再将局部动作价值差分别沿固定噪声路径和随机轨迹累计；B.8据此得到极性误判的条件回报界。因此，识别准确率只有结合当时的动作幅度及局部价值敏感性，才足以解释控制损失。",
+      "reason": "动作补偿机制的具体原论文归属。需依据网页全文确认用户指定BAPR版本确实覆盖该机制。",
+      "paper_keys": [
+        "bapr"
+      ],
+      "priority": "recommended"
+    },
+    {
+      "paragraph_index": 1374,
+      "original": "本章首先比较纯离线学习与目标环境在线微调，分析既有数据和新增目标交互对控制效果的影响。其次，基于H2O+构建公交混合训练流程，设计同时到站车辆编码和零驻站、正时长驻站的混合动作表示，并结合驻站幅度变换与行程完成保障形成控制器。最后，在未参与训练的SUMO场景中评价乘客时间、行程完成率、车头时距和训练开销，通过匹配对照分析混合训练与执行保障的作用。",
+      "recommended_text": "本章首先比较纯离线学习与目标环境在线微调，分析既有数据和新增目标交互对控制效果的影响。其次，整合作者与合作者基于H2O+开展的公交驻站研究，构建公交混合训练流程。[{bus_h2o}] 具体而言，设计同时到站车辆编码和零驻站、正时长驻站的混合动作表示，并结合驻站幅度变换与行程完成保障形成控制器。最后，在未参与训练的SUMO场景中评价乘客时间、行程完成率、车头时距和训练开销，通过匹配对照分析混合训练与执行保障的作用。",
+      "reason": "公交章首交代自有论文来源，纯离线比较不错误归入该文献。",
+      "paper_keys": [
+        "bus_h2o"
+      ],
+      "priority": "recommended"
+    },
+    {
+      "paragraph_index": 1442,
+      "original": "本研究取 、，并使用较小的评论家权重正则项。沿用式(4-6)的未加权平方误差定义，本节为固定离线数据；当前策略的重参数化采样动作与离线数据动作比较，策略总损失仅乘一次。集成均值表示平均动作价值，负分歧系数降低对高分歧动作的偏好，行为锚定约束策略相对离线数据动作的偏移。这是本文RE-SAC在长沙多线路SUMO中的离线适配，构成零新增目标训练交互参照。它与第3章双向走廊中的在线RE-SAC共享集成保守评价思想，但状态接口、经验来源和行为锚定设置不同；本节按相同SUMO任务比较控制结果。",
+      "recommended_text": "本研究取 、，并使用较小的评论家权重正则项。沿用式(4-6)的未加权平方误差定义，本节为固定离线数据；当前策略的重参数化采样动作与离线数据动作比较，策略总损失仅乘一次。集成均值表示平均动作价值，负分歧系数降低对高分歧动作的偏好，行为锚定约束策略相对离线数据动作的偏移。这是作者前期RE-SAC方法[67]在长沙多线路SUMO中的离线适配，构成零新增目标训练交互参照。它与第3章双向走廊中的在线RE-SAC共享集成保守评价思想，但状态接口、经验来源和行为锚定设置不同；本节按相同SUMO任务比较控制结果。",
+      "reason": "区分原RE-SAC与本论文离线适配。段含原生公式，须只做文字局部改写。",
+      "paper_keys": [
+        "resac"
+      ],
+      "priority": "recommended"
+    },
+    {
+      "paragraph_index": 1456,
+      "original": "H2O及其扩展H2O+由Niu等提出，用于结合实际部署环境的离线经验与训练仿真中的新增交互。[9,10] 本节在第5.2节公交状态与动作模型上，给出离线初始化、混合价值更新和源仿真续训流程。H2O+结合离线与在线价值目标，并对跨动力学数据进行适配；本文各组是否实际启用转移比率校正由其训练协议明确。",
+      "recommended_text": "H2O及其扩展H2O+由Niu等提出，用于结合实际部署环境的离线经验与训练仿真中的新增交互。[9,10] 作者与合作者在此基础上研究了公交驻站控制的跨保真训练与服务执行。[{bus_h2o}] 本节结合该公交研究及第5.2节状态与动作模型，给出离线初始化、混合价值更新和源仿真续训流程。H2O+结合离线与在线价值目标，并对跨动力学数据进行适配；本文各组是否实际启用转移比率校正由其训练协议明确。",
+      "reason": "最重要的H2O+归属区分：Niu为通用算法原作者，用户为公交扩展作者。",
+      "paper_keys": [
+        "bus_h2o"
+      ],
+      "priority": "recommended"
+    },
+    {
+      "paragraph_index": 1679,
+      "original": "本章提出MC-WM，在目标留出数据上比较残差修正模型与直接目标模型，再用可信度加权的一步预测样本辅助价值更新。针对公交事件的类别、连续状态和持续时间，构建混合事件预测模型，并引入归一化置信备份。受控动力学任务用于分析模型类别选择，固定SUMO离线数据下的公交实验用于评价模型辅助训练的服务效果和计算代价。",
+      "recommended_text": "本章以作者提出的MC-WM为基础，在目标留出数据上比较残差修正模型与直接目标模型，再用可信度加权的一步预测样本辅助价值更新。[{mcwm}] 针对公交事件的类别、连续状态和持续时间，进一步构建混合事件预测模型，并引入归一化置信备份。受控动力学任务用于分析模型类别选择，固定SUMO离线数据下的公交实验用于评价模型辅助训练的服务效果和计算代价。",
+      "reason": "MC-WM章首来源明确，归一化与公交扩展不暗示全部包含于原文。",
+      "paper_keys": [
+        "mcwm"
+      ],
+      "priority": "recommended"
+    },
+    {
+      "paragraph_index": 1704,
+      "original": "算法包含四个共同环节：划分目标数据并拟合候选模型；在留出数据上选择残差或直接模型；从已有经验状态出发生成一步预测并计算可信权重；把加权模型项加入价值更新，再由价值评价改进策略。源模型在拟合后冻结，目标模型的更新日程由允许获得的数据决定，部署时仍由演员网络输出动作。第6.3.1至6.3.5节给出允许目标在线交互的受控连续任务实现，第6.3.6至6.3.7节给出固定目标离线数据下的公交实现，第6.3.8节分析这些更新的误差与尺度关系。",
+      "recommended_text": "MC-WM算法[{mcwm}]包含四个共同环节：划分目标数据并拟合候选模型；在留出数据上选择残差或直接模型；从已有经验状态出发生成一步预测并计算可信权重；把加权模型项加入价值更新，再由价值评价改进策略。源模型在拟合后冻结，目标模型的更新日程由允许获得的数据决定，部署时仍由演员网络输出动作。第6.3.1至6.3.5节给出允许目标在线交互的受控连续任务实现，第6.3.6至6.3.7节给出固定目标离线数据下的公交实现，第6.3.8节分析这些更新的误差与尺度关系。",
+      "reason": "算法详细介绍处补原论文。",
+      "paper_keys": [
+        "mcwm"
+      ],
+      "priority": "recommended"
+    },
+    {
+      "paragraph_index": 571,
+      "original": "针对车辆与站点差异以及随机运行中的价值估计波动，将类别特征嵌入与连续观测组合，构建处理车队异步决策事件的共享策略。在SAC基础上提出RE-SAC，以集成价值评价、目标偏移和分歧惩罚调节策略学习。通过类别表征、奖励函数、集成规模和动作价值的对照实验，分析保守评价对间隔规律性与乘客服务的影响。",
+      "recommended_text": "针对车辆与站点差异以及随机运行中的价值估计波动，将类别特征嵌入与连续观测组合，构建处理车队异步决策事件的共享策略。[43]在SAC基础上提出RE-SAC[67]，以集成价值评价、目标偏移和分歧惩罚调节策略学习。通过类别表征、奖励函数、集成规模和动作价值的对照实验，分析保守评价对间隔规律性与乘客服务的影响。",
+      "reason": "研究内容总述可补一次对应成果来源；已在相关工作和章首引用时可酌情省略。",
+      "paper_keys": [
+        "resac",
+        "categorical"
+      ],
+      "priority": "optional"
+    },
+    {
+      "paragraph_index": 573,
+      "original": "针对客流和路况规律随时间变化的问题，以隐含运行模式和近期运行历史描述当前条件。由BAPR的置信调节出发，研究CS-BAPR的训练稳定化与策略输出结构，并分别评价固定需求放大、单次冲击和重复变化下的驻站效果。公交实验分析训练期置信调节后的固定策略表现，受控执行器实验检验模式识别与动作补偿的关系。",
+      "recommended_text": "针对客流和路况规律随时间变化的问题，以隐含运行模式和近期运行历史描述当前条件。由BAPR[{bapr}]的置信调节出发，研究CS-BAPR的训练稳定化与策略输出结构，并分别评价固定需求放大、单次冲击和重复变化下的驻站效果。公交实验分析训练期置信调节后的固定策略表现，受控执行器实验检验模式识别与动作补偿的关系。",
+      "reason": "研究内容总述可补一次对应成果来源；已在相关工作和章首引用时可酌情省略。",
+      "paper_keys": [
+        "bapr"
+      ],
+      "priority": "optional"
+    },
+    {
+      "paragraph_index": 575,
+      "original": "针对目标环境交互受限及源目标转移规律不一致的问题，基于H2O/H2O+构建公交驻站的跨保真训练方法。首先比较固定目标数据上的离线学习与追加目标交互的在线微调，再研究固定目标离线数据与简易仿真交互相结合的训练流程。设计同时到站车辆的状态编码以及零驻站、正时长驻站的混合动作表示，结合驻站幅度变换与行程完成保障形成控制器，并通过匹配对照分析混合训练和执行规则的作用。",
+      "recommended_text": "针对目标环境交互受限及源目标转移规律不一致的问题，基于H2O/H2O+构建公交驻站的跨保真训练方法。[{bus_h2o}]首先比较固定目标数据上的离线学习与追加目标交互的在线微调，再研究固定目标离线数据与简易仿真交互相结合的训练流程。设计同时到站车辆的状态编码以及零驻站、正时长驻站的混合动作表示，结合驻站幅度变换与行程完成保障形成控制器，并通过匹配对照分析混合训练和执行规则的作用。",
+      "reason": "研究内容总述可补一次对应成果来源；已在相关工作和章首引用时可酌情省略。",
+      "paper_keys": [
+        "bus_h2o"
+      ],
+      "priority": "optional"
+    },
+    {
+      "paragraph_index": 577,
+      "original": "针对源模型的转移预测可能不适用于目标环境的问题，提出MC-WM，利用目标留出数据比较残差修正模型与直接目标模型，并以对数置信评价调节一步预测样本对价值更新的作用。通过受控动力学任务分析模型类别选择，进一步构建公交混合事件模型，在固定目标离线数据条件下检验模型辅助训练。引入归一化置信备份，分析预测误差、模型损失权重与乘客服务效果之间的关系。",
+      "recommended_text": "针对源模型的转移预测可能不适用于目标环境的问题，提出MC-WM[{mcwm}]，利用目标留出数据比较残差修正模型与直接目标模型，并以对数置信评价调节一步预测样本对价值更新的作用。通过受控动力学任务分析模型类别选择，进一步构建公交混合事件模型，在固定目标离线数据条件下检验模型辅助训练。引入归一化置信备份，分析预测误差、模型损失权重与乘客服务效果之间的关系。",
+      "reason": "研究内容总述可补一次对应成果来源；已在相关工作和章首引用时可酌情省略。",
+      "paper_keys": [
+        "mcwm"
+      ],
+      "priority": "optional"
+    }
+  ],
+  "retain_without_new_citation": {
+    "abstracts": [
+      64,
+      65,
+      66,
+      67,
+      74,
+      75,
+      76,
+      77
+    ],
+    "chapter_titles_and_toc": "no citations",
+    "existing_valid_cites": [
+      855
+    ]
+  },
+  "implementation_notes": [
+    "All new reference placeholders must be replaced by actual assigned numbers; [43] and [67] are current numbers before any global renumbering.",
+    "Do not add every acronym mention; methods provenance, chapter introduction, and specific original configurations are sufficient.",
+    "No manuscript edits performed by this agent.",
+    "The five repositories identify implementations, not five additional research-paper bibliography records. Root may add one concise source note or footnote if appropriate.",
+    "Because bibliography currently follows first occurrence, inserting references in sequence requires downstream citation renumbering; appending keeps old numbers but breaks strict first-citation order.",
+    "Source equations are stripped from text extraction; paragraphs containing math (e.g. 1442) must be edited by text spans, not rebuilt from recommended_text."
+  ],
+  "full_name_corrections": [
+    {
+      "paragraph_index": 65,
+      "original": "（2）针对客流与道路运行规律发生变化的问题，研究贝叶斯自适应策略正则化（Bayesian Adaptive Policy Regularization，BAPR）的置信调节，进一步提出因果符号贝叶斯自适应策略正则化（Causal-Symbolic Bayesian Adaptive Policy Regularization，CS-BAPR）。公交主比较采用未启用符号发现与不变风险最小化的稳定化配置，利用训练期近期运行信息调节保守程度，结合训练稳定化与策略输出结构，评价固定策略对变化条件的响应。采用两个独立训练种子，在正常需求、单次与重复环境变化、持续高需求及短时极端需求等六种条件下，稳定化感知机配置相对前序BAPR降低58.82%至69.79%的平均时距奖励惩罚，计划绝对偏差下降27.10%至36.55%。算术输出的附加收益随条件变化；改用乘客时间目标后，稳定化感知机的广义时间增加0.068%至0.268%。因此，该配置的主要改善体现为时距控制。",
+      "edits": [
+        {
+          "old": "贝叶斯自适应策略正则化（Bayesian Adaptive Policy Regularization，BAPR）",
+          "new": "贝叶斯遗忘分段鲁棒（Bayesian Amnesic Piecewise-Robust，BAPR）"
+        },
+        {
+          "old": "因果符号贝叶斯自适应策略正则化（Causal-Symbolic Bayesian Adaptive Policy Regularization，CS-BAPR）",
+          "new": "因果符号BAPR（Causal-Symbolic BAPR，CS-BAPR）"
+        }
+      ]
+    },
+    {
+      "paragraph_index": 75,
+      "original": "To address changes in passenger demand and operating dynamics, this thesis studies confidence adjustment in Bayesian Adaptive Policy Regularization (BAPR) and develops Causal-Symbolic Bayesian Adaptive Policy Regularization (CS-BAPR). The main bus comparisons use stabilized configurations without symbolic discovery or invariant risk minimization. These configurations adjust conservatism using recent operating information during training and combine training stabilization with policy output structures to evaluate fixed-policy responses to changing conditions. With two independent training seeds, across six conditions covering routine demand, single and repeated changes, sustained high demand, and brief extreme demand, the stabilized multilayer-perceptron configuration reduces the mean headway-reward penalty by 58.82% to 69.79% and absolute planned-headway deviation by 27.10% to 36.55% relative to the preceding BAPR configuration. The additional benefit of arithmetic outputs varies across conditions. With a passenger-time objective, the stabilized configuration increases generalized passenger time by 0.068% to 0.268%. Its main improvement therefore concerns headway control.",
+      "edits": [
+        {
+          "old": "Bayesian Adaptive Policy Regularization (BAPR)",
+          "new": "Bayesian Amnesic Piecewise-Robust (BAPR)"
+        },
+        {
+          "old": "Causal-Symbolic Bayesian Adaptive Policy Regularization (CS-BAPR)",
+          "new": "Causal-Symbolic BAPR (CS-BAPR)"
+        }
+      ]
+    }
+  ],
+  "full_name_source": {
+    "file": "/home/erzhu419/mine_code/CS-BAPR/paper/paper.tex",
+    "line": 78,
+    "quote": "Starting from soft actor-critic (SAC) and its Bayesian Amnesic Piecewise-Robust (BAPR) predecessor, we study the causal-symbolic BAPR (CS-BAPR) family.",
+    "note": "Only p65 and p75 define the wrong expanded names; no full-name occurrence in direct-body tables. Replacement order must use the longer CS-BAPR string first to avoid substring replacement corrupting it."
+  }
+}

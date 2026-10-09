@@ -1,0 +1,32 @@
+{
+  "name": "thesis-bus-alignment-followup-v5",
+  "nodes": ["node001", "node002", "node003", "node004", "node005", "node006", "node007"],
+  "cs_seeds": [64001, 64002],
+  "cs_evaluation_seeds": [78101, 78102, 78103],
+  "cs_episodes": 100,
+  "cs_horizon_seconds": 18000,
+  "cs_objectives": ["headway", "passenger"],
+  "cs_scenes": {
+    "normal": [[0, 1.0]],
+    "pulse5": [[0, 1.0], [3600, 5.0], [5400, 1.0]],
+    "repeated5": [[0, 1.0], [3600, 5.0], [5400, 1.0], [9000, 5.0], [10800, 1.0], [14400, 5.0], [16200, 1.0]],
+    "static5": [[0, 5.0]],
+    "static10": [[0, 10.0]],
+    "burst50": [[0, 1.0], [3600, 50.0], [4200, 1.0]]
+  },
+  "cs_recipe_arms": ["pristine_mlp", "stabilized_mlp", "stabilized_nau"],
+  "cs_context_arms": ["context_symbolic", "context_control", "constant_symbolic", "constant_control"],
+  "cs_recipe_contract": "The original transit comparison is the stabilization package versus pristine BAPR, not NAU versus an already stabilized MLP. Reuse the completed stabilized endpoints. Train only pristine MLP with the original six settings disabled, original BC and zero actor weight decay. Both holding and dual actions, both rewards, identical seeds and 100-episode final endpoints. This is a recipe comparison, not a six-factor causal ablation.",
+  "cs_context_contract": "Keep the frozen v8 learner, sparse reference, holding-only Jacobian penalty, losses, temperature cap and replay settlement. Replace the constant equilibrium mean by a learnable context-dependent mean evaluated at projected headways. The neural residual is still zero at the projection; the complete action is not fixed. Train symbolic and non-symbolic dual arms for both rewards. Compare them with their completed constant-baseline parents on identical new test days.",
+  "cs_evaluation_contract": "New paired test seeds, full independent passenger accounting, native headway return and plan error reported separately. Static 5x/10x supplement the former short pulses; the 50x burst lasts 600s and is not a static 50x claim. Zero-holding speed1.0/1.2 diagnostics are separate from learned algorithms.",
+  "mc_seeds": [66001, 66002],
+  "mc_scenes": ["calibrated", "joint75"],
+  "mc_arms": ["h2oplus", "h2o_matched", "mcwm"],
+  "mc_variants": ["speed_prior", "clip10"],
+  "mc_source_events": 25000,
+  "mc_speed_prior_weight": 0.1,
+  "mc_gradient_clip_norm": 10.0,
+  "mc_contract": "Headway objective only. Reuse each existing 50000-update headway initializer and resident dual dataset, not a failed online checkpoint. speed_prior adds weight0.1 KL of the current pre-tanh speed Gaussian to the frozen offline initializer on the same actor states. clip10 keeps the original objective and caps actor/critic/value gradient norms at10. Apply each change equally to all three learners. Same 25000 source events, model settings, two seeds and both source scenes. Keep all fixed-budget endpoints; no selecting successful seeds.",
+  "mc_evaluation_contract": "Direct and common guarded SUMO execution are separate. Reuse resident Daganzo endpoints only after checking matching day, demand and horizon. The ten SUMO test cases were used previously, so these are exploratory repair comparisons rather than untouched validation.",
+  "preservation": "Only this directory is added. Existing Thesis campaigns and active CS-BAPR, RE-SAC, CFCMT, sumo-rl and MC-WM projects are not edited. Data and policies remain on servers; return compact summaries only."
+}

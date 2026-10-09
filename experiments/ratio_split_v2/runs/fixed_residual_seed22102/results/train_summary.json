@@ -1,0 +1,322 @@
+{
+  "arm": "fixed_residual",
+  "training_seed": 22102,
+  "source_days": [
+    {
+      "day": 0,
+      "seed": 24100,
+      "transitions": 13681,
+      "terminal_rows": 1,
+      "ratio_validation_rows": 0
+    },
+    {
+      "day": 1,
+      "seed": 24101,
+      "transitions": 13677,
+      "terminal_rows": 1,
+      "ratio_validation_rows": 13677
+    },
+    {
+      "day": 2,
+      "seed": 24102,
+      "transitions": 13679,
+      "terminal_rows": 1,
+      "ratio_validation_rows": 0
+    },
+    {
+      "day": 3,
+      "seed": 24103,
+      "transitions": 13679,
+      "terminal_rows": 1,
+      "ratio_validation_rows": 0
+    },
+    {
+      "day": 4,
+      "seed": 24104,
+      "transitions": 13681,
+      "terminal_rows": 1,
+      "ratio_validation_rows": 0
+    }
+  ],
+  "source_events": 68397,
+  "offline_rows_used": 1970815,
+  "policy_updates": 16144,
+  "extra_critic_updates": 1536,
+  "total_critic_updates": 17680,
+  "trust_updates": 1536,
+  "model": {
+    "selected_family": "residual",
+    "calibration": {
+      "residual": {
+        "rows": 1024,
+        "selection_loss": 1.448286771774292,
+        "head_losses": {
+          "global": 0.6025768518447876,
+          "local": 0.6985888481140137,
+          "count": 0.9235459566116333,
+          "line": 2.4118833541870117,
+          "station": 3.7277393341064453,
+          "neighbor": 0.3253856897354126
+        },
+        "duration_mae_s": 1.1256344318389893,
+        "cost_mae_passenger_s": 2060.399169921875,
+        "duration_log_rmse": 0.39821189641952515,
+        "cost_log_rmse": 0.6741935014724731,
+        "waiting_increment_mae_passengers": 1.3395814895629883,
+        "onboard_increment_mae_passengers": 1.41453218460083,
+        "count_accuracy": 0.6396484375,
+        "line_accuracy_on_true_active_slots": 0.1305774301290512,
+        "station_accuracy_on_true_active_slots": 0.02493438310921192,
+        "slot_identity_accuracy": 0.0006561679765582085,
+        "local_rmse_on_true_active_slots": 0.20803873240947723,
+        "neighbor_accuracy_on_true_active_slots": 0.8713910579681396,
+        "label_conditioning": "True active slots only index scoring; all predictions use current state and action only"
+      }
+    },
+    "source_split": {
+      "fit": {
+        "day": 0,
+        "rows": 4096
+      },
+      "stop": {
+        "day": 1,
+        "rows": 1024
+      }
+    },
+    "target_split": {
+      "fit": [
+        1201,
+        1202,
+        1203,
+        1204
+      ],
+      "stop": [
+        1205
+      ],
+      "calibrate": [
+        1206
+      ]
+    },
+    "training": {
+      "source_0": {
+        "selected_step": 400,
+        "stop_loss": 1.4657433032989502,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.4866020679473877
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.472860336303711
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.466755747795105
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.4657433032989502
+          }
+        ]
+      },
+      "residual_0": {
+        "selected_step": 200,
+        "stop_loss": 1.4433740377426147,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.4448966979980469
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.4433740377426147
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.4446907043457031
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.445145845413208
+          }
+        ]
+      },
+      "source_1": {
+        "selected_step": 400,
+        "stop_loss": 1.4639256000518799,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.4894828796386719
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.4744089841842651
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.468022108078003
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.4639256000518799
+          }
+        ]
+      },
+      "residual_1": {
+        "selected_step": 300,
+        "stop_loss": 1.4408245086669922,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.4423949718475342
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.4412784576416016
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.4408245086669922
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.4469423294067383
+          }
+        ]
+      },
+      "source_2": {
+        "selected_step": 400,
+        "stop_loss": 1.4666037559509277,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.486847162246704
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.4760222434997559
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.468170404434204
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.4666037559509277
+          }
+        ]
+      },
+      "residual_2": {
+        "selected_step": 300,
+        "stop_loss": 1.4428730010986328,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.4444055557250977
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.442960262298584
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.4428730010986328
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.4453667402267456
+          }
+        ]
+      }
+    },
+    "model_gradient_updates": 2400,
+    "parameters": {
+      "source": 1820844,
+      "direct": 0,
+      "residual": 3641688
+    },
+    "parameter_note": "Residual entries include the frozen source base; do not sum families."
+  },
+  "phases": {
+    "dataset_loading": {
+      "wall_seconds": 12.27875382360071,
+      "cpu_seconds": 12.273478178000001,
+      "calls": 1
+    },
+    "prefix_policy_updates": {
+      "wall_seconds": 217.13981947116554,
+      "cpu_seconds": 217.35315926500002,
+      "calls": 1
+    },
+    "source_collection": {
+      "wall_seconds": 458.1305649969727,
+      "cpu_seconds": 458.109336827,
+      "calls": 5
+    },
+    "source_model_fit": {
+      "wall_seconds": 9.23273217305541,
+      "cpu_seconds": 9.240654206999977,
+      "calls": 3
+    },
+    "residual_model_fit": {
+      "wall_seconds": 11.751832640729845,
+      "cpu_seconds": 11.758880121000004,
+      "calls": 3
+    },
+    "model_calibration": {
+      "wall_seconds": 0.03048460278660059,
+      "cpu_seconds": 0.030476992999979302,
+      "calls": 1
+    },
+    "model_loading_and_fit_errors": {
+      "wall_seconds": 0.2730051400139928,
+      "cpu_seconds": 0.2730093999999781,
+      "calls": 1
+    },
+    "adaptation_policy_updates": {
+      "wall_seconds": 252.10095008462667,
+      "cpu_seconds": 252.21270954199917,
+      "calls": 6144
+    },
+    "extra_critic_update": {
+      "wall_seconds": 46.77941437903792,
+      "cpu_seconds": 46.783651218997306,
+      "calls": 4608
+    },
+    "bellman_trust_update": {
+      "wall_seconds": 9.858281521126628,
+      "cpu_seconds": 9.872746359000985,
+      "calls": 1536
+    },
+    "model_generation": {
+      "wall_seconds": 22.313819869421422,
+      "cpu_seconds": 22.311477368996634,
+      "calls": 1536
+    },
+    "policy_export": {
+      "wall_seconds": 0.14508343674242496,
+      "cpu_seconds": 0.14512254800001756,
+      "calls": 1
+    },
+    "inference_actor_1000_batch1": {
+      "wall_seconds": 1.9978488218039274,
+      "cpu_seconds": 1.9980169089999436,
+      "calls": 1
+    },
+    "inference_model_100_batch128": {
+      "wall_seconds": 0.7742923833429813,
+      "cpu_seconds": 0.7742937269999857,
+      "calls": 1
+    }
+  },
+  "training_wall_seconds": 1043.8184747239575,
+  "peak_host_rss_mb": 8822.87109375,
+  "peak_gpu_allocated_mb": 162.90625,
+  "peak_gpu_reserved_mb": 208.0,
+  "hostname": "huiwei-Super-Server",
+  "gpu": "NVIDIA GeForce RTX 3080 Ti",
+  "torch_version": "2.5.1+cu121",
+  "actor_parameters": 383619
+}

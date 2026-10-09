@@ -1,0 +1,322 @@
+{
+  "arm": "fixed_residual",
+  "training_seed": 22101,
+  "source_days": [
+    {
+      "day": 0,
+      "seed": 24100,
+      "transitions": 13680,
+      "terminal_rows": 1,
+      "ratio_validation_rows": 0
+    },
+    {
+      "day": 1,
+      "seed": 24101,
+      "transitions": 13684,
+      "terminal_rows": 1,
+      "ratio_validation_rows": 13684
+    },
+    {
+      "day": 2,
+      "seed": 24102,
+      "transitions": 13679,
+      "terminal_rows": 1,
+      "ratio_validation_rows": 0
+    },
+    {
+      "day": 3,
+      "seed": 24103,
+      "transitions": 13679,
+      "terminal_rows": 1,
+      "ratio_validation_rows": 0
+    },
+    {
+      "day": 4,
+      "seed": 24104,
+      "transitions": 13682,
+      "terminal_rows": 1,
+      "ratio_validation_rows": 0
+    }
+  ],
+  "source_events": 68404,
+  "offline_rows_used": 1970815,
+  "policy_updates": 16144,
+  "extra_critic_updates": 1536,
+  "total_critic_updates": 17680,
+  "trust_updates": 1536,
+  "model": {
+    "selected_family": "residual",
+    "calibration": {
+      "residual": {
+        "rows": 1024,
+        "selection_loss": 1.4507968425750732,
+        "head_losses": {
+          "global": 0.6308388113975525,
+          "local": 0.6862270832061768,
+          "count": 0.9197397232055664,
+          "line": 2.413499355316162,
+          "station": 3.728546142578125,
+          "neighbor": 0.3259301781654358
+        },
+        "duration_mae_s": 1.1669890880584717,
+        "cost_mae_passenger_s": 2070.435546875,
+        "duration_log_rmse": 0.40626880526542664,
+        "cost_log_rmse": 0.6754302978515625,
+        "waiting_increment_mae_passengers": 1.3304970264434814,
+        "onboard_increment_mae_passengers": 1.385405421257019,
+        "count_accuracy": 0.6396484375,
+        "line_accuracy_on_true_active_slots": 0.13779526948928833,
+        "station_accuracy_on_true_active_slots": 0.030839893966913223,
+        "slot_identity_accuracy": 0.0032808398827910423,
+        "local_rmse_on_true_active_slots": 0.20791439712047577,
+        "neighbor_accuracy_on_true_active_slots": 0.8720472455024719,
+        "label_conditioning": "True active slots only index scoring; all predictions use current state and action only"
+      }
+    },
+    "source_split": {
+      "fit": {
+        "day": 0,
+        "rows": 4096
+      },
+      "stop": {
+        "day": 1,
+        "rows": 1024
+      }
+    },
+    "target_split": {
+      "fit": [
+        1201,
+        1202,
+        1203,
+        1204
+      ],
+      "stop": [
+        1205
+      ],
+      "calibrate": [
+        1206
+      ]
+    },
+    "training": {
+      "source_0": {
+        "selected_step": 300,
+        "stop_loss": 1.4911540746688843,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.5099961757659912
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.495100736618042
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.4911540746688843
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.4923248291015625
+          }
+        ]
+      },
+      "residual_0": {
+        "selected_step": 300,
+        "stop_loss": 1.4462084770202637,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.448028564453125
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.4465926885604858
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.4462084770202637
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.4493112564086914
+          }
+        ]
+      },
+      "source_1": {
+        "selected_step": 300,
+        "stop_loss": 1.4889776706695557,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.5080598592758179
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.4950120449066162
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.4889776706695557
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.4901450872421265
+          }
+        ]
+      },
+      "residual_1": {
+        "selected_step": 300,
+        "stop_loss": 1.444886565208435,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.4465950727462769
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.4451913833618164
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.444886565208435
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.4476733207702637
+          }
+        ]
+      },
+      "source_2": {
+        "selected_step": 400,
+        "stop_loss": 1.4896554946899414,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.5086063146591187
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.497603178024292
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.489961862564087
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.4896554946899414
+          }
+        ]
+      },
+      "residual_2": {
+        "selected_step": 300,
+        "stop_loss": 1.4440937042236328,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.448469877243042
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.4473302364349365
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.4440937042236328
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.4458236694335938
+          }
+        ]
+      }
+    },
+    "model_gradient_updates": 2400,
+    "parameters": {
+      "source": 1820844,
+      "direct": 0,
+      "residual": 3641688
+    },
+    "parameter_note": "Residual entries include the frozen source base; do not sum families."
+  },
+  "phases": {
+    "dataset_loading": {
+      "wall_seconds": 16.70591898402199,
+      "cpu_seconds": 16.313244322000003,
+      "calls": 1
+    },
+    "prefix_policy_updates": {
+      "wall_seconds": 269.3927770969458,
+      "cpu_seconds": 269.706848385,
+      "calls": 1
+    },
+    "source_collection": {
+      "wall_seconds": 692.325028530322,
+      "cpu_seconds": 692.7465599459999,
+      "calls": 5
+    },
+    "source_model_fit": {
+      "wall_seconds": 9.909201750997454,
+      "cpu_seconds": 9.924635155000033,
+      "calls": 3
+    },
+    "residual_model_fit": {
+      "wall_seconds": 11.202835623640567,
+      "cpu_seconds": 11.219263542000022,
+      "calls": 3
+    },
+    "model_calibration": {
+      "wall_seconds": 0.049827412236481905,
+      "cpu_seconds": 0.04989029799992295,
+      "calls": 1
+    },
+    "model_loading_and_fit_errors": {
+      "wall_seconds": 0.4198014419525862,
+      "cpu_seconds": 0.4194583190000003,
+      "calls": 1
+    },
+    "adaptation_policy_updates": {
+      "wall_seconds": 282.24871247448027,
+      "cpu_seconds": 282.65962331001174,
+      "calls": 6144
+    },
+    "extra_critic_update": {
+      "wall_seconds": 55.377225431613624,
+      "cpu_seconds": 55.436491115011904,
+      "calls": 4608
+    },
+    "bellman_trust_update": {
+      "wall_seconds": 11.789845129474998,
+      "cpu_seconds": 11.813602223004182,
+      "calls": 1536
+    },
+    "model_generation": {
+      "wall_seconds": 24.60533538693562,
+      "cpu_seconds": 24.623860459000525,
+      "calls": 1536
+    },
+    "policy_export": {
+      "wall_seconds": 0.16236535599455237,
+      "cpu_seconds": 0.15141975799997454,
+      "calls": 1
+    },
+    "inference_actor_1000_batch1": {
+      "wall_seconds": 1.8694382458925247,
+      "cpu_seconds": 1.8705510400000094,
+      "calls": 1
+    },
+    "inference_model_100_batch128": {
+      "wall_seconds": 0.7138624265789986,
+      "cpu_seconds": 0.7143555239999841,
+      "calls": 1
+    }
+  },
+  "training_wall_seconds": 1377.406232228037,
+  "peak_host_rss_mb": 5773.30078125,
+  "peak_gpu_allocated_mb": 162.90625,
+  "peak_gpu_reserved_mb": 206.0,
+  "hostname": "node007",
+  "gpu": "NVIDIA GeForce RTX 2080 Ti",
+  "torch_version": "2.5.1+cu121",
+  "actor_parameters": 383619
+}

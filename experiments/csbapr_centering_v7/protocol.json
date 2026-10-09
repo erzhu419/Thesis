@@ -1,0 +1,9 @@
+{
+  "name": "thesis-csbapr-centering-v7",
+  "training_seeds": [64001, 64002],
+  "modes": ["holding", "dual"],
+  "objectives": ["headway", "passenger"],
+  "arms": ["symbolic_no_center"],
+  "training_nodes": ["node001", "node002", "node003", "node004", "node005", "node006", "node007"],
+  "interpretation": "Remove only the equilibrium projection subtraction from the completed constant-symbolic CS-BAPR actor. Retain Gaussian/tanh architecture, learnable equilibrium offset, identical initial parameter tensors, SINDy feedback, normalized holding-only Jacobian penalty, critic, entropy cap, reward, replay settlement and 100 training days. Compare with constant_symbolic and constant_control endpoints on the v5 test days. This isolates centering; the existing constant_control comparison isolates symbolic regularization."
+}

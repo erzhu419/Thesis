@@ -1,0 +1,20 @@
+{
+  "name": "thesis-cs-input-training-v1",
+  "arms": ["source_clip", "source_log"],
+  "training_seeds": [64001, 64002],
+  "evaluation_days": [78101, 78102, 78103],
+  "episodes": 100,
+  "updates_per_episode": 400,
+  "horizon_seconds": 18000,
+  "buffer_size": 100000,
+  "reward_scale": 100000,
+  "source_training_cycle": ["normal", "static2", "normal", "static3", "pulse3", "normal", "static2", "repeated3", "normal", "static3"],
+  "scenes": {
+    "normal": [[0, 1]],
+    "static10": [[0, 10]],
+    "burst50": [[0, 1], [3600, 50], [4200, 1]]
+  },
+  "threshold_campaign": "cs_source_envelope_v1",
+  "reference_campaign": "cs_terminal_coverage_v1",
+  "nodes": ["node001", "node002", "node003", "node004", "node005", "node006", "node007", "jtl110gpu", "jtl110gpu2", "jtl311linux"]
+}

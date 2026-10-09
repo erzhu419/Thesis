@@ -1,0 +1,3 @@
+#!/bin/bash
+set -e
+/home/zhengliang01/scheduleurm_work/thesis-h2o-source-guard-20261006/proot -R /home/zhengliang01/scheduleurm_work/thesis-h2o-source-guard-20261006/guestroot -b /home -b /home/zhengliang01/scheduleurm_work/thesis-h2o-source-guard-20261006/env:/home/erzhu419/anaconda3/envs/LSTM-RL -w '/home/zhengliang01/scheduleurm_work/Thesis/workpapers/最终控制器同条件比较_20261006' /usr/bin/env LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libcurl.so.4 PATH=/home/erzhu419/anaconda3/envs/LSTM-RL/bin:/usr/bin:/bin OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/zhengliang01/scheduleurm_work/thesis-h2o-source-guard-20261006/workspace/H2Oplus /home/erzhu419/anaconda3/envs/LSTM-RL/bin/python "$@"

@@ -1,0 +1,23 @@
+# H_tpc_alpha: H_tpc with maximum_alpha caps removed.
+#
+# Diagnosis: in H_tpc, lower α was pinned at the cap (0.1) for all of
+# training and only dropped to 0.08 at ep 299 — auto_entropy was effectively
+# disabled, leaving high exploration noise throughout. Per-ckpt eval showed
+# wait drifting from 6.2 (ep 49) to 7.4 (ep 249) before partial recovery.
+# This config raises both caps to 1.0 to let auto_entropy decay α naturally.
+_extends: ../config_v2.yaml
+_name: H_tpc_alpha
+
+upper:
+  maximum_alpha: 1.0           # was 0.05 — let auto_entropy work
+
+lower:
+  maximum_alpha: 1.0           # was 0.1 — let auto_entropy work
+
+coupling:
+  tpc:
+    enable: true
+    eps_explore: 0.25
+    sigma_tgt: 20.0
+    w_max: 5.0
+    ema_tau: 0.005

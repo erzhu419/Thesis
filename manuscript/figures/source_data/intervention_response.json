@@ -1,0 +1,2963 @@
+{
+  "design": {
+    "bootstrap_samples": 10000,
+    "demand_scales": [
+      0.75,
+      1.0,
+      1.25
+    ],
+    "episode_seconds": 24000.0,
+    "estimand": "cross-simulator gap in each policy-minus-zero response; normalization uses the SUMO zero-policy mean",
+    "policies": [
+      {
+        "policy": "zero",
+        "policy_name": "zero"
+      },
+      {
+        "policy": "random-hurdle",
+        "policy_name": "random-hurdle-p0.5-beta1-3",
+        "random_beta_alpha": 1.0,
+        "random_beta_beta": 3.0,
+        "random_zero_probability": 0.5
+      },
+      {
+        "policy": "random-hurdle",
+        "policy_name": "random-hurdle-p0.5-uniform",
+        "random_beta_alpha": 1.0,
+        "random_beta_beta": 1.0,
+        "random_zero_probability": 0.5
+      },
+      {
+        "headway_gain": 0.05,
+        "policy": "headway-balance",
+        "policy_name": "headway-gain-0.05"
+      },
+      {
+        "headway_gain": 0.1,
+        "policy": "headway-balance",
+        "policy_name": "headway-gain-0.1"
+      },
+      {
+        "headway_gain": 0.25,
+        "policy": "headway-balance",
+        "policy_name": "headway-gain-0.25"
+      },
+      {
+        "headway_gain": 0.5,
+        "policy": "headway-balance",
+        "policy_name": "headway-gain-0.5"
+      },
+      {
+        "policy": "myopic-welfare",
+        "policy_name": "myopic-welfare-v2"
+      }
+    ],
+    "simulator_seeds": [
+      9921,
+      9922,
+      9923,
+      9924,
+      9925,
+      9926,
+      9927,
+      9928,
+      9929,
+      9930
+    ],
+    "thresholds": {
+      "completion_rate_response_absolute_gap": 0.03,
+      "control_decision_response_normalized_gap": 0.05,
+      "exact_zero_rate_absolute_gap": 0.1,
+      "generalized_welfare_response_normalized_gap": 0.1,
+      "in_vehicle_time_response_normalized_gap": 0.1,
+      "mean_hold_seconds_relative_gap": 0.35,
+      "trip_duration_response_normalized_gap": 0.05,
+      "wait_time_response_normalized_gap": 0.1
+    }
+  },
+  "comparisons": {
+    "0.75": {
+      "headway-gain-0.05": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.00038815550332218753,
+              0.00014173264680029192
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": -0.00012323755574304983,
+            "point_passed": true,
+            "response_gap": -0.00012323755574304983,
+            "simulator_response_mean": 8.325680405985026e-07,
+            "simulator_zero_mean": 0.9876649839145889,
+            "sumo_response_mean": 0.00012407012378364834,
+            "sumo_zero_mean": 0.9871438645763329,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -7.306843589706119e-05,
+              0.0003872627102544243
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.00013152318461471014,
+            "point_passed": true,
+            "response_gap": 1.8,
+            "simulator_response_mean": 1.8,
+            "simulator_zero_mean": 13677.1,
+            "sumo_response_mean": 0.0,
+            "sumo_zero_mean": 13685.8,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": -0.009714360535671762,
+            "gap_bootstrap_95_ci": [
+              -0.013405621368771329,
+              -0.005705612787335793
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": -0.009714360535671762,
+            "point_passed": true,
+            "simulator_policy_mean": 0.8456246630928479,
+            "sumo_policy_mean": 0.8553390236285197,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.001059433378573671,
+              0.006137706090850762
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0025046376973712216,
+            "point_passed": true,
+            "response_gap": 4.823639797822762,
+            "simulator_response_mean": 3.569735199111983,
+            "simulator_zero_mean": 1942.3083689803684,
+            "sumo_response_mean": -1.2539045987107784,
+            "sumo_zero_mean": 1925.8832536480154,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.003479043287845888,
+              0.002427133235345086
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": -0.0003718679934169475,
+            "point_passed": true,
+            "response_gap": -0.3848206986559831,
+            "simulator_response_mean": 0.6470851087706592,
+            "simulator_zero_mean": 1020.4864975418061,
+            "sumo_response_mean": 1.0319058074266423,
+            "sumo_zero_mean": 1034.8314602717442,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": 0.028861992153972726,
+            "gap_bootstrap_95_ci": [
+              0.07632270111473702,
+              0.2078175979402165
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": 0.13965444148004416,
+            "point_passed": true,
+            "simulator_policy_mean": 0.23552919047646176,
+            "sumo_policy_mean": 0.20666719832248903,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -0.0014382224758032395,
+              0.0017225459828154022
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.00019822559714704279,
+            "point_passed": true,
+            "response_gap": 0.5028277634962253,
+            "simulator_response_mean": 4.826992287917801,
+            "simulator_zero_mean": 2503.270951156812,
+            "sumo_response_mean": 4.324164524421576,
+            "sumo_zero_mean": 2536.6439588688945,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.001208261689652536,
+              0.012944421951997735
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.005845294892167116,
+            "point_passed": true,
+            "response_gap": 2.6042302482393325,
+            "simulator_response_mean": 1.4613250451706676,
+            "simulator_zero_mean": 460.91093571928116,
+            "sumo_response_mean": -1.1429052030686648,
+            "sumo_zero_mean": 445.52589668813545,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "headway-gain-0.1": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.00028411247650273364,
+              0.000124342265902399
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": -7.124906190065783e-05,
+            "point_passed": true,
+            "response_gap": -7.124906190065783e-05,
+            "simulator_response_mean": -7.960646949299877e-05,
+            "simulator_zero_mean": 0.9876649839145889,
+            "sumo_response_mean": -8.357407592340938e-06,
+            "sumo_zero_mean": 0.9871438645763329,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -0.00016805740256324074,
+              0.00032880796153677536
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 6.576159230735507e-05,
+            "point_passed": true,
+            "response_gap": 0.8999999999999999,
+            "simulator_response_mean": 2.3,
+            "simulator_zero_mean": 13677.1,
+            "sumo_response_mean": 1.4,
+            "sumo_zero_mean": 13685.8,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": -0.0035203461701905914,
+            "gap_bootstrap_95_ci": [
+              -0.007632719024995763,
+              0.0005486443745468663
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": -0.0035203461701905914,
+            "point_passed": true,
+            "simulator_policy_mean": 0.8477860078605683,
+            "sumo_policy_mean": 0.8513063540307589,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              7.859838467010192e-05,
+              0.006484846987864498
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.003267008741864808,
+            "point_passed": true,
+            "response_gap": 6.291877425479106,
+            "simulator_response_mean": 4.32510992391708,
+            "simulator_zero_mean": 1942.3083689803684,
+            "sumo_response_mean": -1.966767501562026,
+            "sumo_zero_mean": 1925.8832536480154,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.001909623367675512,
+              0.0038491301662118907
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0007601376403808523,
+            "point_passed": true,
+            "response_gap": 0.7866143444028353,
+            "simulator_response_mean": 2.1413832991450477,
+            "simulator_zero_mean": 1020.4864975418061,
+            "sumo_response_mean": 1.3547689547422124,
+            "sumo_zero_mean": 1034.8314602717442,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": 0.0408399933852987,
+            "gap_bootstrap_95_ci": [
+              0.05367769252760113,
+              0.19034346248153294
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": 0.12113096888069824,
+            "point_passed": true,
+            "simulator_policy_mean": 0.37799566680785646,
+            "sumo_policy_mean": 0.33715567342255776,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -0.0007393024303410217,
+              0.0027045354239580723
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0008630312808302843,
+            "point_passed": true,
+            "response_gap": 2.189203084833025,
+            "simulator_response_mean": 9.167866323907537,
+            "simulator_zero_mean": 2503.270951156812,
+            "sumo_response_mean": 6.978663239074512,
+            "sumo_zero_mean": 2536.6439588688945,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.00019410518253422366,
+              0.012660317982764097
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.006178387296900373,
+            "point_passed": true,
+            "response_gap": 2.752631540538124,
+            "simulator_response_mean": 1.0918633123860162,
+            "simulator_zero_mean": 460.91093571928116,
+            "sumo_response_mean": -1.660768228152108,
+            "sumo_zero_mean": 445.52589668813545,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "headway-gain-0.25": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.00025511775780071244,
+              0.0002749316418699968
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": 1.746864314532415e-05,
+            "point_passed": true,
+            "response_gap": 1.746864314532415e-05,
+            "simulator_response_mean": 0.00010578332418413883,
+            "simulator_zero_mean": 0.9876649839145889,
+            "sumo_response_mean": 8.831468103881468e-05,
+            "sumo_zero_mean": 0.9871438645763329,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -0.0002703532128191264,
+              0.00046033114615148547
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.00012421634102500402,
+            "point_passed": true,
+            "response_gap": 1.7,
+            "simulator_response_mean": 2.0,
+            "simulator_zero_mean": 13677.1,
+            "sumo_response_mean": 0.3,
+            "sumo_zero_mean": 13685.8,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": -0.004672376022406888,
+            "gap_bootstrap_95_ci": [
+              -0.008581281236098528,
+              -0.001103708945296656
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": -0.004672376022406888,
+            "point_passed": true,
+            "simulator_policy_mean": 0.8503118613002785,
+            "sumo_policy_mean": 0.8549842373226854,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0016895283401646547,
+              0.005522425289542066
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0018710567951761411,
+            "point_passed": true,
+            "response_gap": 3.603436948454055,
+            "simulator_response_mean": 1.5830026900195435,
+            "simulator_zero_mean": 1942.3083689803684,
+            "sumo_response_mean": -2.0204342584345114,
+            "sumo_zero_mean": 1925.8832536480154,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0009573487369038068,
+              0.004158614918479565
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0015643953708739163,
+            "point_passed": true,
+            "response_gap": 1.6188855460838116,
+            "simulator_response_mean": 4.872978199451518,
+            "simulator_zero_mean": 1020.4864975418061,
+            "sumo_response_mean": 3.2540926533677066,
+            "sumo_zero_mean": 1034.8314602717442,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": 0.040841405842084066,
+            "gap_bootstrap_95_ci": [
+              0.016357850612147732,
+              0.1255087247239112
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": 0.0685801993195282,
+            "point_passed": true,
+            "simulator_policy_mean": 0.6363690690353067,
+            "sumo_policy_mean": 0.5955276631932226,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              0.00023516234281172182,
+              0.00284771946821631
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0015502336194058765,
+            "point_passed": true,
+            "response_gap": 3.932390745501378,
+            "simulator_response_mean": 17.93084832904892,
+            "simulator_zero_mean": 2503.270951156812,
+            "sumo_response_mean": 13.998457583547543,
+            "sumo_zero_mean": 2536.6439588688945,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.004582152959624574,
+              0.009403960978645313
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.00222720095186678,
+            "point_passed": true,
+            "response_gap": 0.992275701185116,
+            "simulator_response_mean": -1.6449877547159644,
+            "simulator_zero_mean": 460.91093571928116,
+            "sumo_response_mean": -2.6372634559010804,
+            "sumo_zero_mean": 445.52589668813545,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "headway-gain-0.5": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.00023869628003009765,
+              0.00031907261215122717
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": 4.4944004800762105e-05,
+            "point_passed": true,
+            "response_gap": 4.4944004800762105e-05,
+            "simulator_response_mean": 0.00018662687062012128,
+            "simulator_zero_mean": 0.9876649839145889,
+            "sumo_response_mean": 0.00014168286581935918,
+            "sumo_zero_mean": 0.9871438645763329,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -8.768212307647343e-05,
+              0.000555320112817665
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0002045916205117713,
+            "point_passed": true,
+            "response_gap": 2.8,
+            "simulator_response_mean": 3.0,
+            "simulator_zero_mean": 13677.1,
+            "sumo_response_mean": 0.2,
+            "sumo_zero_mean": 13685.8,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": -0.006140750299707065,
+            "gap_bootstrap_95_ci": [
+              -0.008961531511980897,
+              -0.0033210844493359723
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": -0.006140750299707065,
+            "point_passed": true,
+            "simulator_policy_mean": 0.857369440332786,
+            "sumo_policy_mean": 0.863510190632493,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.000781031724723701,
+              0.00832508370610887
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0039026326486019175,
+            "point_passed": true,
+            "response_gap": 7.516014863082432,
+            "simulator_response_mean": 4.612564406326396,
+            "simulator_zero_mean": 1942.3083689803684,
+            "sumo_response_mean": -2.903450456756036,
+            "sumo_zero_mean": 1925.8832536480154,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0032980699033117464,
+              0.004842025333996719
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0009327753288704996,
+            "point_passed": true,
+            "response_gap": 0.9652652556805155,
+            "simulator_response_mean": 8.770185110162675,
+            "simulator_zero_mean": 1020.4864975418061,
+            "sumo_response_mean": 7.80491985448216,
+            "sumo_zero_mean": 1034.8314602717442,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": -0.012028034206335803,
+            "gap_bootstrap_95_ci": [
+              -0.04439975682396129,
+              0.017962599582039072
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": -0.013762798145862822,
+            "point_passed": true,
+            "simulator_policy_mean": 0.8619246372532468,
+            "sumo_policy_mean": 0.8739526714595826,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -0.0014697298061472526,
+              0.003326222479857033
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0009934588593211986,
+            "point_passed": true,
+            "response_gap": 2.5200514138819017,
+            "simulator_response_mean": 27.85938303341918,
+            "simulator_zero_mean": 2503.270951156812,
+            "sumo_response_mean": 25.33933161953728,
+            "sumo_zero_mean": 2536.6439588688945,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              0.00047286920259757847,
+              0.014713333057440398
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.007351704643992222,
+            "point_passed": true,
+            "response_gap": 3.2753748037009642,
+            "simulator_response_mean": -2.0788103519181163,
+            "simulator_zero_mean": 460.91093571928116,
+            "sumo_response_mean": -5.3541851556190805,
+            "sumo_zero_mean": 445.52589668813545,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "myopic-welfare-v2": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.000369832113311373,
+              0.0002827455334252715
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": -4.313002993355797e-05,
+            "point_passed": true,
+            "response_gap": -4.313002993355797e-05,
+            "simulator_response_mean": 2.7740171963230865e-05,
+            "simulator_zero_mean": 0.9876649839145889,
+            "sumo_response_mean": 7.087020189678883e-05,
+            "sumo_zero_mean": 0.9871438645763329,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -0.00028496689999853864,
+              0.0003434216487161876
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 1.4613687179412235e-05,
+            "point_passed": true,
+            "response_gap": 0.19999999999999996,
+            "simulator_response_mean": 1.0,
+            "simulator_zero_mean": 13677.1,
+            "sumo_response_mean": 0.8,
+            "sumo_zero_mean": 13685.8,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": -0.0030709288144578073,
+            "gap_bootstrap_95_ci": [
+              -0.003911948435511731,
+              -0.0023188627421074776
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": -0.0030709288144578073,
+            "point_passed": true,
+            "simulator_policy_mean": 0.9846031219964863,
+            "sumo_policy_mean": 0.9876740508109441,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0024173042024568,
+              0.006166608752115787
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.001837039399150519,
+            "point_passed": true,
+            "response_gap": 3.5379234151155967,
+            "simulator_response_mean": 0.0029345834080231727,
+            "simulator_zero_mean": 1942.3083689803684,
+            "sumo_response_mean": -3.5349888317075737,
+            "sumo_zero_mean": 1925.8832536480154,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0035381324896971763,
+              0.0010095381505792773
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": -0.001505989192493683,
+            "point_passed": true,
+            "response_gap": -1.5584449952217028,
+            "simulator_response_mean": -1.5235315341570868,
+            "simulator_zero_mean": 1020.4864975418061,
+            "sumo_response_mean": 0.034913461064616055,
+            "sumo_zero_mean": 1034.8314602717442,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": 0.013205631582525301,
+            "gap_bootstrap_95_ci": [
+              -0.03688954240451522,
+              0.19066764864056318
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": 0.07731130736344237,
+            "point_passed": true,
+            "simulator_policy_mean": 0.18401675912490795,
+            "sumo_policy_mean": 0.17081112754238265,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -0.003141622358955532,
+              -8.551772502673108e-05
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": -0.001704780672396179,
+            "point_passed": true,
+            "response_gap": -4.32442159383022,
+            "simulator_response_mean": 2.8673521850900214,
+            "simulator_zero_mean": 2503.270951156812,
+            "sumo_response_mean": 7.191773778920242,
+            "sumo_zero_mean": 2536.6439588688945,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0031878402256027482,
+              0.01522141663179528
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.005719497394227424,
+            "point_passed": true,
+            "response_gap": 2.548184205168627,
+            "simulator_response_mean": 0.7632330587825663,
+            "simulator_zero_mean": 460.91093571928116,
+            "sumo_response_mean": -1.7849511463860608,
+            "sumo_zero_mean": 445.52589668813545,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "random-hurdle-p0.5-beta1-3": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.0013830731356817255,
+              -0.0006188940443225881
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": -0.0009982597634343058,
+            "point_passed": true,
+            "response_gap": -0.0009982597634343058,
+            "simulator_response_mean": 0.0003637488276779455,
+            "simulator_zero_mean": 0.9876649839145889,
+            "sumo_response_mean": 0.0013620085911122514,
+            "sumo_zero_mean": 0.9871438645763329,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -0.00033611480512648153,
+              0.0003436043198059276
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 7.306843589706125e-06,
+            "point_passed": true,
+            "response_gap": 0.10000000000000009,
+            "simulator_response_mean": -1.2,
+            "simulator_zero_mean": 13677.1,
+            "sumo_response_mean": -1.3,
+            "sumo_zero_mean": 13685.8,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": 0.0037852430488297117,
+            "gap_bootstrap_95_ci": [
+              0.0005387854313734896,
+              0.007026750429553322
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": 0.0037852430488297117,
+            "point_passed": true,
+            "simulator_policy_mean": 0.5015162692420831,
+            "sumo_policy_mean": 0.49773102619325343,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              0.0026311042384085576,
+              0.011697284524531587
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.007251889208712646,
+            "point_passed": true,
+            "response_gap": 13.966291984370443,
+            "simulator_response_mean": 91.90271000253446,
+            "simulator_zero_mean": 1942.3083689803684,
+            "sumo_response_mean": 77.93641801816402,
+            "sumo_zero_mean": 1925.8832536480154,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0017223545229229625,
+              0.005085859716599189
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0016282520443621198,
+            "point_passed": true,
+            "response_gap": 1.6849664407577052,
+            "simulator_response_mean": 98.80296823867181,
+            "simulator_zero_mean": 1020.4864975418061,
+            "sumo_response_mean": 97.1180017979141,
+            "sumo_zero_mean": 1034.8314602717442,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": -0.06984553872995303,
+            "gap_bootstrap_95_ci": [
+              -0.017577747421553845,
+              -0.0011343726017249728
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": -0.009257732876179743,
+            "point_passed": true,
+            "simulator_policy_mean": 7.474716360400495,
+            "sumo_policy_mean": 7.544561899130448,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -0.007087689997866673,
+              -0.003382604285057674
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": -0.005268889070179002,
+            "point_passed": true,
+            "response_gap": -13.365295629819911,
+            "simulator_response_mean": 250.38483290488443,
+            "simulator_zero_mean": 2503.270951156812,
+            "sumo_response_mean": 263.75012853470434,
+            "sumo_zero_mean": 2536.6439588688945,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              0.005201121640841896,
+              0.022151145605252373
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.013782953622794199,
+            "point_passed": true,
+            "response_gap": 6.140662771806371,
+            "simulator_response_mean": -3.4501291180686793,
+            "simulator_zero_mean": 460.91093571928116,
+            "sumo_response_mean": -9.59079188987505,
+            "sumo_zero_mean": 445.52589668813545,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "random-hurdle-p0.5-uniform": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.0011724002128101546,
+              -0.0003008452080760907
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": -0.0007323123974298017,
+            "point_passed": true,
+            "response_gap": -0.0007323123974298017,
+            "simulator_response_mean": 0.0012213616259273863,
+            "simulator_zero_mean": 0.9876649839145889,
+            "sumo_response_mean": 0.001953674023357188,
+            "sumo_zero_mean": 0.9871438645763329,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -0.00011690949743529791,
+              0.00047494483333089776
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.00017536424615294686,
+            "point_passed": true,
+            "response_gap": 2.4,
+            "simulator_response_mean": 0.3,
+            "simulator_zero_mean": 13677.1,
+            "sumo_response_mean": -2.1,
+            "sumo_zero_mean": 13685.8,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": -0.0011590118465170107,
+            "gap_bootstrap_95_ci": [
+              -0.0038959854390751116,
+              0.0014725731344565965
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": -0.0011590118465170107,
+            "point_passed": true,
+            "simulator_policy_mean": 0.4996561766887332,
+            "sumo_policy_mean": 0.5008151885352502,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.002904158950030194,
+              0.007589999677850313
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.002842501301585468,
+            "point_passed": true,
+            "response_gap": 5.4743256551961395,
+            "simulator_response_mean": 183.41936850714663,
+            "simulator_zero_mean": 1942.3083689803684,
+            "sumo_response_mean": 177.9450428519505,
+            "sumo_zero_mean": 1925.8832536480154,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0013893100392434374,
+              0.005651708474212038
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0022592345456184126,
+            "point_passed": true,
+            "response_gap": 2.3379269839386723,
+            "simulator_response_mean": 204.90658972392356,
+            "simulator_zero_mean": 1020.4864975418061,
+            "sumo_response_mean": 202.5686627399849,
+            "sumo_zero_mean": 1034.8314602717442,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": 0.04113691158823407,
+            "gap_bootstrap_95_ci": [
+              -0.006019184351644917,
+              0.011064331317251963
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": 0.0027526435588339643,
+            "point_passed": true,
+            "simulator_policy_mean": 14.98564778231641,
+            "sumo_policy_mean": 14.944510870728175,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -0.009014240624187691,
+              -0.003774482406718147
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": -0.006339672127160221,
+            "point_passed": true,
+            "response_gap": -16.081491002570488,
+            "simulator_response_mean": 516.2655526992288,
+            "simulator_zero_mean": 2503.270951156812,
+            "sumo_response_mean": 532.3470437017993,
+            "sumo_zero_mean": 2536.6439588688945,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.007554909984741557,
+              0.013481911011806841
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.003519883686416566,
+            "point_passed": true,
+            "response_gap": 1.5681993356286803,
+            "simulator_response_mean": -10.743610608388462,
+            "simulator_zero_mean": 460.91093571928116,
+            "sumo_response_mean": -12.311809944017142,
+            "sumo_zero_mean": 445.52589668813545,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      }
+    },
+    "1": {
+      "headway-gain-0.05": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.0006897009085483297,
+              0.0005570661184428394
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": -8.621261356854816e-05,
+            "point_passed": true,
+            "response_gap": -8.621261356854816e-05,
+            "simulator_response_mean": 0.0001458982691159738,
+            "simulator_zero_mean": 0.9661516015650905,
+            "sumo_response_mean": 0.00023211088268452196,
+            "sumo_zero_mean": 0.9672591020624708,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -6.575918984678108e-05,
+              0.00016805126294177388
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 5.11460365474964e-05,
+            "point_passed": true,
+            "response_gap": 0.7,
+            "simulator_response_mean": 1.0,
+            "simulator_zero_mean": 13678.3,
+            "sumo_response_mean": 0.3,
+            "sumo_zero_mean": 13686.3,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": -0.005421427025530723,
+            "gap_bootstrap_95_ci": [
+              -0.009984613599338688,
+              -0.0008226164859257075
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": -0.005421427025530723,
+            "point_passed": true,
+            "simulator_policy_mean": 0.848896028091118,
+            "sumo_policy_mean": 0.8543174551166487,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0027800073843040956,
+              0.00703112935062493
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.00239139084142031,
+            "point_passed": true,
+            "response_gap": 5.692711718283817,
+            "simulator_response_mean": 0.4230983486968398,
+            "simulator_zero_mean": 2388.227873201141,
+            "sumo_response_mean": -5.269613369586978,
+            "sumo_zero_mean": 2380.5024338483986,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              8.816122902277406e-05,
+              0.003802222537576368
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0019517593742824925,
+            "point_passed": true,
+            "response_gap": 2.0341667219311717,
+            "simulator_response_mean": 2.142801246767033,
+            "simulator_zero_mean": 1004.562802573115,
+            "sumo_response_mean": 0.10863452483586115,
+            "sumo_zero_mean": 1042.2220836925524,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": 0.0024041253839890697,
+            "gap_bootstrap_95_ci": [
+              -0.05717865860847562,
+              0.07850994638918704
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": 0.011317838120782001,
+            "point_passed": true,
+            "simulator_policy_mean": 0.21482326041071959,
+            "sumo_policy_mean": 0.21241913502673052,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -0.0009397158296037821,
+              0.0012304925163013993
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0001353488803143919,
+            "point_passed": true,
+            "response_gap": 0.3465295629821412,
+            "simulator_response_mean": 3.706940874036127,
+            "simulator_zero_mean": 2527.514652956298,
+            "sumo_response_mean": 3.3604113110539857,
+            "sumo_zero_mean": 2560.269151670951,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.00645411351141792,
+              0.011161979337747322
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.002733765758367834,
+            "point_passed": true,
+            "response_gap": 1.8292724981762831,
+            "simulator_response_mean": -0.8598514490350795,
+            "simulator_zero_mean": 691.832535314013,
+            "sumo_response_mean": -2.6891239472113626,
+            "sumo_zero_mean": 669.140175077923,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "headway-gain-0.1": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.000179056966642355,
+              0.0008488626566747986
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": 0.0003315869752635981,
+            "point_passed": true,
+            "response_gap": 0.0003315869752635981,
+            "simulator_response_mean": 0.0006631739505272183,
+            "simulator_zero_mean": 0.9661516015650905,
+            "sumo_response_mean": 0.0003315869752636202,
+            "sumo_zero_mean": 0.9672591020624708,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -8.767891979570813e-05,
+              0.000233810452788555
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 6.575918984678108e-05,
+            "point_passed": true,
+            "response_gap": 0.8999999999999999,
+            "simulator_response_mean": 1.7,
+            "simulator_zero_mean": 13678.3,
+            "sumo_response_mean": 0.8,
+            "sumo_zero_mean": 13686.3,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": -0.005740893300146155,
+            "gap_bootstrap_95_ci": [
+              -0.008806880257241861,
+              -0.0024343665488993573
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": -0.005740893300146155,
+            "point_passed": true,
+            "simulator_policy_mean": 0.8486621316981202,
+            "sumo_policy_mean": 0.8544030249982664,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.005241296354342155,
+              0.002077728130895359
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": -0.0014895726958282908,
+            "point_passed": true,
+            "response_gap": -3.5459314278133665,
+            "simulator_response_mean": -9.730884010876071,
+            "simulator_zero_mean": 2388.227873201141,
+            "sumo_response_mean": -6.184952583062705,
+            "sumo_zero_mean": 2380.5024338483986,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              0.0022095624666717876,
+              0.00636629796070764
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0043829575210897476,
+            "point_passed": true,
+            "response_gap": 4.568015120366101,
+            "simulator_response_mean": 5.1399164400822315,
+            "simulator_zero_mean": 1004.562802573115,
+            "sumo_response_mean": 0.5719013197161302,
+            "sumo_zero_mean": 1042.2220836925524,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": 0.011391869048556102,
+            "gap_bootstrap_95_ci": [
+              -0.014476031646092966,
+              0.07989022673470667
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": 0.03240516950868091,
+            "point_passed": true,
+            "simulator_policy_mean": 0.3629366756728317,
+            "sumo_policy_mean": 0.3515448066242756,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              0.0008016434044983044,
+              0.0031115281802293277
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0019263117721295578,
+            "point_passed": true,
+            "response_gap": 4.931876606683909,
+            "simulator_response_mean": 9.955526992288014,
+            "simulator_zero_mean": 2527.514652956298,
+            "sumo_response_mean": 5.023650385604105,
+            "sumo_zero_mean": 2560.269151670951,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.013589208840344135,
+              0.0009136548317161038
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": -0.006062964719787393,
+            "point_passed": true,
+            "response_gap": -4.056973274089807,
+            "simulator_response_mean": -7.435400225479134,
+            "simulator_zero_mean": 691.832535314013,
+            "sumo_response_mean": -3.3784269513893266,
+            "sumo_zero_mean": 669.140175077923,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "headway-gain-0.25": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.0007891770011273838,
+              0.0007095961270641163
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": -7.294913455800915e-05,
+            "point_passed": true,
+            "response_gap": -7.294913455800915e-05,
+            "simulator_response_mean": 0.0008820213542012123,
+            "simulator_zero_mean": 0.9661516015650905,
+            "sumo_response_mean": 0.0009549704887592214,
+            "sumo_zero_mean": 0.9672591020624708,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -4.383945989785406e-05,
+              0.00019727756954034326
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 8.037234314606577e-05,
+            "point_passed": true,
+            "response_gap": 1.0999999999999999,
+            "simulator_response_mean": 1.4,
+            "simulator_zero_mean": 13678.3,
+            "sumo_response_mean": 0.3,
+            "sumo_zero_mean": 13686.3,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": -0.003755037751863699,
+            "gap_bootstrap_95_ci": [
+              -0.00597770713227167,
+              -0.001461594425603605
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": -0.003755037751863699,
+            "point_passed": true,
+            "simulator_policy_mean": 0.8555744181754912,
+            "sumo_policy_mean": 0.8593294559273549,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.003912558151074815,
+              0.008317729724739832
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0023150444287647356,
+            "point_passed": true,
+            "response_gap": 5.510968897141629,
+            "simulator_response_mean": -10.32973671994173,
+            "simulator_zero_mean": 2388.227873201141,
+            "sumo_response_mean": -15.840705617083358,
+            "sumo_zero_mean": 2380.5024338483986,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              0.0017858360931907768,
+              0.007005959810753927
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.004363550135842778,
+            "point_passed": true,
+            "response_gap": 4.54778831487498,
+            "simulator_response_mean": 8.199927050865437,
+            "simulator_zero_mean": 1004.562802573115,
+            "sumo_response_mean": 3.6521387359904565,
+            "sumo_zero_mean": 1042.2220836925524,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": -0.017206498145482807,
+            "gap_bootstrap_95_ci": [
+              -0.07896601663705342,
+              0.01843382666192683
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": -0.0277215592295585,
+            "point_passed": true,
+            "simulator_policy_mean": 0.6034836298158671,
+            "sumo_policy_mean": 0.6206901279613499,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              0.00014065791002253392,
+              0.003246036150400799
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0017918665564463983,
+            "point_passed": true,
+            "response_gap": 4.587660668380568,
+            "simulator_response_mean": 18.871465295629925,
+            "simulator_zero_mean": 2527.514652956298,
+            "sumo_response_mean": 14.283804627249356,
+            "sumo_zero_mean": 2560.269151670951,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.011855416104676794,
+              0.012722656006913484
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0007197151046524274,
+            "point_passed": true,
+            "response_gap": 0.48159029113335095,
+            "simulator_response_mean": -9.264831885403556,
+            "simulator_zero_mean": 691.832535314013,
+            "sumo_response_mean": -9.746422176536907,
+            "sumo_zero_mean": 669.140175077923,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "headway-gain-0.5": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.0006366469925061513,
+              0.00017905696664232123
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": -0.0002652695802109029,
+            "point_passed": true,
+            "response_gap": -0.0002652695802109029,
+            "simulator_response_mean": 0.0008820213542012012,
+            "simulator_zero_mean": 0.9661516015650905,
+            "sumo_response_mean": 0.0011472909344121041,
+            "sumo_zero_mean": 0.9672591020624708,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -7.306576649642344e-05,
+              0.00016074468629213157
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 4.3839459897854064e-05,
+            "point_passed": true,
+            "response_gap": 0.6000000000000001,
+            "simulator_response_mean": 1.3,
+            "simulator_zero_mean": 13678.3,
+            "sumo_response_mean": 0.7,
+            "sumo_zero_mean": 13686.3,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": -0.005481616104953901,
+            "gap_bootstrap_95_ci": [
+              -0.008703360866716118,
+              -0.0023586941337169435
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": -0.005481616104953901,
+            "point_passed": true,
+            "simulator_policy_mean": 0.8611875095184498,
+            "sumo_policy_mean": 0.8666691256234037,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0019666646461773954,
+              0.004857763443416494
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0014344572998066134,
+            "point_passed": true,
+            "response_gap": 3.4147290934412453,
+            "simulator_response_mean": -12.909085483122226,
+            "simulator_zero_mean": 2388.227873201141,
+            "sumo_response_mean": -16.32381457656347,
+            "sumo_zero_mean": 2380.5024338483986,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              0.0007846464713798519,
+              0.004477017640766069
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.00251904678966605,
+            "point_passed": true,
+            "response_gap": 2.6254061940447855,
+            "simulator_response_mean": 9.906658266463296,
+            "simulator_zero_mean": 1004.562802573115,
+            "sumo_response_mean": 7.281252072418511,
+            "sumo_zero_mean": 1042.2220836925524,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": 0.006841249444201836,
+            "gap_bootstrap_95_ci": [
+              -0.039575561221454975,
+              0.05327589064949694
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": 0.007833584866687452,
+            "point_passed": true,
+            "simulator_policy_mean": 0.8801641993613526,
+            "sumo_policy_mean": 0.8733229499171508,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -0.0013144404503583002,
+              0.0016808312750697845
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.00016587266341195936,
+            "point_passed": true,
+            "response_gap": 0.4246786632391384,
+            "simulator_response_mean": 26.69228791773785,
+            "simulator_zero_mean": 2527.514652956298,
+            "sumo_response_mean": 26.267609254498712,
+            "sumo_zero_mean": 2560.269151670951,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.006430290583672675,
+              0.007253155206776914
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0005898038473811811,
+            "point_passed": true,
+            "response_gap": 0.3946614496982761,
+            "simulator_response_mean": -11.407871874792761,
+            "simulator_zero_mean": 691.832535314013,
+            "sumo_response_mean": -11.802533324491037,
+            "sumo_zero_mean": 669.140175077923,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "myopic-welfare-v2": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              5.968565554744788e-05,
+              0.0010478148418329835
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": 0.00056369785794812,
+            "point_passed": true,
+            "response_gap": 0.00056369785794812,
+            "simulator_response_mean": 0.0004774852443795941,
+            "simulator_zero_mean": 0.9661516015650905,
+            "sumo_response_mean": -8.621261356852594e-05,
+            "sumo_zero_mean": 0.9672591020624708,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -2.191972994892703e-05,
+              0.0002995696426353361
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0001315183796935622,
+            "point_passed": true,
+            "response_gap": 1.8,
+            "simulator_response_mean": 1.8,
+            "simulator_zero_mean": 13678.3,
+            "sumo_response_mean": 0.0,
+            "sumo_zero_mean": 13686.3,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": -0.0023216030536908905,
+            "gap_bootstrap_95_ci": [
+              -0.0027898779749645636,
+              -0.001868932169798193
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": -0.0023216030536908905,
+            "point_passed": true,
+            "simulator_policy_mean": 0.9880264164431877,
+            "sumo_policy_mean": 0.9903480194968786,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.006850374656822083,
+              0.0008657136470685039
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": -0.002941082226682725,
+            "point_passed": true,
+            "response_gap": -7.001253398766494,
+            "simulator_response_mean": -7.341899330194383,
+            "simulator_zero_mean": 2388.227873201141,
+            "sumo_response_mean": -0.34064593142788907,
+            "sumo_zero_mean": 2380.5024338483986,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              3.832322278603295e-06,
+              0.004731406942274917
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.002327378180351909,
+            "point_passed": true,
+            "response_gap": 2.4256449366669472,
+            "simulator_response_mean": 0.4710590887990179,
+            "simulator_zero_mean": 1004.562802573115,
+            "sumo_response_mean": -1.9545858478679292,
+            "sumo_zero_mean": 1042.2220836925524,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": 0.008553579191939165,
+            "gap_bootstrap_95_ci": [
+              -0.013413920835443913,
+              0.15147561347924773
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": 0.06785164310811849,
+            "point_passed": true,
+            "simulator_policy_mean": 0.13461654244707252,
+            "sumo_policy_mean": 0.12606296325513336,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -0.0008516009975252209,
+              0.00227976513153793
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0006900985566768964,
+            "point_passed": true,
+            "response_gap": 1.7668380462725053,
+            "simulator_response_mean": 3.2095115681235256,
+            "simulator_zero_mean": 2527.514652956298,
+            "sumo_response_mean": 1.4426735218510203,
+            "sumo_zero_mean": 2560.269151670951,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.014766911176606973,
+              0.0006278200854359653
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": -0.007044038518786888,
+            "point_passed": true,
+            "response_gap": -4.713449167716692,
+            "simulator_response_mean": -3.9064792094966605,
+            "simulator_zero_mean": 691.832535314013,
+            "sumo_response_mean": 0.8069699582200315,
+            "sumo_zero_mean": 669.140175077923,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "random-hurdle-p0.5-beta1-3": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.001671198355328574,
+              -0.00022547914317927464
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": -0.0009682339677697604,
+            "point_passed": true,
+            "response_gap": -0.0009682339677697604,
+            "simulator_response_mean": 0.0024603753564560018,
+            "simulator_zero_mean": 0.9661516015650905,
+            "sumo_response_mean": 0.003428609324225762,
+            "sumo_zero_mean": 0.9672591020624708,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              4.383945989785406e-05,
+              0.00021189072283962795
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.00012421180304391985,
+            "point_passed": true,
+            "response_gap": 1.7,
+            "simulator_response_mean": 2.0,
+            "simulator_zero_mean": 13678.3,
+            "sumo_response_mean": 0.3,
+            "sumo_zero_mean": 13686.3,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": 0.0009605221252272922,
+            "gap_bootstrap_95_ci": [
+              -0.0026278837448469304,
+              0.00471736908538155
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": 0.0009605221252272922,
+            "point_passed": true,
+            "simulator_policy_mean": 0.49974772711765,
+            "sumo_policy_mean": 0.4987872049924227,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              0.008295404562746923,
+              0.01974213023379177
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.014184480936410832,
+            "point_passed": true,
+            "response_gap": 33.7661913920022,
+            "simulator_response_mean": 60.208521785264246,
+            "simulator_zero_mean": 2388.227873201141,
+            "sumo_response_mean": 26.442330393262047,
+            "sumo_zero_mean": 2380.5024338483986,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              0.010326315743726503,
+              0.015043165238143173
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.012618974589102447,
+            "point_passed": true,
+            "response_gap": 13.151773990317722,
+            "simulator_response_mean": 102.08559586179457,
+            "simulator_zero_mean": 1004.562802573115,
+            "sumo_response_mean": 88.93382187147685,
+            "sumo_zero_mean": 1042.2220836925524,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": -0.010224848116678231,
+            "gap_bootstrap_95_ci": [
+              -0.013508579959782286,
+              0.011103094971447559
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": -0.0013621924927540955,
+            "point_passed": true,
+            "simulator_policy_mean": 7.495944926762585,
+            "sumo_policy_mean": 7.506169774879263,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -0.0071805718731169895,
+              -0.0029242562363151134
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": -0.004996863781693888,
+            "point_passed": true,
+            "response_gap": -12.79331619537271,
+            "simulator_response_mean": 254.76838046272502,
+            "simulator_zero_mean": 2527.514652956298,
+            "sumo_response_mean": 267.56169665809773,
+            "sumo_zero_mean": 2560.269151670951,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              0.004809751713006504,
+              0.025677460992504786
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.01540366142212572,
+            "point_passed": true,
+            "response_gap": 10.307208700842253,
+            "simulator_response_mean": -20.93853703826513,
+            "simulator_zero_mean": 691.832535314013,
+            "sumo_response_mean": -31.245745739107385,
+            "sumo_zero_mean": 669.140175077923,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "random-hurdle-p0.5-uniform": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.0017441474898866266,
+              0.0002851647987266893
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": -0.0007162278665694185,
+            "point_passed": true,
+            "response_gap": -0.0007162278665694185,
+            "simulator_response_mean": 0.004827906359838175,
+            "simulator_zero_mean": 0.9661516015650905,
+            "sumo_response_mean": 0.005544134226407593,
+            "sumo_zero_mean": 0.9672591020624708,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -0.00010959864974463515,
+              0.00040916829237997126
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0001388249563432045,
+            "point_passed": true,
+            "response_gap": 1.9,
+            "simulator_response_mean": 0.5,
+            "simulator_zero_mean": 13678.3,
+            "sumo_response_mean": -1.4,
+            "sumo_zero_mean": 13686.3,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": 0.0034535452481863627,
+            "gap_bootstrap_95_ci": [
+              0.0017398020730739108,
+              0.005244435891036464
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": 0.0034535452481863627,
+            "point_passed": true,
+            "simulator_policy_mean": 0.501213715433745,
+            "sumo_policy_mean": 0.4977601701855587,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              0.001880180569336827,
+              0.019806518006796635
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.010921609932752721,
+            "point_passed": true,
+            "response_gap": 25.998919026460698,
+            "simulator_response_mean": 132.0042575767623,
+            "simulator_zero_mean": 2388.227873201141,
+            "sumo_response_mean": 106.00533855030162,
+            "sumo_zero_mean": 2380.5024338483986,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              0.005357483304494697,
+              0.010833156789758476
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.00807604930896102,
+            "point_passed": true,
+            "response_gap": 8.417036938789153,
+            "simulator_response_mean": 206.14291398633864,
+            "simulator_zero_mean": 1004.562802573115,
+            "sumo_response_mean": 197.7258770475495,
+            "sumo_zero_mean": 1042.2220836925524,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": -0.13270903572084514,
+            "gap_bootstrap_95_ci": [
+              -0.01366818179042842,
+              -0.004136250769974646
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": -0.008797957842517693,
+            "point_passed": true,
+            "simulator_policy_mean": 14.95136366573098,
+            "sumo_policy_mean": 15.084072701451825,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -0.01091946922354228,
+              -0.007071768141343565
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": -0.009038654455413023,
+            "point_passed": true,
+            "response_gap": -23.14138817480716,
+            "simulator_response_mean": 517.4033419023137,
+            "simulator_zero_mean": 2527.514652956298,
+            "sumo_response_mean": 540.5447300771209,
+            "sumo_zero_mean": 2560.269151670951,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0038517027715666654,
+              0.030577894885995015
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.013137667369639087,
+            "point_passed": true,
+            "response_gap": 8.790941043835815,
+            "simulator_response_mean": -37.06932820478811,
+            "simulator_zero_mean": 691.832535314013,
+            "sumo_response_mean": -45.86026924862392,
+            "sumo_zero_mean": 669.140175077923,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      }
+    },
+    "1.25": {
+      "headway-gain-0.05": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.0014110849702963823,
+              4.193290876597302e-05
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": -0.0006630527143969833,
+            "point_passed": true,
+            "response_gap": -0.0006630527143969833,
+            "simulator_response_mean": -0.00018548750048326125,
+            "simulator_zero_mean": 0.9212684414680329,
+            "sumo_response_mean": 0.0004775652139137221,
+            "sumo_zero_mean": 0.9194881916276134,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -2.922374429223744e-05,
+              0.00023378995433789957
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.00010228310502283104,
+            "point_passed": true,
+            "response_gap": 1.4,
+            "simulator_response_mean": 1.5,
+            "simulator_zero_mean": 13678.7,
+            "sumo_response_mean": 0.1,
+            "sumo_zero_mean": 13687.5,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": -0.00412210409876701,
+            "gap_bootstrap_95_ci": [
+              -0.008483650797463485,
+              0.0004198775992232267
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": -0.00412210409876701,
+            "point_passed": true,
+            "simulator_policy_mean": 0.848978503279581,
+            "sumo_policy_mean": 0.853100607378348,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.002946276328622707,
+              0.008194129568250079
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0022390083202940255,
+            "point_passed": true,
+            "response_gap": 7.391846397572635,
+            "simulator_response_mean": 2.8089954284846046,
+            "simulator_zero_mean": 3239.0637475119875,
+            "sumo_response_mean": -4.582850969088031,
+            "sumo_zero_mean": 3301.3930008986936,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.00038397991923152624,
+              0.0035788267672437154
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0015992700778544213,
+            "point_passed": true,
+            "response_gap": 1.6281721392418262,
+            "simulator_response_mean": 4.296015399388625,
+            "simulator_zero_mean": 963.2757367121081,
+            "sumo_response_mean": 2.6678432601467987,
+            "sumo_zero_mean": 1018.0720328527499,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": 0.024886561356450204,
+            "gap_bootstrap_95_ci": [
+              0.051210561082604224,
+              0.18893959778729436
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": 0.12394232686697956,
+            "point_passed": true,
+            "simulator_policy_mean": 0.2256780261089199,
+            "sumo_policy_mean": 0.2007914647524697,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -0.0003808517478992136,
+              0.0027112936219218582
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0011855404036145822,
+            "point_passed": true,
+            "response_gap": 3.065552699228692,
+            "simulator_response_mean": 9.8907455012853,
+            "simulator_zero_mean": 2551.7156812339335,
+            "sumo_response_mean": 6.825192802056608,
+            "sumo_zero_mean": 2585.785089974293,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.005171195774762229,
+              0.01156769343830467
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0025242505714225226,
+            "point_passed": true,
+            "response_gap": 2.8818371291655014,
+            "simulator_response_mean": -0.7435099854519649,
+            "simulator_zero_mean": 1137.8940053999397,
+            "sumo_response_mean": -3.6253471146174663,
+            "sumo_zero_mean": 1141.6604840229722,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "headway-gain-0.1": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.0013112335414446905,
+              -1.3764435853795039e-05
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": -0.0006730784232253261,
+            "point_passed": true,
+            "response_gap": -0.0006730784232253261,
+            "simulator_response_mean": 8.511239657812419e-05,
+            "simulator_zero_mean": 0.9212684414680329,
+            "sumo_response_mean": 0.0007581908198034503,
+            "sumo_zero_mean": 0.9194881916276134,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              9.497716894977168e-05,
+              0.00036529680365296805
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.00022648401826484018,
+            "point_passed": true,
+            "response_gap": 3.1,
+            "simulator_response_mean": 2.7,
+            "simulator_zero_mean": 13678.7,
+            "sumo_response_mean": -0.4,
+            "sumo_zero_mean": 13687.5,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": -0.005790321766352968,
+            "gap_bootstrap_95_ci": [
+              -0.009092877415766282,
+              -0.002569141070864173
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": -0.005790321766352968,
+            "point_passed": true,
+            "simulator_policy_mean": 0.8490217612936787,
+            "sumo_policy_mean": 0.8548120830600316,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -5.208051293754845e-05,
+              0.007847169661989919
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.003860965961446995,
+            "point_passed": true,
+            "response_gap": 12.746566001829205,
+            "simulator_response_mean": 3.094025703408761,
+            "simulator_zero_mean": 3239.0637475119875,
+            "sumo_response_mean": -9.652540298420444,
+            "sumo_zero_mean": 3301.3930008986936,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0001498619300841466,
+              0.0050638483588460225
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0024876959412702864,
+            "point_passed": true,
+            "response_gap": 2.5326536640485755,
+            "simulator_response_mean": 4.304922318032425,
+            "simulator_zero_mean": 963.2757367121081,
+            "sumo_response_mean": 1.7722686539838493,
+            "sumo_zero_mean": 1018.0720328527499,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": 0.0371223255294138,
+            "gap_bootstrap_95_ci": [
+              0.044889255553970706,
+              0.17077146749977015
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": 0.10809686578317584,
+            "point_passed": true,
+            "simulator_policy_mean": 0.38053954915063287,
+            "sumo_policy_mean": 0.34341722362121907,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -0.0008255561551468105,
+              0.002339138322392215
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0007426404037736563,
+            "point_passed": true,
+            "response_gap": 1.920308483290409,
+            "simulator_response_mean": 11.820822622107926,
+            "simulator_zero_mean": 2551.7156812339335,
+            "sumo_response_mean": 9.900514138817517,
+            "sumo_zero_mean": 2585.785089974293,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0014465341925926122,
+              0.010220300697571717
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.004473270504112148,
+            "point_passed": true,
+            "response_gap": 5.106956168890361,
+            "simulator_response_mean": -0.605448307311758,
+            "simulator_zero_mean": 1137.8940053999397,
+            "sumo_response_mean": -5.712404476202119,
+            "sumo_zero_mean": 1141.6604840229722,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "headway-gain-0.25": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.00131653040816404,
+              7.752488231128748e-05
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": -0.0006035857567402769,
+            "point_passed": true,
+            "response_gap": -0.0006035857567402769,
+            "simulator_response_mean": 0.0001969874930626836,
+            "simulator_zero_mean": 0.9212684414680329,
+            "sumo_response_mean": 0.0008005732498029605,
+            "sumo_zero_mean": 0.9194881916276134,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              0.0,
+              0.00032146118721461186
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.00015342465753424657,
+            "point_passed": true,
+            "response_gap": 2.1,
+            "simulator_response_mean": 1.6,
+            "simulator_zero_mean": 13678.7,
+            "sumo_response_mean": -0.5,
+            "sumo_zero_mean": 13687.5,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": -0.0022108968220353464,
+            "gap_bootstrap_95_ci": [
+              -0.007159882204235096,
+              0.0034410287315315724
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": -0.0022108968220353464,
+            "point_passed": true,
+            "simulator_policy_mean": 0.8560927202221265,
+            "sumo_policy_mean": 0.8583036170441618,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0020699041895024684,
+              0.006697322187853248
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.002050637894086737,
+            "point_passed": true,
+            "response_gap": 6.769961590915591,
+            "simulator_response_mean": 1.5122434158793567,
+            "simulator_zero_mean": 3239.0637475119875,
+            "sumo_response_mean": -5.257718175036234,
+            "sumo_zero_mean": 3301.3930008986936,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.001138236682670214,
+              0.004876193277145101
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.001954397544137792,
+            "point_passed": true,
+            "response_gap": 1.989717480762784,
+            "simulator_response_mean": 7.31166806372911,
+            "simulator_zero_mean": 963.2757367121081,
+            "sumo_response_mean": 5.321950582966326,
+            "sumo_zero_mean": 1018.0720328527499,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": -0.005202682016508642,
+            "gap_bootstrap_95_ci": [
+              -0.05741494440457986,
+              0.03439676358039766
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": -0.008165140449495841,
+            "point_passed": true,
+            "simulator_policy_mean": 0.6319795010321471,
+            "sumo_policy_mean": 0.6371821830486557,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -0.0006964465799967809,
+              0.0025184531724961384
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0009619529513941092,
+            "point_passed": true,
+            "response_gap": 2.487403598971653,
+            "simulator_response_mean": 20.69588688946019,
+            "simulator_zero_mean": 2551.7156812339335,
+            "sumo_response_mean": 18.208483290488537,
+            "sumo_zero_mean": 2585.785089974293,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.004336483050642577,
+              0.008966935837416574
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.00209354890400874,
+            "point_passed": true,
+            "response_gap": 2.390122055076381,
+            "simulator_response_mean": -2.899712323924882,
+            "simulator_zero_mean": 1137.8940053999397,
+            "sumo_response_mean": -5.289834379001263,
+            "sumo_zero_mean": 1141.6604840229722,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "headway-gain-0.5": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.0012704956919960767,
+              0.00014378319602611537
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": -0.0005769297016844367,
+            "point_passed": true,
+            "response_gap": -0.0005769297016844367,
+            "simulator_response_mean": 0.0008225380356115308,
+            "simulator_zero_mean": 0.9212684414680329,
+            "sumo_response_mean": 0.0013994677372959675,
+            "sumo_zero_mean": 0.9194881916276134,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -3.6529680365296805e-05,
+              0.00025570776255707763
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.00010228310502283104,
+            "point_passed": true,
+            "response_gap": 1.4,
+            "simulator_response_mean": 1.0,
+            "simulator_zero_mean": 13678.7,
+            "sumo_response_mean": -0.4,
+            "sumo_zero_mean": 13687.5,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": -0.00584706017793013,
+            "gap_bootstrap_95_ci": [
+              -0.009540751202302775,
+              -0.002224822433625468
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": -0.00584706017793013,
+            "point_passed": true,
+            "simulator_policy_mean": 0.8615976317610535,
+            "sumo_policy_mean": 0.8674446919389837,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0012606409734020785,
+              0.0064359373799605085
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.002626534508169919,
+            "point_passed": true,
+            "response_gap": 8.671222641891063,
+            "simulator_response_mean": -4.025716672821773,
+            "simulator_zero_mean": 3239.0637475119875,
+            "sumo_response_mean": -12.696939314712836,
+            "sumo_zero_mean": 3301.3930008986936,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.00259998723002003,
+              0.002877127199782851
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 8.601392159251161e-06,
+            "point_passed": true,
+            "response_gap": 0.008756836800932533,
+            "simulator_response_mean": 10.144749952063444,
+            "simulator_zero_mean": 963.2757367121081,
+            "sumo_response_mean": 10.135993115262512,
+            "sumo_zero_mean": 1018.0720328527499,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": 0.004595857779894574,
+            "gap_bootstrap_95_ci": [
+              -0.03539984766125307,
+              0.045848801487186834
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": 0.0051866111705211205,
+            "point_passed": true,
+            "simulator_policy_mean": 0.8906961704495272,
+            "sumo_policy_mean": 0.8861003126696326,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -0.0013688642194858774,
+              0.0012846958216485526
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": -7.734594834485406e-05,
+            "point_passed": true,
+            "response_gap": -0.20000000000004547,
+            "simulator_response_mean": 28.822879177377807,
+            "simulator_zero_mean": 2551.7156812339335,
+            "sumo_response_mean": 29.022879177377852,
+            "sumo_zero_mean": 2585.785089974293,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0022116168583736894,
+              0.009502084834778633
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0037938011897220895,
+            "point_passed": true,
+            "response_gap": 4.3312329025450484,
+            "simulator_response_mean": -7.085233312442597,
+            "simulator_zero_mean": 1137.8940053999397,
+            "sumo_response_mean": -11.416466214987645,
+            "sumo_zero_mean": 1141.6604840229722,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "myopic-welfare-v2": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.0012237744382181813,
+              0.000489422619801587
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": -0.0002965719104510156,
+            "point_passed": true,
+            "response_gap": -0.0002965719104510156,
+            "simulator_response_mean": -0.00030163635561394344,
+            "simulator_zero_mean": 0.9212684414680329,
+            "sumo_response_mean": -5.0644451629278105e-06,
+            "sumo_zero_mean": 0.9194881916276134,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -7.305936073059361e-05,
+              0.0003214611872146119
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0001315068493150685,
+            "point_passed": true,
+            "response_gap": 1.8,
+            "simulator_response_mean": 1.1,
+            "simulator_zero_mean": 13678.7,
+            "sumo_response_mean": -0.7,
+            "sumo_zero_mean": 13687.5,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": -0.001883497861324246,
+            "gap_bootstrap_95_ci": [
+              -0.0023000799602914874,
+              -0.0014666069375433549
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": -0.001883497861324246,
+            "point_passed": true,
+            "simulator_policy_mean": 0.9887205931414925,
+            "sumo_policy_mean": 0.9906040910028168,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0029506857633308605,
+              0.00890862691746299
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.002675473231527557,
+            "point_passed": true,
+            "response_gap": 8.832788600656887,
+            "simulator_response_mean": 9.711684721711482,
+            "simulator_zero_mean": 3239.0637475119875,
+            "sumo_response_mean": 0.8788961210545949,
+            "sumo_zero_mean": 3301.3930008986936,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.0010961135076073133,
+              0.00446036437556682
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0017641726757801227,
+            "point_passed": true,
+            "response_gap": 1.7960548623347448,
+            "simulator_response_mean": 1.4849435091740815,
+            "simulator_zero_mean": 963.2757367121081,
+            "sumo_response_mean": -0.3111113531606634,
+            "sumo_zero_mean": 1018.0720328527499,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": 0.006673768150864956,
+            "gap_bootstrap_95_ci": [
+              -0.029235234057409097,
+              0.13921919030985247
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": 0.055147454537877345,
+            "point_passed": true,
+            "simulator_policy_mean": 0.12769056224933348,
+            "sumo_policy_mean": 0.12101679409846852,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -7.90583955944873e-05,
+              0.002995418197016192
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0014757368344868135,
+            "point_passed": true,
+            "response_gap": 3.8159383033418632,
+            "simulator_response_mean": 7.378149100256996,
+            "simulator_zero_mean": 2551.7156812339335,
+            "sumo_response_mean": 3.562210796915133,
+            "sumo_zero_mean": 2585.785089974293,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              -0.005633794315870207,
+              0.012716681727921597
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0030817978886009236,
+            "point_passed": true,
+            "response_gap": 3.5183668691611043,
+            "simulator_response_mean": 4.113370606268722,
+            "simulator_zero_mean": 1137.8940053999397,
+            "sumo_response_mean": 0.5950037371076178,
+            "sumo_zero_mean": 1141.6604840229722,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "random-hurdle-p0.5-beta1-3": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.004148082483463978,
+              -0.002472291660331725
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": -0.003363160224734474,
+            "point_passed": true,
+            "response_gap": -0.003363160224734474,
+            "simulator_response_mean": 0.0030240066939390075,
+            "simulator_zero_mean": 0.9212684414680329,
+            "sumo_response_mean": 0.006387166918673482,
+            "sumo_zero_mean": 0.9194881916276134,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -8.036529680365298e-05,
+              0.00029223744292237444
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.00010228310502283106,
+            "point_passed": true,
+            "response_gap": 1.4000000000000001,
+            "simulator_response_mean": 0.3,
+            "simulator_zero_mean": 13678.7,
+            "sumo_response_mean": -1.1,
+            "sumo_zero_mean": 13687.5,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": 0.003763215945845777,
+            "gap_bootstrap_95_ci": [
+              0.0001721142824302969,
+              0.007160798847807404
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": 0.003763215945845777,
+            "point_passed": true,
+            "simulator_policy_mean": 0.5000441129850427,
+            "sumo_policy_mean": 0.4962808970391969,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              0.01625277619894072,
+              0.025596292648437123
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.021064928401304105,
+            "point_passed": true,
+            "response_gap": 69.54360718849748,
+            "simulator_response_mean": 40.55965130077766,
+            "simulator_zero_mean": 3239.0637475119875,
+            "sumo_response_mean": -28.983955887719823,
+            "sumo_zero_mean": 3301.3930008986936,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              0.013599664979069092,
+              0.01958412245471429
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.0165807041281524,
+            "point_passed": true,
+            "response_gap": 16.880351157878096,
+            "simulator_response_mean": 97.09911757008899,
+            "simulator_zero_mean": 963.2757367121081,
+            "sumo_response_mean": 80.2187664122109,
+            "sumo_zero_mean": 1018.0720328527499,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": -0.030543889266230195,
+            "gap_bootstrap_95_ci": [
+              -0.013825594635396515,
+              0.005552227637431965
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": -0.004053277312080979,
+            "point_passed": true,
+            "simulator_policy_mean": 7.505059257153762,
+            "sumo_policy_mean": 7.535603146419993,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -0.007430390634817317,
+              -0.0036672716485146354
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": -0.0055743761820608246,
+            "point_passed": true,
+            "response_gap": -14.414138817480705,
+            "simulator_response_mean": 254.90848329048845,
+            "simulator_zero_mean": 2551.7156812339335,
+            "sumo_response_mean": 269.32262210796915,
+            "sumo_zero_mean": 2585.785089974293,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              0.01543631708148012,
+              0.030232948474199103
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.02306432462523576,
+            "point_passed": true,
+            "response_gap": 26.331628015309615,
+            "simulator_response_mean": -28.269733134655713,
+            "simulator_zero_mean": 1137.8940053999397,
+            "sumo_response_mean": -54.60136114996533,
+            "sumo_zero_mean": 1141.6604840229722,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      },
+      "random-hurdle-p0.5-uniform": {
+        "metrics": {
+          "completion_rate": {
+            "gap_bootstrap_95_ci": [
+              -0.005741448700533424,
+              -0.0036078057122545123
+            ],
+            "interval_passed": true,
+            "mode": "absolute-response",
+            "normalized_response_gap": -0.004675300317502195,
+            "point_passed": true,
+            "response_gap": -0.004675300317502195,
+            "simulator_response_mean": 0.00535304238454134,
+            "simulator_zero_mean": 0.9212684414680329,
+            "sumo_response_mean": 0.010028342702043535,
+            "sumo_zero_mean": 0.9194881916276134,
+            "threshold": 0.03,
+            "threshold_name": "completion_rate_response_absolute_gap"
+          },
+          "control_decisions": {
+            "gap_bootstrap_95_ci": [
+              -0.00018995433789954338,
+              0.0003506849315068494
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 8.767123287671231e-05,
+            "point_passed": true,
+            "response_gap": 1.1999999999999997,
+            "simulator_response_mean": -1.1,
+            "simulator_zero_mean": 13678.7,
+            "sumo_response_mean": -2.3,
+            "sumo_zero_mean": 13687.5,
+            "threshold": 0.05,
+            "threshold_name": "control_decision_response_normalized_gap"
+          },
+          "exact_zero_rate": {
+            "gap": 0.00019692334798337985,
+            "gap_bootstrap_95_ci": [
+              -0.004158306175395074,
+              0.004679456945603138
+            ],
+            "interval_passed": true,
+            "mode": "absolute-policy-level",
+            "normalized_gap": 0.00019692334798337985,
+            "point_passed": true,
+            "simulator_policy_mean": 0.5003865502705355,
+            "sumo_policy_mean": 0.5001896269225521,
+            "threshold": 0.1,
+            "threshold_name": "exact_zero_rate_absolute_gap"
+          },
+          "generalized_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              0.0234609619619285,
+              0.03899656681010971
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.031134082877391438,
+            "point_passed": true,
+            "response_gap": 102.78584330081995,
+            "simulator_response_mean": 116.2385201154531,
+            "simulator_zero_mean": 3239.0637475119875,
+            "sumo_response_mean": 13.45267681463315,
+            "sumo_zero_mean": 3301.3930008986936,
+            "threshold": 0.1,
+            "threshold_name": "generalized_welfare_response_normalized_gap"
+          },
+          "in_vehicle_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              0.011542967073717467,
+              0.020010491362818253
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.015666920025804193,
+            "point_passed": true,
+            "response_gap": 15.95005311921193,
+            "simulator_response_mean": 198.1424173403389,
+            "simulator_zero_mean": 963.2757367121081,
+            "sumo_response_mean": 182.19236422112698,
+            "sumo_zero_mean": 1018.0720328527499,
+            "threshold": 0.1,
+            "threshold_name": "in_vehicle_time_response_normalized_gap"
+          },
+          "mean_hold_seconds": {
+            "gap": -0.05611084477333783,
+            "gap_bootstrap_95_ci": [
+              -0.01473887385628896,
+              0.007643215883249116
+            ],
+            "interval_passed": true,
+            "mode": "relative-policy-level",
+            "normalized_gap": -0.0037391226435379093,
+            "point_passed": true,
+            "simulator_policy_mean": 14.950309142629504,
+            "sumo_policy_mean": 15.006419987402841,
+            "threshold": 0.35,
+            "threshold_name": "mean_hold_seconds_relative_gap"
+          },
+          "trip_duration_seconds": {
+            "gap_bootstrap_95_ci": [
+              -0.011673337837558443,
+              -0.004833428342259674
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": -0.008205331422417866,
+            "point_passed": true,
+            "response_gap": -21.217223650385677,
+            "simulator_response_mean": 517.1429305912595,
+            "simulator_zero_mean": 2551.7156812339335,
+            "sumo_response_mean": 538.3601542416452,
+            "sumo_zero_mean": 2585.785089974293,
+            "threshold": 0.05,
+            "threshold_name": "trip_duration_response_normalized_gap"
+          },
+          "wait_seconds_per_person": {
+            "gap_bootstrap_95_ci": [
+              0.026661791679024428,
+              0.049774112107910794
+            ],
+            "interval_passed": true,
+            "mode": "baseline-normalized-response",
+            "normalized_response_gap": 0.03803047902455947,
+            "point_passed": true,
+            "response_gap": 43.41789509080406,
+            "simulator_response_mean": -40.951948612442855,
+            "simulator_zero_mean": 1137.8940053999397,
+            "sumo_response_mean": -84.36984370324691,
+            "sumo_zero_mean": 1141.6604840229722,
+            "threshold": 0.1,
+            "threshold_name": "wait_time_response_normalized_gap"
+          }
+        },
+        "passed": true
+      }
+    }
+  }
+}

@@ -1,0 +1,317 @@
+{
+  "arm": "fixed_residual",
+  "training_seed": 22102,
+  "source_days": [
+    {
+      "day": 0,
+      "seed": 24100,
+      "transitions": 13682,
+      "terminal_rows": 1
+    },
+    {
+      "day": 1,
+      "seed": 24101,
+      "transitions": 13676,
+      "terminal_rows": 1
+    },
+    {
+      "day": 2,
+      "seed": 24102,
+      "transitions": 13680,
+      "terminal_rows": 1
+    },
+    {
+      "day": 3,
+      "seed": 24103,
+      "transitions": 13679,
+      "terminal_rows": 1
+    },
+    {
+      "day": 4,
+      "seed": 24104,
+      "transitions": 13669,
+      "terminal_rows": 1
+    }
+  ],
+  "source_events": 68386,
+  "offline_rows_used": 1970815,
+  "policy_updates": 16144,
+  "extra_critic_updates": 1536,
+  "total_critic_updates": 17680,
+  "trust_updates": 1536,
+  "model": {
+    "selected_family": "residual",
+    "calibration": {
+      "residual": {
+        "rows": 1024,
+        "selection_loss": 1.4513087272644043,
+        "head_losses": {
+          "global": 0.623139500617981,
+          "local": 0.6865702271461487,
+          "count": 0.9267886877059937,
+          "line": 2.4146640300750732,
+          "station": 3.7331128120422363,
+          "neighbor": 0.3235774040222168
+        },
+        "duration_mae_s": 1.1531834602355957,
+        "cost_mae_passenger_s": 2062.82861328125,
+        "duration_log_rmse": 0.4027895927429199,
+        "cost_log_rmse": 0.678814709186554,
+        "waiting_increment_mae_passengers": 1.3394744396209717,
+        "onboard_increment_mae_passengers": 1.3952385187149048,
+        "count_accuracy": 0.6396484375,
+        "line_accuracy_on_true_active_slots": 0.1312336027622223,
+        "station_accuracy_on_true_active_slots": 0.028871390968561172,
+        "slot_identity_accuracy": 0.002624671906232834,
+        "local_rmse_on_true_active_slots": 0.20823030173778534,
+        "neighbor_accuracy_on_true_active_slots": 0.8723753094673157,
+        "label_conditioning": "True active slots only index scoring; all predictions use current state and action only"
+      }
+    },
+    "source_split": {
+      "fit": {
+        "day": 0,
+        "rows": 4096
+      },
+      "stop": {
+        "day": 1,
+        "rows": 1024
+      }
+    },
+    "target_split": {
+      "fit": [
+        1201,
+        1202,
+        1203,
+        1204
+      ],
+      "stop": [
+        1205
+      ],
+      "calibrate": [
+        1206
+      ]
+    },
+    "training": {
+      "source_0": {
+        "selected_step": 400,
+        "stop_loss": 1.48036789894104,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.5019792318344116
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.4876140356063843
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.4806714057922363
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.48036789894104
+          }
+        ]
+      },
+      "residual_0": {
+        "selected_step": 100,
+        "stop_loss": 1.4472639560699463,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.4472639560699463
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.4486026763916016
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.4483513832092285
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.451555609703064
+          }
+        ]
+      },
+      "source_1": {
+        "selected_step": 400,
+        "stop_loss": 1.4812140464782715,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.5003893375396729
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.4879589080810547
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.483721137046814
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.4812140464782715
+          }
+        ]
+      },
+      "residual_1": {
+        "selected_step": 300,
+        "stop_loss": 1.4444794654846191,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.4476560354232788
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.4460036754608154
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.4444794654846191
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.4510674476623535
+          }
+        ]
+      },
+      "source_2": {
+        "selected_step": 400,
+        "stop_loss": 1.480690360069275,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.5016411542892456
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.4906563758850098
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.4884631633758545
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.480690360069275
+          }
+        ]
+      },
+      "residual_2": {
+        "selected_step": 300,
+        "stop_loss": 1.4483413696289062,
+        "history": [
+          {
+            "step": 100,
+            "validation_loss": 1.4493129253387451
+          },
+          {
+            "step": 200,
+            "validation_loss": 1.4524883031845093
+          },
+          {
+            "step": 300,
+            "validation_loss": 1.4483413696289062
+          },
+          {
+            "step": 400,
+            "validation_loss": 1.454406976699829
+          }
+        ]
+      }
+    },
+    "model_gradient_updates": 2400,
+    "parameters": {
+      "source": 1820844,
+      "direct": 0,
+      "residual": 3641688
+    },
+    "parameter_note": "Residual entries include the frozen source base; do not sum families."
+  },
+  "phases": {
+    "dataset_loading": {
+      "wall_seconds": 40.73987392289564,
+      "cpu_seconds": 39.376121266999995,
+      "calls": 1
+    },
+    "prefix_policy_updates": {
+      "wall_seconds": 260.32291375193745,
+      "cpu_seconds": 254.65658086399998,
+      "calls": 1
+    },
+    "source_collection": {
+      "wall_seconds": 930.099450845737,
+      "cpu_seconds": 928.9334307599997,
+      "calls": 5
+    },
+    "source_model_fit": {
+      "wall_seconds": 14.061501500196755,
+      "cpu_seconds": 14.001840624999886,
+      "calls": 3
+    },
+    "residual_model_fit": {
+      "wall_seconds": 17.515995570924133,
+      "cpu_seconds": 17.464519780999808,
+      "calls": 3
+    },
+    "model_calibration": {
+      "wall_seconds": 0.07531581912189722,
+      "cpu_seconds": 0.07532403899995188,
+      "calls": 1
+    },
+    "model_loading_and_fit_errors": {
+      "wall_seconds": 0.5262449909932911,
+      "cpu_seconds": 0.5268618260000721,
+      "calls": 1
+    },
+    "adaptation_policy_updates": {
+      "wall_seconds": 356.8392915567383,
+      "cpu_seconds": 350.89259866800046,
+      "calls": 6144
+    },
+    "extra_critic_update": {
+      "wall_seconds": 62.639176602475345,
+      "cpu_seconds": 61.70706290399551,
+      "calls": 4608
+    },
+    "bellman_trust_update": {
+      "wall_seconds": 14.353363284375519,
+      "cpu_seconds": 14.134324179996383,
+      "calls": 1536
+    },
+    "model_generation": {
+      "wall_seconds": 36.78870162926614,
+      "cpu_seconds": 36.68255469499968,
+      "calls": 1536
+    },
+    "policy_export": {
+      "wall_seconds": 0.005914182867854834,
+      "cpu_seconds": 0.005914329000006546,
+      "calls": 1
+    },
+    "inference_actor_1000_batch1": {
+      "wall_seconds": 3.104609516914934,
+      "cpu_seconds": 3.10710579900001,
+      "calls": 1
+    },
+    "inference_model_100_batch128": {
+      "wall_seconds": 1.347543032374233,
+      "cpu_seconds": 1.348741210000071,
+      "calls": 1
+    }
+  },
+  "training_wall_seconds": 1739.4787175217643,
+  "peak_host_rss_mb": 5847.23828125,
+  "peak_gpu_allocated_mb": 112.2197265625,
+  "peak_gpu_reserved_mb": 142.0,
+  "hostname": "zhengliang-C246-WU4",
+  "gpu": "NVIDIA GeForce RTX 2080",
+  "torch_version": "2.5.1+cu121",
+  "actor_parameters": 383619
+}

@@ -1,0 +1,48 @@
+{
+  "indexing": "修改前.docx的直接body段落0-based，与manuscript.json一致",
+  "R26": {
+    "status": "verified_against_registered_protocol_run_manifest_and_frozen_source",
+    "paragraph_id": 1856,
+    "replace_text": "组件实验采用基于状态预测误差比值选择类别的配置，包含3个环境、8种配置、10个训练种子，共240次训练。该选择器先在留出校准集上计算冻结源模型与残差修正模型的状态均方根误差，再以前者除以后者，分母下限为10⁻⁶；比值大于等于2且小于4.5时选择直接目标模型，其余情况保留残差模型。模型类别在训练开始时确定。实验分别移除检查点恢复、置信加权、类别选择、有效性过滤、稀疏分支或违例代价，并通过固定残差类别的附加对照分析稀疏分支。",
+    "insert_after_text": "这一配置按源模型相对残差修正的状态误差比值作选择。第6.3.1节的主选择器则先拟合残差和直接目标两类候选，再比较二者在校准集上的状态增量与奖励联合标准化误差，误差相等时保留残差模型。两种选择器的输入与判据不同，因此本节组件消融与前述主选择器的配对干预分别解释。",
+    "heading_id": 1855,
+    "heading_suggestion": "6.4.2.2 基于状态误差比值选模的组件消融",
+    "evidence": [
+      "/home/erzhu419/mine_code/MC-WM/experiments/independent_mechanism_ablation_protocol.json: fixed_training_protocol.adaptive_scope_gap_lower=2.0, upper=4.5; 3 env x 8 variants x 10 seeds",
+      "/home/erzhu419/mine_code/MC-WM/artifacts/experiments/algorithm_mechanism_confirmation_v1/gravity_soft_ceiling/gap_full_replication/seed_1686691976/manifest.json: arguments确认2.0/4.5，源码commit1e7f643a50863035928079409bdeefb6b6f9ef64",
+      "git show 1e7f643:experiments/step2_mbrl_residual.py:1706-1714确认校准状态RMSE及比值；219-225确认选择方向",
+      "/home/erzhu419/mine_code/MC-WM/experiments/step2_mbrl_residual.py:228-263,1850-1884确认正式联合标准化误差选择及等号方向"
+    ]
+  },
+  "R16": {
+    "status": "closed_with_server_resident_source_and_saved_run_config",
+    "readback": "workpapers/导师意见综合修订_20261005/csbapr_runtime_readback.json",
+    "import_chain": [
+      "experiments/bus_alignment_followup_v5/cs_run.py:20-22,48-61导入bus_legacy_dual_v1/cs_runner.py并选择cs_native",
+      "experiments/bus_legacy_dual_v1/cs_runner.py:20-26导入reward_cross_v1/cs.py",
+      "experiments/reward_cross_v1/cs.py:17导入enhancement_v1/cs.py",
+      "experiments/enhancement_v1/cs.py:16-20设置THESIS_CSBAPR_ROOT=experiments/enhancement_v1/runtime/cs并导入evaluate_recovery.py",
+      "experiments/csbapr_bus/evaluate_recovery.py:20-26由ROOT/CS-BAPR导入CSBAPRAgent与CSBAPRConfig",
+      "experiments/bus_alignment_followup_v5/followup_common.py:48-57明确4.4.7单一驻站稳定化MLP/NAU复用reward_cross_v1/runs/cs中的已训练端点"
+    ],
+    "server_source": "node007:/home/zhengliang01/scheduleurm_work/Thesis/experiments/enhancement_v1/runtime/cs/CS-BAPR/csbapr",
+    "run_configs": [
+      "/home/zhengliang01/scheduleurm_work/Thesis/experiments/reward_cross_v1/runs/cs/headway/normal/csbapr_no_nau_seed64001/results/protocol.json",
+      "/home/zhengliang01/scheduleurm_work/Thesis/experiments/reward_cross_v1/runs/cs/headway/normal/csbapr_seed64001/results/protocol.json"
+    ],
+    "replace_earlier_snapshot_basis": true,
+    "insert_after_paragraph": 1205,
+    "insert_paragraphs": [
+      "公交配置把近期证据依次转为惊异度、运行长度权重和演员保守系数。惊异度取三个量的最大值：近期奖励均值相对运行均值的标准化偏差、式(4-7)的集成价值标准差上升量、在线与目标评价器权重范数差的一半；再用系数0.1作指数平滑。",
+      "运行长度索引取0至19，初始权重均匀。对平滑惊异度S及运行长度h，使用exp[−S²/(2(1+0.05h))]作为证据权重，与原权重相乘后归一化；随后按0.02的变化率向零长度分配质量，其余质量向下一长度移位，在有限长度截断后再次归一化。该机制使用人为规定的证据函数调节运行长度权重，与式(4-2)中由显式环境模式似然得到的后验概率分别定义。",
+      "记归一化运行长度权重为b(h)，加权量为各b(h)exp(−0.1h)之和。前100次更新将该加权量置零，之后以−2减去其2倍得到演员标准差系数，作用于集成均值、集成标准差与熵共同组成的演员目标。评价时仅按当前观测执行冻结演员，不更新上述训练期调节量。"
+    ],
+    "native_math_note": "新增S,h,b(h)及指数表达式宜由根代理转换为原生行内OMML；不需新增编号公式。数值来自保存run_config及驻留源码，非默认推测。",
+    "p1173_action": "沿用math_findings.json建议：把rho(z)限定为显式概率模式模型，不把实际运行长度权重称为公交环境类别后验。",
+    "additional_BC_scope": {
+      "paragraph_id": 1202,
+      "append_text": "第4.4.7节另比较完整训练配置，其中稳定化感知机与算术输出均关闭BC，前序配置保留0.001的BC权重，并采用原有训练设置。",
+      "reason": "保存的两组稳定化训练config均beta_bc=0；bus_alignment_followup_v5/cs_run.py:62-68为pristine设beta_bc=.001、actor_weight_decay=0、关闭4个稳定化开关、warmup0、penalty_scale5。"
+    }
+  }
+}

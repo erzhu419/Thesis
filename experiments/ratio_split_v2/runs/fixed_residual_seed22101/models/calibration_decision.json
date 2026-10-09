@@ -1,0 +1,195 @@
+{
+  "selected_family": "residual",
+  "calibration": {
+    "residual": {
+      "rows": 1024,
+      "selection_loss": 1.4507968425750732,
+      "head_losses": {
+        "global": 0.6308388113975525,
+        "local": 0.6862270832061768,
+        "count": 0.9197397232055664,
+        "line": 2.413499355316162,
+        "station": 3.728546142578125,
+        "neighbor": 0.3259301781654358
+      },
+      "duration_mae_s": 1.1669890880584717,
+      "cost_mae_passenger_s": 2070.435546875,
+      "duration_log_rmse": 0.40626880526542664,
+      "cost_log_rmse": 0.6754302978515625,
+      "waiting_increment_mae_passengers": 1.3304970264434814,
+      "onboard_increment_mae_passengers": 1.385405421257019,
+      "count_accuracy": 0.6396484375,
+      "line_accuracy_on_true_active_slots": 0.13779526948928833,
+      "station_accuracy_on_true_active_slots": 0.030839893966913223,
+      "slot_identity_accuracy": 0.0032808398827910423,
+      "local_rmse_on_true_active_slots": 0.20791439712047577,
+      "neighbor_accuracy_on_true_active_slots": 0.8720472455024719,
+      "label_conditioning": "True active slots only index scoring; all predictions use current state and action only"
+    }
+  },
+  "source_split": {
+    "fit": {
+      "day": 0,
+      "rows": 4096
+    },
+    "stop": {
+      "day": 1,
+      "rows": 1024
+    }
+  },
+  "target_split": {
+    "fit": [
+      1201,
+      1202,
+      1203,
+      1204
+    ],
+    "stop": [
+      1205
+    ],
+    "calibrate": [
+      1206
+    ]
+  },
+  "training": {
+    "source_0": {
+      "selected_step": 300,
+      "stop_loss": 1.4911540746688843,
+      "history": [
+        {
+          "step": 100,
+          "validation_loss": 1.5099961757659912
+        },
+        {
+          "step": 200,
+          "validation_loss": 1.495100736618042
+        },
+        {
+          "step": 300,
+          "validation_loss": 1.4911540746688843
+        },
+        {
+          "step": 400,
+          "validation_loss": 1.4923248291015625
+        }
+      ]
+    },
+    "residual_0": {
+      "selected_step": 300,
+      "stop_loss": 1.4462084770202637,
+      "history": [
+        {
+          "step": 100,
+          "validation_loss": 1.448028564453125
+        },
+        {
+          "step": 200,
+          "validation_loss": 1.4465926885604858
+        },
+        {
+          "step": 300,
+          "validation_loss": 1.4462084770202637
+        },
+        {
+          "step": 400,
+          "validation_loss": 1.4493112564086914
+        }
+      ]
+    },
+    "source_1": {
+      "selected_step": 300,
+      "stop_loss": 1.4889776706695557,
+      "history": [
+        {
+          "step": 100,
+          "validation_loss": 1.5080598592758179
+        },
+        {
+          "step": 200,
+          "validation_loss": 1.4950120449066162
+        },
+        {
+          "step": 300,
+          "validation_loss": 1.4889776706695557
+        },
+        {
+          "step": 400,
+          "validation_loss": 1.4901450872421265
+        }
+      ]
+    },
+    "residual_1": {
+      "selected_step": 300,
+      "stop_loss": 1.444886565208435,
+      "history": [
+        {
+          "step": 100,
+          "validation_loss": 1.4465950727462769
+        },
+        {
+          "step": 200,
+          "validation_loss": 1.4451913833618164
+        },
+        {
+          "step": 300,
+          "validation_loss": 1.444886565208435
+        },
+        {
+          "step": 400,
+          "validation_loss": 1.4476733207702637
+        }
+      ]
+    },
+    "source_2": {
+      "selected_step": 400,
+      "stop_loss": 1.4896554946899414,
+      "history": [
+        {
+          "step": 100,
+          "validation_loss": 1.5086063146591187
+        },
+        {
+          "step": 200,
+          "validation_loss": 1.497603178024292
+        },
+        {
+          "step": 300,
+          "validation_loss": 1.489961862564087
+        },
+        {
+          "step": 400,
+          "validation_loss": 1.4896554946899414
+        }
+      ]
+    },
+    "residual_2": {
+      "selected_step": 300,
+      "stop_loss": 1.4440937042236328,
+      "history": [
+        {
+          "step": 100,
+          "validation_loss": 1.448469877243042
+        },
+        {
+          "step": 200,
+          "validation_loss": 1.4473302364349365
+        },
+        {
+          "step": 300,
+          "validation_loss": 1.4440937042236328
+        },
+        {
+          "step": 400,
+          "validation_loss": 1.4458236694335938
+        }
+      ]
+    }
+  },
+  "model_gradient_updates": 2400,
+  "parameters": {
+    "source": 1820844,
+    "direct": 0,
+    "residual": 3641688
+  },
+  "parameter_note": "Residual entries include the frozen source base; do not sum families."
+}

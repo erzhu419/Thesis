@@ -1,0 +1,26 @@
+# H_timetable_disc: rolling dispatch-time timetable optimization.
+#
+# The upper policy chooses a discrete headway shift for the next same-direction
+# trip. The environment converts it into a planned launch time, and the lower
+# holding controller tracks that planned headway.
+_extends: ../config_v2.yaml
+_name: H_timetable_disc
+
+upper:
+  action_bins: [-120.0, -90.0, -60.0, -30.0, 0.0, 30.0, 60.0, 90.0, 120.0]
+  maximum_alpha: 0.1
+
+lower:
+  action_bins: [0.0, 3.0, 6.0, 9.0, 12.0, 15.0, 20.0, 30.0, 45.0, 60.0]
+  use_timetable_context: true
+  maximum_alpha: 0.12
+
+coupling:
+  coupling_mode: timetable
+  timetable:
+    base_headway: 360.0
+    min_headway: 180.0
+    max_headway: 600.0
+    min_notice: 60.0
+  tpc:
+    enable: false

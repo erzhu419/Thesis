@@ -1,0 +1,19 @@
+{
+  "name": "thesis-bus-control-repair-v3",
+  "nodes": ["node001", "node002", "node003", "node004", "node005", "node006", "node007"],
+  "cs_arms": ["numeric_old", "smooth_hard", "smooth_soft", "soft_no_symbolic"],
+  "cs_seeds": [64001, 64002],
+  "cs_objectives": ["headway", "passenger"],
+  "cs_episodes": 100,
+  "alpha_cap": 0.6,
+  "reference_temperature": 0.25,
+  "reference_horizon": 1,
+  "mc_scenes": ["calibrated", "joint75"],
+  "mc_new_seeds": [65001, 65002],
+  "mc_old_seeds": [63001, 63002],
+  "mc_cells": [["holding", "headway"], ["dual", "headway"], ["dual", "passenger"]],
+  "mc_old_arms": ["h2o_matched", "fixed0250"],
+  "mc_new_arms": ["h2oplus", "mcwm"],
+  "mc_cases": 10,
+  "interpretation": "MC comparisons change the execution layer of frozen policies, not the learner. Old guarded and new direct endpoints are reused; evaluate missing opposite layers on the same ten test days. CS uses unchanged frozen-v8 learner and old identification data in new output directories. Keep all paired seeds and final 100-episode endpoints. No test-based seed or checkpoint selection."
+}

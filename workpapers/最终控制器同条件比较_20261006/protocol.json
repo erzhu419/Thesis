@@ -1,0 +1,111 @@
+{
+  "name": "thesis-final-controller-alignment-20261006",
+  "methods": [
+    "mcwm_aligned",
+    "h2oplus_final",
+    "sac_guarded"
+  ],
+  "training_seeds": [
+    6201,
+    6202,
+    6203,
+    6204,
+    6205
+  ],
+  "source_demand_scales": [
+    0.75,
+    1.0,
+    1.25
+  ],
+  "source_demand_scope": "Shared source generation rules and episode rotation schedule, not guaranteed coverage of all three demand scales within the event budget.",
+  "source_event_budget": 25000,
+  "source_event_budget_scope": "Nominal policy-export milestone; original retained H2Oplus and SAC endpoints differ by at most one source event. Preserve these endpoints without retraining.",
+  "retained_baseline_source_event_counts": {
+    "h2oplus_final": {
+      "6201": 25000,
+      "6202": 24999,
+      "6203": 25000,
+      "6204": 25000,
+      "6205": 24999
+    },
+    "sac_guarded": {
+      "6201": 25000,
+      "6202": 25000,
+      "6203": 25001,
+      "6204": 25001,
+      "6205": 25001
+    }
+  },
+  "retained_baseline_source_episodes_entered": {
+    "applies_to": ["h2oplus_final", "sac_guarded"],
+    "training_seeds": [6201, 6202, 6203, 6204, 6205],
+    "by_demand_scale": {"0.75": 1, "1.0": 1, "1.25": 0}
+  },
+  "continuation_updates": 20000,
+  "offline_updates": {
+    "mcwm_aligned": 50000,
+    "h2oplus_final": 50000,
+    "sac_guarded": 0
+  },
+  "mcwm": {
+    "base": "mcwm_seed_confirmation_v13/fixed0250",
+    "model_td_coefficient": 0.25,
+    "real_td_coefficient": 0.75,
+    "normalized_confidence": true,
+    "source_mechanism_interception": false,
+    "fresh_continuations": 5,
+    "initializer": "original formal H2Oplus 6201-6205 50k IQL"
+  },
+  "test_blocks": [
+    {
+      "sumo_seed": 108101,
+      "demand_seed": 108201
+    },
+    {
+      "sumo_seed": 108102,
+      "demand_seed": 108202
+    },
+    {
+      "sumo_seed": 108103,
+      "demand_seed": 108203
+    },
+    {
+      "sumo_seed": 108104,
+      "demand_seed": 108204
+    },
+    {
+      "sumo_seed": 108105,
+      "demand_seed": 108205
+    }
+  ],
+  "demand_scales": [
+    0.75,
+    1.0,
+    1.25
+  ],
+  "departure_jitter_seconds": 120,
+  "evaluation_horizon_seconds": 24000,
+  "evaluation_cases": 225,
+  "execution_transform": "v19.completion_safety_action:quarter-load-sixty",
+  "extra_hold_scale": 1.0,
+  "primary_comparisons": [
+    [
+      "mcwm_aligned",
+      "h2oplus_final"
+    ],
+    [
+      "mcwm_aligned",
+      "sac_guarded"
+    ]
+  ],
+  "secondary_comparisons": [
+    [
+      "h2oplus_final",
+      "sac_guarded"
+    ]
+  ],
+  "aggregation": "For each seed, equal-weight mean over all 5 days and 3 demands; compare the 5 paired seed means. Report environment-block and demand results separately. Do not count 225 evaluations as training repetitions.",
+  "scope": "Final complete-controller comparison. MC-WM preserves its fixed0250 learning schedule while adopting the formal source generation rules, demand rotation schedule and initializers. The event budget does not guarantee actual coverage of all three source demands. H2Oplus retains its original staged actor schedule. No best-seed selection; not a single-world-model-component ablation.",
+  "selection": "All five fixed endpoints retained; test outcomes never used to change coefficient, actor, seed, or execution.",
+  "test_scheduling": "All available Linux scheduler server nodes; CPU-only evaluation. No single-GPU-node binding."
+}

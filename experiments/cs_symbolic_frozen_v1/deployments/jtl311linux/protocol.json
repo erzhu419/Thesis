@@ -1,0 +1,17 @@
+{
+  "name": "thesis-cs-symbolic-frozen-v1",
+  "reference_campaign": "cs_symbolic_anchor_v1",
+  "arms": ["symbolic0", "symbolic10"],
+  "training_seeds": [64001, 64002],
+  "horizon_seconds": 18000,
+  "source_days": [69421, 69422, 69423, 69424, 69425],
+  "source_scenes": ["normal", "static2", "static3", "pulse3", "repeated3"],
+  "source_weights": {"normal": 0.4, "static2": 0.2, "static3": 0.2, "pulse3": 0.1, "repeated3": 0.1},
+  "target_days": [78101, 78102, 78103],
+  "target_scenes": ["normal", "static10", "burst50"],
+  "nodes": ["node001", "node002", "node003", "node004", "node005", "node006", "node007", "jtl110gpu", "jtl110gpu2", "jtl311linux"],
+  "controllers": {"bias": ["symbolic0", "symbolic10"], "sindy": ["reference"]},
+  "reward": "Unchanged global event passenger credit; generalized cost equals 2*waiting+onboard",
+  "selection": "No new selection or training; reuse all 136 full-policy results, evaluate 204 frozen controls",
+  "preservation": "New directory only; checkpoints, source normalization, reference models and manuscript unchanged"
+}

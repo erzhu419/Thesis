@@ -1,0 +1,124 @@
+{
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "evaluation_seeds": [
+    17301,
+    17302,
+    17303
+  ],
+  "methods": [
+    "bapr-pristine",
+    "csbapr-no-nau",
+    "csbapr"
+  ],
+  "schedules": {
+    "normal": [
+      [
+        0,
+        1.0
+      ]
+    ],
+    "single_2x": [
+      [
+        0,
+        1.0
+      ],
+      [
+        3600,
+        2.0
+      ],
+      [
+        5400,
+        1.0
+      ]
+    ],
+    "repeated_2x": [
+      [
+        0,
+        1.0
+      ],
+      [
+        3600,
+        2.0
+      ],
+      [
+        4200,
+        1.0
+      ],
+      [
+        7200,
+        2.0
+      ],
+      [
+        7800,
+        1.0
+      ],
+      [
+        10800,
+        2.0
+      ],
+      [
+        11400,
+        1.0
+      ]
+    ],
+    "single_5x": [
+      [
+        0,
+        1.0
+      ],
+      [
+        3600,
+        5.0
+      ],
+      [
+        5400,
+        1.0
+      ]
+    ],
+    "repeated_5x": [
+      [
+        0,
+        1.0
+      ],
+      [
+        3600,
+        5.0
+      ],
+      [
+        4200,
+        1.0
+      ],
+      [
+        7200,
+        5.0
+      ],
+      [
+        7800,
+        1.0
+      ],
+      [
+        10800,
+        5.0
+      ],
+      [
+        11400,
+        1.0
+      ]
+    ]
+  },
+  "horizon_seconds": 18000,
+  "window_seconds": 300,
+  "primary_metric": "full_horizon_wait_passenger_seconds",
+  "secondary_metrics": [
+    "headway_imbalance",
+    "holding",
+    "completion",
+    "queue_tail"
+  ],
+  "comparison": "same training/evaluation seed paired across methods; single vs repeated has equal peak and 30min high-demand duration",
+  "demand_note": "Equal integrated multiplier, not identical realized arrival counts; no extra shock selected after seeing outcomes."
+}

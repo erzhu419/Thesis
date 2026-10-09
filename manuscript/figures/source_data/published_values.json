@@ -1,0 +1,62 @@
+{
+  "resac": {
+    "source": "RE-SAC/paper/paper_jmlr.tex, bus ensemble ablation table",
+    "unit": "1000 return units",
+    "training_n": 3,
+    "operational_n": 2,
+    "dispersion": "reported cross-seed standard deviation",
+    "columns": ["method", "training_mean", "training_sd", "operational_mean", "operational_sd"],
+    "rows": [
+      ["SAC", -504, 30, -482, 28],
+      ["K=2", -592, 176, -443, 10],
+      ["K=5", -569, 217, -557, 117],
+      ["K=10", -435, 16, -446, 2],
+      ["K=20", -434, 42, -441, 26],
+      ["K=40", -458, 15, -496, 15],
+      ["仅权重范数", -519, 19, -554, 34],
+      ["仅集成分歧", -926, 170, -863, 130]
+    ]
+  },
+  "temperature": {
+    "source": "RE-SAC/jax_experiments/experiments/UNCERTAINTY_PROTOCOL.md, Fresh-seed primary temperature gains (7800--7804)",
+    "contrast": "frozen minus adaptive, primary late-window return",
+    "seeds": [7800, 7801, 7802, 7803, 7804],
+    "gains": [13982, 11046, 8524, 11706, -564],
+    "mean": 8939,
+    "ci95_t": [1915, 15963]
+  },
+  "transitduet": {
+    "source": "TransitDuet/paper/sections/5_experiments.tex, independent held-out evaluation tables",
+    "n": 10,
+    "dispersion": "sample standard deviation of training-seed means, 50 held-out episodes per seed",
+    "unit": "minute",
+    "columns": ["method", "wait_mean", "wait_sd", "trip_mean", "trip_sd"],
+    "rows": [
+      ["TransitDuet", 4.87, 0.25, 16.15, 0.44],
+      ["仅目标传递", 5.37, 0.30, 16.80, 0.65],
+      ["强化学习代理", 5.40, 0.30, 17.04, 0.51],
+      ["固定300秒", 5.13, 0.46, 17.10, 0.74],
+      ["固定360秒", 6.39, 1.23, 19.04, 1.79],
+      ["Daganzo型代理", 8.00, 0.85, 21.21, 0.86],
+      ["Xuan型代理", 8.03, 0.76, 21.37, 0.74]
+    ]
+  },
+  "h2o": {
+    "source": "sumo-rl/H2Oplus/paper/sections/5_experiments.tex, frozen candidate versus direct parent and demand-stratified results",
+    "independent_environment_blocks": 10,
+    "contrast": "candidate minus direct parent; no intervals reported for these displayed means",
+    "columns": ["demand", "time_difference_seconds", "completion_difference_proportion"],
+    "rows": [["0.75倍需求", -40.29, 0.00185], ["1.00倍需求", -87.61, 0.00470], ["1.25倍需求", -148.46, 0.00741], ["总体", -92.12, 0.00466]]
+  },
+  "exact_routing": {
+    "source": "MC-WM/paper/generated/final_exact_routing/exact_routing_results.tex",
+    "contrast": "automatic minus unselected model family",
+    "n": 10,
+    "columns": ["environment", "return_mean", "return_ci_low", "return_ci_high", "violation_mean", "violation_ci_low", "violation_ci_high"],
+    "rows": [
+      ["ant_wall_broken_soft_ceiling", 1529.9, 426.9, 2833.1, 0.72, -0.05, 1.60],
+      ["gravity_soft_ceiling", 188.0, -178.7, 591.7, 0.08, -0.11, 0.37],
+      ["friction_walker_soft_ceiling", -21.2, -56.0, 8.7, -0.04, -0.19, 0.06]
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+# Final same-simulator advantage-based RL proxy under the same discrete lower
+# controller and non-negative holding grid as the rolling-timetable method.
+_extends: H_timetable_v5_stable_300.yaml
+_name: H_haar_final
+
+coupling:
+  coupling_mode: haar
+  haar:
+    beta: 0.5
+    clip: 0.5
+    use_reach_gate: true
+    reach_lr: 1.0e-3
+    reach_threshold: 0.5
+  tpc:
+    enable: false

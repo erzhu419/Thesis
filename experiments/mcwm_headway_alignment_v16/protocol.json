@@ -1,0 +1,20 @@
+{
+  "name": "thesis-mcwm-headway-alignment-v16",
+  "training_seeds": [66001, 66002],
+  "scenes": ["calibrated", "joint75"],
+  "arms": ["h2oplus", "h2o_matched", "mc_state", "mc_raw"],
+  "cases": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "offline_shards": 12,
+  "offline_seed_start": 66101,
+  "offline_updates": 50000,
+  "source_events": 25000,
+  "warmup_events": 5000,
+  "discount": 0.99,
+  "gradient_clip_norm": 10.0,
+  "model_updates": 1000,
+  "model_refit_updates": 300,
+  "auxiliary_reward_updates": 1000,
+  "training_nodes": ["node001", "node002", "node003", "node004", "node005", "node006", "node007"],
+  "executors": ["direct", "guarded"],
+  "interpretation": "Same-vehicle next-station headway transitions and the continuous tanh penalty from sumo-rl commit 3416538. Preserve current dual actions, global event-batch observations, fixed reward scale 0.01 and gradient limit 10. Train new IQL initializers because the transition contract changed. Both MC variants learn the next current-slot index and preserve the known same-vehicle line invariant. They differ only in state-reconstructed versus target-fit raw reward prediction. Passenger rewards and old datasets remain unchanged. This is a development repair, not a literal rerun of the historical online-SUMO SAC ensemble."
+}

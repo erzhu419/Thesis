@@ -1,0 +1,105 @@
+{
+  "arm": "source_repair",
+  "seed": 6201,
+  "scenario": "joint75",
+  "source_events": 194,
+  "continuation_updates": 64,
+  "total_policy_updates": 50064,
+  "total_critic_updates": 50064,
+  "target_online_training_events": 0,
+  "model_history": [
+    {
+      "source_events": 128,
+      "selected_family": "direct",
+      "calibration_loss": {
+        "direct": 3.8044464588165283,
+        "residual": 3.852327346801758
+      }
+    },
+    {
+      "source_events": 160,
+      "selected_family": "direct",
+      "calibration_loss": {
+        "direct": 3.241234540939331,
+        "residual": 3.3800530433654785
+      },
+      "fit_weight_range": [
+        0.10000000149011612,
+        1.0
+      ]
+    }
+  ],
+  "phases": {
+    "dataset_loading": {
+      "wall_seconds": 18.14030927605927,
+      "cpu_seconds": 17.815866202000002,
+      "calls": 1
+    },
+    "source_collection": {
+      "wall_seconds": 6.571938458830118,
+      "cpu_seconds": 6.5750638640000005,
+      "calls": 3
+    },
+    "source_model_fit": {
+      "wall_seconds": 0.38574737682938576,
+      "cpu_seconds": 0.38594432100000375,
+      "calls": 1
+    },
+    "target_model_fit": {
+      "wall_seconds": 0.2364235376007855,
+      "cpu_seconds": 0.23626156299999934,
+      "calls": 2
+    },
+    "model_refresh": {
+      "wall_seconds": 2.403730287682265,
+      "cpu_seconds": 2.3567507449999994,
+      "calls": 2
+    },
+    "policy_fit_weights": {
+      "wall_seconds": 0.044384544249624014,
+      "cpu_seconds": 0.04445261200000061,
+      "calls": 1
+    },
+    "target_model_refit": {
+      "wall_seconds": 0.23050222219899297,
+      "cpu_seconds": 0.2303337110000001,
+      "calls": 1
+    },
+    "refresh_trust_errors": {
+      "wall_seconds": 0.012296687811613083,
+      "cpu_seconds": 0.012359071999995308,
+      "calls": 1
+    },
+    "bellman_trust_update": {
+      "wall_seconds": 0.30921213887631893,
+      "cpu_seconds": 0.30860423900000455,
+      "calls": 16
+    },
+    "model_training_batch": {
+      "wall_seconds": 2.685045136604458,
+      "cpu_seconds": 2.6853847129999906,
+      "calls": 64
+    },
+    "source_target_repair": {
+      "wall_seconds": 1.8710267855785787,
+      "cpu_seconds": 1.871433386000021,
+      "calls": 64
+    },
+    "policy_update": {
+      "wall_seconds": 11.938137472141534,
+      "cpu_seconds": 11.918154403999964,
+      "calls": 64
+    },
+    "mechanism_diagnostics": {
+      "wall_seconds": 1.3688086518086493,
+      "cpu_seconds": 1.3695891590000073,
+      "calls": 4
+    }
+  },
+  "training_wall_seconds": 45.93487893184647,
+  "reused_offline_updates": 50000,
+  "peak_host_rss_mb": 1535.7109375,
+  "peak_gpu_allocated_mb": 109.7119140625,
+  "peak_gpu_reserved_mb": 136.0,
+  "structure": "unmasked"
+}

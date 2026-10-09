@@ -1,0 +1,13 @@
+# H_timetable_independent_assembly: train the timetable upper after freezing
+# a lower policy learned under the fixed 360 s timetable. This isolates whether
+# joint timetable-lower training is necessary beyond a separately trained lower.
+_extends: H_timetable_disc.yaml
+_name: H_timetable_independent_assembly
+
+lower:
+  freeze_training: true
+  warmstart_from: logs/H_fixed_timetable_seed{seed}/checkpoints/lower_ep*.pt
+  require_warmstart: true
+
+coupling:
+  upper_warmup_eps: 0

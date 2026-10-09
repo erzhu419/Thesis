@@ -1,0 +1,75 @@
+{
+  "method": "sac-online-v19-quarter-load-sixty-seed6201-events000025000",
+  "sumo_seed": 8106,
+  "episode": {
+    "completed_trip_contexts_observed": 389,
+    "configured_seconds": 24000.0,
+    "control_decisions": 13687,
+    "evaluation_horizon_seconds": 24000,
+    "observed_end_time_seconds": 24000.0,
+    "stopped_by_event_limit": false,
+    "stopped_by_time_limit": false,
+    "terminal_endpoints_excluded_from_control": 389,
+    "terminal_transitions": 1,
+    "transitions": 13687
+  },
+  "service": {
+    "active_trips_at_horizon": 0,
+    "completed_trip_duration_seconds": {
+      "max": 3960.0,
+      "mean": 2813.0488431876606,
+      "min": 1643.0,
+      "n": 389,
+      "p50": 2958.0,
+      "p90": 3583.2,
+      "p95": 3737.3999999999996,
+      "std": 660.4495385485701
+    },
+    "completed_trips": 389,
+    "completion_rate": 1.0,
+    "departed_trips": 389
+  },
+  "policy": {
+    "training_metadata": {
+      "training_seed": 6201
+    },
+    "execution_diagnostic": {
+      "additional_training_updates": 0,
+      "design": "retrospective same-execution diagnostic on existing formal blocks",
+      "execution_transform": "v19.completion_safety_action:quarter-load-sixty",
+      "frozen_actor": true,
+      "mode": "source-guarded",
+      "original_method": "sac-online-seed6201-events000025000",
+      "reference_result": "/home/zhengliang01/scheduleurm_work/thesis-h2o-source-guard-20261006/remote_results_v4/single_jtl110gpu/v20-formal-confirmation-06/sac-online-seed6201-events000025000/demand_0p75_jitter120s_seed8206/sumo_seed8106.json"
+    }
+  },
+  "scenario": {
+    "demand_scale": 0.75,
+    "selection_seed": 8206
+  },
+  "passenger_welfare": {
+    "accrued_generalized_seconds_per_departed_passenger": 1873.8193735702973
+  },
+  "passengers": {
+    "completion_rate": 0.9930494457152912,
+    "accrued_wait_seconds_per_departed_passenger": 390.36846735878936,
+    "accrued_in_vehicle_seconds_per_departed_passenger": 1093.0824388527187,
+    "unfinished_passengers": 79,
+    "departed_passengers": 11366
+  },
+  "operations": {
+    "hold_seconds": {
+      "max": 60.0,
+      "mean": 8.068088399855467,
+      "min": 0.0,
+      "n": 13687,
+      "p50": 2.171350121498108,
+      "p90": 17.003253221511837,
+      "p95": 60.0,
+      "std": 16.969237775463796
+    },
+    "nonzero_hold_rate": 0.6463797764301892
+  },
+  "server_result_path": "/home/zhengliang01/scheduleurm_work/thesis-h2o-source-guard-20261006/campaign/results/sac_guarded_seed6201_sumo8106_demand0p75.json",
+  "evaluation_node": "hpc-shared"
+}

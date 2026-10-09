@@ -1,0 +1,30 @@
+{
+  "name": "thesis-mcwm-context-v7",
+  "arms": ["fixed_zero", "fixed_mid", "fixed_original", "oracle_context", "recognized_context"],
+  "fixed_coefficients": {"fixed_zero": 0.0, "fixed_mid": 0.125, "fixed_original": 0.25},
+  "real_td_coefficient": 0.75,
+  "context_window_physical_rows": 64,
+  "context_hazard": 0.002,
+  "context_prior_exponent": 0.98,
+  "context_evidence_scale": 1.0,
+  "context_variance_floor": 0.05,
+  "development_blocks": [
+    {"demand_seed": 58101, "sumo_seed": 59101},
+    {"demand_seed": 58102, "sumo_seed": 59102},
+    {"demand_seed": 58103, "sumo_seed": 59103},
+    {"demand_seed": 58104, "sumo_seed": 59104},
+    {"demand_seed": 58105, "sumo_seed": 59105}
+  ],
+  "test_blocks": [
+    {"demand_seed": 58301, "sumo_seed": 59301},
+    {"demand_seed": 58302, "sumo_seed": 59302},
+    {"demand_seed": 58303, "sumo_seed": 59303},
+    {"demand_seed": 58304, "sumo_seed": 59304},
+    {"demand_seed": 58305, "sumo_seed": 59305}
+  ],
+  "selection": "For each training seed, choose each context coefficient and the best global fixed coefficient using only the other seed's ten development days. Fit a frozen shared-diagonal Gaussian context recognizer on the other seed's nonoverlapping physical-transition blocks from all fixed arms. Deterministic tie order is ascending coefficient.",
+  "causal_scope": "Static source training contexts only. At each source collection boundary, update belief using newly completed nonterminal positive-duration transitions, resetting the history at episode terminals. Change only the generated-model TD coefficient; no online target gradients and no deployed context actor.",
+  "context_features": ["log_global_event_duration", "eligible_demand_ratio", "base_dwell_scaled", "queue_capacity_ratio", "onboard_capacity_ratio", "system_waiting_scaled", "system_onboard_scaled", "executed_source_hold_scaled"],
+  "primary_comparison": "Fresh fixed-original, cross-fitted best-global-fixed, true-context, and causal recognized-context on ten test days per seed/context; all three fixed coefficients are retained",
+  "interpretation": "Prospective development branch with disjoint coefficient-selection and final test days; two reused offline initializer seeds, not independent research confirmation. No coefficient mapping is taken from v5 evaluation outcomes. All positive and negative results retained. Single-factor and within-day switching tests follow only after the static control-space study."
+}

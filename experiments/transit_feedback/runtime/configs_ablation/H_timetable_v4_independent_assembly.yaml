@@ -1,0 +1,15 @@
+# H_timetable_v4_independent_assembly: independent-assembly ablation for the
+# revised rolling timetable method. The lower controller is warm-started from
+# the best fixed-300s timetable run and then frozen while the timetable upper
+# learns dispatch-time decisions.
+_extends: H_timetable_v4.yaml
+_name: H_timetable_v4_independent_assembly
+
+lower:
+  action_bins: [0.0, 3.0, 6.0, 9.0, 12.0, 15.0, 20.0, 30.0, 45.0, 60.0]
+  freeze_training: true
+  warmstart_from: logs/H_fixed_timetable_300_seed{seed}/checkpoints/lower_ep*.pt
+  require_warmstart: true
+
+coupling:
+  upper_warmup_eps: 0

@@ -1,0 +1,682 @@
+{
+  "analysis_location": "server",
+  "dataset_temporal": {
+    "scope": "entire resident dataset, all original split labels",
+    "rows": 3284718,
+    "trajectories": 240,
+    "zero_duration_fraction": 0.3121138557404319,
+    "same_bus_next_fraction": 0.00044481954210075393,
+    "different_line_next_fraction": 0.9209974918388858,
+    "same_bus_return_token_delay": {
+      "n": 3191358,
+      "mean": 58.09955573771416,
+      "p10": 26.0,
+      "median": 49.0,
+      "p90": 97.0
+    },
+    "nonterminal_discounts": {
+      "n": 3284478,
+      "mean": 1.0,
+      "p10": 1.0,
+      "median": 1.0,
+      "p90": 1.0
+    }
+  },
+  "relabel_sample": {
+    "rows": 32768,
+    "headway_reward": {
+      "n": 32768,
+      "mean": -292.951904296875,
+      "p10": -582.4970703125,
+      "median": -268.0751647949219,
+      "p90": -16.0
+    },
+    "scaled_headway_reward": {
+      "n": 32768,
+      "mean": -2.9295191764831543,
+      "p10": -5.824970245361328,
+      "median": -2.6807515621185303,
+      "p90": -0.1599999964237213
+    },
+    "scaled_passenger_reward": {
+      "n": 32768,
+      "mean": -0.28179780883789063,
+      "p10": -0.6591899999999999,
+      "median": -0.13720000000000002,
+      "p90": 0.0
+    },
+    "zero_duration_fraction": 0.308349609375,
+    "zero_duration_nonzero_headway_fraction": 0.9906967537608867,
+    "zero_duration_headway_cost_share": 0.3095562756061554,
+    "raw_vs_bounded_changed_fraction": 0.00048828125,
+    "both_neighbors_fraction": 0.738189697265625,
+    "one_neighbor_fraction": 0.261810302734375,
+    "capped_headway_fraction": 0.000518798828125
+  },
+  "actor_common_state_probe": [
+    {
+      "objective": "headway",
+      "arm": "initializer",
+      "source_scene": "offline",
+      "training_seed": 64001,
+      "evaluation_states": "fixed 512 offline states",
+      "hold_probability": {
+        "n": 512,
+        "mean": 0.2855837941169739,
+        "p10": 0.0520649179816246,
+        "median": 0.18566402792930603,
+        "p90": 0.642660915851593
+      },
+      "deterministic_hold_seconds": {
+        "n": 512,
+        "mean": 0.8141533136367798,
+        "p10": 0.0,
+        "median": 0.0,
+        "p90": 4.341913223266602
+      },
+      "exact_zero_fraction": 0.744140625,
+      "at_least_50s_fraction": 0.0
+    },
+    {
+      "objective": "headway",
+      "arm": "h2oplus",
+      "source_scene": "calibrated",
+      "training_seed": 64001,
+      "evaluation_states": "fixed 512 offline states",
+      "hold_probability": {
+        "n": 512,
+        "mean": 0.19045603275299072,
+        "p10": 0.0074730077758431435,
+        "median": 0.01018361747264862,
+        "p90": 0.9791115522384644
+      },
+      "deterministic_hold_seconds": {
+        "n": 512,
+        "mean": 9.259552001953125,
+        "p10": 0.0,
+        "median": 0.0,
+        "p90": 56.82546615600586
+      },
+      "exact_zero_fraction": 0.822265625,
+      "at_least_50s_fraction": 0.12890625
+    },
+    {
+      "objective": "headway",
+      "arm": "h2o_matched",
+      "source_scene": "calibrated",
+      "training_seed": 64001,
+      "evaluation_states": "fixed 512 offline states",
+      "hold_probability": {
+        "n": 512,
+        "mean": 0.2086184024810791,
+        "p10": 0.013032503426074982,
+        "median": 0.01724899187684059,
+        "p90": 0.992822527885437
+      },
+      "deterministic_hold_seconds": {
+        "n": 512,
+        "mean": 10.188226699829102,
+        "p10": 0.0,
+        "median": 0.0,
+        "p90": 57.95361328125
+      },
+      "exact_zero_fraction": 0.798828125,
+      "at_least_50s_fraction": 0.1484375
+    },
+    {
+      "objective": "headway",
+      "arm": "fixed0250",
+      "source_scene": "calibrated",
+      "training_seed": 64001,
+      "evaluation_states": "fixed 512 offline states",
+      "hold_probability": {
+        "n": 512,
+        "mean": 0.012463013641536236,
+        "p10": 0.01112121157348156,
+        "median": 0.012619344517588615,
+        "p90": 0.013598429039120674
+      },
+      "deterministic_hold_seconds": {
+        "n": 512,
+        "mean": 0.0,
+        "p10": 0.0,
+        "median": 0.0,
+        "p90": 0.0
+      },
+      "exact_zero_fraction": 1.0,
+      "at_least_50s_fraction": 0.0
+    },
+    {
+      "objective": "headway",
+      "arm": "h2oplus",
+      "source_scene": "joint75",
+      "training_seed": 64001,
+      "evaluation_states": "fixed 512 offline states",
+      "hold_probability": {
+        "n": 512,
+        "mean": 0.024664854630827904,
+        "p10": 0.01965508796274662,
+        "median": 0.02523784525692463,
+        "p90": 0.02855006977915764
+      },
+      "deterministic_hold_seconds": {
+        "n": 512,
+        "mean": 0.0,
+        "p10": 0.0,
+        "median": 0.0,
+        "p90": 0.0
+      },
+      "exact_zero_fraction": 1.0,
+      "at_least_50s_fraction": 0.0
+    },
+    {
+      "objective": "headway",
+      "arm": "h2o_matched",
+      "source_scene": "joint75",
+      "training_seed": 64001,
+      "evaluation_states": "fixed 512 offline states",
+      "hold_probability": {
+        "n": 512,
+        "mean": 0.02222246304154396,
+        "p10": 0.018571266904473305,
+        "median": 0.022397149354219437,
+        "p90": 0.0253460556268692
+      },
+      "deterministic_hold_seconds": {
+        "n": 512,
+        "mean": 0.0,
+        "p10": 0.0,
+        "median": 0.0,
+        "p90": 0.0
+      },
+      "exact_zero_fraction": 1.0,
+      "at_least_50s_fraction": 0.0
+    },
+    {
+      "objective": "headway",
+      "arm": "fixed0250",
+      "source_scene": "joint75",
+      "training_seed": 64001,
+      "evaluation_states": "fixed 512 offline states",
+      "hold_probability": {
+        "n": 512,
+        "mean": 0.9788355827331543,
+        "p10": 0.9773269891738892,
+        "median": 0.97878098487854,
+        "p90": 0.9804654121398926
+      },
+      "deterministic_hold_seconds": {
+        "n": 512,
+        "mean": 50.63518524169922,
+        "p10": 50.31645202636719,
+        "median": 50.63397216796875,
+        "p90": 51.027408599853516
+      },
+      "exact_zero_fraction": 0.0,
+      "at_least_50s_fraction": 0.994140625
+    },
+    {
+      "objective": "passenger",
+      "arm": "initializer",
+      "source_scene": "offline",
+      "training_seed": 64001,
+      "evaluation_states": "fixed 512 offline states",
+      "hold_probability": {
+        "n": 512,
+        "mean": 0.28274622559547424,
+        "p10": 0.06732764840126038,
+        "median": 0.24244216084480286,
+        "p90": 0.599050760269165
+      },
+      "deterministic_hold_seconds": {
+        "n": 512,
+        "mean": 0.5675234794616699,
+        "p10": 0.0,
+        "median": 0.0,
+        "p90": 3.033470392227173
+      },
+      "exact_zero_fraction": 0.806640625,
+      "at_least_50s_fraction": 0.0
+    },
+    {
+      "objective": "passenger",
+      "arm": "h2oplus",
+      "source_scene": "calibrated",
+      "training_seed": 64001,
+      "evaluation_states": "fixed 512 offline states",
+      "hold_probability": {
+        "n": 512,
+        "mean": 0.18424557149410248,
+        "p10": 5.041573604103178e-05,
+        "median": 0.09966601431369781,
+        "p90": 0.5040274262428284
+      },
+      "deterministic_hold_seconds": {
+        "n": 512,
+        "mean": 0.9080909490585327,
+        "p10": 0.0,
+        "median": 0.0,
+        "p90": 6.261308670043945
+      },
+      "exact_zero_fraction": 0.8984375,
+      "at_least_50s_fraction": 0.0
+    },
+    {
+      "objective": "passenger",
+      "arm": "h2o_matched",
+      "source_scene": "calibrated",
+      "training_seed": 64001,
+      "evaluation_states": "fixed 512 offline states",
+      "hold_probability": {
+        "n": 512,
+        "mean": 0.26752835512161255,
+        "p10": 0.003788926638662815,
+        "median": 0.1354328691959381,
+        "p90": 0.7040228247642517
+      },
+      "deterministic_hold_seconds": {
+        "n": 512,
+        "mean": 2.3975579738616943,
+        "p10": 0.0,
+        "median": 0.0,
+        "p90": 8.38101577758789
+      },
+      "exact_zero_fraction": 0.708984375,
+      "at_least_50s_fraction": 0.0
+    },
+    {
+      "objective": "passenger",
+      "arm": "fixed0250",
+      "source_scene": "calibrated",
+      "training_seed": 64001,
+      "evaluation_states": "fixed 512 offline states",
+      "hold_probability": {
+        "n": 512,
+        "mean": 0.8035191297531128,
+        "p10": 0.0783594623208046,
+        "median": 0.9992663264274597,
+        "p90": 0.9999189972877502
+      },
+      "deterministic_hold_seconds": {
+        "n": 512,
+        "mean": 45.42314147949219,
+        "p10": 0.0,
+        "median": 58.64488220214844,
+        "p90": 59.5706672668457
+      },
+      "exact_zero_fraction": 0.21484375,
+      "at_least_50s_fraction": 0.74609375
+    },
+    {
+      "objective": "passenger",
+      "arm": "h2oplus",
+      "source_scene": "joint75",
+      "training_seed": 64001,
+      "evaluation_states": "fixed 512 offline states",
+      "hold_probability": {
+        "n": 512,
+        "mean": 0.1319856345653534,
+        "p10": 0.0016471990384161472,
+        "median": 0.14195147156715393,
+        "p90": 0.2185274213552475
+      },
+      "deterministic_hold_seconds": {
+        "n": 512,
+        "mean": 0.0,
+        "p10": 0.0,
+        "median": 0.0,
+        "p90": 0.0
+      },
+      "exact_zero_fraction": 1.0,
+      "at_least_50s_fraction": 0.0
+    },
+    {
+      "objective": "passenger",
+      "arm": "h2o_matched",
+      "source_scene": "joint75",
+      "training_seed": 64001,
+      "evaluation_states": "fixed 512 offline states",
+      "hold_probability": {
+        "n": 512,
+        "mean": 0.11865808814764023,
+        "p10": 1.2642137335205916e-05,
+        "median": 0.10590246319770813,
+        "p90": 0.2400263249874115
+      },
+      "deterministic_hold_seconds": {
+        "n": 512,
+        "mean": 0.01667368970811367,
+        "p10": 0.0,
+        "median": 0.0,
+        "p90": 0.0
+      },
+      "exact_zero_fraction": 0.998046875,
+      "at_least_50s_fraction": 0.0
+    },
+    {
+      "objective": "passenger",
+      "arm": "fixed0250",
+      "source_scene": "joint75",
+      "training_seed": 64001,
+      "evaluation_states": "fixed 512 offline states",
+      "hold_probability": {
+        "n": 512,
+        "mean": 0.7753211259841919,
+        "p10": 0.0003610870335251093,
+        "median": 0.9947737455368042,
+        "p90": 0.9996004700660706
+      },
+      "deterministic_hold_seconds": {
+        "n": 512,
+        "mean": 31.985416412353516,
+        "p10": 0.0,
+        "median": 38.572914123535156,
+        "p90": 54.76318359375
+      },
+      "exact_zero_fraction": 0.21484375,
+      "at_least_50s_fraction": 0.30078125
+    }
+  ],
+  "model_training_trace": [
+    {
+      "objective": "headway",
+      "source_scene": "calibrated",
+      "total_updates": 51000,
+      "metrics": {
+        "train/hold_probability": 0.8061410188674927,
+        "train/positive_action_mean": 0.19859401881694794,
+        "train/alpha": 0.7046821117401123,
+        "train/actor_grad_norm": 0.3115438222885132,
+        "train/critic_grad_norm": 520.7974243164062,
+        "train/q_data_mean": -620.956787109375,
+        "model_td_loss": 3.301880121231079,
+        "model_weight_mean": 0.5069442987442017
+      }
+    },
+    {
+      "objective": "headway",
+      "source_scene": "calibrated",
+      "total_updates": 55000,
+      "metrics": {
+        "train/hold_probability": 0.9273778796195984,
+        "train/positive_action_mean": 0.3939562439918518,
+        "train/alpha": 0.23502814769744873,
+        "train/actor_grad_norm": 0.19468554854393005,
+        "train/critic_grad_norm": 73.6416015625,
+        "train/q_data_mean": -669.77392578125,
+        "model_td_loss": 0.4207848608493805,
+        "model_weight_mean": 0.493187814950943
+      }
+    },
+    {
+      "objective": "headway",
+      "source_scene": "calibrated",
+      "total_updates": 60000,
+      "metrics": {
+        "train/hold_probability": 0.8655804395675659,
+        "train/positive_action_mean": 0.258402019739151,
+        "train/alpha": 0.0759597048163414,
+        "train/actor_grad_norm": 0.0550016313791275,
+        "train/critic_grad_norm": 599.6627197265625,
+        "train/q_data_mean": -739.4378662109375,
+        "model_td_loss": 2.8412117958068848,
+        "model_weight_mean": 0.48284152150154114
+      }
+    },
+    {
+      "objective": "headway",
+      "source_scene": "calibrated",
+      "total_updates": 65000,
+      "metrics": {
+        "train/hold_probability": 0.033335164189338684,
+        "train/positive_action_mean": -0.9598963260650635,
+        "train/alpha": 0.0319904163479805,
+        "train/actor_grad_norm": 0.0019346211338415742,
+        "train/critic_grad_norm": 736.4083251953125,
+        "train/q_data_mean": -788.1781005859375,
+        "model_td_loss": 0.6705923080444336,
+        "model_weight_mean": 0.48800554871559143
+      }
+    },
+    {
+      "objective": "headway",
+      "source_scene": "calibrated",
+      "total_updates": 70000,
+      "metrics": {
+        "train/hold_probability": 0.01162343192845583,
+        "train/positive_action_mean": -0.987574577331543,
+        "train/alpha": 0.010969535447657108,
+        "train/actor_grad_norm": 0.0004622529959306121,
+        "train/critic_grad_norm": 696.6301879882812,
+        "train/q_data_mean": -824.913818359375,
+        "model_td_loss": 0.38938799500465393,
+        "model_weight_mean": 0.4895588457584381
+      }
+    },
+    {
+      "objective": "headway",
+      "source_scene": "joint75",
+      "total_updates": 51000,
+      "metrics": {
+        "train/hold_probability": 0.794611394405365,
+        "train/positive_action_mean": 0.1773047298192978,
+        "train/alpha": 0.7177443504333496,
+        "train/actor_grad_norm": 0.7649919390678406,
+        "train/critic_grad_norm": 764.4725341796875,
+        "train/q_data_mean": -621.2222900390625,
+        "model_td_loss": 0.6764483451843262,
+        "model_weight_mean": 0.5077943801879883
+      }
+    },
+    {
+      "objective": "headway",
+      "source_scene": "joint75",
+      "total_updates": 55000,
+      "metrics": {
+        "train/hold_probability": 0.9693750143051147,
+        "train/positive_action_mean": 0.5232229232788086,
+        "train/alpha": 0.2801949679851532,
+        "train/actor_grad_norm": 0.531532347202301,
+        "train/critic_grad_norm": 106.63015747070312,
+        "train/q_data_mean": -667.4638671875,
+        "model_td_loss": 0.44425874948501587,
+        "model_weight_mean": 0.4979288876056671
+      }
+    },
+    {
+      "objective": "headway",
+      "source_scene": "joint75",
+      "total_updates": 60000,
+      "metrics": {
+        "train/hold_probability": 0.987085223197937,
+        "train/positive_action_mean": 0.5846778154373169,
+        "train/alpha": 0.14306257665157318,
+        "train/actor_grad_norm": 0.5691264867782593,
+        "train/critic_grad_norm": 282.68896484375,
+        "train/q_data_mean": -726.0101318359375,
+        "model_td_loss": 2.1862354278564453,
+        "model_weight_mean": 0.490496963262558
+      }
+    },
+    {
+      "objective": "headway",
+      "source_scene": "joint75",
+      "total_updates": 65000,
+      "metrics": {
+        "train/hold_probability": 0.9844045042991638,
+        "train/positive_action_mean": 0.6177226901054382,
+        "train/alpha": 0.1466248333454132,
+        "train/actor_grad_norm": 0.2767465114593506,
+        "train/critic_grad_norm": 889.1716918945312,
+        "train/q_data_mean": -768.75146484375,
+        "model_td_loss": 0.7661091089248657,
+        "model_weight_mean": 0.4883517622947693
+      }
+    },
+    {
+      "objective": "headway",
+      "source_scene": "joint75",
+      "total_updates": 70000,
+      "metrics": {
+        "train/hold_probability": 0.9786309003829956,
+        "train/positive_action_mean": 0.5295085906982422,
+        "train/alpha": 0.13009445369243622,
+        "train/actor_grad_norm": 0.08598598837852478,
+        "train/critic_grad_norm": 281.3089599609375,
+        "train/q_data_mean": -806.0848388671875,
+        "model_td_loss": 1.4598002433776855,
+        "model_weight_mean": 0.48389026522636414
+      }
+    },
+    {
+      "objective": "passenger",
+      "source_scene": "calibrated",
+      "total_updates": 51000,
+      "metrics": {
+        "train/hold_probability": 0.6776872873306274,
+        "train/positive_action_mean": -0.004161125980317593,
+        "train/alpha": 0.7314613461494446,
+        "train/actor_grad_norm": 0.7456290125846863,
+        "train/critic_grad_norm": 17.538970947265625,
+        "train/q_data_mean": -39.713226318359375,
+        "model_td_loss": 0.018536744639277458,
+        "model_weight_mean": 0.5070856809616089
+      }
+    },
+    {
+      "objective": "passenger",
+      "source_scene": "calibrated",
+      "total_updates": 55000,
+      "metrics": {
+        "train/hold_probability": 0.6671647429466248,
+        "train/positive_action_mean": -0.043878838419914246,
+        "train/alpha": 0.21985556185245514,
+        "train/actor_grad_norm": 0.22171810269355774,
+        "train/critic_grad_norm": 8.30004596710205,
+        "train/q_data_mean": -36.20012664794922,
+        "model_td_loss": 0.012588219717144966,
+        "model_weight_mean": 0.4968450665473938
+      }
+    },
+    {
+      "objective": "passenger",
+      "source_scene": "calibrated",
+      "total_updates": 60000,
+      "metrics": {
+        "train/hold_probability": 0.6591677069664001,
+        "train/positive_action_mean": -0.13491559028625488,
+        "train/alpha": 0.049247439950704575,
+        "train/actor_grad_norm": 0.03559377044439316,
+        "train/critic_grad_norm": 48.54571533203125,
+        "train/q_data_mean": -37.094642639160156,
+        "model_td_loss": 0.042246583849191666,
+        "model_weight_mean": 0.4895707666873932
+      }
+    },
+    {
+      "objective": "passenger",
+      "source_scene": "calibrated",
+      "total_updates": 65000,
+      "metrics": {
+        "train/hold_probability": 0.8374001383781433,
+        "train/positive_action_mean": -0.22636809945106506,
+        "train/alpha": 0.012439006008207798,
+        "train/actor_grad_norm": 0.039018698036670685,
+        "train/critic_grad_norm": 45.83977508544922,
+        "train/q_data_mean": -50.262577056884766,
+        "model_td_loss": 0.013024288229644299,
+        "model_weight_mean": 0.49036064743995667
+      }
+    },
+    {
+      "objective": "passenger",
+      "source_scene": "calibrated",
+      "total_updates": 70000,
+      "metrics": {
+        "train/hold_probability": 0.7296878695487976,
+        "train/positive_action_mean": -0.4027653634548187,
+        "train/alpha": 0.006343741435557604,
+        "train/actor_grad_norm": 0.07533382624387741,
+        "train/critic_grad_norm": 113.21333312988281,
+        "train/q_data_mean": -53.295047760009766,
+        "model_td_loss": 0.04511644318699837,
+        "model_weight_mean": 0.4890064299106598
+      }
+    },
+    {
+      "objective": "passenger",
+      "source_scene": "joint75",
+      "total_updates": 51000,
+      "metrics": {
+        "train/hold_probability": 0.6608930230140686,
+        "train/positive_action_mean": -0.03314994275569916,
+        "train/alpha": 0.7331866025924683,
+        "train/actor_grad_norm": 0.4758583903312683,
+        "train/critic_grad_norm": 25.565637588500977,
+        "train/q_data_mean": -39.823970794677734,
+        "model_td_loss": 0.02908230945467949,
+        "model_weight_mean": 0.508076012134552
+      }
+    },
+    {
+      "objective": "passenger",
+      "source_scene": "joint75",
+      "total_updates": 55000,
+      "metrics": {
+        "train/hold_probability": 0.6641836762428284,
+        "train/positive_action_mean": -0.06183694303035736,
+        "train/alpha": 0.22045257687568665,
+        "train/actor_grad_norm": 0.14436858892440796,
+        "train/critic_grad_norm": 13.651326179504395,
+        "train/q_data_mean": -36.68550491333008,
+        "model_td_loss": 0.016466643661260605,
+        "model_weight_mean": 0.5002846121788025
+      }
+    },
+    {
+      "objective": "passenger",
+      "source_scene": "joint75",
+      "total_updates": 60000,
+      "metrics": {
+        "train/hold_probability": 0.7897963523864746,
+        "train/positive_action_mean": 0.02896679937839508,
+        "train/alpha": 0.0500185489654541,
+        "train/actor_grad_norm": 0.09295959025621414,
+        "train/critic_grad_norm": 27.189937591552734,
+        "train/q_data_mean": -37.351707458496094,
+        "model_td_loss": 0.02403350919485092,
+        "model_weight_mean": 0.49406665563583374
+      }
+    },
+    {
+      "objective": "passenger",
+      "source_scene": "joint75",
+      "total_updates": 65000,
+      "metrics": {
+        "train/hold_probability": 0.7706552147865295,
+        "train/positive_action_mean": -0.053511250764131546,
+        "train/alpha": 0.012219919823110104,
+        "train/actor_grad_norm": 0.05769868940114975,
+        "train/critic_grad_norm": 91.81468200683594,
+        "train/q_data_mean": -50.987091064453125,
+        "model_td_loss": 0.01103219110518694,
+        "model_weight_mean": 0.4928763806819916
+      }
+    },
+    {
+      "objective": "passenger",
+      "source_scene": "joint75",
+      "total_updates": 70000,
+      "metrics": {
+        "train/hold_probability": 0.6300366520881653,
+        "train/positive_action_mean": -0.38980504870414734,
+        "train/alpha": 0.005124351941049099,
+        "train/actor_grad_norm": 0.04738885536789894,
+        "train/critic_grad_norm": 199.3978271484375,
+        "train/q_data_mean": -53.88013458251953,
+        "model_td_loss": 0.05833803862333298,
+        "model_weight_mean": 0.49267828464508057
+      }
+    }
+  ]
+}

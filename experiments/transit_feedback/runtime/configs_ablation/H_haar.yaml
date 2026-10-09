@@ -1,0 +1,26 @@
+# H_haar: TransitDuet v3 with HAAR + PIPER reward coupling.
+#
+# Genuine cross-level reward coupling that injects β · clip(A_U, -c, c) · f_k
+# (clipped + reachability-gated upper advantage) into each in-trip lower
+# transition's reward via the existing tap_signal mechanism.
+#
+# Combines with TPC for lower-distribution stability.
+#
+# Reference: HAAR (Li et al., NeurIPS 2019) + PIPER (Singh et al., 2024).
+_extends: ../config_v2.yaml
+_name: H_haar
+
+coupling:
+  coupling_mode: haar
+  haar:
+    beta: 0.5
+    clip: 0.5
+    use_reach_gate: true
+    reach_lr: 1.0e-3
+    reach_threshold: 0.5
+  tpc:
+    enable: true                 # keep TPC for lower-side covariate-shift fix
+    eps_explore: 0.25
+    sigma_tgt: 20.0
+    w_max: 5.0
+    ema_tau: 0.005

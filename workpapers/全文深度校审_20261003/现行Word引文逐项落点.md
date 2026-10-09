@@ -1,0 +1,896 @@
+# 现行Word引文逐项落点
+以下记录只用于校审，不写入论文正文。
+
+## [1] daganzo2009headway
+[1] 	DAGANZO C F. A headway-based approach to eliminate bus bunching: Systematic analysis and comparisons[J/OL]. Transportation Research Part B: Methodological, 2009, 43(10): 913-921. DOI:10.1016/j.trb.2009.04.002.
+原始元数据：https://api.crossref.org/works/10.1016/j.trb.2009.04.002；日期：2026-09-29；题名：A headway-based approach to eliminate bus bunching: Systematic analysis and comparisons
+- 正文块420：公交服务质量不仅取决于计划配置的班次和车辆，也取决于这些资源在运行过程中能否形成连续、均衡的服务。同一条线路上的车辆受到不同路段拥堵、信号等待和乘客上下车过程影响，即使从起点按等间隔发车，沿途间隔仍可能逐渐失衡。落后车辆面对更多等待乘客，服务时间增加；后续车辆因可服务乘客减少而更快接近前车。这种相互强化的过程使局部延误传播为串车，并增加乘客等待和车辆载客不均衡。已有车头时距控制与动态停站研究以这一过程为重要对象，分析了反馈干预对线路稳定性和服务效率的影响。[1,2]
+- 正文块435：基于车头时距的控制利用相邻车辆的到达或离开信息调节停站。Daganzo对基于实时车头时距的多控制点策略进行分析，讨论了为达到给定间隔容差所需的时刻表松弛量。[1] 这类方法把不稳定运行过程与反馈系数联系起来，使控制器的作用具有较清楚的动力学解释。其核心是根据相对位置调节运行节奏，而不是独立处理每一辆车的晚点。
+- 正文块571：经典驻站模型的差别，首先在于它把什么量作为控制目标。时刻表模型以计划离站时刻为参照，车头时距模型以相邻车辆的服务间隔为参照，乘客导向模型则直接计算候车与车内延误。它们都使用同一车辆传播过程，但优化对象和所需信息不同。以下用典型形式说明这种区别，具体文献中的控制律还取决于其站点、需求和执行假设。[1,2,12]
+
+## [2] xuan2011dynamic
+[2] 	XUAN Y, ARGOTE J, DAGANZO C F. Dynamic bus holding strategies for schedule reliability: Optimal linear control and performance analysis[J/OL]. Transportation Research Part B: Methodological, 2011, 45(10): 1831-1845. DOI:10.1016/j.trb.2011.07.009.
+原始元数据：https://api.crossref.org/works/10.1016/j.trb.2011.07.009；日期：2026-09-29；题名：Dynamic bus holding strategies for schedule reliability: Optimal linear control and performance analysis
+- 正文块420：公交服务质量不仅取决于计划配置的班次和车辆，也取决于这些资源在运行过程中能否形成连续、均衡的服务。同一条线路上的车辆受到不同路段拥堵、信号等待和乘客上下车过程影响，即使从起点按等间隔发车，沿途间隔仍可能逐渐失衡。落后车辆面对更多等待乘客，服务时间增加；后续车辆因可服务乘客减少而更快接近前车。这种相互强化的过程使局部延误传播为串车，并增加乘客等待和车辆载客不均衡。已有车头时距控制与动态停站研究以这一过程为重要对象，分析了反馈干预对线路稳定性和服务效率的影响。[1,2]
+- 正文块436：车头时距均衡与时刻表可靠性并非相同目标。Xuan等引入相对于虚拟时刻表的到达偏差，分析线性动态停站策略，使计划对齐与间隔规律性能够共同进入控制。[2] 对于具有明确班次和终点周转关系的公交线路，这一区分尤其重要：一组车辆可以维持近似均匀间隔，同时整体偏离原有服务计划。因此，控制目标应根据运营任务确定，而不能把间隔均衡作为所有公交场景的唯一标准。
+- 正文块571：经典驻站模型的差别，首先在于它把什么量作为控制目标。时刻表模型以计划离站时刻为参照，车头时距模型以相邻车辆的服务间隔为参照，乘客导向模型则直接计算候车与车内延误。它们都使用同一车辆传播过程，但优化对象和所需信息不同。以下用典型形式说明这种区别，具体文献中的控制律还取决于其站点、需求和执行假设。[1,2,12]
+
+## [3] delgado2012holding
+[3] 	DELGADO F, MUÑOZ J C, GIESEN R. How much can holding and/or limiting boarding improve transit performance?[J/OL]. Transportation Research Part B: Methodological, 2012, 46(9): 1202-1217. DOI:10.1016/j.trb.2012.04.005.
+原始元数据：https://api.crossref.org/works/10.1016/j.trb.2012.04.005；日期：2026-09-29；题名：How much can holding and/or limiting boarding improve transit performance?
+- 正文块421：在途控制通过车辆运行期间的动作调整减弱扰动。附加停站是其中一种直接方式：车辆完成基本上下客后，根据相邻车间隔、服务目标和车内外乘客状态决定是否继续等待。该动作既可能改善后续乘客获得均衡服务的机会，也会增加已经上车乘客的车内停留。因此，控制效果不能只用车头时距是否接近来判断，还需要考虑乘客时间、运力使用与完整服务过程。Delgado等对停站及限制上客的联合研究进一步说明，控制方式的适用性与需求强度、车辆容量和相邻车辆状态有关。[3]
+- 正文块437：滚动优化进一步将未来车辆和乘客变化纳入当前决策。Delgado等以乘客总延误为目标，联合分析停站与限制上客，在模型中考虑异质车辆容量及动态服务。[3] Andres和Nair把车头时距预测与动态停站结合，利用实际线路记录研究预测，再在仿真中比较预测信息对控制的作用。[13] 这类研究表明，预测模型可以扩展反馈控制的时间视野，但预测精度、运行假设和控制收益仍需要分别评价。
+- 正文块445：控制方式的选择与建模对象的变化。 驻站、跳站、速度调节、信号优先和动态发车分别改变站点等待、服务覆盖、路段运行、道路通行权和始发供给。跳站可能减少部分乘客的服务机会；速度及信号控制需要额外的车辆或道路权限；动态发车则改变后续供给计划。驻站控制利用已有停靠过程，在保留线路与基本服务覆盖的条件下调整车辆间隔，适合作为本文研究仿真策略迁移的共同动作接口。其代价是直接增加车内等待，且只能延缓离站，因而必须同时评价车外收益、车内代价及动作上限。[3,20]
+- 正文块575：乘客导向模型把动作转化为时间成本。若当前车辆载客 n 人，附加驻站 u 秒直接增加约 nu 乘客秒的车内时间；其候车收益还取决于站点到达率、后续车辆位置与容量。解析随机模型可在给定假设下计算这一权衡，滚动预测模型则把未来多个站点和车辆的演化纳入同一次优化。[3,12,13] 一般滚动模型在当前观测下预测未来需求与运行状态，选择一组可行动作使预测时域内成本最小，只执行首个动作，再根据新观测重算。
+
+## [4] wang2020real
+[4] 	WANG J, SUN L. Dynamic holding control to avoid bus bunching: A multi-agent deep reinforcement learning framework[J/OL]. Transportation Research Part C: Emerging Technologies, 2020, 116: 102661. DOI:10.1016/j.trc.2020.102661.
+原始元数据：https://api.crossref.org/works/10.1016/j.trc.2020.102661；日期：2026-09-29；题名：Dynamic holding control to avoid bus bunching: A multi-agent deep reinforcement learning framework
+- 正文块424：强化学习通过环境交互学习状态与动作之间的映射，为处理复杂运行状态和延迟服务后果提供了方法基础。公交研究已采用多智能体、异步信用分配等方式学习停站控制，并把学习目标扩展至多线路协同和多种运营指标。[4,5,6] 这些发展说明，学习控制能够在明确的任务设置下处理传统局部反馈难以同时纳入的状态信息。
+- 正文块452：学习型停站方法通过运行交互拟合动作价值或策略，从而减少对显式解析控制律的依赖。Alesiani和Gkiotsalitis研究了高频服务中的强化学习停站方法；Wang和Sun将动态停站写成多智能体强化学习问题，使车辆决策能够利用运行反馈。[4,27] 这类方法把公交控制转化为长期回报优化，但其学习过程还需要处理其他车辆动作对当前车辆状态变化的影响。
+- 正文块907：进一步比较奖励函数的几何结构，可以区分“追求均衡”与“围绕计划均衡”的不同控制目标。Wang和Sun在动态停站研究中采用指数型时距均衡项与停站抑制项之和，其原式的指数均为负号，动作表示停站时长占最大允许时长的比例。[4] 为明确秒制时距与无量纲指数之间的关系，本节将同类函数写成
+- 正文块1120：其中，时距与附加停站均以秒计，三种指数配置的(τ_{h},w_{hold})依次为(60,0)、(60,0.5)和(1,0.5)。该结构参照Wang和Sun的时距均衡与停站动作奖励[4]，时间尺度与动作权重为本节固定设置。四组仅改变进入学习更新的奖励，均采用可学习类别嵌入、相同网络和更新日程，各训练100回合。每组使用三个训练种子，分别在正常运行与快速切换场景下用三个共同评价种子测试，共72个完整回合，每回合24,000秒。
+
+## [5] wang2021asynchronous
+[5] 	WANG J, SUN L. Reducing Bus Bunching with Asynchronous Multi-Agent Reinforcement Learning[EB/OL]. arXiv, 2021[2026-09-29]. https://arxiv.org/abs/2105.00376.
+原始元数据：https://arxiv.org/abs/2105.00376；日期：2026-09-29；题名：Reducing Bus Bunching with Asynchronous Multi-Agent Reinforcement Learning
+- 正文块424：强化学习通过环境交互学习状态与动作之间的映射，为处理复杂运行状态和延迟服务后果提供了方法基础。公交研究已采用多智能体、异步信用分配等方式学习停站控制，并把学习目标扩展至多线路协同和多种运营指标。[4,5,6] 这些发展说明，学习控制能够在明确的任务设置下处理传统局部反馈难以同时纳入的状态信息。
+- 正文块454：公交事件的异步性是重要特征。车辆到站时才具备相应决策机会，而不同车辆的到站时刻通常不同。Wang和Sun通过异步多智能体框架及图注意力评价网络表示其他事件的边际影响，研究这一信用分配问题。[5] Rodriguez等在联合停站与跳站任务中，通过扩展状态和奖励增强对邻近车辆作用的观测，并在事件仿真中评价合作学习及执行不确定性。[35]
+- 正文块876：公交决策的异步性首先是运行事件的属性，不是梯度计算的调度方式。异步演员评论家研究利用多个并行学习过程更新网络，解决的是训练组织与经验生成问题；公交异步多智能体研究则面对不同车辆决策时刻和信用分配问题。[5,138] 本章按同一车辆的后续事件构造经验，使事件对应先于共享训练得到明确。
+
+## [6] wang2023multiobjective
+[6] 	WANG J, SUN L. Multi-objective multi-agent deep reinforcement learning to reduce bus bunching for multiline services with a shared corridor[J/OL]. Transportation Research Part C: Emerging Technologies, 2023, 155: 104309. DOI:10.1016/j.trc.2023.104309.
+原始元数据：https://api.crossref.org/works/10.1016/j.trc.2023.104309；日期：2026-09-29；题名：Multi-objective multi-agent deep reinforcement learning to reduce bus bunching for multiline services with a shared corridor
+- 正文块424：强化学习通过环境交互学习状态与动作之间的映射，为处理复杂运行状态和延迟服务后果提供了方法基础。公交研究已采用多智能体、异步信用分配等方式学习停站控制，并把学习目标扩展至多线路协同和多种运营指标。[4,5,6] 这些发展说明，学习控制能够在明确的任务设置下处理传统局部反馈难以同时纳入的状态信息。
+- 正文块457：运行规模扩大后，协同还涉及线路关系和决策层次。针对共享走廊，Wang和Sun将多线路信息加入状态和奖励，并使用偏好权重生成机制处理多目标运行评价。[6] Yu等将层级多智能体强化学习用于公交串车缓解。[41] Li等进一步研究繁忙多线路走廊中的站点排队，以图表示捕捉车辆之间的关系。[42] 这些研究说明，协同机制需要与实际控制对象对应：车辆间合作、线路间合作以及不同决策层次的协调具有不同问题结构。
+
+## [7] lopez2018microscopic
+[7] 	LOPEZ P A, BEHRISCH M, BIEKER-WALZ L, et al. Microscopic traffic simulation using SUMO[C/OL]//2018 21st international conference on intelligent transportation systems (ITSC). IEEE, 2018: 2575-2582. DOI:10.1109/ITSC.2018.8569938.
+原始元数据：https://sumo.dlr.de/userdoc/Publications.html；日期：2026-10-03；题名：Microscopic Traffic Simulation using SUMO
+- 正文块426：仿真使上述研究能够在不干预实际运营的条件下反复执行。简化事件模型可以提供较低成本的训练交互，微观交通仿真则能够进一步表示道路与车辆的细粒度相互作用。城市交通微观仿真平台（Simulation of Urban MObility，SUMO）提供了开放的微观交通仿真基础，可用于建立目标公交场景及控制接口。[7] 两类环境承担不同任务：前者服务于大量策略学习，后者检验策略在更复杂运行过程中的表现。
+- 正文块695：走廊环境突出车辆之间的运行耦合，便于研究共享策略、类别特征、随机扰动以及运行条件变化。多线路 SUMO 环境进一步包含道路交通交互、线路共享站点和完整乘客服务过程，用于固定离线数据学习及跨保真目标域评价。SUMO的微观交通仿真基础见相关平台文献。[7] 不同平台分别服务于明确的研究问题。
+
+## [8] peng2018
+[8] 	PENG X B, ANDRYCHOWICZ M, ZAREMBA W, et al. Sim-to-Real Transfer of Robotic Control with Dynamics Randomization[EB/OL]. arXiv, 2017[2026-09-29]. https://arxiv.org/abs/1710.06537.
+原始元数据：https://arxiv.org/abs/1710.06537；日期：2026-09-29；题名：Sim-to-Real Transfer of Robotic Control with Dynamics Randomization
+- 正文块428：仿真中有效的策略不一定能在实际使用环境中取得相同效果。本文将承担训练交互的仿真称为源环境，将策略最终接受运行评价的环境称为目标环境。二者可能在道路速度、客流起讫点分布、路口通行延误和停站服务时间等方面存在差异，使相同状态和动作产生不同的后续运行结果。本文以分布偏移（distribution shift）描述训练与使用时相关概率分布的变化，其中相同状态动作下的后继分布变化称为动力学偏移。动力学随机化研究通过在仿真训练中变化模型参数改善迁移，说明训练分布的构造能够影响现实适应；但这一路径需要确定哪些变化值得纳入训练。[8] 当目标离线数据已经存在时，还可以直接使用其中关于目标环境的证据，约束或修正源仿真中的学习过程。
+- 正文块530：其次，在预先缺少目标域数据时构造可迁移的策略。 域随机化通过改变训练输入或动力学参数，使策略经历一组可能的运行条件；公交中对应客流、速度和服务时间等机制的随机变化。鲁棒优化进一步以明确不确定集合中的最不利表现评价策略，正则化则可在匹配集合与对偶条件下表达这类保守目标；CVaR以指定概率质量的尾部结果为对象，也具有特定风险包络下的分布鲁棒表示。[8,66,69] 因此，第3章采用正则化实现保守价值学习，第4章增加基于历史的条件适应。若运行模式隐藏，可用POMDP组织信息结构；跨任务训练可以进一步学习快速适应机制。当前BAPR及CS-BAPR公交实现于训练期间利用近期证据调节保守程度，并通过结构化策略检验冻结控制器对运行变化的响应，其与元学习的关系在于适应思想与信息组织，而非已经实现了独立的跨任务元训练外循环。
+- 正文块671：目标环境数据不可得时，一种直接办法是在仿真中扩大训练条件的覆盖范围。视觉域随机化可改变纹理、光照与对象外观，动力学随机化可改变质量、摩擦或运行参数。[8,105] 对公交而言，可随机化路段运行时间、需求强度及服务波动，使策略反复接触多种合理实现。输入加噪是其中一种形式，但道路和需求机制的随机化并不等同于任意扰动策略输入。
+
+## [9] niu2022h2o
+[9] 	NIU H, SHARMA S, QIU Y, et al. When to Trust Your Simulator: Dynamics-Aware Hybrid Offline-and-Online Reinforcement Learning[EB/OL]. arXiv, 2022[2026-09-29]. https://arxiv.org/abs/2206.13464.
+原始元数据：https://arxiv.org/abs/2206.13464；日期：2026-09-29；题名：When to Trust Your Simulator: Dynamics-Aware Hybrid Offline-and-Online Reinforcement Learning
+- 正文块429：混合离线与在线强化学习（Hybrid Offline-and-Online Reinforcement Learning，H2O）及其扩展H2O+将实际使用环境中预先采集的离线数据与训练仿真中新产生的交互经验结合，提供了不同于纯离线学习和目标在线微调的数据使用方式。[9,10] 对公交在途控制而言，这一思想具有明确吸引力：保留仿真试错的低成本，同时利用目标记录减少学习对源模型的完全依赖。然而，把通用学习框架用于公交还需要处理异步事件、零停站动作、运行时域以及未完成服务等具体问题。
+- 正文块487：跨动力学学习还涉及源数据是否符合目标转移规律。基于分类器奖励的域适应方法（Domain Adaptation with Rewards from Classifiers，DARC）利用区分源目标转移的分类器估计奖励修正，使源环境经验在优化中考虑目标动力学的差异。[104] H2O进一步联合有限目标离线数据与源仿真交互，在价值学习中处理动力学偏移；H2O+拓展这一框架，使不同离线与在线学习方法能够组合。[9,10] 这些工作明确了目标离线信息与源在线探索可以相互补充。
+- 正文块504：方法数据及交互条件核心处理与本文任务的关系IQL[88]固定数据；原文另研究在线微调样本内价值学习与优势加权行为克隆作为公交离线初始化和纯离线参照H2O[9]固定目标数据与新增源交互动力学差异加权的保守价值学习提供跨动力学混合学习的问题设定H2O+[10]同上；允许不同离线学习骨干混合价值备份与动力学比率修正提供第5章学习基础；原文验证含仿真与机器人任务MBPO[112]环境采样与模型生成经验从实际经验起点进行短模型滚动提供模型使用参照；不以源结构保留为必要前提本文公交跨保真学习固定SUMO离线数据与简易仿真训练车辆事件编码、精确零/正停站混合动作及执行保障在有界停站权限下分别检验训练方案与保障作用本文公交世界模型沿用上述训练权限，增加离线数据拟合混合事件预测、残差/直接类别选择及置信加权检验模型辅助的条件增量，不增加目标训练交互
+- 正文块735：这一恒等式说明权重的意义：源分布中过多出现的样本权重降低，目标分布相对更常见的样本权重提高。它改变已有样本在估计中的贡献，不会生成从未覆盖的目标转移。权重差异很大时，少数样本会支配估计，截断或归一化可以减小波动，但一般也会改变有限样本估计的偏差。离线与跨动力学学习因此需要同时说明数据覆盖、权重定义和权重实际用途。[9,84,104]
+- 正文块742：若类先验不等，需要相应消除先验比；有限数据训练得到的分类器只是上述比率的估计。DARC利用分类器形成动力学相关奖励修正，H2O与H2O+在混合源目标学习中进一步利用动力学差异信息。[9,10,104] 各实现可以对包含事件时间的联合转移建模，也可以仅估计状态后继的边缘转移比，实际比率对象必须与输入一致。第5章按具体协议交代是否启用比率、如何估计以及权重作用于何种损失。
+- 正文块1536：H2O及其扩展H2O+由Niu等提出，用于结合实际使用环境的离线经验与训练仿真中的新增交互。[9,10] 本节在第5.2节公交状态与动作模型上，给出离线初始化、混合价值更新和源仿真续训流程。H2O+结合离线与在线价值目标，并对跨动力学数据进行适配；本文各组是否实际启用转移比率校正由其训练协议明确。
+- 正文块1559：联合与边缘分类器之差用于消去状态动作访问分布比，从而诊断条件转移差异；这一思路来自DARC及H2O的跨动力学修正。[9,104]
+
+## [10] niu2025h2oplus
+[10] 	NIU H, JI T, LIU B, et al. H2O+: An Improved Framework for Hybrid Offline-and-Online RL with Dynamics Gaps[EB/OL]. arXiv, 2025[2026-09-29]. https://arxiv.org/abs/2309.12716v2.
+原始元数据：https://arxiv.org/abs/2309.12716v2；日期：2026-09-29；题名：H2O+: An Improved Framework for Hybrid Offline-and-Online RL with Dynamics Gaps
+- 正文块429：混合离线与在线强化学习（Hybrid Offline-and-Online Reinforcement Learning，H2O）及其扩展H2O+将实际使用环境中预先采集的离线数据与训练仿真中新产生的交互经验结合，提供了不同于纯离线学习和目标在线微调的数据使用方式。[9,10] 对公交在途控制而言，这一思想具有明确吸引力：保留仿真试错的低成本，同时利用目标记录减少学习对源模型的完全依赖。然而，把通用学习框架用于公交还需要处理异步事件、零停站动作、运行时域以及未完成服务等具体问题。
+- 正文块487：跨动力学学习还涉及源数据是否符合目标转移规律。基于分类器奖励的域适应方法（Domain Adaptation with Rewards from Classifiers，DARC）利用区分源目标转移的分类器估计奖励修正，使源环境经验在优化中考虑目标动力学的差异。[104] H2O进一步联合有限目标离线数据与源仿真交互，在价值学习中处理动力学偏移；H2O+拓展这一框架，使不同离线与在线学习方法能够组合。[9,10] 这些工作明确了目标离线信息与源在线探索可以相互补充。
+- 正文块489：CQL、IQL与Cal-QL着重处理行为覆盖、价值外推或离线到在线的价值尺度；动力学重要性采样则调整源转移在目标期望中的权重。二者可以组合，不能据此将算法划分成“修正Q”与“纯重要性采样”两个互斥阵营。H2O+同时包含离线与在线价值更新的衔接和动力学差异处理，是混合训练框架。公交实现中哪些修正项真正启用、哪些仅用于诊断，将在第5章按实际训练目标说明。[10,87,88,102]
+- 正文块504：方法数据及交互条件核心处理与本文任务的关系IQL[88]固定数据；原文另研究在线微调样本内价值学习与优势加权行为克隆作为公交离线初始化和纯离线参照H2O[9]固定目标数据与新增源交互动力学差异加权的保守价值学习提供跨动力学混合学习的问题设定H2O+[10]同上；允许不同离线学习骨干混合价值备份与动力学比率修正提供第5章学习基础；原文验证含仿真与机器人任务MBPO[112]环境采样与模型生成经验从实际经验起点进行短模型滚动提供模型使用参照；不以源结构保留为必要前提本文公交跨保真学习固定SUMO离线数据与简易仿真训练车辆事件编码、精确零/正停站混合动作及执行保障在有界停站权限下分别检验训练方案与保障作用本文公交世界模型沿用上述训练权限，增加离线数据拟合混合事件预测、残差/直接类别选择及置信加权检验模型辅助的条件增量，不增加目标训练交互
+- 正文块742：若类先验不等，需要相应消除先验比；有限数据训练得到的分类器只是上述比率的估计。DARC利用分类器形成动力学相关奖励修正，H2O与H2O+在混合源目标学习中进一步利用动力学差异信息。[9,10,104] 各实现可以对包含事件时间的联合转移建模，也可以仅估计状态后继的边缘转移比，实际比率对象必须与输入一致。第5章按具体协议交代是否启用比率、如何估计以及权重作用于何种损失。
+- 正文块1536：H2O及其扩展H2O+由Niu等提出，用于结合实际使用环境的离线经验与训练仿真中的新增交互。[9,10] 本节在第5.2节公交状态与动作模型上，给出离线初始化、混合价值更新和源仿真续训流程。H2O+结合离线与在线价值目标，并对跨动力学数据进行适配；本文各组是否实际启用转移比率校正由其训练协议明确。
+- 正文块1541：离线阶段采用IQL的期望分位回归与优势加权策略提取，续训阶段采用SAC式熵正则化更新，并按公交H2O+的设置组合两类目标。[10,28,88]
+
+## [11] ibarra2015planning
+[11] 	IBARRA-ROJAS O J, DELGADO F, GIESEN R, et al. Planning, operation, and control of bus transport systems: A literature review[J/OL]. Transportation Research Part B: Methodological, 2015, 77: 38-75. DOI:10.1016/j.trb.2015.03.002.
+原始元数据：https://api.crossref.org/works/10.1016/j.trb.2015.03.002；日期：2026-09-29；题名：Planning, operation, and control of bus transport systems: A literature review
+- 正文块433：公交控制嵌入在由线网设计、频率配置、时刻表编制和车辆运用构成的决策体系中。Ibarra-Rojas等按决策层次梳理公交规划、运营与控制，指出服务水平和运营成本之间的权衡贯穿这些环节。[11] 对在途控制而言，上游决策给出了线路、车辆和班次等基本条件，实时动作则处理这些条件下已经发生的运行偏差。因此，评价停站方法既要保持给定供给条件可比，也要说明是否允许重新配置发车计划。
+
+## [12] hickman2001analytic
+[12] 	HICKMAN M D. An Analytic Stochastic Model for the Transit Vehicle Holding Problem[J/OL]. Transportation Science, 2001, 35(3): 215-237. DOI:10.1287/trsc.35.3.215.10150.
+原始元数据：https://api.crossref.org/works/10.1287/trsc.35.3.215.10150；日期：2026-09-29；题名：An Analytic Stochastic Model for the Transit Vehicle Holding Problem
+- 正文块434：停站研究首先需要处理随机性与实时可解性。Hickman将随机运行时间和乘客上下客过程纳入解析模型，把单车控制点停站问题表述为单变量凸二次规划。[12] 这一思路把服务过程的不确定性转化为可计算的即时决策，适用于分析局部动作的时间收益与代价。随着车辆之间的相互作用和未来需求变化被纳入，控制器需要的信息范围也逐步扩大。
+- 正文块571：经典驻站模型的差别，首先在于它把什么量作为控制目标。时刻表模型以计划离站时刻为参照，车头时距模型以相邻车辆的服务间隔为参照，乘客导向模型则直接计算候车与车内延误。它们都使用同一车辆传播过程，但优化对象和所需信息不同。以下用典型形式说明这种区别，具体文献中的控制律还取决于其站点、需求和执行假设。[1,2,12]
+- 正文块575：乘客导向模型把动作转化为时间成本。若当前车辆载客 n 人，附加驻站 u 秒直接增加约 nu 乘客秒的车内时间；其候车收益还取决于站点到达率、后续车辆位置与容量。解析随机模型可在给定假设下计算这一权衡，滚动预测模型则把未来多个站点和车辆的演化纳入同一次优化。[3,12,13] 一般滚动模型在当前观测下预测未来需求与运行状态，选择一组可行动作使预测时域内成本最小，只执行首个动作，再根据新观测重算。
+
+## [13] andres2017predictive
+[13] 	ANDRES M, NAIR R. A predictive-control framework to address bus bunching[J/OL]. Transportation Research Part B: Methodological, 2017, 104: 123-148. DOI:10.1016/j.trb.2017.06.013.
+原始元数据：https://api.crossref.org/works/10.1016/j.trb.2017.06.013；日期：2026-09-29；题名：A predictive-control framework to address bus bunching
+- 正文块437：滚动优化进一步将未来车辆和乘客变化纳入当前决策。Delgado等以乘客总延误为目标，联合分析停站与限制上客，在模型中考虑异质车辆容量及动态服务。[3] Andres和Nair把车头时距预测与动态停站结合，利用实际线路记录研究预测，再在仿真中比较预测信息对控制的作用。[13] 这类研究表明，预测模型可以扩展反馈控制的时间视野，但预测精度、运行假设和控制收益仍需要分别评价。
+- 正文块575：乘客导向模型把动作转化为时间成本。若当前车辆载客 n 人，附加驻站 u 秒直接增加约 nu 乘客秒的车内时间；其候车收益还取决于站点到达率、后续车辆位置与容量。解析随机模型可在给定假设下计算这一权衡，滚动预测模型则把未来多个站点和车辆的演化纳入同一次优化。[3,12,13] 一般滚动模型在当前观测下预测未来需求与运行状态，选择一组可行动作使预测时域内成本最小，只执行首个动作，再根据新观测重算。
+
+## [14] daganzo2011cooperation
+[14] 	DAGANZO C F, PILACHOWSKI J. Reducing bunching with bus-to-bus cooperation[J/OL]. Transportation Research Part B: Methodological, 2011, 45(1): 267-277. DOI:10.1016/j.trb.2010.06.005.
+原始元数据：https://api.crossref.org/works/10.1016/j.trb.2010.06.005；日期：2026-09-29；题名：Reducing bunching with bus-to-bus cooperation
+- 正文块438：控制信息由单向扩展至双向，使后续车辆也进入当前动作的评价。Daganzo和Pilachowski研究利用前后车间距进行车际协同的速度调节，Bartholdi和Eisenstein则研究能够自行调节车头时距的线路组织。[14,15] Cats等基于车辆定位记录分析时刻表停站，并在仿真中评价同时利用前后车间隔的逐站控制。其研究还讨论驾驶员执行、始发站调度等因素对控制落地的影响。[16] 这些方法的共同启示是，相邻车辆并非独立受控对象，单车动作的价值取决于它对前后服务间隔的重新分配。
+
+## [15] bartholdi2012self
+[15] 	BARTHOLDI J J, EISENSTEIN D D. A self-coördinating bus route to resist bus bunching[J/OL]. Transportation Research Part B: Methodological, 2012, 46(4): 481-491. DOI:10.1016/j.trb.2011.11.001.
+原始元数据：https://api.crossref.org/works/10.1016/j.trb.2011.11.001；日期：2026-09-29；题名：A self-coördinating bus route to resist bus bunching
+- 正文块438：控制信息由单向扩展至双向，使后续车辆也进入当前动作的评价。Daganzo和Pilachowski研究利用前后车间距进行车际协同的速度调节，Bartholdi和Eisenstein则研究能够自行调节车头时距的线路组织。[14,15] Cats等基于车辆定位记录分析时刻表停站，并在仿真中评价同时利用前后车间隔的逐站控制。其研究还讨论驾驶员执行、始发站调度等因素对控制落地的影响。[16] 这些方法的共同启示是，相邻车辆并非独立受控对象，单车动作的价值取决于它对前后服务间隔的重新分配。
+
+## [16] cats2012strategies
+[16] 	CATS O, LARIJANI A N, ÓLAFSDÓTTIR Á, et al. Bus-Holding Control Strategies: Simulation-Based Evaluation and Guidelines for Implementation[J/OL]. Transportation Research Record: Journal of the Transportation Research Board, 2012, 2274(1): 100-108. DOI:10.3141/2274-11.
+原始元数据：https://api.crossref.org/works/10.3141/2274-11；日期：2026-09-29；题名：Bus-Holding Control Strategies
+- 正文块438：控制信息由单向扩展至双向，使后续车辆也进入当前动作的评价。Daganzo和Pilachowski研究利用前后车间距进行车际协同的速度调节，Bartholdi和Eisenstein则研究能够自行调节车头时距的线路组织。[14,15] Cats等基于车辆定位记录分析时刻表停站，并在仿真中评价同时利用前后车间隔的逐站控制。其研究还讨论驾驶员执行、始发站调度等因素对控制落地的影响。[16] 这些方法的共同启示是，相邻车辆并非独立受控对象，单车动作的价值取决于它对前后服务间隔的重新分配。
+
+## [17] dai2019predictive
+[17] 	DAI Z, LIU X C, CHEN Z, et al. A predictive headway-based bus-holding strategy with dynamic control point selection: A cooperative game theory approach[J/OL]. Transportation Research Part B: Methodological, 2019, 125: 29-51. DOI:10.1016/j.trb.2019.05.001.
+原始元数据：https://api.crossref.org/works/10.1016/j.trb.2019.05.001；日期：2026-09-29；题名：A predictive headway-based bus-holding strategy with dynamic control point selection: A cooperative game theory approach
+- 正文块439：“在哪些站点控制”与“控制多少”也是相互关联的决策。Dai等将控制点的联合效果写入合作博弈，以预测的车头时距表现评价不同控制点组合，动态确定控制点的重要性。[17] 与在每个站点采用相同控制规则相比，这一研究强调干预位置及控制点间相互作用。Sánchez-Martínez等进一步把时变需求和运行时间引入停站优化，在动态输入下形成控制计划。[18] 对本文而言，两项研究分别说明了运行位置作为状态信息的重要性，以及固定标定参数不足以表达整日运行变化的原因。
+
+## [18] sanchezmartinez2016realtime
+[18] 	SÁNCHEZ-MARTÍNEZ G E, KOUTSOPOULOS H N, WILSON N H M. Real-time holding control for high-frequency transit with dynamics[J/OL]. Transportation Research Part B: Methodological, 2016, 83: 1-19. DOI:10.1016/j.trb.2015.11.013.
+原始元数据：https://api.crossref.org/works/10.1016/j.trb.2015.11.013；日期：2026-09-29；题名：Real-time holding control for high-frequency transit with dynamics
+- 正文块439：“在哪些站点控制”与“控制多少”也是相互关联的决策。Dai等将控制点的联合效果写入合作博弈，以预测的车头时距表现评价不同控制点组合，动态确定控制点的重要性。[17] 与在每个站点采用相同控制规则相比，这一研究强调干预位置及控制点间相互作用。Sánchez-Martínez等进一步把时变需求和运行时间引入停站优化，在动态输入下形成控制计划。[18] 对本文而言，两项研究分别说明了运行位置作为状态信息的重要性，以及固定标定参数不足以表达整日运行变化的原因。
+
+## [19] wu2017overtaking
+[19] 	WU W, LIU R, JIN W. Modelling bus bunching and holding control with vehicle overtaking and distributed passenger boarding behaviour[J/OL]. Transportation Research Part B: Methodological, 2017, 104: 175-197. DOI:10.1016/j.trb.2017.06.019.
+原始元数据：https://api.crossref.org/works/10.1016/j.trb.2017.06.019；日期：2026-09-29；题名：Modelling bus bunching and holding control with vehicle overtaking and distributed passenger boarding behaviour
+- 正文块440：模型中的乘客行为和车辆约束会改变控制后果。Wu等将车辆超越、容量限制以及并车时乘客在车辆之间重新选择队列的行为纳入公交传播模型，分析这些因素下的停站控制。[19] 因而，即便两个仿真具有相近平均行程时间，只要上客分配和车辆相互作用不同，同一停站动作仍可能产生不同后续转移。这也是公交跨保真学习必须关注转移机制，而不只比较平均运行指标的原因。
+
+## [20] gkiotsalitis2021atstop
+[20] 	GKIOTSALITIS K, CATS O. At-stop control measures in public transport: Literature review and research agenda[J/OL]. Transportation Research Part E: Logistics and Transportation Review, 2021, 145: 102176. DOI:10.1016/j.tre.2020.102176.
+原始元数据：https://api.crossref.org/works/10.1016/j.tre.2020.102176；日期：2026-09-29；题名：At-stop control measures in public transport: Literature review and research agenda
+- 正文块441：已有综述从站点控制措施、实时适用性以及乘客和运营者利益等角度归纳这一领域。Gkiotsalitis和Cats将停站、动态发车和跳站放在共同框架下讨论；Rezazada等从需求、供给和决策视角分析串车及控制权衡。[20,21] 这两类梳理共同指向一个问题：规律性改善只是控制评价的一部分，干预引起的车内延误、容量约束和服务可达性也应进入最终判断。
+- 正文块445：控制方式的选择与建模对象的变化。 驻站、跳站、速度调节、信号优先和动态发车分别改变站点等待、服务覆盖、路段运行、道路通行权和始发供给。跳站可能减少部分乘客的服务机会；速度及信号控制需要额外的车辆或道路权限；动态发车则改变后续供给计划。驻站控制利用已有停靠过程，在保留线路与基本服务覆盖的条件下调整车辆间隔，适合作为本文研究仿真策略迁移的共同动作接口。其代价是直接增加车内等待，且只能延缓离站，因而必须同时评价车外收益、车内代价及动作上限。[3,20]
+
+## [21] rezazada2024review
+[21] 	REZAZADA M, NASSIR N, TANIN E, et al. Bus bunching: a comprehensive review from demand, supply, and decision-making perspectives[J/OL]. Transport Reviews, 2024, 44(4): 766-790. DOI:10.1080/01441647.2024.2313969.
+原始元数据：https://api.crossref.org/works/10.1080/01441647.2024.2313969；日期：2026-09-29；题名：Bus bunching: a comprehensive review from demand, supply, and decision-making perspectives
+- 正文块441：已有综述从站点控制措施、实时适用性以及乘客和运营者利益等角度归纳这一领域。Gkiotsalitis和Cats将停站、动态发车和跳站放在共同框架下讨论；Rezazada等从需求、供给和决策视角分析串车及控制权衡。[20,21] 这两类梳理共同指向一个问题：规律性改善只是控制评价的一部分，干预引起的车内延误、容量约束和服务可达性也应进入最终判断。
+
+## [22] he2019transferholding
+[22] 	何胜学. 双线单换乘区条件下公交串车的驻站防治方法[J/OL]. 交通运输工程与信息学报, 2019, 17(3): 133-143. https://jtgc.cbpt.cnki.net/portal/journal/portal/client/paper/JTGC_da6bd34e-4473-40bd-ab25-06c8a87baf30.
+原始元数据：https://jtgc.cbpt.cnki.net/portal/journal/portal/client/paper/JTGC_da6bd34e-4473-40bd-ab25-06c8a87baf30；日期：2026-09-29；题名：双线单换乘区条件下公交串车的驻站防治方法
+- 正文块443：国内公交研究也从乘客服务和具体控制权限出发处理运行失衡。何胜学针对双线单换乘区研究驻站学习控制，将换乘引起的停站不确定性与线路稳定性联系起来。[22] 赵琥等以重叠线路为对象，通过车速诱导调节进入共同区间的车辆时序；李利华等针对站点群体聚集性客流，联合调整驻站时间和路段速度，在车头时距与乘客行程时间之间进行多目标优化。[23,24] 这些研究说明，需求变化、线路交互和控制权限需要共同进入问题定义。本文以车辆完成必要上下客后的附加驻站为共同基础，并在奖励与动作的交叉比较中加入有界速度调节。各组保持既定线路、班次及供给计划；学习方法之间在相同动作权限下比较，传统驻站规则则作为无需训练的运行参照。
+
+## [23] zhao2021overlapping
+[23] 	赵琥, 冯树民, 廖嘉雯, 等. 车路协同环境下重叠线路公交车速诱导策略[J/OL]. 中国公路学报, 2021, 34(7): 42-53. https://zgglxb.chd.edu.cn/CN/10.19721/j.cnki.1001-7372.2021.07.003. DOI:10.19721/j.cnki.1001-7372.2021.07.003.
+原始元数据：https://zgglxb.chd.edu.cn/CN/10.19721/j.cnki.1001-7372.2021.07.003；日期：2026-09-29；题名：车路协同环境下重叠线路公交车速诱导策略
+- 正文块443：国内公交研究也从乘客服务和具体控制权限出发处理运行失衡。何胜学针对双线单换乘区研究驻站学习控制，将换乘引起的停站不确定性与线路稳定性联系起来。[22] 赵琥等以重叠线路为对象，通过车速诱导调节进入共同区间的车辆时序；李利华等针对站点群体聚集性客流，联合调整驻站时间和路段速度，在车头时距与乘客行程时间之间进行多目标优化。[23,24] 这些研究说明，需求变化、线路交互和控制权限需要共同进入问题定义。本文以车辆完成必要上下客后的附加驻站为共同基础，并在奖励与动作的交叉比较中加入有界速度调节。各组保持既定线路、班次及供给计划；学习方法之间在相同动作权限下比较，传统驻站规则则作为无需训练的运行参照。
+
+## [24] li2023crowdholding
+[24] 	李利华, 曹慧琪, 邓亚军, 等. 基于站点群体聚集性客流的公交串车调度优化[J/OL]. 中国公路学报, 2023, 36(2): 203-215. https://zgglxb.chd.edu.cn/CN/10.19721/j.cnki.1001-7372.2023.02.017. DOI:10.19721/j.cnki.1001-7372.2023.02.017.
+原始元数据：https://zgglxb.chd.edu.cn/CN/10.19721/j.cnki.1001-7372.2023.02.017；日期：2026-09-29；题名：基于站点群体聚集性客流的公交串车调度优化
+- 正文块443：国内公交研究也从乘客服务和具体控制权限出发处理运行失衡。何胜学针对双线单换乘区研究驻站学习控制，将换乘引起的停站不确定性与线路稳定性联系起来。[22] 赵琥等以重叠线路为对象，通过车速诱导调节进入共同区间的车辆时序；李利华等针对站点群体聚集性客流，联合调整驻站时间和路段速度，在车头时距与乘客行程时间之间进行多目标优化。[23,24] 这些研究说明，需求变化、线路交互和控制权限需要共同进入问题定义。本文以车辆完成必要上下客后的附加驻站为共同基础，并在奖励与动作的交叉比较中加入有界速度调节。各组保持既定线路、班次及供给计划；学习方法之间在相同动作权限下比较，传统驻站规则则作为无需训练的运行参照。
+
+## [25] liu2025buspriority
+[25] 	刘鹏杰. 不确定环境下多线路公交信号协同优先方法研究[D]. 长沙: 中南大学, 2025.
+原始元数据：Author-supplied doctoral thesis, cover, pp.1-3；日期：2026-09-29；题名：不确定环境下多线路公交信号协同优先方法研究
+- 正文块444：与本文共享长沙基础场景的刘鹏杰研究，从单交叉口、干线、路网到区域边界开展公交信号协同优先，利用信号配时影响车辆通行和动态时刻表的执行。[25] 本文沿用其道路、线路、需求及时刻表资料，研究对象转为公交学习控制及训练环境失配：前者直接调节道路通行条件，后者以车辆附加驻站及其与有界速度调节的协同为对象，并研究有限目标离线数据的使用。共同场景提供可解释的应用基础，但不意味着两种控制权限下的收益能够直接排序。
+- 正文块691：本文多线路场景的道路网络、公交线路、OD需求及时刻表承接刘鹏杰研究中已经整理的基础资料，由其提供，未由本文重新开展原始数据清洗和OD反推。该基础场景位于长沙市中心城区，覆盖7、102、122、311、406和705路六条双向公交线路。其原始构建过程、数据来源和需求估计方法见刘鹏杰学位论文第2章。[25] 本文在这一共同基础上建立学习控制接口、生成控制转移数据、构建简易源仿真并组织跨保真比较，原始场景的数据处理与本文的控制方法研究分别归属相应工作。
+
+## [26] he2020dynamic
+[26] 	HE S X, HE J J, LIANG S D, et al. A Dynamic Holding Approach to Stabilizing a Bus Line Based on the Q-learning Algorithm with Multistage Look-ahead[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2006.08706.
+原始元数据：https://arxiv.org/abs/2006.08706；日期：2026-09-29；题名：A Dynamic Holding Approach to Stabilizing a Bus Line Based on the Q-learning Algorithm with Multistage Look-ahead
+- 正文块446：传统仿真优化常先指定控制律族，例如由固定反馈系数确定停站时长，再寻找使平均乘客成本最小的参数。其优点是结构清楚、参数少、易于解释；局限在于状态与动作之间的响应形式已经预先确定。滚动优化扩大了对未来轨迹的考虑，却需要在每次决策时重新预测和求解。学习型控制将优化对象扩展为状态到动作的函数：给定运行状态s，由策略π(⋅∣s)选择驻站动作，以整个运行过程的期望成本评价这一映射。价值在于把多次仿真中的长期后果积累到可复用的反馈策略，使车辆身份、客流、前后间隔和服务阶段共同决定动作。[26,27]
+- 正文块453：解析优化与学习也可以结合。He等把多阶段前瞻引入近似动态规划和Q学习，通过预测停站对剩余运行时段的影响形成动作，并用神经网络积累历史控制经验。[26] 相比仅使用即时车头时距的反馈，这一路径把未来稳定性纳入当前评价；相比完全依赖解析求解的滚动优化，它又通过价值近似复用已经获得的经验。公交学习控制因此不仅是替换控制律，也包括如何在预测、经验与实时计算之间分配工作。
+
+## [27] alesiani2018reinforcement
+[27] 	ALESIANI F, GKIOTSALITIS K. Reinforcement learning-based bus holding for high-frequency services[C/OL]//2018 21st international conference on intelligent transportation systems (ITSC). IEEE, 2018: 3162-3168. DOI:10.1109/ITSC.2018.8569473.
+原始元数据：https://api.crossref.org/works/10.1109/ITSC.2018.8569473；日期：2026-09-29；题名：Reinforcement Learning-Based Bus Holding for High-Frequency Services
+- 正文块446：传统仿真优化常先指定控制律族，例如由固定反馈系数确定停站时长，再寻找使平均乘客成本最小的参数。其优点是结构清楚、参数少、易于解释；局限在于状态与动作之间的响应形式已经预先确定。滚动优化扩大了对未来轨迹的考虑，却需要在每次决策时重新预测和求解。学习型控制将优化对象扩展为状态到动作的函数：给定运行状态s，由策略π(⋅∣s)选择驻站动作，以整个运行过程的期望成本评价这一映射。价值在于把多次仿真中的长期后果积累到可复用的反馈策略，使车辆身份、客流、前后间隔和服务阶段共同决定动作。[26,27]
+- 正文块452：学习型停站方法通过运行交互拟合动作价值或策略，从而减少对显式解析控制律的依赖。Alesiani和Gkiotsalitis研究了高频服务中的强化学习停站方法；Wang和Sun将动态停站写成多智能体强化学习问题，使车辆决策能够利用运行反馈。[4,27] 这类方法把公交控制转化为长期回报优化，但其学习过程还需要处理其他车辆动作对当前车辆状态变化的影响。
+
+## [28] haarnoja2018soft
+[28] 	HAARNOJA T, ZHOU A, ABBEEL P, et al. Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1801.01290.
+原始元数据：https://arxiv.org/abs/1801.01290；日期：2026-09-29；题名：Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor
+- 正文块449：强化学习方法应沿不同维度分类。基于价值的方法由动作价值导出动作选择；直接策略优化在参数化策略上改进回报；演员评论家方法用价值估计辅助策略更新。是否显式学习环境并利用预测规划或生成经验，构成有模型与无模型的另一维度。鲁棒学习则规定面对哪些不确定性以及如何评价不利结果，可以与上述方法组合。把value-based、policy-based、model-based和robust并列成互斥类别，会混淆决策形式、模型使用和优化目标三个层次。[28,29,30]
+- 正文块464：集成方法为处理价值估计不稳定提供了可实现途径。自助采样深度Q网络（Bootstrapped Deep Q-Network，Bootstrapped DQN）利用多个价值头支持深度探索，双延迟深度确定性策略梯度（Twin Delayed Deep Deterministic Policy Gradient，TD3）通过双评价网络中的较小值等机制缓解价值高估，随机集成双Q学习（Randomized Ensembled Double Q-Learning，REDQ）则结合较高更新数据比、价值集成和随机子集最小值进行学习。[53,54,55] 软演员评论家方法（Soft Actor-Critic，SAC）把策略熵纳入目标，在期望回报与随机探索之间进行权衡。[28] 这些方法作用于不同环节，集成分歧、目标聚合和熵调节不能简单视为同一种不确定性处理。
+- 正文块658：基于价值的方法先学习动作价值，再据此选择动作。离散驻站可逐个比较候选时长，连续驻站则通常需要额外的动作优化器或参数化策略。基于策略的方法直接优化 π_{θ}(a∣s)，能够表示连续时长和随机动作；演员评论家方法再以价值函数评价策略并降低更新所需的估计负担。深度Q学习、连续演员评论家与SAC分别提供了这些基本思路的具体实现。[28,31,32]
+- 正文块662：SAC在累计回报之外加入策略熵，用温度系数 α_{ent}>0 权衡回报与随机性。[28,132] 本节评论家估计的是计入后续动作熵项的软动作价值，第2.2.6节的 Q^{π} 则只累计环境奖励。对共用事件接口，SAC的评论家回归目标和演员损失可写为
+- 正文块939：RE-SAC以SAC的熵正则化演员评论家结构为基础，引入面向随机运行环境的集成估计与保守评价。[28]
+- 正文块944：连续停站动作允许在当前状态下选择不同控制强度，也使探索尺度成为学习中的重要变量。SAC在最大熵目标中联合优化回报和动作分布，其后续研究进一步通过约束形式自动调节温度。[28,132] 本章沿用这一演员评论家基础，把类别状态和集成评价接入同一学习目标，温度的长期变化则在后续实验中单独分析。
+- 正文块1541：离线阶段采用IQL的期望分位回归与优势加权策略提取，续训阶段采用SAC式熵正则化更新，并按公交H2O+的设置组合两类目标。[10,28,88]
+
+## [29] moerland2020mbrl
+[29] 	MOERLAND T M, BROEKENS J, PLAAT A, et al. Model-based Reinforcement Learning: A Survey[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2006.16712.
+原始元数据：https://arxiv.org/abs/2006.16712；日期：2026-09-29；题名：Model-based Reinforcement Learning: A Survey
+- 正文块449：强化学习方法应沿不同维度分类。基于价值的方法由动作价值导出动作选择；直接策略优化在参数化策略上改进回报；演员评论家方法用价值估计辅助策略更新。是否显式学习环境并利用预测规划或生成经验，构成有模型与无模型的另一维度。鲁棒学习则规定面对哪些不确定性以及如何评价不利结果，可以与上述方法组合。把value-based、policy-based、model-based和robust并列成互斥类别，会混淆决策形式、模型使用和优化目标三个层次。[28,29,30]
+- 正文块495：模型的使用范围关系到误差积累。模型价值扩展（Model-Based Value Expansion，MVE）通过有限深度的模型展开改善价值估计，随机集成价值扩展（Stochastic Ensemble Value Expansion，STEVE）根据不同长度展开的不确定性进行组合。[120,121] 与此相关，模型型强化学习综述将模型拟合和规划学习整合作为两个相联系的环节，分别讨论随机性、部分可观测性、计算预算及模型样本起点。[29] 对源目标失配问题，选择适应模型和限定模型样本的使用范围因而都重要：前者决定预测从何而来，后者决定预测误差能够影响多远。
+
+## [30] Iyengar2005RobustDP
+[30] 	IYENGAR G N. Robust dynamic programming[J/OL]. Mathematics of Operations Research, 2005, 30(2): 257-280. DOI:10.1287/moor.1040.0129.
+原始元数据：https://api.crossref.org/works/10.1287/moor.1040.0129；日期：2026-09-29；题名：Robust Dynamic Programming
+- 正文块449：强化学习方法应沿不同维度分类。基于价值的方法由动作价值导出动作选择；直接策略优化在参数化策略上改进回报；演员评论家方法用价值估计辅助策略更新。是否显式学习环境并利用预测规划或生成经验，构成有模型与无模型的另一维度。鲁棒学习则规定面对哪些不确定性以及如何评价不利结果，可以与上述方法组合。把value-based、policy-based、model-based和robust并列成互斥类别，会混淆决策形式、模型使用和优化目标三个层次。[28,29,30]
+- 正文块467：鲁棒强化学习从模型集合出发处理不确定性。鲁棒动态规划在给定不确定集合及矩形性条件下，用最不利转移评价决策；正则化马尔可夫决策过程（Markov Decision Process，MDP）则在价值或策略目标中加入正则项。[30,65] 两者并非互不相关的技术：Derman等证明，指定奖励与转移不确定集合的鲁棒问题，可以通过与该集合对应的策略和价值正则项表达。[66] 这使不利分布评价与可计算的正则化更新建立联系。本文提出的RE-SAC由这一思路出发，在SAC中加入目标价值偏移和集成保守评价；第3章模型部分及附录A.7区分精确对应、分布距离下界与网络代理惩罚，第3.3节再讨论固定参数算子的性质。[67]
+- 正文块677：此处的可分解结构通常称为矩形性，它使局部最坏选择与所定义的动态规划问题相容。[30] 若多个状态的模型参数必须共同变化，就需要保留这种耦合，不能把它们任意拆成互相独立的最坏情形。
+- 正文块678：经典求解方式是鲁棒价值迭代。先初始化有界价值函数V^{(0)}；第m轮对每个状态动作求内层最大化，在U_{s,a}中寻找使后继期望成本最大的转移分布，再在各动作的最坏成本中取最小值，得到V^{(m+1)}=T_{rob}V^{(m)}。若集合由有限个候选转移组成，内层可逐一计算并取最大值；若由概率归一化、非负性及线性不等式定义为多面体，内层就是线性规划。各不确定集合非空紧、成本有界且0≤γ<1时，该算子在最大范数下为γ收缩，可反复更新至相邻两轮价值差小于给定阈值，再依据最终价值选择最小化最坏成本的动作。有限决策时域则从终端成本出发逐步向前回推。[30] 在连续公交状态下，逐状态动作求解内层优化与表示全局价值均有计算负担，下一节因此介绍匹配不确定集合下的正则化表达。
+
+## [31] mnih2013atari
+[31] 	MNIH V, KAVUKCUOGLU K, SILVER D, et al. Playing Atari with Deep Reinforcement Learning[EB/OL]. arXiv, 2013[2026-09-29]. https://arxiv.org/abs/1312.5602.
+原始元数据：https://arxiv.org/abs/1312.5602；日期：2026-09-29；题名：Playing Atari with Deep Reinforcement Learning
+- 正文块451：深度强化学习为以高维运行状态构造策略提供了通用工具。早期深度Q网络（Deep Q-Network，DQN）研究利用神经网络从观测中学习动作价值，深度确定性策略梯度（Deep Deterministic Policy Gradient，DDPG）将演员评论家与经验回放用于连续动作控制。[31,32] 信赖域策略优化（Trust Region Policy Optimization，TRPO）和近端策略优化（Proximal Policy Optimization，PPO）则从限制策略更新幅度的角度改善学习过程。[33,34] 对公交停站而言，这些方法分别支持离散时长选择、连续停站输出和渐进策略改进，但算法本身并不规定应采用何种车辆状态或乘客目标。
+- 正文块658：基于价值的方法先学习动作价值，再据此选择动作。离散驻站可逐个比较候选时长，连续驻站则通常需要额外的动作优化器或参数化策略。基于策略的方法直接优化 π_{θ}(a∣s)，能够表示连续时长和随机动作；演员评论家方法再以价值函数评价策略并降低更新所需的估计负担。深度Q学习、连续演员评论家与SAC分别提供了这些基本思路的具体实现。[28,31,32]
+
+## [32] lillicrap2015ddpg
+[32] 	LILLICRAP T P, HUNT J J, PRITZEL A, et al. Continuous control with deep reinforcement learning[EB/OL]. arXiv, 2015[2026-09-29]. https://arxiv.org/abs/1509.02971.
+原始元数据：https://arxiv.org/abs/1509.02971；日期：2026-09-29；题名：Continuous control with deep reinforcement learning
+- 正文块451：深度强化学习为以高维运行状态构造策略提供了通用工具。早期深度Q网络（Deep Q-Network，DQN）研究利用神经网络从观测中学习动作价值，深度确定性策略梯度（Deep Deterministic Policy Gradient，DDPG）将演员评论家与经验回放用于连续动作控制。[31,32] 信赖域策略优化（Trust Region Policy Optimization，TRPO）和近端策略优化（Proximal Policy Optimization，PPO）则从限制策略更新幅度的角度改善学习过程。[33,34] 对公交停站而言，这些方法分别支持离散时长选择、连续停站输出和渐进策略改进，但算法本身并不规定应采用何种车辆状态或乘客目标。
+- 正文块658：基于价值的方法先学习动作价值，再据此选择动作。离散驻站可逐个比较候选时长，连续驻站则通常需要额外的动作优化器或参数化策略。基于策略的方法直接优化 π_{θ}(a∣s)，能够表示连续时长和随机动作；演员评论家方法再以价值函数评价策略并降低更新所需的估计负担。深度Q学习、连续演员评论家与SAC分别提供了这些基本思路的具体实现。[28,31,32]
+
+## [33] schulman2015trpo
+[33] 	SCHULMAN J, LEVINE S, MORITZ P, et al. Trust Region Policy Optimization[EB/OL]. arXiv, 2015[2026-09-29]. https://arxiv.org/abs/1502.05477.
+原始元数据：https://arxiv.org/abs/1502.05477；日期：2026-09-29；题名：Trust Region Policy Optimization
+- 正文块451：深度强化学习为以高维运行状态构造策略提供了通用工具。早期深度Q网络（Deep Q-Network，DQN）研究利用神经网络从观测中学习动作价值，深度确定性策略梯度（Deep Deterministic Policy Gradient，DDPG）将演员评论家与经验回放用于连续动作控制。[31,32] 信赖域策略优化（Trust Region Policy Optimization，TRPO）和近端策略优化（Proximal Policy Optimization，PPO）则从限制策略更新幅度的角度改善学习过程。[33,34] 对公交停站而言，这些方法分别支持离散时长选择、连续停站输出和渐进策略改进，但算法本身并不规定应采用何种车辆状态或乘客目标。
+
+## [34] schulman2017ppo
+[34] 	SCHULMAN J, WOLSKI F, DHARIWAL P, et al. Proximal Policy Optimization Algorithms[EB/OL]. arXiv, 2017[2026-09-29]. https://arxiv.org/abs/1707.06347.
+原始元数据：https://arxiv.org/abs/1707.06347；日期：2026-09-29；题名：Proximal Policy Optimization Algorithms
+- 正文块451：深度强化学习为以高维运行状态构造策略提供了通用工具。早期深度Q网络（Deep Q-Network，DQN）研究利用神经网络从观测中学习动作价值，深度确定性策略梯度（Deep Deterministic Policy Gradient，DDPG）将演员评论家与经验回放用于连续动作控制。[31,32] 信赖域策略优化（Trust Region Policy Optimization，TRPO）和近端策略优化（Proximal Policy Optimization，PPO）则从限制策略更新幅度的角度改善学习过程。[33,34] 对公交停站而言，这些方法分别支持离散时长选择、连续停站输出和渐进策略改进，但算法本身并不规定应采用何种车辆状态或乘客目标。
+
+## [35] rodriguez2023cooperative
+[35] 	RODRIGUEZ J, KOUTSOPOULOS H N, WANG S, et al. Cooperative bus holding and stop-skipping: A deep reinforcement learning framework[J/OL]. Transportation Research Part C: Emerging Technologies, 2023, 155: 104308. DOI:10.1016/j.trc.2023.104308.
+原始元数据：https://api.crossref.org/works/10.1016/j.trc.2023.104308；日期：2026-09-29；题名：Cooperative bus holding and stop-skipping: A deep reinforcement learning framework
+- 正文块454：公交事件的异步性是重要特征。车辆到站时才具备相应决策机会，而不同车辆的到站时刻通常不同。Wang和Sun通过异步多智能体框架及图注意力评价网络表示其他事件的边际影响，研究这一信用分配问题。[5] Rodriguez等在联合停站与跳站任务中，通过扩展状态和奖励增强对邻近车辆作用的观测，并在事件仿真中评价合作学习及执行不确定性。[35]
+
+## [36] lowe2017maddpg
+[36] 	LOWE R, WU Y, TAMAR A, et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments[EB/OL]. arXiv, 2017[2026-09-29]. https://arxiv.org/abs/1706.02275.
+原始元数据：https://arxiv.org/abs/1706.02275；日期：2026-09-29；题名：Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments
+- 正文块455：从一般多智能体强化学习（Multi-Agent Reinforcement Learning，MARL）看，协同困难至少包括联合动作评价、团队收益分配和同时学习引起的非平稳性。多智能体深度确定性策略梯度（Multi-Agent Deep Deterministic Policy Gradient，MADDPG）在演员评论家中引入其他智能体的信息；反事实多智能体策略梯度（Counterfactual Multi-Agent Policy Gradients，COMA）利用反事实基线讨论个体动作对团队回报的贡献。[36,37] 价值分解网络（Value-Decomposition Networks，VDN）和单调价值混合网络（QMIX）则通过价值分解，将团队评价与个体决策联系起来，分别采用可加结构和单调混合结构。[38,39] 这些方法给出了组织协作的不同方式，但公交到站时序、共享车辆资源和乘客跨站传播仍需在具体环境中表示。
+
+## [37] foerster2018coma
+[37] 	FOERSTER J, FARQUHAR G, AFOURAS T, et al. Counterfactual Multi-Agent Policy Gradients[EB/OL]. arXiv, 2017[2026-09-29]. https://arxiv.org/abs/1705.08926.
+原始元数据：https://arxiv.org/abs/1705.08926；日期：2026-09-29；题名：Counterfactual Multi-Agent Policy Gradients
+- 正文块455：从一般多智能体强化学习（Multi-Agent Reinforcement Learning，MARL）看，协同困难至少包括联合动作评价、团队收益分配和同时学习引起的非平稳性。多智能体深度确定性策略梯度（Multi-Agent Deep Deterministic Policy Gradient，MADDPG）在演员评论家中引入其他智能体的信息；反事实多智能体策略梯度（Counterfactual Multi-Agent Policy Gradients，COMA）利用反事实基线讨论个体动作对团队回报的贡献。[36,37] 价值分解网络（Value-Decomposition Networks，VDN）和单调价值混合网络（QMIX）则通过价值分解，将团队评价与个体决策联系起来，分别采用可加结构和单调混合结构。[38,39] 这些方法给出了组织协作的不同方式，但公交到站时序、共享车辆资源和乘客跨站传播仍需在具体环境中表示。
+
+## [38] sunehag2017vdn
+[38] 	SUNEHAG P, LEVER G, GRUSLYS A, et al. Value-Decomposition Networks For Cooperative Multi-Agent Learning[EB/OL]. arXiv, 2017[2026-09-29]. https://arxiv.org/abs/1706.05296.
+原始元数据：https://arxiv.org/abs/1706.05296；日期：2026-09-29；题名：Value-Decomposition Networks For Cooperative Multi-Agent Learning
+- 正文块455：从一般多智能体强化学习（Multi-Agent Reinforcement Learning，MARL）看，协同困难至少包括联合动作评价、团队收益分配和同时学习引起的非平稳性。多智能体深度确定性策略梯度（Multi-Agent Deep Deterministic Policy Gradient，MADDPG）在演员评论家中引入其他智能体的信息；反事实多智能体策略梯度（Counterfactual Multi-Agent Policy Gradients，COMA）利用反事实基线讨论个体动作对团队回报的贡献。[36,37] 价值分解网络（Value-Decomposition Networks，VDN）和单调价值混合网络（QMIX）则通过价值分解，将团队评价与个体决策联系起来，分别采用可加结构和单调混合结构。[38,39] 这些方法给出了组织协作的不同方式，但公交到站时序、共享车辆资源和乘客跨站传播仍需在具体环境中表示。
+
+## [39] rashid2018qmix
+[39] 	RASHID T, SAMVELYAN M, DE WITT C S, et al. QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1803.11485.
+原始元数据：https://arxiv.org/abs/1803.11485；日期：2026-09-29；题名：QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning
+- 正文块455：从一般多智能体强化学习（Multi-Agent Reinforcement Learning，MARL）看，协同困难至少包括联合动作评价、团队收益分配和同时学习引起的非平稳性。多智能体深度确定性策略梯度（Multi-Agent Deep Deterministic Policy Gradient，MADDPG）在演员评论家中引入其他智能体的信息；反事实多智能体策略梯度（Counterfactual Multi-Agent Policy Gradients，COMA）利用反事实基线讨论个体动作对团队回报的贡献。[36,37] 价值分解网络（Value-Decomposition Networks，VDN）和单调价值混合网络（QMIX）则通过价值分解，将团队评价与个体决策联系起来，分别采用可加结构和单调混合结构。[38,39] 这些方法给出了组织协作的不同方式，但公交到站时序、共享车辆资源和乘客跨站传播仍需在具体环境中表示。
+
+## [40] papoudakis2019nonstationary
+[40] 	PAPOUDAKIS G, CHRISTIANOS F, RAHMAN A, et al. Dealing with Non-Stationarity in Multi-Agent Deep Reinforcement Learning[EB/OL]. arXiv, 2019[2026-09-29]. https://arxiv.org/abs/1906.04737.
+原始元数据：https://arxiv.org/abs/1906.04737；日期：2026-09-29；题名：Dealing with Non-Stationarity in Multi-Agent Deep Reinforcement Learning
+- 正文块456：还应区分两种非平稳性：其他车辆的策略持续更新，会改变当前学习者面对的交互过程；道路或客流改变，则会改变外部运行条件。多智能体非平稳性综述将集中训练、其他智能体策略表征和通信等作为前一问题的主要处理方向。[40] 本文共享策略减少了多套独立策略同时更新的组织复杂性，而第4章的适应机制针对的是后一类运行变化，两者作用层次不同。
+
+## [41] yu2024hierarchical
+[41] 	YU M, YANG T, LI C, et al. Mitigating bus bunching via hierarchical multi-agent reinforcement learning[J/OL]. IEEE Transactions on Intelligent Transportation Systems, 2024, 25(8): 9675-9692. DOI:10.1109/TITS.2024.3362813.
+原始元数据：https://api.crossref.org/works/10.1109/TITS.2024.3362813；日期：2026-09-29；题名：Mitigating Bus Bunching via Hierarchical Multi-Agent Reinforcement Learning
+- 正文块457：运行规模扩大后，协同还涉及线路关系和决策层次。针对共享走廊，Wang和Sun将多线路信息加入状态和奖励，并使用偏好权重生成机制处理多目标运行评价。[6] Yu等将层级多智能体强化学习用于公交串车缓解。[41] Li等进一步研究繁忙多线路走廊中的站点排队，以图表示捕捉车辆之间的关系。[42] 这些研究说明，协同机制需要与实际控制对象对应：车辆间合作、线路间合作以及不同决策层次的协调具有不同问题结构。
+
+## [42] li2026graphaware
+[42] 	LI C, SHEN M, HU Q, et al. Dynamic bus holding control for multi-line busy bus corridors: Mitigating bus queues and improving headway regularity via graph-aware deep reinforcement learning[J/OL]. Transportation Research Part E: Logistics and Transportation Review, 2026, 207: 104603. DOI:10.1016/j.tre.2025.104603.
+原始元数据：https://api.crossref.org/works/10.1016/j.tre.2025.104603；日期：2026-09-29；题名：Dynamic bus holding control for multi-line busy bus corridors: Mitigating bus queues and improving headway regularity via graph-aware deep reinforcement learning
+- 正文块457：运行规模扩大后，协同还涉及线路关系和决策层次。针对共享走廊，Wang和Sun将多线路信息加入状态和奖励，并使用偏好权重生成机制处理多目标运行评价。[6] Yu等将层级多智能体强化学习用于公交串车缓解。[41] Li等进一步研究繁忙多线路走廊中的站点排队，以图表示捕捉车辆之间的关系。[42] 这些研究说明，协同机制需要与实际控制对象对应：车辆间合作、线路间合作以及不同决策层次的协调具有不同问题结构。
+
+## [43] zhang2026single
+[43] 	ZHANG Y. Single Agent Robust Deep Reinforcement Learning for Bus Fleet Control[EB/OL]. arXiv, 2025[2026-09-29]. https://arxiv.org/abs/2508.20784.
+原始元数据：https://arxiv.org/abs/2508.20784；日期：2026-09-29；题名：Single Agent Robust Deep Reinforcement Learning for Bus Fleet Control
+- 正文块458：本论文采用另一条互补路径，以类别身份和连续状态共同构造共享策略。相关单智能体公交研究将车辆、站点和服务情境输入同一决策映射，处理双向按时刻表运行中的样本共享与对象差异。[43] 本文在给定计划下由单一共享策略处理车队中各车辆的驻站事件，后续各章改变环境与数据假设，保持这一共同控制对象。
+- 正文块848：本章提出结合类别嵌入的共享驻站策略，并提出RE-SAC，以计划间隔为控制目标，通过集成动作价值评价学习驻站决策。[43,67] 模型部分明确状态、动作、奖励和保守评价的含义；算法部分给出评论家、演员与温度的更新；结果分析保留走廊训练、组件比较、长期变化与动作续接证据。RE-SAC在第5章还用于固定目标离线数据学习，那里允许使用的训练信息与本章不同。
+
+## [44] guo2016entity
+[44] 	GUO C, BERKHAHN F. Entity Embeddings of Categorical Variables[EB/OL]. arXiv, 2016[2026-09-29]. https://arxiv.org/abs/1604.06737.
+原始元数据：https://arxiv.org/abs/1604.06737；日期：2026-09-29；题名：Entity Embeddings of Categorical Variables
+- 正文块459：类别嵌入为共享映射保留对象差异提供了表示基础。Guo和Berkhahn通过可训练向量表示类别变量，使类别之间与预测任务有关的关系从数据中形成；多任务学习研究则讨论了共享表征与任务差异之间的联系。[44,45] 用于公交时，需要保留车辆、方向和服务位置的实际语义，而不能将类别编号直接解释为连续物理量。本文由此将“共享多少参数”和“保留哪些身份信息”作为两个相互配合的设计问题。
+- 正文块862：可训练类别向量的基本思想来自实体嵌入：为每个类别分配向量，并使其随预测任务共同更新，从数据中形成类别之间的关系。[44] 本章将这一表示用于公交策略和价值函数，使站点、方向等身份信息与控制目标共同学习。共享网络则承担跨对象的经验利用，其作用与多任务学习中的共享表征相联系。[45]
+
+## [45] ruder2017multitask
+[45] 	RUDER S. An Overview of Multi-Task Learning in Deep Neural Networks[EB/OL]. arXiv, 2017[2026-09-29]. https://arxiv.org/abs/1706.05098.
+原始元数据：https://arxiv.org/abs/1706.05098；日期：2026-09-29；题名：An Overview of Multi-Task Learning in Deep Neural Networks
+- 正文块459：类别嵌入为共享映射保留对象差异提供了表示基础。Guo和Berkhahn通过可训练向量表示类别变量，使类别之间与预测任务有关的关系从数据中形成；多任务学习研究则讨论了共享表征与任务差异之间的联系。[44,45] 用于公交时，需要保留车辆、方向和服务位置的实际语义，而不能将类别编号直接解释为连续物理量。本文由此将“共享多少参数”和“保留哪些身份信息”作为两个相互配合的设计问题。
+- 正文块862：可训练类别向量的基本思想来自实体嵌入：为每个类别分配向量，并使其随预测任务共同更新，从数据中形成类别之间的关系。[44] 本章将这一表示用于公交策略和价值函数，使站点、方向等身份信息与控制目标共同学习。共享网络则承担跨对象的经验利用，其作用与多任务学习中的共享表征相联系。[45]
+
+## [46] xu2025systematic
+[46] 	XU Z, WANG C, SHEN M, et al. Reinforcement Learning for Bus Bunching Mitigation: A Systematic Evaluation of Configurations and Performances[J/OL]. IEEE Transactions on Intelligent Transportation Systems, 2025, 26(7): 10443-10455. DOI:10.1109/TITS.2025.3545642.
+原始元数据：https://api.crossref.org/works/10.1109/TITS.2025.3545642；日期：2026-09-29；题名：Reinforcement Learning for Bus Bunching Mitigation: A Systematic Evaluation of Configurations and Performances
+- 正文块460：近期公交学习研究也开始直接讨论方法配置与奖励形成。Xu等以串车缓解为对象系统评价强化学习配置；Yu等利用大语言模型生成和迭代调整公交停站奖励。[46,47] 后一方向表明，奖励函数本身仍是需要研究的控制建模环节。本文从计划间隔和前后车关系出发解释奖励曲面的几何性质，并将奖励选择的结果与乘客服务指标联系起来。
+
+## [47] yu2024llm
+[47] 	YU J, WANG Y, MA W. Large Language Model-Enhanced Reinforcement Learning for Generic Bus Holding Control Strategies[EB/OL]. arXiv, 2024[2026-09-29]. https://arxiv.org/abs/2410.10212.
+原始元数据：https://arxiv.org/abs/2410.10212；日期：2026-09-29；题名：Large Language Model-Enhanced Reinforcement Learning for Generic Bus Holding Control Strategies
+- 正文块460：近期公交学习研究也开始直接讨论方法配置与奖励形成。Xu等以串车缓解为对象系统评价强化学习配置；Yu等利用大语言模型生成和迭代调整公交停站奖励。[46,47] 后一方向表明，奖励函数本身仍是需要研究的控制建模环节。本文从计划间隔和前后车关系出发解释奖励曲面的几何性质，并将奖励选择的结果与乘客服务指标联系起来。
+
+## [48] wei2019presslight
+[48] 	WEI H, CHEN C, ZHENG G, et al. PressLight: Learning Max Pressure Control to Coordinate Traffic Signals in Arterial Network[C/OL]//Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining. ACM, 2019: 1290-1298. DOI:10.1145/3292500.3330949.
+原始元数据：https://doi.org/10.1145/3292500.3330949；日期：2026-10-03；题名：PressLight: Learning Max Pressure Control to Coordinate Traffic Signals in Arterial Network
+- 正文块461：交通信号控制体现了通用强化学习与交通机理结合的方式。PressLight依据最大压力控制构造状态与奖励，使路口动作评价联系到上下游排队；CoLight通过图注意力汇集相邻路口信息，学习网络协作。[48,49] 两者分别说明交通知识能够进入学习目标和关系表示。公交驻站同样需要表示上下游影响，但动作由车辆服务事件触发，车内乘客代价随车辆移动，故不能直接照搬信号相位模型。本文由此采用车辆事件状态和乘客服务评价，将相关学习机制落实到驻站任务。
+
+## [49] wei2019colight
+[49]	WEI H, XU N, ZHANG H, et al. CoLight: Learning Network-level Cooperation for Traffic Signal Control[EB/OL]. arXiv, 2019[2026-10-03]. https://arxiv.org/abs/1905.05717.
+原始元数据：https://arxiv.org/abs/1905.05717；日期：2026-10-03；题名：CoLight: Learning Network-level Cooperation for Traffic Signal Control
+- 正文块461：交通信号控制体现了通用强化学习与交通机理结合的方式。PressLight依据最大压力控制构造状态与奖励，使路口动作评价联系到上下游排队；CoLight通过图注意力汇集相邻路口信息，学习网络协作。[48,49] 两者分别说明交通知识能够进入学习目标和关系表示。公交驻站同样需要表示上下游影响，但动作由车辆服务事件触发，车内乘客代价随车辆移动，故不能直接照搬信号相位模型。本文由此采用车辆事件状态和乘客服务评价，将相关学习机制落实到驻站任务。
+
+## [50] Depeweg2018Decomposition
+[50] 	DEPEWEG S, HERNÁNDEZ-LOBATO J M, DOSHI-VELEZ F, et al. Decomposition of Uncertainty in Bayesian Deep Learning for Efficient and Risk-sensitive Learning[EB/OL]. arXiv, 2017[2026-09-29]. https://arxiv.org/abs/1710.07283.
+原始元数据：https://arxiv.org/abs/1710.07283；日期：2026-09-29；题名：Decomposition of Uncertainty in Bayesian Deep Learning for Efficient and Risk-sensitive Learning
+- 正文块463：公交运行的不确定性既来自环境内部随机过程，也来自有限数据下的估计不足。二者在价值学习中可能同时表现为回报波动或网络分歧，但具有不同含义。Depeweg等在贝叶斯模型学习中讨论了不确定性分解及其对风险敏感学习的作用；分布强化学习则直接研究回报随机变量的分布，而不是仅学习其期望。[50,51] 在公交应用中，Wang和Sun结合回报分布表示与元学习模块，评价交通扰动、服务中断和需求突增下的鲁棒动态控制。[52]
+- 正文块667：偶然不确定性（aleatoric uncertainty）指在当前条件下仍然存在的随机结果，例如相同客流强度下每分钟实际到站人数不同；认知不确定性（epistemic uncertainty）指数据或模型不足带来的认识不足，例如尚不能确定某路段的运行时间分布。两者可以同时存在，更多数据通常能够减少后者，却不能消除前者所描述的真实波动。[50]
+
+## [51] Bellemare2017Distributional
+[51] 	BELLEMARE M G, DABNEY W, MUNOS R. A Distributional Perspective on Reinforcement Learning[EB/OL]. arXiv, 2017[2026-09-29]. https://arxiv.org/abs/1707.06887.
+原始元数据：https://arxiv.org/abs/1707.06887；日期：2026-09-29；题名：A Distributional Perspective on Reinforcement Learning
+- 正文块463：公交运行的不确定性既来自环境内部随机过程，也来自有限数据下的估计不足。二者在价值学习中可能同时表现为回报波动或网络分歧，但具有不同含义。Depeweg等在贝叶斯模型学习中讨论了不确定性分解及其对风险敏感学习的作用；分布强化学习则直接研究回报随机变量的分布，而不是仅学习其期望。[50,51] 在公交应用中，Wang和Sun结合回报分布表示与元学习模块，评价交通扰动、服务中断和需求突增下的鲁棒动态控制。[52]
+
+## [52] wang2023robust
+[52] 	WANG J, SUN L. Robust Dynamic Bus Control: A Distributional Multi-agent Reinforcement Learning Approach[EB/OL]. arXiv, 2021[2026-09-29]. https://arxiv.org/abs/2111.01946.
+原始元数据：https://arxiv.org/abs/2111.01946；日期：2026-09-29；题名：Robust Dynamic Bus Control: A Distributional Multi-agent Reinforcement Learning Approach
+- 正文块463：公交运行的不确定性既来自环境内部随机过程，也来自有限数据下的估计不足。二者在价值学习中可能同时表现为回报波动或网络分歧，但具有不同含义。Depeweg等在贝叶斯模型学习中讨论了不确定性分解及其对风险敏感学习的作用；分布强化学习则直接研究回报随机变量的分布，而不是仅学习其期望。[50,51] 在公交应用中，Wang和Sun结合回报分布表示与元学习模块，评价交通扰动、服务中断和需求突增下的鲁棒动态控制。[52]
+
+## [53] Osband2016BootstrappedDQN
+[53] 	OSBAND I, BLUNDELL C, PRITZEL A, et al. Deep Exploration via Bootstrapped DQN[EB/OL]. arXiv, 2016[2026-09-29]. https://arxiv.org/abs/1602.04621.
+原始元数据：https://arxiv.org/abs/1602.04621；日期：2026-09-29；题名：Deep Exploration via Bootstrapped DQN
+- 正文块464：集成方法为处理价值估计不稳定提供了可实现途径。自助采样深度Q网络（Bootstrapped Deep Q-Network，Bootstrapped DQN）利用多个价值头支持深度探索，双延迟深度确定性策略梯度（Twin Delayed Deep Deterministic Policy Gradient，TD3）通过双评价网络中的较小值等机制缓解价值高估，随机集成双Q学习（Randomized Ensembled Double Q-Learning，REDQ）则结合较高更新数据比、价值集成和随机子集最小值进行学习。[53,54,55] 软演员评论家方法（Soft Actor-Critic，SAC）把策略熵纳入目标，在期望回报与随机探索之间进行权衡。[28] 这些方法作用于不同环节，集成分歧、目标聚合和熵调节不能简单视为同一种不确定性处理。
+
+## [54] Fujimoto2018TD3
+[54] 	FUJIMOTO S, VAN HOOF H, MEGER D. Addressing Function Approximation Error in Actor-Critic Methods[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1802.09477.
+原始元数据：https://arxiv.org/abs/1802.09477；日期：2026-09-29；题名：Addressing Function Approximation Error in Actor-Critic Methods
+- 正文块464：集成方法为处理价值估计不稳定提供了可实现途径。自助采样深度Q网络（Bootstrapped Deep Q-Network，Bootstrapped DQN）利用多个价值头支持深度探索，双延迟深度确定性策略梯度（Twin Delayed Deep Deterministic Policy Gradient，TD3）通过双评价网络中的较小值等机制缓解价值高估，随机集成双Q学习（Randomized Ensembled Double Q-Learning，REDQ）则结合较高更新数据比、价值集成和随机子集最小值进行学习。[53,54,55] 软演员评论家方法（Soft Actor-Critic，SAC）把策略熵纳入目标，在期望回报与随机探索之间进行权衡。[28] 这些方法作用于不同环节，集成分歧、目标聚合和熵调节不能简单视为同一种不确定性处理。
+
+## [55] chen2021redq
+[55] 	CHEN X, WANG C, ZHOU Z, et al. Randomized Ensembled Double Q-Learning: Learning Fast Without a Model[EB/OL]. arXiv, 2021[2026-09-29]. https://arxiv.org/abs/2101.05982.
+原始元数据：https://arxiv.org/abs/2101.05982；日期：2026-09-29；题名：Randomized Ensembled Double Q-Learning: Learning Fast Without a Model
+- 正文块464：集成方法为处理价值估计不稳定提供了可实现途径。自助采样深度Q网络（Bootstrapped Deep Q-Network，Bootstrapped DQN）利用多个价值头支持深度探索，双延迟深度确定性策略梯度（Twin Delayed Deep Deterministic Policy Gradient，TD3）通过双评价网络中的较小值等机制缓解价值高估，随机集成双Q学习（Randomized Ensembled Double Q-Learning，REDQ）则结合较高更新数据比、价值集成和随机子集最小值进行学习。[53,54,55] 软演员评论家方法（Soft Actor-Critic，SAC）把策略熵纳入目标，在期望回报与随机探索之间进行权衡。[28] 这些方法作用于不同环节，集成分歧、目标聚合和熵调节不能简单视为同一种不确定性处理。
+
+## [56] kendall2017uncertainties
+[56] 	KENDALL A, GAL Y. What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?[EB/OL]. arXiv, 2017[2026-09-29]. https://arxiv.org/abs/1703.04977.
+原始元数据：https://arxiv.org/abs/1703.04977；日期：2026-09-29；题名：What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?
+- 正文块465：对不确定性的处理首先取决于所建模的对象。Kendall和Gal以及Hüllermeier和Waegeman区分由观测随机性形成的偶然不确定性（aleatoric uncertainty）与由知识不足形成的认知不确定性（epistemic uncertainty）。[56,57] Dropout近似贝叶斯推断和深度集成分别提供了不同的预测不确定性估计方式。[58,59] 在序贯决策中，还必须判断估计反映的是单步观测、动力学还是累计价值；Clements等针对学习得到的Q值研究风险与不确定性的区分。[60] 因而，公交评价器之间的分歧可以作为学习信号，但其统计含义需要与产生方式对应。
+
+## [57] hullermeier2019uncertainty
+[57] 	HÜLLERMEIER E, WAEGEMAN W. Aleatoric and Epistemic Uncertainty in Machine Learning: An Introduction to Concepts and Methods[EB/OL]. arXiv, 2019[2026-09-29]. https://arxiv.org/abs/1910.09457.
+原始元数据：https://arxiv.org/abs/1910.09457；日期：2026-09-29；题名：Aleatoric and Epistemic Uncertainty in Machine Learning: An Introduction to Concepts and Methods
+- 正文块465：对不确定性的处理首先取决于所建模的对象。Kendall和Gal以及Hüllermeier和Waegeman区分由观测随机性形成的偶然不确定性（aleatoric uncertainty）与由知识不足形成的认知不确定性（epistemic uncertainty）。[56,57] Dropout近似贝叶斯推断和深度集成分别提供了不同的预测不确定性估计方式。[58,59] 在序贯决策中，还必须判断估计反映的是单步观测、动力学还是累计价值；Clements等针对学习得到的Q值研究风险与不确定性的区分。[60] 因而，公交评价器之间的分歧可以作为学习信号，但其统计含义需要与产生方式对应。
+- 正文块529：首先，从固定随机规律到未知运行变化。 偶然不确定性（aleatoric uncertainty）指给定环境和信息条件下仍存在的随机结果；认知不确定性（epistemic uncertainty）指对生成规律认识不足。已知且均匀的骰子每次投掷仍有随机性，但其概率规律不随时间变化；若骰子的各面概率未知，平稳环境也存在认知不确定性。公交中，每周一早高峰客流既有当日波动，也可能因出行习惯和城市发展而发生缓慢漂移；已识别的确定性趋势本身也不等于认知不确定性。平稳与非平稳描述规律是否变化，偶然与认知描述不确定性来源，二者构成不同维度。[57] 第3章重点处理给定规律下的随机运行，第4章再加入未知变化，因而保留随机扰动并增加条件识别的需要。
+
+## [58] gal2015dropout
+[58] 	GAL Y, GHAHRAMANI Z. Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning[EB/OL]. arXiv, 2015[2026-09-29]. https://arxiv.org/abs/1506.02142.
+原始元数据：https://arxiv.org/abs/1506.02142；日期：2026-09-29；题名：Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning
+- 正文块465：对不确定性的处理首先取决于所建模的对象。Kendall和Gal以及Hüllermeier和Waegeman区分由观测随机性形成的偶然不确定性（aleatoric uncertainty）与由知识不足形成的认知不确定性（epistemic uncertainty）。[56,57] Dropout近似贝叶斯推断和深度集成分别提供了不同的预测不确定性估计方式。[58,59] 在序贯决策中，还必须判断估计反映的是单步观测、动力学还是累计价值；Clements等针对学习得到的Q值研究风险与不确定性的区分。[60] 因而，公交评价器之间的分歧可以作为学习信号，但其统计含义需要与产生方式对应。
+
+## [59] lakshminarayanan2016ensemble
+[59] 	LAKSHMINARAYANAN B, PRITZEL A, BLUNDELL C. Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles[EB/OL]. arXiv, 2016[2026-09-29]. https://arxiv.org/abs/1612.01474.
+原始元数据：https://arxiv.org/abs/1612.01474；日期：2026-09-29；题名：Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles
+- 正文块465：对不确定性的处理首先取决于所建模的对象。Kendall和Gal以及Hüllermeier和Waegeman区分由观测随机性形成的偶然不确定性（aleatoric uncertainty）与由知识不足形成的认知不确定性（epistemic uncertainty）。[56,57] Dropout近似贝叶斯推断和深度集成分别提供了不同的预测不确定性估计方式。[58,59] 在序贯决策中，还必须判断估计反映的是单步观测、动力学还是累计价值；Clements等针对学习得到的Q值研究风险与不确定性的区分。[60] 因而，公交评价器之间的分歧可以作为学习信号，但其统计含义需要与产生方式对应。
+- 正文块959：集成成员的构造决定了分歧能够包含哪些信息。深度集成通过多个预测器表达估计差异，随机先验函数进一步为序贯学习中的成员加入不随训练更新的先验部分。[59,144] RE-SAC保留多个评论家及各自目标网络，以成员差异形成动作评价中的保守项。这里关心的是集成分歧能否改善公交决策，而不只是网络预测值是否分散。
+
+## [60] clements2019risk
+[60] 	CLEMENTS W R, VAN DELFT B, ROBAGLIA B M, et al. Estimating Risk and Uncertainty in Deep Reinforcement Learning[EB/OL]. arXiv, 2019[2026-09-29]. https://arxiv.org/abs/1905.09638.
+原始元数据：https://arxiv.org/abs/1905.09638；日期：2026-09-29；题名：Estimating Risk and Uncertainty in Deep Reinforcement Learning
+- 正文块465：对不确定性的处理首先取决于所建模的对象。Kendall和Gal以及Hüllermeier和Waegeman区分由观测随机性形成的偶然不确定性（aleatoric uncertainty）与由知识不足形成的认知不确定性（epistemic uncertainty）。[56,57] Dropout近似贝叶斯推断和深度集成分别提供了不同的预测不确定性估计方式。[58,59] 在序贯决策中，还必须判断估计反映的是单步观测、动力学还是累计价值；Clements等针对学习得到的Q值研究风险与不确定性的区分。[60] 因而，公交评价器之间的分歧可以作为学习信号，但其统计含义需要与产生方式对应。
+
+## [61] dabney2017quantile
+[61] 	DABNEY W, ROWLAND M, BELLEMARE M G, et al. Distributional Reinforcement Learning with Quantile Regression[EB/OL]. arXiv, 2017[2026-09-29]. https://arxiv.org/abs/1710.10044.
+原始元数据：https://arxiv.org/abs/1710.10044；日期：2026-09-29；题名：Distributional Reinforcement Learning with Quantile Regression
+- 正文块466：分布价值表示和价值集成可以组合，却不能互相替代。分位数回归方法与隐式分位数网络分别表示回报分布的离散分位点和分位函数，使风险偏好能够作用于分布而不只作用于均值。[61,62] 截断分位数评价器方法（Truncated Quantile Critics，TQC）结合分位数评价器、截断和集成调节过估计；评价器多样化集成方法（Ensemble-Diversified Actor-Critic，EDAC）则在固定数据学习中通过价值集成多样性处理分布外动作。[63,64] 与这些机制相比，本文的鲁棒集成软演员评论家方法（Robust Ensemble Soft Actor-Critic，RE-SAC）重点研究给定集成下的保守评价及其对公交动作的影响，随后通过误差和动作收益诊断解释其适用范围。
+
+## [62] dabney2018implicit
+[62] 	DABNEY W, OSTROVSKI G, SILVER D, et al. Implicit Quantile Networks for Distributional Reinforcement Learning[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1806.06923.
+原始元数据：https://arxiv.org/abs/1806.06923；日期：2026-09-29；题名：Implicit Quantile Networks for Distributional Reinforcement Learning
+- 正文块466：分布价值表示和价值集成可以组合，却不能互相替代。分位数回归方法与隐式分位数网络分别表示回报分布的离散分位点和分位函数，使风险偏好能够作用于分布而不只作用于均值。[61,62] 截断分位数评价器方法（Truncated Quantile Critics，TQC）结合分位数评价器、截断和集成调节过估计；评价器多样化集成方法（Ensemble-Diversified Actor-Critic，EDAC）则在固定数据学习中通过价值集成多样性处理分布外动作。[63,64] 与这些机制相比，本文的鲁棒集成软演员评论家方法（Robust Ensemble Soft Actor-Critic，RE-SAC）重点研究给定集成下的保守评价及其对公交动作的影响，随后通过误差和动作收益诊断解释其适用范围。
+
+## [63] kuznetsov2020tqc
+[63] 	KUZNETSOV A, SHVECHIKOV P, GRISHIN A, et al. Controlling Overestimation Bias with Truncated Mixture of Continuous Distributional Quantile Critics[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2005.04269.
+原始元数据：https://arxiv.org/abs/2005.04269；日期：2026-09-29；题名：Controlling Overestimation Bias with Truncated Mixture of Continuous Distributional Quantile Critics
+- 正文块466：分布价值表示和价值集成可以组合，却不能互相替代。分位数回归方法与隐式分位数网络分别表示回报分布的离散分位点和分位函数，使风险偏好能够作用于分布而不只作用于均值。[61,62] 截断分位数评价器方法（Truncated Quantile Critics，TQC）结合分位数评价器、截断和集成调节过估计；评价器多样化集成方法（Ensemble-Diversified Actor-Critic，EDAC）则在固定数据学习中通过价值集成多样性处理分布外动作。[63,64] 与这些机制相比，本文的鲁棒集成软演员评论家方法（Robust Ensemble Soft Actor-Critic，RE-SAC）重点研究给定集成下的保守评价及其对公交动作的影响，随后通过误差和动作收益诊断解释其适用范围。
+
+## [64] an2021edac
+[64] 	AN G, MOON S, KIM J H, et al. Uncertainty-Based Offline Reinforcement Learning with Diversified Q-Ensemble[EB/OL]. arXiv, 2021[2026-09-29]. https://arxiv.org/abs/2110.01548.
+原始元数据：https://arxiv.org/abs/2110.01548；日期：2026-09-29；题名：Uncertainty-Based Offline Reinforcement Learning with Diversified Q-Ensemble
+- 正文块466：分布价值表示和价值集成可以组合，却不能互相替代。分位数回归方法与隐式分位数网络分别表示回报分布的离散分位点和分位函数，使风险偏好能够作用于分布而不只作用于均值。[61,62] 截断分位数评价器方法（Truncated Quantile Critics，TQC）结合分位数评价器、截断和集成调节过估计；评价器多样化集成方法（Ensemble-Diversified Actor-Critic，EDAC）则在固定数据学习中通过价值集成多样性处理分布外动作。[63,64] 与这些机制相比，本文的鲁棒集成软演员评论家方法（Robust Ensemble Soft Actor-Critic，RE-SAC）重点研究给定集成下的保守评价及其对公交动作的影响，随后通过误差和动作收益诊断解释其适用范围。
+- 正文块1520：集成的保守性与状态扰动下的稳健性仍有区别。EDAC关注价值成员多样性及分布外动作，鲁棒离线强化学习（Robust Offline Reinforcement Learning，RORL）则在数据附近的状态上对策略和价值施加保守平滑。[64,149] 本章固定离线数据实验主要回答现有目标数据能否支持较好的公交动作；第6章的源标定偏差实验进一步改变路况与服务过程，检验源环境训练面对不同运行机制时的表现。
+
+## [65] Geist2019TheoryRegularized
+[65] 	GEIST M, SCHERRER B, PIETQUIN O. A Theory of Regularized Markov Decision Processes[EB/OL]. arXiv, 2019[2026-09-29]. https://arxiv.org/abs/1901.11275.
+原始元数据：https://arxiv.org/abs/1901.11275；日期：2026-09-29；题名：A Theory of Regularized Markov Decision Processes
+- 正文块467：鲁棒强化学习从模型集合出发处理不确定性。鲁棒动态规划在给定不确定集合及矩形性条件下，用最不利转移评价决策；正则化马尔可夫决策过程（Markov Decision Process，MDP）则在价值或策略目标中加入正则项。[30,65] 两者并非互不相关的技术：Derman等证明，指定奖励与转移不确定集合的鲁棒问题，可以通过与该集合对应的策略和价值正则项表达。[66] 这使不利分布评价与可计算的正则化更新建立联系。本文提出的RE-SAC由这一思路出发，在SAC中加入目标价值偏移和集成保守评价；第3章模型部分及附录A.7区分精确对应、分布距离下界与网络代理惩罚，第3.3节再讨论固定参数算子的性质。[67]
+- 正文块682：其中 ∥⋅∥_{*} 为对偶范数。左侧的最坏扰动在右侧成为确定性惩罚；若再对扰动施加其他约束，惩罚形式也应随之变化。对于MDP，奖励不确定性可对应策略正则项，转移不确定性还可能引入依赖价值函数的正则项。[65,66] 第3章由这一关系解释保守价值学习，并进一步区分严格对偶表示与神经网络训练中的代理惩罚。
+- 正文块988：本节在正则化MDP的框架下分析固定惩罚的更新映射。[65] 这里研究的是给定转移核上的价值算子，具体惩罚项则来自本章RE-SAC定义。
+
+## [66] derman2023twice
+[66] 	DERMAN E, MEN Y, GEIST M, et al. Twice Regularized Markov Decision Processes: The Equivalence between Robustness and Regularization[EB/OL]. arXiv, 2023[2026-09-29]. https://arxiv.org/abs/2303.06654.
+原始元数据：https://arxiv.org/abs/2303.06654；日期：2026-09-29；题名：Twice Regularized Markov Decision Processes: The Equivalence between Robustness and Regularization
+- 正文块467：鲁棒强化学习从模型集合出发处理不确定性。鲁棒动态规划在给定不确定集合及矩形性条件下，用最不利转移评价决策；正则化马尔可夫决策过程（Markov Decision Process，MDP）则在价值或策略目标中加入正则项。[30,65] 两者并非互不相关的技术：Derman等证明，指定奖励与转移不确定集合的鲁棒问题，可以通过与该集合对应的策略和价值正则项表达。[66] 这使不利分布评价与可计算的正则化更新建立联系。本文提出的RE-SAC由这一思路出发，在SAC中加入目标价值偏移和集成保守评价；第3章模型部分及附录A.7区分精确对应、分布距离下界与网络代理惩罚，第3.3节再讨论固定参数算子的性质。[67]
+- 正文块530：其次，在预先缺少目标域数据时构造可迁移的策略。 域随机化通过改变训练输入或动力学参数，使策略经历一组可能的运行条件；公交中对应客流、速度和服务时间等机制的随机变化。鲁棒优化进一步以明确不确定集合中的最不利表现评价策略，正则化则可在匹配集合与对偶条件下表达这类保守目标；CVaR以指定概率质量的尾部结果为对象，也具有特定风险包络下的分布鲁棒表示。[8,66,69] 因此，第3章采用正则化实现保守价值学习，第4章增加基于历史的条件适应。若运行模式隐藏，可用POMDP组织信息结构；跨任务训练可以进一步学习快速适应机制。当前BAPR及CS-BAPR公交实现于训练期间利用近期证据调节保守程度，并通过结构化策略检验冻结控制器对运行变化的响应，其与元学习的关系在于适应思想与信息组织，而非已经实现了独立的跨任务元训练外循环。
+- 正文块682：其中 ∥⋅∥_{*} 为对偶范数。左侧的最坏扰动在右侧成为确定性惩罚；若再对扰动施加其他约束，惩罚形式也应随之变化。对于MDP，奖励不确定性可对应策略正则项，转移不确定性还可能引入依赖价值函数的正则项。[65,66] 第3章由这一关系解释保守价值学习，并进一步区分严格对偶表示与神经网络训练中的代理惩罚。
+- 正文块922：式(3-14)说明，鲁棒评价可以等价改写为名义评价减去一个由不确定集合决定的价值正则项；当p^{∘}∈U_{s,a}时，该项非负。若采用状态动作矩形集合，即各状态动作对上的后继分布能够独立选择，则这一逐点关系可以进入鲁棒贝尔曼备份。Derman等进一步给出了奖励及转移不确定性与策略、价值正则化之间的对应。[66] 附录A.7给出上述恒等式、分布距离下界以及CVaR风险包络的具体推导。
+- 正文块2472：在状态动作矩形集合下，将各处的U取为U_{s,a}，上述恒等式逐点进入鲁棒贝尔曼备份。相应正则项依赖后继价值和允许的分布集合；只有当该支持函数能够有效计算时，改写才同时带来计算上的便利。Derman等在指定集合条件下进一步建立了奖励、转移鲁棒性与策略、价值正则化之间的对应。[66]
+
+## [67] resac2026
+[67] 	ZHANG Y, ZHENG L. RE-SAC: Disentangling aleatoric and epistemic risks in bus fleet control: A stable and robust ensemble DRL approach[EB/OL]. arXiv, 2026[2026-09-29]. https://arxiv.org/abs/2603.18396.
+原始元数据：https://arxiv.org/abs/2603.18396；日期：2026-09-29；题名：RE-SAC: Disentangling aleatoric and epistemic risks in bus fleet control: A stable and robust ensemble DRL approach
+- 正文块467：鲁棒强化学习从模型集合出发处理不确定性。鲁棒动态规划在给定不确定集合及矩形性条件下，用最不利转移评价决策；正则化马尔可夫决策过程（Markov Decision Process，MDP）则在价值或策略目标中加入正则项。[30,65] 两者并非互不相关的技术：Derman等证明，指定奖励与转移不确定集合的鲁棒问题，可以通过与该集合对应的策略和价值正则项表达。[66] 这使不利分布评价与可计算的正则化更新建立联系。本文提出的RE-SAC由这一思路出发，在SAC中加入目标价值偏移和集成保守评价；第3章模型部分及附录A.7区分精确对应、分布距离下界与网络代理惩罚，第3.3节再讨论固定参数算子的性质。[67]
+- 正文块848：本章提出结合类别嵌入的共享驻站策略，并提出RE-SAC，以计划间隔为控制目标，通过集成动作价值评价学习驻站决策。[43,67] 模型部分明确状态、动作、奖励和保守评价的含义；算法部分给出评论家、演员与温度的更新；结果分析保留走廊训练、组件比较、长期变化与动作续接证据。RE-SAC在第5章还用于固定目标离线数据学习，那里允许使用的训练信息与本章不同。
+
+## [68] chow2014cvar
+[68] 	CHOW Y, GHAVAMZADEH M. Algorithms for CVaR Optimization in MDPs[EB/OL]. arXiv, 2014[2026-09-29]. https://arxiv.org/abs/1406.3339.
+原始元数据：https://arxiv.org/abs/1406.3339；日期：2026-09-29；题名：Algorithms for CVaR Optimization in MDPs
+- 正文块468：风险偏好则涉及另一种评价方式。均值与条件风险价值（Conditional Value-at-Risk，CVaR）的联合优化关注累计成本的尾部，CVaR还具有指定风险包络内最不利期望的表示。[68,69] 由此可将其理解为一类分布鲁棒优化（Distributionally Robust Optimization，DRO）。结合上述正则化对应，可从尾部风险、允许的分布偏移及正则惩罚三个角度理解保守控制。本文第3章给出这些对应的条件，第4章则在环境变化可被识别时，用条件适应补充固定的保守评价。
+
+## [69] chow2015risk
+[69] 	CHOW Y, TAMAR A, MANNOR S, et al. Risk-Sensitive and Robust Decision-Making: a CVaR Optimization Approach[EB/OL]. arXiv, 2015[2026-09-29]. https://arxiv.org/abs/1506.02188.
+原始元数据：https://arxiv.org/abs/1506.02188；日期：2026-09-29；题名：Risk-Sensitive and Robust Decision-Making: a CVaR Optimization Approach
+- 正文块468：风险偏好则涉及另一种评价方式。均值与条件风险价值（Conditional Value-at-Risk，CVaR）的联合优化关注累计成本的尾部，CVaR还具有指定风险包络内最不利期望的表示。[68,69] 由此可将其理解为一类分布鲁棒优化（Distributionally Robust Optimization，DRO）。结合上述正则化对应，可从尾部风险、允许的分布偏移及正则惩罚三个角度理解保守控制。本文第3章给出这些对应的条件，第4章则在环境变化可被识别时，用条件适应补充固定的保守评价。
+- 正文块530：其次，在预先缺少目标域数据时构造可迁移的策略。 域随机化通过改变训练输入或动力学参数，使策略经历一组可能的运行条件；公交中对应客流、速度和服务时间等机制的随机变化。鲁棒优化进一步以明确不确定集合中的最不利表现评价策略，正则化则可在匹配集合与对偶条件下表达这类保守目标；CVaR以指定概率质量的尾部结果为对象，也具有特定风险包络下的分布鲁棒表示。[8,66,69] 因此，第3章采用正则化实现保守价值学习，第4章增加基于历史的条件适应。若运行模式隐藏，可用POMDP组织信息结构；跨任务训练可以进一步学习快速适应机制。当前BAPR及CS-BAPR公交实现于训练期间利用近期证据调节保守程度，并通过结构化策略检验冻结控制器对运行变化的响应，其与元学习的关系在于适应思想与信息组织，而非已经实现了独立的跨任务元训练外循环。
+- 正文块685：这里使用尾部概率记号：β_{tail}=0.05 关注最差5%的成本，存在分位点原子时由上述优化式确定边界质量的分配；β_{tail}=1 恢复期望成本。右侧给出了受限密度重加权下的最坏期望，因而具有分布鲁棒解释。[69] 期望只优化平均结果，CVaR改变了不同结果的权重；平均成本与尾部风险对应不同优化目标，二者还应与估计结果的统计置信区间区分。
+- 正文块919：随机公交运行中的策略评价可以从三个相联系的角度展开：按既定分布计算平均后果，给较差运行结果更大权重，或在允许的转移分布集合内考察最不利后果。后两种选择分别对应风险敏感评价与鲁棒评价。DRO把不确定对象具体取为概率分布集合，CVaR则可写成一类受限概率重加权的最不利期望。两者提供了从平均控制转向尾部控制的数学联系。[69]
+- 正文块2491：由于每个可行密度都定义一个轨迹分布，命题A.4把尾部成本评价写成指定分布集合内的最坏期望。CVaR决策研究据此连接风险敏感目标与有预算的模型扰动。[69] 这里的约束施加于完整轨迹概率；若转成逐阶段递推，还需保留风险预算的演化，不能任意改成各阶段独立使用同一尾部水平的备份。本文的跨种子尾部统计用于描述学习结果，RE-SAC训练仍采用第3章给出的保守目标，而非直接优化这一轨迹CVaR。
+
+## [70] adams2007bocd
+[70] 	ADAMS R P, MACKAY D J C. Bayesian Online Changepoint Detection[EB/OL]. arXiv, 2007[2026-09-29]. https://arxiv.org/abs/0710.3742.
+原始元数据：https://arxiv.org/abs/0710.3742；日期：2026-09-29；题名：Bayesian Online Changepoint Detection
+- 正文块469：当环境规律持续改变时，固定训练条件下的不确定性估计还需要与变化识别结合。贝叶斯在线变化点检测通过维护距最近变化的运行长度分布，为历史信息的保留和更新提供依据。[70] 但识别到变化并不直接决定最佳控制动作，策略还需要在新的状态范围内保持合理响应。神经加法单元（Neural Addition Unit，NAU）与神经乘法单元（Neural Multiplication Unit，NMU）通过限制算术运算结构研究数值外推，为策略输出结构提供了方法启发。[71] 本论文据此研究训练稳定化和不同输出结构的公交适用性，并把导数条件下的误差传播与实际回报比较分开。
+- 正文块1215：其中，l_{z}(o_{k}) 为相应证据的似然；变化检测还需要处理模式持续长度和新模式进入。贝叶斯在线变化点检测提供了维护运行长度分布的基本方法。[70] 信念并不要求每次观测后立即切换控制器，而是通过保守系数、记忆长度或候选价值的权重，使新信息逐渐影响决策。命题C.1将固定信念下的模式混合写成合法转移核，定理C.1据此给出价值更新的收缩性；定理C.2则说明信念若随被比较的价值函数变化，反馈可能破坏收缩。这一区别限定了本节使用贝叶斯权重的理论解释。附录C.5进一步说明非负惩罚如何改变保守系数的代数方向，C.6将模式条件价值函数组织为共享输入函数；这两项分别对应信念调节和共享网络的表示方式。
+
+## [71] madsen2020nau
+[71] 	MADSEN A, JOHANSEN A R. Neural Arithmetic Units[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2001.05016.
+原始元数据：https://arxiv.org/abs/2001.05016；日期：2026-09-29；题名：Neural Arithmetic Units
+- 正文块469：当环境规律持续改变时，固定训练条件下的不确定性估计还需要与变化识别结合。贝叶斯在线变化点检测通过维护距最近变化的运行长度分布，为历史信息的保留和更新提供依据。[70] 但识别到变化并不直接决定最佳控制动作，策略还需要在新的状态范围内保持合理响应。神经加法单元（Neural Addition Unit，NAU）与神经乘法单元（Neural Multiplication Unit，NMU）通过限制算术运算结构研究数值外推，为策略输出结构提供了方法启发。[71] 本论文据此研究训练稳定化和不同输出结构的公交适用性，并把导数条件下的误差传播与实际回报比较分开。
+- 正文块1253：输出结构的选择涉及函数表示对外推的影响。神经算术逻辑单元（Neural Arithmetic Logic Unit，NALU）通过算术运算和门控处理超出训练数值范围的输入，NAU与NMU进一步以受限加法、乘法结构学习数值关系。[71,146] 方程学习网络则以可组合运算构造较简洁的关系，并研究其外推和控制用途。[147] 这些方法启发本文为驻站策略引入不同函数结构，再以实际需求变化检验其控制响应。
+- 正文块1257：归一化输出再映射至公交停站动作范围。NAU提供线性组合，NMU提供乘性关系；二者来自算术单元研究，使输出头具有不同于普通多层感知机的函数表示偏好。[71] 外层tanh使动作范围有界。
+
+## [72] padakandla2020survey
+[72] 	PADAKANDLA S. A Survey of Reinforcement Learning Algorithms for Dynamically Varying Environments[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2005.10619.
+原始元数据：https://arxiv.org/abs/2005.10619；日期：2026-09-29；题名：A Survey of Reinforcement Learning Algorithms for Dynamically Varying Environments
+- 正文块470：非平稳强化学习将持续变化作为决策过程的一部分。Padakandla梳理环境模型随时间变化时的适应方法，Khetarpal等进一步从变化范围、变化驱动和持续学习评价等角度组织相关研究。[72,73] Lecarpentier和Rachelson在转移与奖励随时间有界变化的条件下研究最不利规划。[74] 这些工作分别强调重新学习、记忆与变化假设。公交活动散场、临时交通管制和常规早晚高峰具有不同持续时间，适应评价因此需要区分长期偏移、单次冲击和反复变化。
+
+## [73] khetarpal2020continual
+[73] 	KHETARPAL K, RIEMER M, RISH I, et al. Towards Continual Reinforcement Learning: A Review and Perspectives[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2012.13490.
+原始元数据：https://arxiv.org/abs/2012.13490；日期：2026-09-29；题名：Towards Continual Reinforcement Learning: A Review and Perspectives
+- 正文块470：非平稳强化学习将持续变化作为决策过程的一部分。Padakandla梳理环境模型随时间变化时的适应方法，Khetarpal等进一步从变化范围、变化驱动和持续学习评价等角度组织相关研究。[72,73] Lecarpentier和Rachelson在转移与奖励随时间有界变化的条件下研究最不利规划。[74] 这些工作分别强调重新学习、记忆与变化假设。公交活动散场、临时交通管制和常规早晚高峰具有不同持续时间，适应评价因此需要区分长期偏移、单次冲击和反复变化。
+
+## [74] lecarpentier2019nonstationary
+[74] 	LECARPENTIER E, RACHELSON E. Non-Stationary Markov Decision Processes, a Worst-Case Approach using Model-Based Reinforcement Learning, Extended version[EB/OL]. arXiv, 2019[2026-09-29]. https://arxiv.org/abs/1904.10090.
+原始元数据：https://arxiv.org/abs/1904.10090；日期：2026-09-29；题名：Non-Stationary Markov Decision Processes, a Worst-Case Approach using Model-Based Reinforcement Learning, Extended version
+- 正文块470：非平稳强化学习将持续变化作为决策过程的一部分。Padakandla梳理环境模型随时间变化时的适应方法，Khetarpal等进一步从变化范围、变化驱动和持续学习评价等角度组织相关研究。[72,73] Lecarpentier和Rachelson在转移与奖励随时间有界变化的条件下研究最不利规划。[74] 这些工作分别强调重新学习、记忆与变化假设。公交活动散场、临时交通管制和常规早晚高峰具有不同持续时间，适应评价因此需要区分长期偏移、单次冲击和反复变化。
+
+## [75] doshivelez2013hidden
+[75] 	DOSHI-VELEZ F, KONIDARIS G. Hidden Parameter Markov Decision Processes: A Semiparametric Regression Approach for Discovering Latent Task Parametrizations[EB/OL]. arXiv, 2013[2026-09-29]. https://arxiv.org/abs/1308.3513.
+原始元数据：https://arxiv.org/abs/1308.3513；日期：2026-09-29；题名：Hidden Parameter Markov Decision Processes: A Semiparametric Regression Approach for Discovering Latent Task Parametrizations
+- 正文块471：另一类方法从历史转移中推断当前环境。隐参数马尔可夫决策过程（Hidden Parameter Markov Decision Process，HiP-MDP）以潜在因素表示相近任务之间的动力学差异；通用策略与在线系统辨识（Universal Policy with Online System Identification，UP-OSI）将近期状态动作历史推断的系统参数输入通用策略。[75,76] 概率嵌入式演员评论家方法（Probabilistic Embeddings for Actor-Critic Reinforcement Learning，PEARL）通过概率上下文分离任务推断与控制，变分贝叶斯自适应深度强化学习（Variational Bayes-Adaptive Deep Reinforcement Learning，VariBAD）将任务不确定性纳入动作选择，快速运动适应方法（Rapid Motor Adaptation，RMA）则组合基本策略与快速适应模块。[77,78,79] 本文提出贝叶斯自适应策略正则化（Bayesian Adaptive Policy Regularization，BAPR），用环境识别与信念更新调节策略学习；进一步提出其因果符号扩展（Causal-Symbolic Bayesian Adaptive Policy Regularization，CS-BAPR），其中公交实验采用训练稳定化和神经算术输出配置。
+- 正文块1211：HiP-MDP以潜在因素组织一族相关动力学，UP-OSI通过近期状态动作历史推断系统参数，分别提供了表示环境差异与在线识别条件的思路。[75,76] 对公交而言，同样的当前间隔可能发生于常规波动或持续需求上升中，后续到站和服务过程却不同。引入模式变量的作用，是把这类尚未直接观测的运行条件与瞬时状态区分开来。
+
+## [76] yu2017universal
+[76] 	YU W, TAN J, LIU C K, et al. Preparing for the Unknown: Learning a Universal Policy with Online System Identification[EB/OL]. arXiv, 2017[2026-09-29]. https://arxiv.org/abs/1702.02453.
+原始元数据：https://arxiv.org/abs/1702.02453；日期：2026-09-29；题名：Preparing for the Unknown: Learning a Universal Policy with Online System Identification
+- 正文块471：另一类方法从历史转移中推断当前环境。隐参数马尔可夫决策过程（Hidden Parameter Markov Decision Process，HiP-MDP）以潜在因素表示相近任务之间的动力学差异；通用策略与在线系统辨识（Universal Policy with Online System Identification，UP-OSI）将近期状态动作历史推断的系统参数输入通用策略。[75,76] 概率嵌入式演员评论家方法（Probabilistic Embeddings for Actor-Critic Reinforcement Learning，PEARL）通过概率上下文分离任务推断与控制，变分贝叶斯自适应深度强化学习（Variational Bayes-Adaptive Deep Reinforcement Learning，VariBAD）将任务不确定性纳入动作选择，快速运动适应方法（Rapid Motor Adaptation，RMA）则组合基本策略与快速适应模块。[77,78,79] 本文提出贝叶斯自适应策略正则化（Bayesian Adaptive Policy Regularization，BAPR），用环境识别与信念更新调节策略学习；进一步提出其因果符号扩展（Causal-Symbolic Bayesian Adaptive Policy Regularization，CS-BAPR），其中公交实验采用训练稳定化和神经算术输出配置。
+- 正文块1211：HiP-MDP以潜在因素组织一族相关动力学，UP-OSI通过近期状态动作历史推断系统参数，分别提供了表示环境差异与在线识别条件的思路。[75,76] 对公交而言，同样的当前间隔可能发生于常规波动或持续需求上升中，后续到站和服务过程却不同。引入模式变量的作用，是把这类尚未直接观测的运行条件与瞬时状态区分开来。
+
+## [77] rakelly2019pearl
+[77] 	RAKELLY K, ZHOU A, QUILLEN D, et al. Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables[EB/OL]. arXiv, 2019[2026-09-29]. https://arxiv.org/abs/1903.08254.
+原始元数据：https://arxiv.org/abs/1903.08254；日期：2026-09-29；题名：Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables
+- 正文块471：另一类方法从历史转移中推断当前环境。隐参数马尔可夫决策过程（Hidden Parameter Markov Decision Process，HiP-MDP）以潜在因素表示相近任务之间的动力学差异；通用策略与在线系统辨识（Universal Policy with Online System Identification，UP-OSI）将近期状态动作历史推断的系统参数输入通用策略。[75,76] 概率嵌入式演员评论家方法（Probabilistic Embeddings for Actor-Critic Reinforcement Learning，PEARL）通过概率上下文分离任务推断与控制，变分贝叶斯自适应深度强化学习（Variational Bayes-Adaptive Deep Reinforcement Learning，VariBAD）将任务不确定性纳入动作选择，快速运动适应方法（Rapid Motor Adaptation，RMA）则组合基本策略与快速适应模块。[77,78,79] 本文提出贝叶斯自适应策略正则化（Bayesian Adaptive Policy Regularization，BAPR），用环境识别与信念更新调节策略学习；进一步提出其因果符号扩展（Causal-Symbolic Bayesian Adaptive Policy Regularization，CS-BAPR），其中公交实验采用训练稳定化和神经算术输出配置。
+- 正文块669：若运行规律由不可直接观测的模式 z_{k} 决定，可以把模式与公交物理状态共同作为隐藏状态，并用历史观测和动作构造信念 ρ_{k}(z)=Pr(z_{k}=z∣H_{k})。在给定模式演化和观测模型时，这一写法形成POMDP。历史编码器可以近似提取与当前模式有关的信息；元学习则进一步在一组训练任务上学习可迁移的适应规则。概率上下文与元强化学习提供了相应方法实例。[77,78,133] 非平稳性描述环境变化，POMDP描述信息不完全，元学习描述如何学习适应，它们承担不同角色。第4章据实际历史编码和训练方式讨论其联系。
+- 正文块1220：与之比较，PEARL和VariBAD把历史证据形成的任务表征直接提供给决策过程，模型元学习则用近期数据快速调整动力学先验。[77,78,133] CS-BAPR主要调节学习中的保守程度与策略输出，其适应对象因而不同于重新识别完整环境模型。本文通过需求幅度及变化日程考察这一设计是否足以改善给定计划下的控制。
+- 正文块1228：元学习可用于学习历史到模式表示的映射，以及依赖该表示的策略。PEARL从跨任务经验学习概率上下文，VariBAD近似任务后验并据此决策，因此与上述信念状态思路相衔接。[77,78] 对公交而言，这相当于利用已有运行日学习哪些近期转移能够提示拥堵或需求变化，再据此改变当前控制。Ghosh等提出的认知POMDP视角也说明，即使单个环境状态完全可见，不知道当前面对哪种环境仍可能产生部分可观测性。[80]
+
+## [78] zintgraf2019varibad
+[78] 	ZINTGRAF L, SHIARLIS K, IGL M, et al. VariBAD: A Very Good Method for Bayes-Adaptive Deep RL via Meta-Learning[EB/OL]. arXiv, 2019[2026-09-29]. https://arxiv.org/abs/1910.08348.
+原始元数据：https://arxiv.org/abs/1910.08348；日期：2026-09-29；题名：VariBAD: A Very Good Method for Bayes-Adaptive Deep RL via Meta-Learning
+- 正文块471：另一类方法从历史转移中推断当前环境。隐参数马尔可夫决策过程（Hidden Parameter Markov Decision Process，HiP-MDP）以潜在因素表示相近任务之间的动力学差异；通用策略与在线系统辨识（Universal Policy with Online System Identification，UP-OSI）将近期状态动作历史推断的系统参数输入通用策略。[75,76] 概率嵌入式演员评论家方法（Probabilistic Embeddings for Actor-Critic Reinforcement Learning，PEARL）通过概率上下文分离任务推断与控制，变分贝叶斯自适应深度强化学习（Variational Bayes-Adaptive Deep Reinforcement Learning，VariBAD）将任务不确定性纳入动作选择，快速运动适应方法（Rapid Motor Adaptation，RMA）则组合基本策略与快速适应模块。[77,78,79] 本文提出贝叶斯自适应策略正则化（Bayesian Adaptive Policy Regularization，BAPR），用环境识别与信念更新调节策略学习；进一步提出其因果符号扩展（Causal-Symbolic Bayesian Adaptive Policy Regularization，CS-BAPR），其中公交实验采用训练稳定化和神经算术输出配置。
+- 正文块472：环境变化、部分可观测性与元学习在隐含运行条件的推断上相联系。若改变动力学的模式不能直接观测，控制器仅凭当前公交状态便难以确定后续转移；把模式加入系统状态后，可以在给定模式演化规律下建立部分可观测马尔可夫决策过程（Partially Observable Markov Decision Process，POMDP）。Ghosh等从有限训练条件下的泛化讨论由未知环境引起的隐式部分可观测性；VariBAD则通过跨任务训练近似环境推断，并将信念用于决策。[78,80] 第4章以此组织“运行变化、条件识别、策略适应”的研究联系：POMDP描述信息条件，信念更新表示当前认识，元学习提供利用既往任务学习适应规则的途径。
+- 正文块669：若运行规律由不可直接观测的模式 z_{k} 决定，可以把模式与公交物理状态共同作为隐藏状态，并用历史观测和动作构造信念 ρ_{k}(z)=Pr(z_{k}=z∣H_{k})。在给定模式演化和观测模型时，这一写法形成POMDP。历史编码器可以近似提取与当前模式有关的信息；元学习则进一步在一组训练任务上学习可迁移的适应规则。概率上下文与元强化学习提供了相应方法实例。[77,78,133] 非平稳性描述环境变化，POMDP描述信息不完全，元学习描述如何学习适应，它们承担不同角色。第4章据实际历史编码和训练方式讨论其联系。
+- 正文块1220：与之比较，PEARL和VariBAD把历史证据形成的任务表征直接提供给决策过程，模型元学习则用近期数据快速调整动力学先验。[77,78,133] CS-BAPR主要调节学习中的保守程度与策略输出，其适应对象因而不同于重新识别完整环境模型。本文通过需求幅度及变化日程考察这一设计是否足以改善给定计划下的控制。
+- 正文块1228：元学习可用于学习历史到模式表示的映射，以及依赖该表示的策略。PEARL从跨任务经验学习概率上下文，VariBAD近似任务后验并据此决策，因此与上述信念状态思路相衔接。[77,78] 对公交而言，这相当于利用已有运行日学习哪些近期转移能够提示拥堵或需求变化，再据此改变当前控制。Ghosh等提出的认知POMDP视角也说明，即使单个环境状态完全可见，不知道当前面对哪种环境仍可能产生部分可观测性。[80]
+
+## [79] kumar2021rma
+[79] 	KUMAR A, FU Z, PATHAK D, et al. RMA: Rapid Motor Adaptation for Legged Robots[EB/OL]. arXiv, 2021[2026-09-29]. https://arxiv.org/abs/2107.04034.
+原始元数据：https://arxiv.org/abs/2107.04034；日期：2026-09-29；题名：RMA: Rapid Motor Adaptation for Legged Robots
+- 正文块471：另一类方法从历史转移中推断当前环境。隐参数马尔可夫决策过程（Hidden Parameter Markov Decision Process，HiP-MDP）以潜在因素表示相近任务之间的动力学差异；通用策略与在线系统辨识（Universal Policy with Online System Identification，UP-OSI）将近期状态动作历史推断的系统参数输入通用策略。[75,76] 概率嵌入式演员评论家方法（Probabilistic Embeddings for Actor-Critic Reinforcement Learning，PEARL）通过概率上下文分离任务推断与控制，变分贝叶斯自适应深度强化学习（Variational Bayes-Adaptive Deep Reinforcement Learning，VariBAD）将任务不确定性纳入动作选择，快速运动适应方法（Rapid Motor Adaptation，RMA）则组合基本策略与快速适应模块。[77,78,79] 本文提出贝叶斯自适应策略正则化（Bayesian Adaptive Policy Regularization，BAPR），用环境识别与信念更新调节策略学习；进一步提出其因果符号扩展（Causal-Symbolic Bayesian Adaptive Policy Regularization，CS-BAPR），其中公交实验采用训练稳定化和神经算术输出配置。
+
+## [80] ghosh2021generalization
+[80] 	GHOSH D, RAHME J, KUMAR A, et al. Why Generalization in RL is Difficult: Epistemic POMDPs and Implicit Partial Observability[EB/OL]. arXiv, 2021[2026-09-29]. https://arxiv.org/abs/2107.06277.
+原始元数据：https://arxiv.org/abs/2107.06277；日期：2026-09-29；题名：Why Generalization in RL is Difficult: Epistemic POMDPs and Implicit Partial Observability
+- 正文块472：环境变化、部分可观测性与元学习在隐含运行条件的推断上相联系。若改变动力学的模式不能直接观测，控制器仅凭当前公交状态便难以确定后续转移；把模式加入系统状态后，可以在给定模式演化规律下建立部分可观测马尔可夫决策过程（Partially Observable Markov Decision Process，POMDP）。Ghosh等从有限训练条件下的泛化讨论由未知环境引起的隐式部分可观测性；VariBAD则通过跨任务训练近似环境推断，并将信念用于决策。[78,80] 第4章以此组织“运行变化、条件识别、策略适应”的研究联系：POMDP描述信息条件，信念更新表示当前认识，元学习提供利用既往任务学习适应规则的途径。
+- 正文块1228：元学习可用于学习历史到模式表示的映射，以及依赖该表示的策略。PEARL从跨任务经验学习概率上下文，VariBAD近似任务后验并据此决策，因此与上述信念状态思路相衔接。[77,78] 对公交而言，这相当于利用已有运行日学习哪些近期转移能够提示拥堵或需求变化，再据此改变当前控制。Ghosh等提出的认知POMDP视角也说明，即使单个环境状态完全可见，不知道当前面对哪种环境仍可能产生部分可观测性。[80]
+
+## [81] brunton2016sindy
+[81] 	BRUNTON S L, PROCTOR J L, KUTZ J N. Discovering governing equations from data: Sparse identification of nonlinear dynamical systems[EB/OL]. arXiv, 2015[2026-09-29]. https://arxiv.org/abs/1509.03580.
+原始元数据：https://arxiv.org/abs/1509.03580；日期：2026-09-29；题名：Discovering governing equations from data: Sparse identification of nonlinear dynamical systems
+- 正文块473：符号模型和跨环境一致性提供了补充思路。非线性动力系统稀疏辨识（Sparse Identification of Nonlinear Dynamics，SINDy）以候选函数库上的稀疏回归重构动力学，不变风险最小化（Invariant Risk Minimization，IRM）研究在多个环境中保持一致预测关系的目标。[81,82] 这些思路可以帮助表达哪些关系值得跨环境保留，但函数结构准确、策略导数与模型一致以及闭环控制有效是不同层次的问题。本文在数学附录中给出相应条件误差关系，并以实际启用的公交配置确定实证结论。
+- 正文块1836：稀疏残差借鉴候选函数库与稀疏动力学识别思路，将目标与源预测之间的差异作为拟合对象。[81]
+
+## [82] arjovsky2019irm
+[82] 	ARJOVSKY M, BOTTOU L, GULRAJANI I, et al. Invariant Risk Minimization[EB/OL]. arXiv, 2019[2026-09-29]. https://arxiv.org/abs/1907.02893.
+原始元数据：https://arxiv.org/abs/1907.02893；日期：2026-09-29；题名：Invariant Risk Minimization
+- 正文块473：符号模型和跨环境一致性提供了补充思路。非线性动力系统稀疏辨识（Sparse Identification of Nonlinear Dynamics，SINDy）以候选函数库上的稀疏回归重构动力学，不变风险最小化（Invariant Risk Minimization，IRM）研究在多个环境中保持一致预测关系的目标。[81,82] 这些思路可以帮助表达哪些关系值得跨环境保留，但函数结构准确、策略导数与模型一致以及闭环控制有效是不同层次的问题。本文在数学附录中给出相应条件误差关系，并以实际启用的公交配置确定实证结论。
+
+## [83] achiam2017cpo
+[83] 	ACHIAM J, HELD D, TAMAR A, et al. Constrained Policy Optimization[EB/OL]. arXiv, 2017[2026-09-29]. https://arxiv.org/abs/1705.10528.
+原始元数据：https://arxiv.org/abs/1705.10528；日期：2026-09-29；题名：Constrained Policy Optimization
+- 正文块474：控制约束还需要独立于回报定义。约束策略优化以期望累计成本约束策略更新，为回报与约束分别建模提供了代表性方法。[83] 本文将动作可行范围、运行中的违例指标和最终完成率分别处理，以对应不同的运营要求。
+
+## [84] levine2020offline
+[84] 	LEVINE S, KUMAR A, TUCKER G, et al. Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2005.01643.
+原始元数据：https://arxiv.org/abs/2005.01643；日期：2026-09-29；题名：Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems
+- 正文块477：仿真到现实（simulation-to-reality，sim2real）描述源域训练与目标域使用之间的迁移任务，离线、在线及离线到在线描述数据访问方式，两者不是同一层级的分类。Levine等从固定数据的分布偏移出发讨论重要性采样、策略约束、价值保守化和模型学习；Prudencio等进一步区分算法结构与抑制分布偏移的机制；Zhao等的sim2real综述则从域随机化、适应及迁移组织研究。[84,85,86] 依据这些综述，本文先按能否获得目标数据及能否追加目标交互区分任务，再比较价值校正、策略约束、重加权及模型修正的作用。
+- 正文块480：固定数据学习的困难并不只是样本数量少，还在于无法即时验证策略提出的新动作。离线强化学习综述将分布偏移及其在自举更新中的积累作为核心问题。[84] 批量约束Q学习（Batch-Constrained Q-Learning，BCQ）约束候选动作接近离线数据支持，自举误差累积削减（Bootstrapping Error Accumulation Reduction，BEAR）从自举误差出发限制动作选择，行为正则化演员评论家方法（Behavior Regularized Actor Critic，BRAC）统一讨论行为正则化的不同形式。[89,90,91] 这些方法主要约束策略离开行为数据的程度，CQL则把保守性直接作用于价值学习。对于公交离线数据中大量零停站和少量长停站并存的情况，行为覆盖结构因而与总转移条数同样重要。
+- 正文块660：在线、离线和异策略描述的则是数据使用方式。在线学习持续获得环境交互；离线学习只使用预先固定的数据；异策略学习允许当前策略与采集数据的行为策略不同。经验回放中的旧样本使SAC能够异策略更新，但当数据完全固定时，当前策略提出的新动作可能没有足够支持，仍需要离线学习的专门约束。[84,87,88] 因此，后续章节将数据可用性与算法形式分别说明。
+- 正文块735：这一恒等式说明权重的意义：源分布中过多出现的样本权重降低，目标分布相对更常见的样本权重提高。它改变已有样本在估计中的贡献，不会生成从未覆盖的目标转移。权重差异很大时，少数样本会支配估计，截断或归一化可以减小波动，但一般也会改变有限样本估计的偏差。离线与跨动力学学习因此需要同时说明数据覆盖、权重定义和权重实际用途。[9,84,104]
+
+## [85] prudencio2023offline
+[85]	PRUDENCIO R F, MAXIMO M R O A, COLOMBINI E L. A Survey on Offline Reinforcement Learning: Taxonomy, Review, and Open Problems[EB/OL]. arXiv, 2022[2026-10-03]. https://arxiv.org/abs/2203.01387.
+原始元数据：https://arxiv.org/abs/2203.01387；日期：2026-10-03；题名：A Survey on Offline Reinforcement Learning: Taxonomy, Review, and Open Problems
+- 正文块477：仿真到现实（simulation-to-reality，sim2real）描述源域训练与目标域使用之间的迁移任务，离线、在线及离线到在线描述数据访问方式，两者不是同一层级的分类。Levine等从固定数据的分布偏移出发讨论重要性采样、策略约束、价值保守化和模型学习；Prudencio等进一步区分算法结构与抑制分布偏移的机制；Zhao等的sim2real综述则从域随机化、适应及迁移组织研究。[84,85,86] 依据这些综述，本文先按能否获得目标数据及能否追加目标交互区分任务，再比较价值校正、策略约束、重加权及模型修正的作用。
+
+## [86] zhao2020simreal
+[86] 	ZHAO W, QUERALTA J P, WESTERLUND T. Sim-to-Real Transfer in Deep Reinforcement Learning for Robotics: a Survey[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2009.13303.
+原始元数据：https://arxiv.org/abs/2009.13303；日期：2026-09-29；题名：Sim-to-Real Transfer in Deep Reinforcement Learning for Robotics: a Survey
+- 正文块477：仿真到现实（simulation-to-reality，sim2real）描述源域训练与目标域使用之间的迁移任务，离线、在线及离线到在线描述数据访问方式，两者不是同一层级的分类。Levine等从固定数据的分布偏移出发讨论重要性采样、策略约束、价值保守化和模型学习；Prudencio等进一步区分算法结构与抑制分布偏移的机制；Zhao等的sim2real综述则从域随机化、适应及迁移组织研究。[84,85,86] 依据这些综述，本文先按能否获得目标数据及能否追加目标交互区分任务，再比较价值校正、策略约束、重加权及模型修正的作用。
+- 正文块492：动力学迁移通常结合系统辨识、参数随机化或目标反馈。Tan等将执行器建模、延迟模拟和物理参数随机化共同用于机器人迁移；自动域随机化进一步调整训练环境分布；仿真参数优化方法SimOpt利用目标运行经验更新仿真参数分布。[108,109,110] 相关综述把域随机化、域适应和元学习等归纳为不同的迁移路径。[86] 从这些研究可见，仿真可以通过覆盖潜在变化提高适用性，也可以借助目标数据缩小待覆盖的范围。本文主要研究后一信息条件下，固定目标离线数据能否支持低成本源训练。
+
+## [87] kumar2020cql
+[87] 	KUMAR A, ZHOU A, TUCKER G, et al. Conservative Q-Learning for Offline Reinforcement Learning[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2006.04779.
+原始元数据：https://arxiv.org/abs/2006.04779；日期：2026-09-29；题名：Conservative Q-Learning for Offline Reinforcement Learning
+- 正文块479：纯离线强化学习从固定历史记录学习策略，不再从目标环境获得新的训练交互。其主要困难之一是学习策略与数据采集策略不同，价值更新可能访问数据覆盖不足的动作。保守Q学习（Conservative Q-Learning，CQL）通过保守价值正则处理这一问题；隐式Q学习（Implicit Q-Learning，IQL）通过隐式策略改进和优势加权行为克隆，避免在关键训练步骤直接查询未观察动作的价值。[87,88] 两者体现了通过价值约束或更新结构利用固定数据的不同方式。
+- 正文块489：CQL、IQL与Cal-QL着重处理行为覆盖、价值外推或离线到在线的价值尺度；动力学重要性采样则调整源转移在目标期望中的权重。二者可以组合，不能据此将算法划分成“修正Q”与“纯重要性采样”两个互斥阵营。H2O+同时包含离线与在线价值更新的衔接和动力学差异处理，是混合训练框架。公交实现中哪些修正项真正启用、哪些仅用于诊断，将在第5章按实际训练目标说明。[10,87,88,102]
+- 正文块660：在线、离线和异策略描述的则是数据使用方式。在线学习持续获得环境交互；离线学习只使用预先固定的数据；异策略学习允许当前策略与采集数据的行为策略不同。经验回放中的旧样本使SAC能够异策略更新，但当数据完全固定时，当前策略提出的新动作可能没有足够支持，仍需要离线学习的专门约束。[84,87,88] 因此，后续章节将数据可用性与算法形式分别说明。
+- 正文块1516：行为克隆通过监督学习拟合离线数据动作，提供不依赖价值外推的基线。保守 Q 学习在演员评论家框架中限制缺少数据支持的动作价值。[87] 离线 RE-SAC 则使用10个评论家、下置信界形式的集成评价和行为克隆锚定，将保守策略更新与已有动作支持结合。
+
+## [88] kostrikov2022iql
+[88] 	KOSTRIKOV I, NAIR A, LEVINE S. Offline Reinforcement Learning with Implicit Q-Learning[EB/OL]. arXiv, 2021[2026-09-29]. https://arxiv.org/abs/2110.06169.
+原始元数据：https://arxiv.org/abs/2110.06169；日期：2026-09-29；题名：Offline Reinforcement Learning with Implicit Q-Learning
+- 正文块479：纯离线强化学习从固定历史记录学习策略，不再从目标环境获得新的训练交互。其主要困难之一是学习策略与数据采集策略不同，价值更新可能访问数据覆盖不足的动作。保守Q学习（Conservative Q-Learning，CQL）通过保守价值正则处理这一问题；隐式Q学习（Implicit Q-Learning，IQL）通过隐式策略改进和优势加权行为克隆，避免在关键训练步骤直接查询未观察动作的价值。[87,88] 两者体现了通过价值约束或更新结构利用固定数据的不同方式。
+- 正文块489：CQL、IQL与Cal-QL着重处理行为覆盖、价值外推或离线到在线的价值尺度；动力学重要性采样则调整源转移在目标期望中的权重。二者可以组合，不能据此将算法划分成“修正Q”与“纯重要性采样”两个互斥阵营。H2O+同时包含离线与在线价值更新的衔接和动力学差异处理，是混合训练框架。公交实现中哪些修正项真正启用、哪些仅用于诊断，将在第5章按实际训练目标说明。[10,87,88,102]
+- 正文块504：方法数据及交互条件核心处理与本文任务的关系IQL[88]固定数据；原文另研究在线微调样本内价值学习与优势加权行为克隆作为公交离线初始化和纯离线参照H2O[9]固定目标数据与新增源交互动力学差异加权的保守价值学习提供跨动力学混合学习的问题设定H2O+[10]同上；允许不同离线学习骨干混合价值备份与动力学比率修正提供第5章学习基础；原文验证含仿真与机器人任务MBPO[112]环境采样与模型生成经验从实际经验起点进行短模型滚动提供模型使用参照；不以源结构保留为必要前提本文公交跨保真学习固定SUMO离线数据与简易仿真训练车辆事件编码、精确零/正停站混合动作及执行保障在有界停站权限下分别检验训练方案与保障作用本文公交世界模型沿用上述训练权限，增加离线数据拟合混合事件预测、残差/直接类别选择及置信加权检验模型辅助的条件增量，不增加目标训练交互
+- 正文块660：在线、离线和异策略描述的则是数据使用方式。在线学习持续获得环境交互；离线学习只使用预先固定的数据；异策略学习允许当前策略与采集数据的行为策略不同。经验回放中的旧样本使SAC能够异策略更新，但当数据完全固定时，当前策略提出的新动作可能没有足够支持，仍需要离线学习的专门约束。[84,87,88] 因此，后续章节将数据可用性与算法形式分别说明。
+- 正文块1541：离线阶段采用IQL的期望分位回归与优势加权策略提取，续训阶段采用SAC式熵正则化更新，并按公交H2O+的设置组合两类目标。[10,28,88]
+
+## [89] fujimoto2018bcq
+[89] 	FUJIMOTO S, MEGER D, PRECUP D. Off-Policy Deep Reinforcement Learning without Exploration[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1812.02900.
+原始元数据：https://arxiv.org/abs/1812.02900；日期：2026-09-29；题名：Off-Policy Deep Reinforcement Learning without Exploration
+- 正文块480：固定数据学习的困难并不只是样本数量少，还在于无法即时验证策略提出的新动作。离线强化学习综述将分布偏移及其在自举更新中的积累作为核心问题。[84] 批量约束Q学习（Batch-Constrained Q-Learning，BCQ）约束候选动作接近离线数据支持，自举误差累积削减（Bootstrapping Error Accumulation Reduction，BEAR）从自举误差出发限制动作选择，行为正则化演员评论家方法（Behavior Regularized Actor Critic，BRAC）统一讨论行为正则化的不同形式。[89,90,91] 这些方法主要约束策略离开行为数据的程度，CQL则把保守性直接作用于价值学习。对于公交离线数据中大量零停站和少量长停站并存的情况，行为覆盖结构因而与总转移条数同样重要。
+- 正文块1515：已有离线方法主要通过动作支持、行为正则或价值保守性限制不可靠外推。BCQ和BEAR限制候选动作离开数据的程度，BRAC讨论不同的行为正则形式，TD3+BC则用行为克隆项构成简洁的离线演员更新。[89,90,91,94] 本章选择BC、CQL和离线RE-SAC，分别代表直接复现离线数据行为、保守价值学习以及集成评价与行为锚定的组合。
+
+## [90] kumar2019bear
+[90] 	KUMAR A, FU J, TUCKER G, et al. Stabilizing Off-Policy Q-Learning via Bootstrapping Error Reduction[EB/OL]. arXiv, 2019[2026-09-29]. https://arxiv.org/abs/1906.00949.
+原始元数据：https://arxiv.org/abs/1906.00949；日期：2026-09-29；题名：Stabilizing Off-Policy Q-Learning via Bootstrapping Error Reduction
+- 正文块480：固定数据学习的困难并不只是样本数量少，还在于无法即时验证策略提出的新动作。离线强化学习综述将分布偏移及其在自举更新中的积累作为核心问题。[84] 批量约束Q学习（Batch-Constrained Q-Learning，BCQ）约束候选动作接近离线数据支持，自举误差累积削减（Bootstrapping Error Accumulation Reduction，BEAR）从自举误差出发限制动作选择，行为正则化演员评论家方法（Behavior Regularized Actor Critic，BRAC）统一讨论行为正则化的不同形式。[89,90,91] 这些方法主要约束策略离开行为数据的程度，CQL则把保守性直接作用于价值学习。对于公交离线数据中大量零停站和少量长停站并存的情况，行为覆盖结构因而与总转移条数同样重要。
+- 正文块1515：已有离线方法主要通过动作支持、行为正则或价值保守性限制不可靠外推。BCQ和BEAR限制候选动作离开数据的程度，BRAC讨论不同的行为正则形式，TD3+BC则用行为克隆项构成简洁的离线演员更新。[89,90,91,94] 本章选择BC、CQL和离线RE-SAC，分别代表直接复现离线数据行为、保守价值学习以及集成评价与行为锚定的组合。
+
+## [91] wu2019brac
+[91] 	WU Y, TUCKER G, NACHUM O. Behavior Regularized Offline Reinforcement Learning[EB/OL]. arXiv, 2019[2026-09-29]. https://arxiv.org/abs/1911.11361.
+原始元数据：https://arxiv.org/abs/1911.11361；日期：2026-09-29；题名：Behavior Regularized Offline Reinforcement Learning
+- 正文块480：固定数据学习的困难并不只是样本数量少，还在于无法即时验证策略提出的新动作。离线强化学习综述将分布偏移及其在自举更新中的积累作为核心问题。[84] 批量约束Q学习（Batch-Constrained Q-Learning，BCQ）约束候选动作接近离线数据支持，自举误差累积削减（Bootstrapping Error Accumulation Reduction，BEAR）从自举误差出发限制动作选择，行为正则化演员评论家方法（Behavior Regularized Actor Critic，BRAC）统一讨论行为正则化的不同形式。[89,90,91] 这些方法主要约束策略离开行为数据的程度，CQL则把保守性直接作用于价值学习。对于公交离线数据中大量零停站和少量长停站并存的情况，行为覆盖结构因而与总转移条数同样重要。
+- 正文块1515：已有离线方法主要通过动作支持、行为正则或价值保守性限制不可靠外推。BCQ和BEAR限制候选动作离开数据的程度，BRAC讨论不同的行为正则形式，TD3+BC则用行为克隆项构成简洁的离线演员更新。[89,90,91,94] 本章选择BC、CQL和离线RE-SAC，分别代表直接复现离线数据行为、保守价值学习以及集成评价与行为锚定的组合。
+
+## [92] peng2019awr
+[92] 	PENG X B, KUMAR A, ZHANG G, et al. Advantage-Weighted Regression: Simple and Scalable Off-Policy Reinforcement Learning[EB/OL]. arXiv, 2019[2026-09-29]. https://arxiv.org/abs/1910.00177.
+原始元数据：https://arxiv.org/abs/1910.00177；日期：2026-09-29；题名：Advantage-Weighted Regression: Simple and Scalable Off-Policy Reinforcement Learning
+- 正文块481：策略提取也可以采用加权监督学习形式。优势加权回归（Advantage-Weighted Regression，AWR）通过价值回归和优势加权动作回归组织更新，评论家正则化回归（Critic Regularized Regression，CRR）依据评论家评价进行策略回归，结合行为克隆（Behavior Cloning，BC）的TD3方法（TD3+BC）在在线演员评论家基础上加入行为克隆项形成简洁离线基线。[92,93,94] 这些研究提示，行为锚定既可能防止不可靠外推，也可能限制超越采集策略的能力。本文离线RE-SAC同时使用集成保守评价和行为锚定，其作用需要在相同离线数据与更新预算下评价。
+
+## [93] wang2020crr
+[93] 	WANG Z, NOVIKOV A, ZOLNA K, et al. Critic Regularized Regression[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2006.15134.
+原始元数据：https://arxiv.org/abs/2006.15134；日期：2026-09-29；题名：Critic Regularized Regression
+- 正文块481：策略提取也可以采用加权监督学习形式。优势加权回归（Advantage-Weighted Regression，AWR）通过价值回归和优势加权动作回归组织更新，评论家正则化回归（Critic Regularized Regression，CRR）依据评论家评价进行策略回归，结合行为克隆（Behavior Cloning，BC）的TD3方法（TD3+BC）在在线演员评论家基础上加入行为克隆项形成简洁离线基线。[92,93,94] 这些研究提示，行为锚定既可能防止不可靠外推，也可能限制超越采集策略的能力。本文离线RE-SAC同时使用集成保守评价和行为锚定，其作用需要在相同离线数据与更新预算下评价。
+
+## [94] fujimoto2021td3bc
+[94] 	FUJIMOTO S, GU S S. A Minimalist Approach to Offline Reinforcement Learning[EB/OL]. arXiv, 2021[2026-09-29]. https://arxiv.org/abs/2106.06860.
+原始元数据：https://arxiv.org/abs/2106.06860；日期：2026-09-29；题名：A Minimalist Approach to Offline Reinforcement Learning
+- 正文块481：策略提取也可以采用加权监督学习形式。优势加权回归（Advantage-Weighted Regression，AWR）通过价值回归和优势加权动作回归组织更新，评论家正则化回归（Critic Regularized Regression，CRR）依据评论家评价进行策略回归，结合行为克隆（Behavior Cloning，BC）的TD3方法（TD3+BC）在在线演员评论家基础上加入行为克隆项形成简洁离线基线。[92,93,94] 这些研究提示，行为锚定既可能防止不可靠外推，也可能限制超越采集策略的能力。本文离线RE-SAC同时使用集成保守评价和行为锚定，其作用需要在相同离线数据与更新预算下评价。
+- 正文块1515：已有离线方法主要通过动作支持、行为正则或价值保守性限制不可靠外推。BCQ和BEAR限制候选动作离开数据的程度，BRAC讨论不同的行为正则形式，TD3+BC则用行为克隆项构成简洁的离线演员更新。[89,90,91,94] 本章选择BC、CQL和离线RE-SAC，分别代表直接复现离线数据行为、保守价值学习以及集成评价与行为锚定的组合。
+
+## [95] fu2020d4rl
+[95] 	FU J, KUMAR A, NACHUM O, et al. D4RL: Datasets for Deep Data-Driven Reinforcement Learning[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2004.07219.
+原始元数据：https://arxiv.org/abs/2004.07219；日期：2026-09-29；题名：D4RL: Datasets for Deep Data-Driven Reinforcement Learning
+- 正文块482：离线数据的形成方式决定了可以检验哪些能力。深度数据驱动强化学习数据集（Datasets for Deep Data-Driven Reinforcement Learning，D4RL）将人类行为、规则控制和混合策略等不同数据来源纳入基准；强化学习固定数据基准（Reinforcement Learning Unplugged，RL Unplugged）提供多类固定数据任务及评价协议。[95,96] Agarwal等基于大规模经验回放分析了数据规模、多样性与学习方法的共同作用。[97] 对公交而言，随机停站、时刻表规则和乘客福利规则覆盖不同动作与运行区域，故多种行为生成的离线数据不等价于同一行为简单重复更多回合。
+- 正文块719：这一数据定义与D4RL、RL Unplugged等固定数据基准所强调的采集策略和任务条件相对应。[95,96] 公交离线数据还具有沿运行日连续形成、车辆经验数量不均和动作分布集中于短停站等特点。对同一回合拆分出的相邻事件，不宜仅因记录条数较多就视为大量独立运行条件；数据规模、行为多样性与环境覆盖分别描述离线数据的不同属性。
+
+## [96] gulcehre2020unplugged
+[96] 	GULCEHRE C, WANG Z, NOVIKOV A, et al. RL Unplugged: A Suite of Benchmarks for Offline Reinforcement Learning[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2006.13888.
+原始元数据：https://arxiv.org/abs/2006.13888；日期：2026-09-29；题名：RL Unplugged: A Suite of Benchmarks for Offline Reinforcement Learning
+- 正文块482：离线数据的形成方式决定了可以检验哪些能力。深度数据驱动强化学习数据集（Datasets for Deep Data-Driven Reinforcement Learning，D4RL）将人类行为、规则控制和混合策略等不同数据来源纳入基准；强化学习固定数据基准（Reinforcement Learning Unplugged，RL Unplugged）提供多类固定数据任务及评价协议。[95,96] Agarwal等基于大规模经验回放分析了数据规模、多样性与学习方法的共同作用。[97] 对公交而言，随机停站、时刻表规则和乘客福利规则覆盖不同动作与运行区域，故多种行为生成的离线数据不等价于同一行为简单重复更多回合。
+- 正文块719：这一数据定义与D4RL、RL Unplugged等固定数据基准所强调的采集策略和任务条件相对应。[95,96] 公交离线数据还具有沿运行日连续形成、车辆经验数量不均和动作分布集中于短停站等特点。对同一回合拆分出的相邻事件，不宜仅因记录条数较多就视为大量独立运行条件；数据规模、行为多样性与环境覆盖分别描述离线数据的不同属性。
+
+## [97] agarwal2019optimistic
+[97] 	AGARWAL R, SCHUURMANS D, NOROUZI M. An Optimistic Perspective on Offline Reinforcement Learning[EB/OL]. arXiv, 2019[2026-09-29]. https://arxiv.org/abs/1907.04543.
+原始元数据：https://arxiv.org/abs/1907.04543；日期：2026-09-29；题名：An Optimistic Perspective on Offline Reinforcement Learning
+- 正文块482：离线数据的形成方式决定了可以检验哪些能力。深度数据驱动强化学习数据集（Datasets for Deep Data-Driven Reinforcement Learning，D4RL）将人类行为、规则控制和混合策略等不同数据来源纳入基准；强化学习固定数据基准（Reinforcement Learning Unplugged，RL Unplugged）提供多类固定数据任务及评价协议。[95,96] Agarwal等基于大规模经验回放分析了数据规模、多样性与学习方法的共同作用。[97] 对公交而言，随机停站、时刻表规则和乘客福利规则覆盖不同动作与运行区域，故多种行为生成的离线数据不等价于同一行为简单重复更多回合。
+
+## [98] ball2023efficient
+[98] 	BALL P J, SMITH L, KOSTRIKOV I, et al. Efficient Online Reinforcement Learning with Offline Data[EB/OL]. arXiv, 2023[2026-09-29]. https://arxiv.org/abs/2302.02948.
+原始元数据：https://arxiv.org/abs/2302.02948；日期：2026-09-29；题名：Efficient Online Reinforcement Learning with Offline Data
+- 正文块484：离线到在线学习允许在初始化后继续获得目标交互。利用先验数据的强化学习（Reinforcement Learning with Prior Data，RLPD）研究如何通过较少的算法改动，在在线异策略学习中有效混合已有离线数据；预热强化学习（Warm-Start Reinforcement Learning，WSRL）则使用初始在线预热校准数据分布，使后续微调不必始终保留原离线数据。[98,99] 在公交任务中，比较这些方法时需要同时报告新增目标交互量、更新量和完整运行评价，否则较高回报可能混合了不同数据访问条件的影响。
+- 正文块1524：在线 SAC 从头使用 SUMO 交互学习。WSRL 从离线策略起步，在预热后进行在线微调；RLPD 在继续更新时混合先验离线数据与新增在线经验。[98,99] 主 RLPD 配置的离线比例为0.50，另设置0.25和0.75的有限敏感性比较。
+
+## [99] zhou2025wsrl
+[99] 	ZHOU Z, PENG A, LI Q, et al. Efficient Online Reinforcement Learning Fine-Tuning Need Not Retain Offline Data[EB/OL]. arXiv, 2024[2026-09-29]. https://arxiv.org/abs/2412.07762.
+原始元数据：https://arxiv.org/abs/2412.07762；日期：2026-09-29；题名：Efficient Online Reinforcement Learning Fine-Tuning Need Not Retain Offline Data
+- 正文块484：离线到在线学习允许在初始化后继续获得目标交互。利用先验数据的强化学习（Reinforcement Learning with Prior Data，RLPD）研究如何通过较少的算法改动，在在线异策略学习中有效混合已有离线数据；预热强化学习（Warm-Start Reinforcement Learning，WSRL）则使用初始在线预热校准数据分布，使后续微调不必始终保留原离线数据。[98,99] 在公交任务中，比较这些方法时需要同时报告新增目标交互量、更新量和完整运行评价，否则较高回报可能混合了不同数据访问条件的影响。
+- 正文块1524：在线 SAC 从头使用 SUMO 交互学习。WSRL 从离线策略起步，在预热后进行在线微调；RLPD 在继续更新时混合先验离线数据与新增在线经验。[98,99] 主 RLPD 配置的离线比例为0.50，另设置0.25和0.75的有限敏感性比较。
+
+## [100] nair2020awac
+[100] 	NAIR A, GUPTA A, DALAL M, et al. AWAC: Accelerating Online Reinforcement Learning with Offline Datasets[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2006.09359.
+原始元数据：https://arxiv.org/abs/2006.09359；日期：2026-09-29；题名：AWAC: Accelerating Online Reinforcement Learning with Offline Datasets
+- 正文块485：从固定数据切换到在线学习，还可能破坏原有策略和价值尺度。优势加权演员评论家方法（Advantage-Weighted Actor-Critic，AWAC）结合动态规划与最大似然策略更新利用先验数据并继续微调；平衡回放方法使新增经验与接近当前策略的离线样本共同参与学习。[100,101] 校准Q学习（Calibrated Q-Learning，Cal-QL）关注离线价值初始化的尺度校准，策略扩展（Policy Expansion，PEX）则保留原离线策略并扩展可继续学习的新策略。[102,103] 各方法分别调节数据使用、价值初始化或策略复用，说明在线阶段的收益不能只归因于“有了更多样本”，还与如何承接离线解有关。
+- 正文块1523：承接离线策略时，需要同时处理新旧经验分布和初始价值尺度。AWAC从优势加权更新利用先验数据，Cal-QL关注保守价值初始化的尺度，PEX通过保留离线策略和扩展新策略组织在线行为。[100,102,103] 本章采用的WSRL和RLPD主要体现两种数据使用方式：前者利用在线预热衔接后续学习，后者在训练中持续混合先验离线数据。选择这两者有助于比较固定离线数据价值以及继续保留离线数据的作用。
+
+## [101] lee2021balanced
+[101] 	LEE S, SEO Y, LEE K, et al. Offline-to-Online Reinforcement Learning via Balanced Replay and Pessimistic Q-Ensemble[EB/OL]. arXiv, 2021[2026-09-29]. https://arxiv.org/abs/2107.00591.
+原始元数据：https://arxiv.org/abs/2107.00591；日期：2026-09-29；题名：Offline-to-Online Reinforcement Learning via Balanced Replay and Pessimistic Q-Ensemble
+- 正文块485：从固定数据切换到在线学习，还可能破坏原有策略和价值尺度。优势加权演员评论家方法（Advantage-Weighted Actor-Critic，AWAC）结合动态规划与最大似然策略更新利用先验数据并继续微调；平衡回放方法使新增经验与接近当前策略的离线样本共同参与学习。[100,101] 校准Q学习（Calibrated Q-Learning，Cal-QL）关注离线价值初始化的尺度校准，策略扩展（Policy Expansion，PEX）则保留原离线策略并扩展可继续学习的新策略。[102,103] 各方法分别调节数据使用、价值初始化或策略复用，说明在线阶段的收益不能只归因于“有了更多样本”，还与如何承接离线解有关。
+
+## [102] nakamoto2023calql
+[102] 	NAKAMOTO M, ZHAI Y, SINGH A, et al. Cal-QL: Calibrated Offline RL Pre-Training for Efficient Online Fine-Tuning[EB/OL]. arXiv, 2023[2026-09-29]. https://arxiv.org/abs/2303.05479.
+原始元数据：https://arxiv.org/abs/2303.05479；日期：2026-09-29；题名：Cal-QL: Calibrated Offline RL Pre-Training for Efficient Online Fine-Tuning
+- 正文块485：从固定数据切换到在线学习，还可能破坏原有策略和价值尺度。优势加权演员评论家方法（Advantage-Weighted Actor-Critic，AWAC）结合动态规划与最大似然策略更新利用先验数据并继续微调；平衡回放方法使新增经验与接近当前策略的离线样本共同参与学习。[100,101] 校准Q学习（Calibrated Q-Learning，Cal-QL）关注离线价值初始化的尺度校准，策略扩展（Policy Expansion，PEX）则保留原离线策略并扩展可继续学习的新策略。[102,103] 各方法分别调节数据使用、价值初始化或策略复用，说明在线阶段的收益不能只归因于“有了更多样本”，还与如何承接离线解有关。
+- 正文块489：CQL、IQL与Cal-QL着重处理行为覆盖、价值外推或离线到在线的价值尺度；动力学重要性采样则调整源转移在目标期望中的权重。二者可以组合，不能据此将算法划分成“修正Q”与“纯重要性采样”两个互斥阵营。H2O+同时包含离线与在线价值更新的衔接和动力学差异处理，是混合训练框架。公交实现中哪些修正项真正启用、哪些仅用于诊断，将在第5章按实际训练目标说明。[10,87,88,102]
+- 正文块1523：承接离线策略时，需要同时处理新旧经验分布和初始价值尺度。AWAC从优势加权更新利用先验数据，Cal-QL关注保守价值初始化的尺度，PEX通过保留离线策略和扩展新策略组织在线行为。[100,102,103] 本章采用的WSRL和RLPD主要体现两种数据使用方式：前者利用在线预热衔接后续学习，后者在训练中持续混合先验离线数据。选择这两者有助于比较固定离线数据价值以及继续保留离线数据的作用。
+
+## [103] zhang2023pex
+[103] 	ZHANG H, XU W, YU H. Policy Expansion for Bridging Offline-to-Online Reinforcement Learning[EB/OL]. arXiv, 2023[2026-09-29]. https://arxiv.org/abs/2302.00935.
+原始元数据：https://arxiv.org/abs/2302.00935；日期：2026-09-29；题名：Policy Expansion for Bridging Offline-to-Online Reinforcement Learning
+- 正文块485：从固定数据切换到在线学习，还可能破坏原有策略和价值尺度。优势加权演员评论家方法（Advantage-Weighted Actor-Critic，AWAC）结合动态规划与最大似然策略更新利用先验数据并继续微调；平衡回放方法使新增经验与接近当前策略的离线样本共同参与学习。[100,101] 校准Q学习（Calibrated Q-Learning，Cal-QL）关注离线价值初始化的尺度校准，策略扩展（Policy Expansion，PEX）则保留原离线策略并扩展可继续学习的新策略。[102,103] 各方法分别调节数据使用、价值初始化或策略复用，说明在线阶段的收益不能只归因于“有了更多样本”，还与如何承接离线解有关。
+- 正文块1523：承接离线策略时，需要同时处理新旧经验分布和初始价值尺度。AWAC从优势加权更新利用先验数据，Cal-QL关注保守价值初始化的尺度，PEX通过保留离线策略和扩展新策略组织在线行为。[100,102,103] 本章采用的WSRL和RLPD主要体现两种数据使用方式：前者利用在线预热衔接后续学习，后者在训练中持续混合先验离线数据。选择这两者有助于比较固定离线数据价值以及继续保留离线数据的作用。
+
+## [104] eysenbach2021off
+[104] 	EYSENBACH B, ASAWA S, CHAUDHARI S, et al. Off-Dynamics Reinforcement Learning: Training for Transfer with Domain Classifiers[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2006.13916.
+原始元数据：https://arxiv.org/abs/2006.13916；日期：2026-09-29；题名：Off-Dynamics Reinforcement Learning: Training for Transfer with Domain Classifiers
+- 正文块487：跨动力学学习还涉及源数据是否符合目标转移规律。基于分类器奖励的域适应方法（Domain Adaptation with Rewards from Classifiers，DARC）利用区分源目标转移的分类器估计奖励修正，使源环境经验在优化中考虑目标动力学的差异。[104] H2O进一步联合有限目标离线数据与源仿真交互，在价值学习中处理动力学偏移；H2O+拓展这一框架，使不同离线与在线学习方法能够组合。[9,10] 这些工作明确了目标离线信息与源在线探索可以相互补充。
+- 正文块735：这一恒等式说明权重的意义：源分布中过多出现的样本权重降低，目标分布相对更常见的样本权重提高。它改变已有样本在估计中的贡献，不会生成从未覆盖的目标转移。权重差异很大时，少数样本会支配估计，截断或归一化可以减小波动，但一般也会改变有限样本估计的偏差。离线与跨动力学学习因此需要同时说明数据覆盖、权重定义和权重实际用途。[9,84,104]
+- 正文块742：若类先验不等，需要相应消除先验比；有限数据训练得到的分类器只是上述比率的估计。DARC利用分类器形成动力学相关奖励修正，H2O与H2O+在混合源目标学习中进一步利用动力学差异信息。[9,10,104] 各实现可以对包含事件时间的联合转移建模，也可以仅估计状态后继的边缘转移比，实际比率对象必须与输入一致。第5章按具体协议交代是否启用比率、如何估计以及权重作用于何种损失。
+- 正文块1559：联合与边缘分类器之差用于消去状态动作访问分布比，从而诊断条件转移差异；这一思路来自DARC及H2O的跨动力学修正。[9,104]
+- 正文块1955：仅目标数据SAC（Target SAC）只使用目标环境实际采样的状态转移训练软演员评论家，不使用源数据或学习得到的世界模型；这里的“实际采样”仍来自目标仿真，不是现场运行数据。DARC通过区分源、目标转移的分类器修正奖励。[104] 本实验使用状态动作及状态动作下一状态两个分类器，隐层宽度32、输入高斯噪声标准差1，在4,000次在线更新后开始修正。其预算与本研究适应任务匹配，并非复现原论文的全部训练日程。仅源仿真SAC（Raw simulator SAC）只在未修正的源环境训练，不使用目标训练数据。
+
+## [105] tobin2017randomization
+[105] 	TOBIN J, FONG R, RAY A, et al. Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World[EB/OL]. arXiv, 2017[2026-09-29]. https://arxiv.org/abs/1703.06907.
+原始元数据：https://arxiv.org/abs/1703.06907；日期：2026-09-29；题名：Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World
+- 正文块491：仿真迁移需要区分观测差异和转移差异。视觉域随机化改变纹理、光照和物体外观，使基于合成图像训练的识别器面对更广的观测变化；相关研究已将这一思路用于物体定位、检测以及视觉导航。[105,106,107] 本文公交策略主要使用结构化运行量，所关注的标定偏差是速度、客流起讫点（Origin-Destination，OD）、路口延误和停站服务等因素引起的转移变化。二者同属仿真差距，但需要改变的模型部分不同。
+- 正文块671：目标环境数据不可得时，一种直接办法是在仿真中扩大训练条件的覆盖范围。视觉域随机化可改变纹理、光照与对象外观，动力学随机化可改变质量、摩擦或运行参数。[8,105] 对公交而言，可随机化路段运行时间、需求强度及服务波动，使策略反复接触多种合理实现。输入加噪是其中一种形式，但道路和需求机制的随机化并不等同于任意扰动策略输入。
+
+## [106] tremblay2018randomization
+[106] 	TREMBLAY J, PRAKASH A, ACUNA D, et al. Training Deep Networks with Synthetic Data: Bridging the Reality Gap by Domain Randomization[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1804.06516.
+原始元数据：https://arxiv.org/abs/1804.06516；日期：2026-09-29；题名：Training Deep Networks with Synthetic Data: Bridging the Reality Gap by Domain Randomization
+- 正文块491：仿真迁移需要区分观测差异和转移差异。视觉域随机化改变纹理、光照和物体外观，使基于合成图像训练的识别器面对更广的观测变化；相关研究已将这一思路用于物体定位、检测以及视觉导航。[105,106,107] 本文公交策略主要使用结构化运行量，所关注的标定偏差是速度、客流起讫点（Origin-Destination，OD）、路口延误和停站服务等因素引起的转移变化。二者同属仿真差距，但需要改变的模型部分不同。
+
+## [107] sadeghi2016cad
+[107] 	SADEGHI F, LEVINE S. CAD2RL: Real Single-Image Flight without a Single Real Image[EB/OL]. arXiv, 2016[2026-09-29]. https://arxiv.org/abs/1611.04201.
+原始元数据：https://arxiv.org/abs/1611.04201；日期：2026-09-29；题名：CAD2RL: Real Single-Image Flight without a Single Real Image
+- 正文块491：仿真迁移需要区分观测差异和转移差异。视觉域随机化改变纹理、光照和物体外观，使基于合成图像训练的识别器面对更广的观测变化；相关研究已将这一思路用于物体定位、检测以及视觉导航。[105,106,107] 本文公交策略主要使用结构化运行量，所关注的标定偏差是速度、客流起讫点（Origin-Destination，OD）、路口延误和停站服务等因素引起的转移变化。二者同属仿真差距，但需要改变的模型部分不同。
+
+## [108] tan2018simreal
+[108] 	TAN J, ZHANG T, COUMANS E, et al. Sim-to-Real: Learning Agile Locomotion For Quadruped Robots[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1804.10332.
+原始元数据：https://arxiv.org/abs/1804.10332；日期：2026-09-29；题名：Sim-to-Real: Learning Agile Locomotion For Quadruped Robots
+- 正文块492：动力学迁移通常结合系统辨识、参数随机化或目标反馈。Tan等将执行器建模、延迟模拟和物理参数随机化共同用于机器人迁移；自动域随机化进一步调整训练环境分布；仿真参数优化方法SimOpt利用目标运行经验更新仿真参数分布。[108,109,110] 相关综述把域随机化、域适应和元学习等归纳为不同的迁移路径。[86] 从这些研究可见，仿真可以通过覆盖潜在变化提高适用性，也可以借助目标数据缩小待覆盖的范围。本文主要研究后一信息条件下，固定目标离线数据能否支持低成本源训练。
+
+## [109] akkaya2019rubik
+[109] 	OPENAI, AKKAYA I, ANDRYCHOWICZ M, et al. Solving Rubik’s Cube with a Robot Hand[EB/OL]. arXiv, 2019[2026-09-29]. https://arxiv.org/abs/1910.07113.
+原始元数据：https://arxiv.org/abs/1910.07113；日期：2026-09-29；题名：Solving Rubik's Cube with a Robot Hand
+- 正文块492：动力学迁移通常结合系统辨识、参数随机化或目标反馈。Tan等将执行器建模、延迟模拟和物理参数随机化共同用于机器人迁移；自动域随机化进一步调整训练环境分布；仿真参数优化方法SimOpt利用目标运行经验更新仿真参数分布。[108,109,110] 相关综述把域随机化、域适应和元学习等归纳为不同的迁移路径。[86] 从这些研究可见，仿真可以通过覆盖潜在变化提高适用性，也可以借助目标数据缩小待覆盖的范围。本文主要研究后一信息条件下，固定目标离线数据能否支持低成本源训练。
+
+## [110] chebotar2018simopt
+[110] 	CHEBOTAR Y, HANDA A, MAKOVIYCHUK V, et al. Closing the Sim-to-Real Loop: Adapting Simulation Randomization with Real World Experience[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1810.05687.
+原始元数据：https://arxiv.org/abs/1810.05687；日期：2026-09-29；题名：Closing the Sim-to-Real Loop: Adapting Simulation Randomization with Real World Experience
+- 正文块492：动力学迁移通常结合系统辨识、参数随机化或目标反馈。Tan等将执行器建模、延迟模拟和物理参数随机化共同用于机器人迁移；自动域随机化进一步调整训练环境分布；仿真参数优化方法SimOpt利用目标运行经验更新仿真参数分布。[108,109,110] 相关综述把域随机化、域适应和元学习等归纳为不同的迁移路径。[86] 从这些研究可见，仿真可以通过覆盖潜在变化提高适用性，也可以借助目标数据缩小待覆盖的范围。本文主要研究后一信息条件下，固定目标离线数据能否支持低成本源训练。
+
+## [111] chua2018pets
+[111] 	CHUA K, CALANDRA R, MCALLISTER R, et al. Deep Reinforcement Learning in a Handful of Trials using Probabilistic Dynamics Models[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1805.12114.
+原始元数据：https://arxiv.org/abs/1805.12114；日期：2026-09-29；题名：Deep Reinforcement Learning in a Handful of Trials using Probabilistic Dynamics Models
+- 正文块493：世界模型通过学习状态转移与奖励，为策略评价和优化生成额外信息。概率集成轨迹采样方法（Probabilistic Ensembles with Trajectory Sampling，PETS）结合概率动力学集成与轨迹采样，在样本效率和模型不确定性之间建立联系；基于模型的策略优化（Model-Based Policy Optimization，MBPO）研究模型生成数据的偏差与使用范围，以从环境采样数据出发的短模型滚动支持策略学习。[111,112] Dreamer则在潜在状态空间中进行想象和行为学习，说明世界模型可以在紧凑表示上连接感知与长期决策。[113]
+- 正文块744：世界模型通过数据学习与控制相关的环境演化，用以预测动作执行后的状态、奖励或可供规划的潜在表示。已有方法既可以在低维状态上学习概率动力学，也可以在潜在空间中预测后续观测及回报。[111,114,115] 本文已有明确的公交运行状态，因此重点关注由状态动作到后继运行量的关系。
+
+## [112] janner2019mbpo
+[112] 	JANNER M, FU J, ZHANG M, et al. When to Trust Your Model: Model-Based Policy Optimization[EB/OL]. arXiv, 2019[2026-09-29]. https://arxiv.org/abs/1906.08253.
+原始元数据：https://arxiv.org/abs/1906.08253；日期：2026-09-29；题名：When to Trust Your Model: Model-Based Policy Optimization
+- 正文块493：世界模型通过学习状态转移与奖励，为策略评价和优化生成额外信息。概率集成轨迹采样方法（Probabilistic Ensembles with Trajectory Sampling，PETS）结合概率动力学集成与轨迹采样，在样本效率和模型不确定性之间建立联系；基于模型的策略优化（Model-Based Policy Optimization，MBPO）研究模型生成数据的偏差与使用范围，以从环境采样数据出发的短模型滚动支持策略学习。[111,112] Dreamer则在潜在状态空间中进行想象和行为学习，说明世界模型可以在紧凑表示上连接感知与长期决策。[113]
+- 正文块504：方法数据及交互条件核心处理与本文任务的关系IQL[88]固定数据；原文另研究在线微调样本内价值学习与优势加权行为克隆作为公交离线初始化和纯离线参照H2O[9]固定目标数据与新增源交互动力学差异加权的保守价值学习提供跨动力学混合学习的问题设定H2O+[10]同上；允许不同离线学习骨干混合价值备份与动力学比率修正提供第5章学习基础；原文验证含仿真与机器人任务MBPO[112]环境采样与模型生成经验从实际经验起点进行短模型滚动提供模型使用参照；不以源结构保留为必要前提本文公交跨保真学习固定SUMO离线数据与简易仿真训练车辆事件编码、精确零/正停站混合动作及执行保障在有界停站权限下分别检验训练方案与保障作用本文公交世界模型沿用上述训练权限，增加离线数据拟合混合事件预测、残差/直接类别选择及置信加权检验模型辅助的条件增量，不增加目标训练交互
+- 正文块1935：模型误差传播研究提供了连接局部预测与长期决策的条件工具。Asadi等基于Lipschitz连续性分析模型误差，MBPO则讨论模型偏差与策略分布变化下模型数据的使用范围。[112,126] 本章的残差贝尔曼分析进一步把源核、目标修正和实际模型误差分开，从而能够判断源结构不适合目标时误差项如何进入价值评价。
+- 正文块1954：主实验包含MC-WM及5个对照。固定残差方法保留稀疏加神经修正、置信评价及策略感知更新，但始终采用残差模型，不使用自适应更新选择、违例代价和验证检查点恢复。直接目标模型方法采用MBPO，使用相同概率模型结构和一步预测样本，但从目标数据直接拟合，不保留源模型。[112]
+
+## [113] hafner2020dreamer
+[113] 	HAFNER D, LILLICRAP T, BA J, et al. Dream to Control: Learning Behaviors by Latent Imagination[EB/OL]. arXiv, 2019[2026-09-29]. https://arxiv.org/abs/1912.01603.
+原始元数据：https://arxiv.org/abs/1912.01603；日期：2026-09-29；题名：Dream to Control: Learning Behaviors by Latent Imagination
+- 正文块493：世界模型通过学习状态转移与奖励，为策略评价和优化生成额外信息。概率集成轨迹采样方法（Probabilistic Ensembles with Trajectory Sampling，PETS）结合概率动力学集成与轨迹采样，在样本效率和模型不确定性之间建立联系；基于模型的策略优化（Model-Based Policy Optimization，MBPO）研究模型生成数据的偏差与使用范围，以从环境采样数据出发的短模型滚动支持策略学习。[111,112] Dreamer则在潜在状态空间中进行想象和行为学习，说明世界模型可以在紧凑表示上连接感知与长期决策。[113]
+
+## [114] ha2018world
+[114] 	HA D, SCHMIDHUBER J. World Models[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1803.10122.
+原始元数据：https://arxiv.org/abs/1803.10122；日期：2026-09-29；题名：World Models
+- 正文块494：世界模型的作用方式经历了由状态压缩、预测到行为优化的扩展。Ha和Schmidhuber利用学习到的时空表示支持紧凑控制器，深度规划网络（Deep Planning Network，PlaNet）在潜在空间内进行在线规划，Dreamer系列则进一步直接从模型想象中学习行为。[114,115,116,117] 另一条路线以短时域规划和终端价值结合为重点，时序差分模型预测控制（Temporal Difference Model Predictive Control，TD-MPC）及其第二版TD-MPC2在面向任务的潜在模型中组织轨迹优化。[118,119] 因此，世界模型既可以产生训练样本，也可以直接参与动作规划；本文采用前一种用途，以模型生成的一步转移辅助演员评论家更新。
+- 正文块744：世界模型通过数据学习与控制相关的环境演化，用以预测动作执行后的状态、奖励或可供规划的潜在表示。已有方法既可以在低维状态上学习概率动力学，也可以在潜在空间中预测后续观测及回报。[111,114,115] 本文已有明确的公交运行状态，因此重点关注由状态动作到后继运行量的关系。
+
+## [115] hafner2018planet
+[115] 	HAFNER D, LILLICRAP T, FISCHER I, et al. Learning Latent Dynamics for Planning from Pixels[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1811.04551.
+原始元数据：https://arxiv.org/abs/1811.04551；日期：2026-09-29；题名：Learning Latent Dynamics for Planning from Pixels
+- 正文块494：世界模型的作用方式经历了由状态压缩、预测到行为优化的扩展。Ha和Schmidhuber利用学习到的时空表示支持紧凑控制器，深度规划网络（Deep Planning Network，PlaNet）在潜在空间内进行在线规划，Dreamer系列则进一步直接从模型想象中学习行为。[114,115,116,117] 另一条路线以短时域规划和终端价值结合为重点，时序差分模型预测控制（Temporal Difference Model Predictive Control，TD-MPC）及其第二版TD-MPC2在面向任务的潜在模型中组织轨迹优化。[118,119] 因此，世界模型既可以产生训练样本，也可以直接参与动作规划；本文采用前一种用途，以模型生成的一步转移辅助演员评论家更新。
+- 正文块744：世界模型通过数据学习与控制相关的环境演化，用以预测动作执行后的状态、奖励或可供规划的潜在表示。已有方法既可以在低维状态上学习概率动力学，也可以在潜在空间中预测后续观测及回报。[111,114,115] 本文已有明确的公交运行状态，因此重点关注由状态动作到后继运行量的关系。
+
+## [116] hafner2020dreamerv2
+[116] 	HAFNER D, LILLICRAP T, NOROUZI M, et al. Mastering Atari with Discrete World Models[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2010.02193.
+原始元数据：https://arxiv.org/abs/2010.02193；日期：2026-09-29；题名：Mastering Atari with Discrete World Models
+- 正文块494：世界模型的作用方式经历了由状态压缩、预测到行为优化的扩展。Ha和Schmidhuber利用学习到的时空表示支持紧凑控制器，深度规划网络（Deep Planning Network，PlaNet）在潜在空间内进行在线规划，Dreamer系列则进一步直接从模型想象中学习行为。[114,115,116,117] 另一条路线以短时域规划和终端价值结合为重点，时序差分模型预测控制（Temporal Difference Model Predictive Control，TD-MPC）及其第二版TD-MPC2在面向任务的潜在模型中组织轨迹优化。[118,119] 因此，世界模型既可以产生训练样本，也可以直接参与动作规划；本文采用前一种用途，以模型生成的一步转移辅助演员评论家更新。
+
+## [117] hafner2023dreamerv3
+[117] 	HAFNER D, PASUKONIS J, BA J, et al. Mastering Diverse Domains through World Models[EB/OL]. arXiv, 2023[2026-09-29]. https://arxiv.org/abs/2301.04104.
+原始元数据：https://arxiv.org/abs/2301.04104；日期：2026-09-29；题名：Mastering Diverse Domains through World Models
+- 正文块494：世界模型的作用方式经历了由状态压缩、预测到行为优化的扩展。Ha和Schmidhuber利用学习到的时空表示支持紧凑控制器，深度规划网络（Deep Planning Network，PlaNet）在潜在空间内进行在线规划，Dreamer系列则进一步直接从模型想象中学习行为。[114,115,116,117] 另一条路线以短时域规划和终端价值结合为重点，时序差分模型预测控制（Temporal Difference Model Predictive Control，TD-MPC）及其第二版TD-MPC2在面向任务的潜在模型中组织轨迹优化。[118,119] 因此，世界模型既可以产生训练样本，也可以直接参与动作规划；本文采用前一种用途，以模型生成的一步转移辅助演员评论家更新。
+
+## [118] hansen2022tdmpc
+[118] 	HANSEN N, WANG X, SU H. Temporal Difference Learning for Model Predictive Control[EB/OL]. arXiv, 2022[2026-09-29]. https://arxiv.org/abs/2203.04955.
+原始元数据：https://arxiv.org/abs/2203.04955；日期：2026-09-29；题名：Temporal Difference Learning for Model Predictive Control
+- 正文块494：世界模型的作用方式经历了由状态压缩、预测到行为优化的扩展。Ha和Schmidhuber利用学习到的时空表示支持紧凑控制器，深度规划网络（Deep Planning Network，PlaNet）在潜在空间内进行在线规划，Dreamer系列则进一步直接从模型想象中学习行为。[114,115,116,117] 另一条路线以短时域规划和终端价值结合为重点，时序差分模型预测控制（Temporal Difference Model Predictive Control，TD-MPC）及其第二版TD-MPC2在面向任务的潜在模型中组织轨迹优化。[118,119] 因此，世界模型既可以产生训练样本，也可以直接参与动作规划；本文采用前一种用途，以模型生成的一步转移辅助演员评论家更新。
+
+## [119] hansen2023tdmpc2
+[119] 	HANSEN N, SU H, WANG X. TD-MPC2: Scalable, Robust World Models for Continuous Control[EB/OL]. arXiv, 2023[2026-09-29]. https://arxiv.org/abs/2310.16828.
+原始元数据：https://arxiv.org/abs/2310.16828；日期：2026-09-29；题名：TD-MPC2: Scalable, Robust World Models for Continuous Control
+- 正文块494：世界模型的作用方式经历了由状态压缩、预测到行为优化的扩展。Ha和Schmidhuber利用学习到的时空表示支持紧凑控制器，深度规划网络（Deep Planning Network，PlaNet）在潜在空间内进行在线规划，Dreamer系列则进一步直接从模型想象中学习行为。[114,115,116,117] 另一条路线以短时域规划和终端价值结合为重点，时序差分模型预测控制（Temporal Difference Model Predictive Control，TD-MPC）及其第二版TD-MPC2在面向任务的潜在模型中组织轨迹优化。[118,119] 因此，世界模型既可以产生训练样本，也可以直接参与动作规划；本文采用前一种用途，以模型生成的一步转移辅助演员评论家更新。
+
+## [120] feinberg2018mve
+[120] 	FEINBERG V, WAN A, STOICA I, et al. Model-Based Value Estimation for Efficient Model-Free Reinforcement Learning[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1803.00101.
+原始元数据：https://arxiv.org/abs/1803.00101；日期：2026-09-29；题名：Model-Based Value Estimation for Efficient Model-Free Reinforcement Learning
+- 正文块495：模型的使用范围关系到误差积累。模型价值扩展（Model-Based Value Expansion，MVE）通过有限深度的模型展开改善价值估计，随机集成价值扩展（Stochastic Ensemble Value Expansion，STEVE）根据不同长度展开的不确定性进行组合。[120,121] 与此相关，模型型强化学习综述将模型拟合和规划学习整合作为两个相联系的环节，分别讨论随机性、部分可观测性、计算预算及模型样本起点。[29] 对源目标失配问题，选择适应模型和限定模型样本的使用范围因而都重要：前者决定预测从何而来，后者决定预测误差能够影响多远。
+- 正文块750：模型可用于在线规划，也可辅助无模型学习。模型辅助价值估计用短程预测奖励加末端价值，替代或补充一次实际转移的备份。[120,121] 对第2.2.6节仅累计环境奖励的价值，从状态 s_{k} 开始的 H 步预测可形成如下估计：
+- 正文块1871：与MVE和STEVE调节模型展开深度的思路相比，本章固定一步预测，把使用强度主要放在样本筛选和损失权重上。[120,121] 与MOPO的奖励惩罚及COMBO的价值保守正则相比，本章置信评价直接控制某条模型转移对更新的贡献。[122,124] 三者都回应模型利用中的误差问题，但改变的学习对象不同，因而模型误差、样本权重和控制回报在后续分析中分别报告。
+
+## [121] buckman2018steve
+[121] 	BUCKMAN J, HAFNER D, TUCKER G, et al. Sample-Efficient Reinforcement Learning with Stochastic Ensemble Value Expansion[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1807.01675.
+原始元数据：https://arxiv.org/abs/1807.01675；日期：2026-09-29；题名：Sample-Efficient Reinforcement Learning with Stochastic Ensemble Value Expansion
+- 正文块495：模型的使用范围关系到误差积累。模型价值扩展（Model-Based Value Expansion，MVE）通过有限深度的模型展开改善价值估计，随机集成价值扩展（Stochastic Ensemble Value Expansion，STEVE）根据不同长度展开的不确定性进行组合。[120,121] 与此相关，模型型强化学习综述将模型拟合和规划学习整合作为两个相联系的环节，分别讨论随机性、部分可观测性、计算预算及模型样本起点。[29] 对源目标失配问题，选择适应模型和限定模型样本的使用范围因而都重要：前者决定预测从何而来，后者决定预测误差能够影响多远。
+- 正文块750：模型可用于在线规划，也可辅助无模型学习。模型辅助价值估计用短程预测奖励加末端价值，替代或补充一次实际转移的备份。[120,121] 对第2.2.6节仅累计环境奖励的价值，从状态 s_{k} 开始的 H 步预测可形成如下估计：
+- 正文块1871：与MVE和STEVE调节模型展开深度的思路相比，本章固定一步预测，把使用强度主要放在样本筛选和损失权重上。[120,121] 与MOPO的奖励惩罚及COMBO的价值保守正则相比，本章置信评价直接控制某条模型转移对更新的贡献。[122,124] 三者都回应模型利用中的误差问题，但改变的学习对象不同，因而模型误差、样本权重和控制回报在后续分析中分别报告。
+
+## [122] yu2020mopo
+[122] 	YU T, THOMAS G, YU L, et al. MOPO: Model-based Offline Policy Optimization[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2005.13239.
+原始元数据：https://arxiv.org/abs/2005.13239；日期：2026-09-29；题名：MOPO: Model-based Offline Policy Optimization
+- 正文块496：固定离线数据条件下还需要约束模型对未覆盖区域的乐观预测。基于模型的离线策略优化（Model-Based Offline Policy Optimization，MOPO）以动力学不确定性惩罚模型奖励，基于模型的离线强化学习（Model-Based Offline Reinforcement Learning，MOReL）构造悲观模型决策过程，保守离线模型型策略优化（Conservative Offline Model-Based Policy Optimization，COMBO）则在模型生成的分布外状态动作上对价值进行保守正则。[122,123,124] 这三类方法分别从奖励、模型过程和价值函数控制模型利用风险，也说明世界模型并不会自动消除离线学习的覆盖问题。本文进一步关注已有源模型的保留价值，让目标数据参与残差与直接建模的选择。
+- 正文块1871：与MVE和STEVE调节模型展开深度的思路相比，本章固定一步预测，把使用强度主要放在样本筛选和损失权重上。[120,121] 与MOPO的奖励惩罚及COMBO的价值保守正则相比，本章置信评价直接控制某条模型转移对更新的贡献。[122,124] 三者都回应模型利用中的误差问题，但改变的学习对象不同，因而模型误差、样本权重和控制回报在后续分析中分别报告。
+
+## [123] kidambi2020morel
+[123] 	KIDAMBI R, RAJESWARAN A, NETRAPALLI P, et al. MOReL : Model-Based Offline Reinforcement Learning[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2005.05951.
+原始元数据：https://arxiv.org/abs/2005.05951；日期：2026-09-29；题名：MOReL : Model-Based Offline Reinforcement Learning
+- 正文块496：固定离线数据条件下还需要约束模型对未覆盖区域的乐观预测。基于模型的离线策略优化（Model-Based Offline Policy Optimization，MOPO）以动力学不确定性惩罚模型奖励，基于模型的离线强化学习（Model-Based Offline Reinforcement Learning，MOReL）构造悲观模型决策过程，保守离线模型型策略优化（Conservative Offline Model-Based Policy Optimization，COMBO）则在模型生成的分布外状态动作上对价值进行保守正则。[122,123,124] 这三类方法分别从奖励、模型过程和价值函数控制模型利用风险，也说明世界模型并不会自动消除离线学习的覆盖问题。本文进一步关注已有源模型的保留价值，让目标数据参与残差与直接建模的选择。
+
+## [124] yu2021combo
+[124] 	YU T, KUMAR A, RAFAILOV R, et al. COMBO: Conservative Offline Model-Based Policy Optimization[EB/OL]. arXiv, 2021[2026-09-29]. https://arxiv.org/abs/2102.08363.
+原始元数据：https://arxiv.org/abs/2102.08363；日期：2026-09-29；题名：COMBO: Conservative Offline Model-Based Policy Optimization
+- 正文块496：固定离线数据条件下还需要约束模型对未覆盖区域的乐观预测。基于模型的离线策略优化（Model-Based Offline Policy Optimization，MOPO）以动力学不确定性惩罚模型奖励，基于模型的离线强化学习（Model-Based Offline Reinforcement Learning，MOReL）构造悲观模型决策过程，保守离线模型型策略优化（Conservative Offline Model-Based Policy Optimization，COMBO）则在模型生成的分布外状态动作上对价值进行保守正则。[122,123,124] 这三类方法分别从奖励、模型过程和价值函数控制模型利用风险，也说明世界模型并不会自动消除离线学习的覆盖问题。本文进一步关注已有源模型的保留价值，让目标数据参与残差与直接建模的选择。
+- 正文块1871：与MVE和STEVE调节模型展开深度的思路相比，本章固定一步预测，把使用强度主要放在样本筛选和损失权重上。[120,121] 与MOPO的奖励惩罚及COMBO的价值保守正则相比，本章置信评价直接控制某条模型转移对更新的贡献。[122,124] 三者都回应模型利用中的误差问题，但改变的学习对象不同，因而模型误差、样本权重和控制回报在后续分析中分别报告。
+
+## [125] ross2012agnostic
+[125] 	ROSS S, BAGNELL J A. Agnostic System Identification for Model-Based Reinforcement Learning[EB/OL]. arXiv, 2012[2026-09-29]. https://arxiv.org/abs/1203.1007.
+原始元数据：https://arxiv.org/abs/1203.1007；日期：2026-09-29；题名：Agnostic System Identification for Model-Based Reinforcement Learning
+- 正文块497：模型学习的目标分布同样重要。Ross和Bagnell研究了模型型强化学习中的系统辨识问题，强调用于决策的模型需要面对策略诱导的状态分布。[125] Asadi等从Lipschitz连续性出发分析模型误差传播，为连接一步误差与多步后果提供了条件工具。[126] 因而，预测误差较低并不自动意味着策略回报更高，还需考虑误差出现的位置、策略实际访问区域及模型样本的使用方式。
+- 正文块1851：模型用于控制时，训练分布与策略访问分布之间的差异会直接影响有效性。数据集聚合（Dataset Aggregation，DAgger）从序贯预测中动作影响后续观测这一特点出发组织数据聚合，Ross和Bagnell进一步研究模型型强化学习中的系统辨识问题。[125,152] 本章通过近期策略参考样本调整模型拟合权重，使更新关注策略实际访问的状态动作附近，而不是仅追求全部历史样本上的平均拟合。
+
+## [126] Asadi2018Lipschitz
+[126] 	ASADI K, MISRA D, LITTMAN M L. Lipschitz Continuity in Model-based Reinforcement Learning[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1804.07193.
+原始元数据：https://arxiv.org/abs/1804.07193；日期：2026-09-29；题名：Lipschitz Continuity in Model-based Reinforcement Learning
+- 正文块497：模型学习的目标分布同样重要。Ross和Bagnell研究了模型型强化学习中的系统辨识问题，强调用于决策的模型需要面对策略诱导的状态分布。[125] Asadi等从Lipschitz连续性出发分析模型误差传播，为连接一步误差与多步后果提供了条件工具。[126] 因而，预测误差较低并不自动意味着策略回报更高，还需考虑误差出现的位置、策略实际访问区域及模型样本的使用方式。
+- 正文块1935：模型误差传播研究提供了连接局部预测与长期决策的条件工具。Asadi等基于Lipschitz连续性分析模型误差，MBPO则讨论模型偏差与策略分布变化下模型数据的使用范围。[112,126] 本章的残差贝尔曼分析进一步把源核、目标修正和实际模型误差分开，从而能够判断源结构不适合目标时误差项如何进入价值评价。
+
+## [127] lanier2026redraw
+[127] 	LANIER J, KIM K, KARAMZADE A, et al. Adapting World Models with Latent-State Dynamics Residuals[EB/OL]. arXiv, 2025[2026-09-29]. https://arxiv.org/abs/2504.02252.
+原始元数据：https://arxiv.org/abs/2504.02252；日期：2026-09-29；题名：Adapting World Models with Latent-State Dynamics Residuals
+- 正文块498：当源世界模型已经存在时，残差适应尝试保留原有结构，只学习目标差异。Lanier等在潜在状态动力学上构建残差，用目标数据调整已有世界模型。[127] 这一方向具有复用既有知识的吸引力，也提出了模型类别选择问题：如果源结构本身不适合目标任务，残差是否仍是最合适的表达？本论文将残差模型与直接目标模型同时作为候选，用留出校准数据选择类别，再以配对控制实验检验选择后果。
+
+## [128] feng2023finetuning
+[128]	FENG Y, HANSEN N, XIONG Z, et al. Finetuning Offline World Models in the Real World[EB/OL]. arXiv, 2023[2026-10-03]. https://arxiv.org/abs/2310.16029.
+原始元数据：https://arxiv.org/abs/2310.16029；日期：2026-10-03；题名：Finetuning Offline World Models in the Real World
+- 正文块499：近期真实机器人研究进一步区分了世界模型的数据使用条件。Feng等用真实机器人离线经验预训练世界模型，再通过真实环境在线交互微调，并以规划期不确定性约束抑制外推误差。[128]Li等在2026年修订的工作中，从既有数据学习带认识不确定性估计的自回归世界模型，并利用不确定性惩罚支持离线策略训练及真实机器人部署。[129]两条路线分别强调追加目标交互与离线模型使用的风险控制。本论文公交实验采用固定目标离线数据与源仿真交互，研究已有目标证据如何修正源训练；这一数据权限与真实在线微调不同，也没有以SUMO评价替代真实车辆部署证据。
+
+## [129] li2026uncertaintyworld
+[129]	LI C, KRAUSE A, HUTTER M. Uncertainty-Aware Robotic World Model Makes Offline Model-Based Reinforcement Learning Work on Real Robots[EB/OL]. arXiv, 2026[2026-10-03]. https://arxiv.org/abs/2504.16680v3.
+原始元数据：https://arxiv.org/abs/2504.16680v3；日期：2026-10-03；题名：Uncertainty-Aware Robotic World Model Makes Offline Model-Based Reinforcement Learning Work on Real Robots
+- 正文块499：近期真实机器人研究进一步区分了世界模型的数据使用条件。Feng等用真实机器人离线经验预训练世界模型，再通过真实环境在线交互微调，并以规划期不确定性约束抑制外推误差。[128]Li等在2026年修订的工作中，从既有数据学习带认识不确定性估计的自回归世界模型，并利用不确定性惩罚支持离线策略训练及真实机器人部署。[129]两条路线分别强调追加目标交互与离线模型使用的风险控制。本论文公交实验采用固定目标离线数据与源仿真交互，研究已有目标证据如何修正源训练；这一数据权限与真实在线微调不同，也没有以SUMO评价替代真实车辆部署证据。
+
+## [130] todorov2012mujoco
+[130] 	TODOROV E, EREZ T, TASSA Y. MuJoCo: A physics engine for model-based control[C/OL]//2012 IEEE/RSJ international conference on intelligent robots and systems (IROS). 2012: 5026-5033. DOI:10.1109/IROS.2012.6386109.
+原始元数据：https://api.crossref.org/works/10.1109/IROS.2012.6386109；日期：2026-09-29；题名：MuJoCo: A physics engine for model-based control
+- 正文块500：对于公交迁移，世界模型研究提供的是源运行关系如何被保留和修正的方法视角。本文提出的基于模型修正的世界模型方法（Model-Corrected World Model，MC-WM）源于公交H2O+对仿真标定的依赖。公交实验检验世界模型辅助训练对乘客服务的影响；另一组实验以接触多关节动力学平台（Multi-Joint dynamics with Contact，MuJoCo）为基础，[130] 分别改变执行器、重力或摩擦，分析残差修正与直接建模的选择机制。两类实验分别回答公交中是否有用和模型为何需要选择的问题。
+
+## [131] sutton1999between
+[131] 	SUTTON R S, PRECUP D, SINGH S. Between MDPs and semi-MDPs: A framework for temporal abstraction in reinforcement learning[J/OL]. Artificial Intelligence, 1999, 112(1-2): 181-211. DOI:10.1016/S0004-3702(99)00052-1.
+原始元数据：https://api.crossref.org/works/10.1016/S0004-3702%2899%2900052-1；日期：2026-09-29；题名：Between MDPs and semi-MDPs: A framework for temporal abstraction in reinforcement learning
+- 正文块589：公交到站事件由车辆运行过程触发，不同决策之间的持续时间通常不相等。半马尔可夫决策过程（Semi-Markov Decision Process，SMDP）为包含不同持续时间的决策提供了数学表述。[131] 公交H2O+以有限时域半马尔可夫决策过程描述控制，其联合转移核为
+
+## [132] haarnoja2018applications
+[132] 	HAARNOJA T, ZHOU A, HARTIKAINEN K, et al. Soft Actor-Critic Algorithms and Applications[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1812.05905.
+原始元数据：https://arxiv.org/abs/1812.05905；日期：2026-09-29；题名：Soft Actor-Critic Algorithms and Applications
+- 正文块662：SAC在累计回报之外加入策略熵，用温度系数 α_{ent}>0 权衡回报与随机性。[28,132] 本节评论家估计的是计入后续动作熵项的软动作价值，第2.2.6节的 Q^{π} 则只累计环境奖励。对共用事件接口，SAC的评论家回归目标和演员损失可写为
+- 正文块944：连续停站动作允许在当前状态下选择不同控制强度，也使探索尺度成为学习中的重要变量。SAC在最大熵目标中联合优化回报和动作分布，其后续研究进一步通过约束形式自动调节温度。[28,132] 本章沿用这一演员评论家基础，把类别状态和集成评价接入同一学习目标，温度的长期变化则在后续实验中单独分析。
+
+## [133] nagabandi2018adapt
+[133] 	NAGABANDI A, CLAVERA I, LIU S, et al. Learning to Adapt in Dynamic, Real-World Environments Through Meta-Reinforcement Learning[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1803.11347.
+原始元数据：https://arxiv.org/abs/1803.11347；日期：2026-09-29；题名：Learning to Adapt in Dynamic, Real-World Environments Through Meta-Reinforcement Learning
+- 正文块669：若运行规律由不可直接观测的模式 z_{k} 决定，可以把模式与公交物理状态共同作为隐藏状态，并用历史观测和动作构造信念 ρ_{k}(z)=Pr(z_{k}=z∣H_{k})。在给定模式演化和观测模型时，这一写法形成POMDP。历史编码器可以近似提取与当前模式有关的信息；元学习则进一步在一组训练任务上学习可迁移的适应规则。概率上下文与元强化学习提供了相应方法实例。[77,78,133] 非平稳性描述环境变化，POMDP描述信息不完全，元学习描述如何学习适应，它们承担不同角色。第4章据实际历史编码和训练方式讨论其联系。
+- 正文块1220：与之比较，PEARL和VariBAD把历史证据形成的任务表征直接提供给决策过程，模型元学习则用近期数据快速调整动力学先验。[77,78,133] CS-BAPR主要调节学习中的保守程度与策略输出，其适应对象因而不同于重新识别完整环境模型。本文通过需求幅度及变化日程考察这一设计是否足以改善给定计划下的控制。
+
+## [134] duan2016benchmark
+[134] 	DUAN Y, CHEN X, HOUTHOOFT R, et al. Benchmarking Deep Reinforcement Learning for Continuous Control[EB/OL]. arXiv, 2016[2026-09-29]. https://arxiv.org/abs/1604.06778.
+原始元数据：https://arxiv.org/abs/1604.06778；日期：2026-09-29；题名：Benchmarking Deep Reinforcement Learning for Continuous Control
+- 正文块804：强化学习基准研究已经说明，任务集合、实现差异和随机种子会共同影响方法排序。Duan等以统一连续控制任务支持算法比较，Henderson等分析训练与评价过程的变异来源。[134,135] Colas等讨论重复次数与统计检验之间的关系，Agarwal等则强调有限训练重复下区间估计和分布性评价的重要性。[136,137] 本文据此先明确独立比较单位，再汇总同一策略的多次运行；均值描述总体方向，标准差、区间和尾部结果说明该方向在重复实验中的稳定程度。
+
+## [135] henderson2017matters
+[135] 	HENDERSON P, ISLAM R, BACHMAN P, et al. Deep Reinforcement Learning that Matters[EB/OL]. arXiv, 2017[2026-09-29]. https://arxiv.org/abs/1709.06560.
+原始元数据：https://arxiv.org/abs/1709.06560；日期：2026-09-29；题名：Deep Reinforcement Learning that Matters
+- 正文块804：强化学习基准研究已经说明，任务集合、实现差异和随机种子会共同影响方法排序。Duan等以统一连续控制任务支持算法比较，Henderson等分析训练与评价过程的变异来源。[134,135] Colas等讨论重复次数与统计检验之间的关系，Agarwal等则强调有限训练重复下区间估计和分布性评价的重要性。[136,137] 本文据此先明确独立比较单位，再汇总同一策略的多次运行；均值描述总体方向，标准差、区间和尾部结果说明该方向在重复实验中的稳定程度。
+
+## [136] colas2018seeds
+[136] 	COLAS C, SIGAUD O, OUDEYER P Y. How Many Random Seeds? Statistical Power Analysis in Deep Reinforcement Learning Experiments[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1806.08295.
+原始元数据：https://arxiv.org/abs/1806.08295；日期：2026-09-29；题名：How Many Random Seeds? Statistical Power Analysis in Deep Reinforcement Learning Experiments
+- 正文块804：强化学习基准研究已经说明，任务集合、实现差异和随机种子会共同影响方法排序。Duan等以统一连续控制任务支持算法比较，Henderson等分析训练与评价过程的变异来源。[134,135] Colas等讨论重复次数与统计检验之间的关系，Agarwal等则强调有限训练重复下区间估计和分布性评价的重要性。[136,137] 本文据此先明确独立比较单位，再汇总同一策略的多次运行；均值描述总体方向，标准差、区间和尾部结果说明该方向在重复实验中的稳定程度。
+
+## [137] agarwal2021precipice
+[137] 	AGARWAL R, SCHWARZER M, CASTRO P S, et al. Deep Reinforcement Learning at the Edge of the Statistical Precipice[EB/OL]. arXiv, 2021[2026-09-29]. https://arxiv.org/abs/2108.13264.
+原始元数据：https://arxiv.org/abs/2108.13264；日期：2026-09-29；题名：Deep Reinforcement Learning at the Edge of the Statistical Precipice
+- 正文块804：强化学习基准研究已经说明，任务集合、实现差异和随机种子会共同影响方法排序。Duan等以统一连续控制任务支持算法比较，Henderson等分析训练与评价过程的变异来源。[134,135] Colas等讨论重复次数与统计检验之间的关系，Agarwal等则强调有限训练重复下区间估计和分布性评价的重要性。[136,137] 本文据此先明确独立比较单位，再汇总同一策略的多次运行；均值描述总体方向，标准差、区间和尾部结果说明该方向在重复实验中的稳定程度。
+
+## [138] mnih2016asynchronous
+[138] 	MNIH V, BADIA A P, MIRZA M, et al. Asynchronous Methods for Deep Reinforcement Learning[EB/OL]. arXiv, 2016[2026-09-29]. https://arxiv.org/abs/1602.01783.
+原始元数据：https://arxiv.org/abs/1602.01783；日期：2026-09-29；题名：Asynchronous Methods for Deep Reinforcement Learning
+- 正文块876：公交决策的异步性首先是运行事件的属性，不是梯度计算的调度方式。异步演员评论家研究利用多个并行学习过程更新网络，解决的是训练组织与经验生成问题；公交异步多智能体研究则面对不同车辆决策时刻和信用分配问题。[5,138] 本章按同一车辆的后续事件构造经验，使事件对应先于共享训练得到明确。
+
+## [139] schaul2015replay
+[139] 	SCHAUL T, QUAN J, ANTONOGLOU I, et al. Prioritized Experience Replay[EB/OL]. arXiv, 2015[2026-09-29]. https://arxiv.org/abs/1511.05952.
+原始元数据：https://arxiv.org/abs/1511.05952；日期：2026-09-29；题名：Prioritized Experience Replay
+- 正文块884：回放权重本身也可以改变学习关注的经验。优先经验回放按样本对学习的重要程度调整采样，而非等频率重复全部转移。[139] 这与按车辆或站点均衡经验又是不同原则：前者关心更新信号，后者关心对象覆盖。本章均匀共享回放保留实际经验构成，类别嵌入负责表达不同对象，不额外通过改变采样概率平衡它们。
+
+## [140] vanhasselt2015double
+[140] 	VAN HASSELT H, GUEZ A, SILVER D. Deep Reinforcement Learning with Double Q-learning[EB/OL]. arXiv, 2015[2026-09-29]. https://arxiv.org/abs/1509.06461.
+原始元数据：https://arxiv.org/abs/1509.06461；日期：2026-09-29；题名：Deep Reinforcement Learning with Double Q-learning
+- 正文块940：价值学习中的几个典型改进分别作用于不同误差来源。双重深度Q网络（Double Deep Q-Network，Double DQN）分开动作选择和动作评价以减弱最大化带来的高估，竞争式深度Q网络（Dueling Deep Q-Network，Dueling DQN）分解状态价值和动作优势以改善价值表达，Rainbow组合多项改进并分析其贡献。[140,141,142] 这些工作说明，“稳定学习”并不是单一组件的属性。本文以连续控制SAC为基础，重点考察集成评价和目标偏移的作用，而奖励、经验共享与温度也会影响最终学习过程。
+
+## [141] wang2015dueling
+[141] 	WANG Z, SCHAUL T, HESSEL M, et al. Dueling Network Architectures for Deep Reinforcement Learning[EB/OL]. arXiv, 2015[2026-09-29]. https://arxiv.org/abs/1511.06581.
+原始元数据：https://arxiv.org/abs/1511.06581；日期：2026-09-29；题名：Dueling Network Architectures for Deep Reinforcement Learning
+- 正文块940：价值学习中的几个典型改进分别作用于不同误差来源。双重深度Q网络（Double Deep Q-Network，Double DQN）分开动作选择和动作评价以减弱最大化带来的高估，竞争式深度Q网络（Dueling Deep Q-Network，Dueling DQN）分解状态价值和动作优势以改善价值表达，Rainbow组合多项改进并分析其贡献。[140,141,142] 这些工作说明，“稳定学习”并不是单一组件的属性。本文以连续控制SAC为基础，重点考察集成评价和目标偏移的作用，而奖励、经验共享与温度也会影响最终学习过程。
+
+## [142] hessel2017rainbow
+[142] 	HESSEL M, MODAYIL J, VAN HASSELT H, et al. Rainbow: Combining Improvements in Deep Reinforcement Learning[EB/OL]. arXiv, 2017[2026-09-29]. https://arxiv.org/abs/1710.02298.
+原始元数据：https://arxiv.org/abs/1710.02298；日期：2026-09-29；题名：Rainbow: Combining Improvements in Deep Reinforcement Learning
+- 正文块940：价值学习中的几个典型改进分别作用于不同误差来源。双重深度Q网络（Double Deep Q-Network，Double DQN）分开动作选择和动作评价以减弱最大化带来的高估，竞争式深度Q网络（Dueling Deep Q-Network，Dueling DQN）分解状态价值和动作优势以改善价值表达，Rainbow组合多项改进并分析其贡献。[140,141,142] 这些工作说明，“稳定学习”并不是单一组件的属性。本文以连续控制SAC为基础，重点考察集成评价和目标偏移的作用，而奖励、经验共享与温度也会影响最终学习过程。
+
+## [143] vanhasselt2018triad
+[143] 	VAN HASSELT H, DORON Y, STRUB F, et al. Deep Reinforcement Learning and the Deadly Triad[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1812.02648.
+原始元数据：https://arxiv.org/abs/1812.02648；日期：2026-09-29；题名：Deep Reinforcement Learning and the Deadly Triad
+- 正文块941：尤其在函数近似、自举和异策略学习共同存在时，理想贝尔曼算子的性质与数值训练行为之间存在距离。相关研究以深度Q学习和经验回放分析了这三者相互作用下的稳定性。[143] 本章先给出明确的价值更新，再分析固定参数条件下的算子，最后用运行实验判断实际学习后果，使数学对象与训练对象各有对应。
+
+## [144] osband2018prior
+[144] 	OSBAND I, ASLANIDES J, CASSIRER A. Randomized Prior Functions for Deep Reinforcement Learning[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1806.03335.
+原始元数据：https://arxiv.org/abs/1806.03335；日期：2026-09-29；题名：Randomized Prior Functions for Deep Reinforcement Learning
+- 正文块959：集成成员的构造决定了分歧能够包含哪些信息。深度集成通过多个预测器表达估计差异，随机先验函数进一步为序贯学习中的成员加入不随训练更新的先验部分。[59,144] RE-SAC保留多个评论家及各自目标网络，以成员差异形成动作评价中的保守项。这里关心的是集成分歧能否改善公交决策，而不只是网络预测值是否分散。
+
+## [145] vanderpol2020homomorphic
+[145] 	VAN DER POL E, WORRALL D E, VAN HOOF H, et al. MDP Homomorphic Networks: Group Symmetries in Reinforcement Learning[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2006.16908.
+原始元数据：https://arxiv.org/abs/2006.16908；日期：2026-09-29；题名：MDP Homomorphic Networks: Group Symmetries in Reinforcement Learning
+- 正文块1234：动作补偿与结构保持的控制变换有方法上的联系。MDP同态网络利用状态动作空间中的群对称性构造等变策略和价值表示。[145] 本文附录B讨论的对象更具体：在给定执行器模式变换下，什么动作映射能够恢复原执行效果。模式推断回答当前使用哪个变换，补偿映射回答选定模式后如何执行，两步共同决定控制响应。
+
+## [146] trask2018nalu
+[146] 	TRASK A, HILL F, REED S, et al. Neural Arithmetic Logic Units[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1808.00508.
+原始元数据：https://arxiv.org/abs/1808.00508；日期：2026-09-29；题名：Neural Arithmetic Logic Units
+- 正文块1253：输出结构的选择涉及函数表示对外推的影响。神经算术逻辑单元（Neural Arithmetic Logic Unit，NALU）通过算术运算和门控处理超出训练数值范围的输入，NAU与NMU进一步以受限加法、乘法结构学习数值关系。[71,146] 方程学习网络则以可组合运算构造较简洁的关系，并研究其外推和控制用途。[147] 这些方法启发本文为驻站策略引入不同函数结构，再以实际需求变化检验其控制响应。
+
+## [147] sahoo2018equations
+[147] 	SAHOO S S, LAMPERT C H, MARTIUS G. Learning Equations for Extrapolation and Control[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1806.07259.
+原始元数据：https://arxiv.org/abs/1806.07259；日期：2026-09-29；题名：Learning Equations for Extrapolation and Control
+- 正文块1253：输出结构的选择涉及函数表示对外推的影响。神经算术逻辑单元（Neural Arithmetic Logic Unit，NALU）通过算术运算和门控处理超出训练数值范围的输入，NAU与NMU进一步以受限加法、乘法结构学习数值关系。[71,146] 方程学习网络则以可组合运算构造较简洁的关系，并研究其外推和控制用途。[147] 这些方法启发本文为驻站策略引入不同函数结构，再以实际需求变化检验其控制响应。
+- 正文块1837：可解释动力学学习具有不同结构来源。方程学习网络把基本运算组合成可外推关系，人工智能（Artificial Intelligence，AI）符号回归方法AI Feynman利用对称性、可分性和组合结构等性质搜索表达式，结合SINDy的强化学习方法（SINDy Reinforcement Learning，SINDy-RL）则将稀疏动力学、奖励和策略表示与强化学习结合。[147,150,151] 本章采用候选函数库上的稀疏修正，把解释对象限定为源目标之间的局部预测差异。固定支持集使后续在线更新仍在同一组关系上调整系数，便于比较同一适应过程中的结构与控制变化。
+
+## [148] liu2024kan
+[148] 	LIU Z, WANG Y, VAIDYA S, et al. KAN: Kolmogorov-Arnold Networks[EB/OL]. arXiv, 2024[2026-09-29]. https://arxiv.org/abs/2404.19756.
+原始元数据：https://arxiv.org/abs/2404.19756；日期：2026-09-29；题名：KAN: Kolmogorov-Arnold Networks
+- 正文块1254：KAN将可学习一元函数放在网络连接上，与采用固定节点激活的普通多层感知机形成不同参数化方式。[148] 本章把它与ReLU、tanh及算术输出并列比较，考察有限训练覆盖下各类表示的表现。选择这些结构的依据是它们不同的响应形式；对应公交结果由相同任务中的训练与评价给出。
+
+## [149] yang2022rorl
+[149] 	YANG R, BAI C, MA X, et al. RORL: Robust Offline Reinforcement Learning via Conservative Smoothing[EB/OL]. arXiv, 2022[2026-09-29]. https://arxiv.org/abs/2206.02829.
+原始元数据：https://arxiv.org/abs/2206.02829；日期：2026-09-29；题名：RORL: Robust Offline Reinforcement Learning via Conservative Smoothing
+- 正文块1520：集成的保守性与状态扰动下的稳健性仍有区别。EDAC关注价值成员多样性及分布外动作，鲁棒离线强化学习（Robust Offline Reinforcement Learning，RORL）则在数据附近的状态上对策略和价值施加保守平滑。[64,149] 本章固定离线数据实验主要回答现有目标数据能否支持较好的公交动作；第6章的源标定偏差实验进一步改变路况与服务过程，检验源环境训练面对不同运行机制时的表现。
+
+## [150] udrescu2019feynman
+[150] 	UDRESCU S M, TEGMARK M. AI Feynman: a Physics-Inspired Method for Symbolic Regression[EB/OL]. arXiv, 2019[2026-09-29]. https://arxiv.org/abs/1905.11481.
+原始元数据：https://arxiv.org/abs/1905.11481；日期：2026-09-29；题名：AI Feynman: a Physics-Inspired Method for Symbolic Regression
+- 正文块1837：可解释动力学学习具有不同结构来源。方程学习网络把基本运算组合成可外推关系，人工智能（Artificial Intelligence，AI）符号回归方法AI Feynman利用对称性、可分性和组合结构等性质搜索表达式，结合SINDy的强化学习方法（SINDy Reinforcement Learning，SINDy-RL）则将稀疏动力学、奖励和策略表示与强化学习结合。[147,150,151] 本章采用候选函数库上的稀疏修正，把解释对象限定为源目标之间的局部预测差异。固定支持集使后续在线更新仍在同一组关系上调整系数，便于比较同一适应过程中的结构与控制变化。
+
+## [151] zolman2024sindyrl
+[151] 	ZOLMAN N, LAGEMANN C, FASEL U, et al. SINDy-RL: Interpretable and Efficient Model-Based Reinforcement Learning[EB/OL]. arXiv, 2024[2026-09-29]. https://arxiv.org/abs/2403.09110.
+原始元数据：https://arxiv.org/abs/2403.09110；日期：2026-09-29；题名：SINDy-RL: Interpretable and Efficient Model-Based Reinforcement Learning
+- 正文块1837：可解释动力学学习具有不同结构来源。方程学习网络把基本运算组合成可外推关系，人工智能（Artificial Intelligence，AI）符号回归方法AI Feynman利用对称性、可分性和组合结构等性质搜索表达式，结合SINDy的强化学习方法（SINDy Reinforcement Learning，SINDy-RL）则将稀疏动力学、奖励和策略表示与强化学习结合。[147,150,151] 本章采用候选函数库上的稀疏修正，把解释对象限定为源目标之间的局部预测差异。固定支持集使后续在线更新仍在同一组关系上调整系数，便于比较同一适应过程中的结构与控制变化。
+
+## [152] ross2010dagger
+[152] 	ROSS S, GORDON G J, BAGNELL J A. A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning[EB/OL]. arXiv, 2010[2026-09-29]. https://arxiv.org/abs/1011.0686.
+原始元数据：https://arxiv.org/abs/1011.0686；日期：2026-09-29；题名：A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning
+- 正文块1851：模型用于控制时，训练分布与策略访问分布之间的差异会直接影响有效性。数据集聚合（Dataset Aggregation，DAgger）从序贯预测中动作影响后续观测这一特点出发组织数据聚合，Ross和Bagnell进一步研究模型型强化学习中的系统辨识问题。[125,152] 本章通过近期策略参考样本调整模型拟合权重，使更新关注策略实际访问的状态动作附近，而不是仅追求全部历史样本上的平均拟合。
+
+## [153] tessler2018rcpo
+[153] 	TESSLER C, MANKOWITZ D J, MANNOR S. Reward Constrained Policy Optimization[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1805.11074.
+原始元数据：https://arxiv.org/abs/1805.11074；日期：2026-09-29；题名：Reward Constrained Policy Optimization
+- 正文块1874：回报与约束分开定义是约束强化学习的重要原则。奖励约束策略优化（Reward Constrained Policy Optimization，RCPO）以多时间尺度更新处理约束，比例积分微分（Proportional-Integral-Derivative，PID）拉格朗日方法则调节乘子更新中的振荡与超调。[153,154] 本章采用预先确定的违例代价日程，把违例反馈作为策略学习中的成本，并在目标评价中另行统计实际违例。代价强度的变化与模型样本可信度的变化由不同量表示。
+
+## [154] stooke2020pid
+[154] 	STOOKE A, ACHIAM J, ABBEEL P. Responsive Safety in Reinforcement Learning by PID Lagrangian Methods[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2007.03964.
+原始元数据：https://arxiv.org/abs/2007.03964；日期：2026-09-29；题名：Responsive Safety in Reinforcement Learning by PID Lagrangian Methods
+- 正文块1874：回报与约束分开定义是约束强化学习的重要原则。奖励约束策略优化（Reward Constrained Policy Optimization，RCPO）以多时间尺度更新处理约束，比例积分微分（Proportional-Integral-Derivative，PID）拉格朗日方法则调节乘子更新中的振荡与超调。[153,154] 本章采用预先确定的违例代价日程，把违例反馈作为策略学习中的成本，并在目标评价中另行统计实际违例。代价强度的变化与模型样本可信度的变化由不同量表示。

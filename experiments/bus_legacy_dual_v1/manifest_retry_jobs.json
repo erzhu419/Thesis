@@ -1,0 +1,461 @@
+[
+  {
+    "project": "Thesis",
+    "description": "Runtime path repair Dual execution contracts resac",
+    "signature": "thesis-bus-legacy-dual-v1/contracts/resac/manifest_retry1",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1/node_run.py --contracts --kind resac",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006",
+      "node007"
+    ],
+    "cpu": 1,
+    "ram_mb": 2600,
+    "vram": 0,
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    },
+    "skip_launch_staging": true,
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Finite CPU action and learner contracts"
+  },
+  {
+    "project": "Thesis",
+    "description": "Runtime path repair Dual execution contracts cs_native",
+    "signature": "thesis-bus-legacy-dual-v1/contracts/cs_native/manifest_retry1",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1/node_run.py --contracts --kind cs_native",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006",
+      "node007"
+    ],
+    "cpu": 1,
+    "ram_mb": 2600,
+    "vram": 0,
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    },
+    "skip_launch_staging": true,
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Finite CPU action and learner contracts"
+  },
+  {
+    "project": "Thesis",
+    "description": "Runtime path repair Dual execution contracts cs_symbolic",
+    "signature": "thesis-bus-legacy-dual-v1/contracts/cs_symbolic/manifest_retry1",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1/node_run.py --contracts --kind cs_symbolic",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006",
+      "node007"
+    ],
+    "cpu": 1,
+    "ram_mb": 2600,
+    "vram": 0,
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    },
+    "skip_launch_staging": true,
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Finite CPU action and learner contracts"
+  },
+  {
+    "project": "Thesis",
+    "description": "Runtime path repair RE/CS dual smoke/resac/dual/headway/resac/64001/train",
+    "signature": "thesis-bus-legacy-dual-v1/smoke/resac/dual/headway/resac/64001/train/manifest_retry1",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1/node_run.py --kind resac --phase train --mode dual --objective headway --arm resac --seed 64001 --smoke",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006",
+      "node007"
+    ],
+    "cpu": 4,
+    "ram_mb": 3000,
+    "vram": 0,
+    "resource_family": "thesis-bus-legacy-dual-v1/resac/train",
+    "env": {
+      "OMP_NUM_THREADS": "4",
+      "MKL_NUM_THREADS": "4",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "wait_for_files": [],
+    "skip_launch_staging": true,
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Existing compact bus learners; independently parallel paired seeds. Four CPU threads for the ten-member RE-SAC update and one for each CS-BAPR learner."
+  },
+  {
+    "project": "Thesis",
+    "description": "Runtime path repair RE/CS dual smoke/resac/dual/headway/ensemble_sac_control/64001/train",
+    "signature": "thesis-bus-legacy-dual-v1/smoke/resac/dual/headway/ensemble_sac_control/64001/train/manifest_retry1",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1/node_run.py --kind resac --phase train --mode dual --objective headway --arm ensemble_sac_control --seed 64001 --smoke",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006",
+      "node007"
+    ],
+    "cpu": 4,
+    "ram_mb": 3000,
+    "vram": 0,
+    "resource_family": "thesis-bus-legacy-dual-v1/resac/train",
+    "env": {
+      "OMP_NUM_THREADS": "4",
+      "MKL_NUM_THREADS": "4",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "wait_for_files": [],
+    "skip_launch_staging": true,
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Existing compact bus learners; independently parallel paired seeds. Four CPU threads for the ten-member RE-SAC update and one for each CS-BAPR learner."
+  },
+  {
+    "project": "Thesis",
+    "description": "Runtime path repair RE/CS dual smoke/resac/dual/passenger/resac/64001/train",
+    "signature": "thesis-bus-legacy-dual-v1/smoke/resac/dual/passenger/resac/64001/train/manifest_retry1",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1/node_run.py --kind resac --phase train --mode dual --objective passenger --arm resac --seed 64001 --smoke",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006",
+      "node007"
+    ],
+    "cpu": 4,
+    "ram_mb": 3000,
+    "vram": 0,
+    "resource_family": "thesis-bus-legacy-dual-v1/resac/train",
+    "env": {
+      "OMP_NUM_THREADS": "4",
+      "MKL_NUM_THREADS": "4",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "wait_for_files": [],
+    "skip_launch_staging": true,
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Existing compact bus learners; independently parallel paired seeds. Four CPU threads for the ten-member RE-SAC update and one for each CS-BAPR learner."
+  },
+  {
+    "project": "Thesis",
+    "description": "Runtime path repair RE/CS dual smoke/resac/dual/passenger/ensemble_sac_control/64001/train",
+    "signature": "thesis-bus-legacy-dual-v1/smoke/resac/dual/passenger/ensemble_sac_control/64001/train/manifest_retry1",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1/node_run.py --kind resac --phase train --mode dual --objective passenger --arm ensemble_sac_control --seed 64001 --smoke",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006",
+      "node007"
+    ],
+    "cpu": 4,
+    "ram_mb": 3000,
+    "vram": 0,
+    "resource_family": "thesis-bus-legacy-dual-v1/resac/train",
+    "env": {
+      "OMP_NUM_THREADS": "4",
+      "MKL_NUM_THREADS": "4",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "wait_for_files": [],
+    "skip_launch_staging": true,
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Existing compact bus learners; independently parallel paired seeds. Four CPU threads for the ten-member RE-SAC update and one for each CS-BAPR learner."
+  },
+  {
+    "project": "Thesis",
+    "description": "Runtime path repair RE/CS dual smoke/cs_native/dual/headway/legacy_nau/64001/train",
+    "signature": "thesis-bus-legacy-dual-v1/smoke/cs_native/dual/headway/legacy_nau/64001/train/manifest_retry1",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1/node_run.py --kind cs_native --phase train --mode dual --objective headway --arm legacy_nau --seed 64001 --smoke",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006",
+      "node007"
+    ],
+    "cpu": 1,
+    "ram_mb": 3000,
+    "vram": 0,
+    "resource_family": "thesis-bus-legacy-dual-v1/cs_native/train",
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "wait_for_files": [],
+    "skip_launch_staging": true,
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Existing compact bus learners; independently parallel paired seeds. Four CPU threads for the ten-member RE-SAC update and one for each CS-BAPR learner."
+  },
+  {
+    "project": "Thesis",
+    "description": "Runtime path repair RE/CS dual smoke/cs_native/dual/headway/legacy_mlp/64001/train",
+    "signature": "thesis-bus-legacy-dual-v1/smoke/cs_native/dual/headway/legacy_mlp/64001/train/manifest_retry1",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1/node_run.py --kind cs_native --phase train --mode dual --objective headway --arm legacy_mlp --seed 64001 --smoke",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006",
+      "node007"
+    ],
+    "cpu": 1,
+    "ram_mb": 3000,
+    "vram": 0,
+    "resource_family": "thesis-bus-legacy-dual-v1/cs_native/train",
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "wait_for_files": [],
+    "skip_launch_staging": true,
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Existing compact bus learners; independently parallel paired seeds. Four CPU threads for the ten-member RE-SAC update and one for each CS-BAPR learner."
+  },
+  {
+    "project": "Thesis",
+    "description": "Runtime path repair RE/CS dual smoke/cs_native/dual/passenger/legacy_nau/64001/train",
+    "signature": "thesis-bus-legacy-dual-v1/smoke/cs_native/dual/passenger/legacy_nau/64001/train/manifest_retry1",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1/node_run.py --kind cs_native --phase train --mode dual --objective passenger --arm legacy_nau --seed 64001 --smoke",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006",
+      "node007"
+    ],
+    "cpu": 1,
+    "ram_mb": 3000,
+    "vram": 0,
+    "resource_family": "thesis-bus-legacy-dual-v1/cs_native/train",
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "wait_for_files": [],
+    "skip_launch_staging": true,
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Existing compact bus learners; independently parallel paired seeds. Four CPU threads for the ten-member RE-SAC update and one for each CS-BAPR learner."
+  },
+  {
+    "project": "Thesis",
+    "description": "Runtime path repair RE/CS dual smoke/cs_native/dual/passenger/legacy_mlp/64001/train",
+    "signature": "thesis-bus-legacy-dual-v1/smoke/cs_native/dual/passenger/legacy_mlp/64001/train/manifest_retry1",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1/node_run.py --kind cs_native --phase train --mode dual --objective passenger --arm legacy_mlp --seed 64001 --smoke",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006",
+      "node007"
+    ],
+    "cpu": 1,
+    "ram_mb": 3000,
+    "vram": 0,
+    "resource_family": "thesis-bus-legacy-dual-v1/cs_native/train",
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "wait_for_files": [],
+    "skip_launch_staging": true,
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Existing compact bus learners; independently parallel paired seeds. Four CPU threads for the ten-member RE-SAC update and one for each CS-BAPR learner."
+  },
+  {
+    "project": "Thesis",
+    "description": "Runtime path repair RE/CS dual smoke/cs_symbolic/dual/headway/smooth_soft/64001/train",
+    "signature": "thesis-bus-legacy-dual-v1/smoke/cs_symbolic/dual/headway/smooth_soft/64001/train/manifest_retry1",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1/node_run.py --kind cs_symbolic --phase train --mode dual --objective headway --arm smooth_soft --seed 64001 --smoke",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006",
+      "node007"
+    ],
+    "cpu": 1,
+    "ram_mb": 3000,
+    "vram": 0,
+    "resource_family": "thesis-bus-legacy-dual-v1/cs_symbolic/train",
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "wait_for_files": [],
+    "skip_launch_staging": true,
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Existing compact bus learners; independently parallel paired seeds. Four CPU threads for the ten-member RE-SAC update and one for each CS-BAPR learner."
+  },
+  {
+    "project": "Thesis",
+    "description": "Runtime path repair RE/CS dual smoke/cs_symbolic/dual/headway/soft_no_symbolic/64001/train",
+    "signature": "thesis-bus-legacy-dual-v1/smoke/cs_symbolic/dual/headway/soft_no_symbolic/64001/train/manifest_retry1",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1/node_run.py --kind cs_symbolic --phase train --mode dual --objective headway --arm soft_no_symbolic --seed 64001 --smoke",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006",
+      "node007"
+    ],
+    "cpu": 1,
+    "ram_mb": 3000,
+    "vram": 0,
+    "resource_family": "thesis-bus-legacy-dual-v1/cs_symbolic/train",
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "wait_for_files": [],
+    "skip_launch_staging": true,
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Existing compact bus learners; independently parallel paired seeds. Four CPU threads for the ten-member RE-SAC update and one for each CS-BAPR learner."
+  },
+  {
+    "project": "Thesis",
+    "description": "Runtime path repair RE/CS dual smoke/cs_symbolic/dual/passenger/smooth_soft/64001/train",
+    "signature": "thesis-bus-legacy-dual-v1/smoke/cs_symbolic/dual/passenger/smooth_soft/64001/train/manifest_retry1",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1/node_run.py --kind cs_symbolic --phase train --mode dual --objective passenger --arm smooth_soft --seed 64001 --smoke",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006",
+      "node007"
+    ],
+    "cpu": 1,
+    "ram_mb": 3000,
+    "vram": 0,
+    "resource_family": "thesis-bus-legacy-dual-v1/cs_symbolic/train",
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "wait_for_files": [],
+    "skip_launch_staging": true,
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Existing compact bus learners; independently parallel paired seeds. Four CPU threads for the ten-member RE-SAC update and one for each CS-BAPR learner."
+  },
+  {
+    "project": "Thesis",
+    "description": "Runtime path repair RE/CS dual smoke/cs_symbolic/dual/passenger/soft_no_symbolic/64001/train",
+    "signature": "thesis-bus-legacy-dual-v1/smoke/cs_symbolic/dual/passenger/soft_no_symbolic/64001/train/manifest_retry1",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/erzhu419/mine_code/Thesis/experiments/bus_legacy_dual_v1/node_run.py --kind cs_symbolic --phase train --mode dual --objective passenger --arm soft_no_symbolic --seed 64001 --smoke",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006",
+      "node007"
+    ],
+    "cpu": 1,
+    "ram_mb": 3000,
+    "vram": 0,
+    "resource_family": "thesis-bus-legacy-dual-v1/cs_symbolic/train",
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "wait_for_files": [],
+    "skip_launch_staging": true,
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Existing compact bus learners; independently parallel paired seeds. Four CPU threads for the ten-member RE-SAC update and one for each CS-BAPR learner."
+  }
+]

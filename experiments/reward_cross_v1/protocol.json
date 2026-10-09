@@ -1,0 +1,26 @@
+{
+  "name": "thesis-reward-cross-v1",
+  "training_seeds": [64001, 64002, 64003, 64004, 64005],
+  "objectives": ["headway", "passenger"],
+  "episodes": 100,
+  "legacy_arms": ["resac", "ensemble_sac_control"],
+  "cs_arms": ["csbapr", "csbapr_no_nau"],
+  "mc_arms": ["h2oplus", "h2o_matched", "fixed0250"],
+  "mc_scenes": ["calibrated", "joint50", "joint75"],
+  "legacy_scenes": ["normal", "demand_surge", "fast_switch"],
+  "cs_scenes": {
+    "normal": [[0, 1.0]],
+    "pulse": [[0, 1.0], [3600, 5.0], [5400, 1.0]],
+    "repeated": [[0, 1.0], [3600, 5.0], [5400, 1.0], [9000, 5.0], [10800, 1.0], [14400, 5.0], [16200, 1.0]]
+  },
+  "evaluation_seeds": [64101, 64102, 64103],
+  "training_nodes": ["node001", "node002", "node003", "node004", "node005", "node006", "node007"],
+  "headway_reward_scale_mc": 0.01,
+  "passenger_reward": "-(2 * waiting_passenger_seconds_increment + in_vehicle_passenger_seconds_increment)",
+  "headway_reward_mc": "Chapter 3 ridge function with per-line forward/backward timetable targets and ratio-adjusted symmetry; hard 20-point large-deviation penalty. Evaluated at the next chronological decision using the unchanged v7 bounded observable headways; terminal reward zero.",
+  "original_defaults": {"legacy": "headway", "cs": "headway", "mc": "passenger"},
+  "settlement": "MC: chronological global events including zero-duration simultaneous rows. Legacy/CS: global passenger-time increment between successive observations of the same vehicle, retaining their original transition interfaces. These cooperative intervals overlap; their rewards must not be summed to report system passenger time. Evaluation uses one independent system integral.",
+  "controls": "Legacy ensemble SAC control disables both RE-SAC regularizers, preserving the ensemble, representation and budgets. CS no-NAU control retains the stabilizing package and removes the NAU actor. Full H2O+ enables ratio correction; h2o_matched disables it, matching the prior MC-WM backbone comparison.",
+  "selection": "Final fixed-budget checkpoint only; five predeclared paired training seeds; report all seeds, no selection by test outcome. MC uses the ten pre-existing disjoint test cases only, not development selection.",
+  "preservation": "Completed projects, original runners, offline HDF5 and old checkpoints remain unchanged. Relabel rewards only in the new replay instance, fit fresh offline prefixes per objective/seed, and refit all model reward heads. New outputs are separated by objective, method and seed. No claim of universal superiority or direct cross-environment ranking."
+}

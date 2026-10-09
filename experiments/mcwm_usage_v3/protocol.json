@@ -1,0 +1,25 @@
+{
+  "name": "thesis-mcwm-usage-v3",
+  "training_seeds": [6201, 6202],
+  "arms": ["h2o_matched", "scaled_nomodel", "mcwm", "normalized", "fixed_half", "source_repair"],
+  "target_only_arm": "offline_only",
+  "scenarios": [
+    {"name": "calibrated", "speed_factor": 1.0, "od_factor": 1.0, "extra_signal_fraction": 0.0, "dwell_factor": 1.0, "empirical_runtime": true},
+    {"name": "joint50", "speed_factor": 0.5, "od_factor": 1.5, "extra_signal_fraction": 0.5, "dwell_factor": 1.5, "empirical_runtime": true},
+    {"name": "joint75", "speed_factor": 0.25, "od_factor": 1.75, "extra_signal_fraction": 0.75, "dwell_factor": 1.75, "empirical_runtime": true}
+  ],
+  "diagnostic_rows": 512,
+  "coverage_fit_rows": 2048,
+  "coverage_quantile": 0.95,
+  "source_repair_max_horizon_fraction": 0.75,
+  "fixed_model_weight": 0.5,
+  "minimum_relevant_time_improvement_seconds": 5.0,
+  "maximum_completion_decrease_percentage_points": 0.1,
+  "evaluation_blocks": [
+    {"demand_seed": 48101, "sumo_seed": 49101},
+    {"demand_seed": 48102, "sumo_seed": 49102},
+    {"demand_seed": 48103, "sumo_seed": 49103},
+    {"demand_seed": 48104, "sumo_seed": 49104},
+    {"demand_seed": 48105, "sumo_seed": 49105}
+  ]
+}

@@ -1,0 +1,2249 @@
+{
+  "date": "2026-10-09",
+  "basis": "已在本地的服务器分析摘要、冻结图源及现有协议；本次未连接服务器",
+  "campaigns": [
+    {
+      "version": "resac_archive",
+      "group": "基础与早期补充",
+      "sources": [
+        "experiments/resac_archive/archive_manifest.json",
+        "manuscript/figures/source_data/resac_archive_evaluation.json"
+      ],
+      "result": "历史运行回报：SAC约-562千，RE-SAC K=5约-396千、K=20约-392千；扩展结果与历史分别保留，集成数量增加不是单调改善。",
+      "use": "第3章原研究证据，R-ARCHIVE；表3-2规则仅有论文报告值。",
+      "local_summary_records": [
+        {
+          "source": "experiments/resac_archive/archive_manifest.json",
+          "recorded_completion": {},
+          "recorded_counts": {}
+        },
+        {
+          "source": "manuscript/figures/source_data/resac_archive_evaluation.json",
+          "recorded_completion": {},
+          "recorded_counts": {}
+        }
+      ],
+      "remote_location_records": [
+        "experiments/resac_archive/protocol.md"
+      ]
+    },
+    {
+      "version": "bus_legacy_dual_v1",
+      "group": "基础与早期补充",
+      "sources": [
+        "experiments/bus_legacy_dual_v1/summary.json",
+        "experiments/bus_legacy_dual_v1/protocol.json"
+      ],
+      "result": "原走廊双奖励/动作扩展：单驻站RE-SAC较集成参照计划偏差低5.05%至7.12%，乘客目标成本低4.02%至14.20%；双动作并非对所有配置、目标都更好，固定加速规则另列。新增48训练，复用单驻站432次评价。",
+      "use": "当前表3-10只取走廊单驻站子集，不是v6/v8多线路比较。",
+      "local_summary_records": [
+        {
+          "source": "experiments/bus_legacy_dual_v1/summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "expected_training": 48,
+            "expected_evaluation": 459,
+            "training_complete": 48,
+            "dual_evaluations": 432,
+            "fixed_speed_evaluations": 27,
+            "reused_holding_evaluations": 432
+          }
+        },
+        {
+          "source": "experiments/bus_legacy_dual_v1/protocol.json",
+          "recorded_completion": {},
+          "recorded_counts": {
+            "episodes": 100
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/bus_legacy_dual_v1/jobs.json",
+        "experiments/bus_legacy_dual_v1/manifest_retry_jobs.json",
+        "experiments/bus_legacy_dual_v1/manifest_retry_submission.json",
+        "experiments/bus_legacy_dual_v1/protocol.json",
+        "experiments/bus_legacy_dual_v1/runtime_retry_jobs.json",
+        "experiments/bus_legacy_dual_v1/runtime_retry_submission.json",
+        "experiments/bus_legacy_dual_v1/submission.json"
+      ]
+    },
+    {
+      "version": "legacy_bus",
+      "group": "基础与早期补充",
+      "sources": [
+        "manuscript/figures/source_data/bus_supplement_summary.json",
+        "manuscript/figures/source_data/reward_ablation_summary.json"
+      ],
+      "result": "representation_v1：学习类别嵌入较屏蔽/独热输入降低成本和时距不均衡；reward_v1：计划对齐改善统一时距目标，但不具有最低乘客时间；paired_v1：BAPR常态成本1360.94秒略低于RE-SAC1377.50秒，快速切换则1964.82秒高于1933.32秒。",
+      "use": "第3章表征/奖励及第4章早期配对；不与多线路新配方合并。",
+      "local_summary_records": [
+        {
+          "source": "manuscript/figures/source_data/bus_supplement_summary.json",
+          "recorded_completion": {},
+          "recorded_counts": {}
+        },
+        {
+          "source": "manuscript/figures/source_data/reward_ablation_summary.json",
+          "recorded_completion": {},
+          "recorded_counts": {
+            "evaluations": 72
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/legacy_bus/campaign_jobs.json"
+      ]
+    },
+    {
+      "version": "csbapr_bus",
+      "group": "基础与早期补充",
+      "sources": [
+        "manuscript/figures/source_data/bus_supplement_summary.json",
+        "manuscript/figures/source_data/csbapr_repeated_summary.json"
+      ],
+      "result": "recovery_v1：三方法在观察窗内均未恢复，额外候车约13.52万至13.53万人小时；repeated_v1：算术输出回报改善43.33千至50.90千，但候车时间增加0.0626%至0.0816%，稳定化ReLU候车小幅降低。",
+      "use": "第4章冲击恢复及重复冲击；原生奖励收益不能改称服务恢复或候车全面改善。",
+      "local_summary_records": [
+        {
+          "source": "manuscript/figures/source_data/bus_supplement_summary.json",
+          "recorded_completion": {},
+          "recorded_counts": {}
+        },
+        {
+          "source": "manuscript/figures/source_data/csbapr_repeated_summary.json",
+          "recorded_completion": {},
+          "recorded_counts": {
+            "evaluations": 135
+          }
+        }
+      ],
+      "remote_location_records": []
+    },
+    {
+      "version": "mcwm_bus",
+      "group": "基础与早期补充",
+      "sources": [
+        "experiments/mcwm_bus/runs/pilot_v1/model_results.json",
+        "experiments/mcwm_bus/runs/control_v1/service_summary.json",
+        "manuscript/figures/source_data/bus_supplement_summary.json"
+      ],
+      "result": "pilot_v1只验证预测模型；control_v1闭环乘客成本平均降低0.134%，四条件中两项改善，完成率降低0.0107个百分点。budget_v2与campaign_v3另做数据量、交互预算及标定偏差探索，均属单训练重复的早期接入阶段。",
+      "use": "附录F早期接入；不替代v13确认或最终225回合比较。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_bus/runs/pilot_v1/model_results.json",
+          "recorded_completion": {},
+          "recorded_counts": {}
+        },
+        {
+          "source": "experiments/mcwm_bus/runs/control_v1/service_summary.json",
+          "recorded_completion": {},
+          "recorded_counts": {
+            "completed_evaluations": 16,
+            "training_repetitions": 1
+          }
+        },
+        {
+          "source": "manuscript/figures/source_data/bus_supplement_summary.json",
+          "recorded_completion": {},
+          "recorded_counts": {}
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_bus/budget_protocol_v2.json",
+        "experiments/mcwm_bus/campaign_v3_jobs.json",
+        "experiments/mcwm_bus/control_protocol_v1.json",
+        "experiments/mcwm_bus/deployment_retry_jobs.json",
+        "experiments/mcwm_bus/protocol_v1.json"
+      ]
+    },
+    {
+      "version": "sumo_eval",
+      "group": "基础与早期补充",
+      "sources": [
+        "experiments/sumo_eval/attribution_v1/summary.json",
+        "manuscript/figures/source_data/bus_budget_and_mismatch.csv",
+        "manuscript/figures/source_data/bus_mismatch_contrasts.csv"
+      ],
+      "result": "attribution_v1：提前60秒保障下混合训练较纯离线成本低11.80秒，较纯源低0.92秒，但较计划间隔规则高0.98秒；sumo125_v3是早期不同标定、数据量与预算探索，单训练重复，不能与后来正式控制器拼成统一优势。",
+      "use": "第5章来源/执行作用分离及附录F早期偏差。",
+      "local_summary_records": [
+        {
+          "source": "experiments/sumo_eval/attribution_v1/summary.json",
+          "recorded_completion": {},
+          "recorded_counts": {}
+        }
+      ],
+      "remote_location_records": [
+        "experiments/sumo_eval/campaign_jobs.json",
+        "experiments/sumo_eval/handoff_jobs.json",
+        "experiments/sumo_eval/linux_replacement_jobs.json",
+        "experiments/sumo_eval/protocol_v1.json"
+      ]
+    },
+    {
+      "version": "enhancement_v1",
+      "group": "基础与早期补充",
+      "sources": [
+        "experiments/enhancement_v1/summary.json"
+      ],
+      "result": "五重复表征/分歧项、输出结构×BC、直接/残差模型交叉：类别嵌入三场景成本均较独热低；两个分歧项均保留的时距奖励均更好；BC使NAU三场景时距回报变差。MC直接模型成本2270.54/3114.10秒，低于混合无模型2278.83/3125.63秒，但残差增量不稳定。",
+      "use": "第3、4章消融；MC源留出标记由ratio_split_v2重做，旧结果仅保留历史。",
+      "local_summary_records": [
+        {
+          "source": "experiments/enhancement_v1/summary.json",
+          "recorded_completion": {
+            "legacy.complete": true,
+            "cs.complete": true,
+            "mc.complete": true
+          },
+          "recorded_counts": {}
+        }
+      ],
+      "remote_location_records": [
+        "experiments/enhancement_v1/campaign_jobs.json",
+        "experiments/enhancement_v1/campaign_submission.json",
+        "experiments/enhancement_v1/cs_cpu_timing_jobs.json",
+        "experiments/enhancement_v1/cs_cpu_timing_submission.json",
+        "experiments/enhancement_v1/mc_smoke_sumoenvfix_jobs.json",
+        "experiments/enhancement_v1/mc_smoke_sumoenvfix_submission.json",
+        "experiments/enhancement_v1/protocol.json",
+        "experiments/enhancement_v1/smoke_gate_repair_jobs.json",
+        "experiments/enhancement_v1/smoke_gate_repair_submission.json",
+        "experiments/enhancement_v1/smoke_output_repair_jobs.json",
+        "experiments/enhancement_v1/smoke_output_repair_submission.json",
+        "experiments/enhancement_v1/source_smoke_pathfix_jobs.json",
+        "experiments/enhancement_v1/source_smoke_pathfix_submission.json",
+        "experiments/enhancement_v1/transit300_available_watcher_jobs.json",
+        "experiments/enhancement_v1/transit300_available_watcher_submission.json",
+        "experiments/enhancement_v1/transit300_checked_gates_jobs.json",
+        "experiments/enhancement_v1/transit300_checked_gates_submission.json",
+        "experiments/enhancement_v1/transit300_watcher_gatesfix_jobs.json",
+        "experiments/enhancement_v1/transit300_watcher_gatesfix_submission.json",
+        "experiments/enhancement_v1/watcher_cpu_handoff_jobs.json",
+        "experiments/enhancement_v1/watcher_cpu_handoff_submission.json",
+        "experiments/enhancement_v1/watcher_gate_repair_jobs.json",
+        "experiments/enhancement_v1/watcher_gate_repair_submission.json",
+        "experiments/enhancement_v1/watcher_gpu_rebalance_jobs.json",
+        "experiments/enhancement_v1/watcher_gpu_rebalance_submission.json",
+        "experiments/enhancement_v1/watcher_jobs.json",
+        "experiments/enhancement_v1/watcher_output_repair_jobs.json",
+        "experiments/enhancement_v1/watcher_output_repair_submission.json",
+        "experiments/enhancement_v1/watcher_submission.json"
+      ]
+    },
+    {
+      "version": "ratio_split_v2",
+      "group": "基础与早期补充",
+      "sources": [
+        "experiments/ratio_split_v2/summary.json",
+        "experiments/ratio_split_v2/实验约定.md"
+      ],
+      "result": "修正源留出标记后，无模型混合成本2277.58/3128.45秒，低于纯源2289.37/3130.41及纯离线2294.25/3148.20；固定直接模型2264.75/3106.19更低，固定残差2277.89/3124.23并非两档都胜无模型。分类器诊断单独完成。",
+      "use": "第5章同预算比较及第6章作用分离；legacy/cs部分复用enhancement，不计新增训练。",
+      "local_summary_records": [
+        {
+          "source": "experiments/ratio_split_v2/summary.json",
+          "recorded_completion": {
+            "legacy.complete": true,
+            "cs.complete": true,
+            "mc.complete": true,
+            "ratio.complete": true
+          },
+          "recorded_counts": {}
+        }
+      ],
+      "remote_location_records": [
+        "experiments/ratio_split_v2/campaign_jobs.json",
+        "experiments/ratio_split_v2/campaign_submission.json",
+        "experiments/ratio_split_v2/smoke_jobs.json",
+        "experiments/ratio_split_v2/smoke_submission.json",
+        "experiments/ratio_split_v2/watch_jobs.json",
+        "experiments/ratio_split_v2/watch_submission.json"
+      ]
+    },
+    {
+      "version": "review_round3",
+      "group": "基础与早期补充",
+      "sources": [
+        "experiments/review_round3/learning_summary.json",
+        "experiments/review_round3/completed_operational_summary.json",
+        "experiments/review_round3/historical_cost_summary.json"
+      ],
+      "result": "评论家2/5/10/20中K=5在两场景平均计划偏差及乘客时间最佳；旧MC完整续训在正常/25%偏差小幅改善，50%偏差略退化，配对区间跨零。MC总时长37.49分钟，对照H2O+21.17分钟；完成保障群体分解和历史访问成本是观测/台账，不是新控制器优势。",
+      "use": "第3章集成规模，第5章保障观测/成本，第6章系数与计算成本。",
+      "local_summary_records": [
+        {
+          "source": "experiments/review_round3/learning_summary.json",
+          "recorded_completion": {},
+          "recorded_counts": {
+            "counts": {
+              "training": 52,
+              "mcwm_evaluations": 270,
+              "ensemble_evaluations": 120,
+              "ratio_holdouts": 15
+            }
+          }
+        },
+        {
+          "source": "experiments/review_round3/completed_operational_summary.json",
+          "recorded_completion": {},
+          "recorded_counts": {}
+        },
+        {
+          "source": "experiments/review_round3/historical_cost_summary.json",
+          "recorded_completion": {},
+          "recorded_counts": {}
+        }
+      ],
+      "remote_location_records": [
+        "experiments/review_round3/cpu-smoke_jobs.json",
+        "experiments/review_round3/cpu-smoke_submission.json",
+        "experiments/review_round3/cpu-submit_jobs.json",
+        "experiments/review_round3/cpu-submit_submission.json",
+        "experiments/review_round3/cpu_repair1_jobs.json",
+        "experiments/review_round3/cpu_repair1_submission.json",
+        "experiments/review_round3/guard_aggregation_jobs.json",
+        "experiments/review_round3/guard_aggregation_submission.json",
+        "experiments/review_round3/guard_smoke_retry_jobs.json",
+        "experiments/review_round3/guard_smoke_retry_submission.json",
+        "experiments/review_round3/inference_smoke_jobs.json",
+        "experiments/review_round3/inference_smoke_submission.json",
+        "experiments/review_round3/protocol.json",
+        "experiments/review_round3/ratio_handoff_jobs.json",
+        "experiments/review_round3/ratio_handoff_submission.json",
+        "experiments/review_round3/ratio_holdout_jobs.json",
+        "experiments/review_round3/ratio_holdout_submission.json",
+        "experiments/review_round3/smoke_jobs.json",
+        "experiments/review_round3/smoke_submission.json",
+        "experiments/review_round3/training_jobs.json",
+        "experiments/review_round3/training_submission.json",
+        "experiments/review_round3/watch_jobs.json",
+        "experiments/review_round3/watch_submission.json"
+      ]
+    },
+    {
+      "version": "transit_resources",
+      "group": "基础与早期补充",
+      "sources": [
+        "experiments/transit_resources/summary.json"
+      ],
+      "result": "1500次评价的资源复评：稳定时刻表相对固定时刻表车时减少10.36小时/日，乘客总时间减少0.953分钟；相对HIRO减少2.98小时及0.655分钟，服务里程相同。",
+      "use": "衍生问题的补充资料；未登记为当前Word主结果。",
+      "local_summary_records": [
+        {
+          "source": "experiments/transit_resources/summary.json",
+          "recorded_completion": {},
+          "recorded_counts": {
+            "episodes": 1500,
+            "training_repetitions": 10
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/transit_resources/jobs.json",
+        "experiments/transit_resources/protocol.md"
+      ]
+    },
+    {
+      "version": "transit_feedback",
+      "group": "基础与早期补充",
+      "sources": [
+        "experiments/transit_feedback/summary.json",
+        "experiments/transit_feedback/continuous300_summary.json"
+      ],
+      "result": "100回合训练的完整反馈相对屏蔽反馈复合成本平均增加0.0108、乘客总时间增加0.1515分钟；独立连续300回合的末次结果仍增加0.0292、0.3028分钟，区间跨零，未证实反馈增益。300回合主评价完成，但其第100回合中途检查点部分评价缺失，100与300同训练轨迹预算对照未闭合。",
+      "use": "负结果保留，不用增加训练量解释成反馈已有效。",
+      "local_summary_records": [
+        {
+          "source": "experiments/transit_feedback/summary.json",
+          "recorded_completion": {},
+          "recorded_counts": {
+            "training_episodes": 100,
+            "checkpoint_episode": 99,
+            "episodes_per_seed": 50,
+            "training_repetitions": 10
+          }
+        },
+        {
+          "source": "experiments/transit_feedback/continuous300_summary.json",
+          "recorded_completion": {
+            "primary_complete": true,
+            "budget_comparison_complete": false
+          },
+          "recorded_counts": {
+            "training_repetitions": 10
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/transit_feedback/benchmark_jobs.json",
+        "experiments/transit_feedback/benchmark_submission.json",
+        "experiments/transit_feedback/cap100_controller_jobs.json",
+        "experiments/transit_feedback/cap100_controller_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102429_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102429_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102430_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102430_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102431_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102431_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102432_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102432_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102433_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102433_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102434_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102434_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102435_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102435_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102436_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102436_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102437_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102437_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102438_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102438_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102439_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102439_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102440_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102440_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102441_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102441_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102442_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102442_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102443_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102443_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102444_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102444_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102445_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102445_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102446_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102446_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102447_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102447_submission.json",
+        "experiments/transit_feedback/cap100_eval_t102448_jobs.json",
+        "experiments/transit_feedback/cap100_eval_t102448_submission.json",
+        "experiments/transit_feedback/cap100_smoke_jobs.json",
+        "experiments/transit_feedback/cap100_smoke_submission.json",
+        "experiments/transit_feedback/continuous300_jobs.json",
+        "experiments/transit_feedback/continuous300_submission.json",
+        "experiments/transit_feedback/continuous300_watcher_jobs.json",
+        "experiments/transit_feedback/continuous300_watcher_submission.json",
+        "experiments/transit_feedback/evaluation_smoke_jobs.json",
+        "experiments/transit_feedback/evaluation_smoke_submission.json",
+        "experiments/transit_feedback/production_jobs.json",
+        "experiments/transit_feedback/production_submission.json",
+        "experiments/transit_feedback/protocol.md",
+        "experiments/transit_feedback/protocol_continuous300.md"
+      ]
+    },
+    {
+      "version": "mcwm_alignment_v2",
+      "group": "MC-WM乘客目标与机制",
+      "sources": [
+        "experiments/mcwm_alignment_v2/summary.json",
+        "experiments/mcwm_alignment_v2/protocol.json"
+      ],
+      "result": "三训练重复、正常/联合25%/50%源偏差：正常两需求成本差-9.68/-32.60秒，25%差-12.02/-7.48秒，50%差+1.43/-1.65秒。旧适配的较大偏差下基本持平；不是后来的50%/75%归一化确认。",
+      "use": "图6-9、表6-7；M-ALIGN-V2登记按实际三重复修正。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_alignment_v2/summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_complete": 18,
+            "evaluation_complete": 180
+          }
+        },
+        {
+          "source": "experiments/mcwm_alignment_v2/protocol.json",
+          "recorded_completion": {},
+          "recorded_counts": {
+            "training_repetitions": 3
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_alignment_v2/campaign_jobs.json",
+        "experiments/mcwm_alignment_v2/campaign_submission.json",
+        "experiments/mcwm_alignment_v2/protocol.json",
+        "experiments/mcwm_alignment_v2/smoke_evaluation_jobs.json",
+        "experiments/mcwm_alignment_v2/smoke_evaluation_submission.json",
+        "experiments/mcwm_alignment_v2/smoke_importfix_jobs.json",
+        "experiments/mcwm_alignment_v2/smoke_importfix_submission.json",
+        "experiments/mcwm_alignment_v2/smoke_jobs.json",
+        "experiments/mcwm_alignment_v2/smoke_submission.json",
+        "experiments/mcwm_alignment_v2/watcher_jobs.json",
+        "experiments/mcwm_alignment_v2/watcher_submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_usage_v3",
+      "group": "MC-WM乘客目标与机制",
+      "sources": [
+        "experiments/mcwm_usage_v3/analysis.json",
+        "experiments/mcwm_usage_v3/summary.json",
+        "experiments/mcwm_usage_v3/rule_analysis.json"
+      ],
+      "result": "归一化置信恢复模型TD更新使用后，正常/50%/75%偏差×两档需求六组成本均低于匹配无模型H2O组，正常2283.81/3136.62降至2229.65/3020.76秒；源贝尔曼额外修正没有稳定增量。优势主要与模型更新实际被使用有关。",
+      "use": "第6章归一化/模型使用主证据，另见固定规则版本。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_usage_v3/analysis.json",
+          "recorded_completion": {},
+          "recorded_counts": {}
+        },
+        {
+          "source": "experiments/mcwm_usage_v3/summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 38,
+            "training_expected": 38,
+            "evaluation_ready": 380,
+            "evaluation_expected": 380
+          }
+        },
+        {
+          "source": "experiments/mcwm_usage_v3/rule_analysis.json",
+          "recorded_completion": {},
+          "recorded_counts": {}
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_usage_v3/campaign_jobs.json",
+        "experiments/mcwm_usage_v3/campaign_submission.json",
+        "experiments/mcwm_usage_v3/fixed_half_6201_retry1_jobs.json",
+        "experiments/mcwm_usage_v3/fixed_half_6201_retry1_submission.json",
+        "experiments/mcwm_usage_v3/protocol.json",
+        "experiments/mcwm_usage_v3/rule_comparison_protocol.json",
+        "experiments/mcwm_usage_v3/rule_smoke_jobs.json",
+        "experiments/mcwm_usage_v3/rule_smoke_submission.json",
+        "experiments/mcwm_usage_v3/rules_jobs.json",
+        "experiments/mcwm_usage_v3/rules_submission.json",
+        "experiments/mcwm_usage_v3/smoke_eval_jobs.json",
+        "experiments/mcwm_usage_v3/smoke_eval_submission.json",
+        "experiments/mcwm_usage_v3/smoke_jobs.json",
+        "experiments/mcwm_usage_v3/smoke_submission.json",
+        "experiments/mcwm_usage_v3/watch2_jobs.json",
+        "experiments/mcwm_usage_v3/watch2_submission.json",
+        "experiments/mcwm_usage_v3/watch_jobs.json",
+        "experiments/mcwm_usage_v3/watch_submission.json"
+      ]
+    },
+    {
+      "version": "daganzo_baseline_v1",
+      "group": "MC-WM乘客目标与机制",
+      "sources": [
+        "experiments/daganzo_baseline_v1/analysis.json",
+        "experiments/daganzo_baseline_v1/结果小结.md"
+      ],
+      "result": "共同保障下较强前向比例规则成本2251.09/3098.02秒；归一化MC-WM六条件成本进一步降低0.95%至2.95%，60/60逐日配对改善。H2O+六条件均值均未胜该前向规则。MC时距绝对误差并非更低。",
+      "use": "固定规则补充；前向比例与TransitDuet双向代理分列，不当作Daganzo原算法完整复现。",
+      "local_summary_records": [
+        {
+          "source": "experiments/daganzo_baseline_v1/analysis.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {}
+        }
+      ],
+      "remote_location_records": [
+        "experiments/daganzo_baseline_v1/campaign_jobs.json",
+        "experiments/daganzo_baseline_v1/campaign_submission.json",
+        "experiments/daganzo_baseline_v1/protocol.json",
+        "experiments/daganzo_baseline_v1/smoke_jobs.json",
+        "experiments/daganzo_baseline_v1/smoke_retry1_jobs.json",
+        "experiments/daganzo_baseline_v1/smoke_retry1_submission.json",
+        "experiments/daganzo_baseline_v1/smoke_submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_factored_v4",
+      "group": "MC-WM乘客目标与机制",
+      "sources": [
+        "experiments/mcwm_factored_v4/analysis.json",
+        "experiments/mcwm_factored_v4/summary.json",
+        "experiments/mcwm_factored_v4/结果分析与方案选择.md"
+      ],
+      "result": "固定源父模型的分解方案六条件成本均差于原归一化；分解加源修正只在常态低需求略好，未形成全面收益。",
+      "use": "未采用，保留归一化版。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_factored_v4/analysis.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {}
+        },
+        {
+          "source": "experiments/mcwm_factored_v4/summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 24,
+            "training_expected": 24,
+            "evaluation_ready": 240,
+            "evaluation_expected": 240
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_factored_v4/campaign_jobs.json",
+        "experiments/mcwm_factored_v4/campaign_submission.json",
+        "experiments/mcwm_factored_v4/protocol.json",
+        "experiments/mcwm_factored_v4/smoke_eval_jobs.json",
+        "experiments/mcwm_factored_v4/smoke_eval_submission.json",
+        "experiments/mcwm_factored_v4/smoke_jobs.json",
+        "experiments/mcwm_factored_v4/smoke_submission.json",
+        "experiments/mcwm_factored_v4/watch_jobs.json",
+        "experiments/mcwm_factored_v4/watch_submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_explore_v5",
+      "group": "MC-WM乘客目标与机制",
+      "sources": [
+        "experiments/mcwm_explore_v5/analysis.json",
+        "experiments/mcwm_explore_v5/summary.json",
+        "experiments/mcwm_explore_v5/结果小结.md"
+      ],
+      "result": "决策置信/源加权正常和75%偏差部分改善、50%退化；源加权在低需求下三偏差成本差-12.91/+22.03/-14.93秒。共享整体模型六条件均差，不替代原归一化。",
+      "use": "未选为统一主方案。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_explore_v5/analysis.json",
+          "recorded_completion": {},
+          "recorded_counts": {}
+        },
+        {
+          "source": "experiments/mcwm_explore_v5/summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 30,
+            "training_expected": 30,
+            "evaluation_ready": 300,
+            "evaluation_expected": 300
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_explore_v5/campaign_jobs.json",
+        "experiments/mcwm_explore_v5/campaign_submission.json",
+        "experiments/mcwm_explore_v5/protocol.json",
+        "experiments/mcwm_explore_v5/smoke_eval_jobs.json",
+        "experiments/mcwm_explore_v5/smoke_eval_submission.json",
+        "experiments/mcwm_explore_v5/smoke_jobs.json",
+        "experiments/mcwm_explore_v5/smoke_submission.json",
+        "experiments/mcwm_explore_v5/watch_jobs.json",
+        "experiments/mcwm_explore_v5/watch_submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_decision_scale_v6",
+      "group": "MC-WM乘客目标与机制",
+      "sources": [
+        "experiments/mcwm_decision_scale_v6/summary.json",
+        "experiments/mcwm_decision_scale_v6/结果分析.md"
+      ],
+      "result": "六条件均值：归一化2621.83秒，原决策误差2638.93，修复尺度后2629.71。修复有9.23秒收益，但仍比归一化高7.88秒。",
+      "use": "修复有效但未替代主方案。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_decision_scale_v6/summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 18,
+            "training_expected": 18,
+            "evaluation_ready": 180,
+            "evaluation_expected": 180
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_decision_scale_v6/campaign_jobs.json",
+        "experiments/mcwm_decision_scale_v6/campaign_submission.json",
+        "experiments/mcwm_decision_scale_v6/protocol.json",
+        "experiments/mcwm_decision_scale_v6/smoke_eval_jobs.json",
+        "experiments/mcwm_decision_scale_v6/smoke_eval_submission.json",
+        "experiments/mcwm_decision_scale_v6/smoke_jobs.json",
+        "experiments/mcwm_decision_scale_v6/smoke_submission.json",
+        "experiments/mcwm_decision_scale_v6/watch_jobs.json",
+        "experiments/mcwm_decision_scale_v6/watch_submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_context_v7",
+      "group": "MC-WM上下文与TD权重",
+      "sources": [
+        "experiments/mcwm_context_v7/summary.json",
+        "experiments/mcwm_context_v7/结果分析.md"
+      ],
+      "result": "固定TD0.25较0权重平均成本低111.43秒（4.08%），60/60配对改善；真实标签上下文和识别上下文分别较固定0.25高2.13、18.34秒。发现系数映射不稳定及中等偏差高置信误识别。",
+      "use": "固定TD为后续主方向；上下文未胜固定方案。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_context_v7/summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 30,
+            "training_expected": 30,
+            "evaluation_ready": 480,
+            "evaluation_expected": 480
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_context_v7/campaign_jobs.json",
+        "experiments/mcwm_context_v7/campaign_submission.json",
+        "experiments/mcwm_context_v7/cpu_permission_blocked_smoke_jobs.json",
+        "experiments/mcwm_context_v7/cpu_permission_blocked_smoke_submission.json",
+        "experiments/mcwm_context_v7/import_collision_smoke_eval_jobs.json",
+        "experiments/mcwm_context_v7/import_collision_smoke_eval_submission.json",
+        "experiments/mcwm_context_v7/protocol.json",
+        "experiments/mcwm_context_v7/smoke_eval_jobs.json",
+        "experiments/mcwm_context_v7/smoke_eval_submission.json",
+        "experiments/mcwm_context_v7/smoke_jobs.json",
+        "experiments/mcwm_context_v7/smoke_submission.json",
+        "experiments/mcwm_context_v7/watch_jobs.json",
+        "experiments/mcwm_context_v7/watch_submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_td_upper_v8",
+      "group": "MC-WM上下文与TD权重",
+      "sources": [
+        "experiments/mcwm_td_upper_v8/summary.json"
+      ],
+      "result": "增加0.375/0.5等固定权重并非单调改善，场景/训练重复之间最优权重不同；同批还含映射/真实标签诊断，不能将各角色重复行混算成统一上界。",
+      "use": "权重上界探索，不作为全部场景最优的证据。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_td_upper_v8/summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 36,
+            "training_expected": 36,
+            "evaluation_ready": 720,
+            "evaluation_expected": 720
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_td_upper_v8/campaign_jobs.json",
+        "experiments/mcwm_td_upper_v8/campaign_submission.json",
+        "experiments/mcwm_td_upper_v8/protocol.json",
+        "experiments/mcwm_td_upper_v8/smoke_eval_jobs.json",
+        "experiments/mcwm_td_upper_v8/smoke_eval_submission.json",
+        "experiments/mcwm_td_upper_v8/smoke_jobs.json",
+        "experiments/mcwm_td_upper_v8/smoke_submission.json",
+        "experiments/mcwm_td_upper_v8/watch_jobs.json",
+        "experiments/mcwm_td_upper_v8/watch_submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_context_diagnosis_v8",
+      "group": "MC-WM上下文与TD权重",
+      "sources": [
+        "experiments/mcwm_context_diagnosis_v8/summary.json"
+      ],
+      "result": "跨训练重复的冻结策略块诊断显示识别器有策略/价值特征混杂，中等偏差尤其难分。物理特征分离用于后续修复；本批只有离线识别诊断，没有新控制收益。",
+      "use": "诊断记录，不能将分类准确率当作乘客成本改善。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_context_diagnosis_v8/summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {}
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_context_diagnosis_v8/jobs.json",
+        "experiments/mcwm_context_diagnosis_v8/protocol.json",
+        "experiments/mcwm_context_diagnosis_v8/submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_context_filter_v9",
+      "group": "MC-WM上下文与TD权重",
+      "sources": [
+        "experiments/mcwm_context_filter_v9/summary.json"
+      ],
+      "result": "黏性滤波和源留出门控减少部分切换噪声，但中等偏差仍有错误；一完整特征滤波组平衡准确率约0.749，高置信错误占比约0.176。未进行闭环控制训练。",
+      "use": "识别诊断，不选为控制优势。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_context_filter_v9/summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {}
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_context_filter_v9/jobs.json",
+        "experiments/mcwm_context_filter_v9/protocol.json",
+        "experiments/mcwm_context_filter_v9/submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_context_control_v10",
+      "group": "MC-WM上下文与TD权重",
+      "sources": [
+        "experiments/mcwm_context_control_v10/summary.json"
+      ],
+      "result": "相对固定0.25，十二个源条件×需求×训练重复单元的等权平均成本差：全特征识别+9.47秒、物理特征-5.57秒、物理窗口加回退-7.36秒。平均改善但重复间不一致。",
+      "use": "上下文修复探索，不替代固定TD确认。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_context_control_v10/summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 24,
+            "training_expected": 24,
+            "evaluation_ready": 240,
+            "evaluation_expected": 240
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_context_control_v10/campaign_jobs.json",
+        "experiments/mcwm_context_control_v10/campaign_submission.json",
+        "experiments/mcwm_context_control_v10/cpu_train_jobs.json",
+        "experiments/mcwm_context_control_v10/cpu_train_submission.json",
+        "experiments/mcwm_context_control_v10/cpu_watch_jobs.json",
+        "experiments/mcwm_context_control_v10/cpu_watch_submission.json",
+        "experiments/mcwm_context_control_v10/protocol.json",
+        "experiments/mcwm_context_control_v10/smoke_eval_jobs.json",
+        "experiments/mcwm_context_control_v10/smoke_eval_submission.json",
+        "experiments/mcwm_context_control_v10/smoke_jobs.json",
+        "experiments/mcwm_context_control_v10/smoke_submission.json",
+        "experiments/mcwm_context_control_v10/watch_jobs.json",
+        "experiments/mcwm_context_control_v10/watch_submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_context_mapping_v11",
+      "group": "MC-WM上下文与TD权重",
+      "sources": [
+        "experiments/mcwm_context_mapping_v11/summary.json"
+      ],
+      "result": "相对固定0.25，十二单元等权成本差：固定0.375为-9.21秒、旧窗口-7.22、共享软映射+13.26、共享门控-0.40、真实标签共享映射+2.86。真实标签不能消除映射退化。",
+      "use": "映射诊断，部分固定权重值得确认。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_context_mapping_v11/summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 30,
+            "training_expected": 30,
+            "evaluation_ready": 300,
+            "evaluation_expected": 300
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_context_mapping_v11/campaign_jobs.json",
+        "experiments/mcwm_context_mapping_v11/campaign_submission.json",
+        "experiments/mcwm_context_mapping_v11/protocol.json",
+        "experiments/mcwm_context_mapping_v11/smoke_eval_jobs.json",
+        "experiments/mcwm_context_mapping_v11/smoke_eval_submission.json",
+        "experiments/mcwm_context_mapping_v11/smoke_jobs.json",
+        "experiments/mcwm_context_mapping_v11/smoke_submission.json",
+        "experiments/mcwm_context_mapping_v11/watch_jobs.json",
+        "experiments/mcwm_context_mapping_v11/watch_submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_context_midweight_v12",
+      "group": "MC-WM上下文与TD权重",
+      "sources": [
+        "experiments/mcwm_context_midweight_v12/summary.json"
+      ],
+      "result": "相对固定0.25，十二单元等权成本差：固定0.30为-4.98秒、0.3125为-3.69、共享门控-1.59。仅两训练重复开发收益，后续v13单独确认。",
+      "use": "开发集选候选，不替代多重复确认。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_context_midweight_v12/summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 24,
+            "training_expected": 24,
+            "evaluation_ready": 240,
+            "evaluation_expected": 240
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_context_midweight_v12/campaign_jobs.json",
+        "experiments/mcwm_context_midweight_v12/campaign_submission.json",
+        "experiments/mcwm_context_midweight_v12/protocol.json",
+        "experiments/mcwm_context_midweight_v12/smoke_eval_jobs.json",
+        "experiments/mcwm_context_midweight_v12/smoke_eval_submission.json",
+        "experiments/mcwm_context_midweight_v12/smoke_jobs.json",
+        "experiments/mcwm_context_midweight_v12/smoke_submission.json",
+        "experiments/mcwm_context_midweight_v12/watch_jobs.json",
+        "experiments/mcwm_context_midweight_v12/watch_submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_seed_confirmation_v13",
+      "group": "MC-WM上下文与TD权重",
+      "sources": [
+        "experiments/mcwm_seed_confirmation_v13/completed_analysis.json",
+        "experiments/mcwm_seed_confirmation_v13/protocol.json"
+      ],
+      "result": "固定0.25相对匹配无世界模型混合组，正常/50%/75%偏差成本平均低51.14/69.93/87.05秒，改善16/20、19/20、19/20训练重复；相对同批Daganzo式规则低57.67/70.67/76.26秒。",
+      "use": "第6章二十重复确认；这里的h2o_matched不是附录F最终完整H2O+。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_seed_confirmation_v13/completed_analysis.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {}
+        },
+        {
+          "source": "experiments/mcwm_seed_confirmation_v13/protocol.json",
+          "recorded_completion": {},
+          "recorded_counts": {
+            "training_repetitions": 20
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_seed_confirmation_v13/campaign_jobs.json",
+        "experiments/mcwm_seed_confirmation_v13/campaign_submission.json",
+        "experiments/mcwm_seed_confirmation_v13/campaign_watch_jobs.json",
+        "experiments/mcwm_seed_confirmation_v13/campaign_watch_submission.json",
+        "experiments/mcwm_seed_confirmation_v13/protocol.json",
+        "experiments/mcwm_seed_confirmation_v13/server_watch_jobs.json",
+        "experiments/mcwm_seed_confirmation_v13/server_watch_submission.json",
+        "experiments/mcwm_seed_confirmation_v13/smoke_jobs.json",
+        "experiments/mcwm_seed_confirmation_v13/smoke_submission.json",
+        "experiments/mcwm_seed_confirmation_v13/smoke_watch_jobs.json",
+        "experiments/mcwm_seed_confirmation_v13/smoke_watch_submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_context_last_v14",
+      "group": "MC-WM上下文与TD权重",
+      "sources": [
+        "experiments/mcwm_context_last_v14/completed_analysis.json"
+      ],
+      "result": "四重复末轮共享门控相对固定0.25，在50%/75%偏差低8.16/2.69秒，改善3/4、2/4；常态回退不变。固定0.30常态高25.94秒，其他梯度/迟滞候选未形成一致收益。",
+      "use": "表6-15条件性补充，不替代固定0.25主结果。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_context_last_v14/completed_analysis.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {}
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_context_last_v14/campaign_jobs.json",
+        "experiments/mcwm_context_last_v14/campaign_submission.json",
+        "experiments/mcwm_context_last_v14/campaign_watch_jobs.json",
+        "experiments/mcwm_context_last_v14/campaign_watch_submission.json",
+        "experiments/mcwm_context_last_v14/protocol.json",
+        "experiments/mcwm_context_last_v14/server_watch_jobs.json",
+        "experiments/mcwm_context_last_v14/server_watch_submission.json",
+        "experiments/mcwm_context_last_v14/smoke_jobs.json",
+        "experiments/mcwm_context_last_v14/smoke_submission.json",
+        "experiments/mcwm_context_last_v14/smoke_watch_jobs.json",
+        "experiments/mcwm_context_last_v14/smoke_watch_submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_attribution_v15",
+      "group": "MC-WM后期作用分离",
+      "sources": [
+        "experiments/mcwm_attribution_v15/analysis_summary.json"
+      ],
+      "result": "五重复对匹配无模型组：常态固定0.25/直接模型成本差-40.18/-43.98秒，75%偏差两者均-111.94秒；残差专用常态-6.42、高偏差-102.60秒。模型增量存在，但不能说全由残差模型或残差必胜直接模型。",
+      "use": "后期作用分离；保持损失缩放、目标回放、模型类别分列。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_attribution_v15/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 40,
+            "training_expected": 40,
+            "evaluation_ready": 400,
+            "evaluation_expected": 400
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_attribution_v15/campaign_jobs.json",
+        "experiments/mcwm_attribution_v15/campaign_submission.json",
+        "experiments/mcwm_attribution_v15/node_runtime.json",
+        "experiments/mcwm_attribution_v15/protocol.json",
+        "experiments/mcwm_attribution_v15/smoke_eval_jobs.json",
+        "experiments/mcwm_attribution_v15/smoke_eval_submission.json",
+        "experiments/mcwm_attribution_v15/smoke_jobs.json",
+        "experiments/mcwm_attribution_v15/smoke_submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_headway_alignment_v16",
+      "group": "MC-WM时距与动作",
+      "sources": [
+        "experiments/mcwm_headway_alignment_v16/analysis_summary.json"
+      ],
+      "result": "按历史同车反馈、奖励和动作接口对齐后，状态版相对H2O+常态直接/保障成本高3.39/17.75秒，高偏差低12.68/6.97秒；原始版高偏差低16.29/19.38秒。常态未取得统一收益。",
+      "use": "时距接口修复，不宣布全场景优于H2O+。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_headway_alignment_v16/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 16,
+            "training_expected": 16,
+            "evaluation_ready": 320,
+            "evaluation_expected": 320
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_headway_alignment_v16/campaign_jobs.json",
+        "experiments/mcwm_headway_alignment_v16/campaign_submission.json",
+        "experiments/mcwm_headway_alignment_v16/node_runtime.json",
+        "experiments/mcwm_headway_alignment_v16/protocol.json",
+        "experiments/mcwm_headway_alignment_v16/smoke_import_repair_jobs.json",
+        "experiments/mcwm_headway_alignment_v16/smoke_import_repair_submission.json",
+        "experiments/mcwm_headway_alignment_v16/smoke_jobs.json",
+        "experiments/mcwm_headway_alignment_v16/smoke_namespace_repair_jobs.json",
+        "experiments/mcwm_headway_alignment_v16/smoke_namespace_repair_submission.json",
+        "experiments/mcwm_headway_alignment_v16/smoke_rule_repair_jobs.json",
+        "experiments/mcwm_headway_alignment_v16/smoke_rule_repair_submission.json",
+        "experiments/mcwm_headway_alignment_v16/smoke_submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_headway_td_v17",
+      "group": "MC-WM时距与动作",
+      "sources": [
+        "experiments/mcwm_headway_td_v17/analysis_summary.json"
+      ],
+      "result": "双动作TD0.125相对H2O+高偏差直接/保障成本低21.02/20.99秒，常态高3.91/11.04秒；去TD高偏差收益更小。降低TD有偏差场景收益，不解决常态全面胜出。",
+      "use": "时距权重探索。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_headway_td_v17/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 8,
+            "training_expected": 8,
+            "evaluation_ready": 160,
+            "evaluation_expected": 160
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_headway_td_v17/campaign_jobs.json",
+        "experiments/mcwm_headway_td_v17/campaign_submission.json",
+        "experiments/mcwm_headway_td_v17/node_runtime.json",
+        "experiments/mcwm_headway_td_v17/protocol.json",
+        "experiments/mcwm_headway_td_v17/smoke_jobs.json",
+        "experiments/mcwm_headway_td_v17/smoke_submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_action_matrix_v18",
+      "group": "MC-WM时距与动作",
+      "sources": [
+        "experiments/mcwm_action_matrix_v18/analysis_summary.json"
+      ],
+      "result": "两奖励×两动作的完整比较显示速度扩展收益依赖目标：时距目标下H2O+双动作成本较单驻站低35至52秒；乘客目标下不存在双动作统一优势。比较时必须同时匹配reference_mode、reference_arm及执行层。",
+      "use": "动作选择资料，当前论文保留单驻站，不能声称所有情况双动作更好。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_action_matrix_v18/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 16,
+            "training_expected": 16,
+            "evaluation_ready": 320,
+            "evaluation_expected": 320
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_action_matrix_v18/campaign_jobs.json",
+        "experiments/mcwm_action_matrix_v18/campaign_submission.json",
+        "experiments/mcwm_action_matrix_v18/contracts_jobs.json",
+        "experiments/mcwm_action_matrix_v18/contracts_submission.json",
+        "experiments/mcwm_action_matrix_v18/node_runtime.json",
+        "experiments/mcwm_action_matrix_v18/protocol.json",
+        "experiments/mcwm_action_matrix_v18/smoke_jobs.json",
+        "experiments/mcwm_action_matrix_v18/smoke_submission.json"
+      ]
+    },
+    {
+      "version": "mcwm_headway_holding_v19",
+      "group": "MC-WM时距与动作",
+      "sources": [
+        "experiments/mcwm_headway_holding_v19/analysis_summary.json",
+        "experiments/mcwm_action_matrix_v18/analysis_summary.json"
+      ],
+      "result": "单驻站MC-WM相对H2O+，常态直接/保障成本低0.54/1.03秒，高偏差直接高2.34、保障低13.36秒；时距惩罚基本持平，乘客成本小幅收益不能改写为全部时距指标显著提升。",
+      "use": "表6-16，基线复用v18对应单驻站；保障与直接是执行层不是两动作。",
+      "local_summary_records": [
+        {
+          "source": "experiments/mcwm_headway_holding_v19/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 4,
+            "training_expected": 4,
+            "evaluation_ready": 80,
+            "evaluation_expected": 80
+          }
+        },
+        {
+          "source": "experiments/mcwm_action_matrix_v18/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 16,
+            "training_expected": 16,
+            "evaluation_ready": 320,
+            "evaluation_expected": 320
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/mcwm_headway_holding_v19/campaign_jobs.json",
+        "experiments/mcwm_headway_holding_v19/campaign_submission.json",
+        "experiments/mcwm_headway_holding_v19/contracts_jobs.json",
+        "experiments/mcwm_headway_holding_v19/contracts_submission.json",
+        "experiments/mcwm_headway_holding_v19/node_runtime.json",
+        "experiments/mcwm_headway_holding_v19/protocol.json",
+        "experiments/mcwm_headway_holding_v19/smoke_jobs.json",
+        "experiments/mcwm_headway_holding_v19/smoke_submission.json"
+      ]
+    },
+    {
+      "version": "reward_cross_v1",
+      "group": "奖励、动作及配方对齐",
+      "sources": [
+        "experiments/reward_cross_v1/summary.json",
+        "experiments/reward_cross_v1/alignment_findings.md",
+        "experiments/reward_cross_v1/headway_diagnosis.md"
+      ],
+      "result": "130训练、1260评价完成。RE-SAC乘客目标在早期走廊产生收益，但H2O+/MC新时距分支不收敛；执行车辆/物理动作正确，主要诊断发现全局下一事件奖励不等同于同车站间反馈、观察丢失未结算动作影响，需独立修复。",
+      "use": "交叉目标接入与接口诊断；后续v2以后才是修复结果。",
+      "local_summary_records": [
+        {
+          "source": "experiments/reward_cross_v1/summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "initialization_ready": 10,
+            "training_ready": 130,
+            "evaluation_ready": 1260,
+            "expected_training": 130,
+            "expected_evaluation": 1260
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/reward_cross_v1/campaign_jobs.json",
+        "experiments/reward_cross_v1/campaign_submission.json",
+        "experiments/reward_cross_v1/protocol.json",
+        "experiments/reward_cross_v1/smoke_eval_retry_jobs.json",
+        "experiments/reward_cross_v1/smoke_eval_retry_submission.json",
+        "experiments/reward_cross_v1/smoke_jobs.json",
+        "experiments/reward_cross_v1/smoke_submission.json"
+      ]
+    },
+    {
+      "version": "bus_control_v2",
+      "group": "奖励、动作及配方对齐",
+      "sources": [
+        "experiments/bus_control_v2/result_analysis.json",
+        "experiments/bus_control_v2/RESULTS.md"
+      ],
+      "result": "同车结算双动作时距分支较各自单驻站成本低1.37%至2.25%；MC相对H2O+的次要乘客指标有小幅收益，但时距主目标未普遍更好。该批所有学习组乘客成本仍高于Daganzo规则，原有效单驻站乘客分支未被覆盖。",
+      "use": "早期修复结果，负结果保留，不与带不同保障旧结果拼接。",
+      "local_summary_records": [
+        {
+          "source": "experiments/bus_control_v2/result_analysis.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 560
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/bus_control_v2/fast_read_eval_restart_jobs.json",
+        "experiments/bus_control_v2/fast_read_eval_restart_submission.json",
+        "experiments/bus_control_v2/fast_read_restart_jobs.json",
+        "experiments/bus_control_v2/fast_read_restart_submission.json",
+        "experiments/bus_control_v2/handoff_recovery_jobs.json",
+        "experiments/bus_control_v2/handoff_recovery_submission.json",
+        "experiments/bus_control_v2/jobs.json",
+        "experiments/bus_control_v2/node_runtime.json",
+        "experiments/bus_control_v2/protocol.json",
+        "experiments/bus_control_v2/retry_jobs.json",
+        "experiments/bus_control_v2/retry_submission.json",
+        "experiments/bus_control_v2/submission.json"
+      ]
+    },
+    {
+      "version": "csbapr_symbolic_bus_v2",
+      "group": "奖励、动作及配方对齐",
+      "sources": [
+        "experiments/csbapr_symbolic_bus_v2/result_analysis.json",
+        "experiments/csbapr_symbolic_bus_v2/RESULTS.md"
+      ],
+      "result": "硬SINDy反馈、中心化残差和导数约束组合，时距计划误差较去符号高15.86%至17.00%，熵温度约1.2百万、Q损失约1e13；乘客目标仅微小改善，不构成稳定优势。约束、反馈质量及尺度耦合失衡。",
+      "use": "未采用硬约束组合，推动后续软SINDy修复。",
+      "local_summary_records": [
+        {
+          "source": "experiments/csbapr_symbolic_bus_v2/result_analysis.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 234
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/csbapr_symbolic_bus_v2/jobs.json",
+        "experiments/csbapr_symbolic_bus_v2/node_runtime.json",
+        "experiments/csbapr_symbolic_bus_v2/protocol.json",
+        "experiments/csbapr_symbolic_bus_v2/submission.json"
+      ]
+    },
+    {
+      "version": "bus_control_repair_v3",
+      "group": "奖励、动作及配方对齐",
+      "sources": [
+        "experiments/bus_control_repair_v3/completed_analysis.json",
+        "experiments/bus_control_repair_v3/protocol.json"
+      ],
+      "result": "三场景等权均值：乘客目标numeric_old/smooth_soft/smooth_hard成本13350.84/13316.31/13333.96秒，软符号较旧数字反馈低34.53秒；时距目标惩罚86.24/85.21/83.64，硬约束惩罚略优但乘客成本较高。MC移除旧保障使原乘客控制器成本增加约11%，执行层不可忽略。",
+      "use": "选定软SINDy的训练谱系；与RE-SAC的最终六场景比较使用native-v8评价，不直接搬这批平均数。",
+      "local_summary_records": [
+        {
+          "source": "experiments/bus_control_repair_v3/completed_analysis.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {}
+        },
+        {
+          "source": "experiments/bus_control_repair_v3/protocol.json",
+          "recorded_completion": {},
+          "recorded_counts": {}
+        }
+      ],
+      "remote_location_records": [
+        "experiments/bus_control_repair_v3/jobs.json",
+        "experiments/bus_control_repair_v3/protocol.json",
+        "experiments/bus_control_repair_v3/retry_jobs.json",
+        "experiments/bus_control_repair_v3/retry_submission.json",
+        "experiments/bus_control_repair_v3/submission.json"
+      ]
+    },
+    {
+      "version": "bus_dual_aligned_v4",
+      "group": "奖励、动作及配方对齐",
+      "sources": [
+        "experiments/bus_dual_aligned_v4/summary.json",
+        "experiments/bus_dual_aligned_v4/protocol.json"
+      ],
+      "result": "恢复双动作完整预算后，保障执行乘客目标MC成本2632.69/2573.64秒（常态/75%偏差），分别比H2O+低3.48%/4.81%、比Daganzo低1.94%/4.13%。时距目标常态接近，高偏差保障成本仍高于规则53.72秒，两个奖励的结论不同。",
+      "use": "保留双动作乘客正结果，时距再由v5裁剪修复；不是当前单驻站主矩阵。",
+      "local_summary_records": [
+        {
+          "source": "experiments/bus_dual_aligned_v4/summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "formal_training": 24,
+            "formal_evaluations": 520,
+            "expected_training": 24,
+            "expected_evaluations": 520
+          }
+        },
+        {
+          "source": "experiments/bus_dual_aligned_v4/protocol.json",
+          "recorded_completion": {},
+          "recorded_counts": {
+            "training_repetitions": 2
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/bus_dual_aligned_v4/aligned_jobs.json",
+        "experiments/bus_dual_aligned_v4/aligned_submission.json",
+        "experiments/bus_dual_aligned_v4/diagnosis_jobs.json",
+        "experiments/bus_dual_aligned_v4/diagnosis_submission.json",
+        "experiments/bus_dual_aligned_v4/executed_history_jobs.json",
+        "experiments/bus_dual_aligned_v4/executed_history_submission.json",
+        "experiments/bus_dual_aligned_v4/protocol.json"
+      ]
+    },
+    {
+      "version": "bus_alignment_followup_v5",
+      "group": "奖励、动作及配方对齐",
+      "sources": [
+        "experiments/bus_alignment_followup_v5/summary.json",
+        "experiments/bus_alignment_followup_v5/RESULTS.md"
+      ],
+      "result": "稳定化MLP相对原BAPR单驻站时距惩罚低58.82%至69.79%，大均值部分由一个BAPR重复退化驱动；乘客奖励成本反增0.068%至0.268%。MC双动作时距梯度裁剪后高偏差保障成本2614.78秒，优于原H2O+2749.33及Daganzo2684.64；同裁剪H2O+比较收益较小。",
+      "use": "当前表4-10/4-11仍使用旧MLP对BAPR；MC裁剪是另一动作/执行版本。",
+      "local_summary_records": [
+        {
+          "source": "experiments/bus_alignment_followup_v5/summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "formal_training": 40,
+            "formal_evaluations": 1236,
+            "expected_training": 40,
+            "expected_evaluations": 1236,
+            "reused_policies": 24
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/bus_alignment_followup_v5/jobs.json",
+        "experiments/bus_alignment_followup_v5/protocol.json",
+        "experiments/bus_alignment_followup_v5/submission.json"
+      ]
+    },
+    {
+      "version": "bus_algorithm_matrix_v6",
+      "group": "奖励、动作及配方对齐",
+      "sources": [
+        "experiments/bus_algorithm_matrix_v6/analysis_summary.json"
+      ],
+      "result": "多线路单驻站RE-SAC对关闭分歧项的集成参照：时距目标六场景平均奖励均退化8.79至17.63，但次要乘客成本低32.34至104.31秒；乘客目标六场景成本差仅-1.32至+0.84秒，未形成统一优势。原项目关键配方未完全恢复，随后native-v8另做修复。",
+      "use": "旧匹配矩阵及soft端点评价；ensemble_sac_control不是native-v8原配方SAC，不与旧走廊收益混算。",
+      "local_summary_records": [
+        {
+          "source": "experiments/bus_algorithm_matrix_v6/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 32,
+            "training_expected": 32,
+            "evaluation_ready": 720,
+            "evaluation_expected": 720
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/bus_algorithm_matrix_v6/bootstrap_repair_jobs.json",
+        "experiments/bus_algorithm_matrix_v6/bootstrap_repair_submission.json",
+        "experiments/bus_algorithm_matrix_v6/campaign_jobs.json",
+        "experiments/bus_algorithm_matrix_v6/campaign_submission.json",
+        "experiments/bus_algorithm_matrix_v6/contracts_jobs.json",
+        "experiments/bus_algorithm_matrix_v6/contracts_submission.json",
+        "experiments/bus_algorithm_matrix_v6/full_smoke_jobs.json",
+        "experiments/bus_algorithm_matrix_v6/full_smoke_submission.json",
+        "experiments/bus_algorithm_matrix_v6/node_runtime.json",
+        "experiments/bus_algorithm_matrix_v6/protocol.json",
+        "experiments/bus_algorithm_matrix_v6/reference_smoke_jobs.json",
+        "experiments/bus_algorithm_matrix_v6/reference_smoke_submission.json",
+        "experiments/bus_algorithm_matrix_v6/smoke_jobs.json",
+        "experiments/bus_algorithm_matrix_v6/smoke_submission.json",
+        "experiments/bus_algorithm_matrix_v6/training_id_repair_jobs.json",
+        "experiments/bus_algorithm_matrix_v6/training_id_repair_submission.json"
+      ]
+    },
+    {
+      "version": "csbapr_centering_v7",
+      "group": "奖励、动作及配方对齐",
+      "sources": [
+        "experiments/csbapr_centering_v7/analysis_summary.json"
+      ],
+      "result": "窄零点中心化候选相对旧constant_symbolic，单驻站乘客目标六场景成本均增加2.67至4.57秒；时距目标五场景次要成本降低、10倍略增，双动作多数变差。",
+      "use": "未替代旧软SINDy学习策略。",
+      "local_summary_records": [
+        {
+          "source": "experiments/csbapr_centering_v7/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 8,
+            "training_expected": 8,
+            "evaluation_ready": 144,
+            "evaluation_expected": 144
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/csbapr_centering_v7/campaign_jobs.json",
+        "experiments/csbapr_centering_v7/campaign_submission.json",
+        "experiments/csbapr_centering_v7/node_runtime.json",
+        "experiments/csbapr_centering_v7/protocol.json",
+        "experiments/csbapr_centering_v7/smoke_jobs.json",
+        "experiments/csbapr_centering_v7/smoke_submission.json"
+      ]
+    },
+    {
+      "version": "resac_native_recipe_v8",
+      "group": "奖励、动作及配方对齐",
+      "sources": [
+        "experiments/resac_native_recipe_v8/analysis_summary.json",
+        "experiments/resac_native_recipe_v8/protocol.json"
+      ],
+      "result": "恢复10评论家、batch2048、lr1e-5、100回合的多线路RE-SAC：单驻站时距奖励较SAC六场景均改善，乘客目标只在持续10倍成本更低。复用的constant_symbolic软SINDy相对RE-SAC在乘客目标六场景成本低0.083%至0.549%，时距目标五场景惩罚低10.41%至17.43%，持续10倍退化0.27%。",
+      "use": "用户选定CS-BAPR摘要新来源；不把旧走廊RE-SAC收益冒称本批乘客六场景收益。",
+      "local_summary_records": [
+        {
+          "source": "experiments/resac_native_recipe_v8/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "training_ready": 32,
+            "training_expected": 32,
+            "evaluation_ready": 576,
+            "evaluation_expected": 576
+          }
+        },
+        {
+          "source": "experiments/resac_native_recipe_v8/protocol.json",
+          "recorded_completion": {},
+          "recorded_counts": {
+            "episodes": 100,
+            "training_repetitions": 2
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/resac_native_recipe_v8/campaign_jobs.json",
+        "experiments/resac_native_recipe_v8/campaign_submission.json",
+        "experiments/resac_native_recipe_v8/node_runtime.json",
+        "experiments/resac_native_recipe_v8/preflight_jobs.json",
+        "experiments/resac_native_recipe_v8/preflight_submission.json",
+        "experiments/resac_native_recipe_v8/protocol.json"
+      ]
+    },
+    {
+      "version": "cs_resac_passenger_cohorts_v1",
+      "group": "CS-BAPR乘客与符号后续诊断",
+      "sources": [
+        "experiments/cs_resac_passenger_cohorts_v1/analysis_summary.json",
+        "experiments/cs_resac_passenger_cohorts_v1/结果.md"
+      ],
+      "result": "50倍是600秒短冲击，全日总客流约常态2.64倍。原计划窗口旅客平均候车：RE-SAC146.65升至207.95分钟，稳定化CS146.07升至207.94分钟；冲击下两者几乎相同，不能将算法间0.15%小差解释为冲击只造成0.15%恶化。",
+      "use": "群体补评估，控制器是旧稳定化MLP，不是摘要软SINDy。",
+      "local_summary_records": [
+        {
+          "source": "experiments/cs_resac_passenger_cohorts_v1/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 24
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/cs_resac_passenger_cohorts_v1/evaluate_jobs.json",
+        "experiments/cs_resac_passenger_cohorts_v1/evaluate_submission.json",
+        "experiments/cs_resac_passenger_cohorts_v1/preflight_bootstrap_fix_jobs.json",
+        "experiments/cs_resac_passenger_cohorts_v1/preflight_bootstrap_fix_submission.json",
+        "experiments/cs_resac_passenger_cohorts_v1/preflight_jobs.json",
+        "experiments/cs_resac_passenger_cohorts_v1/preflight_submission.json",
+        "experiments/cs_resac_passenger_cohorts_v1/protocol.json"
+      ]
+    },
+    {
+      "version": "cs_reward_diagnosis_v1",
+      "group": "CS-BAPR乘客与符号后续诊断",
+      "sources": [
+        "experiments/cs_reward_diagnosis_v1/analysis_summary.json",
+        "experiments/cs_reward_diagnosis_v1/诊断结论.md"
+      ],
+      "result": "稳定化CS时距训练常态成本11599.39秒、乘客训练11386.18秒；时距驻站约27秒、乘客约2.75秒。原BAPR一个退化重复造成69%大平均改进；旧冻结环境驻站后不重新开门上客，解释控制目标与乘客收益不一致。",
+      "use": "奖励/环境机制诊断，不属于新主结果。",
+      "local_summary_records": [
+        {
+          "source": "experiments/cs_reward_diagnosis_v1/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 16
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/cs_reward_diagnosis_v1/jobs.json",
+        "experiments/cs_reward_diagnosis_v1/submission.json"
+      ]
+    },
+    {
+      "version": "cs_passenger_alignment_v1",
+      "group": "CS-BAPR乘客与符号后续诊断",
+      "sources": [
+        "experiments/cs_passenger_alignment_v1/analysis_summary.json",
+        "experiments/cs_passenger_alignment_v1/mechanism_summary.json",
+        "experiments/cs_passenger_alignment_v1/结果解读.md"
+      ],
+      "result": "增加乘客信息、全局事件成本对齐后，相对旧版本冲击成本降低0.10%至0.30%，常态增加0.20%；同初始化局部信息消融冲击30/30配对改善，常态6/6变差。",
+      "use": "新乘客接口探索，非全场景主方案。",
+      "local_summary_records": [
+        {
+          "source": "experiments/cs_passenger_alignment_v1/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 234,
+            "expected_evaluations": 234
+          }
+        },
+        {
+          "source": "experiments/cs_passenger_alignment_v1/mechanism_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 234
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/cs_passenger_alignment_v1/formal_jobs.json",
+        "experiments/cs_passenger_alignment_v1/formal_submission.json",
+        "experiments/cs_passenger_alignment_v1/handoff_update_jobs.json",
+        "experiments/cs_passenger_alignment_v1/handoff_update_submission.json",
+        "experiments/cs_passenger_alignment_v1/preflight_jobs.json",
+        "experiments/cs_passenger_alignment_v1/preflight_submission.json",
+        "experiments/cs_passenger_alignment_v1/protocol.json"
+      ]
+    },
+    {
+      "version": "cs_global_norm_ablation_v1",
+      "group": "CS-BAPR乘客与符号后续诊断",
+      "sources": [
+        "experiments/cs_global_norm_ablation_v1/analysis_summary.json",
+        "experiments/cs_global_norm_ablation_v1/mechanism_summary.json",
+        "experiments/cs_global_norm_ablation_v1/结果解读.md"
+      ],
+      "result": "去参数范数补偿后Q损失降低约98%，正Q异常消失；同全局接口常态成本11665.88降至11439.61秒，六场景平均成本均降低，但未在所有场景超过前一局部状态版。",
+      "use": "确认范数补偿/全局奖励尺度耦合；新分支而非摘要选定版。",
+      "local_summary_records": [
+        {
+          "source": "experiments/cs_global_norm_ablation_v1/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 36,
+            "expected_evaluations": 36
+          }
+        },
+        {
+          "source": "experiments/cs_global_norm_ablation_v1/mechanism_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {}
+        }
+      ],
+      "remote_location_records": [
+        "experiments/cs_global_norm_ablation_v1/formal_jobs.json",
+        "experiments/cs_global_norm_ablation_v1/formal_submission.json",
+        "experiments/cs_global_norm_ablation_v1/preflight_jobs.json",
+        "experiments/cs_global_norm_ablation_v1/preflight_submission.json",
+        "experiments/cs_global_norm_ablation_v1/protocol.json"
+      ]
+    },
+    {
+      "version": "cs_terminal_coverage_v1",
+      "group": "CS-BAPR乘客与符号后续诊断",
+      "sources": [
+        "experiments/cs_terminal_coverage_v1/analysis_summary.json",
+        "experiments/cs_terminal_coverage_v1/结果解读.md"
+      ],
+      "result": "强终止边界损失使常态、单次/重复冲击18/18配对成本变差；1至3倍需求覆盖训练五场景均值改善，持续10倍却增加16.35秒，改善由部分训练重复主导。",
+      "use": "不采用强终止约束；需求覆盖不是完整解决。",
+      "local_summary_records": [
+        {
+          "source": "experiments/cs_terminal_coverage_v1/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 72,
+            "expected_evaluations": 72
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/cs_terminal_coverage_v1/formal_jobs.json",
+        "experiments/cs_terminal_coverage_v1/formal_submission.json",
+        "experiments/cs_terminal_coverage_v1/preflight_jobs.json",
+        "experiments/cs_terminal_coverage_v1/preflight_submission.json",
+        "experiments/cs_terminal_coverage_v1/protocol.json"
+      ]
+    },
+    {
+      "version": "cs_policy_response_v1",
+      "group": "CS-BAPR乘客与符号后续诊断",
+      "sources": [
+        "experiments/cs_policy_response_v1/analysis_summary.json",
+        "experiments/cs_policy_response_v1/结论与下一步.md"
+      ],
+      "result": "持续10倍冻结轨迹中一覆盖训练策略驻站均值59.12秒、82.55%动作超59秒；全局队列输入缩至0.3使驻站约59.10降至13.66秒，指出输入外推/饱和，而常态也改变。",
+      "use": "只有冻结状态上的策略响应，未测成本收益。",
+      "local_summary_records": [
+        {
+          "source": "experiments/cs_policy_response_v1/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 36
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/cs_policy_response_v1/formal_jobs.json",
+        "experiments/cs_policy_response_v1/formal_submission.json",
+        "experiments/cs_policy_response_v1/protocol.json",
+        "experiments/cs_policy_response_v1/smoke_jobs.json",
+        "experiments/cs_policy_response_v1/smoke_submission.json"
+      ]
+    },
+    {
+      "version": "cs_source_envelope_v1",
+      "group": "CS-BAPR乘客与符号后续诊断",
+      "sources": [
+        "experiments/cs_source_envelope_v1/analysis_summary.json",
+        "experiments/cs_source_envelope_v1/fit_summary.json",
+        "experiments/cs_source_envelope_v1/结论与下一步.md"
+      ],
+      "result": "源域1至3倍数据拟合的全天输入上限，将持续10倍成本17076.34降至17031.64秒（6/6改善），常态/50倍不变；分时段/分线路压缩方向不稳定。",
+      "use": "采用全天投影作后续参照，不从目标标签定上限。",
+      "local_summary_records": [
+        {
+          "source": "experiments/cs_source_envelope_v1/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 36
+          }
+        },
+        {
+          "source": "experiments/cs_source_envelope_v1/fit_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {}
+        }
+      ],
+      "remote_location_records": [
+        "experiments/cs_source_envelope_v1/formal_jobs.json",
+        "experiments/cs_source_envelope_v1/formal_submission.json",
+        "experiments/cs_source_envelope_v1/probe_jobs.json",
+        "experiments/cs_source_envelope_v1/probe_submission.json",
+        "experiments/cs_source_envelope_v1/protocol.json",
+        "experiments/cs_source_envelope_v1/smoke_jobs.json",
+        "experiments/cs_source_envelope_v1/smoke_submission.json"
+      ]
+    },
+    {
+      "version": "cs_phase_total_v1",
+      "group": "CS-BAPR乘客与符号后续诊断",
+      "sources": [
+        "experiments/cs_phase_total_v1/analysis_summary.json",
+        "experiments/cs_phase_total_v1/结论与下一步.md"
+      ],
+      "result": "分时段全局投影持续10倍成本17023.82秒，较无上限低52.52、较全天低7.83秒，但相对全天仅3/6改善；50倍比无上限高14.19秒。",
+      "use": "不替代更稳定全天投影。",
+      "local_summary_records": [
+        {
+          "source": "experiments/cs_phase_total_v1/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 18
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/cs_phase_total_v1/formal_jobs.json",
+        "experiments/cs_phase_total_v1/formal_submission.json",
+        "experiments/cs_phase_total_v1/protocol.json",
+        "experiments/cs_phase_total_v1/smoke_jobs.json",
+        "experiments/cs_phase_total_v1/smoke_submission.json"
+      ]
+    },
+    {
+      "version": "cs_input_training_v1",
+      "group": "CS-BAPR乘客与符号后续诊断",
+      "sources": [
+        "experiments/cs_input_training_v1/analysis_summary.json",
+        "experiments/cs_input_training_v1/结果与下一步.md"
+      ],
+      "result": "源尺度归一化/硬上限重训：持续10倍成本低74.55秒、50倍低33.63秒，常态反增60.84秒且6/6变差；对数压缩常态只低1.94秒，训练重复不稳。",
+      "use": "输入修复改善冲击但损害常态，继续诊断而非采用。",
+      "local_summary_records": [
+        {
+          "source": "experiments/cs_input_training_v1/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 36
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/cs_input_training_v1/formal_jobs.json",
+        "experiments/cs_input_training_v1/formal_submission.json",
+        "experiments/cs_input_training_v1/preflight_jobs.json",
+        "experiments/cs_input_training_v1/preflight_submission.json",
+        "experiments/cs_input_training_v1/protocol.json"
+      ]
+    },
+    {
+      "version": "cs_clip_ablation_v1",
+      "group": "CS-BAPR乘客与符号后续诊断",
+      "sources": [
+        "experiments/cs_clip_ablation_v1/analysis_summary.json",
+        "experiments/cs_clip_ablation_v1/结果与下一步.md"
+      ],
+      "result": "冻结新策略仅移除测试硬截断：常态和50倍结果完全不变，持续10倍成本再低0.30秒；前批大收益不是仅靠测试截断产生。",
+      "use": "推理截断作用分离，不是重训。",
+      "local_summary_records": [
+        {
+          "source": "experiments/cs_clip_ablation_v1/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 18
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/cs_clip_ablation_v1/formal_jobs.json",
+        "experiments/cs_clip_ablation_v1/formal_submission.json",
+        "experiments/cs_clip_ablation_v1/protocol.json",
+        "experiments/cs_clip_ablation_v1/smoke_jobs.json",
+        "experiments/cs_clip_ablation_v1/smoke_submission.json"
+      ]
+    },
+    {
+      "version": "cs_source_validation_v1",
+      "group": "CS-BAPR乘客与符号后续诊断",
+      "sources": [
+        "experiments/cs_source_validation_v1/analysis_summary.json",
+        "experiments/cs_source_validation_v1/结果与下一步.md"
+      ],
+      "result": "五个新源留出日：新归一化策略常态成本高63.52秒（0/10改善），源加权平均13016.12高于旧12994.74；过量驻站已在源域发生，不能只归因目标偏移。",
+      "use": "源验证否决该统一替换。",
+      "local_summary_records": [
+        {
+          "source": "experiments/cs_source_validation_v1/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 125
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/cs_source_validation_v1/formal_jobs.json",
+        "experiments/cs_source_validation_v1/formal_submission.json",
+        "experiments/cs_source_validation_v1/protocol.json",
+        "experiments/cs_source_validation_v1/smoke_jobs.json",
+        "experiments/cs_source_validation_v1/smoke_submission.json"
+      ]
+    },
+    {
+      "version": "cs_source_anchor_v1",
+      "group": "CS-BAPR乘客与符号后续诊断",
+      "sources": [
+        "experiments/cs_source_anchor_v1/analysis_summary.json",
+        "experiments/cs_source_anchor_v1/结果与下一步.md"
+      ],
+      "result": "旧源常态策略作动作锚，强约束10在常态/持续10倍/50倍平均成本低11.27/72.83/34.40秒，均6/6改善；固定源加权验证却选弱约束1，不能按目标结果改选强约束。",
+      "use": "正向修复探索，源选择与目标结果分开。",
+      "local_summary_records": [
+        {
+          "source": "experiments/cs_source_anchor_v1/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 136
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/cs_source_anchor_v1/formal_jobs.json",
+        "experiments/cs_source_anchor_v1/formal_submission.json",
+        "experiments/cs_source_anchor_v1/preflight_jobs.json",
+        "experiments/cs_source_anchor_v1/preflight_submission.json",
+        "experiments/cs_source_anchor_v1/protocol.json"
+      ]
+    },
+    {
+      "version": "cs_symbolic_anchor_v1",
+      "group": "CS-BAPR乘客与符号后续诊断",
+      "sources": [
+        "experiments/cs_symbolic_anchor_v1/analysis_summary.json",
+        "experiments/cs_symbolic_anchor_v1/结果与下一步.md"
+      ],
+      "result": "新中心化符号策略弱锚0相对旧覆盖策略，常态/持续10倍/50倍成本低17.44/69.28/30.31秒；源50/50配对改善，50倍目标仅3/6改善。较强MLP在极端场景仍可更好。",
+      "use": "另一个新训练分支，不是摘要采用的旧smooth_soft。",
+      "local_summary_records": [
+        {
+          "source": "experiments/cs_symbolic_anchor_v1/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 136
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/cs_symbolic_anchor_v1/formal_jobs.json",
+        "experiments/cs_symbolic_anchor_v1/formal_submission.json",
+        "experiments/cs_symbolic_anchor_v1/preflight_jobs.json",
+        "experiments/cs_symbolic_anchor_v1/preflight_submission.json",
+        "experiments/cs_symbolic_anchor_v1/protocol.json"
+      ]
+    },
+    {
+      "version": "cs_symbolic_frozen_v1",
+      "group": "CS-BAPR乘客与符号后续诊断",
+      "sources": [
+        "experiments/cs_symbolic_frozen_v1/analysis_summary.json",
+        "experiments/cs_symbolic_frozen_v1/结果与下一步.md"
+      ],
+      "result": "冻结消融中约2秒常驻站在八个源/目标条件均值均低于完整策略；直接SINDy反馈68/68配对变差。相同512状态最低成本多选0秒，温度0.25软平均却约13.65秒，说明反馈温度/成本尺度耦合。",
+      "use": "解释诊断，约2秒固定动作不是最终CS-BAPR学习算法。",
+      "local_summary_records": [
+        {
+          "source": "experiments/cs_symbolic_frozen_v1/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 204
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/cs_symbolic_frozen_v1/formal_jobs.json",
+        "experiments/cs_symbolic_frozen_v1/formal_submission.json",
+        "experiments/cs_symbolic_frozen_v1/protocol.json",
+        "experiments/cs_symbolic_frozen_v1/smoke_jobs.json",
+        "experiments/cs_symbolic_frozen_v1/smoke_submission.json"
+      ]
+    },
+    {
+      "version": "cs_symbolic_temperature_v1",
+      "group": "CS-BAPR乘客与符号后续诊断",
+      "sources": [
+        "experiments/cs_symbolic_temperature_v1/analysis_summary.json",
+        "experiments/cs_symbolic_temperature_v1/结果与下一步.md"
+      ],
+      "result": "温度0.01相对0.25在68/68配对改善，源加权成本12958.30秒；但持续10倍17035.29及50倍21021.99仍差于约2秒固定17004.51/20973.19和完整学习策略。降低温度未解决冲击收益。",
+      "use": "末轮诊断未采用；用户最终选择旧软SINDy与native RE-SAC比较。",
+      "local_summary_records": [
+        {
+          "source": "experiments/cs_symbolic_temperature_v1/analysis_summary.json",
+          "recorded_completion": {
+            "complete": true
+          },
+          "recorded_counts": {
+            "evaluations": 204
+          }
+        }
+      ],
+      "remote_location_records": [
+        "experiments/cs_symbolic_temperature_v1/formal_jobs.json",
+        "experiments/cs_symbolic_temperature_v1/formal_submission.json",
+        "experiments/cs_symbolic_temperature_v1/protocol.json",
+        "experiments/cs_symbolic_temperature_v1/smoke_jobs.json",
+        "experiments/cs_symbolic_temperature_v1/smoke_submission.json"
+      ]
+    }
+  ],
+  "family_results": {
+    "BASE": "输入为继承的课题组路网、OD、线路和时刻表，不是控制结果；走廊与多线路SUMO分别建模。",
+    "FID": "运行时长、留出轨迹与固定驻站干预显示两种仿真并不相同，用于说明转移模型偏差；示例轨迹不代表策略优劣。",
+    "R-ARCHIVE": "历史RE-SAC K=5/20运行回报约-396/-392千，SAC约-562千；扩展训练另列，集成规模非单调。",
+    "R-RULE-REPORTED": "当前表3-2是原论文固定规则报告值，对应逐回合原始记录未恢复；不得冒称已复评。",
+    "R-TEMP": "估计对齐在两种温度下系统回报差均为正（0.880/9.938），动作差拟合与滚动聚合收益不一致；不把温度通道解释为普遍收益。",
+    "R-REP": "常态学习嵌入成本1527.82秒，低于屏蔽1601.86、独热1671.42；快速切换保持同方向。",
+    "R-REWARD": "计划奖励统一回报较指数更好，但指数1秒加动作项乘客成本最低且时距不均衡最大，体现目标权衡。",
+    "R-ENHANCE": "五重复嵌入在三场景成本/不均衡均胜独热；分歧项完整配置时距回报均更好，但常态乘客成本不胜两项关闭。",
+    "R-OBS": "补充同一奖励实验的车辆运行与乘客成本：时距回报改善和广义时间最低不是同一奖励配置。",
+    "R-K": "K=5两场景平均计划偏差及乘客时间最佳，不支持评论家越多越好。",
+    "R-MATRIX-OLD": "单驻站走廊RE-SAC较集成参照计划偏差低5.05%至7.12%、乘客成本低4.02%至14.20%；不是native-v8多线路SAC参照。",
+    "C-REPORTED": "完整稳定化配置较原BAPR原生回报普遍更好，输出头最优随需求变化；NAU不是所有条件最佳。",
+    "C-PAIR": "早期BAPR常态乘客成本低于RE-SAC16.56秒，慢/快切换更高；不能称所有非平稳条件均更优。",
+    "C-RECOVERY": "三方法两次运行均未在观察窗内恢复；额外候车差异小，不把回报优势改称队列恢复。",
+    "B-COMP": "非公交执行器变化确认：BAPR补偿相对RE-SAC平均回报高936.90，9/10训练、27/30事件流改善；不是公交乘客收益。",
+    "C-REPEAT": "算术头的控制回报更高，但五场景候车增加0.0626%至0.0816%；ReLU候车小幅下降。",
+    "C-BC": "NAU开启BC后三场景回报均降低；结构和BC并非必然互补。",
+    "C-STABLE-V5": "相对原BAPR，稳定化MLP时距惩罚低58.82%至69.79%；乘客奖励成本高0.068%至0.268%，这是旧表真实值而非软SINDy新结论。",
+    "C-NATIVE-V8": "稳定化MLP较native RE-SAC乘客成本常态/重复5倍低57.73/35.68秒，参照已改变；不与旧BAPR表混用。",
+    "C-SOFT-SINDY-V3": "摘要选定软SINDy：乘客目标六场景成本低0.083%至0.549%；时距目标五场景惩罚低10.41%至17.43%，持续10倍轻微退化0.27%。",
+    "H-TOY": "说明性采样实验，解释有限估计与再次采样，不是公交优化结果。",
+    "H-OFFLINE": "选定WSRL回报约-710544，优于在线SAC约-789432；但在线SAC候车296秒低于WSRL301秒，不能由回报推出所有乘客指标最佳。",
+    "H-FORMAL-V20": "1350组合评价：候选完成保障较同学习策略父保障人均广义时间低92.12秒（3.71%），完成率高0.466个百分点；不是无保障学习算法单独贡献。",
+    "H-ATTR-V1": "短预算提前60秒保障层：混合较纯离线低11.80秒、纯源低0.92秒，但较计划间隔规则高0.98秒。",
+    "RATIO-V2": "修正源留出后的混合成本两需求均低于纯离线/纯源；固定直接模型更低，残差与校准选择增量依需求变化。",
+    "H-GUARD-OBS": "同乘客集合分解显示保障对随后上车群体收益更大，同时车内时间可增加；观测不是另一次全体总体比较。",
+    "H-COST": "历史SUMO开发访问和计算耗时台账，非算法效果数据；未保留的早期尝试不计入。",
+    "M-ORIGINAL": "十重复通用RL：校准MC-WM Ant/重力/Walker回报4084.9/4954.8/394.6；Walker并非最高回报，但违例较小。不是公交实验。",
+    "M-ROUTE": "精确类别反事实：Ant直接选择回报增益区间为正，重力/Walker回报差区间跨零；不证明类别选择在所有任务带来额外控制收益。",
+    "M-SPARSE": "Ant稠密减稀疏残差平均回报差29.67，95%区间[-546.09,652.76]跨零，未形成可靠稠密优势；不是公交无世界模型消融。",
+    "M-ALIGN-V2": "三重复正常/25%偏差小幅平均收益，50%偏差基本持平；六格成本差为-9.68/-32.60/-12.02/-7.48/+1.43/-1.65秒。",
+    "M-LOSS-R3": "旧MC相对混合/缩放参照的收益随偏差改变，配对区间跨零；总计算37.49分钟较H2O+21.17分钟更高。",
+    "M-USAGE-V3": "归一化模型使用恢复后六条件平均成本均改善；相同保障固定规则补充中60/60逐日成本改善，但时距绝对误差不更优。",
+    "M-SEED-V13": "固定TD0.25相对无模型混合组正常/50%/75%成本低51.14/69.93/87.05秒，改善16/20、19/20、19/20；开发选择留出表另列。",
+    "M-CONTEXT-V14": "四重复共享门控50%/75%偏差成本低8.16/2.69秒，3/4、2/4改善；不是上下文已稳定全面胜出。",
+    "M-HW-V19": "单驻站时距补充：保障下常态成本低1.03秒、高偏差低13.36秒；直接执行高偏差高2.34秒。",
+    "F-PILOT": "最早接入成本降低0.134%，四条件两项改善、完成率轻微下降，不作成熟方法确认。",
+    "F-FINAL-225": "同条件最终MC-WM2360.49、完整H2O+2383.51、纯源SAC2400.74秒；MC对SAC低40.25秒且区间不跨零，对H2O+低23.02秒但区间跨零。",
+    "F-EARLY-BIAS": "单训练重复早期探索：常态高需求成本下降0.797%，OD25%及路口25%高需求反增0.141%/0.703%；标定因素收益不一致，与图F-2最终225不是同一批。"
+  },
+  "selected_cs": {
+    "source": "experiments/resac_native_recipe_v8/analysis_summary.json",
+    "mode": "holding",
+    "training_episodes": 100,
+    "lineage": "bus_control_repair_v3/smooth_soft -> bus_algorithm_matrix_v6/constant_symbolic -> resac_native_recipe_v8 matched comparison",
+    "adopted_position": "用户2026-10-09选定的摘要第(2)项替换文字；未修改导师Word",
+    "calculation": "各场景六个配对差取平均；CS均值=RE-SAC均值+平均差；百分比以RE-SAC均值为分母。时距惩罚以平均负奖励绝对值为分母。",
+    "rows": [
+      {
+        "objective": "passenger",
+        "scene": "normal",
+        "scene_name": "常态",
+        "paired_cases": 6,
+        "training_seeds": [
+          64001,
+          64002
+        ],
+        "reference": "resac",
+        "arm": "constant_symbolic",
+        "resac_cost_seconds": 11443.91129136692,
+        "cs_cost_seconds": 11381.109272985797,
+        "cost_delta_seconds": -62.80201838112165,
+        "cost_reduction_pct": 0.5487810660372591,
+        "resac_reward": -6956716.852832442,
+        "cs_reward": -6670520.707278566,
+        "headway_penalty_reduction_pct": null,
+        "cost_improved_pairs": 3,
+        "reward_improved_pairs": 3,
+        "plan_error_delta_seconds": -7.347985606517564,
+        "imbalance_delta_seconds": -11.880659849445834
+      },
+      {
+        "objective": "passenger",
+        "scene": "pulse5",
+        "scene_name": "5倍单次冲击",
+        "paired_cases": 6,
+        "training_seeds": [
+          64001,
+          64002
+        ],
+        "reference": "resac",
+        "arm": "constant_symbolic",
+        "resac_cost_seconds": 15291.759120125364,
+        "cs_cost_seconds": 15224.402906509438,
+        "cost_delta_seconds": -67.3562136159256,
+        "cost_reduction_pct": 0.44047393819641467,
+        "resac_reward": -13713553.885261972,
+        "cs_reward": -13009681.337400833,
+        "headway_penalty_reduction_pct": null,
+        "cost_improved_pairs": 3,
+        "reward_improved_pairs": 3,
+        "plan_error_delta_seconds": -7.428216367048542,
+        "imbalance_delta_seconds": -15.8239795611523
+      },
+      {
+        "objective": "passenger",
+        "scene": "repeated5",
+        "scene_name": "5倍重复冲击",
+        "paired_cases": 6,
+        "training_seeds": [
+          64001,
+          64002
+        ],
+        "reference": "resac",
+        "arm": "constant_symbolic",
+        "resac_cost_seconds": 13401.219165475191,
+        "cs_cost_seconds": 13356.590365650023,
+        "cost_delta_seconds": -44.62879982516885,
+        "cost_reduction_pct": 0.33302044593184116,
+        "resac_reward": -18695226.727020048,
+        "cs_reward": -17861121.923586756,
+        "headway_penalty_reduction_pct": null,
+        "cost_improved_pairs": 3,
+        "reward_improved_pairs": 3,
+        "plan_error_delta_seconds": -8.716960866798658,
+        "imbalance_delta_seconds": -20.075869285667792
+      },
+      {
+        "objective": "passenger",
+        "scene": "static5",
+        "scene_name": "5倍持续需求",
+        "paired_cases": 6,
+        "training_seeds": [
+          64001,
+          64002
+        ],
+        "reference": "resac",
+        "arm": "constant_symbolic",
+        "resac_cost_seconds": 16115.366114895449,
+        "cs_cost_seconds": 16087.582089912086,
+        "cost_delta_seconds": -27.784024983361935,
+        "cost_reduction_pct": 0.17240703552915954,
+        "resac_reward": -51722553.18993145,
+        "cs_reward": -49008152.98364521,
+        "headway_penalty_reduction_pct": null,
+        "cost_improved_pairs": 3,
+        "reward_improved_pairs": 3,
+        "plan_error_delta_seconds": -11.541623661134054,
+        "imbalance_delta_seconds": -19.956598546209708
+      },
+      {
+        "objective": "passenger",
+        "scene": "static10",
+        "scene_name": "10倍持续需求",
+        "paired_cases": 6,
+        "training_seeds": [
+          64001,
+          64002
+        ],
+        "reference": "resac",
+        "arm": "constant_symbolic",
+        "resac_cost_seconds": 16984.475904516294,
+        "cs_cost_seconds": 16970.298738728543,
+        "cost_delta_seconds": -14.177165787751315,
+        "cost_reduction_pct": 0.08347131738095909,
+        "resac_reward": -109386981.88210869,
+        "cs_reward": -104499663.30515915,
+        "headway_penalty_reduction_pct": null,
+        "cost_improved_pairs": 3,
+        "reward_improved_pairs": 3,
+        "plan_error_delta_seconds": -9.210939902846382,
+        "imbalance_delta_seconds": -16.169745125804212
+      },
+      {
+        "objective": "passenger",
+        "scene": "burst50",
+        "scene_name": "50倍短时冲击",
+        "paired_cases": 6,
+        "training_seeds": [
+          64001,
+          64002
+        ],
+        "reference": "resac",
+        "arm": "constant_symbolic",
+        "resac_cost_seconds": 21025.416659203478,
+        "cs_cost_seconds": 20973.841478653172,
+        "cost_delta_seconds": -51.575180550304744,
+        "cost_reduction_pct": 0.24529920803128857,
+        "resac_reward": -37111943.39800822,
+        "cs_reward": -35129630.77439949,
+        "headway_penalty_reduction_pct": null,
+        "cost_improved_pairs": 3,
+        "reward_improved_pairs": 3,
+        "plan_error_delta_seconds": -12.089538910149107,
+        "imbalance_delta_seconds": -19.107040093804347
+      },
+      {
+        "objective": "headway",
+        "scene": "normal",
+        "scene_name": "常态",
+        "paired_cases": 6,
+        "training_seeds": [
+          64001,
+          64002
+        ],
+        "reference": "resac",
+        "arm": "constant_symbolic",
+        "resac_cost_seconds": 11798.04602164718,
+        "cs_cost_seconds": 11581.955270245895,
+        "cost_delta_seconds": -216.09075140128456,
+        "cost_reduction_pct": 1.8315808482591012,
+        "resac_reward": -100.08216715811781,
+        "cs_reward": -82.74875313125196,
+        "headway_penalty_reduction_pct": 17.319183346101152,
+        "cost_improved_pairs": 6,
+        "reward_improved_pairs": 6,
+        "plan_error_delta_seconds": 1.0060192046309997,
+        "imbalance_delta_seconds": 3.958378067324072
+      },
+      {
+        "objective": "headway",
+        "scene": "pulse5",
+        "scene_name": "5倍单次冲击",
+        "paired_cases": 6,
+        "training_seeds": [
+          64001,
+          64002
+        ],
+        "reference": "resac",
+        "arm": "constant_symbolic",
+        "resac_cost_seconds": 15587.472079834899,
+        "cs_cost_seconds": 15396.59197753506,
+        "cost_delta_seconds": -190.88010229984016,
+        "cost_reduction_pct": 1.224573820066544,
+        "resac_reward": -101.1115910107976,
+        "cs_reward": -83.48292381068535,
+        "headway_penalty_reduction_pct": 17.434862832125443,
+        "cost_improved_pairs": 6,
+        "reward_improved_pairs": 6,
+        "plan_error_delta_seconds": 0.33147711576115313,
+        "imbalance_delta_seconds": 4.185312681286374
+      },
+      {
+        "objective": "headway",
+        "scene": "repeated5",
+        "scene_name": "5倍重复冲击",
+        "paired_cases": 6,
+        "training_seeds": [
+          64001,
+          64002
+        ],
+        "reference": "resac",
+        "arm": "constant_symbolic",
+        "resac_cost_seconds": 13595.479586443187,
+        "cs_cost_seconds": 13466.97558145791,
+        "cost_delta_seconds": -128.5040049852778,
+        "cost_reduction_pct": 0.9451965571954984,
+        "resac_reward": -101.65576858220697,
+        "cs_reward": -86.5529161653131,
+        "headway_penalty_reduction_pct": 14.856857242371346,
+        "cost_improved_pairs": 6,
+        "reward_improved_pairs": 6,
+        "plan_error_delta_seconds": 0.9377034622411907,
+        "imbalance_delta_seconds": 6.210718845366024
+      },
+      {
+        "objective": "headway",
+        "scene": "static5",
+        "scene_name": "5倍持续需求",
+        "paired_cases": 6,
+        "training_seeds": [
+          64001,
+          64002
+        ],
+        "reference": "resac",
+        "arm": "constant_symbolic",
+        "resac_cost_seconds": 16234.190796925617,
+        "cs_cost_seconds": 16160.272807360425,
+        "cost_delta_seconds": -73.91798956519172,
+        "cost_reduction_pct": 0.4553229076203176,
+        "resac_reward": -100.169589802355,
+        "cs_reward": -89.73732253248511,
+        "headway_penalty_reduction_pct": 10.414605161560358,
+        "cost_improved_pairs": 6,
+        "reward_improved_pairs": 6,
+        "plan_error_delta_seconds": 0.7407408235846186,
+        "imbalance_delta_seconds": 5.484279969020034
+      },
+      {
+        "objective": "headway",
+        "scene": "static10",
+        "scene_name": "10倍持续需求",
+        "paired_cases": 6,
+        "training_seeds": [
+          64001,
+          64002
+        ],
+        "reference": "resac",
+        "arm": "constant_symbolic",
+        "resac_cost_seconds": 17041.522897297567,
+        "cs_cost_seconds": 17010.3648080609,
+        "cost_delta_seconds": -31.158089236671003,
+        "cost_reduction_pct": 0.18283629593697892,
+        "resac_reward": -103.56825889682048,
+        "cs_reward": -103.852796235734,
+        "headway_penalty_reduction_pct": -0.27473411443267826,
+        "cost_improved_pairs": 6,
+        "reward_improved_pairs": 3,
+        "plan_error_delta_seconds": 1.4146002326006932,
+        "imbalance_delta_seconds": 8.804817847141043
+      },
+      {
+        "objective": "headway",
+        "scene": "burst50",
+        "scene_name": "50倍短时冲击",
+        "paired_cases": 6,
+        "training_seeds": [
+          64001,
+          64002
+        ],
+        "reference": "resac",
+        "arm": "constant_symbolic",
+        "resac_cost_seconds": 21225.996597476726,
+        "cs_cost_seconds": 21097.449742313245,
+        "cost_delta_seconds": -128.54685516348158,
+        "cost_reduction_pct": 0.6056104577853498,
+        "resac_reward": -101.98149116768435,
+        "cs_reward": -89.1207323435929,
+        "headway_penalty_reduction_pct": 12.610875441059186,
+        "cost_improved_pairs": 6,
+        "reward_improved_pairs": 6,
+        "plan_error_delta_seconds": 0.6964682198282593,
+        "imbalance_delta_seconds": 5.598958099577357
+      }
+    ]
+  }
+}

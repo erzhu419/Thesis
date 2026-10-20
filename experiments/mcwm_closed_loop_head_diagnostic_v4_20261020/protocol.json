@@ -1,0 +1,196 @@
+{
+  "name": "thesis-mcwm-head-diagnostic-v4-20261020",
+  "training_seeds": [
+    6201,
+    6202,
+    6203,
+    6204,
+    6205
+  ],
+  "target_seed_offset": 77000,
+  "arms": [
+    "action_real",
+    "action_model",
+    "action_local"
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "history_seed": 72021,
+  "history_rows": 32768,
+  "history_blocks": [
+    1201,
+    1202,
+    1203,
+    1204,
+    1205,
+    1206,
+    1207,
+    1208,
+    1209,
+    1210
+  ],
+  "recent_window": 285,
+  "source_rows": 4096,
+  "model_init_updates": 400,
+  "model_refit_updates": 10,
+  "policy_updates_per_packet": 8,
+  "feedback_first_deadline": 1200,
+  "feedback_last_deadline": 18000,
+  "feedback_interval_seconds": 300,
+  "feedback_records_per_packet": 5,
+  "feedback_delay_seconds": 30,
+  "target_record_budget": 285,
+  "policy_update_budget": 456,
+  "shock_at_seconds": 9000,
+  "speed_factor": 0.65,
+  "metric_interval_seconds": 300,
+  "recovery_interval_seconds": [
+    9000,
+    18000
+  ],
+  "recovery_tolerance_fraction": 0.1,
+  "recovery_consecutive_bins": 3,
+  "model_td_fraction": 0.25,
+  "selection": "Passive head diagnosis reproduces v3 model/local on original fixed6201/6202. Stability extension uses all remaining previously fixed6203/6204/6205 with real075/model. No outcome-based seed selection; original2 and fresh3 reported separately.",
+  "data_rights": "Exactly five selected distinct positive-time nonterminal GLOBAL outcomes per fixed window,285total. Only selected global labels enter global replay, refit or readout. Independently budget all eligible direct same-trip physical intervals released<=18000,delay30, as already defined by physical_budget.",
+  "control_comparison": "20 explicit run_cells. Reproduce action_model/action_local on6201/6202, extend action_real075/action_model on6203..6205. Shared v3 initialization,24k horizon,285global labels and456updates. Passive diagnostics add no learner samples/optimizersteps.",
+  "source_budget": "Same resident4096 source rows and102 source physical intervals for all arms. No new source simulator collection.",
+  "interpretation": "Development diagnosis. Original2 screened seeds and fresh3 remaining fixed seeds reported separately; all5 paired estimates are exploratory, not formal independent confirmation. Bins and model samples are not training-seed replicates.",
+  "purpose": "New passive four-global-head and per-head TD diagnosis plus the remaining fixed-seed stability screen; no changes to v3 training, execution, local readout, model weight or budgets.",
+  "reference_inputs": "../mcwm_closed_loop_formal_20261020/inputs",
+  "source_calibration_seed": 9102,
+  "source_calibration_policy_seed": 6201,
+  "source_intervals_per_line_limit": 64,
+  "source_intervals_per_line_minimum": 5,
+  "diagnostic_every_packet_update": 0,
+  "physical_feedback_end_seconds": 18000,
+  "physical_prediction": "Identical passive source/online/local interval predictors in all arms. Only action_local feeds calibrated line shifts into a learned zero-initialized global world readout.",
+  "physical_budget": "All direct same-trip physical labels released with available_at<=18000, delay30. Count separately by arm/line/period; same eligibility/source initialization in all arms, realized labels may differ with policies.",
+  "source_calibration": "Reuse read-only diagnostic v2 source calibration102 intervals, no new source or target collection for initialization.",
+  "result_scope": "Headwise signed bias/MAE/MSE in standardized/rawphysical/decoded units and decoder saturation, saved issue-time context/line/station. Same-actual-model-batch per-head removal contrasts with common decoder/target draws and fixed actual trust; no additive causal decomposition claim. First2 exactcostreproduction, fresh3 and combined5 stability costs in full/9k18k/18300-24k windows.",
+  "reference_source_intervals": "../mcwm_closed_loop_diagnostic_v2_20261020/inputs/source_intervals.json",
+  "execution_contract": "New arms optimize a latent proposal policy with unchanged proposal entropy; actor and target Q evaluate F_canonical(s,u), imagination and trust use the same transform, deployed once. Canonical state clips headways so F_canonical may differ from original raw-v19 rule; measure rather than assume equivalence.",
+  "local_world": "Per-line source-reference duration shifts from delayed same-vehicle labels become route and executed-action features. A no-intercept zero-initialized ridge readout learns normalized corrections to four existing global heads from selected delayed global SMDP outcomes; never substitute local interval for global dt/cost.",
+  "decision": "Diagnose which global heads and phases misalign, assess action-consistent model vs real075 on remaining fixed seeds. Keep v3 and all earlier results immutable. Do not tune readout coefficients, model fraction or controller while this batch is running; no formal batch automatically.",
+  "run_cells": [
+    {
+      "seed": 6201,
+      "scenario": "stable",
+      "arm": "action_model"
+    },
+    {
+      "seed": 6201,
+      "scenario": "stable",
+      "arm": "action_local"
+    },
+    {
+      "seed": 6201,
+      "scenario": "local_speed_drop",
+      "arm": "action_model"
+    },
+    {
+      "seed": 6201,
+      "scenario": "local_speed_drop",
+      "arm": "action_local"
+    },
+    {
+      "seed": 6202,
+      "scenario": "stable",
+      "arm": "action_model"
+    },
+    {
+      "seed": 6202,
+      "scenario": "stable",
+      "arm": "action_local"
+    },
+    {
+      "seed": 6202,
+      "scenario": "local_speed_drop",
+      "arm": "action_model"
+    },
+    {
+      "seed": 6202,
+      "scenario": "local_speed_drop",
+      "arm": "action_local"
+    },
+    {
+      "seed": 6203,
+      "scenario": "stable",
+      "arm": "action_real"
+    },
+    {
+      "seed": 6203,
+      "scenario": "stable",
+      "arm": "action_model"
+    },
+    {
+      "seed": 6203,
+      "scenario": "local_speed_drop",
+      "arm": "action_real"
+    },
+    {
+      "seed": 6203,
+      "scenario": "local_speed_drop",
+      "arm": "action_model"
+    },
+    {
+      "seed": 6204,
+      "scenario": "stable",
+      "arm": "action_real"
+    },
+    {
+      "seed": 6204,
+      "scenario": "stable",
+      "arm": "action_model"
+    },
+    {
+      "seed": 6204,
+      "scenario": "local_speed_drop",
+      "arm": "action_real"
+    },
+    {
+      "seed": 6204,
+      "scenario": "local_speed_drop",
+      "arm": "action_model"
+    },
+    {
+      "seed": 6205,
+      "scenario": "stable",
+      "arm": "action_real"
+    },
+    {
+      "seed": 6205,
+      "scenario": "stable",
+      "arm": "action_model"
+    },
+    {
+      "seed": 6205,
+      "scenario": "local_speed_drop",
+      "arm": "action_real"
+    },
+    {
+      "seed": 6205,
+      "scenario": "local_speed_drop",
+      "arm": "action_model"
+    }
+  ],
+  "head_diagnostic_seeds": [
+    6201,
+    6202
+  ],
+  "extension_seeds": [
+    6203,
+    6204,
+    6205
+  ],
+  "post_update_holdout_seconds": [
+    18300,
+    24000
+  ],
+  "reference_v3": "../mcwm_closed_loop_action_local_v3_20261020",
+  "reference_v2": "../mcwm_closed_loop_diagnostic_v2_20261020"
+}

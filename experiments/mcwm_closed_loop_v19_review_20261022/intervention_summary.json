@@ -1,0 +1,1240 @@
+{
+  "status": "complete",
+  "mode": "fixed_execution_phase_diagnosis",
+  "integrity": {
+    "all_pass": true,
+    "checks": {
+      "source_contract": true,
+      "fixed_anchors_selected": true,
+      "all_branches_terminal": true,
+      "all_intervention_checks": true,
+      "diagnostic_truth_not_fit": true,
+      "suffix_budget": true
+    }
+  },
+  "source": {
+    "integrity": {
+      "all_pass": true,
+      "check_count": 14,
+      "failed_checks": []
+    },
+    "budget": {
+      "target_labels": 285,
+      "ordinary_labels": 267,
+      "paired_action_labels": 18,
+      "training_pairs": 9,
+      "paired_outcomes_per_pair": 2,
+      "packets": 57,
+      "native_seconds": 24000.0,
+      "policy_updates": 456,
+      "trust_updates": 456,
+      "world_updates": 1140
+    },
+    "initializer": {
+      "path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_formal_20261020/inputs/h2oplus_seed6201.pt",
+      "initial_updates": 50000,
+      "history_rows": 32768,
+      "source_rows": 4096
+    }
+  },
+  "budget": {
+    "new_main_days": 0,
+    "new_training_labels": 0,
+    "diagnostic_action_outcomes": 6,
+    "completed_tail_outcomes": 6,
+    "completed_tail_suffix_seconds": 1800,
+    "suffix_seconds_planned": 1800,
+    "reused_native_action_outcomes": 6,
+    "prefix_replay_seconds": 101600.0,
+    "replayed_target_labels": 1590,
+    "replayed_policy_updates": 2544,
+    "failed_prefix_replay": {
+      "task": "t211043",
+      "native_seconds_replayed": 2737,
+      "replayed_target_labels": 30,
+      "replayed_policy_updates": 48,
+      "new_suffix_seconds": 0,
+      "new_diagnostic_action_outcomes": 0,
+      "reason": "Saved source acquisitions carry nominal_a, not plan-only nominal_arm; preserve failed output and retest from the same fixed source.",
+      "last_packet_progress_seconds": 2703
+    },
+    "total_prefix_replay_seconds": 104337.0,
+    "total_replayed_target_labels": 1620,
+    "total_replayed_policy_updates": 2592,
+    "truth_labels_enter_training": 0,
+    "preflight_is_first_of_six": true
+  },
+  "branch_statuses": {
+    "complete": 12
+  },
+  "cases": [
+    {
+      "line_id": "7X",
+      "target_id": "train/7X/late",
+      "selected": {
+        "sequence": 11755,
+        "started_at": 16865.0,
+        "vehicle_id": "7X_fleet_51",
+        "station_id": "7X13_102X26_705X27"
+      },
+      "external_seed": 84201,
+      "actor_updates": 50424,
+      "status": "complete",
+      "branch_status": {
+        "low": {
+          "native": "complete",
+          "tail": "complete"
+        },
+        "high": {
+          "native": "complete",
+          "tail": "complete"
+        }
+      },
+      "phase": {
+        "low": {
+          "mapping": "tail_after_fork_batch",
+          "source_native_summary": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_state_response_v18_20261022/runs/stable/seed6201/training_branches/2/low/summary.json",
+          "first_tail_sequence": 11756,
+          "first_tail_time": 16867.0,
+          "native_policy_issues": 11756,
+          "tail_policy_issues": 236,
+          "actor_real_clock": true,
+          "actor_clock_max_abs_error": 1.0007133,
+          "actor_clock_error_unit": "native_seconds",
+          "fork_batch_native": true,
+          "tail_formula_exact": true,
+          "tail_batches": 176
+        },
+        "high": {
+          "mapping": "tail_after_fork_batch",
+          "source_native_summary": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_state_response_v18_20261022/runs/stable/seed6201/training_branches/2/high/summary.json",
+          "first_tail_sequence": 11756,
+          "first_tail_time": 16867.0,
+          "native_policy_issues": 11756,
+          "tail_policy_issues": 237,
+          "actor_real_clock": true,
+          "actor_clock_max_abs_error": 0.0,
+          "actor_clock_error_unit": "native_seconds",
+          "fork_batch_native": true,
+          "tail_formula_exact": true,
+          "ledger_vs_event_lag": {
+            "count": 11993,
+            "min_seconds": 1.0,
+            "max_seconds": 1.0
+          },
+          "tail_batches": 173
+        }
+      },
+      "integrity": {
+        "all_pass": true,
+        "check_count": 74,
+        "failed_checks": []
+      },
+      "duration": {
+        "native": "positive_dt",
+        "tail": "positive_dt"
+      },
+      "truth": {
+        "native": {
+          "global_next": {
+            "status": "complete",
+            "low": [
+              2.0,
+              1631.0,
+              2597.0,
+              5859.0
+            ],
+            "high": [
+              2.0,
+              1631.0,
+              2597.0,
+              5859.0
+            ],
+            "gain": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "missing_reasons": {}
+          },
+          "same_vehicle_next": {
+            "status": "complete",
+            "low": [
+              75.0,
+              61332.0,
+              98384.0,
+              221048.0
+            ],
+            "high": [
+              81.0,
+              66301.0,
+              106228.0,
+              238830.0
+            ],
+            "gain": [
+              -6.0,
+              -4969.0,
+              -7844.0,
+              -17782.0
+            ],
+            "missing_reasons": {}
+          },
+          "fixed300": {
+            "status": "complete",
+            "low": [
+              300.0,
+              249610.0,
+              393256.0,
+              892476.0
+            ],
+            "high": [
+              300.0,
+              249541.0,
+              393284.0,
+              892366.0
+            ],
+            "gain": [
+              0.0,
+              69.0,
+              -28.0,
+              110.0
+            ],
+            "missing_reasons": {}
+          }
+        },
+        "tail": {
+          "global_next": {
+            "status": "complete",
+            "low": [
+              2.0,
+              1631.0,
+              2597.0,
+              5859.0
+            ],
+            "high": [
+              2.0,
+              1631.0,
+              2597.0,
+              5859.0
+            ],
+            "gain": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "missing_reasons": {}
+          },
+          "same_vehicle_next": {
+            "status": "complete",
+            "low": [
+              75.0,
+              61188.0,
+              98520.0,
+              220896.0
+            ],
+            "high": [
+              81.0,
+              66087.0,
+              106427.0,
+              238601.0
+            ],
+            "gain": [
+              -6.0,
+              -4899.0,
+              -7907.0,
+              -17705.0
+            ],
+            "missing_reasons": {}
+          },
+          "fixed300": {
+            "status": "complete",
+            "low": [
+              300.0,
+              245326.0,
+              396937.0,
+              887589.0
+            ],
+            "high": [
+              300.0,
+              245305.0,
+              396755.0,
+              887365.0
+            ],
+            "gain": [
+              0.0,
+              21.0,
+              182.0,
+              224.0
+            ],
+            "missing_reasons": {}
+          }
+        }
+      },
+      "delta_F_gain": {
+        "dt": 0.0,
+        "wait": -48.0,
+        "ride": 210.0,
+        "cost": 114.0
+      },
+      "true_sign_changed": false,
+      "model_effects": {
+        "zero": {
+          "prediction": {
+            "dt": 0.0,
+            "wait": 0.0,
+            "ride": 0.0,
+            "cost": 0.0
+          },
+          "native": [
+            0.0,
+            0.0,
+            0.0,
+            -69.0,
+            28.0,
+            -110.0,
+            false,
+            false,
+            110.0
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            0.0,
+            -21.0,
+            -182.0,
+            -224.0,
+            false,
+            false,
+            224.0
+          ],
+          "regret_change": 114.0
+        },
+        "route": {
+          "prediction": {
+            "dt": 0.0,
+            "wait": -125.66667,
+            "ride": -3.0,
+            "cost": -254.33333
+          },
+          "native": [
+            -125.66667,
+            -3.0,
+            -254.33333,
+            -194.66667,
+            25.0,
+            -364.33333,
+            false,
+            false,
+            110.0
+          ],
+          "tail": [
+            -125.66667,
+            -3.0,
+            -254.33333,
+            -146.66667,
+            -185.0,
+            -478.33333,
+            false,
+            false,
+            224.0
+          ],
+          "regret_change": 114.0
+        },
+        "shared": {
+          "prediction": {
+            "dt": 0.0,
+            "wait": -117.57333,
+            "ride": -7.7646129,
+            "cost": -242.91127
+          },
+          "native": [
+            -117.57333,
+            -7.7646129,
+            -242.91127,
+            -186.57333,
+            20.235387,
+            -352.91127,
+            false,
+            false,
+            110.0
+          ],
+          "tail": [
+            -117.57333,
+            -7.7646129,
+            -242.91127,
+            -138.57333,
+            -189.76461,
+            -466.91127,
+            false,
+            false,
+            224.0
+          ],
+          "regret_change": 114.0
+        },
+        "candidate": {
+          "prediction": {
+            "dt": 0.0,
+            "wait": -117.57333,
+            "ride": -19.413855,
+            "cost": -254.56051
+          },
+          "native": [
+            -117.57333,
+            -19.413855,
+            -254.56051,
+            -186.57333,
+            8.5861448,
+            -364.56051,
+            false,
+            false,
+            110.0
+          ],
+          "tail": [
+            -117.57333,
+            -19.413855,
+            -254.56051,
+            -138.57333,
+            -201.41386,
+            -478.56051,
+            false,
+            false,
+            224.0
+          ],
+          "regret_change": 114.0
+        }
+      }
+    },
+    {
+      "line_id": "102X",
+      "target_id": "train/102X/late",
+      "selected": {
+        "sequence": 11641,
+        "started_at": 16700.0,
+        "vehicle_id": "102X_fleet_34",
+        "station_id": "7X13_102X26_705X27"
+      },
+      "external_seed": 84201,
+      "actor_updates": 50416,
+      "status": "complete",
+      "branch_status": {
+        "low": {
+          "native": "complete",
+          "tail": "complete"
+        },
+        "high": {
+          "native": "complete",
+          "tail": "complete"
+        }
+      },
+      "phase": {
+        "low": {
+          "mapping": "tail_after_fork_batch",
+          "source_native_summary": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_state_response_v18_20261022/runs/stable/seed6201/training_branches/5/low/summary.json",
+          "first_tail_sequence": 11642,
+          "first_tail_time": 16701.0,
+          "native_policy_issues": 11642,
+          "tail_policy_issues": 227,
+          "actor_real_clock": true,
+          "actor_clock_max_abs_error": 0.0,
+          "actor_clock_error_unit": "native_seconds",
+          "fork_batch_native": true,
+          "tail_formula_exact": true,
+          "ledger_vs_event_lag": {
+            "count": 11869,
+            "min_seconds": 1.0,
+            "max_seconds": 1.0
+          },
+          "tail_batches": 160
+        },
+        "high": {
+          "mapping": "tail_after_fork_batch",
+          "source_native_summary": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_state_response_v18_20261022/runs/stable/seed6201/training_branches/5/high/summary.json",
+          "first_tail_sequence": 11642,
+          "first_tail_time": 16701.0,
+          "native_policy_issues": 11642,
+          "tail_policy_issues": 228,
+          "actor_real_clock": true,
+          "actor_clock_max_abs_error": 0.0,
+          "actor_clock_error_unit": "native_seconds",
+          "fork_batch_native": true,
+          "tail_formula_exact": true,
+          "ledger_vs_event_lag": {
+            "count": 11870,
+            "min_seconds": 1.0,
+            "max_seconds": 1.0
+          },
+          "tail_batches": 168
+        }
+      },
+      "integrity": {
+        "all_pass": true,
+        "check_count": 74,
+        "failed_checks": []
+      },
+      "duration": {
+        "native": "positive_dt",
+        "tail": "positive_dt"
+      },
+      "truth": {
+        "native": {
+          "global_next": {
+            "status": "complete",
+            "low": [
+              1.0,
+              787.0,
+              1275.0,
+              2849.0
+            ],
+            "high": [
+              1.0,
+              787.0,
+              1275.0,
+              2849.0
+            ],
+            "gain": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "missing_reasons": {}
+          },
+          "same_vehicle_next": {
+            "status": "complete",
+            "low": [
+              76.0,
+              60176.0,
+              97437.0,
+              217789.0
+            ],
+            "high": [
+              84.0,
+              66591.0,
+              107761.0,
+              240943.0
+            ],
+            "gain": [
+              -8.0,
+              -6415.0,
+              -10324.0,
+              -23154.0
+            ],
+            "missing_reasons": {}
+          },
+          "fixed300": {
+            "status": "complete",
+            "low": [
+              300.0,
+              243834.0,
+              389426.0,
+              877094.0
+            ],
+            "high": [
+              300.0,
+              243827.0,
+              389543.0,
+              877197.0
+            ],
+            "gain": [
+              0.0,
+              7.0,
+              -117.0,
+              -103.0
+            ],
+            "missing_reasons": {}
+          }
+        },
+        "tail": {
+          "global_next": {
+            "status": "complete",
+            "low": [
+              1.0,
+              787.0,
+              1275.0,
+              2849.0
+            ],
+            "high": [
+              1.0,
+              787.0,
+              1275.0,
+              2849.0
+            ],
+            "gain": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "missing_reasons": {}
+          },
+          "same_vehicle_next": {
+            "status": "complete",
+            "low": [
+              76.0,
+              60118.0,
+              97480.0,
+              217716.0
+            ],
+            "high": [
+              84.0,
+              66498.0,
+              107823.0,
+              240819.0
+            ],
+            "gain": [
+              -8.0,
+              -6380.0,
+              -10343.0,
+              -23103.0
+            ],
+            "missing_reasons": {}
+          },
+          "fixed300": {
+            "status": "complete",
+            "low": [
+              300.0,
+              241125.0,
+              391384.0,
+              873634.0
+            ],
+            "high": [
+              300.0,
+              241106.0,
+              391431.0,
+              873643.0
+            ],
+            "gain": [
+              0.0,
+              19.0,
+              -47.0,
+              -9.0
+            ],
+            "missing_reasons": {}
+          }
+        }
+      },
+      "delta_F_gain": {
+        "dt": 0.0,
+        "wait": 12.0,
+        "ride": 70.0,
+        "cost": 94.0
+      },
+      "true_sign_changed": false,
+      "model_effects": {
+        "zero": {
+          "prediction": {
+            "dt": 0.0,
+            "wait": 0.0,
+            "ride": 0.0,
+            "cost": 0.0
+          },
+          "native": [
+            0.0,
+            0.0,
+            0.0,
+            -7.0,
+            117.0,
+            103.0,
+            false,
+            true,
+            0.0
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            0.0,
+            -19.0,
+            47.0,
+            9.0,
+            false,
+            true,
+            0.0
+          ],
+          "regret_change": 0.0
+        },
+        "route": {
+          "prediction": {
+            "dt": 0.0,
+            "wait": 121.0,
+            "ride": -326.33333,
+            "cost": -84.333333
+          },
+          "native": [
+            121.0,
+            -326.33333,
+            -84.333333,
+            114.0,
+            -209.33333,
+            18.666667,
+            true,
+            true,
+            0.0
+          ],
+          "tail": [
+            121.0,
+            -326.33333,
+            -84.333333,
+            102.0,
+            -279.33333,
+            -75.333333,
+            true,
+            true,
+            0.0
+          ],
+          "regret_change": 0.0
+        },
+        "shared": {
+          "prediction": {
+            "dt": 0.0,
+            "wait": 129.96851,
+            "ride": -331.61317,
+            "cost": -71.676145
+          },
+          "native": [
+            129.96851,
+            -331.61317,
+            -71.676145,
+            122.96851,
+            -214.61317,
+            31.323855,
+            true,
+            true,
+            0.0
+          ],
+          "tail": [
+            129.96851,
+            -331.61317,
+            -71.676145,
+            110.96851,
+            -284.61317,
+            -62.676145,
+            true,
+            true,
+            0.0
+          ],
+          "regret_change": 0.0
+        },
+        "candidate": {
+          "prediction": {
+            "dt": 0.0,
+            "wait": 129.96851,
+            "ride": -341.77499,
+            "cost": -81.837971
+          },
+          "native": [
+            129.96851,
+            -341.77499,
+            -81.837971,
+            122.96851,
+            -224.77499,
+            21.162029,
+            true,
+            true,
+            0.0
+          ],
+          "tail": [
+            129.96851,
+            -341.77499,
+            -81.837971,
+            110.96851,
+            -294.77499,
+            -72.837971,
+            true,
+            true,
+            0.0
+          ],
+          "regret_change": 0.0
+        }
+      }
+    },
+    {
+      "line_id": "705X",
+      "target_id": "train/705X/late",
+      "selected": {
+        "sequence": 12023,
+        "started_at": 17235.0,
+        "vehicle_id": "705X_fleet_21",
+        "station_id": "7X13_102X26_705X27"
+      },
+      "external_seed": 84201,
+      "actor_updates": 50432,
+      "status": "complete",
+      "branch_status": {
+        "low": {
+          "native": "complete",
+          "tail": "complete"
+        },
+        "high": {
+          "native": "complete",
+          "tail": "complete"
+        }
+      },
+      "phase": {
+        "low": {
+          "mapping": "tail_after_fork_batch",
+          "source_native_summary": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_state_response_v18_20261022/runs/stable/seed6201/training_branches/8/low/summary.json",
+          "first_tail_sequence": 12025,
+          "first_tail_time": 17238.0,
+          "native_policy_issues": 12025,
+          "tail_policy_issues": 222,
+          "actor_real_clock": true,
+          "actor_clock_max_abs_error": 0.0,
+          "actor_clock_error_unit": "native_seconds",
+          "fork_batch_native": true,
+          "tail_formula_exact": true,
+          "ledger_vs_event_lag": {
+            "count": 12247,
+            "min_seconds": 1.0,
+            "max_seconds": 1.0
+          },
+          "tail_batches": 153
+        },
+        "high": {
+          "mapping": "tail_after_fork_batch",
+          "source_native_summary": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_state_response_v18_20261022/runs/stable/seed6201/training_branches/8/high/summary.json",
+          "first_tail_sequence": 12025,
+          "first_tail_time": 17238.0,
+          "native_policy_issues": 12025,
+          "tail_policy_issues": 224,
+          "actor_real_clock": true,
+          "actor_clock_max_abs_error": 0.0,
+          "actor_clock_error_unit": "native_seconds",
+          "fork_batch_native": true,
+          "tail_formula_exact": true,
+          "ledger_vs_event_lag": {
+            "count": 12249,
+            "min_seconds": 1.0,
+            "max_seconds": 1.0
+          },
+          "tail_batches": 156
+        }
+      },
+      "integrity": {
+        "all_pass": true,
+        "check_count": 74,
+        "failed_checks": []
+      },
+      "duration": {
+        "native": "zero_dt",
+        "tail": "zero_dt"
+      },
+      "truth": {
+        "native": {
+          "global_next": {
+            "status": "complete",
+            "low": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "high": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "gain": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "missing_reasons": {}
+          },
+          "same_vehicle_next": {
+            "status": "complete",
+            "low": [
+              76.0,
+              67930.0,
+              98792.0,
+              234652.0
+            ],
+            "high": [
+              83.0,
+              74158.0,
+              108033.0,
+              256349.0
+            ],
+            "gain": [
+              -7.0,
+              -6228.0,
+              -9241.0,
+              -21697.0
+            ],
+            "missing_reasons": {}
+          },
+          "fixed300": {
+            "status": "complete",
+            "low": [
+              300.0,
+              264939.0,
+              396391.0,
+              926269.0
+            ],
+            "high": [
+              300.0,
+              265015.0,
+              396307.0,
+              926337.0
+            ],
+            "gain": [
+              0.0,
+              -76.0,
+              84.0,
+              -68.0
+            ],
+            "missing_reasons": {}
+          }
+        },
+        "tail": {
+          "global_next": {
+            "status": "complete",
+            "low": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "high": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "gain": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "missing_reasons": {}
+          },
+          "same_vehicle_next": {
+            "status": "complete",
+            "low": [
+              77.0,
+              68636.0,
+              100295.0,
+              237567.0
+            ],
+            "high": [
+              83.0,
+              73934.0,
+              108255.0,
+              256123.0
+            ],
+            "gain": [
+              -6.0,
+              -5298.0,
+              -7960.0,
+              -18556.0
+            ],
+            "missing_reasons": {}
+          },
+          "fixed300": {
+            "status": "complete",
+            "low": [
+              300.0,
+              262009.0,
+              398599.0,
+              922617.0
+            ],
+            "high": [
+              300.0,
+              262306.0,
+              398158.0,
+              922770.0
+            ],
+            "gain": [
+              0.0,
+              -297.0,
+              441.0,
+              -153.0
+            ],
+            "missing_reasons": {}
+          }
+        }
+      },
+      "delta_F_gain": {
+        "dt": 0.0,
+        "wait": -221.0,
+        "ride": 357.0,
+        "cost": -85.0
+      },
+      "true_sign_changed": false,
+      "model_effects": {
+        "zero": {
+          "prediction": {
+            "dt": 0.0,
+            "wait": 0.0,
+            "ride": 0.0,
+            "cost": 0.0
+          },
+          "native": [
+            0.0,
+            0.0,
+            0.0,
+            76.0,
+            -84.0,
+            68.0,
+            false,
+            true,
+            0.0
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            0.0,
+            297.0,
+            -441.0,
+            153.0,
+            false,
+            true,
+            0.0
+          ],
+          "regret_change": 0.0
+        },
+        "route": {
+          "prediction": {
+            "dt": 0.0,
+            "wait": -163.0,
+            "ride": 121.66667,
+            "cost": -204.33333
+          },
+          "native": [
+            -163.0,
+            121.66667,
+            -204.33333,
+            -87.0,
+            37.666667,
+            -136.33333,
+            true,
+            true,
+            0.0
+          ],
+          "tail": [
+            -163.0,
+            121.66667,
+            -204.33333,
+            134.0,
+            -319.33333,
+            -51.333333,
+            true,
+            true,
+            0.0
+          ],
+          "regret_change": 0.0
+        },
+        "shared": {
+          "prediction": {
+            "dt": 0.0,
+            "wait": -175.63739,
+            "ride": 126.8972,
+            "cost": -224.37758
+          },
+          "native": [
+            -175.63739,
+            126.8972,
+            -224.37758,
+            -99.637394,
+            42.897204,
+            -156.37758,
+            true,
+            true,
+            0.0
+          ],
+          "tail": [
+            -175.63739,
+            126.8972,
+            -224.37758,
+            121.36261,
+            -314.1028,
+            -71.377585,
+            true,
+            true,
+            0.0
+          ],
+          "regret_change": 0.0
+        },
+        "candidate": {
+          "prediction": {
+            "dt": 0.0,
+            "wait": -175.63739,
+            "ride": 60.294168,
+            "cost": -290.98062
+          },
+          "native": [
+            -175.63739,
+            60.294168,
+            -290.98062,
+            -99.637394,
+            -23.705832,
+            -222.98062,
+            true,
+            true,
+            0.0
+          ],
+          "tail": [
+            -175.63739,
+            60.294168,
+            -290.98062,
+            121.36261,
+            -380.70583,
+            -137.98062,
+            true,
+            true,
+            0.0
+          ],
+          "regret_change": 0.0
+        }
+      }
+    }
+  ],
+  "decision": {
+    "independent_confirmation": "not_submitted",
+    "deployment": "not_enabled",
+    "next": "Review local effect of the execution rule; three fixed states cannot establish the sole cause of v18 response errors."
+  },
+  "schema": {
+    "metric_order": [
+      "dt",
+      "wait",
+      "ride",
+      "cost"
+    ],
+    "model_order": [
+      "zero",
+      "route",
+      "shared",
+      "candidate"
+    ],
+    "effect_order": [
+      "predicted_wait_gain",
+      "predicted_ride_gain",
+      "predicted_cost_gain",
+      "wait_signed_error",
+      "ride_signed_error",
+      "cost_signed_error",
+      "direction_correct",
+      "action_correct",
+      "regret"
+    ],
+    "gain_sign": "G=C(0)-C(7.5), C=2*wait+ride; positive chooses7.5, ties0.",
+    "delta_F": "tail gain minus native gain, same prefix, actor and genuine clock; predictions are never refitted.",
+    "clock": "Global/same-car endpoints retain native event clocks; fixed300 has the same exact300-second clock."
+  },
+  "missing": {
+    "selection": 0,
+    "endpoints": {
+      "native": {
+        "global_next": 0,
+        "same_vehicle_next": 0,
+        "fixed300": 0
+      },
+      "tail": {
+        "global_next": 0,
+        "same_vehicle_next": 0,
+        "fixed300": 0
+      }
+    }
+  },
+  "unsupported": {
+    "zero": 0,
+    "route": 0,
+    "shared": 0,
+    "candidate": 0
+  },
+  "duration_counts": {
+    "native": {
+      "positive_dt": 2,
+      "zero_dt": 1
+    },
+    "tail": {
+      "positive_dt": 2,
+      "zero_dt": 1
+    }
+  },
+  "model_metrics": {
+    "zero": {
+      "native": {
+        "n": 3,
+        "direction_correct": 0,
+        "action_correct": 2,
+        "regret_total": 110.0,
+        "cost_gain_mae": 93.666667
+      },
+      "tail": {
+        "n": 3,
+        "direction_correct": 0,
+        "action_correct": 2,
+        "regret_total": 224.0,
+        "cost_gain_mae": 128.66667
+      },
+      "regret_change": 114.0
+    },
+    "route": {
+      "native": {
+        "n": 3,
+        "direction_correct": 2,
+        "action_correct": 2,
+        "regret_total": 110.0,
+        "cost_gain_mae": 173.11111
+      },
+      "tail": {
+        "n": 3,
+        "direction_correct": 2,
+        "action_correct": 2,
+        "regret_total": 224.0,
+        "cost_gain_mae": 201.66667
+      },
+      "regret_change": 114.0
+    },
+    "shared": {
+      "native": {
+        "n": 3,
+        "direction_correct": 2,
+        "action_correct": 2,
+        "regret_total": 110.0,
+        "cost_gain_mae": 180.20424
+      },
+      "tail": {
+        "n": 3,
+        "direction_correct": 2,
+        "action_correct": 2,
+        "regret_total": 224.0,
+        "cost_gain_mae": 200.32167
+      },
+      "regret_change": 114.0
+    },
+    "candidate": {
+      "native": {
+        "n": 3,
+        "direction_correct": 2,
+        "action_correct": 2,
+        "regret_total": 110.0,
+        "cost_gain_mae": 202.90105
+      },
+      "tail": {
+        "n": 3,
+        "direction_correct": 2,
+        "action_correct": 2,
+        "regret_total": 224.0,
+        "cost_gain_mae": 229.79303
+      },
+      "regret_change": 114.0
+    }
+  },
+  "first_arm_clock_audit": {
+    "original_status": "integrity_failed",
+    "original_failed_check": "actor_real_clock",
+    "audit_file": "first_arm_clock_audit.json",
+    "reused_without_rerun": true,
+    "prefix_verification": "resident elementwise trace and native event clock",
+    "suffix_verification": "unchanged source path plus native 300 steps and zero-training counters",
+    "suffix_per_issue_clock_records": false
+  },
+  "new_suffix_clock_verification": "Native event clock checked online in each of the remaining five suffixes; actor inputs are unchanged."
+}

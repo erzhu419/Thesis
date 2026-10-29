@@ -1,0 +1,89 @@
+{
+  "status": "complete",
+  "candidate": "physical-time mixed Bellman residual trace tau300, original one-step M8 backup unchanged",
+  "implementation_audit": {
+    "all_pass": true,
+    "source285_456_and_real_state_memory_links": true,
+    "native_and_M8_lambda0_bit_exact": true,
+    "old_M8_full_traces_exact": true,
+    "root_component_closure": true,
+    "no_models_loaded_or_updated": true,
+    "no_synthetic_state_or_heldout_join": true
+  },
+  "counts": {
+    "native_lambda0_rows": 1140,
+    "mean8_lambda0_rows": 17340,
+    "old_full_trace_exact": 384
+  },
+  "source_contract": {
+    "initializer_seed": 6202,
+    "initializer_updates": 50000,
+    "feedback_slots": 285,
+    "optimizer_updates": 456,
+    "horizon_seconds": 24000,
+    "F_unchanged": true,
+    "trust_unchanged": true
+  },
+  "new_compute": {
+    "new_training_updates": 0,
+    "new_feedback_slots": 0,
+    "new_native_prefixes": 0,
+    "new_native_branches": 0,
+    "new_native_seconds": 0,
+    "new_target_draws": 0,
+    "checkpoints_loaded": 0
+  },
+  "collection_admitted": false,
+  "shadow_training_admitted": false,
+  "findings": {
+    "post24_physical_uniform_Q_reference_gain": [
+      -3.14830743,
+      -3.07546042
+    ],
+    "post24_physical_sum_reach": [
+      40.7546042,
+      41.4830743
+    ],
+    "post456_physical_cutoff_weight": [
+      1.70353996e-09,
+      1.73959445e-08
+    ],
+    "post456_705X_late_reward_visible_blocks": {
+      "stable": {
+        "event": {
+          "low": 1,
+          "high": 0
+        },
+        "physical": {
+          "low": 16,
+          "high": 14
+        }
+      },
+      "local_speed_drop": {
+        "event": {
+          "low": 2,
+          "high": 2
+        },
+        "physical": {
+          "low": 12,
+          "high": 12
+        }
+      }
+    }
+  },
+  "interpretation": "Delayed reward numerical visibility improves; no causal action/control gain established, bootstrap-Q contributions and post24 uniform-Q sensitivity increase. No claim of actual Adam divergence.",
+  "next_step": "Specify one physical-time residual target with controlled aggregate gain; verify operator/correction/lambda0 relation on existing arrays before collecting or training.",
+  "verification": {
+    "focused_tests_passed": 6,
+    "source_exactness_is_frozen_arrays_not_historical_SGD": true
+  },
+  "scheduler": {
+    "requested_priority": "high",
+    "admitted": false,
+    "mode": "direct_readonly_node005",
+    "reason": "existing_global_state_lock_timeout"
+  },
+  "downloaded_summary_bytes": 44129,
+  "server_compute_seconds": 25.1566653,
+  "old_results_modified": false
+}

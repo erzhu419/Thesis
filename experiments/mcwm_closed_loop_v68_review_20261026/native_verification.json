@@ -1,0 +1,874 @@
+{
+  "native": [
+    {
+      "seed": 6201,
+      "scenario": "stable",
+      "arm": "fresh",
+      "status": "complete",
+      "integrity": true,
+      "failed_checks": [],
+      "budget": {
+        "target_feedback_slots": 285,
+        "training_fresh_outcomes": 285,
+        "policy_updates": 456,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "packets": 57,
+        "native_seconds": 24000.0,
+        "world_updates": 0,
+        "trust_updates": 0,
+        "counterfactual_queries": 0,
+        "training_stopped_at": 18002.0
+      },
+      "schedule": {
+        "packets": 57,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "optimizer_order_exact": true,
+        "schedule": {
+          "online_actor_update_interval": 1,
+          "online_actor_batch_mode": "latest",
+          "online_update_order": "actor-before-critic"
+        },
+        "kl_penalty": false,
+        "every_packet_eight_each": true
+      },
+      "post_budget_counts": {
+        "before": {
+          "critic": 456,
+          "value": 456,
+          "actor": 456,
+          "alpha": 456,
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        },
+        "after": {
+          "critic": 456,
+          "value": 456,
+          "actor": 456,
+          "alpha": 456,
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        }
+      },
+      "cql_audit": {
+        "coefficient": 0.2,
+        "penalty_calls": 456,
+        "factual_rows": 58368,
+        "head_count": 2,
+        "candidate_rows_before_dedup": 1284096,
+        "candidate_rows_after_dedup": 1089991,
+        "main_rng_preserved": true,
+        "outcome_fields_read": false,
+        "factual_actions_transformed": false,
+        "candidate_actions_transformed": true,
+        "exact_deduplication": true,
+        "finite_penalty": true,
+        "penalty": {
+          "mean": -0.09725075231440235,
+          "min": -0.18284767866134644,
+          "max": 0.009950155392289162
+        },
+        "weighted_penalty": {
+          "mean": -0.01945015046288047,
+          "min": -0.03656953573226929,
+          "max": 0.0019900310784578324
+        },
+        "regularizer_wall_seconds": 37.28725270740688,
+        "isolated_uniform_proposals": 583680,
+        "isolated_positive_proposals": 583680
+      },
+      "target_audit": {
+        "parent_mixed_target_calls": 456,
+        "parent_mixed_target_rows": 116736,
+        "fresh_value_replacement_calls": 456,
+        "fresh_value_replacement_rows": 29184,
+        "no_fresh_unchanged_returns": 0,
+        "fresh_rows_start": 64,
+        "fresh_rows_stop": 128,
+        "mixed_target_generated_before_replacement": true,
+        "original_sampler_draws": 4,
+        "rule": "Only fresh outcome rows use reward_scale*r+discounts*(1-terminal)*V(ns); historical/source retain original mixed target; no_fresh returns parent exactly."
+      },
+      "wall_seconds": 2801.996456029825,
+      "execution_wall": {
+        "pid": 496410,
+        "native_started_wall": 1792987155.5459402,
+        "native_finished_wall": 1792989934.7632077
+      }
+    },
+    {
+      "seed": 6201,
+      "scenario": "stable",
+      "arm": "no_fresh",
+      "status": "complete",
+      "integrity": true,
+      "failed_checks": [],
+      "budget": {
+        "target_feedback_slots": 285,
+        "training_fresh_outcomes": 0,
+        "policy_updates": 456,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "packets": 57,
+        "native_seconds": 24000.0,
+        "world_updates": 0,
+        "trust_updates": 0,
+        "counterfactual_queries": 0,
+        "training_stopped_at": 18000.0
+      },
+      "schedule": {
+        "packets": 57,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "optimizer_order_exact": true,
+        "schedule": {
+          "online_actor_update_interval": 1,
+          "online_actor_batch_mode": "latest",
+          "online_update_order": "actor-before-critic"
+        },
+        "kl_penalty": false,
+        "every_packet_eight_each": true
+      },
+      "post_budget_counts": {
+        "before": {
+          "critic": 456,
+          "value": 456,
+          "actor": 456,
+          "alpha": 456,
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        },
+        "after": {
+          "critic": 456,
+          "value": 456,
+          "actor": 456,
+          "alpha": 456,
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        }
+      },
+      "cql_audit": {
+        "coefficient": 0.2,
+        "penalty_calls": 456,
+        "factual_rows": 58368,
+        "head_count": 2,
+        "candidate_rows_before_dedup": 1284096,
+        "candidate_rows_after_dedup": 1106979,
+        "main_rng_preserved": true,
+        "outcome_fields_read": false,
+        "factual_actions_transformed": false,
+        "candidate_actions_transformed": true,
+        "exact_deduplication": true,
+        "finite_penalty": true,
+        "penalty": {
+          "mean": -0.2038373055361342,
+          "min": -0.66396164894104,
+          "max": 0.009950155392289162
+        },
+        "weighted_penalty": {
+          "mean": -0.04076746110722684,
+          "min": -0.132792329788208,
+          "max": 0.0019900310784578324
+        },
+        "regularizer_wall_seconds": 33.22775197401643,
+        "isolated_uniform_proposals": 583680,
+        "isolated_positive_proposals": 583680
+      },
+      "target_audit": {
+        "parent_mixed_target_calls": 456,
+        "parent_mixed_target_rows": 116736,
+        "fresh_value_replacement_calls": 0,
+        "fresh_value_replacement_rows": 0,
+        "no_fresh_unchanged_returns": 456,
+        "fresh_rows_start": 64,
+        "fresh_rows_stop": 128,
+        "mixed_target_generated_before_replacement": true,
+        "original_sampler_draws": 4,
+        "rule": "Only fresh outcome rows use reward_scale*r+discounts*(1-terminal)*V(ns); historical/source retain original mixed target; no_fresh returns parent exactly."
+      },
+      "wall_seconds": 2289.0759740369394,
+      "execution_wall": {
+        "pid": 496416,
+        "native_started_wall": 1792987155.3116052,
+        "native_finished_wall": 1792989421.3076215
+      }
+    },
+    {
+      "seed": 6201,
+      "scenario": "local_speed_drop",
+      "arm": "fresh",
+      "status": "complete",
+      "integrity": true,
+      "failed_checks": [],
+      "budget": {
+        "target_feedback_slots": 285,
+        "training_fresh_outcomes": 285,
+        "policy_updates": 456,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "packets": 57,
+        "native_seconds": 24000.0,
+        "world_updates": 0,
+        "trust_updates": 0,
+        "counterfactual_queries": 0,
+        "training_stopped_at": 18001.0
+      },
+      "schedule": {
+        "packets": 57,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "optimizer_order_exact": true,
+        "schedule": {
+          "online_actor_update_interval": 1,
+          "online_actor_batch_mode": "latest",
+          "online_update_order": "actor-before-critic"
+        },
+        "kl_penalty": false,
+        "every_packet_eight_each": true
+      },
+      "post_budget_counts": {
+        "before": {
+          "critic": 456,
+          "value": 456,
+          "actor": 456,
+          "alpha": 456,
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        },
+        "after": {
+          "critic": 456,
+          "value": 456,
+          "actor": 456,
+          "alpha": 456,
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        }
+      },
+      "cql_audit": {
+        "coefficient": 0.2,
+        "penalty_calls": 456,
+        "factual_rows": 58368,
+        "head_count": 2,
+        "candidate_rows_before_dedup": 1284096,
+        "candidate_rows_after_dedup": 1093139,
+        "main_rng_preserved": true,
+        "outcome_fields_read": false,
+        "factual_actions_transformed": false,
+        "candidate_actions_transformed": true,
+        "exact_deduplication": true,
+        "finite_penalty": true,
+        "penalty": {
+          "mean": -0.09712064725330524,
+          "min": -0.18284767866134644,
+          "max": 0.009950155392289162
+        },
+        "weighted_penalty": {
+          "mean": -0.01942412945066105,
+          "min": -0.03656953573226929,
+          "max": 0.0019900310784578324
+        },
+        "regularizer_wall_seconds": 32.88130943290889,
+        "isolated_uniform_proposals": 583680,
+        "isolated_positive_proposals": 583680
+      },
+      "target_audit": {
+        "parent_mixed_target_calls": 456,
+        "parent_mixed_target_rows": 116736,
+        "fresh_value_replacement_calls": 456,
+        "fresh_value_replacement_rows": 29184,
+        "no_fresh_unchanged_returns": 0,
+        "fresh_rows_start": 64,
+        "fresh_rows_stop": 128,
+        "mixed_target_generated_before_replacement": true,
+        "original_sampler_draws": 4,
+        "rule": "Only fresh outcome rows use reward_scale*r+discounts*(1-terminal)*V(ns); historical/source retain original mixed target; no_fresh returns parent exactly."
+      },
+      "wall_seconds": 2296.5373718310148,
+      "execution_wall": {
+        "pid": 497663,
+        "native_started_wall": 1792987363.1590326,
+        "native_finished_wall": 1792989638.5486853
+      }
+    },
+    {
+      "seed": 6201,
+      "scenario": "local_speed_drop",
+      "arm": "no_fresh",
+      "status": "complete",
+      "integrity": true,
+      "failed_checks": [],
+      "budget": {
+        "target_feedback_slots": 285,
+        "training_fresh_outcomes": 0,
+        "policy_updates": 456,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "packets": 57,
+        "native_seconds": 24000.0,
+        "world_updates": 0,
+        "trust_updates": 0,
+        "counterfactual_queries": 0,
+        "training_stopped_at": 18001.0
+      },
+      "schedule": {
+        "packets": 57,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "optimizer_order_exact": true,
+        "schedule": {
+          "online_actor_update_interval": 1,
+          "online_actor_batch_mode": "latest",
+          "online_update_order": "actor-before-critic"
+        },
+        "kl_penalty": false,
+        "every_packet_eight_each": true
+      },
+      "post_budget_counts": {
+        "before": {
+          "critic": 456,
+          "value": 456,
+          "actor": 456,
+          "alpha": 456,
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        },
+        "after": {
+          "critic": 456,
+          "value": 456,
+          "actor": 456,
+          "alpha": 456,
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        }
+      },
+      "cql_audit": {
+        "coefficient": 0.2,
+        "penalty_calls": 456,
+        "factual_rows": 58368,
+        "head_count": 2,
+        "candidate_rows_before_dedup": 1284096,
+        "candidate_rows_after_dedup": 1110540,
+        "main_rng_preserved": true,
+        "outcome_fields_read": false,
+        "factual_actions_transformed": false,
+        "candidate_actions_transformed": true,
+        "exact_deduplication": true,
+        "finite_penalty": true,
+        "penalty": {
+          "mean": -0.20576744879138442,
+          "min": -0.694797694683075,
+          "max": 0.009950155392289162
+        },
+        "weighted_penalty": {
+          "mean": -0.04115348975827689,
+          "min": -0.138959538936615,
+          "max": 0.0019900310784578324
+        },
+        "regularizer_wall_seconds": 32.18341469578445,
+        "isolated_uniform_proposals": 583680,
+        "isolated_positive_proposals": 583680
+      },
+      "target_audit": {
+        "parent_mixed_target_calls": 456,
+        "parent_mixed_target_rows": 116736,
+        "fresh_value_replacement_calls": 0,
+        "fresh_value_replacement_rows": 0,
+        "no_fresh_unchanged_returns": 456,
+        "fresh_rows_start": 64,
+        "fresh_rows_stop": 128,
+        "mixed_target_generated_before_replacement": true,
+        "original_sampler_draws": 4,
+        "rule": "Only fresh outcome rows use reward_scale*r+discounts*(1-terminal)*V(ns); historical/source retain original mixed target; no_fresh returns parent exactly."
+      },
+      "wall_seconds": 2203.7267475398257,
+      "execution_wall": {
+        "pid": 497317,
+        "native_started_wall": 1792987361.69506,
+        "native_finished_wall": 1792989544.104934
+      }
+    },
+    {
+      "seed": 6203,
+      "scenario": "stable",
+      "arm": "fresh",
+      "status": "complete",
+      "integrity": true,
+      "failed_checks": [],
+      "budget": {
+        "target_feedback_slots": 285,
+        "training_fresh_outcomes": 285,
+        "policy_updates": 456,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "packets": 57,
+        "native_seconds": 24000.0,
+        "world_updates": 0,
+        "trust_updates": 0,
+        "counterfactual_queries": 0,
+        "training_stopped_at": 18000.0
+      },
+      "schedule": {
+        "packets": 57,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "optimizer_order_exact": true,
+        "schedule": {
+          "online_actor_update_interval": 1,
+          "online_actor_batch_mode": "latest",
+          "online_update_order": "actor-before-critic"
+        },
+        "kl_penalty": false,
+        "every_packet_eight_each": true
+      },
+      "post_budget_counts": {
+        "before": {
+          "critic": 456,
+          "value": 456,
+          "actor": 456,
+          "alpha": 456,
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        },
+        "after": {
+          "critic": 456,
+          "value": 456,
+          "actor": 456,
+          "alpha": 456,
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        }
+      },
+      "cql_audit": {
+        "coefficient": 0.2,
+        "penalty_calls": 456,
+        "factual_rows": 58368,
+        "head_count": 2,
+        "candidate_rows_before_dedup": 1284096,
+        "candidate_rows_after_dedup": 1102453,
+        "main_rng_preserved": true,
+        "outcome_fields_read": false,
+        "factual_actions_transformed": false,
+        "candidate_actions_transformed": true,
+        "exact_deduplication": true,
+        "finite_penalty": true,
+        "penalty": {
+          "mean": -0.09418971131539397,
+          "min": -0.17176984250545502,
+          "max": 0.039973147213459015
+        },
+        "weighted_penalty": {
+          "mean": -0.018837942263078795,
+          "min": -0.03435396850109101,
+          "max": 0.007994629442691803
+        },
+        "regularizer_wall_seconds": 32.33935071807355,
+        "isolated_uniform_proposals": 583680,
+        "isolated_positive_proposals": 583680
+      },
+      "target_audit": {
+        "parent_mixed_target_calls": 456,
+        "parent_mixed_target_rows": 116736,
+        "fresh_value_replacement_calls": 456,
+        "fresh_value_replacement_rows": 29184,
+        "no_fresh_unchanged_returns": 0,
+        "fresh_rows_start": 64,
+        "fresh_rows_stop": 128,
+        "mixed_target_generated_before_replacement": true,
+        "original_sampler_draws": 4,
+        "rule": "Only fresh outcome rows use reward_scale*r+discounts*(1-terminal)*V(ns); historical/source retain original mixed target; no_fresh returns parent exactly."
+      },
+      "wall_seconds": 2082.3859138935804,
+      "execution_wall": {
+        "pid": 497516,
+        "native_started_wall": 1792987361.8249664,
+        "native_finished_wall": 1792989423.0084815
+      }
+    },
+    {
+      "seed": 6203,
+      "scenario": "stable",
+      "arm": "no_fresh",
+      "status": "complete",
+      "integrity": true,
+      "failed_checks": [],
+      "budget": {
+        "target_feedback_slots": 285,
+        "training_fresh_outcomes": 0,
+        "policy_updates": 456,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "packets": 57,
+        "native_seconds": 24000.0,
+        "world_updates": 0,
+        "trust_updates": 0,
+        "counterfactual_queries": 0,
+        "training_stopped_at": 18000.0
+      },
+      "schedule": {
+        "packets": 57,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "optimizer_order_exact": true,
+        "schedule": {
+          "online_actor_update_interval": 1,
+          "online_actor_batch_mode": "latest",
+          "online_update_order": "actor-before-critic"
+        },
+        "kl_penalty": false,
+        "every_packet_eight_each": true
+      },
+      "post_budget_counts": {
+        "before": {
+          "critic": 456,
+          "value": 456,
+          "actor": 456,
+          "alpha": 456,
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        },
+        "after": {
+          "critic": 456,
+          "value": 456,
+          "actor": 456,
+          "alpha": 456,
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        }
+      },
+      "cql_audit": {
+        "coefficient": 0.2,
+        "penalty_calls": 456,
+        "factual_rows": 58368,
+        "head_count": 2,
+        "candidate_rows_before_dedup": 1284096,
+        "candidate_rows_after_dedup": 1084341,
+        "main_rng_preserved": true,
+        "outcome_fields_read": false,
+        "factual_actions_transformed": false,
+        "candidate_actions_transformed": true,
+        "exact_deduplication": true,
+        "finite_penalty": true,
+        "penalty": {
+          "mean": -0.19537830014974533,
+          "min": -0.6109253764152527,
+          "max": 0.04025775194168091
+        },
+        "weighted_penalty": {
+          "mean": -0.03907566002994907,
+          "min": -0.12218507528305055,
+          "max": 0.008051550388336182
+        },
+        "regularizer_wall_seconds": 33.468382687307894,
+        "isolated_uniform_proposals": 583680,
+        "isolated_positive_proposals": 583680
+      },
+      "target_audit": {
+        "parent_mixed_target_calls": 456,
+        "parent_mixed_target_rows": 116736,
+        "fresh_value_replacement_calls": 0,
+        "fresh_value_replacement_rows": 0,
+        "no_fresh_unchanged_returns": 456,
+        "fresh_rows_start": 64,
+        "fresh_rows_stop": 128,
+        "mixed_target_generated_before_replacement": true,
+        "original_sampler_draws": 4,
+        "rule": "Only fresh outcome rows use reward_scale*r+discounts*(1-terminal)*V(ns); historical/source retain original mixed target; no_fresh returns parent exactly."
+      },
+      "wall_seconds": 2293.2923974609002,
+      "execution_wall": {
+        "pid": 497507,
+        "native_started_wall": 1792987361.0827348,
+        "native_finished_wall": 1792989633.7657034
+      }
+    },
+    {
+      "seed": 6203,
+      "scenario": "local_speed_drop",
+      "arm": "fresh",
+      "status": "complete",
+      "integrity": true,
+      "failed_checks": [],
+      "budget": {
+        "target_feedback_slots": 285,
+        "training_fresh_outcomes": 285,
+        "policy_updates": 456,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "packets": 57,
+        "native_seconds": 24000.0,
+        "world_updates": 0,
+        "trust_updates": 0,
+        "counterfactual_queries": 0,
+        "training_stopped_at": 18002.0
+      },
+      "schedule": {
+        "packets": 57,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "optimizer_order_exact": true,
+        "schedule": {
+          "online_actor_update_interval": 1,
+          "online_actor_batch_mode": "latest",
+          "online_update_order": "actor-before-critic"
+        },
+        "kl_penalty": false,
+        "every_packet_eight_each": true
+      },
+      "post_budget_counts": {
+        "before": {
+          "critic": 456,
+          "value": 456,
+          "actor": 456,
+          "alpha": 456,
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        },
+        "after": {
+          "critic": 456,
+          "value": 456,
+          "actor": 456,
+          "alpha": 456,
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        }
+      },
+      "cql_audit": {
+        "coefficient": 0.2,
+        "penalty_calls": 456,
+        "factual_rows": 58368,
+        "head_count": 2,
+        "candidate_rows_before_dedup": 1284096,
+        "candidate_rows_after_dedup": 1103415,
+        "main_rng_preserved": true,
+        "outcome_fields_read": false,
+        "factual_actions_transformed": false,
+        "candidate_actions_transformed": true,
+        "exact_deduplication": true,
+        "finite_penalty": true,
+        "penalty": {
+          "mean": -0.09350486070309814,
+          "min": -0.17035368084907532,
+          "max": 0.039973147213459015
+        },
+        "weighted_penalty": {
+          "mean": -0.01870097214061963,
+          "min": -0.03407073616981506,
+          "max": 0.007994629442691803
+        },
+        "regularizer_wall_seconds": 32.40113593172282,
+        "isolated_uniform_proposals": 583680,
+        "isolated_positive_proposals": 583680
+      },
+      "target_audit": {
+        "parent_mixed_target_calls": 456,
+        "parent_mixed_target_rows": 116736,
+        "fresh_value_replacement_calls": 456,
+        "fresh_value_replacement_rows": 29184,
+        "no_fresh_unchanged_returns": 0,
+        "fresh_rows_start": 64,
+        "fresh_rows_stop": 128,
+        "mixed_target_generated_before_replacement": true,
+        "original_sampler_draws": 4,
+        "rule": "Only fresh outcome rows use reward_scale*r+discounts*(1-terminal)*V(ns); historical/source retain original mixed target; no_fresh returns parent exactly."
+      },
+      "wall_seconds": 1977.020885689184,
+      "execution_wall": {
+        "pid": 497569,
+        "native_started_wall": 1792987362.802965,
+        "native_finished_wall": 1792989318.2366111
+      }
+    },
+    {
+      "seed": 6203,
+      "scenario": "local_speed_drop",
+      "arm": "no_fresh",
+      "status": "complete",
+      "integrity": true,
+      "failed_checks": [],
+      "budget": {
+        "target_feedback_slots": 285,
+        "training_fresh_outcomes": 0,
+        "policy_updates": 456,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "packets": 57,
+        "native_seconds": 24000.0,
+        "world_updates": 0,
+        "trust_updates": 0,
+        "counterfactual_queries": 0,
+        "training_stopped_at": 18001.0
+      },
+      "schedule": {
+        "packets": 57,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "optimizer_order_exact": true,
+        "schedule": {
+          "online_actor_update_interval": 1,
+          "online_actor_batch_mode": "latest",
+          "online_update_order": "actor-before-critic"
+        },
+        "kl_penalty": false,
+        "every_packet_eight_each": true
+      },
+      "post_budget_counts": {
+        "before": {
+          "critic": 456,
+          "value": 456,
+          "actor": 456,
+          "alpha": 456,
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        },
+        "after": {
+          "critic": 456,
+          "value": 456,
+          "actor": 456,
+          "alpha": 456,
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        }
+      },
+      "cql_audit": {
+        "coefficient": 0.2,
+        "penalty_calls": 456,
+        "factual_rows": 58368,
+        "head_count": 2,
+        "candidate_rows_before_dedup": 1284096,
+        "candidate_rows_after_dedup": 1083859,
+        "main_rng_preserved": true,
+        "outcome_fields_read": false,
+        "factual_actions_transformed": false,
+        "candidate_actions_transformed": true,
+        "exact_deduplication": true,
+        "finite_penalty": true,
+        "penalty": {
+          "mean": -0.19595230891973825,
+          "min": -0.6141014099121094,
+          "max": 0.04025775194168091
+        },
+        "weighted_penalty": {
+          "mean": -0.03919046178394765,
+          "min": -0.12282028198242188,
+          "max": 0.008051550388336182
+        },
+        "regularizer_wall_seconds": 36.269005437381566,
+        "isolated_uniform_proposals": 583680,
+        "isolated_positive_proposals": 583680
+      },
+      "target_audit": {
+        "parent_mixed_target_calls": 456,
+        "parent_mixed_target_rows": 116736,
+        "fresh_value_replacement_calls": 0,
+        "fresh_value_replacement_rows": 0,
+        "no_fresh_unchanged_returns": 456,
+        "fresh_rows_start": 64,
+        "fresh_rows_stop": 128,
+        "mixed_target_generated_before_replacement": true,
+        "original_sampler_draws": 4,
+        "rule": "Only fresh outcome rows use reward_scale*r+discounts*(1-terminal)*V(ns); historical/source retain original mixed target; no_fresh returns parent exactly."
+      },
+      "wall_seconds": 2744.9068028330803,
+      "execution_wall": {
+        "pid": 497669,
+        "native_started_wall": 1792987362.8365252,
+        "native_finished_wall": 1792990087.464186
+      }
+    }
+  ],
+  "preflight": [
+    {
+      "arm": "fresh",
+      "technical_gate_pass": true,
+      "feedback_slots": 5,
+      "packet_schedule": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "first_feedback": {
+        "processed_at": 1205.0,
+        "sequence_ids": [
+          37,
+          38,
+          39,
+          40,
+          41
+        ]
+      },
+      "reused_full_native_day": true
+    },
+    {
+      "arm": "no_fresh",
+      "technical_gate_pass": true,
+      "feedback_slots": 5,
+      "packet_schedule": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "first_feedback": {
+        "processed_at": 1205.0,
+        "sequence_ids": [
+          37,
+          38,
+          39,
+          40,
+          41
+        ]
+      },
+      "reused_full_native_day": true
+    }
+  ]
+}

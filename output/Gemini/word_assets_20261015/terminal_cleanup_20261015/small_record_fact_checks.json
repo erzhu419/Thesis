@@ -1,0 +1,168 @@
+{
+  "A6": {
+    "conclusion": "两批评价日不同，且2264.13是单列1.0需求，2692.34是1.0/1.25两需求10情形合并均值，不能视作同需求428秒基准漂移。",
+    "table6_9_evaluation_blocks": [
+      {
+        "demand_seed": 48101,
+        "sumo_seed": 49101
+      },
+      {
+        "demand_seed": 48102,
+        "sumo_seed": 49102
+      },
+      {
+        "demand_seed": 48103,
+        "sumo_seed": 49103
+      },
+      {
+        "demand_seed": 48104,
+        "sumo_seed": 49104
+      },
+      {
+        "demand_seed": 48105,
+        "sumo_seed": 49105
+      }
+    ],
+    "table6_10_test_blocks": [
+      {
+        "demand_seed": 68901,
+        "sumo_seed": 69901
+      },
+      {
+        "demand_seed": 68902,
+        "sumo_seed": 69902
+      },
+      {
+        "demand_seed": 68903,
+        "sumo_seed": 69903
+      },
+      {
+        "demand_seed": 68904,
+        "sumo_seed": 69904
+      },
+      {
+        "demand_seed": 68905,
+        "sumo_seed": 69905
+      }
+    ],
+    "table6_9_headway_cost_by_demand": {
+      "1.0": 2264.130910537834,
+      "1.25": 3151.390692738871
+    },
+    "table6_10_headway_cost_pooled": 2692.340344656467,
+    "table6_10_headway_by_demand": [
+      {
+        "demand_scale": 1.0,
+        "cost_seconds": 2271.4467537635123
+      },
+      {
+        "demand_scale": 1.25,
+        "cost_seconds": 3113.233935549422
+      }
+    ],
+    "same_demand_1_0_difference": 7.315843225678236,
+    "horizon_seconds": 24000,
+    "sources": [
+      "experiments/mcwm_usage_v3/protocol.json",
+      "experiments/mcwm_usage_v3/rules/headway/case00/results/case00.json",
+      "experiments/mcwm_seed_confirmation_v13/protocol.json",
+      "experiments/mcwm_seed_confirmation_v13/completed_analysis.json",
+      "experiments/mcwm_seed_confirmation_v13/run_rules.py"
+    ]
+  },
+  "A11": {
+    "actual_15_fields": [
+      "line_id",
+      "bus_id",
+      "station_id",
+      "time_period",
+      "direction",
+      "forward_headway",
+      "backward_headway",
+      "waiting_passengers",
+      "target_headway",
+      "base_stop_duration",
+      "sim_time",
+      "gap",
+      "co_line_forward_headway",
+      "co_line_backward_headway",
+      "segment_mean_speed"
+    ],
+    "contains_onboard_load": false,
+    "correct_action": "不改表2-4维数，不增行；只去通用/十五维列举中的车内载客词。24,000秒车组表5-2第8项确有车内载客率，保留该处及6.2.2。",
+    "sources": [
+      "/home/erzhu419/mine_code/offline-sumo/env/sim_core/bus.py:469-485",
+      "/home/erzhu419/mine_code/offline-sumo/env/envs/sumo_gym_env.py:190-221",
+      "experiments/bus_algorithm_matrix_v6/protocol.json",
+      "experiments/csbapr_bus/evaluate_recovery.py:90"
+    ]
+  },
+  "A10": {
+    "conclusion": "将tanh替换为越限阶跃示性函数后，两侧同时超过180秒时式3-10扣40分、式3-8仅扣20分；原退化断言须排除此情形。",
+    "no_formula_change": true,
+    "source": "/mnt/d/Paper/Thesis/Gemini/重构论文.md:664-678"
+  },
+  "F_direct_episode_count": {
+    "mcwm_completed_total": 80,
+    "mcwm_direct": 40,
+    "mcwm_guarded": 40,
+    "h2o_reused_direct": 40,
+    "h2o_reused_guarded": 40,
+    "factorization_per_controller": "2训练种子×2源条件×2需求×5日=40直接执行回合",
+    "completion_evidence": "v19 complete=true，80/80评价完成，collect_results.py逐4训练×2执行层要求每层10记录才出aggregate；v18 headway/h2oplus子组同样4×2×10=80，direct子组40。",
+    "main_6_4_5_current_direct_results": [
+      {
+        "scene": "calibrated",
+        "mcwm_cost_mean": 2833.4463523998757,
+        "h2o_cost_mean": 2833.9896608676904,
+        "cost_mcwm_minus_h2o": -0.5433084678147679,
+        "reward_delta": -0.4803426973065825,
+        "plan_delta": 0.43667283072625196
+      },
+      {
+        "scene": "joint75",
+        "mcwm_cost_mean": 2840.1365524112634,
+        "h2o_cost_mean": 2837.7936994330867,
+        "cost_mcwm_minus_h2o": 2.3428529781767793,
+        "reward_delta": -6.266991327171922,
+        "plan_delta": 1.974443935351701
+      }
+    ],
+    "main_count_correction_needed": false,
+    "main_note": "原主文6.4.5仅报告0.54/2.34等direct结果，没有80计数；F末段需80→40＋复用40。",
+    "sources": [
+      "experiments/mcwm_headway_holding_v19/protocol.json",
+      "experiments/mcwm_headway_holding_v19/analysis_summary.json",
+      "experiments/mcwm_headway_holding_v19/collect_results.py:40-70",
+      "experiments/mcwm_action_matrix_v18/analysis_summary.json",
+      "experiments/mcwm_action_matrix_v18/collect_results.py"
+    ]
+  },
+  "B5": {
+    "table3_6_original_evaluation_seeds": [
+      15001,
+      15002,
+      15003
+    ],
+    "table3_7_extra_evaluation_seeds": [
+      39301,
+      39302,
+      39303
+    ],
+    "training_seeds": [
+      17001,
+      17002,
+      17003
+    ],
+    "sources": [
+      "experiments/legacy_bus/runs/reward_v1/ridge_seed17001/results/protocol.json",
+      "experiments/review_round3/protocol.json",
+      "experiments/review_round3/completed_operational_summary.json"
+    ]
+  },
+  "B8": {
+    "source": "/home/erzhu419/mine_code/offline-sumo/eval_revision_metrics.py:380,408",
+    "actual_rule": "bunching_threshold默认为180.0秒；统计fwd<bunch_thr。",
+    "proposed_scope": "只在2.7.4通用定义加双向单线路180秒限定，不把所有多线路动态阈值等同180秒。"
+  }
+}

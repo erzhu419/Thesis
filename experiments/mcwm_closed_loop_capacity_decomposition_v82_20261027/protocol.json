@@ -1,0 +1,150 @@
+{
+  "name": "thesis-mcwm-capacity-decomposition-v82-20261027",
+  "seeds": [
+    6207,
+    6208
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "arms": [
+    "fresh",
+    "no_fresh"
+  ],
+  "source_directory": "mcwm_closed_loop_capacity_control_v81_20261027",
+  "noise8": [
+    -0.06217352291346624,
+    -0.1571639624913988,
+    -1.721349285199888,
+    0.6577939275797919,
+    -2.81937924163242,
+    -0.7086413188434935,
+    1.9075419780857727,
+    -0.5765262821646658
+  ],
+  "tail_window_seconds": [
+    18300,
+    24000
+  ],
+  "batch_seconds": 300,
+  "latent_hold_grid": [
+    0,
+    7.5,
+    15,
+    30,
+    60
+  ],
+  "candidate_columns": [
+    "F0",
+    "F7.5",
+    "F15",
+    "F30",
+    "F60",
+    "factual_already_executed",
+    "frozen_fresh_actor_executed",
+    "frozen_no_fresh_actor_executed"
+  ],
+  "final_theta_reference": [
+    {
+      "seed": 6207,
+      "scenario": "stable",
+      "arm": "fresh",
+      "theta": [
+        -0.03594908118247986,
+        -0.0386086069047451
+      ]
+    },
+    {
+      "seed": 6207,
+      "scenario": "stable",
+      "arm": "no_fresh",
+      "theta": [
+        0.04366143420338631,
+        0.04367443919181824
+      ]
+    },
+    {
+      "seed": 6207,
+      "scenario": "local_speed_drop",
+      "arm": "fresh",
+      "theta": [
+        -0.036439187824726105,
+        -0.03915299475193024
+      ]
+    },
+    {
+      "seed": 6207,
+      "scenario": "local_speed_drop",
+      "arm": "no_fresh",
+      "theta": [
+        0.04395078495144844,
+        0.044027216732501984
+      ]
+    },
+    {
+      "seed": 6208,
+      "scenario": "stable",
+      "arm": "fresh",
+      "theta": [
+        -0.04508132487535477,
+        -0.04617733880877495
+      ]
+    },
+    {
+      "seed": 6208,
+      "scenario": "stable",
+      "arm": "no_fresh",
+      "theta": [
+        0.03961953893303871,
+        0.038649775087833405
+      ]
+    },
+    {
+      "seed": 6208,
+      "scenario": "local_speed_drop",
+      "arm": "fresh",
+      "theta": [
+        -0.04526247829198837,
+        -0.04774749279022217
+      ]
+    },
+    {
+      "seed": 6208,
+      "scenario": "local_speed_drop",
+      "arm": "no_fresh",
+      "theta": [
+        0.03941065073013306,
+        0.038416892290115356
+      ]
+    }
+  ],
+  "state_bank": "Both own-trajectory285covariates, plus first real issue per line per300-second bin in18300-24000 for both arms. Same origin-arm/sequence record de-duplicated; no merging across arms by numerical state. No selection by reward, future truth or known Q ranking.",
+  "comparison": "Both frozen models score the same states, native contexts and common executed actions. F is applied once to latent proposals; factual executed actions are never mapped again. Actor distribution-output coordinates use common explicit noise.",
+  "decomposition": "min full Q = min base Q + capacity on full-selected head + base-head switch contribution. Decompose action differences and local gate/mean/effective-logstd gradients; report entropy separately, exact alias/tie/strict sign changes separately.",
+  "pressure": "Final-model frozenHuber TD re-score on old285fresh factual outcomes only. Real next chronological state and recorded ledger reward; no invented successors. Report uniform and exact private-replay exposure-weighted partials, forced60 vs choice states; current partials are not historical theta-update causes.",
+  "target": "Original0.1V+0.9SAC including entropy, target subset2of2; only diagnostic positive-action expectation uses common explicit8noise. Huber1, reward_scale0.0001, bootstrap_probability1 and freshquota0.25.",
+  "unchanged": {
+    "initializer_steps": 50000,
+    "response_slots": 285,
+    "fresh_complete_outcomes": 285,
+    "optimizer_updates_per_family": 456,
+    "horizon_seconds": 24000,
+    "F": true,
+    "trust": true
+  },
+  "new_budget": {
+    "native_seconds": 0,
+    "initialization_updates": 0,
+    "response_optimizer_steps": 0,
+    "feedback_slots": 0,
+    "native_branches": 0
+  },
+  "priority": "high",
+  "parallelism": "Two seed workers submitted together, oneCPU each; four frozen model scores per worker, no native arms.",
+  "summary_max_bytes": 48000,
+  "downloads": "Two seed readout JSON and necessary shortlogs only; all snapshots, prefix traces and full diagnostic arrays stay resident.",
+  "old_code_and_results_read_only": true,
+  "advance": "One frozen diagnostic then decide one learning change only if direct capacity or head switching materially affects action ranking/local actor gradients. If influence is small, close slope-tinkering. No automatic fitting, collection, native branches or performance claim. v81 closed cost gate stays unchanged.",
+  "limits": "Frozen weights do not reconstruct earlier training gradients or counterfactual passenger costs. Critic-term deletion changes scores, not the frozen deployed actor. Local distribution-output gradients are not full actor-network parameter norms. Empty late bins remain empty."
+}

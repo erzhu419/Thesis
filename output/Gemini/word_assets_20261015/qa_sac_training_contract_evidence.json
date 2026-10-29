@@ -1,0 +1,260 @@
+{
+  "question": "225回合最终控制器比较中的纯源SAC是否执行50000次IQL初始化？",
+  "answer": "否。五个纯源SAC策略均从随机参数开始，offline_updates=0、offline_initializer=null、resume=null；25k源事件导出点累计20000次SAC学习更新。",
+  "status": "confirmed_from_local_run_metadata_and_export_manifests",
+  "comparison": {
+    "archive": "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006",
+    "methods": [
+      "mcwm_aligned",
+      "h2oplus_final",
+      "sac_guarded"
+    ],
+    "training_seeds": [
+      6201,
+      6202,
+      6203,
+      6204,
+      6205
+    ],
+    "test_demand_scales": [
+      0.75,
+      1.0,
+      1.25
+    ],
+    "evaluation_cases": 225,
+    "cost_seconds_rounded": {
+      "mcwm_aligned": 2360.49,
+      "h2oplus_final": 2383.51,
+      "sac_guarded": 2400.74
+    }
+  },
+  "lineage": {
+    "staging_code": "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006/stage_assets.py",
+    "staging_code_lines": [
+      56,
+      65
+    ],
+    "record": "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006/asset_deployment.json",
+    "record_reused_sac_policies": 5,
+    "retained_actor_template": "policies/sac_guarded_seed{6201..6205}.pt",
+    "source_actor_template_from_staging_code": "/home/zhengliang01/scheduleurm_work/thesis-h2o-source-guard-20261006/workspace/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed{6201..6205}/fewshot_policies/online_events_000025000.pt",
+    "evaluation_semantics": "冻结所选25k源事件策略，统一quarter-load-sixty执行变换；评价入口未追加训练。"
+  },
+  "code_evidence": [
+    {
+      "path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/prepare_h2oplus_v8_fewshot.py",
+      "lines": [
+        374,
+        392
+      ],
+      "meaning": "h2oplus分支offline_updates=50000；sac-online分支offline_updates=0、ratio_pretrain_updates=0。"
+    },
+    {
+      "path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/SimpleSAC/train_transit_v8_fewshot.py",
+      "lines": [
+        202,
+        227
+      ],
+      "meaning": "sac-online initialized导出为0事件/0学习更新；续训导出步数由offline_updates加epoch更新量计算。"
+    }
+  ],
+  "five_seed_run_evidence": [
+    {
+      "seed": 6201,
+      "training_directory": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6201",
+      "arguments": {
+        "method": "sac-online",
+        "offline_updates": 0,
+        "offline_initializer": null,
+        "resume": null,
+        "ratio_pretrain_updates": 0,
+        "online_fraction": 0.0,
+        "warmup_events": 5000,
+        "events_per_epoch": 500,
+        "updates_per_epoch": 500,
+        "sim_demand_scales": [
+          0.75,
+          1.0,
+          1.25
+        ]
+      },
+      "observed_summary": {
+        "method_protocol": "randomly initialized online-only Soft Actor-Critic",
+        "offline_initializer_consumed": null,
+        "offline_objective": "none",
+        "offline_metrics": {}
+      },
+      "selected_export": {
+        "path": "fewshot_policies/online_events_000025000.pt",
+        "phase": "online_training",
+        "epoch": 40,
+        "online_events_nominal": 25000,
+        "online_events_actual": 25000,
+        "learner_update_steps": 20000,
+        "ratio_optimizer_steps": 0
+      },
+      "zero_event_export": {
+        "phase": "initialized",
+        "learner_update_steps": 0
+      }
+    },
+    {
+      "seed": 6202,
+      "training_directory": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6202",
+      "arguments": {
+        "method": "sac-online",
+        "offline_updates": 0,
+        "offline_initializer": null,
+        "resume": null,
+        "ratio_pretrain_updates": 0,
+        "online_fraction": 0.0,
+        "warmup_events": 5000,
+        "events_per_epoch": 500,
+        "updates_per_epoch": 500,
+        "sim_demand_scales": [
+          0.75,
+          1.0,
+          1.25
+        ]
+      },
+      "observed_summary": {
+        "method_protocol": "randomly initialized online-only Soft Actor-Critic",
+        "offline_initializer_consumed": null,
+        "offline_objective": "none",
+        "offline_metrics": {}
+      },
+      "selected_export": {
+        "path": "fewshot_policies/online_events_000025000.pt",
+        "phase": "online_training",
+        "epoch": 40,
+        "online_events_nominal": 25000,
+        "online_events_actual": 25000,
+        "learner_update_steps": 20000,
+        "ratio_optimizer_steps": 0
+      },
+      "zero_event_export": {
+        "phase": "initialized",
+        "learner_update_steps": 0
+      }
+    },
+    {
+      "seed": 6203,
+      "training_directory": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6203",
+      "arguments": {
+        "method": "sac-online",
+        "offline_updates": 0,
+        "offline_initializer": null,
+        "resume": null,
+        "ratio_pretrain_updates": 0,
+        "online_fraction": 0.0,
+        "warmup_events": 5000,
+        "events_per_epoch": 500,
+        "updates_per_epoch": 500,
+        "sim_demand_scales": [
+          0.75,
+          1.0,
+          1.25
+        ]
+      },
+      "observed_summary": {
+        "method_protocol": "randomly initialized online-only Soft Actor-Critic",
+        "offline_initializer_consumed": null,
+        "offline_objective": "none",
+        "offline_metrics": {}
+      },
+      "selected_export": {
+        "path": "fewshot_policies/online_events_000025000.pt",
+        "phase": "online_training",
+        "epoch": 40,
+        "online_events_nominal": 25000,
+        "online_events_actual": 25001,
+        "learner_update_steps": 20000,
+        "ratio_optimizer_steps": 0
+      },
+      "zero_event_export": {
+        "phase": "initialized",
+        "learner_update_steps": 0
+      }
+    },
+    {
+      "seed": 6204,
+      "training_directory": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6204",
+      "arguments": {
+        "method": "sac-online",
+        "offline_updates": 0,
+        "offline_initializer": null,
+        "resume": null,
+        "ratio_pretrain_updates": 0,
+        "online_fraction": 0.0,
+        "warmup_events": 5000,
+        "events_per_epoch": 500,
+        "updates_per_epoch": 500,
+        "sim_demand_scales": [
+          0.75,
+          1.0,
+          1.25
+        ]
+      },
+      "observed_summary": {
+        "method_protocol": "randomly initialized online-only Soft Actor-Critic",
+        "offline_initializer_consumed": null,
+        "offline_objective": "none",
+        "offline_metrics": {}
+      },
+      "selected_export": {
+        "path": "fewshot_policies/online_events_000025000.pt",
+        "phase": "online_training",
+        "epoch": 40,
+        "online_events_nominal": 25000,
+        "online_events_actual": 25001,
+        "learner_update_steps": 20000,
+        "ratio_optimizer_steps": 0
+      },
+      "zero_event_export": {
+        "phase": "initialized",
+        "learner_update_steps": 0
+      }
+    },
+    {
+      "seed": 6205,
+      "training_directory": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6205",
+      "arguments": {
+        "method": "sac-online",
+        "offline_updates": 0,
+        "offline_initializer": null,
+        "resume": null,
+        "ratio_pretrain_updates": 0,
+        "online_fraction": 0.0,
+        "warmup_events": 5000,
+        "events_per_epoch": 500,
+        "updates_per_epoch": 500,
+        "sim_demand_scales": [
+          0.75,
+          1.0,
+          1.25
+        ]
+      },
+      "observed_summary": {
+        "method_protocol": "randomly initialized online-only Soft Actor-Critic",
+        "offline_initializer_consumed": null,
+        "offline_objective": "none",
+        "offline_metrics": {}
+      },
+      "selected_export": {
+        "path": "fewshot_policies/online_events_000025000.pt",
+        "phase": "online_training",
+        "epoch": 40,
+        "online_events_nominal": 25000,
+        "online_events_actual": 25001,
+        "learner_update_steps": 20000,
+        "ratio_optimizer_steps": 0
+      },
+      "zero_event_export": {
+        "phase": "initialized",
+        "learner_update_steps": 0
+      }
+    }
+  ],
+  "interpretation": "本批MC-WM与H2O+有50000次IQL初始化，纯源SAC没有；因此纯源SAC比较代表完整训练方案差异，不是离线预训练与总计算量相同的世界模型单因素消融。",
+  "read_scope": "仅本地小JSON、Python脚本；未读取或下载模型权重、CSV，未启动实验，未改论文。"
+}

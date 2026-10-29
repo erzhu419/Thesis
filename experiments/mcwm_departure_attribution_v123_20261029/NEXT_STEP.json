@@ -1,0 +1,22 @@
+{
+  "status": "PROPOSED_NOT_LAUNCHED",
+  "purpose": "Specify and implement a minimal pre-action receiver-service observation in a new isolated module before any new replay or fitting.",
+  "one_change": "Add the count of currently onboard receiver passengers whose native current stage0 destStop equals the current stop, plus explicit stage-read completeness. Describe the existing ready-time field as estimated, not verified completion.",
+  "inputs": "Current getPersonIDList(receiver) and getStage(person,0) only; no later alighting, future journey stages or permanent legacy transfer/end-stop fields.",
+  "unknowns": "If any onboard current stage is unavailable or unsupported, preserve incomplete/unknown instead of treating missing people as zero. This count is not remaining service seconds.",
+  "verification": "Small synthetic interface tests for current-leg versus later-leg destinations, incomplete reads and no future-field dependency. Bind observation before apply and keep time/state unchanged in the interface design. Real native validity requires a separately authorized passive replay.",
+  "limits": {
+    "new_native_seconds": 0,
+    "new_collection": 0,
+    "optimizer_updates": 0,
+    "new_predictor_fits": 0,
+    "decision_timing_changes": 0,
+    "service_constant_changes": 0,
+    "action_changes": 0
+  },
+  "old_files": "read-only; do not backfill v120/v121/v122 contexts or targets",
+  "F": "unchanged",
+  "cost_gate": "Complete four days and technical checks. fresh-minus-matched-no_fresh mean<0,stable<=0,shock<0; additionally fresh-minus-same-actor-frozen<=0 in each scenario and at least one<0. Report no_fresh-minus-frozen to distinguish baseline drift. Early and tail windows are descriptive, not new gates.",
+  "decision": "Finish the isolated observation contract and tests, then propose a bounded passive replay if needed; no automatic replay, model fit or controller deployment.",
+  "automatic_launch": false
+}

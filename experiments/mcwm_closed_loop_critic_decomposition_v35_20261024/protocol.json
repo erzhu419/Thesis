@@ -1,0 +1,43 @@
+{
+  "name": "thesis-mcwm-critic-decomposition-v35-20261024",
+  "training_seed": 6202,
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "focus_lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "v34_directory": "mcwm_closed_loop_memory_truth_v34_20261024",
+  "v33_directory": "mcwm_closed_loop_critic_shadow_v33_20261024",
+  "expected_states_per_scenario": 6,
+  "reference_feedback_slots": 285,
+  "reference_updates": 456,
+  "target_horizon_seconds": 24000,
+  "expected_total_updates": 50456,
+  "variants": [
+    "zero_memory",
+    "memory_base",
+    "level_only",
+    "action_only",
+    "full"
+  ],
+  "action_neighbor_radius_seconds": 0.5,
+  "summary_max_bytes": 20000,
+  "scheduler_priority": "high",
+  "inputs": "Existing v34 frozen final_models.pt and all12 predeclared issue states; old285 facts only. Require checkpoints, never invoke rebuild or learner creation.",
+  "decomposition": "Per-head native base + action-independent memory level + ((a+1)/2)*memory-action interaction. Report low/high argmin and fixed-low-head action gap. Same-weight ablations never refit; memory-trained base differs from zero-trained base.",
+  "coverage": "Only old285 executed target actions with nonzero recorded memory provide memory-action support. Source/history context is zero. Report per-line/window range, descriptive +/-0.5s neighborhoods and new-memory range exceedance; do not turn thresholds/rank into winner selection.",
+  "truth": "Read paired v34 costs only in final analysis, never score-state selection, gradients, fitting or counterfactual training. Existing12 are development data.",
+  "compute_budget": {
+    "new_native_prefixes": 0,
+    "new_native_suffixes": 0,
+    "new_simulation_seconds": 0,
+    "new_optimizer_updates": 0,
+    "new_training_labels": 0,
+    "reconstruction_optimizer_updates": 0
+  },
+  "decision": "Locate early large errors and tail sign changes before specifying one critic change. No trust/F/actor or deployment change in this version."
+}

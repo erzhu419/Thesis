@@ -1,0 +1,80 @@
+{
+  "name": "mcwm_closed_loop_historical_comparison_v104_20261028",
+  "authorization": "User: 仔细分析 然后继续下一步; follow v103 next step: bind historical final MC-WM and the confirmed v73/v75 comparator before new fresh designs.",
+  "locked_at_utc": "2026-10-28T16:00:10Z",
+  "purpose": "Common-environment complete-system comparison; separate matched fresh attribution from historical system ranking.",
+  "historical_identity": "F-FINAL-225 / mcwm-f2-final-20261012 / final actor at 70000 updates, not best selection",
+  "historical_training_seeds": [
+    6201,
+    6202,
+    6203,
+    6204,
+    6205
+  ],
+  "v75_training_seeds": [
+    6206,
+    6207,
+    6208
+  ],
+  "external_seeds": [
+    106206,
+    106207,
+    106208
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "horizon_seconds": 24000,
+  "shock_at_seconds": 9000,
+  "speed_factor": 0.65,
+  "metric_interval_seconds": 300,
+  "full_day_departed_passengers": 15079,
+  "actor_path_template": "workpapers/最终控制器同条件比较_20261006/policies/mcwm_aligned_seed{seed}.pt",
+  "metadata_path": "experiments/mcwm_closed_loop_formal_20261020/inputs/history_metadata.json",
+  "v75_results_path": "experiments/mcwm_closed_loop_frozen_validation_v75_20261027/results/validation.json",
+  "periods": {
+    "full_day": [
+      0,
+      24000
+    ],
+    "early": [
+      9000,
+      12000
+    ],
+    "post_budget": [
+      18300,
+      24000
+    ]
+  },
+  "cost": "J=(2*accrued_wait_seconds+accrued_in_vehicle_seconds)/15079; include unfinished passengers, same whole-day denominator in windows; lower is better.",
+  "execution": "Historical deterministic actor with original raw-state v19 quarter-load-sixty; canonical ExecutionAction measured passively only.",
+  "actor_preprocessing": "Same v7 raw-to-canonical station normalization and 229-dimensional packing as historical evaluator; no state or action scaling changes.",
+  "environment": "v75 original passenger XML (15079 people), runtime SUMO1.25.0 and source network, external seeds106206-106208. Reuse v75 dynamic full-day costs, never deploy its final actor from time0 as a substitute.",
+  "new_native_days": 30,
+  "new_native_seconds_cap": 720000,
+  "new_training_updates": 0,
+  "new_feedback_used_for_training": 0,
+  "new_fits": 0,
+  "new_validation_labels_released": 0,
+  "first_formal_day": {
+    "training_seed": 6201,
+    "external_seed": 106206,
+    "scenario": "stable"
+  },
+  "execution_sequence": "Load all five actors and check contract without a simulator; first formal day reused in30. If first day complete with valid ledger/runtime/clock/action semantics, launch remaining29 regardless of first cost; no extra pilot/retries.",
+  "comparison": {
+    "matched": "Preserve v75 fresh-minus-no_fresh six pairs and three seed-level means. Both have50k initialization+456/day optimizer updates; only fresh uses current complete outcomes.",
+    "historical": "For each fixed environment average all five historical actors equally; compare cached fresh/no_fresh against this mean. Also report each old actor mean across all six environments and within-environment actor range. No old actor selection or artificial same-initialization pairing.",
+    "training_difference": "Historical50k IQL+20k continuation with source simulation vs v75 new50k IQL+456/day continued updates with4096 fixed source rows. System comparison is not the causal effect of merely adding dripping data to final MC-WM.",
+    "sample_scope": "Three target seeds and one fixed passenger XML; historical five training seeds crossed with target days, v75 training seeds paired to target seeds. Thirty old cells are not thirty independent trained policies."
+  },
+  "outcome_use": "Descriptive system ranking and cost decomposition only, not a new promotion/confirmation gate. Negative/positive matched fresh effect retained separately. No candidate tuning, fitting, additional seeds, or V release follows automatically.",
+  "failure": "Stop on actual technical failure; retain consumed native seconds including initialization; no automatic restart/requeue. Missing results stay missing.",
+  "old_code_and_results_read_only": true,
+  "downloads": "Only small metadata, failure/log tails and compact summaries; raw CSV, traces, snapshots and checkpoints remain server-side.",
+  "summary_max_bytes_per_day": 16000,
+  "summary_total_max_bytes": 480000,
+  "v103_interpretation": "The fixed7.5-second root mean label gate failed. Ten of12 pointwise mean intervals cross0;4/12 history6 sample-mean sign agreement does not establish8 true wrong signs. Zero fitting or policy learning occurred; this is not a new fresh-vs-no_fresh control result.",
+  "external_seed_offset": 100000
+}

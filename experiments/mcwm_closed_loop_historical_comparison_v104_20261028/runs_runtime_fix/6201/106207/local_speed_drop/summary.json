@@ -1,0 +1,233 @@
+{
+  "status": "complete",
+  "actor_seed": 6201,
+  "external_seed": 106207,
+  "scenario": "local_speed_drop",
+  "integrity": {
+    "all_pass": true,
+    "checks": {
+      "training_seed": true,
+      "original_contract": true,
+      "finalized_historical_actor": true,
+      "scenario_contract": true,
+      "native_shock_clock": true,
+      "affected_lanes": true,
+      "full_day": true,
+      "sumo_version": true,
+      "departed_cohort": true,
+      "ledger_balanced": true,
+      "exact_cost_windows": true,
+      "actor_frozen": true,
+      "raw_execution_exact": true,
+      "canonical_observation_exact": true,
+      "actor_real_clock": true,
+      "all_issues_audited": true
+    },
+    "failed_checks": []
+  },
+  "periods": {
+    "full_day": {
+      "status": "complete",
+      "start": 0,
+      "end": 24000,
+      "wait": 8561095.0,
+      "ride": 16570352.0,
+      "cost": 33692542.0,
+      "departed": 15079,
+      "cost_per_passenger": 2234.4016181444395
+    },
+    "early": {
+      "status": "complete",
+      "start": 9000,
+      "end": 12000,
+      "wait": 1175086.0,
+      "ride": 3630022.0,
+      "cost": 5980194.0,
+      "departed": 15079,
+      "cost_per_passenger": 396.59088798991974
+    },
+    "post_budget": {
+      "status": "complete",
+      "start": 18300,
+      "end": 24000,
+      "wait": 2068719.0,
+      "ride": 1396771.0,
+      "cost": 5534209.0,
+      "departed": 15079,
+      "cost_per_passenger": 367.0143245573314
+    }
+  },
+  "passenger_denominator": 15079,
+  "passengers": {
+    "accounting_semantics": "one-second integration of SUMO bus-stop waiting counts and transit-vehicle person counts",
+    "legacy_sampled_trip_histories_used_for_welfare": false,
+    "departed_passengers": 15079,
+    "completed_passengers": 14743,
+    "completion_rate": 0.9777173552622853,
+    "unfinished_passengers": 336,
+    "state_counts_at_horizon": {
+      "waiting": 336,
+      "in_vehicle": 0,
+      "other_active": 0
+    },
+    "active_state_count_balance_error": 0,
+    "unfinished_departure_seconds": {
+      "n": 336,
+      "mean": 16449.098214285714,
+      "std": 1169.0943245003334,
+      "p50": 16694.5,
+      "p90": 17810.0,
+      "p95": 17888.5,
+      "min": 13378.0,
+      "max": 18001.0
+    },
+    "unfinished_elapsed_seconds_at_horizon": {
+      "n": 336,
+      "mean": 7550.901785714285,
+      "std": 1169.0943245003334,
+      "p50": 7305.5,
+      "p90": 9336.0,
+      "p95": 9731.5,
+      "min": 5999.0,
+      "max": 10622.0
+    },
+    "completed_journey_seconds": {
+      "n": 14743,
+      "mean": 1544.547514074476,
+      "std": 971.5278441461788,
+      "p50": 1380.0,
+      "p90": 2857.0,
+      "p95": 3270.7999999999993,
+      "min": 48.0,
+      "max": 7794.0
+    },
+    "accrued_wait_seconds_total": 8561095.0,
+    "accrued_wait_seconds_per_departed_passenger": 567.7495191988859,
+    "accrued_in_vehicle_seconds_total": 16570352.0,
+    "accrued_in_vehicle_seconds_per_departed_passenger": 1098.9025797466675,
+    "accrued_wait_plus_in_vehicle_seconds_total": 25131447.0,
+    "accrued_wait_plus_in_vehicle_seconds_per_departed_passenger": 1666.6520989455535
+  },
+  "ledger": {
+    "time_seconds": 24000.0,
+    "waiting_passengers": 336,
+    "in_vehicle_passengers": 0,
+    "accrued_wait_seconds": 8561095.0,
+    "accrued_in_vehicle_seconds": 16570352.0
+  },
+  "budget": {
+    "native_seconds": 24000.0,
+    "native_seconds_is_lower_bound": false,
+    "optimizer_updates": 0,
+    "target_training_labels": 0,
+    "world_updates": 0,
+    "trust_updates": 0
+  },
+  "action_audit": {
+    "issues": 13693,
+    "raw_execution_exact": true,
+    "canonical_observation_exact": true,
+    "actor_real_clock": true,
+    "canonical_different_events": 0,
+    "max_canonical_hold_gap_seconds": 3.218650817871094e-05,
+    "canonical_difference_threshold_seconds": 0.0001
+  },
+  "scenario_metadata": {
+    "name": "local_speed_drop",
+    "installed_at_seconds": 484.0,
+    "scheduled_shock_at_seconds": 9000.0,
+    "actual_shock_at_seconds": 9000.0,
+    "speed_factor": 0.65,
+    "edge_id": "E_J282_J328.50",
+    "lane_ids": [
+      "E_J282_J328.50_0",
+      "E_J282_J328.50_1",
+      "E_J282_J328.50_2",
+      "E_J282_J328.50_3"
+    ],
+    "edge_length_meters": 723.3,
+    "directly_affected_lines": [
+      "7X",
+      "102X",
+      "705X"
+    ],
+    "upstream_stop": "7X13_102X26_705X27",
+    "downstream_stop": "7X14_102X27_705X28",
+    "lane_caps": [
+      {
+        "lane_id": "E_J282_J328.50_0",
+        "original_mps": 13.89,
+        "requested_mps": 9.028500000000001,
+        "observed_mps": 9.028500000000001
+      },
+      {
+        "lane_id": "E_J282_J328.50_1",
+        "original_mps": 13.89,
+        "requested_mps": 9.028500000000001,
+        "observed_mps": 9.028500000000001
+      },
+      {
+        "lane_id": "E_J282_J328.50_2",
+        "original_mps": 13.89,
+        "requested_mps": 9.028500000000001,
+        "observed_mps": 9.028500000000001
+      },
+      {
+        "lane_id": "E_J282_J328.50_3",
+        "original_mps": 13.89,
+        "requested_mps": 9.028500000000001,
+        "observed_mps": 9.028500000000001
+      }
+    ],
+    "metric_every_seconds": 300.0,
+    "mechanism": "native lane speed cap; no intervention indicator in policy input",
+    "time_semantics": "after the native tick at actual_shock_at_seconds; subsequent motion uses the new cap",
+    "cost_semantics": "2*accrued_wait_seconds + accrued_in_vehicle_seconds; includes unfinished passengers"
+  },
+  "source": {
+    "actor_path": "/home/zhengliang01/scheduleurm_work/Thesis/workpapers/最终控制器同条件比较_20261006/policies/mcwm_aligned_seed6201.pt",
+    "metadata_path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_formal_20261020/inputs/history_metadata.json",
+    "actor_metadata": {
+      "arm": "fixed0250",
+      "seed": 6201,
+      "training_seed": 6201,
+      "contract_config": {
+        "max_hold_seconds": 60.0,
+        "horizon_seconds": 24000.0,
+        "scheduled_headway_scale_seconds": 720.0,
+        "base_dwell_scale_seconds": 130.0,
+        "system_passenger_count_scale": 20000.0,
+        "max_headway_ratio": 5.0,
+        "max_queue_capacity_ratio": 2.0,
+        "max_demand_capacity_ratio": 2.0,
+        "max_system_passenger_count_scaled": 1.25,
+        "waiting_time_value": 2.0,
+        "in_vehicle_time_value": 1.0,
+        "reward_unit_passenger_seconds": 1.0,
+        "discount_gamma_per_minute": 1.0,
+        "max_simultaneous_decisions": 16
+      },
+      "scenario": "formal_calibrated_three_demand",
+      "source_events": 24999,
+      "updates": 70000,
+      "smoke": false,
+      "policy_artifact_schema": "transit-policy-artifact-v7-v1"
+    }
+  },
+  "runtime": {
+    "python": "3.10.14",
+    "torch": "2.5.1+cu121",
+    "numpy": "2.1.3",
+    "sumo": [
+      22,
+      "SUMO 1.25.0"
+    ],
+    "h2o_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/runtime/H2Oplus",
+    "sumo_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/assets/SUMO_ruiguang"
+  },
+  "execution_wall": {
+    "native_started_wall": 1793205171.8773587,
+    "native_finished_wall": 1793205790.3599298
+  },
+  "wall_seconds": 620.4721509665251
+}

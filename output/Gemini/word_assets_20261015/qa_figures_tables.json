@@ -1,0 +1,36 @@
+{
+  "document": "/home/erzhu419/mine_code/Thesis/output/Gemini/重构论文_排版稿_20261015.docx",
+  "document_modified_local": "2026-10-15T19:08:42",
+  "scope": "通篇图表编号、正文引用、图注与图片/表格目标匹配，含附录A–G；只读。",
+  "result": "正确：未发现当前图表重编号残留、引用指错目标、图注与图片/表格错配。",
+  "findings": [],
+  "counts": {
+    "figures_main": 57,
+    "figures_appendix_F": 3,
+    "tables_main": 47,
+    "tables_appendix_F": 2,
+    "figure_references": 97,
+    "table_references": 109
+  },
+  "verified": {
+    "numbering": "全部60幅图、49张表的编号在各章/附录内连续且唯一。",
+    "reference_targets": "206处显式图表引用均有目标；范围引用覆盖的中间编号存在，引用上下文与目标内容相符。",
+    "main_images": "Word正文57幅嵌入图片与figure_map_final.json的对应PNG直接按字节比较，57/57完全一致；57条图注与映射一致。",
+    "caption_placement": "60条图注前均为对应图片段落；49条表注后均为实际表格，表头/内容类型与表注对应。",
+    "new_old_mapping": "新增章首框图后，正文对学习曲线、温度干预、迁移学习、世界模型各组图的引用均使用新编号。旧图3-7种子图已对应新图3-8；旧图5-8离线学习过程已对应新图5-9，相关正文引用正确。",
+    "panels": "正文仅两处明确子图引用：图3-7(b)对应惩罚通道消融；图4-11(b)对应动作补偿阶梯，均正确。",
+    "appendices": "附录A–E及G无图表；附录F有图F-1至F-3、表F-1至F-2，编号、正文引用和内容匹配。三幅图与原Word图片完全一致，已直接查看。",
+    "appendix_fields": "附录F的5个图表REF域以及指向表6-5的restruct_table_budget_model域，均解析到正确标题书签。"
+  },
+  "sources": [
+    "/home/erzhu419/mine_code/Thesis/output/Gemini/重构论文.md",
+    "/home/erzhu419/mine_code/Thesis/output/Gemini/word_assets_20261015/figure_map_final.json",
+    "/home/erzhu419/mine_code/Thesis/output/Gemini/word_assets_20261015/figure_map_source.json",
+    "/home/erzhu419/mine_code/Thesis/output/排版完成_冗余表达与用词校订_20261012.docx"
+  ],
+  "evidence_files": [
+    "qa_figures_tables_structure.json",
+    "qa_figures_tables_references.json"
+  ],
+  "changes_to_document": false
+}

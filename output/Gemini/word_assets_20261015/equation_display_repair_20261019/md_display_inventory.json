@@ -1,0 +1,3853 @@
+[
+  {
+    "ordinal": 1,
+    "source_line": 250,
+    "tex": "a = \\max\\Big(0,\\ \\min\\big\\{\\,t^{\\mathrm{d}} - t^{\\mathrm{s}},\\ a_{\\max}\\,\\big\\}\\Big) \\tag{2-1}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 2,
+    "source_line": 256,
+    "tex": "a = \\min\\Big\\{\\,a_{\\max},\\ \\max\\Big(0,\\ k_f\\,\\big(h_f^{*} - h_f\\big) + k_b\\,\\big(\\hat{h}_b - h_b^{*}\\big)\\Big)\\,\\Big\\} \\tag{2-2}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 3,
+    "source_line": 268,
+    "tex": "\\mathcal{M} = \\big(\\mathcal{S},\\ \\mathcal{A},\\ P,\\ R,\\ \\rho_0,\\ \\gamma\\big) \\tag{2-3}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 4,
+    "source_line": 274,
+    "tex": "J(\\pi) = \\mathbb{E}_{s_0 \\sim \\rho_0,\\, a_t \\sim \\pi(\\cdot\\mid s_t),\\, s_{t+1} \\sim P(\\cdot\\mid s_t,a_t)}\\left[\\,\\sum_{t=0}^{\\infty} \\gamma^{t}\\, r_t\\,\\right] \\tag{2-4}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 5,
+    "source_line": 278,
+    "tex": "V^{\\pi}(s) = \\mathbb{E}_{a\\sim\\pi(\\cdot\\mid s)}\\Big[\\,R(s,a) + \\gamma\\,\\mathbb{E}_{s'\\sim P(\\cdot\\mid s,a)}\\big[\\,V^{\\pi}(s')\\,\\big]\\,\\Big], \\qquad Q^{\\pi}(s,a) = R(s,a) + \\gamma\\,\\mathbb{E}_{s'\\sim P(\\cdot\\mid s,a)}\\big[\\,V^{\\pi}(s')\\,\\big] \\tag{2-5}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 6,
+    "source_line": 282,
+    "tex": "(\\mathcal{T}^{*}Q)(s,a) = R(s,a) + \\gamma\\,\\mathbb{E}_{s'\\sim P(\\cdot\\mid s,a)}\\Big[\\,\\max_{a'\\in\\mathcal{A}} Q(s',a')\\,\\Big] \\tag{2-6}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 7,
+    "source_line": 288,
+    "tex": "Q(s_t,a_t) \\;\\leftarrow\\; Q(s_t,a_t) + \\eta\\,\\Big[\\,r_t + \\gamma\\,\\max_{a'\\in\\mathcal{A}} Q(s_{t+1},a') - Q(s_t,a_t)\\,\\Big] \\tag{2-7}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 8,
+    "source_line": 292,
+    "tex": "y_t = r_t + \\gamma\\,(1-d_t)\\,\\max_{a'\\in\\mathcal{A}} Q_{\\bar{\\theta}}(s_{t+1},a'), \\qquad \\mathcal{L}(\\theta) = \\mathbb{E}_{(s_t,a_t,r_t,s_{t+1},d_t)\\sim\\mathcal{D}}\\Big[\\,\\big(Q_{\\theta}(s_t,a_t) - y_t\\big)^{2}\\,\\Big] \\tag{2-8}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 9,
+    "source_line": 298,
+    "tex": "\\nabla_{\\theta} J(\\mu_{\\theta}) \\;\\approx\\; \\mathbb{E}_{s_t\\sim\\mathcal{D}}\\Big[\\,\\nabla_{\\theta} \\mu_{\\theta}(s_t)\\; \\nabla_a Q_{\\phi}(s_t,a)\\big|_{a=\\mu_{\\theta}(s_t)}\\,\\Big] \\tag{2-9}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 10,
+    "source_line": 302,
+    "tex": "y_t = r_t + \\gamma\\,(1-d_t)\\,\\min_{k\\in\\{1,2\\}} Q_{\\phi'_k}\\big(s_{t+1},\\ \\mu_{\\theta'}(s_{t+1}) + \\epsilon\\big), \\qquad \\epsilon \\sim \\mathrm{clip}\\big(\\mathcal{N}(0,\\sigma^2),\\ -c,\\ c\\,\\big) \\tag{2-10}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 11,
+    "source_line": 306,
+    "tex": "\\nabla_{\\theta} J(\\pi_{\\theta}) = \\mathbb{E}_{\\pi_{\\theta}}\\Big[\\,\\sum_{t=0}^{\\infty} \\gamma^t\\,\\nabla_{\\theta} \\log \\pi_{\\theta}(a_t\\mid s_t)\\; Q^{\\pi_{\\theta}}(s_t,a_t)\\,\\Big] \\tag{2-11}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 12,
+    "source_line": 310,
+    "tex": "\\mathcal{L}^{\\mathrm{CLIP}}(\\theta) = \\mathbb{E}_t\\Big[\\,\\min\\Big(\\rho_t(\\theta)\\,\\hat{A}_t,\\ \\mathrm{clip}\\big(\\rho_t(\\theta),\\ 1-\\varepsilon,\\ 1+\\varepsilon\\big)\\,\\hat{A}_t\\Big)\\Big], \\qquad \\rho_t(\\theta) = \\frac{\\pi_{\\theta}(a_t\\mid s_t)}{\\pi_{\\theta_{\\mathrm{old}}}(a_t\\mid s_t)} \\tag{2-12}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 13,
+    "source_line": 316,
+    "tex": "J_{\\mathrm{SAC}}(\\pi) = \\mathbb{E}_{\\pi}\\left[\\,\\sum_{t=0}^{\\infty} \\gamma^{t}\\,\\Big(\\,r_t + \\alpha\\,\\mathcal{H}\\big(\\pi(\\cdot\\mid s_t)\\big)\\,\\Big)\\,\\right] \\tag{2-13}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 14,
+    "source_line": 320,
+    "tex": "y_t = r_t + \\gamma\\,(1-d_t)\\,\\left(\\,\\min_{k\\in\\{1,2\\}} Q_{\\phi'_k}(s_{t+1},a'_t) - \\alpha \\log \\pi_{\\theta}(a'_t\\mid s_{t+1})\\,\\right), \\qquad \\mathcal{L}_{Q}(\\phi_k) = \\mathbb{E}_{(s_t,a_t,r_t,s_{t+1},d_t)\\sim\\mathcal{D}}\\Big[\\,\\big(Q_{\\phi_k}(s_t,a_t) - y_t\\big)^{2}\\,\\Big] \\tag{2-14}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 15,
+    "source_line": 324,
+    "tex": "\\mathcal{L}_{\\pi}(\\theta) = \\mathbb{E}_{s_t\\sim\\mathcal{D},\\, a_t\\sim\\pi_{\\theta}(\\cdot\\mid s_t)}\\left[\\,\\alpha \\log \\pi_{\\theta}(a_t\\mid s_t) - \\min_{k\\in\\{1,2\\}} Q_{\\phi_k}(s_t,a_t)\\,\\right] \\tag{2-15}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 16,
+    "source_line": 328,
+    "tex": "\\mathcal{L}(\\alpha) = \\mathbb{E}_{s_t\\sim\\mathcal{D},\\, a_t\\sim\\pi_{\\theta}(\\cdot\\mid s_t)}\\Big[\\,-\\alpha\\,\\big(\\log \\pi_{\\theta}(a_t\\mid s_t) + \\bar{\\mathcal{H}}\\,\\big)\\,\\Big] \\tag{2-16}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 17,
+    "source_line": 340,
+    "tex": "J_{\\mathrm{R}}(\\pi) = \\inf_{P\\in\\mathcal{P}}\\ \\mathbb{E}_{\\pi,\\,P}\\left[\\,\\sum_{t=0}^{\\infty} \\gamma^{t}\\, r_t\\,\\right] \\tag{2-17}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 18,
+    "source_line": 344,
+    "tex": "(\\mathcal{T}_{\\mathrm{R}}Q)(s,a) = R(s,a) + \\gamma\\,\\inf_{p\\in\\mathcal{P}_{s,a}}\\ \\mathbb{E}_{s'\\sim p}\\Big[\\,\\max_{a'\\in\\mathcal{A}} Q(s',a')\\,\\Big] \\tag{2-18}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 19,
+    "source_line": 348,
+    "tex": "\\min_{\\|\\delta\\|\\,\\le\\,\\rho}\\ \\big\\langle p^{\\circ} + \\delta,\\ V \\big\\rangle \\;=\\; \\big\\langle p^{\\circ},\\ V \\big\\rangle \\;-\\; \\rho\\,\\|V\\|_{*} \\tag{2-19}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 20,
+    "source_line": 352,
+    "tex": "\\inf_{q\\in\\mathcal{P}_{s,a}}\\ \\mathbb{E}_{s'\\sim q}\\big[\\,V(s')\\,\\big] \\;=\\; \\mathbb{E}_{s'\\sim p^{\\circ}}\\big[\\,V(s')\\,\\big] \\;-\\; \\sigma_{\\mathcal{P}_{s,a}}(-V) \\tag{2-20}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 21,
+    "source_line": 358,
+    "tex": "\\mathrm{CVaR}_{\\nu}(Z) \\;=\\; \\min_{\\xi\\in\\mathbb{R}}\\ \\left\\{\\,\\xi + \\frac{1}{\\nu}\\,\\mathbb{E}\\big[\\,(Z - \\xi)_{+}\\,\\big]\\,\\right\\} \\;=\\; \\sup_{0\\,\\le\\,\\zeta\\,\\le\\,1/\\nu,\\ \\mathbb{E}[\\zeta]=1}\\ \\mathbb{E}\\big[\\,\\zeta\\,Z\\,\\big], \\qquad (x)_{+} = \\max\\{x,\\,0\\} \\tag{2-21}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 22,
+    "source_line": 364,
+    "tex": "b^{+}(z) = \\frac{b(z)\\,P(s'\\mid s,a,z)}{\\sum_{\\tilde{z}\\in\\mathcal{Z}}\\, b(\\tilde{z})\\,P(s'\\mid s,a,\\tilde{z})}, \\qquad b'(z') = \\sum_{z\\in\\mathcal{Z}}\\, \\Psi(z' \\mid z)\\, b^{+}(z) \\tag{2-22}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 23,
+    "source_line": 376,
+    "tex": "p_{\\mathrm{sim}}(s,\\ a,\\ s') = \\mu_{\\mathrm{sim}}(s,\\ a)\\,P_{\\mathrm{sim}}(s' \\mid s,\\ a), \\qquad p_{\\mathrm{tgt}}(s,\\ a,\\ s') = \\mu_{\\mathrm{tgt}}(s,\\ a)\\,P_{\\mathrm{tgt}}(s' \\mid s,\\ a) \\tag{2-23}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 24,
+    "source_line": 382,
+    "tex": "\\mathbb{E}_{x \\sim p}\\big[\\,f(x)\\,\\big] \\;=\\; \\mathbb{E}_{x \\sim q}\\left[\\,\\frac{p(x)}{q(x)}\\,f(x)\\,\\right] \\tag{2-24}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 25,
+    "source_line": 386,
+    "tex": "F(s,\\ a,\\ s') \\;-\\; G(s,\\ a) \\;=\\; \\log \\frac{p_{\\mathrm{tgt}}(s,\\ a,\\ s')}{p_{\\mathrm{sim}}(s,\\ a,\\ s')} \\;-\\; \\log \\frac{\\mu_{\\mathrm{tgt}}(s,\\ a)}{\\mu_{\\mathrm{sim}}(s,\\ a)} \\;=\\; \\log \\frac{P_{\\mathrm{tgt}}(s' \\mid s,\\ a)}{P_{\\mathrm{sim}}(s' \\mid s,\\ a)} \\tag{2-25}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 26,
+    "source_line": 394,
+    "tex": "\\mathcal{L}_{V}(\\nu) \\;=\\; \\mathbb{E}_{(s,\\,a) \\sim \\mathcal{D}_{\\mathrm{off}}}\\Big[\\, \\big|\\, \\tau_e - \\mathbb{I}\\big\\{A(s,\\ a) < 0\\big\\} \\,\\big|\\; A(s,\\ a)^{2} \\,\\Big] \\tag{2-26}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 27,
+    "source_line": 398,
+    "tex": "\\mathcal{L}_{\\pi}(\\theta) \\;=\\; -\\,\\mathbb{E}_{(s,\\,a) \\sim \\mathcal{D}_{\\mathrm{off}}}\\Big[\\, w_{\\mathrm{IQL}}(s,\\ a)\\,\\log \\pi_{\\theta}(a \\mid s) \\,\\Big], \\qquad w_{\\mathrm{IQL}}(s,\\ a) = \\min\\big(\\exp(\\beta\\, A(s,\\ a)),\\ M\\big) \\tag{2-27}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 28,
+    "source_line": 414,
+    "tex": "\\mathcal{L}_{\\mathrm{wm}}(\\theta_{\\mathrm{wm}}) \\;=\\; \\mathbb{E}_{(s,\\,a,\\,r,\\,s') \\sim \\mathcal{D}}\\Big[\\, -\\log p_{\\theta_{\\mathrm{wm}}}(s' \\mid s,\\ a) \\;+\\; \\lambda_r\\,\\big(\\hat{r}_{\\theta_{\\mathrm{wm}}}(s,\\ a) - r\\big)^{2} \\,\\Big] \\tag{2-28}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 29,
+    "source_line": 420,
+    "tex": "\\hat{V}_{k}(s_0) \\;=\\; \\sum_{j=0}^{k-1} \\gamma^{\\,j}\\, \\hat{r}_j \\;+\\; \\gamma^{\\,k}\\, \\hat{V}(\\hat{s}_k) \\tag{2-29}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 30,
+    "source_line": 426,
+    "tex": "\\big\\|\\, V^{\\pi}_{\\mathrm{true}} - V^{\\pi}_{\\mathrm{mdl}} \\,\\big\\|_{\\infty} \\;\\leq\\; \\frac{\\varepsilon_r}{1 - \\gamma} \\;+\\; \\frac{2\\,\\gamma\\, r_{\\max}\\, \\varepsilon_P}{(1 - \\gamma)^{2}} \\tag{2-30}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 31,
+    "source_line": 432,
+    "tex": "\\hat{y}_{\\mathrm{res}}(x) \\;=\\; \\hat{y}_{\\mathrm{sim}}(x) \\;+\\; \\hat{\\Delta}(x) \\tag{2-31}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 32,
+    "source_line": 436,
+    "tex": "\\min_{\\Xi}\\; \\frac{1}{2}\\,\\big\\|\\, Y - \\Theta(X)\\,\\Xi \\,\\big\\|_{F}^{2} \\;+\\; \\lambda_{\\Xi}\\, \\|\\Xi\\|_{1} \\tag{2-32}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 33,
+    "source_line": 539,
+    "tex": "r^{\\mathrm{sched}} \\;=\\; -\\Big[\\,w_f\\,e_f + (1 - w_f)\\,e_b\\,\\Big] \\;-\\; \\lambda_{\\mathrm{imb}}\\,\\big|\\,h_f - R_h\\,h_b\\,\\big| \\;-\\; \\big(P_f + P_b\\big) \\tag{2-33}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 34,
+    "source_line": 545,
+    "tex": "r_i^{\\mathrm{pass}} \\;=\\; -\\int_{t_i}^{t_{i+1}} \\Big(\\,2\\,N^{w}(t) + N^{b}(t)\\,\\Big)\\,\\mathrm{d}t \\tag{2-34}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 35,
+    "source_line": 551,
+    "tex": "G \\;=\\; \\frac{1}{N_{\\mathrm{dep}}}\\sum_{p\\in\\mathcal{P}_{\\mathrm{dep}}} \\Big(\\,2\\,T^w_p + T^b_p\\,\\Big) \\;=\\; \\frac{1}{N_{\\mathrm{dep}}}\\int_{0}^{T_{\\mathrm{hor}}} \\Big(\\,2\\,N^{w}(t) + N^{b}(t)\\,\\Big)\\,\\mathrm{d}t \\tag{2-35}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 36,
+    "source_line": 616,
+    "tex": "y^{\\mathrm{d}}_{i,j} = y^{\\mathrm{a}}_{i,j} + d^{\\mathrm{svc}}_{i,j} + a_{i,j} + d^{\\mathrm{exit}}_{i,j}, \\qquad y^{\\mathrm{a}}_{i,j+1} = y^{\\mathrm{d}}_{i,j} + d^{\\mathrm{run}}_{i,j} \\tag{3-1}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 37,
+    "source_line": 620,
+    "tex": "h_{j+1} = h_j + \\big(d^{\\mathrm{svc}}_{i+1,j} - d^{\\mathrm{svc}}_{i,j}\\big) + \\big(a_{i+1,j} - a_{i,j}\\big) + \\big(d^{\\mathrm{exit}}_{i+1,j} - d^{\\mathrm{exit}}_{i,j}\\big) + \\big(d^{\\mathrm{run}}_{i+1,j} - d^{\\mathrm{run}}_{i,j}\\big) \\tag{3-2}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 38,
+    "source_line": 632,
+    "tex": "\\mathbb{E}\\big[B_v\\big] = B \\cdot \\frac{N_v}{N} \\tag{3-3}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 39,
+    "source_line": 642,
+    "tex": "\\boldsymbol{x} = \\big[\\, E_1(c_1) \\oplus E_2(c_2) \\oplus \\cdots \\oplus E_m(c_m) \\oplus \\boldsymbol{o} \\,\\big] \\tag{3-4}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 40,
+    "source_line": 646,
+    "tex": "d_j = \\min\\big(50,\\ \\lfloor n_j / 2 \\rfloor\\big) \\tag{3-5}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 41,
+    "source_line": 650,
+    "tex": "\\boldsymbol{x} = \\big[\\, \\mathrm{Emb}_{\\mathrm{v}}(c_{\\mathrm{v}}) \\oplus \\mathrm{Emb}_{\\mathrm{s}}(c_{\\mathrm{s}}) \\oplus \\mathrm{Emb}_{\\mathrm{t}}(c_{\\mathrm{t}}) \\oplus \\mathrm{Emb}_{\\mathrm{d}}(c_{\\mathrm{d}}) \\oplus \\boldsymbol{o} \\,\\big] \\tag{3-6}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 42,
+    "source_line": 662,
+    "tex": "\\varphi(h) = -\\big|\\,h - h_s\\,\\big|, \\qquad \\omega(h_f, h_b) = \\frac{|h_f - h_s|}{|h_f - h_s| + |h_b - h_s| + \\epsilon} \\tag{3-7}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 43,
+    "source_line": 666,
+    "tex": "R(h_f, h_b) = \\omega(h_f, h_b)\\,\\varphi(h_f) + \\big(1 - \\omega(h_f, h_b)\\big)\\,\\varphi(h_b) - 0.5\\,\\big|\\,h_f - h_b\\,\\big| - 20\\,\\mathbb{I}\\Big(\\big|\\,h_f - h_s\\,\\big| > 180 \\ \\text{或}\\ \\big|\\,h_b - h_s\\,\\big| > 180\\Big) \\tag{3-8}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 44,
+    "source_line": 672,
+    "tex": "e_f = \\big|\\,h_f - h_f^{*}\\,\\big|, \\quad e_b = \\big|\\,h_b - h_b^{*}\\,\\big|, \\quad \\omega_h = \\frac{e_f}{e_f + e_b + 10^{-6}}, \\quad R_h = \\frac{h_f^{*}}{\\max(h_b^{*},\\ 10^{-6})}, \\quad r_{\\mathrm{base}} = -\\omega_h\\,e_f - (1-\\omega_h)\\,e_b - \\frac{\\big|\\,h_f - R_h\\,h_b\\,\\big|}{1 + R_h} \\tag{3-9}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 45,
+    "source_line": 676,
+    "tex": "p_f = 20\\,I_f\\,\\tanh\\!\\left(\\frac{e_f - 0.5\\,h_f^{*}}{30}\\right), \\qquad p_b = 20\\,I_b\\,\\tanh\\!\\left(\\frac{e_b - 0.5\\,h_b^{*}}{30}\\right), \\qquad r^{\\mathrm{sched}} = r_{\\mathrm{base}} - \\max\\big(0,\\ p_f + p_b\\big) \\tag{3-10}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 46,
+    "source_line": 682,
+    "tex": "r_{\\mathrm{E}}(h_f,\\ h_b,\\ a) = \\exp\\!\\left(-\\frac{|h_f - h_b|}{\\tau_h}\\right) + w \\cdot \\exp\\!\\left(-\\frac{a}{60}\\right), \\qquad a \\in [0,\\ 60] \\tag{3-11}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 47,
+    "source_line": 686,
+    "tex": "R(h,\\ h) = -\\big|\\,h - h_s\\,\\big| - 20\\,\\mathbb{I}\\Big(\\big|\\,h - h_s\\,\\big| > 180\\Big) \\tag{3-12}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 48,
+    "source_line": 700,
+    "tex": "Q^{\\pi}(s_i,\\ a_i) = \\mathbb{E}_{\\pi}\\left[\\, \\sum_{j \\geq i} \\gamma^{\\,j-i}\\, r_j \\;\\middle|\\; s_i,\\ a_i \\right], \\qquad V^{\\pi}(s) = \\mathbb{E}_{a \\sim \\pi(\\cdot\\mid s)}\\big[\\, Q^{\\pi}(s,\\ a) \\,\\big] \\tag{3-13}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 49,
+    "source_line": 704,
+    "tex": "V^{\\pi}_{\\mathrm{soft}}(s) = \\mathbb{E}_{a \\sim \\pi(\\cdot\\mid s)}\\Big[\\, Q^{\\pi}_{\\mathrm{soft}}(s,\\ a) - \\alpha \\log \\pi(a\\mid s) \\,\\Big] \\tag{3-14}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 50,
+    "source_line": 708,
+    "tex": "\\bar{Q}(s,\\ a) = \\frac{1}{K} \\sum_{k=1}^{K} Q_{\\phi_k}(s,\\ a), \\qquad \\sigma_Q(s,\\ a) = \\left[\\, \\frac{1}{K-1} \\sum_{k=1}^{K} \\Big(\\, Q_{\\phi_k}(s,\\ a) - \\bar{Q}(s,\\ a) \\,\\Big)^2 \\,\\right]^{1/2} \\tag{3-15}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 51,
+    "source_line": 716,
+    "tex": "\\inf_{q \\in \\mathcal{P}_{s,a}} \\mathbb{E}_{s' \\sim q}\\big[\\, V(s') \\,\\big] \\;\\geq\\; \\mathbb{E}_{s' \\sim p^{\\circ}}\\big[\\, V(s') \\,\\big] \\;-\\; \\rho_{\\mathrm{ipm}} \\cdot \\mathrm{Lip}(V) \\tag{3-16}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 52,
+    "source_line": 732,
+    "tex": "\\mathbb{E}[W] \\;=\\; \\frac{\\mathbb{E}[H^2]}{2\\,\\mathbb{E}[H]} \\;=\\; \\frac{\\mathbb{E}[H]}{2} + \\frac{\\mathrm{Var}(H)}{2\\,\\mathbb{E}[H]} \\;=\\; \\frac{\\mathbb{E}[H]}{2}\\Big(1 + \\mathrm{CV}_H^2\\Big) \\tag{3-17}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 53,
+    "source_line": 738,
+    "tex": "h_f(a) = h_f + a, \\qquad h_b(a) = h_b - a, \\qquad a \\in \\big[0,\\ \\min(a_{\\max},\\ h_b)\\big] \\tag{3-18}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 54,
+    "source_line": 742,
+    "tex": "h_f(a) + h_b(a) = h_f + h_b, \\qquad h_f(a) - h_b(a) = h_f - h_b + 2a \\tag{3-19}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 55,
+    "source_line": 746,
+    "tex": "a_{\\mathrm{bal}}^{*} = \\Pi_{[0,\\, \\bar{a}]}\\!\\left( \\frac{h_b - h_f}{2} \\right) \\tag{3-20}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 56,
+    "source_line": 752,
+    "tex": "\\Delta W(a) = \\frac{\\lambda}{2}\\Big[\\big(h_f + a\\big)^2 - h_f^2\\Big] + \\frac{\\lambda}{2}\\Big[\\big(h_b - a\\big)^2 - h_b^2\\Big] = \\lambda a^2 - \\lambda a \\Delta \\tag{3-21}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 57,
+    "source_line": 756,
+    "tex": "\\Delta C(a) = 2\\,\\Delta W(a) + n \\cdot a = 2\\lambda a^2 - \\big(2\\lambda \\Delta - n\\big) a \\tag{3-22}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 58,
+    "source_line": 760,
+    "tex": "a_{\\mathrm{pass}}^{*} = \\Pi_{[0,\\, \\bar{a}]}\\!\\left( \\frac{\\Delta}{2} - \\frac{n}{4\\lambda} \\right) \\tag{3-23}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 59,
+    "source_line": 764,
+    "tex": "a_c = \\Delta - \\frac{n}{2\\lambda}, \\qquad \\Delta C(a) < 0 \\iff 0 < a < \\Delta - \\frac{n}{2\\lambda} \\tag{3-24}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 60,
+    "source_line": 790,
+    "tex": "J(\\pi_{\\theta}) = \\mathbb{E}_{\\pi_{\\theta}}\\left[\\, \\sum_{i=0}^{\\infty} \\gamma^{\\,i} \\Big(\\, r_i + \\alpha\\, \\mathcal{H}\\big(\\pi_{\\theta}(\\cdot\\mid s_i)\\big) \\,\\Big) \\,\\right] \\tag{3-25}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 61,
+    "source_line": 794,
+    "tex": "\\pi^{*}(a\\mid s) = \\frac{\\exp\\!\\big(Q(s,\\ a) / \\alpha\\big)}{\\int_{\\mathcal{A}} \\exp\\!\\big(Q(s,\\ a') / \\alpha\\big)\\,\\mathrm{d}a'} \\tag{3-26}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 62,
+    "source_line": 800,
+    "tex": "\\Gamma_{\\mathrm{epi}}(s,\\ a) = \\frac{1}{K-1} \\sum_{k=1}^{K} \\left(\\, \\hat{Q}_{\\phi'_k}(s,\\ a) - \\frac{1}{K} \\sum_{j=1}^{K} \\hat{Q}_{\\phi'_j}(s,\\ a) \\,\\right)^2 \\tag{3-27}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 63,
+    "source_line": 804,
+    "tex": "\\kappa_k = \\sum_{l} \\big\\|\\, W^{(l)}_{\\phi'_k} \\,\\big\\|_1 \\tag{3-28}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 64,
+    "source_line": 808,
+    "tex": "y_k = r + \\gamma\\,(1 - d)\\,\\Big(\\, \\hat{Q}_{\\phi'_k}(s',\\ a') - \\lambda_{\\mathrm{epi}}\\, \\Gamma_{\\mathrm{epi}}(s',\\ a') - \\lambda_{\\mathrm{ale}}\\, \\kappa_k - \\alpha \\log \\pi_{\\theta}(a'\\mid s') \\,\\Big) \\tag{3-29}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 65,
+    "source_line": 812,
+    "tex": "c\\,\\big\\|W_1\\big\\|_1 + \\frac{1}{c}\\,\\big\\|W_2\\big\\|_1 \\;\\neq\\; \\big\\|W_1\\big\\|_1 + \\big\\|W_2\\big\\|_1 \\qquad (c > 0,\\ c \\neq 1) \\tag{3-30}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 66,
+    "source_line": 818,
+    "tex": "\\mathcal{L}_{Q}(\\phi_k) = \\mathbb{E}_{(s,\\, a,\\, r,\\, s',\\, d) \\sim \\mathcal{D}}\\Big[\\, \\big( Q_{\\phi_k}(s,\\ a) - y_k \\big)^2 + \\beta_{\\mathrm{ood}}\\, \\sigma_Q(s,\\ a) \\,\\Big] \\tag{3-31}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 67,
+    "source_line": 826,
+    "tex": "\\mathcal{L}_{\\pi}(\\theta) = \\mathbb{E}_{s \\sim \\mathcal{D},\\, \\tilde{a} \\sim \\pi_{\\theta}(\\cdot\\mid s)}\\Big[\\, \\alpha \\log \\pi_{\\theta}(\\tilde{a}\\mid s) - \\Big(\\, \\bar{Q}(s,\\ \\tilde{a}) + \\beta_{\\mathrm{lcb}}\\, \\sigma_Q(s,\\ \\tilde{a}) \\,\\Big) \\,\\Big] + \\beta_{\\mathrm{bc}}\\, \\mathbb{E}_{(s,\\,a)\\sim\\mathcal{D},\\, \\tilde{a}\\sim\\pi_{\\theta}(\\cdot\\mid s)}\\Big[\\,\\big\\|\\tilde{a} - a\\big\\|_2^2\\,\\Big], \\qquad \\beta_{\\mathrm{lcb}} \\leq 0 \\tag{3-32}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 68,
+    "source_line": 840,
+    "tex": "(\\mathcal{T}_{\\Lambda} Q)(s,\\ a) = R(s,\\ a) + \\gamma\\,\\Big(\\, \\mathbb{E}_{s' \\sim P(\\cdot\\mid s,a)}\\big[\\, V^{Q}(s') \\,\\big] - \\Lambda(s,\\ a) \\,\\Big) \\tag{3-33}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 69,
+    "source_line": 846,
+    "tex": "\\big\\|\\, \\mathcal{T}_{\\Lambda} Q_1 - \\mathcal{T}_{\\Lambda} Q_2 \\,\\big\\|_{\\infty} \\;\\leq\\; \\gamma\\, \\big\\|\\, Q_1 - Q_2 \\,\\big\\|_{\\infty} \\tag{3-34}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 70,
+    "source_line": 850,
+    "tex": "\\left|\\,(\\mathcal{T}_{\\Lambda} Q_1)(s,\\ a) - (\\mathcal{T}_{\\Lambda} Q_2)(s,\\ a)\\,\\right| \\;\\leq\\; \\gamma \\sum_{s'} P(s'\\mid s,a)\\,\\left|\\,V^{Q_1}(s') - V^{Q_2}(s')\\,\\right| \\;\\leq\\; \\gamma\\,\\delta_Q \\sum_{s'} P(s'\\mid s,a) \\;=\\; \\gamma\\,\\left\\|\\,Q_1 - Q_2\\,\\right\\|_{\\infty} \\tag{3-35}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 71,
+    "source_line": 856,
+    "tex": "\\big\\|\\, Q_i - Q^{*}_{\\Lambda} \\,\\big\\|_{\\infty} \\;\\leq\\; \\gamma^{\\,i}\\, \\big\\|\\, Q_0 - Q^{*}_{\\Lambda} \\,\\big\\|_{\\infty} \\;+\\; \\frac{\\varepsilon}{1 - \\gamma} \\tag{3-36}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 72,
+    "source_line": 862,
+    "tex": "D_{\\mathrm{eff}}(s;\\ a_1,\\ a_2) \\;=\\; q_c(s,\\ a_1) - q_c(s,\\ a_2) \\;=\\; \\Big[\\, \\bar{Q}(s,\\ a_1) - \\bar{Q}(s,\\ a_2) \\,\\Big] + \\beta_{\\mathrm{lcb}} \\cdot \\Big[\\, \\sigma_Q(s,\\ a_1) - \\sigma_Q(s,\\ a_2) \\,\\Big] \\tag{3-37}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 73,
+    "source_line": 868,
+    "tex": "\\underset{a\\in\\mathcal{A}}{\\arg\\max}\\;\\Big(\\,Q^{\\mathrm{ref}}(s,\\ a) + c(s)\\,\\Big) \\;=\\; \\underset{a\\in\\mathcal{A}}{\\arg\\max}\\; Q^{\\mathrm{ref}}(s,\\ a) \\tag{3-38}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 74,
+    "source_line": 872,
+    "tex": "\\frac{1}{M}\\sum_{i=1}^{M} e_{Q,i}^{2} \\;=\\; \\big(\\bar{e}_{Q}(s)\\big)^{2} \\;+\\; \\frac{1}{M}\\sum_{i=1}^{M} \\big(e_{Q,i} - \\bar{e}_{Q}(s)\\big)^{2} \\tag{3-39}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 75,
+    "source_line": 876,
+    "tex": "0 \\;\\leq\\; Q^{\\mathrm{ref}}(s,\\ a^{*}) - Q^{\\mathrm{ref}}(s,\\ \\hat{a}) \\;\\leq\\; \\eta(s,\\ \\hat{a}) - \\eta(s,\\ a^{*}) \\;\\leq\\; 2\\,\\varepsilon_{\\mathrm{act}} \\tag{3-40}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 76,
+    "source_line": 1064,
+    "tex": "\\Delta_{A} = \\frac{1}{2}\\Big[\\big(Y_{10} - Y_{00}\\big) + \\big(Y_{11} - Y_{01}\\big)\\Big], \\qquad \\Delta_{C} = \\frac{1}{2}\\Big[\\big(Y_{01} - Y_{00}\\big) + \\big(Y_{11} - Y_{10}\\big)\\Big] \\tag{3-41}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 77,
+    "source_line": 1198,
+    "tex": "s',\\ \\Delta t,\\ r \\;\\sim\\; P\\big(\\,\\cdot \\;\\big|\\; s,\\ a,\\ z\\,\\big) \\tag{4-1}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 78,
+    "source_line": 1202,
+    "tex": "N(\\Delta) \\;\\sim\\; \\mathrm{Poisson}(\\lambda\\, \\Delta) \\tag{4-2}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 79,
+    "source_line": 1208,
+    "tex": "\\mathbb{E}\\big[N(h)\\big] = m_{\\mathrm{dem}}\\,\\lambda\\, h, \\qquad d^{\\mathrm{svc}}(h) = d^{\\mathrm{svc}}_0 + \\eta^{\\mathrm{board}}\\, m_{\\mathrm{dem}}\\,\\lambda\\, h \\tag{4-3}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 80,
+    "source_line": 1218,
+    "tex": "\\tilde{P}\\big(s',\\ z' \\;\\big|\\; s,\\ a,\\ z\\big) \\;=\\; P_z\\big(s' \\;\\big|\\; s,\\ a\\big)\\; \\Psi\\big(z' \\;\\big|\\; z\\big) \\tag{4-4}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 81,
+    "source_line": 1224,
+    "tex": "b^{+}(z) \\;=\\; \\frac{b(z)\\, L\\big(z;\\ s,\\ a,\\ s'\\big)}{\\displaystyle\\sum_{\\tilde{z} \\in \\mathcal{Z}} b(\\tilde{z})\\, L\\big(\\tilde{z};\\ s,\\ a,\\ s'\\big)} \\tag{4-5}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 82,
+    "source_line": 1228,
+    "tex": "b'(z') \\;=\\; \\sum_{z \\in \\mathcal{Z}} \\Psi\\big(z' \\;\\big|\\; z\\big)\\, b^{+}(z) \\tag{4-6}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 83,
+    "source_line": 1244,
+    "tex": "\\mu_j = 0.9\\,\\mu_{j-1} + 0.1\\,\\bar{r}_j, \\qquad v_j = 0.9\\,v_{j-1} + 0.1\\,\\big(\\bar{r}_j - \\mu_j\\big)^2, \\qquad \\chi^{(r)}_j = \\frac{\\big|\\, \\bar{r}_j - \\mu_j \\,\\big|}{\\max\\big(\\sqrt{v_j},\\ 10^{-6}\\big)} \\tag{4-7}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 84,
+    "source_line": 1248,
+    "tex": "\\chi^{(q)}_j = \\begin{cases} \\max\\!\\left(\\, \\dfrac{\\bar{\\sigma}_{Q,\\,j}}{\\bar{\\sigma}_{Q,\\,j-1}} - 1,\\ 0 \\,\\right), & \\bar{\\sigma}_{Q,\\,j-1} > 10^{-6}, \\\\[8pt] 0, & \\bar{\\sigma}_{Q,\\,j-1} \\le 10^{-6}\\ \\text{或尚无前次统计值} \\end{cases} \\tag{4-8}",
+    "envs": [
+      "cases"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 85,
+    "source_line": 1252,
+    "tex": "\\chi^{(w)}_j = \\frac{1}{2K}\\, \\sum_{k=1}^{K} \\big|\\, \\kappa_k - \\kappa'_k \\,\\big|, \\qquad \\chi_j = \\max\\Big\\{\\, \\chi^{(r)}_j,\\ \\chi^{(q)}_j,\\ \\chi^{(w)}_j \\,\\Big\\}, \\qquad \\tilde{\\chi}_j = 0.9\\,\\tilde{\\chi}_{j-1} + 0.1\\, \\chi_j \\tag{4-9}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 86,
+    "source_line": 1256,
+    "tex": "L_j(\\ell) = \\exp\\!\\left( -\\frac{\\tilde{\\chi}_j^{\\,2} \\, \\big(1 + 0.05\\,\\ell\\big)}{2} \\right), \\qquad \\ell = 0,\\ 1,\\ \\dots,\\ 19 \\tag{4-10}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 87,
+    "source_line": 1262,
+    "tex": "\\lambda_w \\;=\\; \\sum_{\\ell = 0}^{19} \\rho_j(\\ell)\\, e^{-0.1\\, \\ell}, \\qquad \\beta_{\\mathrm{eff}} \\;=\\; -2 - c_{\\mathrm{pen}}\\, \\lambda_w \\tag{4-11}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 88,
+    "source_line": 1266,
+    "tex": "\\mathcal{L}_{\\pi,\\mathrm{base}}(\\theta) = \\mathbb{E}_{s \\sim \\mathcal{D},\\, \\tilde{a} \\sim \\pi_{\\theta}(\\cdot\\mid s)}\\Big[\\, \\alpha \\log \\pi_{\\theta}(\\tilde{a}\\mid s) - \\Big(\\, \\bar{Q}(s,\\ \\tilde{a}) + \\beta_{\\mathrm{eff}}\\, \\sigma_Q(s,\\ \\tilde{a}) \\,\\Big) \\,\\Big] + \\beta_{\\mathrm{bc}}\\, \\mathcal{L}_{\\mathrm{bc}} \\tag{4-12}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 89,
+    "source_line": 1274,
+    "tex": "\\tilde{a}(x) = \\tanh\\!\\Big(\\, \\beta_0 + f_{\\theta}(x) - f_{\\theta}\\big(x_{\\mathrm{ref}}(x)\\big) \\,\\Big), \\qquad a_{\\mathrm{hold}}(x) = 30\\, \\Big(1 + \\tilde{a}(x)\\Big) \\tag{4-13}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 90,
+    "source_line": 1284,
+    "tex": "\\tilde{a}_{\\mathrm{sym}}(x) = \\mathrm{clip}_{[-0.999,\\, 0.999]}\\!\\left(\\, \\sum_{k=0}^{12} \\tilde{a}_k \\cdot \\frac{\\exp\\!\\big(-\\hat{c}(x,\\ \\tilde{a}_k) / \\tau_{\\mathrm{boltz}}\\big)}{\\displaystyle\\sum_{k'=0}^{12} \\exp\\!\\big(-\\hat{c}(x,\\ \\tilde{a}_{k'}) / \\tau_{\\mathrm{boltz}}\\big)} \\,\\right) \\tag{4-14}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 91,
+    "source_line": 1288,
+    "tex": "\\ell_{\\mathrm{sym}}(x) = \\frac{\\big\\|\\, D\\pi(x) - D\\pi_{\\mathrm{sym}}(x) \\,\\big\\|_F^2}{1 + \\big\\|\\, D\\pi_{\\mathrm{sym}}(x) \\,\\big\\|_F^2}, \\qquad \\mathcal{L}_{\\mathrm{JC}}(\\theta) = \\frac{1}{B}\\sum_{i=1}^{B} \\ell_{\\mathrm{sym}}(x_i) \\tag{4-15}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 92,
+    "source_line": 1292,
+    "tex": "y_i = \\frac{r_i}{\\sigma_r} + \\gamma\\,(1 - d_i)\\,\\left(\\, \\min_{k\\in\\{1,2,3\\}} \\hat{Q}_{\\phi'_k}(s'_i,\\ a'_i) - \\alpha \\log \\pi_{\\theta}(a'_i\\mid s'_i) - \\lambda_{\\mathrm{sym}}\\, \\mathrm{sg}\\big(\\bar{\\mathcal{L}}_{\\mathrm{JC}}'\\big) \\,\\right) \\tag{4-16}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 93,
+    "source_line": 1311,
+    "tex": "\\sigma_{r,\\,j+1}^2 = 0.99\\, \\sigma_{r,\\,j}^2 + 0.01\\, \\mathrm{Var}\\big(r_{\\mathrm{batch}}\\big), \\qquad \\tilde{r} = \\frac{r}{\\max\\big(\\sigma_{r,\\,j+1},\\ 10^{-6}\\big)} \\tag{4-17}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 94,
+    "source_line": 1317,
+    "tex": "\\mathcal{L}_{\\mathrm{bc}}(\\theta) = \\frac{1}{B} \\sum_{(s,\\, a) \\sim \\mathcal{D}_B,\\ \\tilde{a}\\sim\\pi_{\\theta}(\\cdot\\mid s)} \\big\\|\\, \\tilde{a} - a \\,\\big\\|_2^2 \\tag{4-18}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 95,
+    "source_line": 1325,
+    "tex": "\\hat{\\rho}_j(0) = p_{\\mathrm{reset}}, \\qquad \\hat{\\rho}_j(\\ell) = (1 - p_{\\mathrm{reset}})\\,\\tilde{\\rho}_j(\\ell - 1)\\quad (\\ell = 1,\\dots,19), \\qquad \\rho_j(\\ell) = \\frac{\\hat{\\rho}_j(\\ell)}{\\sum_{m=0}^{19} \\hat{\\rho}_j(m)} \\tag{4-19}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 96,
+    "source_line": 1339,
+    "tex": "D(H \\circ G)(x) - D(H \\circ G)(y) \\;=\\; \\Big[\\, DH\\big(G(x)\\big) - DH\\big(G(y)\\big) \\,\\Big]\\, DG(x) \\;+\\; DH\\big(G(y)\\big)\\, \\Big[\\, DG(x) - DG(y) \\,\\Big] \\tag{4-20}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 97,
+    "source_line": 1343,
+    "tex": "\\big\\|\\, D(H \\circ G)(x) - D(H \\circ G)(y) \\,\\big\\| \\;\\leq\\; \\Big(\\, L_H\\, K_G^2 + K_H\\, L_G \\,\\Big)\\,\\big\\|\\, x - y \\,\\big\\|, \\qquad L_{H \\circ G} \\;\\leq\\; L_H\\, K_G^2 + K_H\\, L_G \\tag{4-21}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 98,
+    "source_line": 1349,
+    "tex": "\\tilde{a}_{\\mathrm{arth}}(x) = \\tanh\\!\\Big(\\, \\eta\\, W_{\\mathrm{NAU}}\\, G(x) + (1 - \\eta)\\, \\boldsymbol{c}_{\\mathrm{quad}} \\odot \\big( U_{\\mathrm{quad}}\\, G(x) \\big)^{\\odot 2} \\,\\Big) \\tag{4-22}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 99,
+    "source_line": 1360,
+    "tex": "\\pi(x) - \\pi_{\\mathrm{ref}}(x) \\;=\\; \\Big[\\, \\pi(x_0) - \\pi_{\\mathrm{ref}}(x_0) \\,\\Big] + \\Big[\\, D\\pi(x_0) - D\\pi_{\\mathrm{ref}}(x_0) \\,\\Big]\\,d + \\int_{0}^{1} \\Big\\{\\, \\big[D\\pi(\\zeta(u)) - D\\pi(x_0)\\big] - \\big[D\\pi_{\\mathrm{ref}}(\\zeta(u)) - D\\pi_{\\mathrm{ref}}(x_0)\\big] \\,\\Big\\}\\,d\\;\\mathrm{d}u \\tag{4-23}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 100,
+    "source_line": 1364,
+    "tex": "\\big\\|\\, \\pi(x) - \\pi_{\\mathrm{ref}}(x) \\,\\big\\| \\;\\leq\\; \\delta \\;+\\; \\varepsilon\\, \\big\\|\\, d \\,\\big\\| \\;+\\; \\frac{L_{\\mathrm{err}}}{2}\\, \\big\\|\\, d \\,\\big\\|^2 \\tag{4-24}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 101,
+    "source_line": 1370,
+    "tex": "V^{Q}(s) = \\mathbb{E}_{a \\sim p_{\\theta}(\\cdot\\mid s)}\\Big[\\, Q(s,\\ a) - \\alpha \\log p_{\\theta}(a\\mid s) \\,\\Big] \\tag{4-25}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 102,
+    "source_line": 1374,
+    "tex": "(\\mathcal{T}_z Q)(s,\\ a) = R_z(s,\\ a) + \\gamma\\, \\Big(\\, \\mathbb{E}_{s' \\sim P_z(\\cdot\\mid s,a)}\\big[\\, V^{Q}(s') \\,\\big] - \\lambda_{\\mathrm{epi}}\\, \\Gamma^{z}_{\\mathrm{epi}}(s,\\ a) - \\lambda_{\\mathrm{sym}}\\, \\Gamma^{z}_{\\mathrm{sym}}(s,\\ a) - \\kappa^{z}_{\\mathrm{ale}}(s,\\ a) \\,\\Big) \\tag{4-26}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 103,
+    "source_line": 1378,
+    "tex": "\\mathcal{T}_{\\rho} Q \\;=\\; \\sum_{z \\in \\mathcal{Z}} \\rho(z)\\, \\mathcal{T}_z Q \\tag{4-27}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 104,
+    "source_line": 1400,
+    "tex": "J_{T_{\\mathrm{hor}}}(\\pi) = \\mathbb{E}_{\\pi}\\left[\\, \\sum_{k:\\, t_k \\le T_{\\mathrm{hor}}} r_k \\,\\right] \\tag{4-28}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 105,
+    "source_line": 1454,
+    "tex": "\\bar{m}_{\\mathrm{dem}} = \\frac{1}{T_{\\mathrm{hor}}}\\int_{0}^{T_{\\mathrm{hor}}} m_{\\mathrm{dem}}(t)\\,\\mathrm{d}t \\tag{4-29}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 106,
+    "source_line": 1525,
+    "tex": "\\Delta N_{w,\\,m,\\,k} = N^{p}_{w,\\,m,\\,k} - N^{0}_{w,\\,m,\\,k}, \\qquad \\varepsilon_{m,\\,k} = \\max\\Big\\{\\,0.1\\,N^{0}_{w,\\,m,\\,k},\\ 20\\,\\Big\\} \\tag{4-30}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 107,
+    "source_line": 1561,
+    "tex": "a_k = G_{\\hat{z}_k}^{-1}\\, G_{\\mathrm{ref}}\\, \\mu_{\\mathrm{ref}}(s_k) \\tag{4-31}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 108,
+    "source_line": 1684,
+    "tex": "\\pi_{\\mathrm{off}} = \\mathcal{L}\\big(\\mathcal{D}_{\\mathrm{off}}\\big), \\qquad \\pi_{\\mathrm{on}} = \\mathcal{L}\\big(\\mathcal{D}_{\\mathrm{off}},\\ \\mathcal{D}_{\\mathrm{tgt}}\\big), \\qquad \\pi_{\\mathrm{cf}} = \\mathcal{L}\\big(\\mathcal{D}_{\\mathrm{off}},\\ \\mathcal{D}_{\\mathrm{sim}}\\big) \\tag{5-1}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 109,
+    "source_line": 1694,
+    "tex": "p_{\\mathrm{tgt}}(s,\\ a,\\ s',\\ \\Delta t) = \\mu_{\\mathrm{tgt}}(s,\\ a)\\,P_{\\mathrm{tgt}}(s',\\ \\Delta t \\mid s,\\ a), \\qquad p_{\\mathrm{sim}}(s,\\ a,\\ s',\\ \\Delta t) = \\mu_{\\mathrm{sim}}(s,\\ a)\\,P_{\\mathrm{sim}}(s',\\ \\Delta t \\mid s,\\ a) \\tag{5-2}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 110,
+    "source_line": 1710,
+    "tex": "\\mathrm{Var}\\big(\\hat{p}_m\\big) \\;=\\; \\mathbb{E}\\Big[\\,\\mathrm{Var}\\big(\\hat{p}_m \\;\\big|\\; \\hat{p}_n\\big)\\,\\Big] + \\mathrm{Var}\\Big(\\,\\mathbb{E}\\big[\\hat{p}_m \\;\\big|\\; \\hat{p}_n\\big]\\,\\Big) \\;=\\; \\frac{1}{m}\\,\\mathbb{E}\\Big[\\,\\hat{p}_n\\big(1-\\hat{p}_n\\big)\\,\\Big] + \\mathrm{Var}\\big(\\hat{p}_n\\big) \\;=\\; p(1-p)\\left(\\,\\frac{1}{n} + \\frac{1 - 1/n}{m}\\,\\right) \\tag{5-3}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 111,
+    "source_line": 1746,
+    "tex": "\\hat{h}_k^b = \\min\\left\\{\\, \\max\\big(2400,\\ 3\\,h_k^{b,*}\\big),\\ \\frac{\\big(x_j(t_k) - x_{j+1}(t_k)\\big)_{+}}{\\max(\\hat{v}_k,\\ 1)} \\,\\right\\} \\tag{5-4}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 112,
+    "source_line": 1750,
+    "tex": "\\hat{\\lambda}_{ol,q} = \\sum_{d:\\, l \\in \\mathcal{L}_{od}} \\lambda_{od,q} \\, \\frac{H_l^{-1}}{\\displaystyle\\sum_{m \\in \\mathcal{L}_{od}} H_m^{-1}} \\tag{5-5}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 113,
+    "source_line": 1754,
+    "tex": "C_k = 2\\int_{t_k}^{t_k + \\Delta t_k} N^{w}(\\tau)\\,\\mathrm{d}\\tau + \\int_{t_k}^{t_k + \\Delta t_k} N^{b}(\\tau)\\,\\mathrm{d}\\tau, \\qquad r_k = -C_k \\tag{5-6}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 114,
+    "source_line": 1758,
+    "tex": "C_{\\mathrm{sys}} \\;=\\; \\int_{0}^{T_{\\mathrm{hor}}} \\Big(\\,2\\,N^{w}(\\tau) + N^{b}(\\tau)\\,\\Big)\\,\\mathrm{d}\\tau \\;=\\; \\sum_{p \\in \\mathcal{P}_{\\mathrm{dep}}} \\left(\\, 2\\int_{0}^{T_{\\mathrm{hor}}} \\mathbb{I}_p^{w}(\\tau)\\,\\mathrm{d}\\tau + \\int_{0}^{T_{\\mathrm{hor}}} \\mathbb{I}_p^{b}(\\tau)\\,\\mathrm{d}\\tau \\,\\right) \\;=\\; \\sum_{p \\in \\mathcal{P}_{\\mathrm{dep}}} \\Big(\\, 2\\,T_p^{w} + T_p^{b} \\,\\Big) \\tag{5-7}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 115,
+    "source_line": 1768,
+    "tex": "Q^{\\pi}(s_i,\\ a_i) \\;=\\; \\mathbb{E}_{\\pi}\\left[\\, \\sum_{j \\geq i} r_j \\;\\middle|\\; s_i,\\ a_i \\right], \\qquad V^{\\pi}(s) \\;=\\; \\mathbb{E}_{a \\sim \\pi(\\cdot\\mid s)}\\big[\\, Q^{\\pi}(s,\\ a) \\,\\big] \\tag{5-8}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 116,
+    "source_line": 1772,
+    "tex": "V_{\\mathrm{soft}}(s') \\;=\\; \\mathbb{E}_{a' \\sim \\pi_{\\theta}(\\cdot\\mid s')}\\Big[\\, \\min_{k \\in \\{1,2\\}} \\hat{Q}_{\\phi'_k}(s',\\ a') - \\alpha \\log \\pi_{\\theta}(a' \\mid s') \\,\\Big] \\tag{5-9}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 117,
+    "source_line": 1778,
+    "tex": "\\mathcal{L}_{V}(\\nu) \\;=\\; \\mathbb{E}_{(s,\\,a) \\sim \\mathcal{D}_{\\mathrm{off}}}\\Big[\\, \\big|\\, \\tau_{\\mathrm{IQL}} - \\mathbb{I}\\big\\{A(s,\\ a) < 0\\big\\} \\,\\big|\\; A(s,\\ a)^{2} \\,\\Big], \\qquad \\mathcal{L}_{Q,\\mathrm{off}}(\\phi_k) \\;=\\; \\mathbb{E}_{(s,\\,a,\\,r,\\,s',\\,d) \\sim \\mathcal{D}_{\\mathrm{off}}}\\Big[\\, \\big(Q_{\\phi_k}(s,\\ a) - y_{\\mathrm{off}}\\big)^{2} \\,\\Big] \\tag{5-10}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 118,
+    "source_line": 1782,
+    "tex": "\\mathcal{L}_{\\pi,\\mathrm{off}}(\\theta) \\;=\\; -\\,\\mathbb{E}_{(s,\\,a) \\sim \\mathcal{D}_{\\mathrm{off}}}\\Big[\\, w_{\\mathrm{IQL}}(s,\\ a)\\,\\log \\pi_{\\theta}(a \\mid s) \\,\\Big], \\qquad w_{\\mathrm{IQL}}(s,\\ a) = \\min\\Big(\\exp\\big(3\\,A(s,\\ a)\\big),\\ 100\\Big) \\tag{5-11}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 119,
+    "source_line": 1786,
+    "tex": "B_{\\mathrm{mix}}(s') \\;=\\; 0.1\\,V_{\\nu}(s') + 0.9\\,V_{\\mathrm{soft}}(s'), \\qquad y_{\\mathrm{mix}} \\;=\\; r + (1 - d)\\,B_{\\mathrm{mix}}(s') \\tag{5-12}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 120,
+    "source_line": 1792,
+    "tex": "F_{\\psi_{\\mathrm{J}}}\\big(s,\\ a,\\ s',\\ \\Delta t / T_{\\mathrm{hor}}\\big) - G_{\\psi_{\\mathrm{M}}}\\big(s,\\ a\\big) \\;\\approx\\; \\log \\frac{P_{\\mathrm{tgt}}(s',\\ \\Delta t \\mid s,\\ a)}{P_{\\mathrm{sim}}(s',\\ \\Delta t \\mid s,\\ a)}, \\qquad w_{\\mathrm{sim}} \\;=\\; \\mathrm{clip}\\!\\left(\\exp\\!\\Big(F_{\\psi_{\\mathrm{J}}} - G_{\\psi_{\\mathrm{M}}}\\Big),\\ 10^{-5},\\ 1\\right) \\tag{5-13}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 121,
+    "source_line": 1796,
+    "tex": "\\mathcal{L}_{Q,\\mathrm{mix}}(\\phi_k) \\;=\\; \\mathbb{E}_{(s,\\,a,\\,r,\\,s',\\,d)\\sim\\mathcal{D}_{\\mathrm{off}}}\\Big[\\,\\big(Q_{\\phi_k}(s,\\ a) - y_{\\mathrm{mix}}\\big)^2\\,\\Big] \\;+\\; \\mathbb{E}_{(s,\\,a,\\,r,\\,s',\\,\\Delta t,\\,d)\\sim\\mathcal{D}_{\\mathrm{sim}}}\\Big[\\, w_{\\mathrm{sim}}\\,\\big(Q_{\\phi_k}(s,\\ a) - y_{\\mathrm{mix}}\\big)^2 \\,\\Big] \\tag{5-14}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 122,
+    "source_line": 1818,
+    "tex": "\\mathcal{L}_{\\pi,\\mathrm{off\\text{-}RESAC}}(\\theta) \\;=\\; \\mathbb{E}_{s \\sim \\mathcal{D}_{\\mathrm{off}},\\, \\tilde{a} \\sim \\pi_{\\theta}(\\cdot\\mid s)}\\Big[\\, \\alpha \\log \\pi_{\\theta}(\\tilde{a} \\mid s) - \\Big(\\, \\bar{Q}(s,\\ \\tilde{a}) + \\beta_{\\mathrm{lcb}}\\,\\sigma_Q(s,\\ \\tilde{a}) \\,\\Big) \\,\\Big] + \\beta_{\\mathrm{bc}}\\,\\mathbb{E}_{(s,\\,a)\\sim\\mathcal{D}_{\\mathrm{off}},\\, \\tilde{a}\\sim\\pi_{\\theta}(\\cdot\\mid s)}\\Big[\\,\\big\\|\\tilde{a} - a\\big\\|_2^2\\,\\Big] \\tag{5-15}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 123,
+    "source_line": 1834,
+    "tex": "\\mathrm{clip}_{60}(x) = \\min\\big\\{60,\\ \\max(0,\\ x)\\big\\} \\tag{5-16}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 124,
+    "source_line": 1838,
+    "tex": "a_{\\mathrm{D}} = \\mathrm{clip}_{60}\\Big(\\,0.6\\,\\big(h_f^{*} - h_f\\big)\\,\\Big) \\tag{5-17}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 125,
+    "source_line": 1842,
+    "tex": "a_{\\mathrm{A}} = \\mathrm{clip}_{60}\\Big(\\,0.75\\,\\big(h_f^{*} - h_f\\big) - 0.35\\,\\big(h_b^{*} - \\hat{h}_b\\big)\\,\\Big) \\tag{5-18}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 126,
+    "source_line": 1874,
+    "tex": "g_{M} = \\frac{\\bar{M}_{\\mathrm{sim}} - \\bar{M}_{\\mathrm{tgt}}}{\\bar{M}_{\\mathrm{tgt}}} \\tag{5-19}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 127,
+    "source_line": 1892,
+    "tex": "\\Delta M_{\\iota}(\\pi) = \\bar{M}_{\\iota}(\\pi) - \\bar{M}_{\\iota}(\\pi_0), \\qquad e_{M}(\\pi) = \\frac{\\Delta M_{\\mathrm{sim}}(\\pi) - \\Delta M_{\\mathrm{tgt}}(\\pi)}{\\bar{M}_{\\mathrm{tgt}}(\\pi_0)} \\tag{5-20}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 128,
+    "source_line": 2087,
+    "tex": "P_{\\mathrm{sim}}\\big(s',\\ \\Delta t,\\ r \\;\\big|\\; s,\\ a\\big) \\;\\neq\\; P_{\\mathrm{tgt}}\\big(s',\\ \\Delta t,\\ r \\;\\big|\\; s,\\ a\\big) \\tag{6-1}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 129,
+    "source_line": 2103,
+    "tex": "\\mathcal{L}_{\\mathrm{wm}} \\;=\\; \\frac{1}{6}\\Big(\\, \\mathcal{L}_{\\mathrm{sys}} + \\mathcal{L}_{\\mathrm{veh}} + \\mathcal{L}_{\\mathrm{num}} + \\mathcal{L}_{\\mathrm{line}} + \\mathcal{L}_{\\mathrm{stop}} + \\mathcal{L}_{\\mathrm{nb}} \\,\\Big) \\tag{6-2}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 130,
+    "source_line": 2126,
+    "tex": "\\hat{y}_{\\mathrm{res}}(x) \\;=\\; \\hat{y}_{\\mathrm{sim}}(x) + \\hat{\\Delta}(x), \\qquad \\hat{y}_{\\mathrm{dir}}(x) \\;=\\; \\hat{f}_{\\mathrm{dir}}(x) \\tag{6-3}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 131,
+    "source_line": 2132,
+    "tex": "c_i \\;=\\; \\frac{1}{1 + e_i / \\tau_e} \\tag{6-4}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 132,
+    "source_line": 2136,
+    "tex": "q_i \\;=\\; \\log c_i \\;+\\; \\gamma_{\\Delta}\\,(1 - d_i)\\,Q^{\\Delta}_{\\bar{\\xi}}\\Big(s'_i,\\ a'_{\\mathrm{det}},\\ \\sigma_{\\mathrm{wm}}\\big(s'_i,\\ a'_{\\mathrm{det}}\\big)\\Big) \\tag{6-5}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 133,
+    "source_line": 2138,
+    "tex": "w^{\\Delta}_i \\;=\\; \\exp\\!\\Big(\\, Q^{\\Delta}_{\\xi}\\big(s_i,\\ a_i,\\ \\sigma_{\\mathrm{wm}}(s_i,\\ a_i)\\big) \\,\\Big) \\;\\in\\; (0,\\ 1] \\tag{6-6}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 134,
+    "source_line": 2142,
+    "tex": "q^{\\mathrm{norm}}_i \\;=\\; (1 - \\gamma_{\\Delta})\\,\\log c_i \\;+\\; \\gamma_{\\Delta}\\,(1 - d_i)\\,Q^{\\Delta}_{\\bar{\\xi}}\\Big(s'_i,\\ a'_{\\mathrm{det}},\\ \\sigma_{\\mathrm{wm}}\\big(s'_i,\\ a'_{\\mathrm{det}}\\big)\\Big) \\tag{6-7}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 135,
+    "source_line": 2146,
+    "tex": "\\mathcal{L}_{Q}(\\phi_k) \\;=\\; 0.75\\,\\mathcal{L}_{\\mathrm{env}}(\\phi_k) \\;+\\; 0.25\\,\\mathcal{L}_{\\mathrm{mod}}(\\phi_k), \\qquad \\mathcal{L}_{\\mathrm{mod}}(\\phi_k) \\;=\\; \\mathbb{E}_{i}\\Big[\\, w^{\\Delta}_i\\; \\ell_{H}\\big(Q_{\\phi_k}(s_i,\\ a_i) - \\hat{y}_i\\big) \\,\\Big] \\tag{6-8}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 136,
+    "source_line": 2162,
+    "tex": "m^{\\star} \\;=\\; \\begin{cases} \\text{直接目标模型（Direct Model）}, & R_{\\mathrm{dir}} < R_{\\mathrm{res}}, \\\\[6pt] \\text{残差世界模型（Residual Model）}, & R_{\\mathrm{dir}} \\geq R_{\\mathrm{res}}. \\end{cases} \\tag{6-9}",
+    "envs": [
+      "cases"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 137,
+    "source_line": 2193,
+    "tex": "\\ell_H(\\delta) \\;=\\; \\begin{cases} \\dfrac{1}{2}\\,\\delta^{2}, & |\\delta| \\leq 1, \\\\[8pt] |\\delta| - \\dfrac{1}{2}, & |\\delta| > 1. \\end{cases} \\tag{6-10}",
+    "envs": [
+      "cases"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 138,
+    "source_line": 2203,
+    "tex": "\\tilde{P}\\big(\\cdot \\;\\big|\\; s,\\ a\\big) \\;=\\; P_{\\mathrm{sim}}\\big(\\cdot \\;\\big|\\; s,\\ a\\big) + \\Delta P\\big(\\cdot \\;\\big|\\; s,\\ a\\big) \\tag{6-11}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 139,
+    "source_line": 2207,
+    "tex": "\\big\\|\\, \\mathcal{T}^{\\pi}_{\\tilde{P}} V - \\mathcal{T}^{\\pi}_{\\tilde{P}} V' \\,\\big\\|_{\\infty} \\;\\leq\\; \\gamma\\, \\big\\|\\, V - V' \\,\\big\\|_{\\infty} \\tag{6-12}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 140,
+    "source_line": 2211,
+    "tex": "\\big\\|\\, V^{\\pi}_{\\mathrm{tgt}} - V^{\\pi}_{\\mathrm{mdl}} \\,\\big\\|_{\\infty} \\;\\leq\\; \\frac{\\varepsilon_r}{1 - \\gamma} \\;+\\; \\frac{2\\,\\gamma\\, R_{\\max}\\, \\varepsilon_P}{(1 - \\gamma)^{2}} \\tag{6-13}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 141,
+    "source_line": 2215,
+    "tex": "J_{\\mathrm{tgt}}\\big(\\pi^{\\star}\\big) - J_{\\mathrm{tgt}}\\big(\\hat{\\pi}^{\\star}\\big) \\;=\\; \\Big[\\,J_{\\mathrm{tgt}}\\big(\\pi^{\\star}\\big) - J_{\\mathrm{mdl}}\\big(\\pi^{\\star}\\big)\\,\\Big] + \\Big[\\,J_{\\mathrm{mdl}}\\big(\\pi^{\\star}\\big) - J_{\\mathrm{mdl}}\\big(\\hat{\\pi}^{\\star}\\big)\\,\\Big] + \\Big[\\,J_{\\mathrm{mdl}}\\big(\\hat{\\pi}^{\\star}\\big) - J_{\\mathrm{tgt}}\\big(\\hat{\\pi}^{\\star}\\big)\\,\\Big] \\;\\leq\\; 2\\,\\bar{\\varepsilon} \\tag{6-14}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 142,
+    "source_line": 2221,
+    "tex": "w^{\\star}_{\\mathrm{orig}} \\;=\\; \\exp\\!\\big(Q^{\\Delta}_{\\mathrm{orig}}\\big) \\;=\\; c^{\\,\\frac{1}{1 - \\gamma_{\\Delta}}}, \\qquad w^{\\star}_{\\mathrm{norm}} \\;=\\; \\exp\\!\\big(Q^{\\Delta}_{\\mathrm{norm}}\\big) \\;=\\; c \\tag{6-15}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 143,
+    "source_line": 2467,
+    "tex": "\\| Q \\|_{\\infty} = \\max_{s,a}|Q(s,a)|. \\tag{A-1}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 144,
+    "source_line": 2475,
+    "tex": "\\kappa_{\\mathrm{ale}} = \\lambda_{\\mathrm{ale}}\\sum_{l} \\| W_{l} \\|_{1}. \\tag{A-2}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 145,
+    "source_line": 2481,
+    "tex": "\\begin{aligned}\nV_{Q}(s) &= \\max_{a}Q(s,a), \\\\\nV_{Q}^{\\alpha_{\\mathrm{ent}}}(s) &= \\alpha_{\\mathrm{ent}}\\log\\sum_{a}\\exp\\left( \\frac{Q(s,a)}{\\alpha_{\\mathrm{ent}}} \\right).\n\\end{aligned} \\tag{A-3}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 146,
+    "source_line": 2488,
+    "tex": "R_{\\mathrm{pen}}(s,a) = R(s,a) - \\gamma c_{\\mathrm{pen}}(s,a). \\tag{A-4}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 147,
+    "source_line": 2494,
+    "tex": "\\begin{aligned}\n(\\mathcal{T}Q)(s,a) &= R_{\\mathrm{pen}}(s,a) + \\gamma\\sum_{s'}P(s' \\mid s,a)V_{Q}(s'), \\\\\n(\\mathcal{T}_{\\alpha_{\\mathrm{ent}}}Q)(s,a) &= R_{\\mathrm{pen}}(s,a) + \\gamma\\sum_{s'}P(s' \\mid s,a)V_{Q}^{\\alpha_{\\mathrm{ent}}}(s').\n\\end{aligned} \\tag{A-5}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 148,
+    "source_line": 2505,
+    "tex": "Q_{1} \\leq Q_{2}\\  \\Rightarrow \\ \\mathcal{V}Q_{1} \\leq \\mathcal{V}Q_{2},\\qquad \\mathcal{V}(Q + c_{\\mathrm{shift}}) = \\mathcal{V}Q + c_{\\mathrm{shift}}, \\tag{A-6}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 149,
+    "source_line": 2511,
+    "tex": "\\| \\mathcal{V}Q_{1} - \\mathcal{V}Q_{2} \\|_{\\infty} \\leq \\| Q_{1} - Q_{2} \\|_{\\infty}. \\tag{A-7}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 150,
+    "source_line": 2515,
+    "tex": "\\mathcal{V}Q_{2} - \\varepsilon_{\\mathrm{dist}} \\leq \\mathcal{V}Q_{1} \\leq \\mathcal{V}Q_{2} + \\varepsilon_{\\mathrm{dist}}. \\tag{A-8}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 151,
+    "source_line": 2523,
+    "tex": "(\\mathcal{B}Q)(s,a) = R_{\\mathrm{pen}}(s,a) + \\gamma\\sum_{s'}P(s' \\mid s,a)(\\mathcal{V}Q)(s'). \\tag{A-9}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 152,
+    "source_line": 2527,
+    "tex": "\\begin{aligned}\nQ_{1} \\leq Q_{2} &\\  \\Rightarrow \\ \\mathcal{B}Q_{1} \\leq \\mathcal{B}Q_{2}, \\\\\n\\mathcal{B}(Q + c_{\\mathrm{shift}}) &= \\mathcal{B}Q + \\gamma c_{\\mathrm{shift}}, \\\\\n\\| \\mathcal{B}Q_{1} - \\mathcal{B}Q_{2} \\|_{\\infty} &\\leq \\gamma \\| Q_{1} - Q_{2} \\|_{\\infty}.\n\\end{aligned} \\tag{A-10}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 3,
+    "raw_row_breaks": 2,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 153,
+    "source_line": 2535,
+    "tex": "\\mathcal{B}(Q + c_{\\mathrm{shift}}) - \\mathcal{B}Q = \\gamma c_{\\mathrm{shift}}\\sum_{s'}P(s' \\mid s,a) = \\gamma c_{\\mathrm{shift}}. \\tag{A-11}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 154,
+    "source_line": 2539,
+    "tex": "\\begin{aligned}\n|(\\mathcal{B}Q_{1} - \\mathcal{B}Q_{2})(s,a)| &\\leq \\gamma\\sum_{s'}P(s' \\mid s,a)|(\\mathcal{V}Q_{1} - \\mathcal{V}Q_{2})(s')| \\\\\n &\\leq \\gamma \\| Q_{1} - Q_{2} \\|_{\\infty}.\n\\end{aligned} \\tag{A-12}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 155,
+    "source_line": 2554,
+    "tex": "\\begin{aligned}\nV_{Q + c_{\\mathrm{shift}}}^{\\alpha_{\\mathrm{ent}}}(s) &= \\alpha_{\\mathrm{ent}}\\log\\left\\lbrack \\exp(c_{\\mathrm{shift}}/\\alpha_{\\mathrm{ent}})\\sum_{a}\\exp(Q(s,a)/\\alpha_{\\mathrm{ent}}) \\right\\rbrack \\\\\n &= c_{\\mathrm{shift}} + V_{Q}^{\\alpha_{\\mathrm{ent}}}(s).\n\\end{aligned} \\tag{A-13}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 156,
+    "source_line": 2563,
+    "tex": "\\mathcal{T}_{\\alpha_{\\mathrm{ent}}}(Q + c_{\\mathrm{shift}}) = \\mathcal{T}_{\\alpha_{\\mathrm{ent}}}Q + \\gamma c_{\\mathrm{shift}},\\qquad \\| \\mathcal{T}_{\\alpha_{\\mathrm{ent}}}Q_{1} - \\mathcal{T}_{\\alpha_{\\mathrm{ent}}}Q_{2} \\|_{\\infty} \\leq \\gamma \\| Q_{1} - Q_{2} \\|_{\\infty}. \\tag{A-14}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 157,
+    "source_line": 2571,
+    "tex": "\\| Q_{n} - Q^{*} \\|_{\\infty} \\leq \\gamma^{n} \\| Q_{0} - Q^{*} \\|_{\\infty}. \\tag{A-15}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 158,
+    "source_line": 2575,
+    "tex": "\\| Q_{m} - Q_{n} \\|_{\\infty} \\leq \\frac{\\gamma^{n}}{1 - \\gamma} \\| Q_{1} - Q_{0} \\|_{\\infty}. \\tag{A-16}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 159,
+    "source_line": 2581,
+    "tex": "\\| Q_{n} - Q^{*} \\|_{\\infty} \\leq \\frac{\\gamma^{n}}{1 - \\gamma} \\| Q_{1} - Q_{0} \\|_{\\infty}. \\tag{A-17}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 160,
+    "source_line": 2587,
+    "tex": "\\mathcal{T}_{\\mathrm{fb}}(Q_{\\mathrm{sc}}) = (\\gamma + \\lambda_{\\mathrm{fb}})Q_{\\mathrm{sc}},\\qquad \\gamma,\\lambda_{\\mathrm{fb}} \\geq 0. \\tag{A-18}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 161,
+    "source_line": 2593,
+    "tex": "|\\mathcal{T}_{\\mathrm{fb}}(Q_{\\mathrm{sc},1}) - \\mathcal{T}_{\\mathrm{fb}}(Q_{\\mathrm{sc},2})| = (\\gamma + \\lambda_{\\mathrm{fb}})|Q_{\\mathrm{sc},1} - Q_{\\mathrm{sc},2}|. \\tag{A-19}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 162,
+    "source_line": 2607,
+    "tex": "\\begin{aligned}\n\\langle p^{\\circ},V\\rangle - \\Omega_{\\mathcal{U}}(V) &= - \\sigma_{\\mathcal{U}}( - V) = \\inf_{p \\in \\mathcal{U}}\\langle p,V\\rangle, \\\\\n\\Omega_{\\mathcal{U}}(V) &= \\langle p^{\\circ},V\\rangle - \\inf_{p \\in \\mathcal{U}}\\langle p,V\\rangle \\geq 0.\n\\end{aligned} \\tag{A-20}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 163,
+    "source_line": 2620,
+    "tex": "\\inf_{p \\in \\mathcal{U}}\\mathbb{E}_{p}[ V] \\geq \\mathbb{E}_{p^{\\circ}}[ V] - \\varepsilon_{\\mathrm{ipm}}L_{V}. \\tag{A-21}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 164,
+    "source_line": 2624,
+    "tex": "\\left| \\mathbb{E}_{p}[ V] - \\mathbb{E}_{p^{\\circ}}[ V] \\right| = \\left| \\mathbb{E}_{(x,y) \\sim \\chi}[ V(x) - V(y)] \\right| \\leq L_{V}\\mathbb{E}_{\\chi}[ d_{\\mathcal{S}}(x,y)]. \\tag{A-22}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 165,
+    "source_line": 2632,
+    "tex": "\\mathrm{CVaR}_{\\beta_{\\mathrm{tail}}}(C_{\\mathrm{traj}}) = \\inf_{\\eta_{\\mathrm{risk}} \\in \\mathbb{R}}\\left\\{ \\eta_{\\mathrm{risk}} + \\frac{1}{\\beta_{\\mathrm{tail}}}\\mathbb{E}_{\\mathbb{P}_{0}}[(C_{\\mathrm{traj}} - \\eta_{\\mathrm{risk}})_{+}] \\right\\}. \\tag{A-23}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 166,
+    "source_line": 2636,
+    "tex": "\\mathcal{Z}_{\\beta_{\\mathrm{tail}}} = \\left\\{ \\zeta_{\\mathrm{risk}}:\\ 0 \\leq \\zeta_{\\mathrm{risk}} \\leq \\frac{1}{\\beta_{\\mathrm{tail}}},\\quad\\mathbb{E}_{\\mathbb{P}_{0}}[\\zeta_{\\mathrm{risk}}] = 1 \\right\\}. \\tag{A-24}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 167,
+    "source_line": 2640,
+    "tex": "\\mathrm{CVaR}_{\\beta_{\\mathrm{tail}}}(C_{\\mathrm{traj}}) = \\sup_{\\zeta_{\\mathrm{risk}} \\in \\mathcal{Z}_{\\beta_{\\mathrm{tail}}}}\\mathbb{E}_{\\mathbb{P}_{0}}[\\zeta_{\\mathrm{risk}}C_{\\mathrm{traj}}]. \\tag{A-25}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 168,
+    "source_line": 2644,
+    "tex": "\\begin{aligned}\n\\mathbb{E}_{\\mathbb{P}_{0}}[\\zeta_{\\mathrm{risk}}C_{\\mathrm{traj}}] &= \\eta_{\\mathrm{risk}} + \\mathbb{E}_{\\mathbb{P}_{0}}[\\zeta_{\\mathrm{risk}}(C_{\\mathrm{traj}} - \\eta_{\\mathrm{risk}})] \\\\\n &\\leq \\eta_{\\mathrm{risk}} + \\frac{1}{\\beta_{\\mathrm{tail}}}\\mathbb{E}_{\\mathbb{P}_{0}}[(C_{\\mathrm{traj}} - \\eta_{\\mathrm{risk}})_{+}].\n\\end{aligned} \\tag{A-26}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 169,
+    "source_line": 2663,
+    "tex": "\\mathcal{A} = [-1,1]^{n_{a}}. \\tag{B-1}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 170,
+    "source_line": 2667,
+    "tex": "\\mathrm{clip}(a)_{j} = \\mathrm{clip}_{1}(a_{j}),\\quad \\text{其中}\\quad \\mathrm{clip}_{1}(x) = \\max\\{ - 1, \\min\\{ x,1\\}\\}. \\tag{B-2}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 171,
+    "source_line": 2671,
+    "tex": "u_{\\mathrm{exec}} = \\mathrm{clip}(v_{\\mathrm{nom}} + \\varepsilon). \\tag{B-3}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 172,
+    "source_line": 2677,
+    "tex": "a^{\\mathrm{ref}}(x_{\\mathrm{phys}}) = \\mu_{\\mathrm{ref}}\\big(o(x_{\\mathrm{phys}})\\big) \\in \\mathcal{A}. \\tag{B-4}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 173,
+    "source_line": 2681,
+    "tex": "G_{z}a_{z}(x_{\\mathrm{phys}}) = G_{\\mathrm{ref}}a^{\\mathrm{ref}}(x_{\\mathrm{phys}}). \\tag{B-5}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 174,
+    "source_line": 2689,
+    "tex": "\\mathrm{clip}_{1}(x) = x\\quad \\Leftrightarrow \\quad - 1 \\leq x \\leq 1. \\tag{B-6}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 175,
+    "source_line": 2695,
+    "tex": "\\mathrm{clip}(a) = a\\quad \\Leftrightarrow \\quad a \\in \\mathcal{A}. \\tag{B-7}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 176,
+    "source_line": 2699,
+    "tex": "a_{\\mathrm{inv}} = G_{\\mathrm{act}}^{- 1}v_{\\mathrm{nom}}^{*},\\qquad a_{\\mathrm{inv},j} = v_{\\mathrm{nom},j}^{*}/g_{j}. \\tag{B-8}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 177,
+    "source_line": 2703,
+    "tex": "G_{\\mathrm{act}}\\,\\mathrm{clip}(a_{\\mathrm{inv}}) = v_{\\mathrm{nom}}^{*}\\quad \\Leftrightarrow \\quad a_{\\mathrm{inv}} \\in \\mathcal{A}. \\tag{B-9}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 178,
+    "source_line": 2707,
+    "tex": "g_{j}\\left( \\mathrm{clip}_{1}(a_{\\mathrm{inv},j}) - a_{\\mathrm{inv},j} \\right) = 0 \\tag{B-10}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 179,
+    "source_line": 2713,
+    "tex": "G_{z}^{- 1}G_{\\mathrm{ref}}a^{\\mathrm{ref}} \\in [-1,1]^{n_{a}}. \\tag{B-11}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 180,
+    "source_line": 2719,
+    "tex": "G_{z}^{2} = I_{n_{a}},\\qquad G_{z}^{- 1} = G_{z}. \\tag{B-12}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 181,
+    "source_line": 2723,
+    "tex": "a_{z} = G_{z}G_{\\mathrm{ref}}a^{\\mathrm{ref}} \\tag{B-13}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 182,
+    "source_line": 2727,
+    "tex": "G_{z}a_{z} = G_{\\mathrm{ref}}a^{\\mathrm{ref}}. \\tag{B-14}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 183,
+    "source_line": 2731,
+    "tex": "g_{z,j}a_{z,j} = g_{z,j}^{2}g_{\\mathrm{ref},j}a^{\\mathrm{ref}}_{j} = g_{\\mathrm{ref},j}a^{\\mathrm{ref}}_{j}. \\tag{B-15}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 184,
+    "source_line": 2739,
+    "tex": "\\mathrm{clip}(v_{\\mathrm{nom},1} + \\varepsilon) = \\mathrm{clip}(v_{\\mathrm{nom},2} + \\varepsilon). \\tag{B-16}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 185,
+    "source_line": 2745,
+    "tex": "u_{\\mathrm{exec},k} = \\mathrm{clip}\\big(v_{\\mathrm{nom}}(k,x_{\\mathrm{phys},k}) + \\varepsilon_{k}\\big),\\qquad x_{\\mathrm{phys},k + 1} = F_{\\mathrm{phys}}(x_{\\mathrm{phys},k},u_{\\mathrm{exec},k},e_{k}). \\tag{B-17}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 186,
+    "source_line": 2749,
+    "tex": "J_{n,k}^{v_{\\mathrm{nom}}}(x_{\\mathrm{phys},k}) = \\sum_{i = 0}^{n - 1}r(x_{\\mathrm{phys},k + i},u_{\\mathrm{exec},k + i},e_{k + i}),\\qquad J_{0,k}^{v_{\\mathrm{nom}}} = 0. \\tag{B-18}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 187,
+    "source_line": 2759,
+    "tex": "G_{z_{k}}\\left( G_{z_{k}}G_{\\mathrm{ref}}a^{\\mathrm{ref}}(x_{\\mathrm{phys}}) \\right) = G_{\\mathrm{ref}}a^{\\mathrm{ref}}(x_{\\mathrm{phys}}), \\tag{B-19}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 188,
+    "source_line": 2765,
+    "tex": "\\rho_{k} = U(\\cdots U(U(\\rho_{0},\\xi_{0}),\\xi_{1})\\cdots,\\xi_{k - 1}),\\qquad a_{k} = S(\\rho_{k},s_{k}). \\tag{B-20}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 189,
+    "source_line": 2773,
+    "tex": "G_{z_{k}}a(k,x_{\\mathrm{phys}}) = G_{z_{k}'}a(k,x_{\\mathrm{phys}}), \\tag{B-21}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 190,
+    "source_line": 2787,
+    "tex": "\\begin{aligned}\np_{\\mathrm{correct}} &= \\frac{1}{2}\\sum_{\\omega}p(\\omega)\\mathbf{1}\\{ D_{\\mathrm{cls}}(Y_{1}(\\omega)) = 1\\} \\\\\n &\\quad + \\frac{1}{2}\\sum_{\\omega}p(\\omega)\\mathbf{1}\\{ D_{\\mathrm{cls}}(Y_{2}(\\omega)) = 2\\}.\n\\end{aligned} \\tag{B-22}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 191,
+    "source_line": 2794,
+    "tex": "p_{\\mathrm{correct}} = \\frac{1}{2}\\sum_{\\omega}p(\\omega) = \\frac{1}{2}. \\tag{B-23}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 192,
+    "source_line": 2802,
+    "tex": "D_{\\mathrm{KL}}(p \\parallel q) = \\sum_{h_{\\mathrm{obs}}}p(h_{\\mathrm{obs}})\\log\\frac{p(h_{\\mathrm{obs}})}{q(h_{\\mathrm{obs}})}. \\tag{B-24}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 193,
+    "source_line": 2806,
+    "tex": "D_{\\mathrm{KL}}(pP_{\\mathrm{obs},1} \\parallel qP_{\\mathrm{obs},2}) = D_{\\mathrm{KL}}(p \\parallel q) + \\sum_{h_{\\mathrm{obs}}}p(h_{\\mathrm{obs}})\\,D_{\\mathrm{KL}}\\!\\left( P_{\\mathrm{obs},1}( \\cdot \\mid h_{\\mathrm{obs}}) \\parallel P_{\\mathrm{obs},2}( \\cdot \\mid h_{\\mathrm{obs}}) \\right). \\tag{B-25}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 194,
+    "source_line": 2810,
+    "tex": "\\log\\frac{p(h_{\\mathrm{obs}})P_{\\mathrm{obs},1}(y \\mid h_{\\mathrm{obs}})}{q(h_{\\mathrm{obs}})P_{\\mathrm{obs},2}(y \\mid h_{\\mathrm{obs}})} = \\log\\frac{p(h_{\\mathrm{obs}})}{q(h_{\\mathrm{obs}})} + \\log\\frac{P_{\\mathrm{obs},1}(y \\mid h_{\\mathrm{obs}})}{P_{\\mathrm{obs},2}(y \\mid h_{\\mathrm{obs}})}. \\tag{B-26}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 195,
+    "source_line": 2814,
+    "tex": "p(h_{\\mathrm{obs}})\\log\\frac{p(h_{\\mathrm{obs}})}{q(h_{\\mathrm{obs}})}\\sum_{y}P_{\\mathrm{obs},1}(y \\mid h_{\\mathrm{obs}}) = p(h_{\\mathrm{obs}})\\log\\frac{p(h_{\\mathrm{obs}})}{q(h_{\\mathrm{obs}})}, \\tag{B-27}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 196,
+    "source_line": 2818,
+    "tex": "p(h_{\\mathrm{obs}})\\sum_{y}P_{\\mathrm{obs},1}(y \\mid h_{\\mathrm{obs}})\\log\\frac{P_{\\mathrm{obs},1}(y \\mid h_{\\mathrm{obs}})}{P_{\\mathrm{obs},2}(y \\mid h_{\\mathrm{obs}})}. \\tag{B-28}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 197,
+    "source_line": 2824,
+    "tex": "D_{\\mathrm{KL}}(\\mathsf{P}_{z}^{\\pi_{\\mathrm{beh}}} \\parallel \\mathsf{P}_{z'}^{\\pi_{\\mathrm{beh}}}) = \\sum_{k = 0}^{N_{\\mathrm{hor}} - 1}\\mathbb{E}_{\\mathsf{P}_{z}^{\\pi_{\\mathrm{beh}}}}\\left\\lbrack D_{\\mathrm{KL}}\\big(P_{z}( \\cdot \\mid H_{k},a_{k}) \\parallel P_{z'}( \\cdot \\mid H_{k},a_{k})\\big) \\right\\rbrack, \\tag{B-29}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 198,
+    "source_line": 2830,
+    "tex": "v_{\\mathrm{nom}}^{C} = G_{z}G_{\\widehat{z}}G_{\\mathrm{ref}}a^{\\mathrm{ref}},\\qquad v_{\\mathrm{nom}}^{O} = G_{\\mathrm{ref}}a^{\\mathrm{ref}}. \\tag{B-30}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 199,
+    "source_line": 2834,
+    "tex": "\\Delta v_{\\mathrm{nom},j} = (g_{z,j}g_{\\widehat{z},j} - 1)g_{\\mathrm{ref},j}a^{\\mathrm{ref}}_{j}. \\tag{B-31}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 200,
+    "source_line": 2838,
+    "tex": "(\\Delta v_{\\mathrm{nom},j})^{2} = \\begin{cases}\n0, & g_{z,j} = g_{\\widehat{z},j}, \\\\\n4(a^{\\mathrm{ref}}_{j})^{2}, & g_{z,j} \\neq g_{\\widehat{z},j},\n\\end{cases} \\tag{B-32}",
+    "envs": [
+      "cases"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 201,
+    "source_line": 2845,
+    "tex": "\\| \\Delta v_{\\mathrm{nom}} \\|_{2}^{2} = 4\\sum_{j = 1}^{n_{a}}(a^{\\mathrm{ref}}_{j})^{2}\\mathbf{1}\\{ g_{z,j} \\neq g_{\\widehat{z},j}\\}, \\tag{B-33}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 202,
+    "source_line": 2847,
+    "tex": "\\| \\Delta v_{\\mathrm{nom}} \\|_{2} = 2\\sqrt{\\sum_{j = 1}^{n_{a}}(a^{\\mathrm{ref}}_{j})^{2}\\mathbf{1}\\{ g_{z,j} \\neq g_{\\widehat{z},j}\\}}. \\tag{B-34}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 203,
+    "source_line": 2857,
+    "tex": "\\begin{aligned}\nQ_{n,k}^{O,\\mathrm{path}}(x_{\\mathrm{aug}},v_{\\mathrm{nom}}) &= r\\big(x_{\\mathrm{phys}},\\mathrm{clip}(v_{\\mathrm{nom}} + \\varepsilon_{k}),e_{k}\\big) \\\\\n &\\quad + V_{n,k + 1}^{O,\\mathrm{path}}\\!\\left( F_{\\mathrm{aug}}(x_{\\mathrm{aug}},v_{\\mathrm{nom}},e_{k}) \\right).\n\\end{aligned} \\tag{B-35}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 204,
+    "source_line": 2864,
+    "tex": "\\begin{aligned}\n\\Delta_{n,k}^{O}(x_{\\mathrm{aug}}) &= Q_{n,k}^{O,\\mathrm{path}}\\big(x_{\\mathrm{aug}},v_{\\mathrm{nom}}^{C}(k,x_{\\mathrm{aug}})\\big) \\\\\n &\\quad - Q_{n,k}^{O,\\mathrm{path}}\\big(x_{\\mathrm{aug}},v_{\\mathrm{nom}}^{O}(k,x_{\\mathrm{aug}})\\big).\n\\end{aligned} \\tag{B-36}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 205,
+    "source_line": 2871,
+    "tex": "J_{N,k}^{C}(x_{\\mathrm{aug},k}) - J_{N,k}^{O}(x_{\\mathrm{aug},k}) = \\sum_{i = 0}^{N - 1}\\Delta_{N - 1 - i,k + i}^{O}(x_{\\mathrm{aug},k + i}^{C}). \\tag{B-37}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 206,
+    "source_line": 2875,
+    "tex": "x_{\\mathrm{aug},C}' = F_{\\mathrm{aug}}\\!\\left( x_{\\mathrm{aug}},v_{\\mathrm{nom}}^{C}(k,x_{\\mathrm{aug}}),e_{k} \\right). \\tag{B-38}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 207,
+    "source_line": 2879,
+    "tex": "\\begin{aligned}\n{\\Delta J}_{n + 1,k}(x_{\\mathrm{aug}}) &= Q_{n,k}^{O,\\mathrm{path}}\\big(x_{\\mathrm{aug}},v_{\\mathrm{nom}}^{C}(k,x_{\\mathrm{aug}})\\big) - Q_{n,k}^{O,\\mathrm{path}}\\big(x_{\\mathrm{aug}},v_{\\mathrm{nom}}^{O}(k,x_{\\mathrm{aug}})\\big) \\\\\n &\\quad + {\\Delta J}_{n,k + 1}(x_{\\mathrm{aug},C}').\n\\end{aligned} \\tag{B-39}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 208,
+    "source_line": 2888,
+    "tex": "\\big|Q_{n,k}^{O,\\mathrm{path}}\\big(x_{\\mathrm{aug}},v_{\\mathrm{nom}}^{C}(k,x_{\\mathrm{aug}})\\big) - Q_{n,k}^{O,\\mathrm{path}}\\big(x_{\\mathrm{aug}},v_{\\mathrm{nom}}^{O}(k,x_{\\mathrm{aug}})\\big)\\big| \\leq b_{Q,\\mathrm{loc}}(k,x_{\\mathrm{aug}}), \\tag{B-40}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 209,
+    "source_line": 2892,
+    "tex": "\\big|J_{N,k}^{C}(x_{\\mathrm{aug},k}) - J_{N,k}^{O}(x_{\\mathrm{aug},k})\\big| \\leq \\sum_{i = 0}^{N - 1}b_{Q,\\mathrm{loc}}(k + i,x_{\\mathrm{aug},k + i}^{C}). \\tag{B-41}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 210,
+    "source_line": 2898,
+    "tex": "\\begin{aligned}\nF_{\\mathrm{dyn},e}(x_{\\mathrm{aug}},v_{\\mathrm{nom}}) &= F_{\\mathrm{aug}}(x_{\\mathrm{aug}},v_{\\mathrm{nom}},e), \\\\\nr_{e}(x_{\\mathrm{aug}},v_{\\mathrm{nom}}) &= r\\big(x_{\\mathrm{phys}},\\mathrm{clip}(v_{\\mathrm{nom}} + \\varepsilon(e)),e\\big).\n\\end{aligned} \\tag{B-42}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 211,
+    "source_line": 2905,
+    "tex": "V_{0,k}^{\\pi}(x_{\\mathrm{aug}}) = 0, \\tag{B-43}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 212,
+    "source_line": 2907,
+    "tex": "V_{n + 1,k}^{\\pi}(x_{\\mathrm{aug}}) = \\sum_{e}p(e)\\left\\lbrack r_{e}\\big(x_{\\mathrm{aug}},v_{\\mathrm{nom}}^{\\pi}(k,x_{\\mathrm{aug}})\\big) + V_{n,k + 1}^{\\pi}\\!\\big(F_{\\mathrm{dyn},e}(x_{\\mathrm{aug}},v_{\\mathrm{nom}}^{\\pi}(k,x_{\\mathrm{aug}}))\\big) \\right\\rbrack. \\tag{B-44}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 213,
+    "source_line": 2911,
+    "tex": "Q_{n,k}^{O}(x_{\\mathrm{aug}},v_{\\mathrm{nom}}) = \\sum_{e}p(e)\\left\\lbrack r_{e}(x_{\\mathrm{aug}},v_{\\mathrm{nom}}) + V_{n,k + 1}^{O}\\!\\big(F_{\\mathrm{dyn},e}(x_{\\mathrm{aug}},v_{\\mathrm{nom}})\\big) \\right\\rbrack. \\tag{B-45}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 214,
+    "source_line": 2917,
+    "tex": "A_{n,k}^{O}(x_{aug}) = Q_{n,k}^{O}(x_{aug},{v_{nom}}^{C}(k,x_{aug})) - Q_{n,k}^{O}(x_{aug},{v_{nom}}^{O}(k,x_{aug})). \\tag{B-46}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 215,
+    "source_line": 2921,
+    "tex": "V_{N,k}^{C}(x_{aug}) - V_{N,k}^{O}(x_{aug}) = \\mathbb{E}_{C}\\left\\lbrack \\sum_{i = 0}^{N - 1}A_{N - 1 - i,k + i}^{O}(X_{aug,k + i})\\  \\middle| \\ X_{aug,k} = x_{aug} \\right\\rbrack. \\tag{B-47}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 216,
+    "source_line": 2927,
+    "tex": "\\begin{aligned}\n{\\Delta V}_{n + 1,k}(x_{aug}) = & A_{n,k}^{O}(x_{aug}) \\\\\n & + \\sum_{e}^{}p(e){\\Delta V}_{n,k + 1}(F_{dyn,e}(x_{aug},{v_{nom}}^{C}(k,x_{aug}))).\n\\end{aligned} \\tag{B-48}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 217,
+    "source_line": 2938,
+    "tex": "|A_{n,k}^{O}(x_{aug})| \\leq b_{Q,loc}(k,x_{aug}), \\tag{B-49}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 218,
+    "source_line": 2942,
+    "tex": "|V_{N,k}^{C}(x_{aug}) - V_{N,k}^{O}(x_{aug})| \\leq \\mathbb{E}_{C}\\left\\lbrack \\sum_{i = 0}^{N - 1}b_{Q,loc}(k + i,X_{aug,k + i})\\  \\middle| \\ X_{aug,k} = x_{aug} \\right\\rbrack. \\tag{B-50}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 219,
+    "source_line": 2946,
+    "tex": "B_{ret,0,k}(x_{aug}) = 0, \\tag{B-51}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 220,
+    "source_line": 2948,
+    "tex": "B_{ret,n + 1,k}(x_{aug}) = b_{Q,loc}(k,x_{aug}) + \\sum_{e}^{}p(e)B_{ret,n,k + 1}(F_{dyn,e}(x_{aug},{v_{nom}}^{C}(k,x_{aug}))). \\tag{B-52}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 221,
+    "source_line": 2952,
+    "tex": "\\begin{aligned}\n|{\\Delta V}_{n + 1,k}(x_{aug})| & \\leq |A_{n,k}^{O}(x_{aug})| + \\left| \\sum_{e}^{}p(e){\\Delta V}_{n,k + 1}(F_{dyn,e}(x_{aug},{v_{nom}}^{C}(k,x_{aug}))) \\right| \\\\\n & \\leq b_{Q,loc}(k,x_{aug}) + \\sum_{e}^{}p(e)|{\\Delta V}_{n,k + 1}(F_{dyn,e}(x_{aug},{v_{nom}}^{C}(k,x_{aug})))| \\\\\n & \\leq b_{Q,loc}(k,x_{aug}) + \\sum_{e}^{}p(e)B_{ret,n,k + 1}(F_{dyn,e}(x_{aug},{v_{nom}}^{C}(k,x_{aug}))) \\\\\n & = B_{ret,n + 1,k}(x_{aug}).\n\\end{aligned} \\tag{B-53}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 4,
+    "raw_row_breaks": 3,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 222,
+    "source_line": 2963,
+    "tex": "{v_{nom}}^{O}(k,x_{aug}) = G_{ref}a^{ref}(x_{aug}), \\tag{B-54}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 223,
+    "source_line": 2967,
+    "tex": "{v_{nom}}^{C}(k,x_{aug}) = G_{z_{k}}G_{\\widehat{z}(k,x_{aug})}G_{ref}a^{ref}(x_{aug}). \\tag{B-55}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 224,
+    "source_line": 2971,
+    "tex": "|Q_{n,k}^{O}(x_{aug},{v_{nom}}^{C}(k,x_{aug})) - Q_{n,k}^{O}(x_{aug},{v_{nom}}^{O}(k,x_{aug}))| \\leq L_{Q,act}(k,x_{aug}) \\parallel {v_{nom}}^{C}(k,x_{aug}) - {v_{nom}}^{O}(k,x_{aug}) \\parallel_{2}. \\tag{B-56}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 225,
+    "source_line": 2977,
+    "tex": "\\begin{aligned}\n & |V_{N,k}^{C}(x_{aug}) - V_{N,k}^{O}(x_{aug})| \\\\\n & \\quad \\leq \\mathbb{E}_{C}\\left\\lbrack \\sum_{i = 0}^{N - 1}2L_{Q,act}(k + i,X_{aug,k + i})\\sqrt{\\sum_{j = 1}^{n_{a}}{a^{ref}}_{j}(X_{aug,k + i})^{2}I_{i,j}}\\  \\middle| \\ X_{aug,k} = x_{aug} \\right\\rbrack,\n\\end{aligned} \\tag{B-57}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 226,
+    "source_line": 2984,
+    "tex": "I_{i,j} = \\mathbf{1}\\left\\{ g_{z_{k + i},j} \\neq g_{\\widehat{z}(k + i,X_{aug,k + i}),j} \\right\\}. \\tag{B-58}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 227,
+    "source_line": 2988,
+    "tex": "\\parallel {v_{nom}}^{C}(k,x_{aug}) - {v_{nom}}^{O}(k,x_{aug}) \\parallel_{2} = 2\\sqrt{\\sum_{j}^{}{a^{ref}}_{j}(x_{aug})^{2}\\mathbf{1}\\{ g_{z_{k},j} \\neq g_{\\widehat{z}(k,x_{aug}),j}\\}}. \\tag{B-59}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 228,
+    "source_line": 2992,
+    "tex": "b_{Q,loc}(k,x_{aug}) = 2L_{Q,act}(k,x_{aug})\\sqrt{\\sum_{j}^{}{a^{ref}}_{j}(x_{aug})^{2}\\mathbf{1}\\{ g_{z_{k},j} \\neq g_{\\widehat{z}(k,x_{aug}),j}\\}}. \\tag{B-60}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 229,
+    "source_line": 3014,
+    "tex": "P_{z}(s' \\mid s,a) \\geq 0,\\quad\\quad\\sum_{s'}^{}P_{z}(s' \\mid s,a) = 1. \\tag{C-1}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 230,
+    "source_line": 3018,
+    "tex": "V_{Q}(s) = \\max_{a}Q(s,a). \\tag{C-2}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 231,
+    "source_line": 3022,
+    "tex": "(\\mathcal{T}_{z}Q)(s,a) = R_{z}(s,a) + \\gamma\\left\\lbrack \\sum_{s'}P_{z}(s' \\mid s,a)V_{Q}(s') - \\lambda_{\\mathrm{epi}}\\Gamma_{z}(s,a) - \\kappa_{\\mathrm{fix}} \\right\\rbrack. \\tag{C-3}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 232,
+    "source_line": 3028,
+    "tex": "\\rho(z) \\geq 0,\\qquad \\sum_{z \\in \\mathcal{Z}}\\rho(z) = 1. \\tag{C-4}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 233,
+    "source_line": 3032,
+    "tex": "(\\mathcal{T}_{\\rho}Q)(s,a) = \\sum_{z \\in \\mathcal{Z}}\\rho(z)(\\mathcal{T}_{z}Q)(s,a). \\tag{C-5}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 234,
+    "source_line": 3038,
+    "tex": "\\begin{aligned}\n{\\overline{P}}_{\\rho}(s' \\mid s,a) & = \\sum_{z}^{}\\rho(z)P_{z}(s' \\mid s,a), \\\\\n{\\overline{R}}_{pen,\\rho}(s,a) & = \\sum_{z}^{}\\rho(z)\\left\\lbrack R_{z}(s,a) - \\gamma\\lambda_{epi}\\Gamma_{z}(s,a) - \\gamma\\kappa_{fix} \\right\\rbrack.\n\\end{aligned} \\tag{C-6}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 235,
+    "source_line": 3045,
+    "tex": "(\\mathcal{T}_{\\rho}Q)(s,a) = {\\overline{R}}_{pen,\\rho}(s,a) + \\gamma\\sum_{s'}^{}{\\overline{P}}_{\\rho}(s' \\mid s,a)V_{Q}(s'). \\tag{C-7}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 236,
+    "source_line": 3049,
+    "tex": "\\sum_{s'}^{}{\\overline{P}}_{\\rho}(s' \\mid s,a) = \\sum_{z}^{}\\rho(z)\\sum_{s'}^{}P_{z}(s' \\mid s,a) = \\sum_{z}^{}\\rho(z) = 1. \\tag{C-8}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 237,
+    "source_line": 3057,
+    "tex": "\\begin{aligned}\n\\mathcal{T}_{\\rho}\\left( Q + c_{shift} \\right) = \\mathcal{T}_{\\rho}Q + \\gamma c_{shift},\\quad\\quad \\\\\n\\parallel \\mathcal{T}_{\\rho}Q_{1} - \\mathcal{T}_{\\rho}Q_{2} \\parallel_{\\infty} \\leq \\gamma \\parallel Q_{1} - Q_{2} \\parallel_{\\infty}.\n\\end{aligned} \\tag{C-9}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 238,
+    "source_line": 3066,
+    "tex": "\\mathcal{T}_{\\rho^{\\mathrm{joint}}}Q = \\sum_{z,z^{(2)}}\\rho^{\\mathrm{joint}}(z,z^{(2)})\\mathcal{T}_{z,z^{(2)}}Q \\tag{C-10}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 239,
+    "source_line": 3072,
+    "tex": "Z_{\\mathrm{norm}} = \\sum_{z}\\rho(z)L(z) > 0, \\tag{C-11}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 240,
+    "source_line": 3076,
+    "tex": "\\rho'(z) = \\frac{\\rho(z)L(z)}{Z_{\\mathrm{norm}}}. \\tag{C-12}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 241,
+    "source_line": 3082,
+    "tex": "\\sum_{z}\\rho'(z) = \\frac{\\sum_{z}\\rho(z)L(z)}{Z_{\\mathrm{norm}}} = \\frac{Z_{\\mathrm{norm}}}{Z_{\\mathrm{norm}}} = 1. \\tag{C-13}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 242,
+    "source_line": 3092,
+    "tex": "\\rho(z) = \\sum_{z^{(2)}}\\rho^{\\mathrm{joint}}(z,z^{(2)}),\\qquad \\rho^{(2)}(z^{(2)}) = \\sum_{z}\\rho^{\\mathrm{joint}}(z,z^{(2)}). \\tag{C-14}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 243,
+    "source_line": 3098,
+    "tex": "\\sum_{z}\\rho(z) = \\sum_{z}\\sum_{z^{(2)}}\\rho^{\\mathrm{joint}}(z,z^{(2)}) = 1, \\tag{C-15}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 244,
+    "source_line": 3100,
+    "tex": "\\sum_{z^{(2)}}\\rho^{(2)}(z^{(2)}) = \\sum_{z^{(2)}}\\sum_{z}\\rho^{\\mathrm{joint}}(z,z^{(2)}) = \\sum_{z}\\sum_{z^{(2)}}\\rho^{\\mathrm{joint}}(z,z^{(2)}) = 1. \\tag{C-16}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 245,
+    "source_line": 3106,
+    "tex": "B_{1} = \\begin{pmatrix}\n1/2 & 0 \\\\\n0 & 1/2\n\\end{pmatrix},\\qquad B_{2} = \\begin{pmatrix}\n0 & 1/2 \\\\\n1/2 & 0\n\\end{pmatrix}. \\tag{C-17}",
+    "envs": [
+      "pmatrix",
+      "pmatrix"
+    ],
+    "raw_ampersands": 4,
+    "raw_row_breaks": 2,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 246,
+    "source_line": 3116,
+    "tex": "\\sum_{z,z^{(2)}}\\rho^{\\mathrm{joint}}(z,z^{(2)})\\mathcal{T}_{z,z^{(2)}}Q = \\sum_{z}\\left( \\sum_{z^{(2)}}\\rho^{\\mathrm{joint}}(z,z^{(2)}) \\right)\\mathcal{T}_{z}Q = \\mathcal{T}_{\\rho}Q. \\tag{C-18}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 247,
+    "source_line": 3120,
+    "tex": "\\beta_{\\mathrm{eff}}(\\lambda_{w}) = \\beta_{\\mathrm{base}} - c_{\\mathrm{pen}}\\lambda_{w}, \\tag{C-19}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 248,
+    "source_line": 3126,
+    "tex": "\\beta_{\\mathrm{eff}}(\\lambda_{w,2}) \\leq \\beta_{\\mathrm{eff}}(\\lambda_{w,1}). \\tag{C-20}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 249,
+    "source_line": 3130,
+    "tex": "\\beta_{\\mathrm{eff}}(\\lambda_{w,2}) - \\beta_{\\mathrm{eff}}(\\lambda_{w,1}) = - (\\lambda_{w,2} - \\lambda_{w,1})c_{\\mathrm{pen}} \\leq 0 \\tag{C-21}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 250,
+    "source_line": 3136,
+    "tex": "Q_{\\mathrm{shared}}(z,s,a) = Q_{z}(s,a). \\tag{C-22}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 251,
+    "source_line": 3142,
+    "tex": "\\begin{aligned}\n\\mathcal{F}(Q_{\\mathrm{sc}}) &= \\lambda_{\\mathrm{fb}}Q_{\\mathrm{sc}}(\\gamma Q_{\\mathrm{sc}} + R_{1}) + (1 - \\lambda_{\\mathrm{fb}}Q_{\\mathrm{sc}})(\\gamma Q_{\\mathrm{sc}} + R_{2}) \\\\\n &= (\\gamma + \\lambda_{\\mathrm{fb}}\\Delta R)Q_{\\mathrm{sc}} + R_{2},\\qquad \\Delta R = R_{1} - R_{2}.\n\\end{aligned} \\tag{C-23}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 252,
+    "source_line": 3149,
+    "tex": "\\mathcal{F}(Q_{\\mathrm{sc},1}) - \\mathcal{F}(Q_{\\mathrm{sc},2}) = (\\gamma + \\lambda_{\\mathrm{fb}}\\Delta R)(Q_{\\mathrm{sc},1} - Q_{\\mathrm{sc},2}). \\tag{C-24}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 253,
+    "source_line": 3153,
+    "tex": "\\big|\\mathcal{F}(Q_{\\mathrm{sc},1}) - \\mathcal{F}(Q_{\\mathrm{sc},2})\\big| = (\\gamma + \\lambda_{\\mathrm{fb}}\\Delta R)\\big|Q_{\\mathrm{sc},1} - Q_{\\mathrm{sc},2}\\big|. \\tag{C-25}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 254,
+    "source_line": 3159,
+    "tex": "\\lambda_{\\mathrm{fb}}\\Delta R = 1 - \\gamma, \\tag{C-26}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 255,
+    "source_line": 3165,
+    "tex": "O_{belief,n} = \\frac{1}{\\Omega_{prior}}{L_{evid}}^{2n}. \\tag{C-27}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 256,
+    "source_line": 3171,
+    "tex": "L_{\\mathrm{evid}}^{2n} \\geq \\frac{\\Omega_{\\mathrm{prior}}}{\\delta_{\\mathrm{post}}}, \\tag{C-28}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 257,
+    "source_line": 3177,
+    "tex": "\\frac{1}{\\Omega_{\\mathrm{prior}}}L_{\\mathrm{evid}}^{2n} \\geq \\frac{1}{\\Omega_{\\mathrm{prior}}}\\frac{\\Omega_{\\mathrm{prior}}}{\\delta_{\\mathrm{post}}} = \\frac{1}{\\delta_{\\mathrm{post}}}. \\tag{C-29}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 258,
+    "source_line": 3183,
+    "tex": "\\rho_{n}(\\mathrm{new}) = \\frac{O_{\\mathrm{belief},n}}{1 + O_{\\mathrm{belief},n}} \\geq \\frac{1}{1 + \\delta_{\\mathrm{post}}} \\geq 1 - \\delta_{\\mathrm{post}}, \\tag{C-30}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 259,
+    "source_line": 3193,
+    "tex": "n \\geq \\max\\left\\{ 0,\\ \\left\\lceil \\frac{\\log(\\Omega_{\\mathrm{prior}}/\\delta_{\\mathrm{post}})}{2\\log L_{\\mathrm{evid}}} \\right\\rceil \\right\\}. \\tag{C-31}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 260,
+    "source_line": 3211,
+    "tex": "|{\\mu_{\\mathrm{det}}}'(x) - {f_{\\mathrm{ref}}}'(x)| \\leq \\varepsilon_{\\mathrm{der}},\\qquad x \\in X_{\\mathrm{eval}}. \\tag{D-1}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 261,
+    "source_line": 3215,
+    "tex": "|{\\mu_{\\mathrm{det}}}'(x) - {\\mu_{\\mathrm{det}}}'(y)| \\leq L_{D\\mu}|x - y|. \\tag{D-2}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 262,
+    "source_line": 3221,
+    "tex": "\\| D\\mu_{\\mathrm{det}}(x) - Df_{\\mathrm{ref}}(x) \\| \\leq \\varepsilon_{\\mathrm{der}} \\tag{D-3}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 263,
+    "source_line": 3225,
+    "tex": "\\| D\\mu_{\\mathrm{det}}(x) - D\\mu_{\\mathrm{det}}(y) \\| \\leq L_{D\\mu} \\| x - y \\| . \\tag{D-4}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 264,
+    "source_line": 3233,
+    "tex": "\\begin{aligned}\nq_{\\theta}(x) &= \\beta_{0} + f_{\\theta}(x) - f_{\\theta}\\big(x_{\\mathrm{ref}}(x)\\big), \\\\\n\\mu_{\\mathrm{det},\\theta}(x) &= \\tanh\\big(q_{\\theta}(x)\\big), \\\\\na_{\\mathrm{hold}}(x) &= 30\\,\\big[ 1 + \\mu_{\\mathrm{det},\\theta}(x)\\big].\n\\end{aligned} \\tag{D-4a}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 3,
+    "raw_row_breaks": 2,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 265,
+    "source_line": 3243,
+    "tex": "f_{\\mathrm{ref}}(x) = \\mathrm{clip}_{[-0.999,0.999]}\\left\\lbrack \\frac{\\sum_{\\tilde{a}_k \\in \\mathcal{A}_{g}} \\tilde{a}_k \\exp\\big( - \\hat{c}(x,\\tilde{a}_k)/\\tau_{\\mathrm{boltz}}\\big)}{\\sum_{\\tilde{a}_{k'} \\in \\mathcal{A}_{g}}\\exp\\big( - \\hat{c}(x,\\tilde{a}_{k'})/\\tau_{\\mathrm{boltz}}\\big)} \\right\\rbrack. \\tag{D-4b}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 266,
+    "source_line": 3247,
+    "tex": "\\begin{aligned}\n\\ell_{\\mathrm{sym}}(x) &= \\frac{\\| J_{\\mu}(x) - J_{f}(x) \\|_{F}^{2}}{1 + \\| J_{f}(x) \\|_{F}^{2}}, \\\\\n\\mathcal{L}_{\\pi} &= \\mathcal{L}_{\\pi,\\mathrm{base}} + \\frac{0.01}{B}\\sum_{i = 1}^{B}\\ell_{\\mathrm{sym}}(x_{i}),\n\\end{aligned} \\tag{D-4c}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 267,
+    "source_line": 3254,
+    "tex": "\\bar{\\mathcal{L}}_{\\mathrm{JC}}' = \\frac{1}{B}\\sum_{i = 1}^{B}\\ell_{\\mathrm{sym}}(x_{i}') \\tag{D-4d}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 268,
+    "source_line": 3256,
+    "tex": "y_{i} = \\frac{r_{i}}{\\sigma_{r}} + (1 - d_{i})\\gamma\\Big\\lbrack \\min_{1 \\leq k \\leq 3}\\hat{Q}_{\\phi'_{k}}(s_{i}',a_{i}') - \\alpha\\log\\pi_{\\theta}(a_{i}' \\mid s_{i}') - \\lambda_{\\mathrm{sym}}\\,\\mathrm{sg}\\big(\\bar{\\mathcal{L}}_{\\mathrm{JC}}'\\big)\\Big\\rbrack. \\tag{D-4e}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 269,
+    "source_line": 3264,
+    "tex": "|{\\mu_{\\mathrm{det}}}'(x) - {f_{\\mathrm{ref}}}'(x)| \\leq \\varepsilon_{\\mathrm{der}},\\qquad \\varepsilon_{\\mathrm{der}} \\geq 0, \\tag{D-5}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 270,
+    "source_line": 3268,
+    "tex": "|\\lbrack\\mu_{\\det}(b) - f_{ref}(b)\\rbrack - \\lbrack\\mu_{\\det}(a) - f_{ref}(a)\\rbrack| \\leq \\varepsilon_{der}(b - a). \\tag{D-6}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 271,
+    "source_line": 3272,
+    "tex": "e_{map}(b) - e_{map}(a) = {e_{map}}'(\\xi)(b - a). \\tag{D-7}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 272,
+    "source_line": 3278,
+    "tex": "|e_{map}(b)| \\leq \\varepsilon_{val} + \\varepsilon_{der}(b - a). \\tag{D-8}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 273,
+    "source_line": 3284,
+    "tex": "|e_{map}(a)| \\leq \\varepsilon_{val},\\quad\\quad|{e_{map}}'(x)| \\leq \\varepsilon_{der} + L(x - a),\\quad x \\in \\lbrack a,b). \\tag{D-9}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 274,
+    "source_line": 3288,
+    "tex": "|e_{map}(b)| \\leq \\varepsilon_{val} + \\varepsilon_{der}(b - a) + \\frac{L}{2}(b - a)^{2}. \\tag{D-10}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 275,
+    "source_line": 3292,
+    "tex": "B_{err}(x) = \\varepsilon_{val} + \\varepsilon_{der}(x - a) + \\frac{L}{2}(x - a)^{2}. \\tag{D-11}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 276,
+    "source_line": 3300,
+    "tex": "\\begin{aligned}\n|{\\mu_{\\det}}'(a) - {f_{ref}}'(a)| & \\leq \\varepsilon_{der}, \\\\\n|{\\mu_{\\det}}'(x) - {\\mu_{\\det}}'(a)| & \\leq L_{D\\mu}|x - a|, \\\\\n|{f_{ref}}'(x) - {f_{ref}}'(a)| & \\leq L_{Df}|x - a|,\n\\end{aligned} \\tag{D-12}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 3,
+    "raw_row_breaks": 2,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 277,
+    "source_line": 3308,
+    "tex": "|{\\mu_{\\det}}'(x) - {f_{ref}}'(x)| \\leq \\varepsilon_{der} + (L_{D\\mu} + L_{Df})|x - a|. \\tag{D-13}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 278,
+    "source_line": 3312,
+    "tex": "\\begin{aligned}\n{\\mu_{\\det}}'(x) - {f_{ref}}'(x) = & \\lbrack{\\mu_{\\det}}'(x) - {\\mu_{\\det}}'(a)\\rbrack + \\lbrack{\\mu_{\\det}}'(a) - {f_{ref}}'(a)\\rbrack \\\\\n & + \\lbrack{f_{ref}}'(a) - {f_{ref}}'(x)\\rbrack.\n\\end{aligned} \\tag{D-14}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 279,
+    "source_line": 3321,
+    "tex": "|\\mu_{\\det}(b) - f_{ref}(b)| \\leq \\varepsilon_{val} + \\varepsilon_{der}(b - a) + \\frac{L_{D\\mu} + L_{Df}}{2}(b - a)^{2}. \\tag{D-15}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 280,
+    "source_line": 3329,
+    "tex": "\\| D\\mu_{\\mathrm{det}}(z) - Df_{\\mathrm{ref}}(z) \\| \\leq \\varepsilon_{\\mathrm{der}}. \\tag{D-16}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 281,
+    "source_line": 3333,
+    "tex": "\\| \\mu_{\\mathrm{det}}(x) - f_{\\mathrm{ref}}(x) \\| \\leq \\varepsilon_{\\mathrm{val}} + \\varepsilon_{\\mathrm{der}} \\| x - x_{0} \\| . \\tag{D-17}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 282,
+    "source_line": 3337,
+    "tex": "\\| e_{\\mathrm{map}}(x) - e_{\\mathrm{map}}(x_{0}) \\| \\leq \\sup_{0 \\leq t \\leq 1} \\| De_{\\mathrm{map}}(z(t)) \\| \\, \\| \\Delta x \\| \\leq \\varepsilon_{\\mathrm{der}} \\| \\Delta x \\| . \\tag{D-18}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 283,
+    "source_line": 3343,
+    "tex": "\\| e_{\\mathrm{path}}(0) \\| \\leq \\varepsilon_{\\mathrm{val}},\\qquad \\| e_{\\mathrm{path}, +}'(t) \\| \\leq \\varepsilon_{\\mathrm{path}} + L_{\\mathrm{path}}t, \\tag{D-19}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 284,
+    "source_line": 3347,
+    "tex": "\\| e_{\\mathrm{path}}(1) \\| \\leq \\varepsilon_{\\mathrm{val}} + \\varepsilon_{\\mathrm{path}} + \\frac{L_{\\mathrm{path}}}{2}. \\tag{D-20}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 285,
+    "source_line": 3351,
+    "tex": "(\\ell_{\\mathrm{fun}} \\circ e_{\\mathrm{path}})_{+}'(t) = \\ell_{\\mathrm{fun}}\\big(e_{\\mathrm{path}, +}'(t)\\big) \\leq {B_{\\mathrm{err}}}'(t). \\tag{D-21}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 286,
+    "source_line": 3361,
+    "tex": "\\begin{aligned}\n \\parallel \\mu_{\\det}(x_{0}) - f_{ref}(x_{0}) \\parallel & \\leq \\varepsilon_{val}, \\\\\n \\parallel D\\mu_{\\det}(x_{0}) - Df_{ref}(x_{0}) \\parallel & \\leq \\varepsilon_{der}, \\\\\n \\parallel D\\mu_{\\det}(z) - D\\mu_{\\det}(x_{0}) \\parallel & \\leq L_{D\\mu} \\parallel z - x_{0} \\parallel , \\\\\n \\parallel Df_{ref}(z) - Df_{ref}(x_{0}) \\parallel & \\leq L_{Df} \\parallel z - x_{0} \\parallel \n\\end{aligned} \\tag{D-22}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 4,
+    "raw_row_breaks": 3,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 287,
+    "source_line": 3370,
+    "tex": "\\begin{aligned}\n \\parallel \\mu_{\\det}(x) - f_{ref}(x) \\parallel \\leq & \\varepsilon_{val} + \\varepsilon_{der} \\parallel x - x_{0} \\parallel \\\\\n & + \\frac{L_{D\\mu} + L_{Df}}{2} \\parallel x - x_{0} \\parallel^{2}.\n\\end{aligned} \\tag{D-23}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 288,
+    "source_line": 3377,
+    "tex": "e_{path}(t) = \\mu_{\\det}(x_{0} + t\\Delta x) - f_{ref}(x_{0} + t\\Delta x). \\tag{D-24}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 289,
+    "source_line": 3381,
+    "tex": "{e_{path}}'(t) = \\lbrack D\\mu_{\\det}(x_{0} + t\\Delta x) - Df_{ref}(x_{0} + t\\Delta x)\\rbrack\\Delta x. \\tag{D-25}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 290,
+    "source_line": 3385,
+    "tex": "\\begin{aligned}\n \\parallel {e_{path}}'(t) \\parallel & \\leq \\lbrack\\varepsilon_{der} + (L_{D\\mu} + L_{Df})t \\parallel \\Delta x \\parallel \\rbrack \\parallel \\Delta x \\parallel \\\\\n & = \\varepsilon_{der} \\parallel \\Delta x \\parallel + (L_{D\\mu} + L_{Df}) \\parallel \\Delta x \\parallel^{2}t.\n\\end{aligned} \\tag{D-26}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 291,
+    "source_line": 3396,
+    "tex": "\\parallel \\mu_{\\det}(x) - f_{ref}(x) \\parallel \\leq \\varepsilon_{val} + \\varepsilon_{der} \\parallel \\Delta x \\parallel + (L_{D\\mu} + L_{Df}) \\parallel \\Delta x \\parallel^{2}. \\tag{D-27}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 292,
+    "source_line": 3402,
+    "tex": "f_{ref}(x) = c_{quad}a^{2} + 2c_{quad}a(x - a). \\tag{D-28}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 293,
+    "source_line": 3406,
+    "tex": "|\\mu_{\\det}(x) - f_{ref}(x)| = |c_{quad}||x - a|^{2} = \\frac{L_{D\\mu}}{2}|x - a|^{2}. \\tag{D-29}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 294,
+    "source_line": 3412,
+    "tex": "F_{NAU}(x) = \\sum_{i = 1}^{n}c_{NAU,i}x_{i},\\quad\\quad c_{NAU,i} \\in \\{ - 1,0,1\\}. \\tag{D-30}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 295,
+    "source_line": 3416,
+    "tex": "\\frac{\\partial F_{NAU}}{\\partial x_{j}} = c_{NAU,j}. \\tag{D-31}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 296,
+    "source_line": 3422,
+    "tex": "|{F_{quad}}'(x) - {F_{quad}}'(y)| = 2|c_{quad}||x - y|. \\tag{D-32}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 297,
+    "source_line": 3430,
+    "tex": "|{r_{ReLU}}'(x) - {r_{ReLU}}'(y)| \\leq L|x - y|. \\tag{D-33}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 298,
+    "source_line": 3434,
+    "tex": "x = - \\frac{1}{4L},\\quad\\quad y = \\frac{1}{4L}. \\tag{D-34}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 299,
+    "source_line": 3444,
+    "tex": "|d_{\\mathrm{left}} - d_{\\mathrm{right}}| = |{f_{\\mathrm{ref}}}'( - t) - {f_{\\mathrm{ref}}}'(t)| \\leq 2Lt < |d_{\\mathrm{left}} - d_{\\mathrm{right}}|, \\tag{D-35}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 300,
+    "source_line": 3454,
+    "tex": "|g(x) - g(y)| \\leq B_{g}|x - y|. \\tag{D-36}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 301,
+    "source_line": 3462,
+    "tex": "\\begin{aligned}\n|{f_{out}}'(u) - {f_{out}}'(v)| & \\leq L_{out}|u - v|, \\\\\n|g(x) - g(y)| & \\leq K_{g}|x - y|, \\\\\n|g'(x)| & \\leq B_{g},\\quad\\quad|{f_{out}}'(u)| \\leq B_{out}, \\\\\n|g'(x) - g'(y)| & \\leq L_{g}|x - y|.\n\\end{aligned} \\tag{D-37}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 4,
+    "raw_row_breaks": 3,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 302,
+    "source_line": 3471,
+    "tex": "L_{f_{out} \\circ g} = L_{out}K_{g}B_{g} + B_{out}L_{g}. \\tag{D-38}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 303,
+    "source_line": 3475,
+    "tex": "\\begin{aligned}\n & (f_{out} \\circ g)'(x) - (f_{out} \\circ g)'(y) \\\\\n = & \\lbrack{f_{out}}'(g(x)) - {f_{out}}'(g(y))\\rbrack g'(x) \\\\\n & + {f_{out}}'(g(y))\\lbrack g'(x) - g'(y)\\rbrack.\n\\end{aligned} \\tag{D-39}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 3,
+    "raw_row_breaks": 2,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 304,
+    "source_line": 3483,
+    "tex": "\\begin{aligned}\n & |(f_{out} \\circ g)'(x) - (f_{out} \\circ g)'(y)| \\\\\n \\leq & L_{out}|g(x) - g(y)|B_{g} + B_{out}L_{g}|x - y| \\\\\n \\leq & (L_{out}K_{g}B_{g} + B_{out}L_{g})|x - y|.\n\\end{aligned} \\tag{D-40}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 3,
+    "raw_row_breaks": 2,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 305,
+    "source_line": 3497,
+    "tex": "P_{z}(s' \\mid s,a) \\geq 0,\\qquad \\sum_{s'}P_{z}(s' \\mid s,a) = 1. \\tag{D-41}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 306,
+    "source_line": 3501,
+    "tex": "V_{Q}(s) = \\max_{a}Q(s,a), \\tag{D-42}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 307,
+    "source_line": 3503,
+    "tex": "\\begin{aligned}\n(\\mathcal{T}_{z}Q)(s,a) = R_{z}(s,a) + \\gamma\\Big\\lbrack & \\sum_{s'}P_{z}(s' \\mid s,a)V_{Q}(s') \\\\\n & - \\lambda_{\\mathrm{epi}}\\Gamma_{\\mathrm{epi},z}(s,a) \\\\\n & - \\lambda_{\\mathrm{sym}}\\Gamma_{\\mathrm{sym},z}(s,a) - \\kappa_{\\mathrm{fix}}\\Big\\rbrack.\n\\end{aligned} \\tag{D-43}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 3,
+    "raw_row_breaks": 2,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 308,
+    "source_line": 3511,
+    "tex": "(\\mathcal{T}_{\\mathrm{CS}}Q)(s,a) = \\sum_{z}\\rho(z)(\\mathcal{T}_{z}Q)(s,a). \\tag{D-44}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 309,
+    "source_line": 3515,
+    "tex": "\\begin{aligned}\n{\\overline{R}}_{\\mathrm{pen,CS}}(s,a) = \\sum_{z}\\rho(z)\\Big\\lbrack & R_{z}(s,a) - \\gamma\\lambda_{\\mathrm{epi}}\\Gamma_{\\mathrm{epi},z}(s,a) \\\\\n & - \\gamma\\lambda_{\\mathrm{sym}}\\Gamma_{\\mathrm{sym},z}(s,a) - \\gamma\\kappa_{\\mathrm{fix}}\\Big\\rbrack.\n\\end{aligned} \\tag{D-45}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 310,
+    "source_line": 3522,
+    "tex": "\\| \\mathcal{T}_{\\mathrm{CS}}Q_{1} - \\mathcal{T}_{\\mathrm{CS}}Q_{2} \\|_{\\infty} \\leq \\gamma \\| Q_{1} - Q_{2} \\|_{\\infty}. \\tag{D-46}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 311,
+    "source_line": 3532,
+    "tex": "T_{\\mathrm{symfb}}(Q_{\\mathrm{sc}}) = R_{0} + \\gamma(1 + \\lambda_{\\mathrm{sym}}\\mu_{\\mathrm{fb}})Q_{\\mathrm{sc}}. \\tag{D-47}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 312,
+    "source_line": 3536,
+    "tex": "|T_{\\mathrm{symfb}}(Q_{\\mathrm{sc},1}) - T_{\\mathrm{symfb}}(Q_{\\mathrm{sc},2})| = c_{\\mathrm{symfb}}|Q_{\\mathrm{sc},1} - Q_{\\mathrm{sc},2}|. \\tag{D-48}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 313,
+    "source_line": 3540,
+    "tex": "\\mu_{\\mathrm{fb,crit}} = \\frac{1/\\gamma - 1}{\\lambda_{\\mathrm{sym}}}. \\tag{D-49}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 314,
+    "source_line": 3546,
+    "tex": "f_{c_{\\mathrm{coef}}}(x) = \\sum_{i = 1}^{n}c_{\\mathrm{coef},i}\\varphi_{i}(x). \\tag{D-50}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 315,
+    "source_line": 3550,
+    "tex": "Df_{c_{coef}}(x) = \\sum_{i = 1}^{n}c_{coef,i}D\\varphi_{i}(x). \\tag{D-51}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 316,
+    "source_line": 3556,
+    "tex": "\\begin{aligned}\n \\parallel Df_{ref}(x) - Df_{c_{coef}}(x) \\parallel & \\leq \\varepsilon_{sym}, \\\\\n \\parallel D\\mu_{\\det}(x) - Df_{c_{coef}}(x) \\parallel & \\leq \\varepsilon_{pol}.\n\\end{aligned} \\tag{D-52}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 317,
+    "source_line": 3563,
+    "tex": "\\parallel D\\mu_{\\det}(x) - Df_{ref}(x) \\parallel \\leq \\varepsilon_{sym} + \\varepsilon_{pol},\\quad\\quad x \\in X_{eval}. \\tag{D-53}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 318,
+    "source_line": 3571,
+    "tex": "\\parallel \\mu_{\\det}(x) - f_{ref}(x) \\parallel \\leq \\varepsilon_{val} + (\\varepsilon_{sym} + \\varepsilon_{pol}) \\parallel x - x_{0} \\parallel . \\tag{D-54}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 319,
+    "source_line": 3577,
+    "tex": "\\| Df_{e}(x) - Df_{c_{\\mathrm{coef}}}(x) \\| \\leq \\varepsilon_{\\mathrm{IRM}},\\qquad e \\in \\mathcal{E},\\ x \\in D_{e}, \\tag{D-55}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 320,
+    "source_line": 3581,
+    "tex": "\\| D\\mu_{\\mathrm{det}}(x) - Df_{c_{\\mathrm{coef}}}(x) \\| \\leq \\varepsilon_{\\mathrm{pol}},\\qquad e \\in \\mathcal{E},\\ x \\in D_{e}, \\tag{D-56}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 321,
+    "source_line": 3585,
+    "tex": "\\parallel D\\mu_{\\det}(x) - Df_{e}(x) \\parallel \\leq \\varepsilon_{IRM} + \\varepsilon_{pol}. \\tag{D-57}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 322,
+    "source_line": 3589,
+    "tex": "\\parallel \\mu_{\\det}(x) - f_{e}(x) \\parallel \\leq \\varepsilon_{val} + (\\varepsilon_{IRM} + \\varepsilon_{pol}) \\parallel x - x_{0} \\parallel . \\tag{D-58}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 323,
+    "source_line": 3593,
+    "tex": "f_{e}(x) = f_{sh}(x) + f_{s,e}(x), \\tag{D-59}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 324,
+    "source_line": 3597,
+    "tex": "\\parallel Df_{c_{coef}}(x) - Df_{sh}(x) \\parallel \\leq \\varepsilon_{sh}, \\tag{D-60}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 325,
+    "source_line": 3601,
+    "tex": "\\begin{aligned}\n \\parallel Df_{c_{coef}}(x) - Df_{test}(x) \\parallel & \\leq \\parallel Df_{c_{coef}}(x) - Df_{sh}(x) \\parallel + \\parallel Df_{s,test}(x) \\parallel \\\\\n & \\leq \\varepsilon_{sh} + \\varepsilon_{s,test}.\n\\end{aligned} \\tag{D-61}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 326,
+    "source_line": 3612,
+    "tex": "|{\\mu_{\\det}}'(a) - {f_{ref}}'(a)| \\leq \\varepsilon_{emp} + \\Delta_{gen}, \\tag{D-62}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 327,
+    "source_line": 3616,
+    "tex": "\\begin{aligned}\n|\\mu_{\\det}(b) - f_{ref}(b)| \\leq & \\varepsilon_{val} + (\\varepsilon_{emp} + \\Delta_{gen})(b - a) \\\\\n & + \\frac{L_{D\\mu} + L_{Df}}{2}(b - a)^{2}.\n\\end{aligned} \\tag{D-63}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 328,
+    "source_line": 3637,
+    "tex": "P(s' \\mid s,a) \\geq 0,\\qquad \\sum_{s' \\in \\mathcal{S}}P(s' \\mid s,a) = 1, \\tag{E-1}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 329,
+    "source_line": 3639,
+    "tex": "|R(s,a)| \\leq R_{\\max},\\quad\\quad R_{\\max} \\geq 0,\\quad\\quad 0 \\leq \\gamma < 1. \\tag{E-2}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 330,
+    "source_line": 3643,
+    "tex": "\\pi(a \\mid s) \\geq 0,\\quad\\quad\\sum_{a}^{}\\pi(a \\mid s) = 1. \\tag{E-3}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 331,
+    "source_line": 3647,
+    "tex": "(T_{P}^{\\pi}V)(s) = \\sum_{a}^{}\\pi(a \\mid s)\\left\\lbrack R(s,a) + \\gamma\\sum_{s'}^{}P(s' \\mid s,a)V(s') \\right\\rbrack. \\tag{E-4}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 332,
+    "source_line": 3653,
+    "tex": "{\\widehat{P}}_{R}(s' \\mid s,a) = P_{sim}(s' \\mid s,a) + \\widehat{\\delta}(s,a,s'). \\tag{E-5}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 333,
+    "source_line": 3657,
+    "tex": "P_{sim}(s' \\mid s,a) + \\widehat{\\delta}(s,a,s') \\geq 0,\\quad\\quad\\sum_{s'}^{}\\widehat{\\delta}(s,a,s') = 0. \\tag{E-6}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 334,
+    "source_line": 3661,
+    "tex": "\\sum_{s'}^{}{\\widehat{P}}_{R}(s' \\mid s,a) = \\sum_{s'}^{}P_{sim}(s' \\mid s,a) + \\sum_{s'}^{}\\widehat{\\delta}(s,a,s') = 1. \\tag{E-7}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 335,
+    "source_line": 3671,
+    "tex": "\\left| \\sum_{j}^{}p_{j}u_{j} \\right| \\leq \\sum_{j}^{}p_{j}|u_{j}| \\leq \\max_{j}|u_{j}|. \\tag{E-8}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 336,
+    "source_line": 3677,
+    "tex": "\\parallel T_{P}^{\\pi}V - T_{P}^{\\pi}V^{(2)} \\parallel_{\\infty} \\leq \\gamma \\parallel V - V^{(2)} \\parallel_{\\infty}. \\tag{E-9}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 337,
+    "source_line": 3681,
+    "tex": "\\begin{aligned}\n & |(T_{P}^{\\pi}V)(s) - (T_{P}^{\\pi}V^{(2)})(s)| \\\\\n & = \\gamma\\left| \\sum_{a}^{}\\pi(a \\mid s)\\sum_{s'}^{}P(s' \\mid s,a)\\lbrack V(s') - V^{(2)}(s')\\rbrack \\right| \\\\\n & \\leq \\gamma\\sum_{a}^{}\\pi(a \\mid s)\\sum_{s'}^{}P(s' \\mid s,a)|V(s') - V^{(2)}(s')| \\\\\n & \\leq \\gamma \\parallel V - V^{(2)} \\parallel_{\\infty}.\n\\end{aligned} \\tag{E-10}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 4,
+    "raw_row_breaks": 3,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 338,
+    "source_line": 3694,
+    "tex": "\\| V_{n} - V_{P}^{\\pi} \\|_{\\infty} \\leq \\gamma^{n} \\| V_{0} - V_{P}^{\\pi} \\|_{\\infty}. \\tag{E-11}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 339,
+    "source_line": 3698,
+    "tex": "\\| V_{P}^{\\pi} \\|_{\\infty} \\leq R_{\\max} + \\gamma \\| V_{P}^{\\pi} \\|_{\\infty}. \\tag{E-12}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 340,
+    "source_line": 3702,
+    "tex": "\\| V_{P}^{\\pi} \\|_{\\infty} \\leq \\frac{R_{\\max}}{1 - \\gamma}. \\tag{E-13}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 341,
+    "source_line": 3706,
+    "tex": "\\mathrm{TV}(p,q) = \\frac{1}{2}\\sum_{j}|p_{j} - q_{j}|. \\tag{E-14}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 342,
+    "source_line": 3710,
+    "tex": "\\left| \\sum_{j}(p_{j} - q_{j})f_{j} \\right| \\leq 2 \\| f \\|_{\\infty}\\,\\mathrm{TV}(p,q). \\tag{E-15}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 343,
+    "source_line": 3714,
+    "tex": "\\left| \\sum_{j}(p_{j} - q_{j})f_{j} \\right| \\leq \\sum_{j}|p_{j} - q_{j}|\\,|f_{j}| \\leq \\| f \\|_{\\infty}\\sum_{j}|p_{j} - q_{j}|. \\tag{E-16}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 344,
+    "source_line": 3720,
+    "tex": "\\varepsilon_{P} = \\max_{s,a}\\mathrm{TV}\\!\\left( P_{\\mathrm{tgt}}( \\cdot \\mid s,a),\\ {\\widehat{P}}_{R}( \\cdot \\mid s,a) \\right). \\tag{E-17}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 345,
+    "source_line": 3724,
+    "tex": "\\| V_{\\mathrm{tgt}}^{\\pi} - {\\widehat{V}}_{R}^{\\pi} \\|_{\\infty} \\leq \\frac{2\\gamma R_{\\max}}{(1 - \\gamma)^{2}}\\varepsilon_{P}. \\tag{E-18}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 346,
+    "source_line": 3728,
+    "tex": "\\begin{aligned}\n\\| T_{P_{\\mathrm{tgt}}}^{\\pi}V_{\\mathrm{tgt}}^{\\pi} - T_{{\\widehat{P}}_{R}}^{\\pi}V_{\\mathrm{tgt}}^{\\pi} \\|_{\\infty} &\\leq 2\\gamma \\| V_{\\mathrm{tgt}}^{\\pi} \\|_{\\infty}\\varepsilon_{P} \\\\\n &\\leq \\frac{2\\gamma R_{\\max}}{1 - \\gamma}\\varepsilon_{P}.\n\\end{aligned} \\tag{E-19}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 347,
+    "source_line": 3735,
+    "tex": "\\begin{aligned}\n\\varepsilon_{V} &\\leq \\| T_{P_{\\mathrm{tgt}}}^{\\pi}V_{\\mathrm{tgt}}^{\\pi} - T_{{\\widehat{P}}_{R}}^{\\pi}V_{\\mathrm{tgt}}^{\\pi} \\|_{\\infty} + \\| T_{{\\widehat{P}}_{R}}^{\\pi}V_{\\mathrm{tgt}}^{\\pi} - T_{{\\widehat{P}}_{R}}^{\\pi}{\\widehat{V}}_{R}^{\\pi} \\|_{\\infty} \\\\\n &\\leq \\frac{2\\gamma R_{\\max}}{1 - \\gamma}\\varepsilon_{P} + \\gamma\\varepsilon_{V}.\n\\end{aligned} \\tag{E-20}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 348,
+    "source_line": 3744,
+    "tex": "\\varepsilon_{r} = \\max_{s,a}|R_{\\mathrm{tgt}}(s,a) - \\widehat{R}(s,a)|, \\tag{E-21}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 349,
+    "source_line": 3748,
+    "tex": "\\varepsilon_{V} \\leq \\varepsilon_{r} + \\frac{2\\gamma R_{\\max}}{1 - \\gamma}\\varepsilon_{P} + \\gamma\\varepsilon_{V}, \\tag{E-22}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 350,
+    "source_line": 3752,
+    "tex": "\\varepsilon_{V} \\leq \\frac{\\varepsilon_{r}}{1 - \\gamma} + \\frac{2\\gamma R_{\\max}}{(1 - \\gamma)^{2}}\\varepsilon_{P}. \\tag{E-23}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 351,
+    "source_line": 3756,
+    "tex": "e_{n_{\\mathrm{rem}}} = \\| V_{n_{\\mathrm{rem}}}^{\\pi} - {\\widehat{V}}_{n_{\\mathrm{rem}}}^{\\pi} \\|_{\\infty},\\qquad e_{0} = 0. \\tag{E-23a}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 352,
+    "source_line": 3760,
+    "tex": "e_{n_{\\mathrm{rem}} + 1} \\leq \\varepsilon_{r} + e_{n_{\\mathrm{rem}}} + 2n_{\\mathrm{rem}}R_{\\max}\\varepsilon_{P}. \\tag{E-23b}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 353,
+    "source_line": 3764,
+    "tex": "\\| V_{K_{\\max}}^{\\pi} - {\\widehat{V}}_{K_{\\max}}^{\\pi} \\|_{\\infty} \\leq K_{\\max}\\varepsilon_{r} + K_{\\max}(K_{\\max} - 1)R_{\\max}\\varepsilon_{P}. \\tag{E-23c}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 354,
+    "source_line": 3770,
+    "tex": "V_{\\mathrm{tgt}}(1) = \\frac{1}{1 - \\gamma},\\qquad \\widehat{V}(1) = 1, \\tag{E-24}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 355,
+    "source_line": 3776,
+    "tex": "\\| V_{\\mathrm{tgt}}^{\\pi} - {\\widehat{V}}_{n}^{\\pi} \\|_{\\infty} \\rightarrow 0. \\tag{E-25}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 356,
+    "source_line": 3782,
+    "tex": "V_{\\mathrm{tgt}}^{\\pi'}(0) = \\sum_{k = 1}^{\\infty}\\gamma^{k} = \\frac{\\gamma}{1 - \\gamma},\\qquad {\\widehat{V}}^{\\pi'}(0) = 0. \\tag{E-26}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 357,
+    "source_line": 3788,
+    "tex": "\\begin{aligned}\nX_{\\delta} &= \\mathbb{R}^{|\\mathcal{S}|\\,|\\mathcal{A}|\\,|\\mathcal{S}|}, \\\\\n\\mathcal{C}_{\\delta} &= \\Big\\{\\delta \\in X_{\\delta}:\\ P_{\\mathrm{sim}} + \\delta \\geq 0,\\ \\sum_{s'}\\delta(s,a,s') = 0\\Big\\}, \\\\\nF &:\\mathcal{C}_{\\delta} \\rightarrow \\mathcal{C}_{\\delta},\n\\end{aligned} \\tag{E-27}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 3,
+    "raw_row_breaks": 2,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 358,
+    "source_line": 3796,
+    "tex": "\\| \\delta \\|_{\\infty} = \\max_{s,a,s'}|\\delta(s,a,s')|. \\tag{E-28}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 359,
+    "source_line": 3800,
+    "tex": "\\| F(\\delta_{1}) - F(\\delta_{2}) \\|_{\\infty} \\leq L \\| \\delta_{1} - \\delta_{2} \\|_{\\infty},\\qquad 0 \\leq L < 1, \\tag{E-29}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 360,
+    "source_line": 3806,
+    "tex": "\\| \\delta_{n} - \\delta^{*} \\|_{\\infty} \\leq L^{n} \\| \\delta_{0} - \\delta^{*} \\|_{\\infty}. \\tag{E-30}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 361,
+    "source_line": 3812,
+    "tex": "\\| F(\\delta_{1}) - F(\\delta_{2}) \\|_{\\infty} \\leq L_{\\mathrm{adj}}L_{\\mathrm{occ}}B \\| \\delta_{1} - \\delta_{2} \\|_{\\infty}, \\tag{E-31}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 362,
+    "source_line": 3820,
+    "tex": "\\ell_{w_{\\mathrm{rank}}}(x) := \\log w_{\\mathrm{rank}}(x) = - \\frac{e_{\\mathrm{real}}(x)}{\\tau_{\\mathrm{rank}}} + c_{\\mathrm{rank}}, \\tag{E-32}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 363,
+    "source_line": 3822,
+    "tex": "\\ell_{\\varphi_{\\mathrm{cls}}}(x) := \\log\\frac{\\varphi_{\\mathrm{cls}}(x)}{1 - \\varphi_{\\mathrm{cls}}(x)} = \\frac{e_{\\mathrm{resid}}(x) - e_{\\mathrm{real}}(x)}{\\tau_{\\mathrm{rank}}}. \\tag{E-33}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 364,
+    "source_line": 3826,
+    "tex": "\\ell_{\\varphi_{\\mathrm{cls}}}(x) - \\ell_{w_{\\mathrm{rank}}}(x) = \\frac{e_{\\mathrm{resid}}(x)}{\\tau_{\\mathrm{rank}}} - c_{\\mathrm{rank}}. \\tag{E-34}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 365,
+    "source_line": 3832,
+    "tex": "w_{\\mathrm{rank}}(x_{1}) < w_{\\mathrm{rank}}(x_{2})\\quad \\Leftrightarrow \\quad e_{\\mathrm{real}}(x_{2}) < e_{\\mathrm{real}}(x_{1}). \\tag{E-35}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 366,
+    "source_line": 3838,
+    "tex": "w_{\\mathrm{rank}}(x_{1}) < w_{\\mathrm{rank}}(x_{2})\\quad \\Leftrightarrow \\quad\\varphi_{\\mathrm{cls}}(x_{1}) < \\varphi_{\\mathrm{cls}}(x_{2}). \\tag{E-36}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 367,
+    "source_line": 3842,
+    "tex": "\\frac{u}{1 - u} < \\frac{v}{1 - v}\\quad \\Leftrightarrow \\quad u(1 - v) < v(1 - u)\\quad \\Leftrightarrow \\quad u < v, \\tag{E-37}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 368,
+    "source_line": 3848,
+    "tex": "|e_{\\mathrm{resid}}(x) - \\overline{e}| \\leq \\varepsilon_{\\mathrm{rank}}\\quad (\\forall x \\in \\mathcal{X}), \\tag{E-38}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 369,
+    "source_line": 3852,
+    "tex": "|\\log w_{\\mathrm{rank}}(x_{1}) - \\log w_{\\mathrm{rank}}(x_{2})| > \\frac{2\\varepsilon_{\\mathrm{rank}}}{\\tau_{\\mathrm{rank}}} \\tag{E-39}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 370,
+    "source_line": 3858,
+    "tex": "\\Delta e = e_{\\mathrm{real}}(x_{1}) - e_{\\mathrm{real}}(x_{2}),\\qquad \\Delta e_{\\mathrm{resid}} = e_{\\mathrm{resid}}(x_{1}) - e_{\\mathrm{resid}}(x_{2}). \\tag{E-40}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 371,
+    "source_line": 3862,
+    "tex": "\\ell_{w_{\\mathrm{rank}}}(x_{1}) - \\ell_{w_{\\mathrm{rank}}}(x_{2}) = - \\Delta e/\\tau_{\\mathrm{rank}}, \\tag{E-41}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 372,
+    "source_line": 3864,
+    "tex": "\\ell_{\\varphi_{\\mathrm{cls}}}(x_{1}) - \\ell_{\\varphi_{\\mathrm{cls}}}(x_{2}) = (\\Delta e_{\\mathrm{resid}} - \\Delta e)/\\tau_{\\mathrm{rank}}. \\tag{E-42}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 373,
+    "source_line": 3876,
+    "tex": "\\begin{aligned}\n(T_{\\Delta}^{\\pi}Q^{\\Delta})(x) &= \\log c(x) + \\gamma_{\\Delta}\\sum_{x'}K_{\\Delta}^{\\pi}(x' \\mid x)Q^{\\Delta}(x'), \\\\\n({\\widetilde{T}}_{\\Delta}^{\\pi}Q^{\\Delta})(x) &= (1 - \\gamma_{\\Delta})\\log c(x) + \\gamma_{\\Delta}\\sum_{x'}K_{\\Delta}^{\\pi}(x' \\mid x)Q^{\\Delta}(x'),\n\\end{aligned} \\tag{E-43}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 374,
+    "source_line": 3885,
+    "tex": "\\begin{aligned}\n{\\widetilde{Q}}^{\\Delta,*}(x) &= (1 - \\gamma_{\\Delta})\\,Q^{\\Delta,*}(x), \\\\\n\\exp\\!\\big({\\widetilde{Q}}^{\\Delta,*}(x)\\big) &= \\Big\\lbrack \\exp\\!\\big(Q^{\\Delta,*}(x)\\big)\\Big\\rbrack^{1 - \\gamma_{\\Delta}}.\n\\end{aligned} \\tag{E-44}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 375,
+    "source_line": 3892,
+    "tex": "\\| {\\widetilde{T}}_{\\Delta}^{\\pi}Q_{1}^{\\Delta} - {\\widetilde{T}}_{\\Delta}^{\\pi}Q_{2}^{\\Delta} \\|_{\\infty} \\leq \\gamma_{\\Delta} \\| Q_{1}^{\\Delta} - Q_{2}^{\\Delta} \\|_{\\infty}. \\tag{E-45}",
+    "envs": [],
+    "raw_ampersands": 0,
+    "raw_row_breaks": 0,
+    "literal_hash": 0,
+    "u200b": 0
+  },
+  {
+    "ordinal": 376,
+    "source_line": 3896,
+    "tex": "\\begin{aligned}\n(1 - \\gamma_{\\Delta})Q^{\\Delta,*}(x) &= (1 - \\gamma_{\\Delta})\\log c(x) + \\gamma_{\\Delta}\\sum_{x'}K_{\\Delta}^{\\pi}(x' \\mid x)\\,\\big[(1 - \\gamma_{\\Delta})Q^{\\Delta,*}(x')\\big] \\\\\n &= \\Big({\\widetilde{T}}_{\\Delta}^{\\pi}\\big[(1 - \\gamma_{\\Delta})Q^{\\Delta,*}\\big]\\Big)(x).\n\\end{aligned} \\tag{E-46}",
+    "envs": [
+      "aligned"
+    ],
+    "raw_ampersands": 2,
+    "raw_row_breaks": 1,
+    "literal_hash": 0,
+    "u200b": 0
+  }
+]

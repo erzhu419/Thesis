@@ -1,0 +1,89 @@
+{
+  "name": "mcwm_connection_window_v117_20261029",
+  "status": "FROZEN_FOR_AUTHORIZED_EXECUTION",
+  "purpose": "Same complete native stable connection state; test original hold versus maximum reachable original-F hold under a fixed recorded-proposal continuation.",
+  "root": {
+    "scenario": "stable",
+    "trip_id": "122S_33",
+    "station_id": "122S17_311S23_406X15",
+    "sequence": 13151,
+    "clock": 18966.0,
+    "diagnostic_person_id": "transfer_8937.0"
+  },
+  "actions": {
+    "low": {
+      "proposal": [
+        0.32619690895080566
+      ],
+      "executed": [
+        -0.8342254161834717
+      ],
+      "hold_seconds": 4.97323751449585
+    },
+    "high": {
+      "proposal": [
+        1.0
+      ],
+      "executed": [
+        -0.75
+      ],
+      "hold_seconds": 7.5
+    }
+  },
+  "dose_selection": "Original proposal versus upper proposal1.0. At event18965 all original reserve/floor activations have ended; F=proposal hold*.125, range[0,7.5]. No dose search.",
+  "window_seconds": 60.0,
+  "stop_clock": 19026.0,
+  "episode_horizon_seconds": 24000,
+  "external_seed": 106206,
+  "continuation": "Both arms use the same v114 stable-low recorded proposals, keyed by trip,stop and issue occurrence; apply the original F at each current state. This is a controlled logged-proposal continuation, not recovered actor or learner. Missing identity stops without fallback.",
+  "prefix_check": "Every issue through13150 exact; original root canonical state and ledger exact before live fork; both actual child root issues exact except the declared action fields.",
+  "low_suffix_check": "All nominal suffix issues and original ledger through19026 must exactly reproduce the original v114-low trace. No shared JSONL descriptors across fork.",
+  "fork": "Existing v34 libsumo COW fork; preserve full native state/RNG, detach route parser files, reserve2 CPUs and require concurrent suffixes.",
+  "observe": "Root cohort is all currently onboard people with native current stage0 destination at receiver stop; near feeder311S_27 subgroup separate. Record actual native membership changes, arrival/departure and root receiver cohort holding person-seconds; distinguish known plan intent from actual next-leg permission.",
+  "positive_gate": "Both arms technically valid; at least one root cohort member actually boards the receiver by19026 only under the extended action. This demonstrates existence for this state and continuation only.",
+  "negative_scope": "Failure to obtain added boarding closes this fixed contrast; it does not prove all intermediate holds impossible. No automatic dose sweep, alternate root or retry.",
+  "stop_semantics": "Stop immediately after native step to19026 with ledger updated; keep episode horizon24000 and create no terminal transition.",
+  "budget": {
+    "maximum_native_seconds": 19086,
+    "parent_prefix": 18966,
+    "child_suffix_each": 60,
+    "learner_created": false,
+    "optimizer_updates": 0,
+    "feedback_admitted": 0,
+    "checkpoint_loaded": false,
+    "world_refits": 0
+  },
+  "shock": "Reuse v114 existing local_speed_drop results; no new shock native steps.",
+  "cost_gate_source": "experiments/mcwm_historical_coverage_v111_20261029/protocol.json:cost_gate",
+  "cost_gate": "For a future full controller: full-day fresh-minus-matched-no_fresh mean<0,stable<=0,shock<0; fresh-minus-same-actor-frozen<=0 per scenario and at least one<0. Early/tail descriptive. This short-window diagnostic cannot pass these gates.",
+  "metadata": "experiments/mcwm_closed_loop_formal_20261020/inputs/history_metadata.json",
+  "edge_xml": "experiments/sumo_eval/runtime/H2Oplus/bus_h2o/network_data/a_sorted_busline_edge.xml",
+  "reference_root": "experiments/mcwm_same_state_holding_v114_20261029/runs/stable",
+  "action_parts": [
+    "actions.jsonl",
+    "branches/low/actions.jsonl"
+  ],
+  "tick_parts": [
+    "ticks.jsonl",
+    "branches/low/ticks.jsonl"
+  ],
+  "scenario_settings": {
+    "shock_at": 9000.0,
+    "factor": 0.65,
+    "metric_every": 300.0
+  },
+  "runtime": {
+    "device": "cpu",
+    "threads": 1,
+    "cpu": 2,
+    "ram_mb": 8000,
+    "allowed_nodes": [
+      "node001",
+      "node004"
+    ],
+    "child_timeout_seconds": 180
+  },
+  "no_automatic_followup": true,
+  "summary_max_bytes": 32000,
+  "old_code_and_results_read_only": true
+}

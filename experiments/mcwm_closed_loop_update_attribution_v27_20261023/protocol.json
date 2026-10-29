@@ -1,0 +1,208 @@
+{
+  "name": "thesis-mcwm-update-attribution-v27-20261023",
+  "training_seeds": [
+    6201,
+    6202
+  ],
+  "target_seed_offset": 100000,
+  "arms": [
+    "fresh"
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "history_seed": 72021,
+  "history_rows": 32768,
+  "history_blocks": [
+    1201,
+    1202,
+    1203,
+    1204,
+    1205,
+    1206,
+    1207,
+    1208,
+    1209,
+    1210
+  ],
+  "recent_window": 285,
+  "source_rows": 4096,
+  "model_init_updates": 0,
+  "model_refit_updates": 0,
+  "policy_updates_per_packet": 8,
+  "feedback_first_deadline": 1200,
+  "feedback_last_deadline": 18000,
+  "feedback_interval_seconds": 300,
+  "feedback_records_per_packet": 5,
+  "feedback_delay_seconds": 30,
+  "target_record_budget": 285,
+  "policy_update_budget": 456,
+  "shock_at_seconds": 9000,
+  "speed_factor": 0.65,
+  "metric_interval_seconds": 300,
+  "model_td_fraction": 0.0,
+  "selection": "Fixed seeds, scenarios, anchors, packet five transition probes and first factual issue per affected line in prescribed reference windows; no selection by future outcomes or Q signs.",
+  "data_rights": "Each origin day admits285 factual slots. Both shadows inherit the same fresh-trained prefix. Fresh samples64 complete transitions from all admitted recent feedback; no_fresh retains their s/a but replaces all64 outcome slots with complete historical transitions. No new labels or control queries.",
+  "prediction_comparison": "No model-prediction candidate or family selection in this attribution pilot.",
+  "control_comparison": "Only the fresh origin controls each complete native replay, which must exactly reproduce the archived day. Both eight-step shadows evaluate common fixed states without issuing environment actions. Passenger costs are replay-integrity endpoints, not shadow control-effect estimates.",
+  "source_budget": "Same archived4096 source rows; no additional source interaction.",
+  "interpretation": "Same fresh-trained prefix local next-packet supervision replacement effect; not replay of historical no_fresh controller, no true counterfactual control returns.",
+  "scheduler_priority": "high",
+  "preflight_seed": 6202,
+  "estimation_target": "Conditional local effect of replacing the complete accumulated fresh replay outcome quota with complete historical outcomes during the next eight optimizer steps, from identical fresh-trained parameters, Adam state, replay covariates and RNG.",
+  "data_permissions": {
+    "factual_feedback_slots_per_day": 285,
+    "counterfactual_queries": 0,
+    "paired_training_labels": 0,
+    "fresh": {
+      "actor_value_temperature": "current s,a",
+      "critic": "fresh complete outcomes"
+    },
+    "no_fresh": {
+      "actor_value_temperature": "current s,a",
+      "critic": "complete historical transition replacement; no fresh r/ns/dt/terminal stored"
+    },
+    "diagnostic_native_history": "Completed factual runs only; IssueAudit counts never enter actor, value, critic or label selection.",
+    "future_reference_probes": "First visible native issue per affected line from old trace in fixed windows, canonical time unchanged; s/a only for evaluation, never replay/training. No counterfactual labels."
+  },
+  "runtime_contract": {
+    "action_transform": "ExecutionAction",
+    "real_td_coefficient": 1,
+    "world_enabled": false,
+    "ratio_correction": false,
+    "temperature_states": "current",
+    "actor_value_covariates": "fresh_current_s_a",
+    "proposal_entropy": "unchanged latent proposal entropy",
+    "optimizer_schedule": "resident actor-before-critic including IQL V and Adam state"
+  },
+  "diagnostic_station_id": "7X13_102X26_705X27",
+  "primary_endpoint": "Paired fixed-state fresh-minus-no_fresh change in Bellman components, observed-action and actor-action critic values, actor proposal seconds, and holding seconds after unified F, with packet and state-only probes separate.",
+  "secondary_endpoints": [
+    "Per-step sampled reward/bootstrap/Bellman components by source, historical base, fresh outcome or historical replacement partition.",
+    "Actor, critic, target-critic and value parameter changes across the eight-step packet.",
+    "Exact archived full-day trajectory, updates, receipts, cost and metric reproduction as integrity evidence only."
+  ],
+  "stages": {
+    "preflight": "First9000 anchor of seed6202 shock full replay; same job continues as one of four days. No duplicate native short run.",
+    "remaining": "After preflight exact shadow/main and prefix gate, submit other three full replays in parallel; no effect-sign gate.",
+    "completion": "Four exact main replays and16 shadow anchors then compact summary; zero real control branches submitted automatically."
+  },
+  "compute_budget": {
+    "native_replay_days": 4,
+    "native_replay_seconds": 96000,
+    "main_feedback_slots": 1140,
+    "main_policy_updates": 1824,
+    "shadow_anchor_pairs": 16,
+    "shadow_optimizer_updates": 256,
+    "extra_target_labels": 0,
+    "real_control_branches": 0,
+    "extra_short_native_preflights": 0
+  },
+  "diagnostic_windows": {
+    "7X": [
+      {
+        "name": "bootstrap",
+        "start": 1200,
+        "end": 2700
+      },
+      {
+        "name": "response",
+        "start": 3000,
+        "end": 6600
+      },
+      {
+        "name": "late",
+        "start": 15000,
+        "end": 17670
+      }
+    ],
+    "102X": [
+      {
+        "name": "bootstrap",
+        "start": 3600,
+        "end": 6600
+      },
+      {
+        "name": "response",
+        "start": 7200,
+        "end": 11700
+      },
+      {
+        "name": "late",
+        "start": 15000,
+        "end": 17670
+      }
+    ],
+    "705X": [
+      {
+        "name": "bootstrap",
+        "start": 3600,
+        "end": 6600
+      },
+      {
+        "name": "response",
+        "start": 7200,
+        "end": 11700
+      },
+      {
+        "name": "late",
+        "start": 15000,
+        "end": 17670
+      }
+    ]
+  },
+  "native_algorithm": "v25 learning.py, IssueAudit, shared ExecutionAction and actual simulator clocks unchanged; v27 fixes four fresh-origin native replays and applies memory-only shadow interventions.",
+  "new_native_days": 4,
+  "reused_native_days": 0,
+  "origin_arm": "fresh",
+  "shadow_arms": [
+    "fresh",
+    "no_fresh"
+  ],
+  "shadow_deadlines": [
+    9000,
+    9300,
+    11700,
+    18000
+  ],
+  "reference_roots": {
+    "6201": {
+      "stable": "experiments/mcwm_closed_loop_fresh_attribution_v25_20261023/runs/stable/seed6201/fresh",
+      "local_speed_drop": "experiments/mcwm_closed_loop_fresh_attribution_v25r1_20261023/runs/local_speed_drop/seed6201/fresh"
+    },
+    "6202": {
+      "stable": "experiments/mcwm_closed_loop_fresh_attribution_v26_20261023/runs/stable/seed6202/fresh",
+      "local_speed_drop": "experiments/mcwm_closed_loop_fresh_attribution_v26_20261023/runs/local_speed_drop/seed6202/fresh"
+    }
+  },
+  "shadow_probe_windows": {
+    "9000": [
+      9000,
+      9300
+    ],
+    "9300": [
+      9300,
+      9600
+    ],
+    "11700": [
+      11700,
+      12000
+    ],
+    "18000": [
+      18300,
+      18600
+    ]
+  },
+  "probe_lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "preflight_cell": {
+    "seed": 6202,
+    "scenario": "local_speed_drop"
+  }
+}

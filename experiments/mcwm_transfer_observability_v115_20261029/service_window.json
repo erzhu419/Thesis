@@ -1,0 +1,119 @@
+{
+  "new_native_seconds": 0,
+  "new_optimizer_updates": 0,
+  "configuration": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/assets/SUMO_ruiguang/online_control/control_sim_traci_period.sumocfg",
+  "person_route": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/assets/SUMO_ruiguang/e_passenger_rou/3_modified_transfer_passenger_0805.rou.xml",
+  "plan": {
+    "person": {
+      "id": "transfer_8937.0",
+      "type": "Transfer_Passenger",
+      "depart": "16818.64",
+      "departPos": "0.00"
+    },
+    "stages": [
+      {
+        "type": "walk",
+        "edges": "E_J4_J5.220",
+        "busStop": "311S07"
+      },
+      {
+        "type": "ride",
+        "from": "E_J4_J5.220",
+        "to": "E_J214_J220.330",
+        "busStop": "122S17_311S23_406X15",
+        "lines": "311S "
+      },
+      {
+        "type": "ride",
+        "from": "E_J214_J220.330",
+        "to": "E_J365_J394.150",
+        "busStop": "122S22_406X20",
+        "lines": "122S 406X "
+      }
+    ]
+  },
+  "active_leg": {
+    "index_among_rides": 1,
+    "boarding_stop": "122S17_311S23_406X15",
+    "destination_stop": "122S22_406X20",
+    "from_edge": "E_J214_J220.330",
+    "to_edge": "E_J365_J394.150",
+    "permitted_lines": [
+      "122S",
+      "406X"
+    ]
+  },
+  "observed_low_window": [
+    18973.0,
+    24000.0
+  ],
+  "actual_visits_by_permitted_line": {
+    "122S": 0,
+    "406X": 0
+  },
+  "total_visits": 0,
+  "visit_columns": [
+    "trip_id",
+    "line_id",
+    "arrival",
+    "ready",
+    "action",
+    "departure",
+    "hold",
+    "command_accepted",
+    "event_time",
+    "onboard_at_action_event",
+    "capacity",
+    "eligible_stranded",
+    "boarded_events",
+    "alighted_events",
+    "target_boarded"
+  ],
+  "visits": [],
+  "omitted_middle": 0,
+  "last_observed_at_stop": {
+    "122S": [
+      "122S_33",
+      "122S",
+      18958.0,
+      18964.5,
+      18966.0,
+      18971.0,
+      4.97323751449585,
+      true,
+      18965.0,
+      13.0,
+      50.0,
+      0.0,
+      0,
+      1,
+      false
+    ],
+    "406X": [
+      "406X_28",
+      "406X",
+      18779.0,
+      18787.5,
+      18789.0,
+      18794.0,
+      4.935918807983398,
+      true,
+      18788.0,
+      23.0,
+      50.0,
+      0.0,
+      1,
+      2,
+      false
+    ]
+  },
+  "target_boardings_in_window": 0,
+  "semantics": "Static ride lines authorize alternatives but do not guarantee capacity or boarding. Event onboard/capacity are recorded at their own event_time. Visits are observed native stop visits; absence is restricted to this completed low trajectory and window, not a published timetable or universal last service. A stop visit alone is not proof of a feasible boarding opportunity.",
+  "retrieval": {
+    "node": "node001",
+    "stdout_bytes": 2002,
+    "stderr_bytes": 461,
+    "max_stdout_bytes": 4000,
+    "large_files_downloaded": 0
+  }
+}

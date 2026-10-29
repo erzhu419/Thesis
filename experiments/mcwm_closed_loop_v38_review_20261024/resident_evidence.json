@@ -1,0 +1,2015 @@
+{
+  "schema": {
+    "arm_order": [
+      "low",
+      "high"
+    ],
+    "actions": [
+      "requested_hold",
+      "executed_hold",
+      "native_applied_hold",
+      "native_assigned_hold",
+      "real_clock_before",
+      "real_clock_after"
+    ],
+    "arms": [
+      "events",
+      "zero_dt",
+      "first_dt",
+      "endpoint_overrun",
+      "tail_wait",
+      "tail_ride",
+      "tail_cost",
+      "max_identity_error_all_models"
+    ],
+    "point": [
+      "clock_low",
+      "clock_high",
+      "reward_scaled_sum",
+      "final_value_contribution",
+      "final_sac_q_contribution",
+      "final_entropy_contribution",
+      "final_bootstrap",
+      "stitched_return",
+      "mixed_vs_recorded_target_q_gap_sum",
+      "target_lag_gap_sum",
+      "native_td_min_sum",
+      "native_addition_roundoff_sum"
+    ],
+    "point_differences": "high minus low; shared_level only; endpoints may differ in clock",
+    "credit_clock": [
+      "endpoint_scaled_reward_delta",
+      "fixed300_scaled_reward_delta",
+      "extra_tail_scaled_reward_delta",
+      "closure_error"
+    ],
+    "physical": [
+      "status",
+      "physical_separable",
+      "departure_gap_seconds",
+      "next_same_vehicle_arrival_gap_seconds",
+      "low_departure_status",
+      "high_departure_status",
+      "low_next_arrival_status",
+      "high_next_arrival_status"
+    ],
+    "feasibility": [
+      "at_stop",
+      "simulation_step",
+      "action_step",
+      "feasible"
+    ],
+    "first_reward_arm": [
+      "index0",
+      "transition_number",
+      "prior_zero_dt",
+      "prior_positive_dt",
+      "q_path_coefficient",
+      "started_at",
+      "completed_at",
+      "dt",
+      "reward"
+    ],
+    "first_reward": "index0 is zero based; prior counts exclude reward-bearing row; q_path_coefficient=.9**index0 is a frozen mixed-operator Q-path coefficient, not a measured training gradient"
+  },
+  "cases": {
+    "stable": {
+      "status": "complete",
+      "prefix": {
+        "trace_rows": 13689,
+        "matched_rows": 13689
+      },
+      "native_checks": {
+        "all_pass": true,
+        "failed": []
+      },
+      "wall": {
+        "native_started": 1792817208.7776728,
+        "native_finished": 1792818829.7362645,
+        "total_seconds": 1635.0181550979614
+      },
+      "model_gate": {
+        "all_pass": true,
+        "initializer": 50000,
+        "slots": 285,
+        "updates": 456,
+        "new_updates": 0,
+        "new_feedback": 0,
+        "old12_truth_read": false,
+        "arms": {
+          "zero_memory": {
+            "gate": {
+              "all_pass": true,
+              "failed": []
+            },
+            "old_issues": 4,
+            "old_predictions_exact": true,
+            "components_exact": true,
+            "crn_exact": true
+          },
+          "per_head_level": {
+            "gate": {
+              "all_pass": true,
+              "failed": []
+            },
+            "old_issues": 4,
+            "old_predictions_exact": true,
+            "components_exact": true,
+            "crn_exact": true
+          },
+          "shared_level": {
+            "gate": {
+              "all_pass": true,
+              "failed": []
+            },
+            "old_issues": 4,
+            "old_predictions_exact": true,
+            "components_exact": true,
+            "crn_exact": true
+          }
+        }
+      },
+      "scored": {
+        "status": "complete",
+        "suffix_logs": 12,
+        "model_scored_rows": 5814,
+        "new_updates": 0,
+        "new_feedback": 0
+      },
+      "budget": {
+        "new_native_prefixes": 1,
+        "prefix_native_seconds": 24000.0,
+        "pairs": 6,
+        "suffixes": 12,
+        "fixed300_suffix_seconds": 3600.0,
+        "actual_suffix_native_seconds": 3638.0,
+        "overrun_native_seconds": 38.0,
+        "missing_real_endpoints": 0,
+        "zero_duration_transitions": 511,
+        "diagnostic_truth_outcomes": 12,
+        "new_training_labels": 0,
+        "new_optimizer_updates": 0,
+        "frozen_training_slots": 285,
+        "frozen_updates_per_model": 456,
+        "preflight_duplicate_prefixes": 0,
+        "preflight_duplicate_suffixes": 0
+      },
+      "states": [
+        {
+          "slot": "7X/early",
+          "integrity": true,
+          "old_early": {
+            "all_pass": true,
+            "failed": []
+          },
+          "feasibility": [
+            true,
+            1.0,
+            1.0,
+            true
+          ],
+          "physical": [
+            "separable",
+            true,
+            1.0,
+            1.0,
+            "observed",
+            "observed",
+            "observed",
+            "observed"
+          ],
+          "parallel": {
+            "all_pass": true,
+            "child_pids": {
+              "low": 142367,
+              "high": 142369
+            },
+            "overlap": 6.688629388809204,
+            "parent_rng": true
+          },
+          "actions": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              18311.0,
+              18311.0
+            ],
+            [
+              1.875,
+              1.875,
+              1.875,
+              1.875,
+              18311.0,
+              18311.0
+            ]
+          ],
+          "arms": [
+            [
+              202,
+              65,
+              0.0,
+              3.0,
+              1835.0,
+              3150.0,
+              6820.0,
+              0.0
+            ],
+            [
+              201,
+              55,
+              0.0,
+              1.0,
+              612.0,
+              1051.0,
+              2275.0,
+              0.0
+            ]
+          ],
+          "first_reward": {
+            "identity": [
+              "705S",
+              "705S_fleet_29",
+              "705S_23",
+              "705S40",
+              0
+            ],
+            "issue_clocks": [
+              18359.0,
+              18359.0
+            ],
+            "completion_clocks": [
+              18361.0,
+              18361.0
+            ],
+            "high_minus_low": -1.0,
+            "arms": [
+              [
+                36,
+                37,
+                13,
+                23,
+                0.022528399544939195,
+                18359.0,
+                18361.0,
+                2.0,
+                -5192.0
+              ],
+              [
+                36,
+                37,
+                13,
+                23,
+                0.022528399544939195,
+                18359.0,
+                18361.0,
+                2.0,
+                -5193.0
+              ]
+            ]
+          },
+          "endpoint": [
+            18614.0,
+            18612.0,
+            0.4605002850294113,
+            -0.07893943786621094,
+            -0.056696319580076704,
+            0.11328277587890634,
+            -0.022350311279296875,
+            0.43814997375011444,
+            -0.9074783325195312,
+            0.2504158020019531,
+            -0.2225189208984375,
+            -5.106627941131592e-05
+          ],
+          "last_before300": [
+            18610.0,
+            18610.0,
+            0.006000325083732605,
+            0.014734745025634766,
+            -0.014879608154295454,
+            -0.01077346801757817,
+            -0.01091766357421875,
+            -0.004917338490486145,
+            -0.9189643859863281,
+            0.1303558349609375,
+            -0.7971305847167969,
+            -4.939734935760498e-05
+          ],
+          "credit_clock": [
+            0.4605002850294113,
+            0.006,
+            0.4545,
+            2.8502941129548987e-07
+          ]
+        },
+        {
+          "slot": "7X/late",
+          "integrity": true,
+          "old_early": null,
+          "feasibility": [
+            true,
+            1.0,
+            1.0,
+            true
+          ],
+          "physical": [
+            "separable",
+            true,
+            1.0,
+            1.0,
+            "observed",
+            "observed",
+            "observed",
+            "observed"
+          ],
+          "parallel": {
+            "all_pass": true,
+            "child_pids": {
+              "low": 142805,
+              "high": 142806
+            },
+            "overlap": 5.1911749839782715,
+            "parent_rng": true
+          },
+          "actions": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              19210.0,
+              19210.0
+            ],
+            [
+              1.875,
+              1.875,
+              1.875,
+              1.875,
+              19210.0,
+              19210.0
+            ]
+          ],
+          "arms": [
+            [
+              120,
+              22,
+              1.0,
+              3.0,
+              1212.0,
+              1402.0,
+              3826.0,
+              0.0
+            ],
+            [
+              120,
+              27,
+              1.0,
+              1.0,
+              404.0,
+              472.0,
+              1280.0,
+              0.0
+            ]
+          ],
+          "first_reward": {
+            "identity": [
+              "705X",
+              "705X_fleet_23",
+              "705X_20",
+              "7X12_102X25_705X26",
+              0
+            ],
+            "issue_clocks": [
+              19240.0,
+              19240.0
+            ],
+            "completion_clocks": [
+              19247.0,
+              19247.0
+            ],
+            "high_minus_low": 2.0,
+            "arms": [
+              [
+                11,
+                12,
+                2,
+                9,
+                0.31381059609000006,
+                19240.0,
+                19247.0,
+                7.0,
+                -10731.0
+              ],
+              [
+                11,
+                12,
+                2,
+                9,
+                0.31381059609000006,
+                19240.0,
+                19247.0,
+                7.0,
+                -10729.0
+              ]
+            ]
+          },
+          "endpoint": [
+            19513.0,
+            19511.0,
+            0.2543996721506119,
+            -0.06596803665161133,
+            -0.5154785156249986,
+            0.020849990844726496,
+            -0.5606002807617188,
+            -0.3062006086111069,
+            1.6041412353515625,
+            0.3106727600097656,
+            1.5823745727539062,
+            1.0117888450622559e-05
+          ],
+          "last_before300": [
+            19507.0,
+            19504.0,
+            0.38569970428943634,
+            0.0020351409912109375,
+            0.004803085327147016,
+            -9.95635986328347e-05,
+            0.00673675537109375,
+            0.3924364596605301,
+            1.6029891967773438,
+            0.3079566955566406,
+            2.277141571044922,
+            8.150935173034668e-06
+          ],
+          "credit_clock": [
+            0.2543996721506119,
+            -0.0002,
+            0.2546,
+            -3.278493881375688e-07
+          ]
+        },
+        {
+          "slot": "102X/early",
+          "integrity": true,
+          "old_early": {
+            "all_pass": true,
+            "failed": []
+          },
+          "feasibility": [
+            true,
+            1.0,
+            1.0,
+            true
+          ],
+          "physical": [
+            "separable",
+            true,
+            1.0,
+            2.0,
+            "observed",
+            "observed",
+            "observed",
+            "observed"
+          ],
+          "parallel": {
+            "all_pass": true,
+            "child_pids": {
+              "low": 142254,
+              "high": 142256
+            },
+            "overlap": 7.067869424819946,
+            "parent_rng": true
+          },
+          "actions": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              18303.0,
+              18303.0
+            ],
+            [
+              1.875,
+              1.875,
+              1.875,
+              1.875,
+              18303.0,
+              18303.0
+            ]
+          ],
+          "arms": [
+            [
+              206,
+              67,
+              1.0,
+              1.0,
+              616.0,
+              1047.0,
+              2279.0,
+              0.0
+            ],
+            [
+              207,
+              64,
+              1.0,
+              1.0,
+              616.0,
+              1047.0,
+              2279.0,
+              0.0
+            ]
+          ],
+          "first_reward": {
+            "identity": [
+              "406S",
+              "406S_fleet_32",
+              "406S_28",
+              "406S07",
+              0
+            ],
+            "issue_clocks": [
+              18346.0,
+              18346.0
+            ],
+            "completion_clocks": [
+              18347.0,
+              18347.0
+            ],
+            "high_minus_low": -1.0,
+            "arms": [
+              [
+                34,
+                35,
+                12,
+                22,
+                0.027812838944369374,
+                18346.0,
+                18347.0,
+                1.0,
+                -2628.0
+              ],
+              [
+                34,
+                35,
+                12,
+                22,
+                0.027812838944369374,
+                18346.0,
+                18347.0,
+                1.0,
+                -2629.0
+              ]
+            ]
+          },
+          "endpoint": [
+            18604.0,
+            18604.0,
+            0.03689977526664734,
+            0.06435155868530273,
+            0.45657119750976705,
+            -0.18206062316894522,
+            0.33885955810546875,
+            0.3757593333721161,
+            1.2274055480957031,
+            -0.47708892822265625,
+            1.1155929565429688,
+            -3.072619438171387e-05
+          ],
+          "last_before300": [
+            18601.0,
+            18601.0,
+            0.036999791860580444,
+            0.032988548278808594,
+            -0.05668945312500284,
+            0.1331680297851564,
+            0.10946273803710938,
+            0.14646252989768982,
+            1.0493087768554688,
+            -0.4589653015136719,
+            0.7263221740722656,
+            -3.1560659408569336e-05
+          ],
+          "credit_clock": [
+            0.03689977526664734,
+            0.0369,
+            -0.0,
+            -2.2473335266337546e-07
+          ]
+        },
+        {
+          "slot": "102X/late",
+          "integrity": true,
+          "old_early": null,
+          "feasibility": [
+            true,
+            1.0,
+            1.0,
+            true
+          ],
+          "physical": [
+            "separable",
+            true,
+            1.0,
+            0.0,
+            "observed",
+            "observed",
+            "observed",
+            "observed"
+          ],
+          "parallel": {
+            "all_pass": true,
+            "child_pids": {
+              "low": 142813,
+              "high": 142814
+            },
+            "overlap": 5.0149986743927,
+            "parent_rng": true
+          },
+          "actions": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              19226.0,
+              19226.0
+            ],
+            [
+              1.875,
+              1.875,
+              1.875,
+              1.875,
+              19226.0,
+              19226.0
+            ]
+          ],
+          "arms": [
+            [
+              120,
+              22,
+              3.0,
+              1.0,
+              406.0,
+              455.0,
+              1267.0,
+              0.0
+            ],
+            [
+              122,
+              27,
+              3.0,
+              2.0,
+              812.0,
+              906.0,
+              2530.0,
+              0.0
+            ]
+          ],
+          "first_reward": {
+            "identity": [
+              "705X",
+              "705X_fleet_23",
+              "705X_20",
+              "7X12_102X25_705X26",
+              0
+            ],
+            "issue_clocks": [
+              19240.0,
+              19240.0
+            ],
+            "completion_clocks": [
+              19247.0,
+              19247.0
+            ],
+            "high_minus_low": 2.0,
+            "arms": [
+              [
+                5,
+                6,
+                1,
+                4,
+                0.5904900000000001,
+                19240.0,
+                19247.0,
+                7.0,
+                -10731.0
+              ],
+              [
+                5,
+                6,
+                1,
+                4,
+                0.5904900000000001,
+                19240.0,
+                19247.0,
+                7.0,
+                -10729.0
+              ]
+            ]
+          },
+          "endpoint": [
+            19527.0,
+            19528.0,
+            -0.12330012023448944,
+            -0.09239864349365234,
+            -0.48472709655762003,
+            0.0006454467773437944,
+            -0.5764808654785156,
+            -0.6997809857130051,
+            2.4626617431640625,
+            -0.8391952514648438,
+            0.8967056274414062,
+            9.104609489440918e-06
+          ],
+          "last_before300": [
+            19520.0,
+            19525.0,
+            -0.6323000937700272,
+            0.028603076934814453,
+            -0.08394584655761861,
+            0.022412109375000044,
+            -0.032932281494140625,
+            -0.6652323752641678,
+            2.400737762451172,
+            -0.845947265625,
+            0.862579345703125,
+            1.0207295417785645e-05
+          ],
+          "credit_clock": [
+            -0.12330012023448944,
+            0.003,
+            -0.1263,
+            -1.20234489447979e-07
+          ]
+        },
+        {
+          "slot": "705X/early",
+          "integrity": true,
+          "old_early": {
+            "all_pass": true,
+            "failed": []
+          },
+          "feasibility": [
+            true,
+            1.0,
+            1.0,
+            true
+          ],
+          "physical": [
+            "separable",
+            true,
+            1.0,
+            2.0,
+            "observed",
+            "observed",
+            "observed",
+            "observed"
+          ],
+          "parallel": {
+            "all_pass": true,
+            "child_pids": {
+              "low": 142522,
+              "high": 142523
+            },
+            "overlap": 6.796732664108276,
+            "parent_rng": true
+          },
+          "actions": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              18316.0,
+              18316.0
+            ],
+            [
+              1.875,
+              1.875,
+              1.875,
+              1.875,
+              18316.0,
+              18316.0
+            ]
+          ],
+          "arms": [
+            [
+              199,
+              62,
+              1.0,
+              2.0,
+              1217.0,
+              2101.0,
+              4535.0,
+              0.0
+            ],
+            [
+              199,
+              56,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "first_reward": {
+            "identity": [
+              "705S",
+              "705S_fleet_30",
+              "705S_24",
+              "705S30",
+              0
+            ],
+            "issue_clocks": [
+              18369.0,
+              18369.0
+            ],
+            "completion_clocks": [
+              18376.0,
+              18376.0
+            ],
+            "high_minus_low": -3.0,
+            "arms": [
+              [
+                36,
+                37,
+                11,
+                25,
+                0.022528399544939195,
+                18369.0,
+                18376.0,
+                7.0,
+                -18081.0
+              ],
+              [
+                36,
+                37,
+                11,
+                25,
+                0.022528399544939195,
+                18369.0,
+                18376.0,
+                7.0,
+                -18084.0
+              ]
+            ]
+          },
+          "endpoint": [
+            18618.0,
+            18616.0,
+            0.45410022139549255,
+            -0.014782905578613281,
+            -0.14249954223632955,
+            -0.0001853942871093972,
+            -0.157470703125,
+            0.29662951827049255,
+            0.6010017395019531,
+            0.0612335205078125,
+            0.958526611328125,
+            -1.773238182067871e-05
+          ],
+          "last_before300": [
+            18615.0,
+            18616.0,
+            -0.2264997661113739,
+            -0.020995140075683594,
+            0.012805938720703125,
+            0.010426712036132879,
+            0.002239227294921875,
+            -0.22426053881645203,
+            1.6038894653320312,
+            -0.3171539306640625,
+            1.0621376037597656,
+            -1.6957521438598633e-05
+          ],
+          "credit_clock": [
+            0.45410022139549255,
+            0.0006000000000000001,
+            0.4535,
+            2.213954925500694e-07
+          ]
+        },
+        {
+          "slot": "705X/late",
+          "integrity": true,
+          "old_early": null,
+          "feasibility": [
+            true,
+            1.0,
+            1.0,
+            true
+          ],
+          "physical": [
+            "separable",
+            true,
+            1.0,
+            1.0,
+            "observed",
+            "observed",
+            "observed",
+            "observed"
+          ],
+          "parallel": {
+            "all_pass": true,
+            "child_pids": {
+              "low": 142819,
+              "high": 142820
+            },
+            "overlap": 5.267168998718262,
+            "parent_rng": true
+          },
+          "actions": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              19240.0,
+              19240.0
+            ],
+            [
+              1.875,
+              1.875,
+              1.875,
+              1.875,
+              19240.0,
+              19240.0
+            ]
+          ],
+          "arms": [
+            [
+              120,
+              22,
+              7.0,
+              12.0,
+              4862.0,
+              5370.0,
+              15094.0,
+              0.0
+            ],
+            [
+              122,
+              22,
+              7.0,
+              11.0,
+              4456.0,
+              4911.0,
+              13823.0,
+              0.0
+            ]
+          ],
+          "first_reward": {
+            "identity": [
+              "705S",
+              "705S_fleet_30",
+              "705S_24",
+              "705S43",
+              0
+            ],
+            "issue_clocks": [
+              19295.0,
+              19295.0
+            ],
+            "completion_clocks": [
+              19300.0,
+              19300.0
+            ],
+            "high_minus_low": -1.0,
+            "arms": [
+              [
+                23,
+                24,
+                7,
+                16,
+                0.08862938119652507,
+                19295.0,
+                19300.0,
+                5.0,
+                -7325.0
+              ],
+              [
+                23,
+                24,
+                7,
+                16,
+                0.08862938119652507,
+                19295.0,
+                19300.0,
+                5.0,
+                -7326.0
+              ]
+            ]
+          },
+          "endpoint": [
+            19552.0,
+            19551.0,
+            0.1196998804807663,
+            -0.0006022453308105469,
+            -0.004147338867191763,
+            0.00144195556640625,
+            -0.0033111572265625,
+            0.1163887232542038,
+            2.4010887145996094,
+            -0.7004661560058594,
+            1.7906684875488281,
+            -2.3096799850463867e-06
+          ],
+          "last_before300": [
+            19537.0,
+            19536.0,
+            0.11819986999034882,
+            -0.0002694129943847656,
+            -0.005712890625005684,
+            -0.0002265930175781028,
+            -0.006206512451171875,
+            0.11199335753917694,
+            2.4009780883789062,
+            -0.7003021240234375,
+            1.7863235473632812,
+            -5.289912223815918e-06
+          ],
+          "credit_clock": [
+            0.1196998804807663,
+            -0.0074,
+            0.12710000000000002,
+            -1.1951923373221263e-07
+          ]
+        }
+      ]
+    },
+    "local_speed_drop": {
+      "status": "complete",
+      "prefix": {
+        "trace_rows": 13689,
+        "matched_rows": 13689
+      },
+      "native_checks": {
+        "all_pass": true,
+        "failed": []
+      },
+      "wall": {
+        "native_started": 1792817209.6348107,
+        "native_finished": 1792818887.400505,
+        "total_seconds": 1693.0180666446686
+      },
+      "model_gate": {
+        "all_pass": true,
+        "initializer": 50000,
+        "slots": 285,
+        "updates": 456,
+        "new_updates": 0,
+        "new_feedback": 0,
+        "old12_truth_read": false,
+        "arms": {
+          "zero_memory": {
+            "gate": {
+              "all_pass": true,
+              "failed": []
+            },
+            "old_issues": 4,
+            "old_predictions_exact": true,
+            "components_exact": true,
+            "crn_exact": true
+          },
+          "per_head_level": {
+            "gate": {
+              "all_pass": true,
+              "failed": []
+            },
+            "old_issues": 4,
+            "old_predictions_exact": true,
+            "components_exact": true,
+            "crn_exact": true
+          },
+          "shared_level": {
+            "gate": {
+              "all_pass": true,
+              "failed": []
+            },
+            "old_issues": 4,
+            "old_predictions_exact": true,
+            "components_exact": true,
+            "crn_exact": true
+          }
+        }
+      },
+      "scored": {
+        "status": "complete",
+        "suffix_logs": 12,
+        "model_scored_rows": 5850,
+        "new_updates": 0,
+        "new_feedback": 0
+      },
+      "budget": {
+        "new_native_prefixes": 1,
+        "prefix_native_seconds": 24000.0,
+        "pairs": 6,
+        "suffixes": 12,
+        "fixed300_suffix_seconds": 3600.0,
+        "actual_suffix_native_seconds": 3622.0,
+        "overrun_native_seconds": 22.0,
+        "missing_real_endpoints": 0,
+        "zero_duration_transitions": 485,
+        "diagnostic_truth_outcomes": 12,
+        "new_training_labels": 0,
+        "new_optimizer_updates": 0,
+        "frozen_training_slots": 285,
+        "frozen_updates_per_model": 456,
+        "preflight_duplicate_prefixes": 0,
+        "preflight_duplicate_suffixes": 0
+      },
+      "states": [
+        {
+          "slot": "7X/early",
+          "integrity": true,
+          "old_early": {
+            "all_pass": true,
+            "failed": []
+          },
+          "feasibility": [
+            true,
+            1.0,
+            1.0,
+            true
+          ],
+          "physical": [
+            "separable",
+            true,
+            1.0,
+            -1.0,
+            "observed",
+            "observed",
+            "observed",
+            "observed"
+          ],
+          "parallel": {
+            "all_pass": true,
+            "child_pids": {
+              "low": 567839,
+              "high": 567840
+            },
+            "overlap": 7.443348169326782,
+            "parent_rng": true
+          },
+          "actions": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              18310.0,
+              18310.0
+            ],
+            [
+              1.875,
+              1.875,
+              1.875,
+              1.875,
+              18310.0,
+              18310.0
+            ]
+          ],
+          "arms": [
+            [
+              204,
+              55,
+              3.0,
+              3.0,
+              1831.0,
+              3183.0,
+              6845.0,
+              0.0
+            ],
+            [
+              202,
+              58,
+              3.0,
+              2.0,
+              1220.0,
+              2129.0,
+              4569.0,
+              0.0
+            ]
+          ],
+          "first_reward": {
+            "identity": [
+              "7S",
+              "7S_fleet_55",
+              "7S_51",
+              "7S15_102S15_705S22",
+              0
+            ],
+            "issue_clocks": [
+              18337.0,
+              18337.0
+            ],
+            "completion_clocks": [
+              18341.0,
+              18341.0
+            ],
+            "high_minus_low": 1.0,
+            "arms": [
+              [
+                20,
+                21,
+                9,
+                11,
+                0.12157665459056935,
+                18337.0,
+                18341.0,
+                4.0,
+                -10672.0
+              ],
+              [
+                20,
+                21,
+                9,
+                11,
+                0.12157665459056935,
+                18337.0,
+                18341.0,
+                4.0,
+                -10671.0
+              ]
+            ]
+          },
+          "endpoint": [
+            18613.0,
+            18612.0,
+            0.16090038418769836,
+            -0.02951669692993164,
+            -0.40731124877930114,
+            0.0633979797363281,
+            -0.3734283447265625,
+            -0.21252796053886414,
+            -2.4434280395507812,
+            0.35439300537109375,
+            -2.307231903076172,
+            -3.078579902648926e-05
+          ],
+          "last_before300": [
+            18609.0,
+            18609.0,
+            -0.06649962067604065,
+            0.045205116271972656,
+            -0.05347251892089844,
+            -0.07142829895019531,
+            -0.0796966552734375,
+            -0.14619627594947815,
+            -2.4224700927734375,
+            0.3509674072265625,
+            -2.2233657836914062,
+            -2.8699636459350586e-05
+          ],
+          "credit_clock": [
+            0.16090038418769836,
+            -0.06670000000000001,
+            0.22760000000000002,
+            3.8418769834902555e-07
+          ]
+        },
+        {
+          "slot": "7X/late",
+          "integrity": true,
+          "old_early": null,
+          "feasibility": [
+            true,
+            1.0,
+            1.0,
+            true
+          ],
+          "physical": [
+            "separable",
+            true,
+            1.0,
+            0.0,
+            "observed",
+            "observed",
+            "observed",
+            "observed"
+          ],
+          "parallel": {
+            "all_pass": true,
+            "child_pids": {
+              "low": 568114,
+              "high": 568115
+            },
+            "overlap": 5.3281567096710205,
+            "parent_rng": true
+          },
+          "actions": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              19212.0,
+              19212.0
+            ],
+            [
+              1.875,
+              1.875,
+              1.875,
+              1.875,
+              19212.0,
+              19212.0
+            ]
+          ],
+          "arms": [
+            [
+              119,
+              22,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              120,
+              25,
+              1.0,
+              5.0,
+              2013.0,
+              2372.0,
+              6398.0,
+              0.0
+            ]
+          ],
+          "first_reward": {
+            "identity": [
+              "705X",
+              "705X_fleet_23",
+              "705X_20",
+              "7X13_102X26_705X27",
+              0
+            ],
+            "issue_clocks": [
+              19304.0,
+              19304.0
+            ],
+            "completion_clocks": [
+              19310.0,
+              19310.0
+            ],
+            "high_minus_low": 2.0,
+            "arms": [
+              [
+                40,
+                41,
+                8,
+                32,
+                0.014780882941434608,
+                19304.0,
+                19310.0,
+                6.0,
+                -8688.0
+              ],
+              [
+                40,
+                41,
+                8,
+                32,
+                0.014780882941434608,
+                19304.0,
+                19310.0,
+                6.0,
+                -8686.0
+              ]
+            ]
+          },
+          "endpoint": [
+            19512.0,
+            19517.0,
+            -0.6357001215219498,
+            0.06548309326171875,
+            0.10378990173339275,
+            -0.12293014526367185,
+            0.046344757080078125,
+            -0.5893553644418716,
+            1.4173164367675781,
+            -0.6461067199707031,
+            0.15728759765625,
+            -1.043081283569336e-07
+          ],
+          "last_before300": [
+            19512.0,
+            19510.0,
+            0.2607998698949814,
+            -0.006849765777587891,
+            -0.06974945068359517,
+            0.0010196685791016291,
+            -0.0755767822265625,
+            0.18522308766841888,
+            0.5164947509765625,
+            -0.09978103637695312,
+            0.5773696899414062,
+            -4.6193599700927734e-07
+          ],
+          "credit_clock": [
+            -0.6357001215219498,
+            0.0041,
+            -0.6398,
+            -1.215219497252562e-07
+          ]
+        },
+        {
+          "slot": "102X/early",
+          "integrity": true,
+          "old_early": {
+            "all_pass": true,
+            "failed": []
+          },
+          "feasibility": [
+            true,
+            1.0,
+            1.0,
+            true
+          ],
+          "physical": [
+            "separable",
+            true,
+            1.0,
+            0.0,
+            "observed",
+            "observed",
+            "observed",
+            "observed"
+          ],
+          "parallel": {
+            "all_pass": true,
+            "child_pids": {
+              "low": 567779,
+              "high": 567780
+            },
+            "overlap": 7.4395668506622314,
+            "parent_rng": true
+          },
+          "actions": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              18309.0,
+              18309.0
+            ],
+            [
+              1.875,
+              1.875,
+              1.875,
+              1.875,
+              18309.0,
+              18309.0
+            ]
+          ],
+          "arms": [
+            [
+              204,
+              55,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              205,
+              63,
+              1.0,
+              4.0,
+              2446.0,
+              4238.0,
+              9130.0,
+              0.0
+            ]
+          ],
+          "first_reward": {
+            "identity": [
+              "705X",
+              "705X_fleet_22",
+              "705X_19",
+              "7X12_102X25_705X26",
+              0
+            ],
+            "issue_clocks": [
+              18326.0,
+              18326.0
+            ],
+            "completion_clocks": [
+              18329.0,
+              18329.0
+            ],
+            "high_minus_low": 1.0,
+            "arms": [
+              [
+                16,
+                17,
+                7,
+                9,
+                0.18530201888518416,
+                18326.0,
+                18329.0,
+                3.0,
+                -8049.0
+              ],
+              [
+                16,
+                17,
+                7,
+                9,
+                0.18530201888518416,
+                18326.0,
+                18329.0,
+                3.0,
+                -8048.0
+              ]
+            ]
+          },
+          "endpoint": [
+            18609.0,
+            18613.0,
+            -0.9163997024297714,
+            0.04589128494262695,
+            0.7554851531982365,
+            -0.03261909484863279,
+            0.7687568664550781,
+            -0.1476428359746933,
+            0.2910270690917969,
+            -0.15228652954101562,
+            -0.0146942138671875,
+            -2.409517765045166e-05
+          ],
+          "last_before300": [
+            18609.0,
+            18608.0,
+            0.2251002937555313,
+            -0.005616188049316406,
+            -0.09581451416016051,
+            -0.0759429931640625,
+            -0.17737579345703125,
+            0.04772450029850006,
+            -0.6601181030273438,
+            0.233673095703125,
+            -0.38451385498046875,
+            -2.5525689125061035e-05
+          ],
+          "credit_clock": [
+            -0.9163997024297714,
+            -0.0034000000000000002,
+            -0.913,
+            2.975702285690218e-07
+          ]
+        },
+        {
+          "slot": "102X/late",
+          "integrity": true,
+          "old_early": null,
+          "feasibility": [
+            true,
+            1.0,
+            1.0,
+            true
+          ],
+          "physical": [
+            "separable",
+            true,
+            1.0,
+            3.0,
+            "observed",
+            "observed",
+            "observed",
+            "observed"
+          ],
+          "parallel": {
+            "all_pass": true,
+            "child_pids": {
+              "low": 568129,
+              "high": 568130
+            },
+            "overlap": 5.181454181671143,
+            "parent_rng": true
+          },
+          "actions": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              19221.0,
+              19221.0
+            ],
+            [
+              1.875,
+              1.875,
+              1.875,
+              1.875,
+              19221.0,
+              19221.0
+            ]
+          ],
+          "arms": [
+            [
+              120,
+              22,
+              3.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              121,
+              23,
+              3.0,
+              3.0,
+              1209.0,
+              1402.0,
+              3820.0,
+              0.0
+            ]
+          ],
+          "first_reward": {
+            "identity": [
+              "122X",
+              "122X_fleet_32",
+              "122X_30",
+              "122X28_311X28",
+              0
+            ],
+            "issue_clocks": [
+              19253.0,
+              19253.0
+            ],
+            "completion_clocks": [
+              19254.0,
+              19254.0
+            ],
+            "high_minus_low": -1.0,
+            "arms": [
+              [
+                11,
+                12,
+                2,
+                9,
+                0.31381059609000006,
+                19253.0,
+                19254.0,
+                1.0,
+                -1512.0
+              ],
+              [
+                11,
+                12,
+                2,
+                9,
+                0.31381059609000006,
+                19253.0,
+                19254.0,
+                1.0,
+                -1513.0
+              ]
+            ]
+          },
+          "endpoint": [
+            19521.0,
+            19524.0,
+            -0.3778998851776123,
+            0.08702278137207031,
+            -0.03725738525390909,
+            0.0009887695312499334,
+            0.050754547119140625,
+            -0.3271453380584717,
+            1.2762031555175781,
+            -0.34120941162109375,
+            0.5840835571289062,
+            7.152557373046875e-07
+          ],
+          "last_before300": [
+            19521.0,
+            19520.0,
+            0.13160008192062378,
+            0.11049270629882812,
+            -0.0762760162353544,
+            -0.0036907196044921875,
+            0.03052520751953125,
+            0.16212528944015503,
+            0.3045005798339844,
+            -0.23072433471679688,
+            0.21213531494140625,
+            -6.556510925292969e-07
+          ],
+          "credit_clock": [
+            -0.3778998851776123,
+            0.0041,
+            -0.382,
+            1.1482238770899045e-07
+          ]
+        },
+        {
+          "slot": "705X/early",
+          "integrity": true,
+          "old_early": {
+            "all_pass": true,
+            "failed": []
+          },
+          "feasibility": [
+            true,
+            1.0,
+            1.0,
+            true
+          ],
+          "physical": [
+            "separable",
+            true,
+            1.0,
+            -1.0,
+            "observed",
+            "observed",
+            "observed",
+            "observed"
+          ],
+          "parallel": {
+            "all_pass": true,
+            "child_pids": {
+              "low": 567738,
+              "high": 567739
+            },
+            "overlap": 7.51272177696228,
+            "parent_rng": true
+          },
+          "actions": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              18306.0,
+              18306.0
+            ],
+            [
+              1.875,
+              1.875,
+              1.875,
+              1.875,
+              18306.0,
+              18306.0
+            ]
+          ],
+          "arms": [
+            [
+              207,
+              57,
+              0.0,
+              1.0,
+              614.0,
+              1060.0,
+              2288.0,
+              0.0
+            ],
+            [
+              204,
+              61,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "first_reward": {
+            "identity": [
+              "7S",
+              "7S_fleet_55",
+              "7S_51",
+              "7S15_102S15_705S22",
+              0
+            ],
+            "issue_clocks": [
+              18337.0,
+              18337.0
+            ],
+            "completion_clocks": [
+              18341.0,
+              18341.0
+            ],
+            "high_minus_low": 1.0,
+            "arms": [
+              [
+                26,
+                27,
+                11,
+                15,
+                0.06461081889226677,
+                18337.0,
+                18341.0,
+                4.0,
+                -10672.0
+              ],
+              [
+                26,
+                27,
+                11,
+                15,
+                0.06461081889226677,
+                18337.0,
+                18341.0,
+                4.0,
+                -10671.0
+              ]
+            ]
+          },
+          "endpoint": [
+            18607.0,
+            18606.0,
+            0.15480028092861176,
+            -0.030777454376220703,
+            0.43391532897949503,
+            0.11465263366699208,
+            0.517791748046875,
+            0.6725920289754868,
+            -3.2207412719726562,
+            1.3303413391113281,
+            -1.2165756225585938,
+            -4.182755947113037e-05
+          ],
+          "last_before300": [
+            18605.0,
+            18606.0,
+            -0.30289970338344574,
+            0.0020422935485839844,
+            0.4454750061035213,
+            0.1016647338867187,
+            0.5491867065429688,
+            0.246287003159523,
+            -2.223407745361328,
+            0.9599838256835938,
+            -1.0159034729003906,
+            -4.0665268898010254e-05
+          ],
+          "credit_clock": [
+            0.15480028092861176,
+            -0.07400000000000001,
+            0.2288,
+            2.8092861176221007e-07
+          ]
+        },
+        {
+          "slot": "705X/late",
+          "integrity": true,
+          "old_early": null,
+          "feasibility": [
+            true,
+            1.0,
+            1.0,
+            true
+          ],
+          "physical": [
+            "separable",
+            true,
+            1.0,
+            1.0,
+            "observed",
+            "observed",
+            "observed",
+            "observed"
+          ],
+          "parallel": {
+            "all_pass": true,
+            "child_pids": {
+              "low": 568108,
+              "high": 568109
+            },
+            "overlap": 5.2406134605407715,
+            "parent_rng": true
+          },
+          "actions": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              19210.0,
+              19210.0
+            ],
+            [
+              1.875,
+              1.875,
+              1.875,
+              1.875,
+              19210.0,
+              19210.0
+            ]
+          ],
+          "arms": [
+            [
+              122,
+              23,
+              1.0,
+              2.0,
+              804.0,
+              959.0,
+              2567.0,
+              0.0
+            ],
+            [
+              122,
+              21,
+              1.0,
+              2.0,
+              804.0,
+              957.0,
+              2565.0,
+              0.0
+            ]
+          ],
+          "first_reward": {
+            "identity": [
+              "705X",
+              "705X_fleet_23",
+              "705X_20",
+              "7X12_102X25_705X26",
+              0
+            ],
+            "issue_clocks": [
+              19237.0,
+              19237.0
+            ],
+            "completion_clocks": [
+              19248.0,
+              19248.0
+            ],
+            "high_minus_low": 2.0,
+            "arms": [
+              [
+                12,
+                13,
+                2,
+                10,
+                0.2824295364810001,
+                19237.0,
+                19248.0,
+                11.0,
+                -16961.0
+              ],
+              [
+                12,
+                13,
+                2,
+                10,
+                0.2824295364810001,
+                19237.0,
+                19248.0,
+                11.0,
+                -16959.0
+              ]
+            ]
+          },
+          "endpoint": [
+            19512.0,
+            19512.0,
+            0.011399909853935242,
+            -0.0012116432189941406,
+            -0.002849578857421875,
+            -3.7765502929665296e-05,
+            -0.00409698486328125,
+            0.007302924990653992,
+            -0.6329536437988281,
+            -0.475494384765625,
+            -1.1260948181152344,
+            -2.44826078414917e-05
+          ],
+          "last_before300": [
+            19509.0,
+            19509.0,
+            0.010999932885169983,
+            -2.47955322265625e-05,
+            -8.926391600994066e-05,
+            -0.0003021240234375444,
+            -0.0004119873046875,
+            0.010587945580482483,
+            -0.6326370239257812,
+            -0.4756202697753906,
+            -1.12261962890625,
+            -2.504885196685791e-05
+          ],
+          "credit_clock": [
+            0.011399909853935242,
+            0.0112,
+            0.0002,
+            -9.014606475819657e-08
+          ]
+        }
+      ]
+    }
+  }
+}

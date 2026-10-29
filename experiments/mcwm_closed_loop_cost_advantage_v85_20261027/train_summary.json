@@ -1,0 +1,125 @@
+{
+  "status": "complete",
+  "gate": {
+    "all_pass": true,
+    "checks": {
+      "finite_training_inputs": true,
+      "training_action_support": true,
+      "line_rank_three": true,
+      "state_rank_four": true,
+      "finite_coefficients": true,
+      "two_fixed_solves": true
+    }
+  },
+  "fits": 2,
+  "parameters": {
+    "line": 3,
+    "state": 4
+  },
+  "design_ranks": {
+    "line": 3,
+    "state": 4
+  },
+  "train_fit": {
+    "line": {
+      "target_delta": [
+        -0.7737913654751641,
+        2.4266198023741627,
+        -2.3989654486371776,
+        3.674713177266397,
+        0.6778300948338749,
+        -0.4155447974003581
+      ],
+      "predicted_delta": [
+        0.5287021174678204,
+        0.5874167365995652,
+        -0.6006915170011055,
+        0.5377583351593543,
+        0.5618444151931663,
+        -0.5471429975079748
+      ],
+      "mae": 1.3874182003681703,
+      "rmse": 1.7408907092365862
+    },
+    "state": {
+      "target_delta": [
+        -0.7737913654751641,
+        2.4266198023741627,
+        -2.3989654486371776,
+        3.674713177266397,
+        0.6778300948338749,
+        -0.4155447974003581
+      ],
+      "predicted_delta": [
+        0.554201055487782,
+        0.6114723180517092,
+        -0.586720682712634,
+        0.5553735410056029,
+        0.5846948213519287,
+        -0.5344176441262213
+      ],
+      "mae": 1.3811220712797576,
+      "rmse": 1.736646195535183
+    }
+  },
+  "coefficients": {
+    "line": [
+      0.999145910736548,
+      1.0703011581745323,
+      -1.004094050527379
+    ],
+    "state": [
+      0.9761722228626907,
+      1.0451035546469263,
+      -1.0193861933581119,
+      -0.2761230336655722
+    ]
+  },
+  "training_covariates": [
+    {
+      "case": "stable/7X",
+      "z": -0.2577177435159683,
+      "holding_difference": 3.9686554670333862,
+      "target_delta_per_passenger": -0.7737913654751641
+    },
+    {
+      "case": "stable/102X",
+      "z": -0.2499900609254837,
+      "holding_difference": 4.1162484884262085,
+      "target_delta_per_passenger": 2.4266198023741627
+    },
+    {
+      "case": "stable/705X",
+      "z": -0.1399567425251007,
+      "holding_difference": 4.486817121505737,
+      "target_delta_per_passenger": -2.3989654486371776
+    },
+    {
+      "case": "local_speed_drop/7X",
+      "z": -0.20173051953315735,
+      "holding_difference": 4.036635160446167,
+      "target_delta_per_passenger": 3.674713177266397
+    },
+    {
+      "case": "local_speed_drop/102X",
+      "z": -0.24890035390853882,
+      "holding_difference": 3.937053680419922,
+      "target_delta_per_passenger": 0.6778300948338749
+    },
+    {
+      "case": "local_speed_drop/705X",
+      "z": -0.13995638489723206,
+      "holding_difference": 4.086840748786926,
+      "target_delta_per_passenger": -0.4155447974003581
+    }
+  ],
+  "training_pairs": 6,
+  "label_scope": "v84_only",
+  "consumer_phase": "after_prior_episode24030_release",
+  "heldout_labels_used": 0,
+  "native_simulation_seconds": 0,
+  "old_network_updates": 0,
+  "new_gradient_steps": 0,
+  "wall_seconds": 0.08249020576477051,
+  "next_stage": "New heldout pairs only if the fixed design gate passes; no control takeover"
+}

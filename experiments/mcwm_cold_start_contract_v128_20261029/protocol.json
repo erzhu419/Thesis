@@ -1,0 +1,88 @@
+{
+  "name": "v128_single_class_ridge_logistic_contract",
+  "status": "FROZEN_DESIGN_ONLY",
+  "change": "Add exactly0.5*b0**2 to the v126 objective and replace the two-class initialization requirement with well-defined single-class initialization. Original v126 remains HOLD.",
+  "source": "Resident v127 derived_records.jsonl for stable/local_speed_drop, bound to original v121285-root selection and v12660-second binary targets. No new samples.",
+  "target": {
+    "formula": "B=ceil(action.applied_at+action.hold_seconds); Y=1[D>B]",
+    "observed": "Use only departure observed within original [issue,issue+60] evidence.",
+    "censored": "If D is absent, continuous original observation reaches E=issue+60, and B<=E, Y=1 is identified. Otherwise Y remains unknown. Preserve original departure-time censoring.",
+    "release": "Original packet_deadline strictly less than next issue_time. Original 60-second window and 30-second delay remain; no early release at D or B."
+  },
+  "inputs": {
+    "n": "receiver.current_leg_dest_count, only if current_stage0_complete; complete n=0 remains valid",
+    "h": "executed action.hold_seconds",
+    "binding": [
+      "source_group",
+      "sequence",
+      "observed_at",
+      "receiver",
+      "station"
+    ],
+    "excluded": "Future exchange/departure, estimated service-ready age and onboard IDs are not model features."
+  },
+  "estimator": {
+    "family": "one fully regularized logistic model",
+    "formula": "p=sigmoid(b0+bn*log1p(n)+bh*h/60)",
+    "objective": "sum(binary negative log likelihood)+0.5*(b0**2+bn**2+bh**2)",
+    "hold_only_objective": "sum(binary negative log likelihood)+0.5*(b0**2+bh**2)",
+    "prior": "Independent fixed N(0,1) priors on every coefficient, including intercept. Same unit penalty already used for v126 slopes; no centering from observed suffix prevalence.",
+    "penalty": 1.0,
+    "transform": "Fixed log1p(n), h/60; no learned scaling or clipping.",
+    "initial_probability": "Zero coefficients give0.5; this is a symmetric shrinkage starting point, not a risk bound or an estimated event rate.",
+    "identification": "When n is0 on every available row, likelihood does not depend on bn; its optimum0 comes only from the prior. Full and hold-only models then have identical common-coefficient optima and predictions.",
+    "class_weighting": "none",
+    "resampling": "none",
+    "hyperparameter_search": "none"
+  },
+  "mathematics": "H=X.T*diag(p*(1-p))*X+I >= I. NLL>=0 and the quadratic penalty is coercive, so any finite sample, including one class, has a unique finite optimum. This is not a guarantee of numerical convergence within the fixed iteration budget.",
+  "implementation_this_step": "Pure feature/probability/objective/gradient/Hessian functions and a label-free chronological event interface. Synthetic tests evaluate fixed coefficient points and analytic sign/curvature relations; no fitting routine, no root solving, no parameter updates.",
+  "initialization": "135 identical shared roots with original packet_deadline<=9000, counted once. Fit one n+h model and one h-only model once; share each initialization across the two suffixes. Initialize frozen n+h as a copy.",
+  "evaluation": {
+    "roots": "Only the 150 roots strictly after9000 in each scenario; 300 suffix slots total. No prefix root contributes to formal Brier.",
+    "schedule": "Sort by (window_start, sequence), release only own-scene packets with deadline<issue. Predict before exposing the current target. Expand eligible history without resampling. Refit once per nonempty released packet needed by a later prediction, not after the last prediction.",
+    "frozen": "Shared-prefix n+h logistic model, no feedback updates.",
+    "fresh": "Same initial n+h model, fixed expanding refits using own original mature packets.",
+    "hold_only": "Same causal schedule, objective and initialization roots with bn absent; isolates n information.",
+    "past_prevalence": "Beta(1,1) posterior mean (positive_count+1)/(label_count+2), same released eligible labels.",
+    "clock_zero_risk": "p=0 for Y=1[D>ceil(applied_at+h)], equivalent to predicting no departure beyond the deterministic command clock."
+  },
+  "schedule_details": "Compare common135 roots once, fit n+h and h-only once each, then copy each fitted state to both scenario suffixes and copy the full model for frozen. Update only the respective scenario expanding histories. Every nonempty legal packet, including all-negative packets, triggers one fit per updating model if followed by a prediction. No shared mutable parameter state. Current labels are inaccessible before prediction.",
+  "missingness": "Missing required inputs or labels retains its original slot and causes primary-gate HOLD; no imputation/replacement. Single-class initialization is permitted by this new proper objective. Prefix class counts and n support remain descriptive, with no cutpoint changes.",
+  "metrics": "Per-scenario unweighted paired Brier mean((p-Y)**2) on the original suffix proportions, fresh-minus-each-comparator, counts, and classwise Brier decomposition. No accuracy or post-hoc thresholds as admission metrics.",
+  "factual_gate": "Complete declared coverage, exact shared initialization, valid causal chronology, finite converged fits, and unchanged compute accounting. Fresh Brier <= frozen, hold_only, past_prevalence and clock_zero_risk separately in both scenarios; strictly < frozen in at least one scenario AND strictly < hold_only in at least one scenario. Direct arithmetic signs without performance tolerance. Failure closes this fixed estimator; no window, prior, penalty, feature or threshold sweep.",
+  "future_solver_contract": {
+    "method": "Deterministic damped Newton using the analytic gradient and Hessian, starting every fit at zero coefficients; solve the positive-definite linear system without a fallback estimator.",
+    "maximum_newton_steps_per_fit": 100,
+    "convergence": "max(abs(gradient))<=1e-8, tested before any step and after the last permitted step",
+    "line_search": "Full Newton step first; Armijo c=0.25 and step halving, at most40 candidate steps per iteration. No post-fit calibration or probability clipping.",
+    "numerical_failure": "HOLD, preserve partial prediction trace, no alternate solver/prior or restart with modified settings."
+  },
+  "future_fit_budget": {
+    "common_initial_fits": 2,
+    "max_used_suffix_packets_per_scene": 29,
+    "updating_models": 2,
+    "scenarios": 2,
+    "maximum_suffix_refits": 116,
+    "maximum_total_fits": 118,
+    "maximum_newton_steps": 11800,
+    "accounting": "Frozen model is copied, not refitted; the final18000 packet has no later selected prediction and receives no fit. Record actual fits, Newton steps and line-search objective evaluations separately. Controller optimizer updates remain0."
+  },
+  "limits": {
+    "new_native_seconds": 0,
+    "new_collection": 0,
+    "real_data_predictor_fits": 0,
+    "synthetic_predictor_fits": 0,
+    "optimizer_updates": 0,
+    "new_control_actions": 0,
+    "hyperparameter_sweeps": 0
+  },
+  "F": "unchanged",
+  "decision_timing": "unchanged",
+  "service_constants": "unchanged",
+  "cost_gate": "Complete four days and technical checks. fresh-minus-matched-no_fresh mean<0,stable<=0,shock<0; additionally fresh-minus-same-actor-frozen<=0 in each scenario and at least one<0. Report no_fresh-minus-frozen to distinguish baseline drift. Early and tail windows are descriptive, not new gates.",
+  "interpretation": "Finite initialization does not identify unobserved class or feature effects. Even a negative h coefficient from all-negative data does not establish causal holding benefit. Future scores use already exposed same-seed suffixes; factual success cannot establish independent confirmation, action-response causality or full-day control gain.",
+  "automatic_launch": false,
+  "old_code_and_results": "read-only",
+  "transfer": "No server data download in this step; upload only the new isolated contract and implementation."
+}

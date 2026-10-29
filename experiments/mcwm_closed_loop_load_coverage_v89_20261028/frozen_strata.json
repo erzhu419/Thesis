@@ -1,0 +1,69 @@
+{
+  "source_summary": "experiments/mcwm_closed_loop_load_coverage_v89_20261028/summary.json",
+  "calibration": {
+    "source_initializer": 6207,
+    "external_seed": 716207,
+    "scenario": "stable",
+    "issue_window": [
+      12000,
+      12600
+    ],
+    "exact_v88_prefix": true
+  },
+  "lines": {
+    "7X": {
+      "threshold": 0.13,
+      "below": "lighter",
+      "at_or_above": "heavier",
+      "domain": "original positive action domain",
+      "counts": {
+        "lighter": 19,
+        "heavier": 16
+      }
+    },
+    "102X": {
+      "threshold": 0.5,
+      "unchanged": true
+    },
+    "705X": {
+      "threshold": 0.5,
+      "unchanged": true
+    }
+  },
+  "rule": "middle adjacent distinct observed eligible loads; no outcomes or frequency weighting",
+  "earliest_7x_issue": {
+    "lighter": {
+      "sequence": 8120,
+      "trip_id": "7X_32",
+      "station_id": "7X05_102X18",
+      "issue_clock": 12007.0,
+      "event_clock": 12006.0,
+      "obs_start": 12007.0,
+      "obs_end": 12007.0,
+      "onboard": 5,
+      "capacity": 50.0,
+      "load": 0.1,
+      "ref_hold": 3.5085493326187134,
+      "cand_hold": 7.5
+    },
+    "heavier": {
+      "sequence": 8110,
+      "trip_id": "7X_31",
+      "station_id": "7X10_102X23_705X24",
+      "issue_clock": 12001.0,
+      "event_clock": 12000.0,
+      "obs_start": 12001.0,
+      "obs_end": 12001.0,
+      "onboard": 10,
+      "capacity": 50.0,
+      "load": 0.2,
+      "ref_hold": 3.547314405441284,
+      "cand_hold": 7.5
+    }
+  },
+  "old_v88_pair_is_first_new_heavier": true,
+  "old_v88_gate_unchanged": true,
+  "admitted_labels": 0,
+  "new_fits": 0,
+  "formal_collection_started": false
+}

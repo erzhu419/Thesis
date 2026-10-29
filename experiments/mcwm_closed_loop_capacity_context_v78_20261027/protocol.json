@@ -1,0 +1,21 @@
+{
+  "name": "thesis-mcwm-capacity-context-v78-20261027",
+  "seeds": [6208, 6207],
+  "scenario": "stable",
+  "source_window": [12000, 16200],
+  "priority": "high",
+  "context": "z=(next-stop current compatible queue - max(0,capacity-current native onboard+current-leg known next-stop alighters))/capacity; explicit observed mask",
+  "visibility": "Read current native stage0 and current inventories before applying the action. Keep actual observation clock distinct from historical event clock. No simulation advancement, future stage, final legacy metadata or future service reconstruction.",
+  "critic": "Q_k=Q_base,k+theta_k*observed*z*(a_executed+1)/2; theta initialized to0 without RNG draws. No level term, no second F application.",
+  "immutable_paths": ["actor observations", "V observations", "F", "trust", "replay sampling", "285 covariates", "fresh285 complete outcomes", "456 updates per family", "existing initialization"],
+  "new_simulated_seconds": 0,
+  "new_training_updates": 0,
+  "new_feedback_slots": 0,
+  "initializer_updates_reused_per_seed": 50000,
+  "old_code_and_results_read_only": true,
+  "production_probe": "Load resident frozen initializers and existing fact states/actions plus existing complete history/source rows; inference and gradients only, no optimizer step or replay admission. Synthetic nonzero contexts are wiring tests, not native observations.",
+  "native_coverage": "Existing v75/v76 logs lack an explicitly ordered pre-action joint snapshot of current native stage and next-stop inventory. Such values remain missing; an API or fake-reader test does not establish empirical joint coverage.",
+  "gate": "Report source/API visibility, archived joint coverage and zero-initialized model parity separately. No automatic collection or learning. Missing native joint evidence prevents a blanket native-preflight-pass claim.",
+  "max_summary_bytes": 48000,
+  "downloads": "Small JSON and necessary short logs only; arrays and initializers stay resident."
+}

@@ -1,0 +1,172 @@
+{
+  "name": "thesis-mcwm-capacity-feedback-v72-20261026",
+  "candidate": "executed_cql",
+  "development_seeds": [
+    6201,
+    6203
+  ],
+  "confirmation_seeds": [],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "arms": [
+    "fresh",
+    "no_fresh"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "feedback_slots": 285,
+  "policy_updates": 456,
+  "external_seed_offset": 100000,
+  "candidate_change": "Only deterministicfeedbackselection: retainlatest5 unless sameeligiblewindow has an issue-visiblefullbus/compatiblequeue row missingfromlatest5; replaceoldestselectedwithlatestriskrow,atmost1replacement perpacket.",
+  "motivation": "User authorized Astra v71 nextplan: test window-level capacityrisk feedbackcoverage directly with8fullnative days; stopv71tailpolicyexchange and sixlatepacketproposal.",
+  "fixed_training": "Same v70seed50000initializer/Adam,57packets285labels,456critic/V/actor/alpha updates,24000seconds,recent30outcomes285covariatepool,.1V+.9SACmixedbackup,CQL0.2,F/trust and originaldeadline/30seconddelay. No feature,reward,threshold,action or target modification.",
+  "primary_metric": "Full-day(2W+R)/all departed passengers including accrued unfinished-trip time. Negative fresh-minus-no_fresh is better.",
+  "cost_gate": "All8native days and integrity complete. Newfresh versus BOTH matchednewnofresh and cachedv70CQLnofresh: full-dayoverallmean<0,stablemean<=0,shockmean<0; BOTHindividualstablecells18300-24000costdifference<=0 versusBOTHbaselines. Newfresh full-dayoverallmean<=cachedv70fresh mean. Worstfull-daycell versusBOTHbaselines<=4.606804164732239 weightedseconds/passenger. Full-daydenominator remains15079. Early9000-12000descriptiveonly. No outcome-dependent extension.",
+  "baseline_exactness": "Newnofresh maychangebecause selectedcurrentstate/action rowschange. Bothnewarms useidenticaldeterministicselectionrule. Requirecommonpreupdateprefix,initializer,F andbudget; doNOTrequirecompleteoldnofreshreproduction. Immutable v70costs reusedwithout rerun.",
+  "development_days": 8,
+  "confirmation_days": 0,
+  "branch_queries": 0,
+  "ordinary_single_trajectory_dripping": true,
+  "priority": "high",
+  "summary_max_bytes": 48000,
+  "old_code_and_results_read_only": true,
+  "downloads": "Necessary small JSON/log tails only. Prefix/metric comparison server-side; no CSV, trajectory or checkpoint downloads.",
+  "technical_failure": "Recordconsumedwork andexistinghandles. Firstnativepairisreusedfullformalday. No duplicatepreflightdays,unknownsubmissions orautomaticnative retries.",
+  "scientific_failure": "Close fixedsingle-riskreplacementcandidate if actualcostgatesfail despiteeffectivecoverage. No changing1to2records,fullcapacitythreshold,lines,windows or seeds afterresults; noautomaticconfirmation.",
+  "goal_completion": "Completeonlyfixed8daydevelopmentbatch andsmallserver-sidecost/coverage/population summaries. Performancepassrequiresrootreview.",
+  "original_reference_by_seed": {
+    "6201": {
+      "directory": "mcwm_closed_loop_fresh_value_v64_20261025",
+      "relative": "runs/fresh_value/development/seed{seed}/{scenario}"
+    },
+    "6203": {
+      "directory": "mcwm_closed_loop_fresh_value_confirmation_v65_20261025",
+      "relative": "runs/fresh_value/confirmation/seed{seed}/{scenario}"
+    }
+  },
+  "primary_gate": "All8native days and integrity complete. Newfresh versus BOTH matchednewnofresh and cachedv70CQLnofresh: full-dayoverallmean<0,stablemean<=0,shockmean<0; BOTHindividualstablecells18300-24000costdifference<=0 versusBOTHbaselines. Newfresh full-dayoverallmean<=cachedv70fresh mean. Worstfull-daycell versusBOTHbaselines<=4.606804164732239 weightedseconds/passenger. Full-daydenominator remains15079. Early9000-12000descriptiveonly. No outcome-dependent extension.",
+  "new_native_days": 8,
+  "reused_development_days": 0,
+  "native_preflight": {
+    "seed": 6201,
+    "scenario": "stable",
+    "reuse_full_day": true,
+    "feedback_slots": 5,
+    "policy_updates": 8,
+    "critic_updates": 8,
+    "value_updates": 8,
+    "actor_updates": 8,
+    "alpha_updates": 8,
+    "packet_schedule": [
+      8,
+      8,
+      8,
+      8
+    ]
+  },
+  "diagnostic_policy_probe": "Passive packet-entry actor snapshot, same5 paid states per packet and unchanged F at packet end. Full12-line coverage retained. No extra feedback or main-stream random draws.",
+  "authorization": "User explicitly authorized entire Astra capacityfeedbackPLAN; newisolatedv72 implementation andhighparallel8daybatch. Historicalcode/resultsread-only.",
+  "early_window_seconds": [
+    9000,
+    12000
+  ],
+  "post_budget_window_seconds": [
+    18300,
+    24000
+  ],
+  "seed_scope": "6201/6203 x stable/shock are already consumed development contexts. No independent-confirmation claim;6202/6204/6205 also have prior exposed outcomes and are not reserved as pristine confirmation.",
+  "follow_up": "First6201stablepair technicalpreflightreusesfullformalday; aftertechnicalpasslaunchremaining6arms independentofearlycost. Summarizeall8 andstop; noautomaticnextalgorithm orindependentconfirmation.",
+  "reference_report": "experiments/mcwm_closed_loop_v71_next_plan_20261026/PLAN.md",
+  "critic_updates": 456,
+  "value_updates": 456,
+  "actor_updates": 456,
+  "alpha_updates": 456,
+  "actor_schedule": {
+    "online_actor_update_interval": 1,
+    "online_actor_batch_mode": "latest",
+    "online_update_order": "actor-before-critic",
+    "critic_steps_per_packet": 8,
+    "value_steps_per_packet": 8,
+    "actor_steps_per_packet": 8,
+    "alpha_steps_per_packet": 8,
+    "kl_penalty": false
+  },
+  "scientific_scope": "Onefeedbackselectionchange versusv70; known6201/6203developmentonly. Coverageincreaseisnotperformanceevidence. Fresh supervision mustbeatmatchedandimmutableCQL baselineswithoutstabletailharm.",
+  "source_candidate": "mcwm_closed_loop_recent30_mixed_cql_v70_20261026",
+  "rng_scope": "Selector addsno RNGdraws; alllearnerandprivateoutcome/CQL streams unchangedfromv70. Trajectories maydivergeafterdifferentselectedlabels.",
+  "summary_outputs": [
+    "results/development.json",
+    "results/policy_drift.json",
+    "results/recency.json"
+  ],
+  "runtime_optimizer_schedule": "resident actor-before-critic including IQL V and Adam state",
+  "cql_coefficient": 0.2,
+  "cql": {
+    "coefficient": 0.2,
+    "coefficient_origin": "Existing native offline_cql_alpha default0.2, frozen engineering development value before new costs; not tuned on v68 outcomes.",
+    "temperature": 1,
+    "rows_per_update": 128,
+    "covariates": "replay.last_covariates:64 historical plus64 current executed(s,a), both arms; no outcome access",
+    "candidates": {
+      "zero": 1,
+      "uniform_latent": 10,
+      "current_actor_positive": 10,
+      "deterministic_positive": 1,
+      "total": 22
+    },
+    "execution": "Every candidate is scored as Q(s,F(s,u)); factual executed a is never transformed again; exact executed aliases count once per state.",
+    "objective": "mean_heads_states(logsumexp(unique candidate Q)-log(unique count)-Q(s,a_fact))",
+    "density": "Finite candidate regularizer; no latent proposal density presented as executed-action density. F can create atoms.",
+    "heads": "all critic heads; no CQL subset sampling",
+    "sampling": "isolated per-step Torch fork seeded before draws, main RNG restored",
+    "extra_budget": "zero labels/native branches/optimizer steps; extra candidate inference and wall time reported",
+    "source": "https://arxiv.org/abs/2006.04779"
+  },
+  "recipe": "capacity_window_recent30_mixed_cql",
+  "original_cql_reference": {
+    "directory": "mcwm_closed_loop_executed_cql_v68_20261026",
+    "relative": "runs/executed_cql/development/seed{seed}/{scenario}"
+  },
+  "recency": {
+    "covariate_window": 285,
+    "critic_outcome_window": 30,
+    "outcome_seed_offset": 600000,
+    "history": "Exact imported v63/v60 sampler; complete rows stay together.",
+    "retained": "All285 received rows may remain resident; only latest30 outcomes are eligible for critic resampling."
+  },
+  "fresh_target": {
+    "backup": "h2oplus",
+    "mixed_backup_lambda": 0.1,
+    "formula": "reward_scale*r+discounts*(1-terminal)*(.1*V(ns)+.9*SAC_Q_entropy(ns))",
+    "parent_full_batch_draws_preserved": true,
+    "fresh_value_replacement": false,
+    "no_fresh_target_path": "exact unchanged v68/v69"
+  },
+  "worst_full_day_cost_difference_cap": 4.606804164732239,
+  "worst_cap_origin": "v70results/development.json optimization_assessment.previous_v68_worst; retainedv68cap,notv70actualworst8.158432256780998",
+  "previous_reference": {
+    "directory": "mcwm_closed_loop_recent30_mixed_cql_v70_20261026",
+    "relative": "runs/executed_cql/development/seed{seed}/{scenario}"
+  },
+  "feedback_selection": {
+    "rule": "latest5_with_one_missing_capacity_risk",
+    "max_replacements_per_packet": 1,
+    "source": "issue observation s only",
+    "index": "i=round(15*s[2]);e=s[5:].reshape(16,14)[i]",
+    "predicate": "e[7]>0 and e[8]>=1",
+    "eligible": "original lower<available_at<=deadline,dt>0,notterminal",
+    "order": "available_at,sequence",
+    "replacement": "latest risk replaces oldest latest5 only when latest5 has no risk",
+    "feedback_records_per_packet": 5,
+    "feedback_slots": 285,
+    "outcome_access": false,
+    "new_random_draws": 0
+  },
+  "new_native_seconds": 192000,
+  "total_feedback_slots": 2280,
+  "total_updates_per_optimizer": 3648,
+  "passenger_scope": "Allpassengersfullcost andfullfinalwaitinginventory; service/transfergroupsandidentitysetsremainserverresident. Original22IDsnotusedforselection orcostgate.",
+  "full_day_departed_passengers": 15079
+}

@@ -1,0 +1,158 @@
+{
+  "status": "complete",
+  "implementation_all_pass": true,
+  "preflight_first8_exact_both_cases": true,
+  "contract": {
+    "initializer_updates": 50000,
+    "slots_per_arm": 285,
+    "reused_warmup_updates": 24,
+    "response_updates_per_arm": 432,
+    "total_updates_per_arm": 456,
+    "horizon_seconds": 24000,
+    "F_unchanged": true,
+    "trust_unchanged": true
+  },
+  "new_compute": {
+    "new_feedback_slots": 0,
+    "new_native_branches": 0,
+    "new_native_seconds": 0,
+    "response_shadow_updates": 1728,
+    "separate_lambda_zero_reference_updates": 16,
+    "checkpoints_downloaded": 0
+  },
+  "cases": {
+    "stable": {
+      "actual_update_overlap_seconds": 115.875829,
+      "effects": {
+        "7X": {
+          "best_executed_disagreement_packets": 0,
+          "packets": 54,
+          "requested_grid_supported": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "expected_holding_signed_seconds": 0.0,
+          "expected_holding_absolute_seconds": 0.0,
+          "deterministic_holding_absolute_seconds": 0.0
+        },
+        "102X": {
+          "best_executed_disagreement_packets": 51,
+          "packets": 54,
+          "requested_grid_supported": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_holding_signed_seconds": 0.0158510479,
+          "expected_holding_absolute_seconds": 0.0169561005,
+          "deterministic_holding_absolute_seconds": 0.000443290781
+        },
+        "705X": {
+          "best_executed_disagreement_packets": 53,
+          "packets": 54,
+          "requested_grid_supported": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_holding_signed_seconds": 0.0513636895,
+          "expected_holding_absolute_seconds": 0.0513636895,
+          "deterministic_holding_absolute_seconds": 0.0709013277
+        }
+      },
+      "credit_per_corrected_sample": {
+        "rows": 26306,
+        "reward": -0.6805586334730584,
+        "bootstrap_minus_matching_Q": 2.097963379708332,
+        "correction": 1.4174040553869425,
+        "rounding": -6.908483308757167e-07,
+        "rounding_mean_absolute": 2.455144290339536e-05,
+        "bounded_future_mass_max": 5.572502613067627
+      }
+    },
+    "local_speed_drop": {
+      "actual_update_overlap_seconds": 124.599663,
+      "effects": {
+        "7X": {
+          "best_executed_disagreement_packets": 0,
+          "packets": 54,
+          "requested_grid_supported": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "expected_holding_signed_seconds": 0.0,
+          "expected_holding_absolute_seconds": 0.0,
+          "deterministic_holding_absolute_seconds": 0.0
+        },
+        "102X": {
+          "best_executed_disagreement_packets": 33,
+          "packets": 54,
+          "requested_grid_supported": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_holding_signed_seconds": 0.00160544738,
+          "expected_holding_absolute_seconds": 0.0113540713,
+          "deterministic_holding_absolute_seconds": 0.00177340596
+        },
+        "705X": {
+          "best_executed_disagreement_packets": 28,
+          "packets": 54,
+          "requested_grid_supported": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_holding_signed_seconds": 0.0152222662,
+          "expected_holding_absolute_seconds": 0.0259128024,
+          "deterministic_holding_absolute_seconds": 0.0326878318
+        }
+      },
+      "credit_per_corrected_sample": {
+        "rows": 26306,
+        "reward": -0.6626475546733662,
+        "bootstrap_minus_matching_Q": 2.1461912210310476,
+        "correction": 1.4835445278906998,
+        "rounding": 8.615330185936329e-07,
+        "rounding_mean_absolute": 2.3774730302475574e-05,
+        "bounded_future_mass_max": 5.615464210510254
+      }
+    }
+  },
+  "conclusion": "Delayed-credit target changes learned common-candidate preferences and small actual F holding. Correct action direction, regret and passenger-cost improvement remain unverified.",
+  "decision": "Propose a small predeclared new-prefix heldout physical-action truth diagnostic for F-supported102X/705X states before further shadow-only iteration or deployment. No new branch is launched by v54.",
+  "limitations": [
+    "Three factual root states per scenario, no independent heldout action truth. Repeated packets are not independent samples.",
+    "Both7X root requested grids are unsupported because F forces60seconds; requested advantages are n0/null.",
+    "Positive mean target correction is dominated by bootstrap-minus-matching-Q, not evidence of beneficial reward credit.",
+    "Shock response includes sign changes and mean cancellation; stable no-harm is untested.",
+    "v47 differs in prefix, grid and evaluator, so this is not a clean numeric v47 superiority comparison."
+  ],
+  "provenance": {
+    "source_version": "v53",
+    "source_read_only": true,
+    "original_frozen_results_untouched": true,
+    "formal_task_ids": [
+      "t211598",
+      "t211599",
+      "t211600",
+      "t211601"
+    ],
+    "summary_task": "t211602",
+    "first_control_packets_reused": true,
+    "submission_lock_failure_preserved": true,
+    "duplicate_optimizer_updates": 0,
+    "raw_final_summary_bytes": 26275,
+    "no_weights_or_trajectories_downloaded": true,
+    "next_task_launched": false
+  }
+}

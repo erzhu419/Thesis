@@ -1,0 +1,5001 @@
+{
+  "baseline_authority": "用户最终明确D盘",
+  "baseline": "/mnt/d/Paper/Thesis/Gemini/重构论文_导言小结同步_20261018.docx",
+  "candidate": "/home/erzhu419/mine_code/Thesis/output/Gemini/调整完格式的.docx",
+  "comparison": "逐段文本含原生公式文本，忽略空白；换行拆公式归类为排版变化；另查书签、字段、修订、批注、隐藏标记，不改原文件。",
+  "summary": {
+    "baseline_nonempty_paragraphs": 4008,
+    "candidate_nonempty_paragraphs": 4070,
+    "difference_groups": {
+      "content_change": 12,
+      "toc_results": 2,
+      "layout_only": 12
+    },
+    "bibliography_count_baseline": 218,
+    "bibliography_count_candidate": 218,
+    "bibliography_differences": 0,
+    "numbered_heading_texts_missing_from_candidate": 0,
+    "literal_quote_unit_occurrences": 12,
+    "candidate_missing_navigation_targets": 0
+  },
+  "findings": [
+    {
+      "issue": "实质正文改动，非纯格式版",
+      "details": "摘要标题合并、英文摘要新增题名，原自动(1)-(4)编号改手工文字编号（视觉标签基本保留，并非新增四项研究结果）；正文有3.1语序调整、4.4厘清改理清、6.4.4删第5章字样并出现“以章跨保真混合训练”的漏字；三段小结12处单位s新增真实双引号。无中英文摘要正文大段替换。"
+    },
+    {
+      "issue": "新增前后置内容待完成",
+      "details": "新增两页封面，日期/研究方向/答辩信息等仍留空；新增研究成果6条且留空[7]，新增致谢“感谢导师，感谢国家。”。不对这些新增内容作真实性或最终版本判断。"
+    }
+  ],
+  "literal_quote_units": [
+    {
+      "section": "3.5 本章小结",
+      "paragraph": 1521,
+      "count": 2,
+      "text": "在双向单线路与长沙市6条双向骨干线路组成的共线走廊仿真验证中，上述车队经验共享表征与双重不确定性正则机制展现出显著的控制优势：同一RE-SAC框架下，可学习类别特征嵌入相较于传统独热编码与屏蔽类别输入，在基准需求、客流激增及运行模式切换场景下均大幅改善了前后车头时距均衡性并降低了乘客广义时间成本；在长沙多线路车头时距控制目标下，完整RE-SAC使全网平均计划间隔偏差与前后车头时距不均衡度较标准SAC分别减少 5.00\" s\"  和 7.35\" s\" ，且消融实验证实移除权重范数正则或集成分歧惩罚中的任意一项均会导致控制性能显著退化。然而，本章方法建立在外部客流与路况基础统计规律平稳的前提之上，全程采用固定强度的保守评价系数；当多线路公交网络遭遇大型活动散场或通勤模式切换等数倍乃至数十倍的非平稳客流冲击时，固定保守强度的RE-SAC难以兼顾常规时段调节效率与突变时段状态外推稳定性，尚未能在多线路乘客广义时间成本目标下取得相对优势。"
+    },
+    {
+      "section": "5.5 本章小结",
+      "paragraph": 2535,
+      "count": 2,
+      "text": "在此基础上，本章基于H2O+框架构建了“目标域固定离线数据IQL价值与策略初始化＋快速源仿真在线预热与探索采样＋源域与目标域样本等量混合回放更新”的三阶段公交跨保真训练流程。在长沙市6条双向线路组成的SUMO高保真目标环境测试中，在完全相同的目标域固定离线数据与完全相同的网络梯度更新预算下，跨保真混合训练相较于纯离线IQL训练在基准需求与1.25倍高需求场景下使全系统人均广义时间成本分别平均减少 16.66\" s\"  和 19.75\" s\" ，且在全部独立重复训练中均取得一致的正向服务改善。这证明借助标定源仿真为当前策略的新颖驻站动作提供在线探索反馈、同时保留目标域真实历史数据锚定样本内价值尺度，能够在零目标环境试错风险下有效突破纯离线学习的动作覆盖瓶颈。然而，本章跨保真混合训练的有效性建立在源仿真参数标定充分可信的前提之上；域分类器泛化诊断表明，基于样本重加权的重要性采样仅能调整已有源域转移样本在损失函数中的权重占比，而无法修正源仿真因标定失配已经生成的失准后继状态与区间乘客成本。"
+    },
+    {
+      "section": "6.5 本章小结",
+      "paragraph": 2877,
+      "count": 8,
+      "text": "依托长沙市6条双向公交线路在SUMO高保真目标环境中开展的大规模独立初始化对比实验，充分验证了MC-WM抵御源仿真标定失配、改善乘客出行服务的能力。当快速源仿真的车速、客流需求、服务耗时与信号延误四类参数由正常标定恶化至联合50%偏差与联合75%偏差时，无世界模型混合训练基线的控制性能持续退化并跌落至与固定车头时距规则相当的水平；而MC-WM相较于无世界模型跨保真混合训练基线，在正常标定、联合50%源偏差和联合75%源偏差下使全系统人均广义时间成本分别平均减少 51.14\" s\" 、69.93\" s\"  和 87.05\" s\" ，且相较于经典Daganzo式车头时距规则分别减少 57.67\" s\" 、70.67\" s\"  和 76.26\" s\" 。乘客时间构成分解进一步表明，MC-WM学会了在复杂多线路走廊中精准权衡站台候车代价与车内等待代价，以每名乘客车内乘车时间仅微增 1.34 至 4.03\" s\"  的微小代价，换取了平均候车时间高达 26.74 至 44.19\" s\"  的显著缩减，且源仿真标定失配越严重，世界模型修正所带来的净服务收益越突出。同时，由于世界模型仅在训练阶段生成一步预测样本辅助评论家更新，在线部署阶段仍仅调用结构相同的轻量级策略网络直接输出驻站时长，不增加任何在线推理延迟。"
+    }
+  ],
+  "diffs": [
+    {
+      "id": 1,
+      "kind": "content_change",
+      "operation": "insert",
+      "old_range_nonempty_1based": [
+        1,
+        0
+      ],
+      "new_range_nonempty_1based": [
+        1,
+        35
+      ],
+      "section": "前置页",
+      "before": [],
+      "after": [
+        {
+          "text": "博士学位论文",
+          "style": "affb",
+          "body_block_0based": 3,
+          "nonempty_paragraph_1based": 1,
+          "section": "前置页"
+        },
+        {
+          "text": "从仿真到现实的",
+          "style": "affb",
+          "body_block_0based": 6,
+          "nonempty_paragraph_1based": 2,
+          "section": "前置页"
+        },
+        {
+          "text": "公交系统驻站控制方法研究",
+          "style": "affb",
+          "body_block_0based": 7,
+          "nonempty_paragraph_1based": 3,
+          "section": "前置页"
+        },
+        {
+          "text": "Research on Bus System Holding Control Methods",
+          "style": "affb",
+          "body_block_0based": 8,
+          "nonempty_paragraph_1based": 4,
+          "section": "前置页"
+        },
+        {
+          "text": "from Simulation to Reality",
+          "style": "affb",
+          "body_block_0based": 9,
+          "nonempty_paragraph_1based": 5,
+          "section": "前置页"
+        },
+        {
+          "text": "一 级 学 科",
+          "style": "affb",
+          "body_block_0based": 13,
+          "nonempty_paragraph_1based": 6,
+          "section": "前置页"
+        },
+        {
+          "text": "交通运输工程",
+          "style": "affb",
+          "body_block_0based": 13,
+          "nonempty_paragraph_1based": 7,
+          "section": "前置页"
+        },
+        {
+          "text": "二 级 学 科",
+          "style": "affb",
+          "body_block_0based": 13,
+          "nonempty_paragraph_1based": 8,
+          "section": "前置页"
+        },
+        {
+          "text": "交通运输规划与管理",
+          "style": "affb",
+          "body_block_0based": 13,
+          "nonempty_paragraph_1based": 9,
+          "section": "前置页"
+        },
+        {
+          "text": "作 者 姓 名",
+          "style": "affb",
+          "body_block_0based": 13,
+          "nonempty_paragraph_1based": 10,
+          "section": "前置页"
+        },
+        {
+          "text": "张异凡",
+          "style": "affb",
+          "body_block_0based": 13,
+          "nonempty_paragraph_1based": 11,
+          "section": "前置页"
+        },
+        {
+          "text": "指 导 教 师",
+          "style": "affb",
+          "body_block_0based": 13,
+          "nonempty_paragraph_1based": 12,
+          "section": "前置页"
+        },
+        {
+          "text": "郑亮",
+          "style": "affb",
+          "body_block_0based": 13,
+          "nonempty_paragraph_1based": 13,
+          "section": "前置页"
+        },
+        {
+          "text": "    年    月",
+          "style": "affb",
+          "body_block_0based": 19,
+          "nonempty_paragraph_1based": 14,
+          "section": "前置页"
+        },
+        {
+          "text": "中图分类号                 学校代码  10533",
+          "style": "affb",
+          "body_block_0based": 21,
+          "nonempty_paragraph_1based": 15,
+          "section": "前置页"
+        },
+        {
+          "text": "UDC                        学位类别  学术学位",
+          "style": "affb",
+          "body_block_0based": 22,
+          "nonempty_paragraph_1based": 16,
+          "section": "前置页"
+        },
+        {
+          "text": "博士学位论文",
+          "style": "affb",
+          "body_block_0based": 24,
+          "nonempty_paragraph_1based": 17,
+          "section": "前置页"
+        },
+        {
+          "text": "从仿真到现实的",
+          "style": "affb",
+          "body_block_0based": 27,
+          "nonempty_paragraph_1based": 18,
+          "section": "前置页"
+        },
+        {
+          "text": "公交系统驻站控制方法研究",
+          "style": "affb",
+          "body_block_0based": 28,
+          "nonempty_paragraph_1based": 19,
+          "section": "前置页"
+        },
+        {
+          "text": "Research on Bus System Holding Control Methods",
+          "style": "affb",
+          "body_block_0based": 29,
+          "nonempty_paragraph_1based": 20,
+          "section": "前置页"
+        },
+        {
+          "text": "from Simulation to Reality",
+          "style": "affb",
+          "body_block_0based": 30,
+          "nonempty_paragraph_1based": 21,
+          "section": "前置页"
+        },
+        {
+          "text": "作 者 姓 名",
+          "style": "affb",
+          "body_block_0based": 33,
+          "nonempty_paragraph_1based": 22,
+          "section": "前置页"
+        },
+        {
+          "text": "张异凡",
+          "style": "affb",
+          "body_block_0based": 33,
+          "nonempty_paragraph_1based": 23,
+          "section": "前置页"
+        },
+        {
+          "text": "一 级 学 科",
+          "style": "affb",
+          "body_block_0based": 33,
+          "nonempty_paragraph_1based": 24,
+          "section": "前置页"
+        },
+        {
+          "text": "交通运输工程",
+          "style": "affb",
+          "body_block_0based": 33,
+          "nonempty_paragraph_1based": 25,
+          "section": "前置页"
+        },
+        {
+          "text": "二 级 学 科",
+          "style": "affb",
+          "body_block_0based": 33,
+          "nonempty_paragraph_1based": 26,
+          "section": "前置页"
+        },
+        {
+          "text": "交通运输规划与管理",
+          "style": "affb",
+          "body_block_0based": 33,
+          "nonempty_paragraph_1based": 27,
+          "section": "前置页"
+        },
+        {
+          "text": "研 究 方 向",
+          "style": "affb",
+          "body_block_0based": 33,
+          "nonempty_paragraph_1based": 28,
+          "section": "前置页"
+        },
+        {
+          "text": "二级培养单位",
+          "style": "affb",
+          "body_block_0based": 33,
+          "nonempty_paragraph_1based": 29,
+          "section": "前置页"
+        },
+        {
+          "text": "交通运输工程学院",
+          "style": "affb",
+          "body_block_0based": 33,
+          "nonempty_paragraph_1based": 30,
+          "section": "前置页"
+        },
+        {
+          "text": "指 导 教 师",
+          "style": "affb",
+          "body_block_0based": 33,
+          "nonempty_paragraph_1based": 31,
+          "section": "前置页"
+        },
+        {
+          "text": "郑亮",
+          "style": "affb",
+          "body_block_0based": 33,
+          "nonempty_paragraph_1based": 32,
+          "section": "前置页"
+        },
+        {
+          "text": "论文答辩日期     年   月   日    答辩委员会主席              ",
+          "style": "affb",
+          "body_block_0based": 37,
+          "nonempty_paragraph_1based": 33,
+          "section": "前置页"
+        },
+        {
+          "text": "中  南  大  学",
+          "style": "affb",
+          "body_block_0based": 41,
+          "nonempty_paragraph_1based": 34,
+          "section": "前置页"
+        },
+        {
+          "text": "    年    月",
+          "style": "affb",
+          "body_block_0based": 42,
+          "nonempty_paragraph_1based": 35,
+          "section": "前置页"
+        }
+      ],
+      "character_changes": [
+        {
+          "old": "",
+          "new": "博士学位论文\n从仿真到现实的\n公交系统驻站控制方法研究\nResearch on Bus System Holding Control Methods\nfrom Simulation to Reality\n一 级 学 科\n交通运输工程\n二 级 学 科\n交通运输规划与管理\n作 者 姓 名\n张异凡\n指 导 教 师\n郑亮\n    年    月\n中图分类号                 学校代码  10533\nUDC                        学位类别  学术学位\n博士学位论文\n从仿真到现实的\n公交系统驻站控制方法研究\nResearch on Bus System Holding Control Methods\nfrom Simulation to Reality\n作 者 姓 名\n张异凡\n一 级 学 科\n交通运输工程\n二 级 学 科\n交通运输规划与管理\n研 究 方 向\n二级培养单位\n交通运输工程学院\n指 导 教 师\n郑亮\n论文答辩日期     年   月   日    答辩委员会主席              \n中  南  大  学\n    年    月"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "kind": "content_change",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        14,
+        15
+      ],
+      "new_range_nonempty_1based": [
+        49,
+        49
+      ],
+      "section": "摘要",
+      "before": [
+        {
+          "text": "摘要",
+          "style": "abstractcntitle",
+          "body_block_0based": 20,
+          "nonempty_paragraph_1based": 14,
+          "section": "摘要"
+        },
+        {
+          "text": "随机客流和路况变化使公交车头时距失衡，增加串车风险和乘客等待时间。驻站可调节车辆离站时刻，但受到车辆与站点差异、环境条件及动作上限的制约。强化学习可依据状态选择动作，却难以在实际运营中反复试错，最终策略又面临训练与使用环境的分布偏移，使其现实部署面临困难。本文围绕从仿真到现实的驻站控制，先研究未预先获得目标域训练数据时的平稳随机鲁棒学习与非平稳随机适应学习，再研究获得目标域离线数据后的跨保真训练及残差世界模型修正。本文以公交到站且完成必要上下客后为决策时刻，以公交与站点信息、前后公交车头时距、乘客时间成本为强化学习在途控制模型的输入，公交驻站时间为控制模型输出。实验过程采用长沙市六条双向公交线网相关数据，搭建粗粒度快速公交仿真系统用于低成本训练，并采用微观交通仿真工具（Simulation of Urban MObility，SUMO）构建高精度公交系统仿真，作为现实环境的高保真代理。本文前两部分研究内容先采用快速公交仿真系统训练相应的鲁棒强化学习，再到SUMO进行系统测试；在后两部分研究内容中，跨保真迁移是采用SUMO离线数据以及与快速仿真系统在线交互数据进行强化学习策略训练，然后在未参与训练的SUMO运行场景中进行策略评价。本文主要研究内容与结果如下。",
+          "style": "abstractcnbody",
+          "body_block_0based": 21,
+          "nonempty_paragraph_1based": 15,
+          "section": "摘要"
+        }
+      ],
+      "after": [
+        {
+          "text": "摘要：随机客流和路况变化使公交车头时距失衡，增加串车风险和乘客等待时间。驻站可调节车辆离站时刻，但受到车辆与站点差异、环境条件及动作上限的制约。强化学习可依据状态选择动作，却难以在实际运营中反复试错，最终策略又面临训练与使用环境的分布偏移，使其现实部署面临困难。本文围绕从仿真到现实的驻站控制，先研究未预先获得目标域训练数据时的平稳随机鲁棒学习与非平稳随机适应学习，再研究获得目标域离线数据后的跨保真训练及残差世界模型修正。本文以公交到站且完成必要上下客后为决策时刻，以公交与站点信息、前后公交车头时距、乘客时间成本为强化学习在途控制模型的输入，公交驻站时间为控制模型输出。实验过程采用长沙市六条双向公交线网相关数据，搭建粗粒度快速公交仿真系统用于低成本训练，并采用微观交通仿真工具（Simulation of Urban MObility，SUMO）构建高精度公交系统仿真，作为现实环境的高保真代理。本文前两部分研究内容先采用快速公交仿真系统训练相应的鲁棒强化学习，再到SUMO进行系统测试；在后两部分研究内容中，跨保真迁移是采用SUMO离线数据以及与快速仿真系统在线交互数据进行强化学习策略训练，然后在未参与训练的SUMO运行场景中进行策略评价。本文主要研究内容与结果如下。",
+          "style": "abstractcnbody",
+          "body_block_0based": 63,
+          "nonempty_paragraph_1based": 49,
+          "section": "从仿真到现实的公交系统驻站控制方法研究"
+        }
+      ],
+      "character_changes": [
+        {
+          "old": "\n",
+          "new": "："
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "kind": "content_change",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        21,
+        22
+      ],
+      "new_range_nonempty_1based": [
+        55,
+        56
+      ],
+      "section": "Abstract",
+      "before": [
+        {
+          "text": "Abstract",
+          "style": "abstractentitle",
+          "body_block_0based": 27,
+          "nonempty_paragraph_1based": 21,
+          "section": "Abstract"
+        },
+        {
+          "text": "Random passenger demand and changing road traffic disrupt bus headways, promote bunching, and increase passenger waiting time. Holding control regulates departure times, but its effectiveness depends on vehicle and stop characteristics, operating conditions, and the maximum permitted holding time. Reinforcement learning can select actions from operational observations, yet repeated trial-and-error learning on an operating fleet is impractical, and the resulting policy may encounter a distribution shift between training and deployment environments. This thesis studies sim-to-real bus holding control: robust learning under stationary stochastic conditions and adaptive learning under non-stationary stochastic conditions first address settings without pre-collected target-domain training data; cross-fidelity learning and model correction then incorporate target-domain offline data.",
+          "style": "abstractenfirst",
+          "body_block_0based": 28,
+          "nonempty_paragraph_1based": 22,
+          "section": "Abstract"
+        }
+      ],
+      "after": [
+        {
+          "text": "Research on Bus System Holding Control Methods from Simulation to Reality",
+          "style": "abstractcntitle",
+          "body_block_0based": 70,
+          "nonempty_paragraph_1based": 55,
+          "section": "Research on Bus System Holding Control Methods from Simulation to Reality"
+        },
+        {
+          "text": "Abstract: Random passenger demand and changing road traffic disrupt bus headways, promote bunching, and increase passenger waiting time. Holding control regulates departure times, but its effectiveness depends on vehicle and stop characteristics, operating conditions, and the maximum permitted holding time. Reinforcement learning can select actions from operational observations, yet repeated trial-and-error learning on an operating fleet is impractical, and the resulting policy may encounter a distribution shift between training and deployment environments. This thesis studies sim-to-real bus holding control: robust learning under stationary stochastic conditions and adaptive learning under non-stationary stochastic conditions first address settings without pre-collected target-domain training data; cross-fidelity learning and model correction then incorporate target-domain offline data.",
+          "style": "keywordsen",
+          "body_block_0based": 71,
+          "nonempty_paragraph_1based": 56,
+          "section": "Research on Bus System Holding Control Methods from Simulation to Reality"
+        }
+      ],
+      "character_changes": [
+        {
+          "old": "",
+          "new": "Research on Bus System Holding Control Methods from Simulation to Reality\n"
+        },
+        {
+          "old": "\n",
+          "new": ": "
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "kind": "content_change",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        24,
+        27
+      ],
+      "new_range_nonempty_1based": [
+        58,
+        61
+      ],
+      "section": "Abstract",
+      "before": [
+        {
+          "text": "To address differences among vehicles and stops and fluctuations in action-value estimates during stochastic operations, this thesis proposes a shared holding policy combining categorical feature embeddings with continuous observations and develops Robust Ensemble Soft Actor-Critic (RE-SAC). Generalized passenger time is defined as twice waiting time plus onboard time. With the same learner and training settings, learned embeddings reduce generalized passenger time relative to one-hot encoding by 5.51%, 1.41%, and 4.91% under routine operations, demand surges, and rapid switching. In the multi-line holding comparison, RE-SAC reduces mean planned-headway deviation and forward-backward imbalance by 5.00 and 7.36 seconds relative to SAC under the headway objective, while operating objectives retain tradeoffs.",
+          "style": "abstractenbody",
+          "body_block_0based": 30,
+          "nonempty_paragraph_1based": 24,
+          "section": "Abstract"
+        },
+        {
+          "text": "To address changing operating laws and the limited ability of holding to alter departure times, this thesis proposes Bayesian Adaptive Policy Regularization (BAPR), using environment identification and operating-mode confidence adjustment, and subsequently develops Causal-Symbolic Bayesian Adaptive Policy Regularization (CS-BAPR). Across routine demand, single and repeated environmental changes, sustained high demand, and brief extreme demand, training stabilization reduces the mean headway-reward penalty relative to the preceding BAPR configuration by 58.82% to 69.79% with a single holding action. Matched comparisons with RE-SAC show tradeoffs between control reward and operational indicators, while structured policy outputs do not provide an additional benefit in every condition. With passenger-time training, generalized passenger time increases by 0.068% to 0.268% relative to the preceding BAPR configuration, so the headway gains do not extend to passenger time.",
+          "style": "abstractenbody",
+          "body_block_0based": 31,
+          "nonempty_paragraph_1based": 25,
+          "section": "Abstract"
+        },
+        {
+          "text": "To reduce dependence on repeated trial-and-error data collection in the target operating environment, this thesis develops a bus-specific cross-fidelity workflow based on Hybrid Offline-and-Online Reinforcement Learning (H2O) and the Improved Framework for Hybrid Offline-and-Online Reinforcement Learning with Dynamics Gaps (H2O+). Fixed SUMO offline data and simplified-simulator interaction jointly support policy training. Simultaneous-arrival encoding, a single action that adds either no extra holding or a positive holding duration, and a completion reserve for late-operation states with low onboard loads and insufficient following service form the complete controller. In 1,350 paired evaluations covering 10 new environment blocks, three demand levels, and nine controllers, the reserve reduces within-window generalized passenger time by 92.12 seconds, or 3.71%, and increases completion by 0.466 percentage points relative to the direct parent with the same learned policy. With the same target offline data and matched actor and critic update budgets, hybrid training improves over the tested offline-only scheme.",
+          "style": "abstractenbody",
+          "body_block_0based": 32,
+          "nonempty_paragraph_1based": 26,
+          "section": "Abstract"
+        },
+        {
+          "text": "To address source-target transition mismatch, this thesis proposes the Model-Corrected World Model (MC-WM), selecting residual correction or direct target modeling using held-out prediction errors and weighting one-step model samples through log-confidence evaluation. The bus extension uses fixed target offline data and hybrid event models, with a normalized confidence backup limiting attenuation of model updates. With a single holding action and a passenger-time objective, generalized passenger time decreases relative to a Daganzo-style rule with the same completion reserve by 57.67, 70.67, and 76.26 seconds under calibrated, joint 50%, and joint 75% source-parameter mismatch, respectively. Joint mismatch changes road speeds, passenger OD demand, intersection delays, and required stopping-service times together. Under headway-reward training and joint 75% mismatch, MC-WM reduces generalized passenger time by 13.36 seconds relative to H2O+ with the completion reserve, but does not improve the headway reward. Benefits thus depend on both training and execution. A supplementary final-controller comparison with common source sampling and execution rules yields mean reductions of 23.02 and 40.25 seconds in generalized passenger time relative to H2O+ and source-only SAC, with completion increases of 0.1581 and 0.2626 percentage points, respectively.",
+          "style": "abstractenbody",
+          "body_block_0based": 33,
+          "nonempty_paragraph_1based": 27,
+          "section": "Abstract"
+        }
+      ],
+      "after": [
+        {
+          "text": "(1)To address differences among vehicles and stops and fluctuations in action-value estimates during stochastic operations, this thesis proposes a shared holding policy combining categorical feature embeddings with continuous observations and develops Robust Ensemble Soft Actor-Critic (RE-SAC). Generalized passenger time is defined as twice waiting time plus onboard time. With the same learner and training settings, learned embeddings reduce generalized passenger time relative to one-hot encoding by 5.51%, 1.41%, and 4.91% under routine operations, demand surges, and rapid switching. In the multi-line holding comparison, RE-SAC reduces mean planned-headway deviation and forward-backward imbalance by 5.00 and 7.36 seconds relative to SAC under the headway objective, while operating objectives retain tradeoffs.",
+          "style": "keywordsen",
+          "body_block_0based": 73,
+          "nonempty_paragraph_1based": 58,
+          "section": "Research on Bus System Holding Control Methods from Simulation to Reality"
+        },
+        {
+          "text": "(2)To address changing operating laws and the limited ability of holding to alter departure times, this thesis proposes Bayesian Adaptive Policy Regularization (BAPR), using environment identification and operating-mode confidence adjustment, and subsequently develops Causal-Symbolic Bayesian Adaptive Policy Regularization (CS-BAPR). Across routine demand, single and repeated environmental changes, sustained high demand, and brief extreme demand, training stabilization reduces the mean headway-reward penalty relative to the preceding BAPR configuration by 58.82% to 69.79% with a single holding action. Matched comparisons with RE-SAC show tradeoffs between control reward and operational indicators, while structured policy outputs do not provide an additional benefit in every condition. With passenger-time training, generalized passenger time increases by 0.068% to 0.268% relative to the preceding BAPR configuration, so the headway gains do not extend to passenger time.",
+          "style": "keywordsen",
+          "body_block_0based": 74,
+          "nonempty_paragraph_1based": 59,
+          "section": "Research on Bus System Holding Control Methods from Simulation to Reality"
+        },
+        {
+          "text": "(3)To reduce dependence on repeated trial-and-error data collection in the target operating environment, this thesis develops a bus-specific cross-fidelity workflow based on Hybrid Offline-and-Online Reinforcement Learning (H2O) and the Improved Framework for Hybrid Offline-and-Online Reinforcement Learning with Dynamics Gaps (H2O+). Fixed SUMO offline data and simplified-simulator interaction jointly support policy training. Simultaneous-arrival encoding, a single action that adds either no extra holding or a positive holding duration, and a completion reserve for late-operation states with low onboard loads and insufficient following service form the complete controller. In 1,350 paired evaluations covering 10 new environment blocks, three demand levels, and nine controllers, the reserve reduces within-window generalized passenger time by 92.12 seconds, or 3.71%, and increases completion by 0.466 percentage points relative to the direct parent with the same learned policy. With the same target offline data and matched actor and critic update budgets, hybrid training improves over the tested offline-only scheme.",
+          "style": "keywordsen",
+          "body_block_0based": 75,
+          "nonempty_paragraph_1based": 60,
+          "section": "Research on Bus System Holding Control Methods from Simulation to Reality"
+        },
+        {
+          "text": "(4)To address source-target transition mismatch, this thesis proposes the Model-Corrected World Model (MC-WM), selecting residual correction or direct target modeling using held-out prediction errors and weighting one-step model samples through log-confidence evaluation. The bus extension uses fixed target offline data and hybrid event models, with a normalized confidence backup limiting attenuation of model updates. With a single holding action and a passenger-time objective, generalized passenger time decreases relative to a Daganzo-style rule with the same completion reserve by 57.67, 70.67, and 76.26 seconds under calibrated, joint 50%, and joint 75% source-parameter mismatch, respectively. Joint mismatch changes road speeds, passenger OD demand, intersection delays, and required stopping-service times together. Under headway-reward training and joint 75% mismatch, MC-WM reduces generalized passenger time by 13.36 seconds relative to H2O+ with the completion reserve, but does not improve the headway reward. Benefits thus depend on both training and execution. A supplementary final-controller comparison with common source sampling and execution rules yields mean reductions of 23.02 and 40.25 seconds in generalized passenger time relative to H2O+ and source-only SAC, with completion increases of 0.1581 and 0.2626 percentage points, respectively.",
+          "style": "keywordsen",
+          "body_block_0based": 76,
+          "nonempty_paragraph_1based": 61,
+          "section": "Research on Bus System Holding Control Methods from Simulation to Reality"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "kind": "toc_results",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        239,
+        239
+      ],
+      "new_range_nonempty_1based": [
+        273,
+        273
+      ],
+      "section": "目录",
+      "before_text": "1.3 研究目标与内容17",
+      "after_text": "1.3 研究目标与内容16"
+    },
+    {
+      "id": 6,
+      "kind": "toc_results",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        245,
+        348
+      ],
+      "new_range_nonempty_1based": [
+        279,
+        379
+      ],
+      "section": "目录",
+      "before_text": "2.3 鲁棒强化学习与环境适应31\n2.4 迁移强化学习34\n2.5 世界模型与模型辅助学习37\n2.6 公交仿真平台与场景资料39\n2.7 公交驻站的事件决策统一模型44\n2.7.1 决策触发与状态转移方式44\n2.7.2 状态表征与多线路观测定义45\n2.7.3 控制动作定义47\n2.7.4 优化目标奖励与服务评价指标体系47\n2.7.5 策略与价值模型的通用网络结构49\n2.8 本章小结50\n第3章 平稳随机环境下基于单智能体鲁棒强化学习的公交车队驻站控制51\n3.1 问题描述51\n3.2 模型构建54\n3.2.1 基本条件与场景设定54\n3.2.2 异步事件决策过程与经验回放机制55\n3.2.3 状态表示与类别特征嵌入57\n3.2.4 优化目标与奖励函数构造59\n3.2.5 共享策略与鲁棒价值模型（RE-SAC）62\n3.2.6 局部车头时距与乘客成本解析分析63\n3.3 求解方法66\n3.3.1 鲁棒集成价值评价67\n3.3.2 鲁棒保守策略优化68\n3.3.3 算子收缩性与动作价值误差分解理论分析70\n3.4 仿真实验与结果分析73\n3.4.1 实验设计与场景输入特征73\n3.4.2 双向单线路服务水平对比分析76\n3.4.3 长期训练稳定性与熵温度演化分析81\n3.4.4 动作价值估计误差与控制机理诊断84\n3.4.5 组成因素与超参数影响分析85\n3.4.6 长沙多线路场景验证99\n3.4.7 实验结果综合讨论与适用边界100\n3.5 本章小结101\n第4章 非平稳环境下基于条件识别与因果符号约束的公交车队驻站控制103\n4.1 问题描述103\n4.2 模型构建106\n4.2.1 非平稳运行条件与服务时间机理106\n4.2.2 隐含运行模式识别与信念更新108\n4.2.3 近期统计反馈与软符号约束的策略价值模型110\n（一） BAPR近期统计反馈与动态保守权重模型110\n（二）CS-BAPR可学习基准动作与均衡态归零差分修正结构112\n（三） SINDy短期符号代价辨识与软符号雅可比导数约束113\n4.3 求解方法114\n4.3.1 训练稳定化设计与求解流程114\n4.3.2 策略输出结构对照及其响应光滑性分析117\n4.3.3 动作外推误差界与冻结置信加权算子理论分析118\n4.4 仿真实验与结果分析121\n4.4.1 实验设计与对比配置121\n4.4.2 固定需求放大强度下的控制表现分析122\n4.4.3 回合内需求突变与反复变化下的控制表现分析124\n4.4.4 非平稳乘客服务复评、脉冲响应与受控动力学补偿分析130\n4.4.5 CS-BAPR与RE-SAC直接对比及关键组件消融分析136\n4.4.6 实验结果综合讨论与适用边界140\n4.5 本章小结141\n第5章 跨保真度仿真环境下基于迁移强化学习的公交车队驻站控制143\n5.1 问题描述143\n5.2 模型构建146\n5.2.1 基本条件与两项任务设置146\n5.2.2 同时到站车组状态编码与优化目标150\n5.2.3 跨保真混合训练的策略与价值模型153\n5.3 求解方法155\n5.3.1 纯离线学习与目标环境在线微调方法156\n5.3.2 无需训练的运营参照规则157\n5.3.3 基于H2O+的公交跨保真混合训练流程158\n5.3.4 确定性评价与控制实施接口159\n5.4 仿真实验与结果分析160\n5.4.1 源仿真标定与驻站响应一致性检验160\n5.4.2 纯离线学习与追加目标环境微调对比分析167\n5.4.3 跨保真长周期控制基准核验与域分类器泛化诊断173\n5.4.4 相同更新预算下跨保真混合训练与纯离线/纯源训练对比175\n5.4.5 目标域评价计算开销与新轨迹分类权重分析177\n5.4.6 实验结果综合讨论与适用边界179\n5.5 本章小结180\n第6章 分布偏移下基于世界模型的公交车队驻站控制182\n6.1 问题描述182\n6.2 模型构建184\n6.2.1 基本条件与标定偏差形式化185\n6.2.2 公交混合事件世界模型的预测关系186\n6.2.3 模型修正与策略价值协同模型187\n6.3 求解方法190\n6.3.1 预测方案自动选择机制190\n6.3.2 局部与递推置信度评价更新191\n6.3.3 公交混合事件模型与策略协同训练流程191\n6.3.4 模型误差传播与置信度递推尺度理论分析193\n6.4 仿真实验与结果分析196\n6.4.1 公交跨保真任务中一次拟合与原始置信度递推控制效果分析196\n6.4.2 模型样本权重衰减诊断与归一化置信度递推改进分析201\n6.4.3 独立初始化下的多线路公交服务水平对比（20种子主实验）208\n（一）相对于无世界模型混合训练基线的主结果与完整控制器对比208\n（二）相对于经典车头时距规则的对比与乘客时间构成分解211\n（三）计算耗时统计与模型系数扩展实验212\n6.4.4 实验结果综合讨论与两章分工边界213\n6.5 本章小结214\n第7章 总结与展望216\n7.1 研究总结216\n7.2 主要创新218\n7.3 研究展望220\n参考文献222\n附录A RE-SAC贝尔曼算子的数学证明241\n附录B BAPR动作补偿与模式误判的数学证明247\n附录C BAPR置信加权算子的数学证明257\n附录D CS-BAPR策略响应与贝尔曼算子的数学证明263\n附录E MC-WM残差模型与条件排序的数学分析274\n附录F 公交世界模型的补充实验282",
+      "after_text": "2.3 鲁棒强化学习与环境适应30\n2.4 迁移强化学习33\n2.5 世界模型与模型辅助学习35\n2.6 公交仿真平台与场景资料38\n2.7 公交驻站的事件决策统一模型42\n2.7.1 决策触发与状态转移方式42\n2.7.2 状态表征与多线路观测定义43\n2.7.3 控制动作定义45\n2.7.4 优化目标奖励与服务评价指标体系45\n2.7.5 策略与价值模型的通用网络结构47\n2.8 本章小结48\n第3章 平稳随机环境下基于单智能体鲁棒强化学习的公交车队驻站控制49\n3.1 问题描述49\n3.2 模型构建52\n3.2.1 基本条件与场景设定52\n3.2.2 异步事件决策过程与经验回放机制53\n3.2.3 状态表示与类别特征嵌入55\n3.2.4 优化目标与奖励函数构造56\n3.2.5 共享策略与鲁棒价值模型（RE-SAC）59\n3.2.6 局部车头时距与乘客成本解析分析61\n3.3 求解方法63\n3.3.1 鲁棒集成价值评价64\n3.3.2 鲁棒保守策略优化65\n3.3.3 算子收缩性与动作价值误差分解理论分析66\n3.4 仿真实验与结果分析69\n3.4.1 实验设计与场景输入特征69\n3.4.2 双向单线路服务水平对比分析71\n3.4.3 长期训练稳定性与熵温度演化分析75\n3.4.4 动作价值估计误差与控制机理诊断78\n3.4.5 组成因素与超参数影响分析79\n3.4.6 长沙多线路场景验证92\n3.4.7 实验结果综合讨论与适用边界93\n3.5 本章小结94\n第4章 非平稳环境下基于条件识别与因果符号约束的公交车队驻站控制96\n4.1 问题描述96\n4.2 模型构建99\n4.2.1 非平稳运行条件与服务时间机理100\n4.2.2 隐含运行模式识别与信念更新101\n4.2.3 近期统计反馈与软符号约束的策略价值模型102\n4.3 求解方法106\n4.3.1 训练稳定化设计与求解流程106\n4.3.2 策略输出结构对照及其响应光滑性分析109\n4.3.3 动作外推误差界与冻结置信加权算子理论分析110\n4.4 仿真实验与结果分析112\n4.4.1 实验设计与对比配置112\n4.4.2 固定需求放大强度下的控制表现分析114\n4.4.3 回合内需求突变与反复变化下的控制表现分析116\n4.4.4 非平稳乘客服务复评、脉冲响应与受控动力学补偿分析120\n4.4.5 CS-BAPR与RE-SAC直接对比及关键组件消融分析127\n4.4.6 实验结果综合讨论与适用边界131\n4.5 本章小结132\n第5章 跨保真度仿真环境下基于迁移强化学习的公交车队驻站控制134\n5.1 问题描述134\n5.2 模型构建136\n5.2.1 基本条件与两项任务设置137\n5.2.2 同时到站车组状态编码与优化目标141\n5.2.3 跨保真混合训练的策略与价值模型143\n5.3 求解方法145\n5.3.1 纯离线学习与目标环境在线微调方法145\n5.3.2 无需训练的运营参照规则147\n5.3.3 基于H2O+的公交跨保真混合训练流程147\n5.3.4 确定性评价与控制实施接口149\n5.4 仿真实验与结果分析149\n5.4.1 源仿真标定与驻站响应一致性检验150\n5.4.2 纯离线学习与追加目标环境微调对比分析156\n5.4.3 跨保真长周期控制基准核验与域分类器泛化诊断161\n5.4.4 相同更新预算下跨保真混合训练与纯离线/纯源训练对比162\n5.4.5 目标域评价计算开销与新轨迹分类权重分析165\n5.4.6 实验结果综合讨论与适用边界166\n5.5 本章小结167\n第6章 分布偏移下基于世界模型的公交车队驻站控制169\n6.1 问题描述169\n6.2 模型构建171\n6.2.1 基本条件与标定偏差形式化172\n6.2.2 公交混合事件世界模型的预测关系172\n6.2.3 模型修正与策略价值协同模型174\n6.3 求解方法176\n6.3.1 预测方案自动选择机制177\n6.3.2 局部与递推置信度评价更新177\n6.3.3 公交混合事件模型与策略协同训练流程178\n6.3.4 模型误差传播与置信度递推尺度理论分析179\n6.4 仿真实验与结果分析181\n6.4.1 公交跨保真任务中一次拟合与原始置信度递推控制效果分析181\n6.4.2 模型样本权重衰减诊断与归一化置信度递推改进分析186\n6.4.3 独立初始化下的多线路公交服务水平对比（20种子主实验）192\n（一）相对于无世界模型混合训练基线的主结果与完整控制器对比192\n（二）相对于经典车头时距规则的对比与乘客时间构成分解195\n（三）计算耗时统计与模型系数扩展实验196\n6.4.4 实验结果综合讨论与两章分工边界197\n6.5 本章小结198\n第7章 总结与展望200\n7.1 研究总结200\n7.2 主要创新202\n7.3 研究展望204\n参考文献206\n附录A RE-SAC贝尔曼算子的数学证明225\n附录B BAPR动作补偿与模式误判的数学证明231\n附录C BAPR置信加权算子的数学证明241\n附录D CS-BAPR策略响应与贝尔曼算子的数学证明247\n附录E MC-WM残差模型与条件排序的数学分析258\n附录F 公交世界模型的补充实验266"
+    },
+    {
+      "id": 7,
+      "kind": "content_change",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        380,
+        380
+      ],
+      "new_range_nonempty_1based": [
+        411,
+        411
+      ],
+      "section": "1.1 研究背景与意义",
+      "before": [
+        {
+          "text": "在真实工程场景中，公交调度算法研发通常面临如下现实约束：运营部门仅积累了有限周期的目标域固定离线数据以及一套计算简化的仿真工具，既不能在实车运营中在线试错，也无法保证简化仿真与真实路网完全吻合。针对这一现实矛盾，本文以目标环境运行数据的可得性及源仿真模型的可信度为演进主轴，将研究内容划分为四个层层递进的科学问题，分别对应第3章至第6章的核心研究工作：",
+          "style": "body",
+          "body_block_0based": 171,
+          "nonempty_paragraph_1based": 380,
+          "section": "1.1 研究背景与意义"
+        }
+      ],
+      "after": [
+        {
+          "text": "在真实工程场景中，公交调度算法研发通常面临如下现实约束：运营部门仅积累了有限周期的目标域离线数据以及一套计算简化的仿真工具，但是既不能在实车运营中在线试错，也无法保证简化仿真与真实路网完全吻合。针对这一现实矛盾，本文以目标环境运行数据的可得性及源仿真模型的可信度为演进主轴，将研究内容划分为四个层层递进的科学问题，分别对应第3章至第6章的核心研究工作：",
+          "style": "body",
+          "body_block_0based": 211,
+          "nonempty_paragraph_1based": 411,
+          "section": "目  录"
+        }
+      ],
+      "character_changes": [
+        {
+          "old": "固定",
+          "new": ""
+        },
+        {
+          "old": "",
+          "new": "但是"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "kind": "content_change",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        805,
+        805
+      ],
+      "new_range_nonempty_1based": [
+        836,
+        836
+      ],
+      "section": "3.1 问题描述",
+      "before": [
+        {
+          "text": "即便在基础统计规律保持平稳的随机环境中，双向逐站驻站强化学习仍面临车队个体经验失衡与动作价值估计失真两重严峻挑战。首先，在经验组织层面，双向按时刻表跨班次复用发车时，车队中不同物理车辆在全天承担的班次任务量并不均等：全天连续周转的主力车辆可积累大量到站决策样本，而仅在早晚高峰上线支援的机动调配车辆一天仅执行少量班次，各车能够获取的交互经验规模悬殊。若按传统多智能体方式为每辆车独立训练一套策略网络，经验匮乏的车辆训练周期过长且极易陷入局部退化，而个别车辆的异常驻站动作又会通过车头时距耦合波及全线后续车辆；反之，若简单令全车队共用一个不含身份与时空背景的普通网络，又会将不同站点客流密度、不同运营时段及不同周转阶段下的相近车头时距误判为完全相同的控制状态。因此，必须以车队共享方式组织单智能体学习，由同一套策略与价值网络依次处理全车队异步到站事件，同时引入车辆、站点、方向与时段的可学习类别特征嵌入以保留控制对象的异质性[87]。",
+          "style": "body",
+          "body_block_0based": 390,
+          "nonempty_paragraph_1based": 805,
+          "section": "3.1 问题描述"
+        }
+      ],
+      "after": [
+        {
+          "text": "即便在基础统计规律保持平稳的随机环境中，双向逐站驻站强化学习仍面临车队个体经验失衡与动作价值估计失真两重严峻挑战。首先，在经验组织层面，按时刻表双向发车且车辆可跨班次复用时，车队中不同物理车辆在全天承担的班次任务量并不均等：全天连续周转的主力车辆可积累大量到站决策样本，而仅在早晚高峰上线支援的机动调配车辆一天仅执行少量班次，各车能够获取的交互经验规模悬殊。若按传统多智能体方式为每辆车独立训练一套策略网络，经验匮乏的车辆训练周期过长且极易陷入局部退化，而个别车辆的异常驻站动作又会通过车头时距耦合波及全线后续车辆；反之，若简单令全车队共用一个不含身份与时空背景的普通网络，又会将不同站点客流密度、不同运营时段及不同周转阶段下的相近车头时距误判为完全相同的控制状态。因此，必须以车队共享方式组织单智能体学习，由同一套策略与价值网络依次处理全车队异步到站事件，同时引入车辆、站点、方向与时段的可学习类别特征嵌入以保留控制对象的异质性[87]。",
+          "style": "body",
+          "body_block_0based": 430,
+          "nonempty_paragraph_1based": 836,
+          "section": "3.1 问题描述"
+        }
+      ],
+      "character_changes": [
+        {
+          "old": "双向",
+          "new": ""
+        },
+        {
+          "old": "",
+          "new": "双向发车且车辆可"
+        },
+        {
+          "old": "发车",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "kind": "layout_only",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        848,
+        848
+      ],
+      "new_range_nonempty_1based": [
+        879,
+        881
+      ],
+      "section": "3.2.4 优化目标与奖励函数构造",
+      "before_text": "R(hf,hb)=ω(hf,hb) φ(hf)+1-ω(hf,hb) φ(hb)-0.5 | hf-hb |-20 I| hf-hs |>180 或 | hb-hs |>180",
+      "after_text": "R(hf,hb)\n=ω(hf,hb) φ(hf)+\n1-ω(hf,hb) φ(hb)-0.5 | hf-hb |-20 I| hf-hs |>180 或 | hb-hs |>180"
+    },
+    {
+      "id": 10,
+      "kind": "layout_only",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        852,
+        852
+      ],
+      "new_range_nonempty_1based": [
+        885,
+        886
+      ],
+      "section": "3.2.4 优化目标与奖励函数构造",
+      "before_text": "ef=| hf-hf* |, eb=| hb-hb* |, ωh=efef+eb+10-6, Rh=hf*max(hb*, 10-6), rbase=-ωh ef-(1-ωh) eb-| hf-Rh hb |1+Rh",
+      "after_text": "ef=| hf-hf* |, eb=| hb-hb* |, \nωh=efef+eb+10-6, Rh=hf*max(hb*, 10-6), rbase=-ωh ef-(1-ωh) eb-| hf-Rh hb |1+Rh"
+    },
+    {
+      "id": 11,
+      "kind": "layout_only",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        855,
+        855
+      ],
+      "new_range_nonempty_1based": [
+        889,
+        890
+      ],
+      "section": "3.2.4 优化目标与奖励函数构造",
+      "before_text": "pf=20 If tanh​ef-0.5 hf*30,  pb=20 Ib tanh​eb-0.5 hb*30,  rsched=rbase-max0, pf+pb",
+      "after_text": "pf=20 If tanh​ef-0.5 hf*30,  pb=20 Ib tanh​eb-0.5 hb*30,  \nrsched=rbase-max0, pf+pb"
+    },
+    {
+      "id": 12,
+      "kind": "layout_only",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        946,
+        946
+      ],
+      "new_range_nonempty_1based": [
+        981,
+        983
+      ],
+      "section": "3.3.2 鲁棒保守策略优化",
+      "before_text": "Lπ(θ)=Es∼D, a∼πθ⋅s αlogπθas- Qs, a+βlcb σQs, a  +βbc Es, a∼D, a∼πθ⋅s[ ∥a-a∥22 ], 其中 βlcb≤0",
+      "after_text": "Lπ(θ)=\nEs∼D, a∼πθ⋅s αlogπθas- Qs, a+βlcb σQs, a  +\nβbc Es, a∼D, a∼πθ⋅s[ ∥a-a∥22 ], 其中 βlcb≤0"
+    },
+    {
+      "id": 13,
+      "kind": "content_change",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        1484,
+        1484
+      ],
+      "new_range_nonempty_1based": [
+        1521,
+        1521
+      ],
+      "section": "3.5 本章小结",
+      "before": [
+        {
+          "text": "在双向单线路与长沙市6条双向骨干线路组成的共线走廊仿真验证中，上述车队经验共享表征与双重不确定性正则机制展现出显著的控制优势：同一RE-SAC框架下，可学习类别特征嵌入相较于传统独热编码与屏蔽类别输入，在基准需求、客流激增及运行模式切换场景下均大幅改善了前后车头时距均衡性并降低了乘客广义时间成本；在长沙多线路车头时距控制目标下，完整RE-SAC使全网平均计划间隔偏差与前后车头时距不均衡度较标准SAC分别减少 5.00 s 和 7.35 s，且消融实验证实移除权重范数正则或集成分歧惩罚中的任意一项均会导致控制性能显著退化。然而，本章方法建立在外部客流与路况基础统计规律平稳的前提之上，全程采用固定强度的保守评价系数；当多线路公交网络遭遇大型活动散场或通勤模式切换等数倍乃至数十倍的非平稳客流冲击时，固定保守强度的RE-SAC难以兼顾常规时段调节效率与突变时段状态外推稳定性，尚未能在多线路乘客广义时间成本目标下取得相对优势。",
+          "style": "body",
+          "body_block_0based": 620,
+          "nonempty_paragraph_1based": 1484,
+          "section": "3.5 本章小结"
+        }
+      ],
+      "after": [
+        {
+          "text": "在双向单线路与长沙市6条双向骨干线路组成的共线走廊仿真验证中，上述车队经验共享表征与双重不确定性正则机制展现出显著的控制优势：同一RE-SAC框架下，可学习类别特征嵌入相较于传统独热编码与屏蔽类别输入，在基准需求、客流激增及运行模式切换场景下均大幅改善了前后车头时距均衡性并降低了乘客广义时间成本；在长沙多线路车头时距控制目标下，完整RE-SAC使全网平均计划间隔偏差与前后车头时距不均衡度较标准SAC分别减少 5.00\" s\"  和 7.35\" s\" ，且消融实验证实移除权重范数正则或集成分歧惩罚中的任意一项均会导致控制性能显著退化。然而，本章方法建立在外部客流与路况基础统计规律平稳的前提之上，全程采用固定强度的保守评价系数；当多线路公交网络遭遇大型活动散场或通勤模式切换等数倍乃至数十倍的非平稳客流冲击时，固定保守强度的RE-SAC难以兼顾常规时段调节效率与突变时段状态外推稳定性，尚未能在多线路乘客广义时间成本目标下取得相对优势。",
+          "style": "body",
+          "body_block_0based": 663,
+          "nonempty_paragraph_1based": 1521,
+          "section": "3.5 本章小结"
+        }
+      ],
+      "character_changes": [
+        {
+          "old": "",
+          "new": "\""
+        },
+        {
+          "old": "",
+          "new": "\" "
+        },
+        {
+          "old": "",
+          "new": "\""
+        },
+        {
+          "old": "",
+          "new": "\" "
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "kind": "layout_only",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        1598,
+        1598
+      ],
+      "new_range_nonempty_1based": [
+        1635,
+        1637
+      ],
+      "section": "4.3.3 动作外推误差界与冻结置信加权算子理论分析",
+      "before_text": "π(x)-πref(x) =  π(x0)-πref(x0) + Dπ(x0)-Dπref(x0)  d+01 Dπ(ζ(u))-Dπ(x0)-Dπref(ζ(u))-Dπref(x0)  d du",
+      "after_text": "π(x)-πref(x) =\n  π(x0)-πref(x0) + Dπ(x0)-Dπref(x0)  d+\n01 Dπ(ζ(u))-Dπ(x0)-Dπref(ζ(u))-Dπref(x0)  d du"
+    },
+    {
+      "id": 15,
+      "kind": "layout_only",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        1608,
+        1608
+      ],
+      "new_range_nonempty_1based": [
+        1647,
+        1648
+      ],
+      "section": "4.3.3 动作外推误差界与冻结置信加权算子理论分析",
+      "before_text": "(TzQ)(s, a)=Rz(s, a)+γ  Es'∼Pz(⋅∣s,a) VQ(s') -λepi Γepiz(s, a)-λsym Γsymz(s, a)-κalez(s, a) ",
+      "after_text": "(TzQ)(s, a)\n=Rz(s, a)+γ  Es'∼Pz(⋅∣s,a) VQ(s') -λepi Γepiz(s, a)-λsym Γsymz(s, a)-κalez(s, a) "
+    },
+    {
+      "id": 16,
+      "kind": "content_change",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        1619,
+        1619
+      ],
+      "new_range_nonempty_1based": [
+        1659,
+        1659
+      ],
+      "section": "4.4.1 实验设计与对比配置",
+      "before": [
+        {
+          "text": "本章仿真实验首先考察BAPR近期统计反馈调节、六项训练稳定化设计以及四类策略输出映射结构（ReLU、tanh、NAU/NMU算术输出与KAN）在全程需求放大、回合内阶跃突变与多形态反复冲击下的车头时距控制表现；进而检验短时需求脉冲后的站台滞留队列恢复边界及受控动力学系统中的在线模式识别补偿机理；最后在六类非平稳客流场景中直接对比完整CS-BAPR与第3章RE-SAC在乘客广义时间成本与车头时距指标上的协同改善幅度，并通过消融实验厘清各组成模块的贡献边界。",
+          "style": "body",
+          "body_block_0based": 731,
+          "nonempty_paragraph_1based": 1619,
+          "section": "4.4.1 实验设计与对比配置"
+        }
+      ],
+      "after": [
+        {
+          "text": "本章仿真实验首先考察BAPR近期统计反馈调节、六项训练稳定化设计以及四类策略输出映射结构（ReLU、tanh、NAU/NMU算术输出与KAN）在全程需求放大、回合内阶跃突变与多形态反复冲击下的车头时距控制表现；进而检验短时需求脉冲后的站台滞留队列恢复边界及受控动力学系统中的在线模式识别补偿机理；最后在六类非平稳客流场景中直接对比完整CS-BAPR与第3章RE-SAC在乘客广义时间成本与车头时距指标上的协同改善幅度，并通过消融实验理清各组成模块的贡献边界。",
+          "style": "body",
+          "body_block_0based": 773,
+          "nonempty_paragraph_1based": 1659,
+          "section": "4.4.1 实验设计与对比配置"
+        }
+      ],
+      "character_changes": [
+        {
+          "old": "厘",
+          "new": "理"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "kind": "layout_only",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        2086,
+        2086
+      ],
+      "new_range_nonempty_1based": [
+        2126,
+        2128
+      ],
+      "section": "5.2.1 基本条件与两项任务设置",
+      "before_text": "Varpm = E Var(pm  pn +Var E[pm  pn  = 1m E pn1-pn +Varpn = p(1-p) 1n+1-1/nm ",
+      "after_text": "Varpm =\n E Var(pm  pn +Var E[pm  pn  =\n 1m E pn1-pn +Varpn = p(1-p) 1n+1-1/nm "
+    },
+    {
+      "id": 18,
+      "kind": "layout_only",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        2142,
+        2142
+      ],
+      "new_range_nonempty_1based": [
+        2184,
+        2186
+      ],
+      "section": "5.2.2 同时到站车组状态编码与优化目标",
+      "before_text": "Csys = 0Thor 2 Nw(τ)+Nb(τ)  dτ = p∈Pdep​ 20ThorIpw(τ) dτ+0ThorIpb(τ) dτ  = p∈Pdep​ 2 Tpw+Tpb ",
+      "after_text": "Csys = \n0Thor 2 Nw(τ)+Nb(τ)  dτ = \np∈Pdep​ 20ThorIpw(τ) dτ+0ThorIpb(τ) dτ  = p∈Pdep​ 2 Tpw+Tpb "
+    },
+    {
+      "id": 19,
+      "kind": "layout_only",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        2172,
+        2172
+      ],
+      "new_range_nonempty_1based": [
+        2216,
+        2218
+      ],
+      "section": "5.2.3 跨保真混合训练的策略与价值模型",
+      "before_text": "LQ,mixϕk = E(s, a, r, s', d)∼Doff (Qϕk(s, a)-ymix)2  + E(s, a, r, s', Δt, d)∼Dsim wsim (Qϕk(s, a)-ymix)2 ",
+      "after_text": "LQ,mixϕk =\n E(s, a, r, s', d)∼Doff (Qϕk(s, a)-ymix)2  +\n E(s, a, r, s', Δt, d)∼Dsim wsim (Qϕk(s, a)-ymix)2 "
+    },
+    {
+      "id": 20,
+      "kind": "layout_only",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        2183,
+        2183
+      ],
+      "new_range_nonempty_1based": [
+        2229,
+        2231
+      ],
+      "section": "5.3.1 纯离线学习与目标环境在线微调方法",
+      "before_text": "Lπ,off-RESAC(θ) = Es∼Doff, a∼πθ(⋅∣s) αlogπθ(a∣s)- Q(s, a)+βlcb σQ(s, a)  +βbc E(s, a)∼Doff, a∼πθ(⋅∣s)[ ∥a-a∥22 ]",
+      "after_text": "Lπ,off-RESAC(θ) =\n Es∼Doff, a∼πθ(⋅∣s) αlogπθ(a∣s)- Q(s, a)+βlcb σQ(s, a)  +\nβbc E(s, a)∼Doff, a∼πθ(⋅∣s)[ ∥a-a∥22 ]"
+    },
+    {
+      "id": 21,
+      "kind": "content_change",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        2487,
+        2487
+      ],
+      "new_range_nonempty_1based": [
+        2535,
+        2535
+      ],
+      "section": "5.5 本章小结",
+      "before": [
+        {
+          "text": "在此基础上，本章基于H2O+框架构建了“目标域固定离线数据IQL价值与策略初始化＋快速源仿真在线预热与探索采样＋源域与目标域样本等量混合回放更新”的三阶段公交跨保真训练流程。在长沙市6条双向线路组成的SUMO高保真目标环境测试中，在完全相同的目标域固定离线数据与完全相同的网络梯度更新预算下，跨保真混合训练相较于纯离线IQL训练在基准需求与1.25倍高需求场景下使全系统人均广义时间成本分别平均减少 16.66 s 和 19.75 s，且在全部独立重复训练中均取得一致的正向服务改善。这证明借助标定源仿真为当前策略的新颖驻站动作提供在线探索反馈、同时保留目标域真实历史数据锚定样本内价值尺度，能够在零目标环境试错风险下有效突破纯离线学习的动作覆盖瓶颈。然而，本章跨保真混合训练的有效性建立在源仿真参数标定充分可信的前提之上；域分类器泛化诊断表明，基于样本重加权的重要性采样仅能调整已有源域转移样本在损失函数中的权重占比，而无法修正源仿真因标定失配已经生成的失准后继状态与区间乘客成本。",
+          "style": "body",
+          "body_block_0based": 981,
+          "nonempty_paragraph_1based": 2487,
+          "section": "5.5 本章小结"
+        }
+      ],
+      "after": [
+        {
+          "text": "在此基础上，本章基于H2O+框架构建了“目标域固定离线数据IQL价值与策略初始化＋快速源仿真在线预热与探索采样＋源域与目标域样本等量混合回放更新”的三阶段公交跨保真训练流程。在长沙市6条双向线路组成的SUMO高保真目标环境测试中，在完全相同的目标域固定离线数据与完全相同的网络梯度更新预算下，跨保真混合训练相较于纯离线IQL训练在基准需求与1.25倍高需求场景下使全系统人均广义时间成本分别平均减少 16.66\" s\"  和 19.75\" s\" ，且在全部独立重复训练中均取得一致的正向服务改善。这证明借助标定源仿真为当前策略的新颖驻站动作提供在线探索反馈、同时保留目标域真实历史数据锚定样本内价值尺度，能够在零目标环境试错风险下有效突破纯离线学习的动作覆盖瓶颈。然而，本章跨保真混合训练的有效性建立在源仿真参数标定充分可信的前提之上；域分类器泛化诊断表明，基于样本重加权的重要性采样仅能调整已有源域转移样本在损失函数中的权重占比，而无法修正源仿真因标定失配已经生成的失准后继状态与区间乘客成本。",
+          "style": "body",
+          "body_block_0based": 1028,
+          "nonempty_paragraph_1based": 2535,
+          "section": "5.5 本章小结"
+        }
+      ],
+      "character_changes": [
+        {
+          "old": "",
+          "new": "\""
+        },
+        {
+          "old": "",
+          "new": "\" "
+        },
+        {
+          "old": "",
+          "new": "\""
+        },
+        {
+          "old": "",
+          "new": "\" "
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "kind": "layout_only",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        2567,
+        2567
+      ],
+      "new_range_nonempty_1based": [
+        2615,
+        2617
+      ],
+      "section": "6.2.3 模型修正与策略价值协同模型",
+      "before_text": "LQ(ϕk) = 0.75 Lenv(ϕk) + 0.25 Lmod(ϕk),  Lmod(ϕk) = Ei wiΔ lHQϕk(si, ai)-yi ",
+      "after_text": "LQ(ϕk) = \n0.75 Lenv(ϕk) + 0.25 Lmod(ϕk),  \nLmod(ϕk) = Ei wiΔ lHQϕk(si, ai)-yi "
+    },
+    {
+      "id": 23,
+      "kind": "layout_only",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        2603,
+        2603
+      ],
+      "new_range_nonempty_1based": [
+        2653,
+        2654
+      ],
+      "section": "6.3.4 模型误差传播与置信度递推尺度理论分析",
+      "before_text": "Jtgtπ⋆-Jtgtπ⋆ =  Jtgtπ⋆-Jmdlπ⋆ + Jmdlπ⋆-Jmdlπ⋆ + Jmdlπ⋆-Jtgtπ⋆  ≤ 2 ε",
+      "after_text": "Jtgtπ⋆-Jtgtπ⋆ =\n  Jtgtπ⋆-Jmdlπ⋆ + Jmdlπ⋆-Jmdlπ⋆ + Jmdlπ⋆-Jtgtπ⋆  ≤ 2 ε"
+    },
+    {
+      "id": 24,
+      "kind": "content_change",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        2822,
+        2822
+      ],
+      "new_range_nonempty_1based": [
+        2873,
+        2873
+      ],
+      "section": "6.4.4 实验结果综合讨论与两章分工边界",
+      "before": [
+        {
+          "text": "第二，跨保真混合训练与MC-WM世界模型修正的分工演进关系。实验数据显示，MC-WM在源仿真正常标定条件下同样能使人均广义时间成本平均减少 51.14 s，说明世界模型辅助并非只有在源仿真标定彻底失效后才可使用；然而，在正常标定条件下，第5章的无世界模型混合训练本身已能可靠工作（显著优于纯离线学习），且无需承担世界模型拟合与一步样本生成所带来的额外 66.2% 训练时间开销（单线程CPU继续训练耗时由 62.02 分钟增至 103.07 分钟，约为基线的 1.66 倍），因此当源仿真标定充分可信时，第5章的跨保真混合训练是计算性价比更高的默认选择。而随着目标城市运行环境演变或标定粗糙导致源仿真偏差扩大（由正常标定恶化至联合50%与75%偏差），无世界模型混合基线的成本不断上升（由 2,678.11 s 升至 2,695.43 s，性能持续退化），第5章的立章前提被打破，此时MC-WM的模型修正收益从 51.14 s 一路攀升至 69.93 s 与 87.05 s（相对降幅从 1.91% 增至 3.23%）。由此，第5章与第6章构成了严密的递进增强体系：源仿真标定可达时以第5章跨保真混合训练为基础默认方案，源仿真标定不足或发生条件漂移时以第6章MC-WM世界模型修正增强跨保真训练。",
+          "style": "body",
+          "body_block_0based": 1126,
+          "nonempty_paragraph_1based": 2822,
+          "section": "6.4.4 实验结果综合讨论与两章分工边界"
+        }
+      ],
+      "after": [
+        {
+          "text": "第二，跨保真混合训练与MC-WM世界模型修正的分工演进关系。实验数据显示，MC-WM在源仿真正常标定条件下同样能使人均广义时间成本平均减少 51.14 s，说明世界模型辅助并非只有在源仿真标定彻底失效后才可使用；然而，在正常标定条件下，第5章的无世界模型混合训练本身已能可靠工作（显著优于纯离线学习），且无需承担世界模型拟合与一步样本生成所带来的额外 66.2% 训练时间开销（单线程CPU继续训练耗时由 62.02 分钟增至 103.07 分钟，约为基线的 1.66 倍），因此当源仿真标定充分可信时，跨保真混合训练是计算性价比更高的默认选择。而随着目标城市运行环境演变或标定粗糙导致源仿真偏差扩大（由正常标定恶化至联合50%与75%偏差），无世界模型混合基线的成本不断上升（由 2,678.11 s 升至 2,695.43 s，性能持续退化），第5章的立章前提被打破，此时MC-WM的模型修正收益从 51.14 s 一路攀升至 69.93 s 与 87.05 s（相对降幅从 1.91% 增至 3.23%）。由此，第5章与第6章构成了严密的递进增强体系：源仿真标定可实现时以章跨保真混合训练为基础默认方案，源仿真标定不足或发生条件漂移时以第6章MC-WM世界模型修正增强跨保真训练。",
+          "style": "body",
+          "body_block_0based": 1172,
+          "nonempty_paragraph_1based": 2873,
+          "section": "6.4.4 实验结果综合讨论与两章分工边界"
+        }
+      ],
+      "character_changes": [
+        {
+          "old": "第5章的",
+          "new": ""
+        },
+        {
+          "old": "达",
+          "new": "实现"
+        },
+        {
+          "old": "第5",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "kind": "content_change",
+      "operation": "replace",
+      "old_range_nonempty_1based": [
+        2826,
+        2826
+      ],
+      "new_range_nonempty_1based": [
+        2877,
+        2877
+      ],
+      "section": "6.5 本章小结",
+      "before": [
+        {
+          "text": "依托长沙市6条双向公交线路在SUMO高保真目标环境中开展的大规模独立初始化对比实验，充分验证了MC-WM抵御源仿真标定失配、改善乘客出行服务的能力。当快速源仿真的车速、客流需求、服务耗时与信号延误四类参数由正常标定恶化至联合50%偏差与联合75%偏差时，无世界模型混合训练基线的控制性能持续退化并跌落至与固定车头时距规则相当的水平；而MC-WM相较于无世界模型跨保真混合训练基线，在正常标定、联合50%源偏差和联合75%源偏差下使全系统人均广义时间成本分别平均减少 51.14 s、69.93 s 和 87.05 s，且相较于经典Daganzo式车头时距规则分别减少 57.67 s、70.67 s 和 76.26 s。乘客时间构成分解进一步表明，MC-WM学会了在复杂多线路走廊中精准权衡站台候车代价与车内等待代价，以每名乘客车内乘车时间仅微增 1.34 至 4.03 s 的微小代价，换取了平均候车时间高达 26.74 至 44.19 s 的显著缩减，且源仿真标定失配越严重，世界模型修正所带来的净服务收益越突出。同时，由于世界模型仅在训练阶段生成一步预测样本辅助评论家更新，在线部署阶段仍仅调用结构相同的轻量级策略网络直接输出驻站时长，不增加任何在线推理延迟。",
+          "style": "body",
+          "body_block_0based": 1130,
+          "nonempty_paragraph_1based": 2826,
+          "section": "6.5 本章小结"
+        }
+      ],
+      "after": [
+        {
+          "text": "依托长沙市6条双向公交线路在SUMO高保真目标环境中开展的大规模独立初始化对比实验，充分验证了MC-WM抵御源仿真标定失配、改善乘客出行服务的能力。当快速源仿真的车速、客流需求、服务耗时与信号延误四类参数由正常标定恶化至联合50%偏差与联合75%偏差时，无世界模型混合训练基线的控制性能持续退化并跌落至与固定车头时距规则相当的水平；而MC-WM相较于无世界模型跨保真混合训练基线，在正常标定、联合50%源偏差和联合75%源偏差下使全系统人均广义时间成本分别平均减少 51.14\" s\" 、69.93\" s\"  和 87.05\" s\" ，且相较于经典Daganzo式车头时距规则分别减少 57.67\" s\" 、70.67\" s\"  和 76.26\" s\" 。乘客时间构成分解进一步表明，MC-WM学会了在复杂多线路走廊中精准权衡站台候车代价与车内等待代价，以每名乘客车内乘车时间仅微增 1.34 至 4.03\" s\"  的微小代价，换取了平均候车时间高达 26.74 至 44.19\" s\"  的显著缩减，且源仿真标定失配越严重，世界模型修正所带来的净服务收益越突出。同时，由于世界模型仅在训练阶段生成一步预测样本辅助评论家更新，在线部署阶段仍仅调用结构相同的轻量级策略网络直接输出驻站时长，不增加任何在线推理延迟。",
+          "style": "body",
+          "body_block_0based": 1176,
+          "nonempty_paragraph_1based": 2877,
+          "section": "6.5 本章小结"
+        }
+      ],
+      "character_changes": [
+        {
+          "old": "",
+          "new": "\""
+        },
+        {
+          "old": "",
+          "new": "\" "
+        },
+        {
+          "old": "",
+          "new": "\""
+        },
+        {
+          "old": "",
+          "new": "\" "
+        },
+        {
+          "old": "",
+          "new": "\""
+        },
+        {
+          "old": "",
+          "new": "\" "
+        },
+        {
+          "old": "",
+          "new": "\""
+        },
+        {
+          "old": "",
+          "new": "\" "
+        },
+        {
+          "old": "",
+          "new": "\""
+        },
+        {
+          "old": "",
+          "new": "\" "
+        },
+        {
+          "old": "",
+          "new": "\""
+        },
+        {
+          "old": "",
+          "new": "\" "
+        },
+        {
+          "old": "",
+          "new": "\""
+        },
+        {
+          "old": "",
+          "new": "\" "
+        },
+        {
+          "old": "",
+          "new": "\""
+        },
+        {
+          "old": "",
+          "new": "\" "
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "kind": "content_change",
+      "operation": "insert",
+      "old_range_nonempty_1based": [
+        4009,
+        4008
+      ],
+      "new_range_nonempty_1based": [
+        4060,
+        4070
+      ],
+      "section": "7.3 研究展望",
+      "before": [],
+      "after": [
+        {
+          "text": "攻读学位期间主要的研究成果",
+          "style": "1",
+          "body_block_0based": 2093,
+          "nonempty_paragraph_1based": 4060,
+          "section": "7.3 研究展望"
+        },
+        {
+          "text": "一、学术论文",
+          "style": "",
+          "body_block_0based": 2094,
+          "nonempty_paragraph_1based": 4061,
+          "section": "7.3 研究展望"
+        },
+        {
+          "text": "[1]ZHANG Y. Single Agent Robust Deep Reinforcement Learning for Bus Fleet Control[EB/OL]. arXiv, 2026[2026-10-07]. https://arxiv.org/abs/2508.20784v2 (本人第一作者)",
+          "style": "",
+          "body_block_0based": 2095,
+          "nonempty_paragraph_1based": 4062,
+          "section": "7.3 研究展望"
+        },
+        {
+          "text": "[2]ZHANG Y, ZHENG L. RE-SAC: Disentangling aleatoric and epistemic risks in bus fleet control: A stable and robust ensemble DRL approach[EB/OL]. arXiv, 2026[2026-10-05]. https://arxiv.org/abs/2603.18396v4  (本人第一作者)",
+          "style": "",
+          "body_block_0based": 2096,
+          "nonempty_paragraph_1based": 4063,
+          "section": "7.3 研究展望"
+        },
+        {
+          "text": "[3]ZHANG Y, ZHENG L. BAPR: Bayesian amnesic piecewise-robust reinforcement learning for non-stationary continuous control[EB/OL]. arXiv, 2026[2026-10-05]. https://arxiv.org/abs/2605.16170v2  (本人第一作者)",
+          "style": "",
+          "body_block_0based": 2097,
+          "nonempty_paragraph_1based": 4064,
+          "section": "7.3 研究展望"
+        },
+        {
+          "text": "[4]ZHANG Y, ZHENG L. Arithmetic Actor Heads and Training Stabilization for Out-of-Distribution Reinforcement Learning[EB/OL]. arXiv, 2026[2026-10-06]. https://arxiv.org/abs/2610.05143v1  (本人第一作者)",
+          "style": "",
+          "body_block_0based": 2098,
+          "nonempty_paragraph_1based": 4065,
+          "section": "7.3 研究展望"
+        },
+        {
+          "text": "[5]ZHANG Y, ZHANG Q, ZHENG L. Completion-Aware Cross-Fidelity Offline-to-Online Reinforcement Learning for Multi-Line Bus Holding[EB/OL]. arXiv, 2026[2026-10-05]. https://arxiv.org/abs/2609.39868v1  (本人第一作者)",
+          "style": "",
+          "body_block_0based": 2099,
+          "nonempty_paragraph_1based": 4066,
+          "section": "7.3 研究展望"
+        },
+        {
+          "text": "[6]ZHANG Y, ZHENG L. Calibration-risk routing for controlled world-model adaptation[EB/OL]. arXiv, 2026[2026-10-05]. https://arxiv.org/abs/2610.01001v1 (本人第一作者)",
+          "style": "",
+          "body_block_0based": 2100,
+          "nonempty_paragraph_1based": 4067,
+          "section": "7.3 研究展望"
+        },
+        {
+          "text": "[7]",
+          "style": "",
+          "body_block_0based": 2101,
+          "nonempty_paragraph_1based": 4068,
+          "section": "7.3 研究展望"
+        },
+        {
+          "text": "致  谢",
+          "style": "1",
+          "body_block_0based": 2104,
+          "nonempty_paragraph_1based": 4069,
+          "section": "7.3 研究展望"
+        },
+        {
+          "text": "感谢导师，感谢国家。",
+          "style": "",
+          "body_block_0based": 2105,
+          "nonempty_paragraph_1based": 4070,
+          "section": "7.3 研究展望"
+        }
+      ],
+      "character_changes": [
+        {
+          "old": "",
+          "new": "攻读学位期间主要的研究成果\n一、学术论文\n[1]ZHANG Y. Single Agent Robust Deep Reinforcement Learning for Bus Fleet Control[EB/OL]. arXiv, 2026[2026-10-07]. https://arxiv.org/abs/2508.20784v2 (本人第一作者)\n[2]ZHANG Y, ZHENG L. RE-SAC: Disentangling aleatoric and epistemic risks in bus fleet control: A stable and robust ensemble DRL approach[EB/OL]. arXiv, 2026[2026-10-05]. https://arxiv.org/abs/2603.18396v4  (本人第一作者)\n[3]ZHANG Y, ZHENG L. BAPR: Bayesian amnesic piecewise-robust reinforcement learning for non-stationary continuous control[EB/OL]. arXiv, 2026[2026-10-05]. https://arxiv.org/abs/2605.16170v2  (本人第一作者)\n[4]ZHANG Y, ZHENG L. Arithmetic Actor Heads and Training Stabilization for Out-of-Distribution Reinforcement Learning[EB/OL]. arXiv, 2026[2026-10-06]. https://arxiv.org/abs/2610.05143v1  (本人第一作者)\n[5]ZHANG Y, ZHANG Q, ZHENG L. Completion-Aware Cross-Fidelity Offline-to-Online Reinforcement Learning for Multi-Line Bus Holding[EB/OL]. arXiv, 2026[2026-10-05]. https://arxiv.org/abs/2609.39868v1  (本人第一作者)\n[6]ZHANG Y, ZHENG L. Calibration-risk routing for controlled world-model adaptation[EB/OL]. arXiv, 2026[2026-10-05]. https://arxiv.org/abs/2610.01001v1 (本人第一作者)\n[7]\n致  谢\n感谢导师，感谢国家。"
+        }
+      ]
+    }
+  ],
+  "chapter_heading_missing": [],
+  "chapter_heading_diffs": [],
+  "bibliography_diffs": [],
+  "navigation": {
+    "baseline": {
+      "internal_hyperlinks": 603,
+      "field_count": 427,
+      "missing_anchor_or_field_targets": [],
+      "reference_link_label_mismatches": [],
+      "bad_external_relationship_ids": [],
+      "duplicate_bookmark_names": {},
+      "unpaired_bookmark_ids": {
+        "start_without_end": [],
+        "end_without_start": []
+      },
+      "field_instructions": [
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030987 \\h ",
+          "target": "_Toc243030987"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030988 \\h ",
+          "target": "_Toc243030988"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030989 \\h ",
+          "target": "_Toc243030989"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030990 \\h ",
+          "target": "_Toc243030990"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030991 \\h ",
+          "target": "_Toc243030991"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030992 \\h ",
+          "target": "_Toc243030992"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030993 \\h ",
+          "target": "_Toc243030993"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030994 \\h ",
+          "target": "_Toc243030994"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030995 \\h ",
+          "target": "_Toc243030995"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030996 \\h ",
+          "target": "_Toc243030996"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030997 \\h ",
+          "target": "_Toc243030997"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030998 \\h ",
+          "target": "_Toc243030998"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030999 \\h ",
+          "target": "_Toc243030999"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031000 \\h ",
+          "target": "_Toc243031000"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031001 \\h ",
+          "target": "_Toc243031001"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031002 \\h ",
+          "target": "_Toc243031002"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031003 \\h ",
+          "target": "_Toc243031003"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031004 \\h ",
+          "target": "_Toc243031004"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031005 \\h ",
+          "target": "_Toc243031005"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031006 \\h ",
+          "target": "_Toc243031006"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031007 \\h ",
+          "target": "_Toc243031007"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031008 \\h ",
+          "target": "_Toc243031008"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031009 \\h ",
+          "target": "_Toc243031009"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031010 \\h ",
+          "target": "_Toc243031010"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031011 \\h ",
+          "target": "_Toc243031011"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031012 \\h ",
+          "target": "_Toc243031012"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031013 \\h ",
+          "target": "_Toc243031013"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031014 \\h ",
+          "target": "_Toc243031014"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031015 \\h ",
+          "target": "_Toc243031015"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031016 \\h ",
+          "target": "_Toc243031016"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031017 \\h ",
+          "target": "_Toc243031017"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031018 \\h ",
+          "target": "_Toc243031018"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031019 \\h ",
+          "target": "_Toc243031019"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031020 \\h ",
+          "target": "_Toc243031020"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031021 \\h ",
+          "target": "_Toc243031021"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031022 \\h ",
+          "target": "_Toc243031022"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031023 \\h ",
+          "target": "_Toc243031023"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031024 \\h ",
+          "target": "_Toc243031024"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031025 \\h ",
+          "target": "_Toc243031025"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031026 \\h ",
+          "target": "_Toc243031026"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031027 \\h ",
+          "target": "_Toc243031027"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031028 \\h ",
+          "target": "_Toc243031028"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031029 \\h ",
+          "target": "_Toc243031029"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031030 \\h ",
+          "target": "_Toc243031030"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031031 \\h ",
+          "target": "_Toc243031031"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031032 \\h ",
+          "target": "_Toc243031032"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031033 \\h ",
+          "target": "_Toc243031033"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031034 \\h ",
+          "target": "_Toc243031034"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031035 \\h ",
+          "target": "_Toc243031035"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031036 \\h ",
+          "target": "_Toc243031036"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031037 \\h ",
+          "target": "_Toc243031037"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031038 \\h ",
+          "target": "_Toc243031038"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031039 \\h ",
+          "target": "_Toc243031039"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031040 \\h ",
+          "target": "_Toc243031040"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031041 \\h ",
+          "target": "_Toc243031041"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031042 \\h ",
+          "target": "_Toc243031042"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031043 \\h ",
+          "target": "_Toc243031043"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031044 \\h ",
+          "target": "_Toc243031044"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031045 \\h ",
+          "target": "_Toc243031045"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031046 \\h ",
+          "target": "_Toc243031046"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031047 \\h ",
+          "target": "_Toc243031047"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031048 \\h ",
+          "target": "_Toc243031048"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031049 \\h ",
+          "target": "_Toc243031049"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031050 \\h ",
+          "target": "_Toc243031050"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031051 \\h ",
+          "target": "_Toc243031051"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031052 \\h ",
+          "target": "_Toc243031052"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031053 \\h ",
+          "target": "_Toc243031053"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031054 \\h ",
+          "target": "_Toc243031054"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031055 \\h ",
+          "target": "_Toc243031055"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031056 \\h ",
+          "target": "_Toc243031056"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031057 \\h ",
+          "target": "_Toc243031057"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031058 \\h ",
+          "target": "_Toc243031058"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031059 \\h ",
+          "target": "_Toc243031059"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031060 \\h ",
+          "target": "_Toc243031060"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031061 \\h ",
+          "target": "_Toc243031061"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031062 \\h ",
+          "target": "_Toc243031062"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031063 \\h ",
+          "target": "_Toc243031063"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031064 \\h ",
+          "target": "_Toc243031064"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031065 \\h ",
+          "target": "_Toc243031065"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031066 \\h ",
+          "target": "_Toc243031066"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031067 \\h ",
+          "target": "_Toc243031067"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031068 \\h ",
+          "target": "_Toc243031068"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031069 \\h ",
+          "target": "_Toc243031069"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031070 \\h ",
+          "target": "_Toc243031070"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031071 \\h ",
+          "target": "_Toc243031071"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031072 \\h ",
+          "target": "_Toc243031072"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031073 \\h ",
+          "target": "_Toc243031073"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031074 \\h ",
+          "target": "_Toc243031074"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031075 \\h ",
+          "target": "_Toc243031075"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031076 \\h ",
+          "target": "_Toc243031076"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031077 \\h ",
+          "target": "_Toc243031077"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031078 \\h ",
+          "target": "_Toc243031078"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031079 \\h ",
+          "target": "_Toc243031079"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031080 \\h ",
+          "target": "_Toc243031080"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031081 \\h ",
+          "target": "_Toc243031081"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031082 \\h ",
+          "target": "_Toc243031082"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031083 \\h ",
+          "target": "_Toc243031083"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031084 \\h ",
+          "target": "_Toc243031084"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031085 \\h ",
+          "target": "_Toc243031085"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031086 \\h ",
+          "target": "_Toc243031086"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031087 \\h ",
+          "target": "_Toc243031087"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031088 \\h ",
+          "target": "_Toc243031088"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031089 \\h ",
+          "target": "_Toc243031089"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031090 \\h ",
+          "target": "_Toc243031090"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031091 \\h ",
+          "target": "_Toc243031091"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031092 \\h ",
+          "target": "_Toc243031092"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031093 \\h ",
+          "target": "_Toc243031093"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031094 \\h ",
+          "target": "_Toc243031094"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031095 \\h ",
+          "target": "_Toc243031095"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031096 \\h ",
+          "target": "_Toc243031096"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031097 \\h ",
+          "target": "_Toc243031097"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031098 \\h ",
+          "target": "_Toc243031098"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031099 \\h ",
+          "target": "_Toc243031099"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031100 \\h ",
+          "target": "_Toc243031100"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031101 \\h ",
+          "target": "_Toc243031101"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031102 \\h ",
+          "target": "_Toc243031102"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031103 \\h ",
+          "target": "_Toc243031103"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "TOC \\h \\z \\t \"模板迁移 chapter,1,模板迁移 h2,2,模板迁移 h3,3,模板迁移 h4,4,模板迁移 bibliography_title,1\""
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF appC \\h \\* CHARFORMAT ",
+          "target": "appC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF appD \\h \\* CHARFORMAT ",
+          "target": "appD"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqA_005 \\h \\* CHARFORMAT ",
+          "target": "eqA_005"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqA_004 \\h \\* CHARFORMAT ",
+          "target": "eqA_004"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_l \\h \\* CHARFORMAT ",
+          "target": "th_A_1_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_l \\h \\* CHARFORMAT ",
+          "target": "th_A_1_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqA_010 \\h \\* CHARFORMAT ",
+          "target": "eqA_010"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF appC \\h \\* CHARFORMAT ",
+          "target": "appC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_l \\h \\* CHARFORMAT ",
+          "target": "th_A_1_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_2_l \\h \\* CHARFORMAT ",
+          "target": "th_A_2_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_t \\h \\* CHARFORMAT ",
+          "target": "th_A_1_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF appC \\h \\* CHARFORMAT ",
+          "target": "appC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqA_wasserstein_bound \\h \\* CHARFORMAT ",
+          "target": "eqA_wasserstein_bound"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_4_p \\h \\* CHARFORMAT ",
+          "target": "th_A_4_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_B_1_l \\h \\* CHARFORMAT ",
+          "target": "th_B_1_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_B_3_l \\h \\* CHARFORMAT ",
+          "target": "th_B_3_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_B_3_l \\h \\* CHARFORMAT ",
+          "target": "th_B_3_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_B_7_t \\h \\* CHARFORMAT ",
+          "target": "th_B_7_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_B_8_t \\h \\* CHARFORMAT ",
+          "target": "th_B_8_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_B_6_t \\h \\* CHARFORMAT ",
+          "target": "th_B_6_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_B_9_t \\h \\* CHARFORMAT ",
+          "target": "th_B_9_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_B_9_t \\h \\* CHARFORMAT ",
+          "target": "th_B_9_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " HYPERLINK \\l \"latest_ref_132\" "
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_C_1_p \\h \\* CHARFORMAT ",
+          "target": "th_C_1_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_l \\h \\* CHARFORMAT ",
+          "target": "th_A_1_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_t \\h \\* CHARFORMAT ",
+          "target": "th_A_1_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_c \\h \\* CHARFORMAT ",
+          "target": "th_A_1_c"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_C_1_t \\h \\* CHARFORMAT ",
+          "target": "th_C_1_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_C_2_p \\h \\* CHARFORMAT ",
+          "target": "th_C_2_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_C_1_t \\h \\* CHARFORMAT ",
+          "target": "th_C_1_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqC_029 \\h \\* CHARFORMAT ",
+          "target": "eqC_029"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqC_030 \\h \\* CHARFORMAT ",
+          "target": "eqC_030"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_C_3_t \\h \\* CHARFORMAT ",
+          "target": "th_C_3_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " SEQ EqD \\c \\* ARABIC "
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " SEQ EqD \\c \\* ARABIC "
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " SEQ EqD \\c \\* ARABIC "
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " SEQ EqD \\c \\* ARABIC "
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " SEQ EqD \\c \\* ARABIC "
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_3_p \\h \\* CHARFORMAT ",
+          "target": "th_D_3_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_2_p \\h \\* CHARFORMAT ",
+          "target": "th_D_2_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_5_p \\h \\* CHARFORMAT ",
+          "target": "th_D_5_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_4_p \\h \\* CHARFORMAT ",
+          "target": "th_D_4_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_C_1_p \\h \\* CHARFORMAT ",
+          "target": "th_C_1_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_t \\h \\* CHARFORMAT ",
+          "target": "th_A_1_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_c \\h \\* CHARFORMAT ",
+          "target": "th_A_1_c"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_C_2_p \\h \\* CHARFORMAT ",
+          "target": "th_C_2_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_11_p \\h \\* CHARFORMAT ",
+          "target": "th_D_11_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_4_p \\h \\* CHARFORMAT ",
+          "target": "th_D_4_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_12_p \\h \\* CHARFORMAT ",
+          "target": "th_D_12_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_2_p \\h \\* CHARFORMAT ",
+          "target": "th_D_2_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_3_p \\h \\* CHARFORMAT ",
+          "target": "th_D_3_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_3_p \\h \\* CHARFORMAT ",
+          "target": "th_D_3_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_2_p \\h \\* CHARFORMAT ",
+          "target": "th_D_2_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqE_006 \\h \\* CHARFORMAT ",
+          "target": "eqE_006"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqE_007 \\h \\* CHARFORMAT ",
+          "target": "eqE_007"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqE_005 \\h \\* CHARFORMAT ",
+          "target": "eqE_005"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_E_2_l \\h \\* CHARFORMAT ",
+          "target": "th_E_2_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqE_009 \\h \\* CHARFORMAT ",
+          "target": "eqE_009"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqE_019 \\h \\* CHARFORMAT ",
+          "target": "eqE_019"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " SEQ EqE \\c \\* ARABIC "
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " SEQ EqE \\c \\* ARABIC "
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " SEQ EqE \\c \\* ARABIC "
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqE_confidence_scaling \\h \\* CHARFORMAT ",
+          "target": "eqE_confidence_scaling"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF tblF_1 \\h \\* CHARFORMAT ",
+          "target": "tblF_1"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF figF_1 \\h \\* CHARFORMAT ",
+          "target": "figF_1"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF figF_2 \\h \\* CHARFORMAT ",
+          "target": "figF_2"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF figF_3 \\h \\* CHARFORMAT ",
+          "target": "figF_3"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF tblF_2 \\h \\* CHARFORMAT ",
+          "target": "tblF_2"
+        },
+        {
+          "part": "word/footer11.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer12.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer13.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer2.xml",
+          "instruction": "PAGE   \\* MERGEFORMAT"
+        },
+        {
+          "part": "word/footer14.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer3.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer4.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer15.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer16.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer6.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer10.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer7.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer8.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer9.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer5.xml",
+          "instruction": "PAGE  "
+        }
+      ]
+    },
+    "candidate": {
+      "internal_hyperlinks": 601,
+      "field_count": 423,
+      "missing_anchor_or_field_targets": [],
+      "reference_link_label_mismatches": [],
+      "bad_external_relationship_ids": [],
+      "duplicate_bookmark_names": {},
+      "unpaired_bookmark_ids": {
+        "start_without_end": [],
+        "end_without_start": []
+      },
+      "field_instructions": [
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030987 \\h ",
+          "target": "_Toc243030987"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030988 \\h ",
+          "target": "_Toc243030988"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030989 \\h ",
+          "target": "_Toc243030989"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030990 \\h ",
+          "target": "_Toc243030990"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030991 \\h ",
+          "target": "_Toc243030991"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030992 \\h ",
+          "target": "_Toc243030992"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030993 \\h ",
+          "target": "_Toc243030993"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030994 \\h ",
+          "target": "_Toc243030994"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030995 \\h ",
+          "target": "_Toc243030995"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030996 \\h ",
+          "target": "_Toc243030996"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030997 \\h ",
+          "target": "_Toc243030997"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030998 \\h ",
+          "target": "_Toc243030998"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243030999 \\h ",
+          "target": "_Toc243030999"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031000 \\h ",
+          "target": "_Toc243031000"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031001 \\h ",
+          "target": "_Toc243031001"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031002 \\h ",
+          "target": "_Toc243031002"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031003 \\h ",
+          "target": "_Toc243031003"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031004 \\h ",
+          "target": "_Toc243031004"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031005 \\h ",
+          "target": "_Toc243031005"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031006 \\h ",
+          "target": "_Toc243031006"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031007 \\h ",
+          "target": "_Toc243031007"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031008 \\h ",
+          "target": "_Toc243031008"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031009 \\h ",
+          "target": "_Toc243031009"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031010 \\h ",
+          "target": "_Toc243031010"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031011 \\h ",
+          "target": "_Toc243031011"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031012 \\h ",
+          "target": "_Toc243031012"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031013 \\h ",
+          "target": "_Toc243031013"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031014 \\h ",
+          "target": "_Toc243031014"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031015 \\h ",
+          "target": "_Toc243031015"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031016 \\h ",
+          "target": "_Toc243031016"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031017 \\h ",
+          "target": "_Toc243031017"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031018 \\h ",
+          "target": "_Toc243031018"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031019 \\h ",
+          "target": "_Toc243031019"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031020 \\h ",
+          "target": "_Toc243031020"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031021 \\h ",
+          "target": "_Toc243031021"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031022 \\h ",
+          "target": "_Toc243031022"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031023 \\h ",
+          "target": "_Toc243031023"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031024 \\h ",
+          "target": "_Toc243031024"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031025 \\h ",
+          "target": "_Toc243031025"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031026 \\h ",
+          "target": "_Toc243031026"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031027 \\h ",
+          "target": "_Toc243031027"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031028 \\h ",
+          "target": "_Toc243031028"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031029 \\h ",
+          "target": "_Toc243031029"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031030 \\h ",
+          "target": "_Toc243031030"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031031 \\h ",
+          "target": "_Toc243031031"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031032 \\h ",
+          "target": "_Toc243031032"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031033 \\h ",
+          "target": "_Toc243031033"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031034 \\h ",
+          "target": "_Toc243031034"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031035 \\h ",
+          "target": "_Toc243031035"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031036 \\h ",
+          "target": "_Toc243031036"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031037 \\h ",
+          "target": "_Toc243031037"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031038 \\h ",
+          "target": "_Toc243031038"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031042 \\h ",
+          "target": "_Toc243031042"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031043 \\h ",
+          "target": "_Toc243031043"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031044 \\h ",
+          "target": "_Toc243031044"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031045 \\h ",
+          "target": "_Toc243031045"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031046 \\h ",
+          "target": "_Toc243031046"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031047 \\h ",
+          "target": "_Toc243031047"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031048 \\h ",
+          "target": "_Toc243031048"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031049 \\h ",
+          "target": "_Toc243031049"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031050 \\h ",
+          "target": "_Toc243031050"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031051 \\h ",
+          "target": "_Toc243031051"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031052 \\h ",
+          "target": "_Toc243031052"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031053 \\h ",
+          "target": "_Toc243031053"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031054 \\h ",
+          "target": "_Toc243031054"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031055 \\h ",
+          "target": "_Toc243031055"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031056 \\h ",
+          "target": "_Toc243031056"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031057 \\h ",
+          "target": "_Toc243031057"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031058 \\h ",
+          "target": "_Toc243031058"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031059 \\h ",
+          "target": "_Toc243031059"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031060 \\h ",
+          "target": "_Toc243031060"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031061 \\h ",
+          "target": "_Toc243031061"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031062 \\h ",
+          "target": "_Toc243031062"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031063 \\h ",
+          "target": "_Toc243031063"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031064 \\h ",
+          "target": "_Toc243031064"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031065 \\h ",
+          "target": "_Toc243031065"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031066 \\h ",
+          "target": "_Toc243031066"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031067 \\h ",
+          "target": "_Toc243031067"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031068 \\h ",
+          "target": "_Toc243031068"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031069 \\h ",
+          "target": "_Toc243031069"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031070 \\h ",
+          "target": "_Toc243031070"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031071 \\h ",
+          "target": "_Toc243031071"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031072 \\h ",
+          "target": "_Toc243031072"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031073 \\h ",
+          "target": "_Toc243031073"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031074 \\h ",
+          "target": "_Toc243031074"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031075 \\h ",
+          "target": "_Toc243031075"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031076 \\h ",
+          "target": "_Toc243031076"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031077 \\h ",
+          "target": "_Toc243031077"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031078 \\h ",
+          "target": "_Toc243031078"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031079 \\h ",
+          "target": "_Toc243031079"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031080 \\h ",
+          "target": "_Toc243031080"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031081 \\h ",
+          "target": "_Toc243031081"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031082 \\h ",
+          "target": "_Toc243031082"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031083 \\h ",
+          "target": "_Toc243031083"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031084 \\h ",
+          "target": "_Toc243031084"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031085 \\h ",
+          "target": "_Toc243031085"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031086 \\h ",
+          "target": "_Toc243031086"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031087 \\h ",
+          "target": "_Toc243031087"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031088 \\h ",
+          "target": "_Toc243031088"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031089 \\h ",
+          "target": "_Toc243031089"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031090 \\h ",
+          "target": "_Toc243031090"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031091 \\h ",
+          "target": "_Toc243031091"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031092 \\h ",
+          "target": "_Toc243031092"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031093 \\h ",
+          "target": "_Toc243031093"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031094 \\h ",
+          "target": "_Toc243031094"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031095 \\h ",
+          "target": "_Toc243031095"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031096 \\h ",
+          "target": "_Toc243031096"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031097 \\h ",
+          "target": "_Toc243031097"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031098 \\h ",
+          "target": "_Toc243031098"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031099 \\h ",
+          "target": "_Toc243031099"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031100 \\h ",
+          "target": "_Toc243031100"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031101 \\h ",
+          "target": "_Toc243031101"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031102 \\h ",
+          "target": "_Toc243031102"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " PAGEREF _Toc243031103 \\h ",
+          "target": "_Toc243031103"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "TOC \\h \\z \\t \"模板迁移 chapter,1,模板迁移 h2,2,模板迁移 h3,3,模板迁移 h4,4,模板迁移 bibliography_title,1\""
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF appC \\h \\* CHARFORMAT ",
+          "target": "appC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF appD \\h \\* CHARFORMAT ",
+          "target": "appD"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqA_005 \\h \\* CHARFORMAT  \\* MERGEFORMAT",
+          "target": "eqA_005"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqA_004 \\h \\* CHARFORMAT  \\* MERGEFORMAT",
+          "target": "eqA_004"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_l \\h \\* CHARFORMAT ",
+          "target": "th_A_1_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_l \\h \\* CHARFORMAT ",
+          "target": "th_A_1_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqA_010 \\h \\* CHARFORMAT ",
+          "target": "eqA_010"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF appC \\h \\* CHARFORMAT ",
+          "target": "appC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_l \\h \\* CHARFORMAT ",
+          "target": "th_A_1_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_2_l \\h \\* CHARFORMAT ",
+          "target": "th_A_2_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_t \\h \\* CHARFORMAT ",
+          "target": "th_A_1_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF appC \\h \\* CHARFORMAT ",
+          "target": "appC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqA_wasserstein_bound \\h \\* CHARFORMAT ",
+          "target": "eqA_wasserstein_bound"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqA \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_4_p \\h \\* CHARFORMAT ",
+          "target": "th_A_4_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_B_1_l \\h \\* CHARFORMAT ",
+          "target": "th_B_1_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_B_3_l \\h \\* CHARFORMAT ",
+          "target": "th_B_3_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_B_3_l \\h \\* CHARFORMAT ",
+          "target": "th_B_3_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_B_7_t \\h \\* CHARFORMAT ",
+          "target": "th_B_7_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_B_8_t \\h \\* CHARFORMAT ",
+          "target": "th_B_8_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_B_6_t \\h \\* CHARFORMAT ",
+          "target": "th_B_6_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_B_9_t \\h \\* CHARFORMAT ",
+          "target": "th_B_9_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqB \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_B_9_t \\h \\* CHARFORMAT ",
+          "target": "th_B_9_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_C_1_p \\h \\* CHARFORMAT ",
+          "target": "th_C_1_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_l \\h \\* CHARFORMAT ",
+          "target": "th_A_1_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_t \\h \\* CHARFORMAT ",
+          "target": "th_A_1_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_c \\h \\* CHARFORMAT ",
+          "target": "th_A_1_c"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_C_1_t \\h \\* CHARFORMAT ",
+          "target": "th_C_1_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_C_2_p \\h \\* CHARFORMAT ",
+          "target": "th_C_2_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_C_1_t \\h \\* CHARFORMAT ",
+          "target": "th_C_1_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqC_029 \\h \\* CHARFORMAT ",
+          "target": "eqC_029"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqC_030 \\h \\* CHARFORMAT ",
+          "target": "eqC_030"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_C_3_t \\h \\* CHARFORMAT ",
+          "target": "th_C_3_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqC \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " SEQ EqD \\c \\* ARABIC "
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " SEQ EqD \\c \\* ARABIC "
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " SEQ EqD \\c \\* ARABIC "
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " SEQ EqD \\c \\* ARABIC "
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " SEQ EqD \\c \\* ARABIC "
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_3_p \\h \\* CHARFORMAT ",
+          "target": "th_D_3_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_2_p \\h \\* CHARFORMAT ",
+          "target": "th_D_2_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_5_p \\h \\* CHARFORMAT ",
+          "target": "th_D_5_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_4_p \\h \\* CHARFORMAT ",
+          "target": "th_D_4_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_C_1_p \\h \\* CHARFORMAT ",
+          "target": "th_C_1_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_t \\h \\* CHARFORMAT ",
+          "target": "th_A_1_t"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_A_1_c \\h \\* CHARFORMAT ",
+          "target": "th_A_1_c"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_C_2_p \\h \\* CHARFORMAT ",
+          "target": "th_C_2_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_11_p \\h \\* CHARFORMAT ",
+          "target": "th_D_11_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_4_p \\h \\* CHARFORMAT ",
+          "target": "th_D_4_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_12_p \\h \\* CHARFORMAT ",
+          "target": "th_D_12_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_2_p \\h \\* CHARFORMAT ",
+          "target": "th_D_2_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_3_p \\h \\* CHARFORMAT ",
+          "target": "th_D_3_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqD \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_3_p \\h \\* CHARFORMAT ",
+          "target": "th_D_3_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_D_2_p \\h \\* CHARFORMAT ",
+          "target": "th_D_2_p"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqE_006 \\h \\* CHARFORMAT ",
+          "target": "eqE_006"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqE_007 \\h \\* CHARFORMAT ",
+          "target": "eqE_007"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqE_005 \\h \\* CHARFORMAT ",
+          "target": "eqE_005"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF th_E_2_l \\h \\* CHARFORMAT ",
+          "target": "th_E_2_l"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqE_009 \\h \\* CHARFORMAT ",
+          "target": "eqE_009"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqE_019 \\h \\* CHARFORMAT ",
+          "target": "eqE_019"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " SEQ EqE \\c \\* ARABIC "
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " SEQ EqE \\c \\* ARABIC "
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " SEQ EqE \\c \\* ARABIC "
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": "SEQ EqE \\* ARABIC"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF eqE_confidence_scaling \\h \\* CHARFORMAT ",
+          "target": "eqE_confidence_scaling"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF tblF_1 \\h \\* CHARFORMAT ",
+          "target": "tblF_1"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF figF_1 \\h \\* CHARFORMAT ",
+          "target": "figF_1"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF figF_2 \\h \\* CHARFORMAT ",
+          "target": "figF_2"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF figF_3 \\h \\* CHARFORMAT ",
+          "target": "figF_3"
+        },
+        {
+          "part": "word/document.xml",
+          "instruction": " REF tblF_2 \\h \\* CHARFORMAT ",
+          "target": "tblF_2"
+        },
+        {
+          "part": "word/footer9.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer8.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer2.xml",
+          "instruction": "PAGE   \\* MERGEFORMAT"
+        },
+        {
+          "part": "word/footer10.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer4.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer6.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer7.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer11.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer12.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer13.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer14.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer15.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer16.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer17.xml",
+          "instruction": "PAGE  "
+        },
+        {
+          "part": "word/footer5.xml",
+          "instruction": "PAGE  "
+        }
+      ]
+    }
+  },
+  "hidden_and_revisions": {
+    "baseline": {
+      "revisions": [],
+      "comment_parts": [],
+      "hidden_runs": [
+        {
+          "part": "word/styles.xml",
+          "text": ""
+        }
+      ],
+      "webhidden_count": 819,
+      "track_revisions": false,
+      "error_texts": [],
+      "notes": "正文无隐藏w:vanish；styles.xml中一个继承字体样式的vanish定义，两版共有，未新增隐藏正文。webHidden为网页显示属性，两版819→0，不据此认定正文隐藏或丢失。"
+    },
+    "candidate": {
+      "revisions": [],
+      "comment_parts": [],
+      "hidden_runs": [
+        {
+          "part": "word/styles.xml",
+          "text": ""
+        }
+      ],
+      "webhidden_count": 0,
+      "track_revisions": false,
+      "error_texts": []
+    }
+  }
+}

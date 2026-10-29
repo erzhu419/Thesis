@@ -1,0 +1,3313 @@
+{
+  "status": "complete",
+  "external_seed": 1476154684,
+  "scenario": "local_speed_drop",
+  "integrity": {
+    "all_pass": true,
+    "checks": {
+      "three_fixed_roots": true,
+      "six_fresh_futures_per_root": true,
+      "pairs_complete": true,
+      "exact_roots": true,
+      "exact_complete_prefix": true,
+      "prefix_persisted": true,
+      "parent_at_prefix_boundary": true,
+      "parent_actor_frozen": true,
+      "actor_real_clock": true,
+      "native_budget": true,
+      "known_spend": true,
+      "error_free": true
+    }
+  },
+  "prefix_reproduction": {
+    "all_pass": true,
+    "reference_path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_collection_domain_v97_20261028/runs/1476154684/local_speed_drop/prefix_trace.jsonl",
+    "observed_issues": 8582,
+    "matched_issues": 8582,
+    "source_rows": 8582,
+    "reference_exhausted": true
+  },
+  "trace_audit": {
+    "all_pass": true,
+    "checks": {
+      "expected_rows": true,
+      "continuous_sequences": true,
+      "first_sequence": true,
+      "last_sequence": true
+    },
+    "rows": 8582,
+    "expected_rows": 8582,
+    "first_sequence": 0,
+    "last_sequence": 8581,
+    "first_mismatch": null
+  },
+  "roots": [
+    {
+      "id": "1476154684/local_speed_drop/705X",
+      "index": 11,
+      "line_id": "705X",
+      "root": {
+        "started_at": 12002.0,
+        "sequence": 8130,
+        "trip_id": "705X_10",
+        "station_id": "102X22_705X23"
+      },
+      "root_ledger": {
+        "time_seconds": 12002.0,
+        "waiting_passengers": 404.0,
+        "in_vehicle_passengers": 1298.0,
+        "accrued_wait_seconds": 2396733.0,
+        "accrued_in_vehicle_seconds": 6970939.0
+      },
+      "checks": {
+        "exact_root": true,
+        "exact_context": true,
+        "exact_choice": true,
+        "exact_reference": true,
+        "exact_prefix": true,
+        "native_stop": true,
+        "exact_steps": true,
+        "supported": true,
+        "original_action": true,
+        "atomic_observation": true,
+        "frozen_actor": true
+      },
+      "frozen_predictions": {
+        "line3": -0.4145192171431275,
+        "service5": -0.4673984945945723,
+        "service_history6": 0.03111722910819359
+      },
+      "prefix_reproduction": {
+        "all_pass": true,
+        "reference_path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_collection_domain_v97_20261028/runs/1476154684/local_speed_drop/prefix_trace.jsonl",
+        "observed_issues": 8130,
+        "matched_issues": 8130
+      },
+      "pairs": [
+        {
+          "future_id": "R1",
+          "future_seed": 72054144,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8790975213050842
+              ],
+              "hold_seconds": 3.627074360847473
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11998.0,
+              "wait": 6097662.0,
+              "ride": 9357504.0,
+              "cost": 21552828.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11998.0,
+              "wait": 6108689.0,
+              "ride": 9372366.0,
+              "cost": 21589744.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": 11027.0,
+            "ride": 14862.0,
+            "cost": 36916.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12007.0,
+              "next_arrival_clock": 12088.0
+            },
+            "candidate": {
+              "departure_clock": 12010.0,
+              "next_arrival_clock": 12088.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 72054144,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12002.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 72054144,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12002.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6045584,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6032245,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5560,
+              "expected_rows": 5560,
+              "first_sequence": 8130,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5560,
+              "expected_rows": 5560,
+              "first_sequence": 8130,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 165.24229049682617
+        },
+        {
+          "future_id": "R2",
+          "future_seed": 1640312128,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8790975213050842
+              ],
+              "hold_seconds": 3.627074360847473
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11998.0,
+              "wait": 6085098.0,
+              "ride": 9386187.0,
+              "cost": 21556383.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11998.0,
+              "wait": 6091609.0,
+              "ride": 9396852.0,
+              "cost": 21580070.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": 6511.0,
+            "ride": 10665.0,
+            "cost": 23687.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12007.0,
+              "next_arrival_clock": 12088.0
+            },
+            "candidate": {
+              "departure_clock": 12010.0,
+              "next_arrival_clock": 12087.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 1640312128,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12002.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 1640312128,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12002.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6039315,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6044660,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5560,
+              "expected_rows": 5560,
+              "first_sequence": 8130,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5560,
+              "expected_rows": 5560,
+              "first_sequence": 8130,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 164.34841513633728
+        },
+        {
+          "future_id": "R3",
+          "future_seed": 195577920,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8790975213050842
+              ],
+              "hold_seconds": 3.627074360847473
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11998.0,
+              "wait": 6084616.0,
+              "ride": 9383267.0,
+              "cost": 21552499.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11998.0,
+              "wait": 6090605.0,
+              "ride": 9409911.0,
+              "cost": 21591121.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": 5989.0,
+            "ride": 26644.0,
+            "cost": 38622.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12007.0,
+              "next_arrival_clock": 12087.0
+            },
+            "candidate": {
+              "departure_clock": 12010.0,
+              "next_arrival_clock": 12087.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 195577920,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12002.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 195577920,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12002.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6028624,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6036547,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5560,
+              "expected_rows": 5560,
+              "first_sequence": 8130,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5560,
+              "expected_rows": 5560,
+              "first_sequence": 8130,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 157.1679608821869
+        },
+        {
+          "future_id": "R4",
+          "future_seed": 1315380672,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8790975213050842
+              ],
+              "hold_seconds": 3.627074360847473
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11998.0,
+              "wait": 6112393.0,
+              "ride": 9396567.0,
+              "cost": 21621353.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11998.0,
+              "wait": 6094081.0,
+              "ride": 9377990.0,
+              "cost": 21566152.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": -18312.0,
+            "ride": -18577.0,
+            "cost": -55201.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12007.0,
+              "next_arrival_clock": 12088.0
+            },
+            "candidate": {
+              "departure_clock": 12010.0,
+              "next_arrival_clock": 12088.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 1315380672,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12002.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 1315380672,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12002.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6029291,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6040889,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5560,
+              "expected_rows": 5560,
+              "first_sequence": 8130,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5560,
+              "expected_rows": 5560,
+              "first_sequence": 8130,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 161.34825897216797
+        },
+        {
+          "future_id": "R5",
+          "future_seed": 517914304,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8790975213050842
+              ],
+              "hold_seconds": 3.627074360847473
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11998.0,
+              "wait": 6126610.0,
+              "ride": 9422602.0,
+              "cost": 21675822.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11998.0,
+              "wait": 6092368.0,
+              "ride": 9410410.0,
+              "cost": 21595146.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": -34242.0,
+            "ride": -12192.0,
+            "cost": -80676.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12007.0,
+              "next_arrival_clock": 12088.0
+            },
+            "candidate": {
+              "departure_clock": 12010.0,
+              "next_arrival_clock": 12088.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 517914304,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12002.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 517914304,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12002.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6018242,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6029885,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5560,
+              "expected_rows": 5560,
+              "first_sequence": 8130,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5560,
+              "expected_rows": 5560,
+              "first_sequence": 8130,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 161.05185651779175
+        },
+        {
+          "future_id": "R6",
+          "future_seed": 1126156544,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8790975213050842
+              ],
+              "hold_seconds": 3.627074360847473
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11998.0,
+              "wait": 6111832.0,
+              "ride": 9382886.0,
+              "cost": 21606550.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11998.0,
+              "wait": 6120956.0,
+              "ride": 9372560.0,
+              "cost": 21614472.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": 9124.0,
+            "ride": -10326.0,
+            "cost": 7922.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12007.0,
+              "next_arrival_clock": 12089.0
+            },
+            "candidate": {
+              "departure_clock": 12010.0,
+              "next_arrival_clock": 12088.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 1126156544,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12002.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 1126156544,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12002.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6053605,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6045123,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5560,
+              "expected_rows": 5560,
+              "first_sequence": 8130,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5560,
+              "expected_rows": 5560,
+              "first_sequence": 8130,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 163.10659527778625
+        }
+      ]
+    },
+    {
+      "id": "1476154684/local_speed_drop/102X",
+      "index": 10,
+      "line_id": "102X",
+      "root": {
+        "started_at": 12003.0,
+        "sequence": 8132,
+        "trip_id": "102X_18",
+        "station_id": "102X15"
+      },
+      "root_ledger": {
+        "time_seconds": 12003.0,
+        "waiting_passengers": 404.0,
+        "in_vehicle_passengers": 1298.0,
+        "accrued_wait_seconds": 2397137.0,
+        "accrued_in_vehicle_seconds": 6972237.0
+      },
+      "checks": {
+        "exact_root": true,
+        "exact_context": true,
+        "exact_choice": true,
+        "exact_reference": true,
+        "exact_prefix": true,
+        "native_stop": true,
+        "exact_steps": true,
+        "supported": true,
+        "original_action": true,
+        "atomic_observation": true,
+        "frozen_actor": true
+      },
+      "frozen_predictions": {
+        "line3": -0.4989187156053753,
+        "service5": -0.4840891021394637,
+        "service_history6": 0.0930786975932914
+      },
+      "prefix_reproduction": {
+        "all_pass": true,
+        "reference_path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_collection_domain_v97_20261028/runs/1476154684/local_speed_drop/prefix_trace.jsonl",
+        "observed_issues": 8132,
+        "matched_issues": 8132
+      },
+      "pairs": [
+        {
+          "future_id": "R1",
+          "future_seed": 1920452992,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8915277123451233
+              ],
+              "hold_seconds": 3.2541686296463013
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11997.0,
+              "wait": 6098660.0,
+              "ride": 9358478.0,
+              "cost": 21555798.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11997.0,
+              "wait": 6090087.0,
+              "ride": 9358344.0,
+              "cost": 21538518.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": -8573.0,
+            "ride": -134.0,
+            "cost": -17280.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12007.0,
+              "next_arrival_clock": 12091.0
+            },
+            "candidate": {
+              "departure_clock": 12011.0,
+              "next_arrival_clock": 12093.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 1920452992,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12003.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 1920452992,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12003.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6023755,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6044397,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5558,
+              "expected_rows": 5558,
+              "first_sequence": 8132,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5558,
+              "expected_rows": 5558,
+              "first_sequence": 8132,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 162.46194052696228
+        },
+        {
+          "future_id": "R2",
+          "future_seed": 959990848,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8915277123451233
+              ],
+              "hold_seconds": 3.2541686296463013
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11997.0,
+              "wait": 6120730.0,
+              "ride": 9398264.0,
+              "cost": 21639724.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11997.0,
+              "wait": 6087682.0,
+              "ride": 9391005.0,
+              "cost": 21566369.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": -33048.0,
+            "ride": -7259.0,
+            "cost": -73355.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12007.0,
+              "next_arrival_clock": 12092.0
+            },
+            "candidate": {
+              "departure_clock": 12011.0,
+              "next_arrival_clock": 12092.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 959990848,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12003.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 959990848,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12003.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6056851,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6037074,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5558,
+              "expected_rows": 5558,
+              "first_sequence": 8132,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5558,
+              "expected_rows": 5558,
+              "first_sequence": 8132,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 162.58337569236755
+        },
+        {
+          "future_id": "R3",
+          "future_seed": 886179136,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8915277123451233
+              ],
+              "hold_seconds": 3.2541686296463013
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11997.0,
+              "wait": 6102360.0,
+              "ride": 9390094.0,
+              "cost": 21594814.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11997.0,
+              "wait": 6112790.0,
+              "ride": 9371070.0,
+              "cost": 21596650.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": 10430.0,
+            "ride": -19024.0,
+            "cost": 1836.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12007.0,
+              "next_arrival_clock": 12092.0
+            },
+            "candidate": {
+              "departure_clock": 12011.0,
+              "next_arrival_clock": 12092.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 886179136,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12003.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 886179136,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12003.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6050826,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6042785,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5558,
+              "expected_rows": 5558,
+              "first_sequence": 8132,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5558,
+              "expected_rows": 5558,
+              "first_sequence": 8132,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 163.68435883522034
+        },
+        {
+          "future_id": "R4",
+          "future_seed": 1050945728,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8915277123451233
+              ],
+              "hold_seconds": 3.2541686296463013
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11997.0,
+              "wait": 6122022.0,
+              "ride": 9398113.0,
+              "cost": 21642157.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11997.0,
+              "wait": 6095679.0,
+              "ride": 9392735.0,
+              "cost": 21584093.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": -26343.0,
+            "ride": -5378.0,
+            "cost": -58064.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12007.0,
+              "next_arrival_clock": 12093.0
+            },
+            "candidate": {
+              "departure_clock": 12011.0,
+              "next_arrival_clock": 12092.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 1050945728,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12003.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 1050945728,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12003.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6038540,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6037126,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5558,
+              "expected_rows": 5558,
+              "first_sequence": 8132,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5558,
+              "expected_rows": 5558,
+              "first_sequence": 8132,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 163.2749400138855
+        },
+        {
+          "future_id": "R5",
+          "future_seed": 1900355456,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8915277123451233
+              ],
+              "hold_seconds": 3.2541686296463013
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11997.0,
+              "wait": 6105222.0,
+              "ride": 9395212.0,
+              "cost": 21605656.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11997.0,
+              "wait": 6091734.0,
+              "ride": 9389486.0,
+              "cost": 21572954.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": -13488.0,
+            "ride": -5726.0,
+            "cost": -32702.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12007.0,
+              "next_arrival_clock": 12093.0
+            },
+            "candidate": {
+              "departure_clock": 12011.0,
+              "next_arrival_clock": 12092.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 1900355456,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12003.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 1900355456,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12003.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6048414,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6043904,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5558,
+              "expected_rows": 5558,
+              "first_sequence": 8132,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5558,
+              "expected_rows": 5558,
+              "first_sequence": 8132,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 163.41640186309814
+        },
+        {
+          "future_id": "R6",
+          "future_seed": 615188928,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8915277123451233
+              ],
+              "hold_seconds": 3.2541686296463013
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11997.0,
+              "wait": 6109838.0,
+              "ride": 9381560.0,
+              "cost": 21601236.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11997.0,
+              "wait": 6123001.0,
+              "ride": 9414225.0,
+              "cost": 21660227.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": 13163.0,
+            "ride": 32665.0,
+            "cost": 58991.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12007.0,
+              "next_arrival_clock": 12093.0
+            },
+            "candidate": {
+              "departure_clock": 12011.0,
+              "next_arrival_clock": 12092.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 615188928,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12003.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 615188928,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12003.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6047371,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6045928,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5558,
+              "expected_rows": 5558,
+              "first_sequence": 8132,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5558,
+              "expected_rows": 5558,
+              "first_sequence": 8132,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 163.37331247329712
+        }
+      ]
+    },
+    {
+      "id": "1476154684/local_speed_drop/7X",
+      "index": 9,
+      "line_id": "7X",
+      "root": {
+        "started_at": 12006.0,
+        "sequence": 8137,
+        "trip_id": "7X_32",
+        "station_id": "7X05_102X18"
+      },
+      "root_ledger": {
+        "time_seconds": 12006.0,
+        "waiting_passengers": 403.0,
+        "in_vehicle_passengers": 1296.0,
+        "accrued_wait_seconds": 2398349.0,
+        "accrued_in_vehicle_seconds": 6976124.0
+      },
+      "checks": {
+        "exact_root": true,
+        "exact_context": true,
+        "exact_choice": true,
+        "exact_reference": true,
+        "exact_prefix": true,
+        "native_stop": true,
+        "exact_steps": true,
+        "supported": true,
+        "original_action": true,
+        "atomic_observation": true,
+        "frozen_actor": true
+      },
+      "frozen_predictions": {
+        "line3": -0.23877413052037422,
+        "service5": -0.23110632141818974,
+        "service_history6": 0.31129697272405255
+      },
+      "prefix_reproduction": {
+        "all_pass": true,
+        "reference_path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_collection_domain_v97_20261028/runs/1476154684/local_speed_drop/prefix_trace.jsonl",
+        "observed_issues": 8137,
+        "matched_issues": 8137
+      },
+      "pairs": [
+        {
+          "future_id": "R1",
+          "future_seed": 166968960,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8887383341789246
+              ],
+              "hold_seconds": 3.337849974632263
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11994.0,
+              "wait": 6079848.0,
+              "ride": 9375252.0,
+              "cost": 21534948.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11994.0,
+              "wait": 6105494.0,
+              "ride": 9380735.0,
+              "cost": 21591723.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": 25646.0,
+            "ride": 5483.0,
+            "cost": 56775.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12010.0,
+              "next_arrival_clock": 12086.0
+            },
+            "candidate": {
+              "departure_clock": 12014.0,
+              "next_arrival_clock": 12086.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 166968960,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12006.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 166968960,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12006.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6033792,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6039951,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5553,
+              "expected_rows": 5553,
+              "first_sequence": 8137,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5553,
+              "expected_rows": 5553,
+              "first_sequence": 8137,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 159.78690600395203
+        },
+        {
+          "future_id": "R2",
+          "future_seed": 1553146304,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8887383341789246
+              ],
+              "hold_seconds": 3.337849974632263
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11994.0,
+              "wait": 6102486.0,
+              "ride": 9391212.0,
+              "cost": 21596184.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11994.0,
+              "wait": 6119948.0,
+              "ride": 9387565.0,
+              "cost": 21627461.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": 17462.0,
+            "ride": -3647.0,
+            "cost": 31277.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12010.0,
+              "next_arrival_clock": 12086.0
+            },
+            "candidate": {
+              "departure_clock": 12014.0,
+              "next_arrival_clock": 12086.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 1553146304,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12006.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 1553146304,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12006.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6044536,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6039270,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5553,
+              "expected_rows": 5553,
+              "first_sequence": 8137,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5553,
+              "expected_rows": 5553,
+              "first_sequence": 8137,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 160.317387342453
+        },
+        {
+          "future_id": "R3",
+          "future_seed": 2122527808,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8887383341789246
+              ],
+              "hold_seconds": 3.337849974632263
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11994.0,
+              "wait": 6106047.0,
+              "ride": 9393307.0,
+              "cost": 21605401.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11994.0,
+              "wait": 6091167.0,
+              "ride": 9370516.0,
+              "cost": 21552850.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": -14880.0,
+            "ride": -22791.0,
+            "cost": -52551.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12010.0,
+              "next_arrival_clock": 12085.0
+            },
+            "candidate": {
+              "departure_clock": 12014.0,
+              "next_arrival_clock": 12086.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 2122527808,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12006.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 2122527808,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12006.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6036031,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6019972,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5553,
+              "expected_rows": 5553,
+              "first_sequence": 8137,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5553,
+              "expected_rows": 5553,
+              "first_sequence": 8137,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 156.8605773448944
+        },
+        {
+          "future_id": "R4",
+          "future_seed": 953809984,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8887383341789246
+              ],
+              "hold_seconds": 3.337849974632263
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11994.0,
+              "wait": 6092610.0,
+              "ride": 9395933.0,
+              "cost": 21581153.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11994.0,
+              "wait": 6104555.0,
+              "ride": 9393840.0,
+              "cost": 21602950.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": 11945.0,
+            "ride": -2093.0,
+            "cost": 21797.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12010.0,
+              "next_arrival_clock": 12085.0
+            },
+            "candidate": {
+              "departure_clock": 12014.0,
+              "next_arrival_clock": 12086.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 953809984,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12006.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 953809984,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12006.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6035188,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6032985,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5553,
+              "expected_rows": 5553,
+              "first_sequence": 8137,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5553,
+              "expected_rows": 5553,
+              "first_sequence": 8137,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 154.9478404521942
+        },
+        {
+          "future_id": "R5",
+          "future_seed": 1529862400,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8887383341789246
+              ],
+              "hold_seconds": 3.337849974632263
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11994.0,
+              "wait": 6103358.0,
+              "ride": 9385488.0,
+              "cost": 21592204.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11994.0,
+              "wait": 6088126.0,
+              "ride": 9388791.0,
+              "cost": 21565043.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": -15232.0,
+            "ride": 3303.0,
+            "cost": -27161.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12010.0,
+              "next_arrival_clock": 12085.0
+            },
+            "candidate": {
+              "departure_clock": 12014.0,
+              "next_arrival_clock": 12085.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 1529862400,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12006.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 1529862400,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12006.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6027981,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6042810,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5553,
+              "expected_rows": 5553,
+              "first_sequence": 8137,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5553,
+              "expected_rows": 5553,
+              "first_sequence": 8137,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 159.19649577140808
+        },
+        {
+          "future_id": "R6",
+          "future_seed": 2106372928,
+          "all_pass": true,
+          "checks": {
+            "same_complete_root": true,
+            "same_fixed_reference": true,
+            "same_future": true,
+            "original_actor_root_exact": true,
+            "predeclared_candidate_exact": true,
+            "actual_departures_observed": true,
+            "physical_departure_separation": true,
+            "actual_next_arrivals": true,
+            "both_real_terminal": true,
+            "native_fork": true,
+            "actual_parallel": true,
+            "parent_actor_frozen": true,
+            "parent_at_fixed_root": true,
+            "trace_persisted": true,
+            "rng_only_change": true,
+            "rng_used": true,
+            "reference_before_equals_parent": true,
+            "candidate_before_equals_parent": true,
+            "paired_after_physical": true,
+            "paired_after_lane_rng": true,
+            "paired_after_other_rng": true
+          },
+          "action": {
+            "reference": {
+              "executed_action": [
+                -0.8887383341789246
+              ],
+              "hold_seconds": 3.337849974632263
+            },
+            "candidate": {
+              "executed_action": [
+                -0.75
+              ],
+              "hold_seconds": 7.5
+            }
+          },
+          "physical_noop": false,
+          "remaining": {
+            "reference": {
+              "dt": 11994.0,
+              "wait": 6084528.0,
+              "ride": 9377743.0,
+              "cost": 21546799.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            },
+            "candidate": {
+              "dt": 11994.0,
+              "wait": 6125600.0,
+              "ride": 9391830.0,
+              "cost": 21643030.0,
+              "observed_at": 24000,
+              "available_at": 24030
+            }
+          },
+          "delta": {
+            "wait": 41072.0,
+            "ride": 14087.0,
+            "cost": 96231.0
+          },
+          "physical": {
+            "reference": {
+              "departure_clock": 12010.0,
+              "next_arrival_clock": 12084.0
+            },
+            "candidate": {
+              "departure_clock": 12014.0,
+              "next_arrival_clock": 12086.0
+            }
+          },
+          "rng": {
+            "reference": {
+              "mode": "lane_rng_replacement",
+              "seed": 2106372928,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12006.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            },
+            "candidate": {
+              "mode": "lane_rng_replacement",
+              "seed": 2106372928,
+              "lane_count": 64,
+              "burn_per_lane": 1000000,
+              "other_native_streams": "unchanged",
+              "all_pass": true,
+              "checks": {
+                "native_physical_serialization_unchanged": true,
+                "other_native_rng_unchanged": true,
+                "python_numpy_torch_rng_unchanged": true,
+                "native_clock_unchanged": true,
+                "lane_pools_changed_as_declared": true
+              },
+              "clock": 12006.0,
+              "changed_lane_pool_count": 64,
+              "all_declared_lane_pools_changed": true
+            }
+          },
+          "rng_usage": {
+            "reference": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6020298,
+              "native_clock": 24000.0
+            },
+            "candidate": {
+              "all_pass": true,
+              "pools_advanced": 64,
+              "total_draws": 6015538,
+              "native_clock": 24000.0
+            }
+          },
+          "trace_audit": {
+            "reference": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5553,
+              "expected_rows": 5553,
+              "first_sequence": 8137,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            },
+            "candidate": {
+              "all_pass": true,
+              "checks": {
+                "expected_rows": true,
+                "continuous_sequences": true,
+                "first_sequence": true,
+                "last_sequence": true
+              },
+              "rows": 5553,
+              "expected_rows": 5553,
+              "first_sequence": 8137,
+              "last_sequence": 13689,
+              "first_mismatch": null
+            }
+          },
+          "overlap_seconds": 159.1881000995636
+        }
+      ]
+    }
+  ],
+  "budget": {
+    "prefixes": 1,
+    "suffixes": 36,
+    "native_prefix_seconds": 12600.0,
+    "suffix_native_seconds": 431868.0,
+    "total_native_seconds": 444468.0,
+    "total_native_seconds_is_lower_bound": false,
+    "unknown_suffix_costs": 0,
+    "labels_observed": 36,
+    "details": [
+      {
+        "line_id": "705X",
+        "future_id": "R1",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11998.0
+      },
+      {
+        "line_id": "705X",
+        "future_id": "R1",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11998.0
+      },
+      {
+        "line_id": "705X",
+        "future_id": "R2",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11998.0
+      },
+      {
+        "line_id": "705X",
+        "future_id": "R2",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11998.0
+      },
+      {
+        "line_id": "705X",
+        "future_id": "R3",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11998.0
+      },
+      {
+        "line_id": "705X",
+        "future_id": "R3",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11998.0
+      },
+      {
+        "line_id": "705X",
+        "future_id": "R4",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11998.0
+      },
+      {
+        "line_id": "705X",
+        "future_id": "R4",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11998.0
+      },
+      {
+        "line_id": "705X",
+        "future_id": "R5",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11998.0
+      },
+      {
+        "line_id": "705X",
+        "future_id": "R5",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11998.0
+      },
+      {
+        "line_id": "705X",
+        "future_id": "R6",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11998.0
+      },
+      {
+        "line_id": "705X",
+        "future_id": "R6",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11998.0
+      },
+      {
+        "line_id": "102X",
+        "future_id": "R1",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11997.0
+      },
+      {
+        "line_id": "102X",
+        "future_id": "R1",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11997.0
+      },
+      {
+        "line_id": "102X",
+        "future_id": "R2",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11997.0
+      },
+      {
+        "line_id": "102X",
+        "future_id": "R2",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11997.0
+      },
+      {
+        "line_id": "102X",
+        "future_id": "R3",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11997.0
+      },
+      {
+        "line_id": "102X",
+        "future_id": "R3",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11997.0
+      },
+      {
+        "line_id": "102X",
+        "future_id": "R4",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11997.0
+      },
+      {
+        "line_id": "102X",
+        "future_id": "R4",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11997.0
+      },
+      {
+        "line_id": "102X",
+        "future_id": "R5",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11997.0
+      },
+      {
+        "line_id": "102X",
+        "future_id": "R5",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11997.0
+      },
+      {
+        "line_id": "102X",
+        "future_id": "R6",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11997.0
+      },
+      {
+        "line_id": "102X",
+        "future_id": "R6",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11997.0
+      },
+      {
+        "line_id": "7X",
+        "future_id": "R1",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11994.0
+      },
+      {
+        "line_id": "7X",
+        "future_id": "R1",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11994.0
+      },
+      {
+        "line_id": "7X",
+        "future_id": "R2",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11994.0
+      },
+      {
+        "line_id": "7X",
+        "future_id": "R2",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11994.0
+      },
+      {
+        "line_id": "7X",
+        "future_id": "R3",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11994.0
+      },
+      {
+        "line_id": "7X",
+        "future_id": "R3",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11994.0
+      },
+      {
+        "line_id": "7X",
+        "future_id": "R4",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11994.0
+      },
+      {
+        "line_id": "7X",
+        "future_id": "R4",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11994.0
+      },
+      {
+        "line_id": "7X",
+        "future_id": "R5",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11994.0
+      },
+      {
+        "line_id": "7X",
+        "future_id": "R5",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11994.0
+      },
+      {
+        "line_id": "7X",
+        "future_id": "R6",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11994.0
+      },
+      {
+        "line_id": "7X",
+        "future_id": "R6",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11994.0
+      }
+    ],
+    "new_initialization_updates": 0,
+    "prefix_training_updates": 0,
+    "suffix_updates": 0,
+    "labels_fed_back": 0,
+    "new_fits": 0,
+    "new_neural_updates": 0,
+    "native_cap": 444468.0
+  },
+  "error": null,
+  "interpretation": "Full frozen T panel; six new future lane-driving RNG samples per root. No learning, fit, F0 repeats or V release."
+}

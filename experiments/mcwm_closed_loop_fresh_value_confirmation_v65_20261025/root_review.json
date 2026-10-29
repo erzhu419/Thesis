@@ -1,0 +1,151 @@
+{
+  "source": "results/confirmation.json",
+  "status": "complete",
+  "independent_cost_review": {
+    "method": "Independent agent recomputed each cell from raw W/R/N, then the 18 cohort/window/scenario group means and win/loss counts.",
+    "substantive_differences": false,
+    "max_absolute_mean_difference": 6.37e-13
+  },
+  "scientific_decision": {
+    "full_day_mean_gain_repeated": true,
+    "independent_confirmation_passed": false,
+    "retained_five_seed_gate_passed": true,
+    "failure": "Independent shock full-day mean is +0.33437230585604993, contrary to preregistered shock<0.",
+    "stable_tail_harm_repeated_on_new_seeds": false,
+    "deployment_admitted": false,
+    "next_action": "Close fixed v64 confirmation; no seed expansion or tuning. Retain previously admitted v63 recent30 as the working comparator; this result does not support replacing it with v64."
+  },
+  "primary_results": {
+    "independent3": {
+      "full_day": {
+        "overall": {
+          "mean_cost_difference": -1.0860910316782793,
+          "percent_change": -0.049099697389535644,
+          "wins": 3,
+          "losses": 3,
+          "winning_mean_reduction": 6.50040895726958,
+          "losing_mean_increase": 4.328226893914082
+        },
+        "stable": {
+          "mean_cost_difference": -2.5065543692107894,
+          "percent_change": -0.11349318788139548,
+          "wins": 2,
+          "losses": 1,
+          "winning_mean_reduction": 4.491511373433468,
+          "losing_mean_increase": 1.4633596392332038
+        },
+        "local_speed_drop": {
+          "mean_cost_difference": 0.33437230585604993,
+          "percent_change": 0.015092593449964243,
+          "wins": 1,
+          "losses": 2,
+          "winning_mean_reduction": 10.518204124941803,
+          "losing_mean_increase": 5.760660521254522
+        }
+      },
+      "gate": {
+        "all_pass": false,
+        "native_and_source_audits": true,
+        "conditions": {
+          "overall_lower": true,
+          "stable_not_higher": true,
+          "shock_lower": false
+        }
+      }
+    },
+    "retained5": {
+      "full_day": {
+        "overall": {
+          "mean_cost_difference": -1.9770077591347217,
+          "percent_change": -0.08937102971484877,
+          "wins": 7,
+          "losses": 3,
+          "winning_mean_reduction": 4.679251181870833,
+          "losing_mean_increase": 4.328226893914082
+        },
+        "stable": {
+          "mean_cost_difference": -2.074739704224612,
+          "percent_change": -0.09391056857382414,
+          "wins": 4,
+          "losses": 1,
+          "winning_mean_reduction": 2.959264540089066,
+          "losing_mean_increase": 1.4633596392332038
+        },
+        "local_speed_drop": {
+          "mean_cost_difference": -1.8792758140457408,
+          "percent_change": -0.08484322655804886,
+          "wins": 3,
+          "losses": 2,
+          "winning_mean_reduction": 6.972566704246522,
+          "losing_mean_increase": 5.760660521254522
+        }
+      },
+      "gate": {
+        "all_pass": true,
+        "native_and_source_audits": true,
+        "conditions": {
+          "overall_lower": true,
+          "stable_not_higher": true,
+          "shock_lower": true
+        }
+      }
+    }
+  },
+  "stable_tail": {
+    "independent3": {
+      "complete": true,
+      "mean_cost_difference": -2.1178902226053538,
+      "losing_seeds": 0,
+      "winning_seeds": 3,
+      "expected_seeds": 3,
+      "stable_tail_harm_persists": false,
+      "full_day_pass_with_stable_tail_harm": false
+    },
+    "retained5": {
+      "complete": true,
+      "mean_cost_difference": -0.12949134557993602,
+      "losing_seeds": 2,
+      "winning_seeds": 3,
+      "expected_seeds": 5,
+      "stable_tail_harm_persists": false,
+      "full_day_pass_with_stable_tail_harm": false
+    },
+    "old_development2": {
+      "complete": true,
+      "mean_cost_difference": 2.853106969958219,
+      "losing_seeds": 2,
+      "winning_seeds": 0,
+      "expected_seeds": 2,
+      "stable_tail_harm_persists": true,
+      "full_day_pass_with_stable_tail_harm": true
+    },
+    "windows_are_secondary": true,
+    "full_day_cost_gate_unchanged": true
+  },
+  "technical_integrity": {
+    "all_pass": true,
+    "checked_conditions": 369,
+    "failed_checks": []
+  },
+  "missing": [],
+  "failures": [],
+  "failed_run_work": [],
+  "operational_observation": {
+    "native_batch_wall_minutes_approx": 29.5,
+    "native_finish_to_summary_recovery_hours_approx": 5.27,
+    "delay_cause": "not established",
+    "native_repeats": 0,
+    "watcher_terminated": true,
+    "stale_ssh_message_in_state": "Historical read/connection error is still present in the state dictionary; final completion event and complete analysis show recovery.",
+    "native_interval_china": "2026-10-26 00:15:13 to 00:44:41",
+    "summary_complete_china": "2026-10-26 06:01:58",
+    "native_finish_to_summary_complete_hours_approx": 5.29,
+    "scheduler_current_terminal_query": "read-only API query did not succeed; no further retries",
+    "completion_evidence": "Twelve complete native summaries, final confirmation analysis and terminal watcher event"
+  },
+  "scope": {
+    "old_code_or_results_modified": false,
+    "new_training_or_branches_started_during_review": false,
+    "large_artifacts_downloaded": false
+  }
+}

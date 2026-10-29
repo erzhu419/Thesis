@@ -1,0 +1,717 @@
+{
+  "status": "complete",
+  "all_pass": true,
+  "cases": {
+    "local_speed_drop": {
+      "status": "complete",
+      "scenario": "local_speed_drop",
+      "target": {
+        "scenario": "local_speed_drop",
+        "trace": "v114 shared parent prefix",
+        "trip_id": "311X_19",
+        "station_id": "122X22_311X22_406S29",
+        "sequence": 10045,
+        "stop_before_apply_clock": 14547.0,
+        "reason": "Current eligible queue is zero despite a later realized transfer from another active vehicle.",
+        "reference_branch": "high",
+        "diagnostic_person_id": "transfer_15055.0",
+        "reference_action_parts": [
+          "actions.jsonl",
+          "branches/high/actions.jsonl"
+        ],
+        "reference_tick_parts": [
+          "ticks.jsonl",
+          "branches/high/ticks.jsonl"
+        ]
+      },
+      "integrity": {
+        "all_pass": true,
+        "checks": {
+          "replay_exact": true,
+          "observation_unchanged": true,
+          "at_declared_clock": true,
+          "before_target_apply": true,
+          "not_terminal": true,
+          "scenario_applied": true
+        }
+      },
+      "observation": {
+        "status": "complete",
+        "all_pass": true,
+        "checks": {
+          "native_clock_unchanged": true,
+          "observed_at_issue": true,
+          "ledger_unchanged": true,
+          "python_rng_unchanged": true,
+          "numpy_rng_unchanged": true,
+          "torch_module_unchanged": true,
+          "torch_rng_unchanged": true,
+          "receiver_native_active": true,
+          "receiver_native_identity": true,
+          "receiver_at_declared_stop": true,
+          "native_event_before_apply": true,
+          "required_reads_complete": true,
+          "diagnostic_current_onboard_stage_observed": true
+        },
+        "issue": {
+          "sequence": 10045,
+          "trip_id": "311X_19",
+          "line_id": "311X",
+          "station_id": "122X22_311X22_406S29",
+          "issue_clock": 14547.0,
+          "event_clock": 14546.0,
+          "observed_clock": 14547.0
+        },
+        "receiver": {
+          "trip_id": "311X_19",
+          "line_id": "311X",
+          "receiver": true,
+          "location": {
+            "road_id": "E_J171_J149.50",
+            "lane_id": "E_J171_J149.50_1",
+            "lane_position": 25.459334932452954,
+            "route_distance": 11973.489334932461,
+            "speed": 0.0,
+            "at_stop": true
+          },
+          "capacity": 50.0,
+          "free_seats": 8.0,
+          "planned_current_or_next_stop": "122X22_311X22_406S29",
+          "next_stop_matches": true,
+          "counts": {
+            "onboard": 42,
+            "current_stage_known": 42,
+            "current_leg_dest_receiver_observed": 0,
+            "additional_intent_available": 42,
+            "planned_first_leg_transfers_observed": 0,
+            "planned_receiver_compatible_observed": 0
+          },
+          "service_ready_time": 14546.0,
+          "service_ready_now": true
+        },
+        "coverage": {
+          "onboard": 237,
+          "current_stage_known": 237,
+          "current_leg_dest_receiver_observed": 13,
+          "additional_intent_available": 237,
+          "planned_first_leg_transfers_observed": 5,
+          "planned_receiver_compatible_observed": 4,
+          "native_active_buses": 66,
+          "related_feeder_vehicles": 10,
+          "next_stop_matches_vehicles": 1,
+          "vehicles_with_current_leg_dest_receiver": 6,
+          "immediate_current_leg_dest_receiver_observed": 4
+        },
+        "counts_are_partial": false,
+        "positive_feeders": [
+          {
+            "trip_id": "122X_21",
+            "line_id": "122X",
+            "next_stop_matches": false,
+            "counts": {
+              "onboard": 25,
+              "current_stage_known": 25,
+              "current_leg_dest_receiver_observed": 2,
+              "additional_intent_available": 25,
+              "planned_first_leg_transfers_observed": 1,
+              "planned_receiver_compatible_observed": 1
+            }
+          },
+          {
+            "trip_id": "122X_22",
+            "line_id": "122X",
+            "next_stop_matches": false,
+            "counts": {
+              "onboard": 26,
+              "current_stage_known": 26,
+              "current_leg_dest_receiver_observed": 1,
+              "additional_intent_available": 26,
+              "planned_first_leg_transfers_observed": 0,
+              "planned_receiver_compatible_observed": 0
+            }
+          },
+          {
+            "trip_id": "311X_20",
+            "line_id": "311X",
+            "next_stop_matches": false,
+            "counts": {
+              "onboard": 41,
+              "current_stage_known": 41,
+              "current_leg_dest_receiver_observed": 1,
+              "additional_intent_available": 41,
+              "planned_first_leg_transfers_observed": 0,
+              "planned_receiver_compatible_observed": 0
+            }
+          },
+          {
+            "trip_id": "406S_22",
+            "line_id": "406S",
+            "next_stop_matches": true,
+            "counts": {
+              "onboard": 34,
+              "current_stage_known": 34,
+              "current_leg_dest_receiver_observed": 4,
+              "additional_intent_available": 34,
+              "planned_first_leg_transfers_observed": 2,
+              "planned_receiver_compatible_observed": 1
+            }
+          },
+          {
+            "trip_id": "406S_23",
+            "line_id": "406S",
+            "next_stop_matches": false,
+            "counts": {
+              "onboard": 50,
+              "current_stage_known": 50,
+              "current_leg_dest_receiver_observed": 4,
+              "additional_intent_available": 50,
+              "planned_first_leg_transfers_observed": 2,
+              "planned_receiver_compatible_observed": 2
+            }
+          },
+          {
+            "trip_id": "406S_24",
+            "line_id": "406S",
+            "next_stop_matches": false,
+            "counts": {
+              "onboard": 17,
+              "current_stage_known": 17,
+              "current_leg_dest_receiver_observed": 1,
+              "additional_intent_available": 17,
+              "planned_first_leg_transfers_observed": 0,
+              "planned_receiver_compatible_observed": 0
+            }
+          }
+        ],
+        "positive_feeder_rows_total": 6,
+        "positive_feeder_rows_returned": 6,
+        "diagnostic_person_id": "transfer_15055.0",
+        "diagnostic_matches": [
+          {
+            "vehicle": {
+              "trip_id": "406S_22",
+              "line_id": "406S",
+              "receiver": false,
+              "location": {
+                "road_id": "E_J171_J149.50",
+                "lane_id": "E_J171_J149.50_1",
+                "lane_position": 10.879196199441477,
+                "route_distance": 12240.099196199455,
+                "speed": 0.1153441564814473,
+                "at_stop": false
+              },
+              "capacity": 50.0,
+              "free_seats": 16.0,
+              "planned_current_or_next_stop": "122X22_311X22_406S29",
+              "next_stop_matches": true,
+              "counts": {
+                "onboard": 34,
+                "current_stage_known": 34,
+                "current_leg_dest_receiver_observed": 4,
+                "additional_intent_available": 34,
+                "planned_first_leg_transfers_observed": 2,
+                "planned_receiver_compatible_observed": 1
+              }
+            },
+            "person": {
+              "person_id": "transfer_15055.0",
+              "actual_onboard_trip": "406S_22",
+              "actual_onboard_line": "406S",
+              "current_stage0": {
+                "type": 3,
+                "line": "406S",
+                "destStop": "122X22_311X22_406S29",
+                "known": true,
+                "source": "native_current_stage0"
+              },
+              "additional_intent": {
+                "source": "additional_preloaded_journey_intent",
+                "available": true,
+                "transfer_stop": "122X22_311X22_406S29",
+                "final_stop": "311X37",
+                "first_leg_transfer_at_receiver": true,
+                "receiver_remaining_route_compatible": true,
+                "next_leg_permitted_lines": null
+              }
+            }
+          }
+        ],
+        "torch_rng_checked": true,
+        "guard": {
+          "before": {
+            "clock": 14547.0,
+            "ledger": {
+              "time_seconds": 14547.0,
+              "waiting_passengers": 531.0,
+              "in_vehicle_passengers": 1260.0,
+              "accrued_wait_seconds": 3631394.0,
+              "accrued_in_vehicle_seconds": 10352489.0
+            }
+          },
+          "after": {
+            "clock": 14547.0,
+            "ledger": {
+              "time_seconds": 14547.0,
+              "waiting_passengers": 531.0,
+              "in_vehicle_passengers": 1260.0,
+              "accrued_wait_seconds": 3631394.0,
+              "accrued_in_vehicle_seconds": 10352489.0
+            }
+          }
+        },
+        "error_count": 0,
+        "errors": [],
+        "semantics": "Counts cover actual onboard people of all active vehicles whose remaining native stop plan contains the receiver stop. Current-stage destinations are planned, not realized arrivals. Additional whole-journey intent does not supply next-leg permission; no ETA is inferred. Ledger counts may lag current native membership by one tick."
+      },
+      "runtime": {
+        "python": "3.10.14",
+        "numpy": "2.1.3",
+        "sumo": [
+          22,
+          "SUMO 1.25.0"
+        ],
+        "h2o_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/H2Oplus",
+        "sumo_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/assets/SUMO_ruiguang"
+      },
+      "target_ledger": {
+        "time_seconds": 14547.0,
+        "waiting_passengers": 531,
+        "in_vehicle_passengers": 1260,
+        "accrued_wait_seconds": 3631394.0,
+        "accrued_in_vehicle_seconds": 10352489.0
+      },
+      "target_reference_ledger": {
+        "time_seconds": 14547.0,
+        "waiting_passengers": 531,
+        "in_vehicle_passengers": 1260,
+        "accrued_wait_seconds": 3631394.0,
+        "accrued_in_vehicle_seconds": 10352489.0
+      },
+      "target_apply_calls_before": 10301,
+      "target_apply_calls_after": 10301,
+      "target_command_applied": false,
+      "replay": {
+        "all_pass": true,
+        "status": "target_reached",
+        "target_sequence": 10045,
+        "target_clock": 14547.0,
+        "actions_read": 10046,
+        "actions_checked": 10046,
+        "ticks_integrated": 14547,
+        "last_reference_ledger": {
+          "time_seconds": 14547.0,
+          "waiting_passengers": 531,
+          "in_vehicle_passengers": 1260,
+          "accrued_wait_seconds": 3631394.0,
+          "accrued_in_vehicle_seconds": 10352489.0
+        },
+        "action_paths": [
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_same_state_holding_v114_20261029/runs/local_speed_drop/actions.jsonl",
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_same_state_holding_v114_20261029/runs/local_speed_drop/branches/high/actions.jsonl"
+        ],
+        "tick_paths": [
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_same_state_holding_v114_20261029/runs/local_speed_drop/ticks.jsonl",
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_same_state_holding_v114_20261029/runs/local_speed_drop/branches/high/ticks.jsonl"
+        ],
+        "failure": null,
+        "action_comparison": "All recorded EventStream fields exact; observer visit_index excluded",
+        "ledger_semantics": "Integrate tick-start counts through end=issue clock; retain last tick counts"
+      },
+      "scenario_metadata": {
+        "name": "local_speed_drop",
+        "installed_at_seconds": 503.0,
+        "scheduled_shock_at_seconds": 9000.0,
+        "actual_shock_at_seconds": 9000.0,
+        "speed_factor": 0.65,
+        "edge_id": "E_J282_J328.50",
+        "lane_ids": [
+          "E_J282_J328.50_0",
+          "E_J282_J328.50_1",
+          "E_J282_J328.50_2",
+          "E_J282_J328.50_3"
+        ],
+        "edge_length_meters": 723.3,
+        "directly_affected_lines": [
+          "7X",
+          "102X",
+          "705X"
+        ],
+        "upstream_stop": "7X13_102X26_705X27",
+        "downstream_stop": "7X14_102X27_705X28",
+        "lane_caps": [
+          {
+            "lane_id": "E_J282_J328.50_0",
+            "original_mps": 13.89,
+            "requested_mps": 9.028500000000001,
+            "observed_mps": 9.028500000000001
+          },
+          {
+            "lane_id": "E_J282_J328.50_1",
+            "original_mps": 13.89,
+            "requested_mps": 9.028500000000001,
+            "observed_mps": 9.028500000000001
+          },
+          {
+            "lane_id": "E_J282_J328.50_2",
+            "original_mps": 13.89,
+            "requested_mps": 9.028500000000001,
+            "observed_mps": 9.028500000000001
+          },
+          {
+            "lane_id": "E_J282_J328.50_3",
+            "original_mps": 13.89,
+            "requested_mps": 9.028500000000001,
+            "observed_mps": 9.028500000000001
+          }
+        ],
+        "metric_every_seconds": 300.0,
+        "mechanism": "native lane speed cap; no intervention indicator in policy input",
+        "time_semantics": "after the native tick at actual_shock_at_seconds; subsequent motion uses the new cap",
+        "cost_semantics": "2*accrued_wait_seconds + accrued_in_vehicle_seconds; includes unfinished passengers"
+      },
+      "budget": {
+        "native_seconds": 14547.0,
+        "native_seconds_is_lower_bound": false,
+        "learner_created": false,
+        "optimizer_updates": 0,
+        "feedback_admitted": 0,
+        "world_refits": 0,
+        "checkpoint_loaded": false,
+        "source_collected": 0,
+        "terminal_labels_created": 0,
+        "released_transitions_discarded": 10012,
+        "physical_intervals_discarded": 9951,
+        "completed_transitions": 10045,
+        "applied_commands": 10301,
+        "full_day_completed": false
+      },
+      "execution_wall": {
+        "native_started_wall": 1793248444.200671,
+        "native_finished_wall": 1793248790.0731745,
+        "elapsed_seconds": 349.38873819075525
+      }
+    },
+    "stable": {
+      "status": "complete",
+      "scenario": "stable",
+      "target": {
+        "scenario": "stable",
+        "trace": "v114 parent prefix plus low suffix",
+        "trip_id": "122S_33",
+        "station_id": "122S17_311S23_406X15",
+        "sequence": 13151,
+        "stop_before_apply_clock": 18966.0,
+        "reason": "Connection vehicle leaves two seconds before the known transfer arrival in this realized trajectory.",
+        "reference_branch": "low",
+        "diagnostic_person_id": "transfer_8937.0",
+        "reference_action_parts": [
+          "actions.jsonl",
+          "branches/low/actions.jsonl"
+        ],
+        "reference_tick_parts": [
+          "ticks.jsonl",
+          "branches/low/ticks.jsonl"
+        ]
+      },
+      "integrity": {
+        "all_pass": true,
+        "checks": {
+          "replay_exact": true,
+          "observation_unchanged": true,
+          "at_declared_clock": true,
+          "before_target_apply": true,
+          "not_terminal": true,
+          "scenario_applied": true
+        }
+      },
+      "observation": {
+        "status": "complete",
+        "all_pass": true,
+        "checks": {
+          "native_clock_unchanged": true,
+          "observed_at_issue": true,
+          "ledger_unchanged": true,
+          "python_rng_unchanged": true,
+          "numpy_rng_unchanged": true,
+          "torch_module_unchanged": true,
+          "torch_rng_unchanged": true,
+          "receiver_native_active": true,
+          "receiver_native_identity": true,
+          "receiver_at_declared_stop": true,
+          "native_event_before_apply": true,
+          "required_reads_complete": true,
+          "diagnostic_current_onboard_stage_observed": true
+        },
+        "issue": {
+          "sequence": 13151,
+          "trip_id": "122S_33",
+          "line_id": "122S",
+          "station_id": "122S17_311S23_406X15",
+          "issue_clock": 18966.0,
+          "event_clock": 18965.0,
+          "observed_clock": 18966.0
+        },
+        "receiver": {
+          "trip_id": "122S_33",
+          "line_id": "122S",
+          "receiver": true,
+          "location": {
+            "road_id": "E_J214_J220.330",
+            "lane_id": "E_J214_J220.330_1",
+            "lane_position": 25.493165937790163,
+            "route_distance": 6152.53316593779,
+            "speed": 0.0,
+            "at_stop": true
+          },
+          "capacity": 50.0,
+          "free_seats": 37.0,
+          "planned_current_or_next_stop": "122S17_311S23_406X15",
+          "next_stop_matches": true,
+          "counts": {
+            "onboard": 13,
+            "current_stage_known": 13,
+            "current_leg_dest_receiver_observed": 0,
+            "additional_intent_available": 13,
+            "planned_first_leg_transfers_observed": 0,
+            "planned_receiver_compatible_observed": 0
+          },
+          "service_ready_time": 18964.5,
+          "service_ready_now": true
+        },
+        "coverage": {
+          "onboard": 100,
+          "current_stage_known": 100,
+          "current_leg_dest_receiver_observed": 5,
+          "additional_intent_available": 100,
+          "planned_first_leg_transfers_observed": 2,
+          "planned_receiver_compatible_observed": 2,
+          "native_active_buses": 41,
+          "related_feeder_vehicles": 2,
+          "next_stop_matches_vehicles": 1,
+          "vehicles_with_current_leg_dest_receiver": 2,
+          "immediate_current_leg_dest_receiver_observed": 3
+        },
+        "counts_are_partial": false,
+        "positive_feeders": [
+          {
+            "trip_id": "311S_27",
+            "line_id": "311S",
+            "next_stop_matches": true,
+            "counts": {
+              "onboard": 50,
+              "current_stage_known": 50,
+              "current_leg_dest_receiver_observed": 3,
+              "additional_intent_available": 50,
+              "planned_first_leg_transfers_observed": 1,
+              "planned_receiver_compatible_observed": 1
+            }
+          },
+          {
+            "trip_id": "311S_28",
+            "line_id": "311S",
+            "next_stop_matches": false,
+            "counts": {
+              "onboard": 50,
+              "current_stage_known": 50,
+              "current_leg_dest_receiver_observed": 2,
+              "additional_intent_available": 50,
+              "planned_first_leg_transfers_observed": 1,
+              "planned_receiver_compatible_observed": 1
+            }
+          }
+        ],
+        "positive_feeder_rows_total": 2,
+        "positive_feeder_rows_returned": 2,
+        "diagnostic_person_id": "transfer_8937.0",
+        "diagnostic_matches": [
+          {
+            "vehicle": {
+              "trip_id": "311S_27",
+              "line_id": "311S",
+              "receiver": false,
+              "location": {
+                "road_id": "E_J214_J220.330",
+                "lane_id": "E_J214_J220.330_1",
+                "lane_position": 10.708126359255097,
+                "route_distance": 13037.14812635926,
+                "speed": 0.42408931388874327,
+                "at_stop": false
+              },
+              "capacity": 50.0,
+              "free_seats": 0.0,
+              "planned_current_or_next_stop": "122S17_311S23_406X15",
+              "next_stop_matches": true,
+              "counts": {
+                "onboard": 50,
+                "current_stage_known": 50,
+                "current_leg_dest_receiver_observed": 3,
+                "additional_intent_available": 50,
+                "planned_first_leg_transfers_observed": 1,
+                "planned_receiver_compatible_observed": 1
+              }
+            },
+            "person": {
+              "person_id": "transfer_8937.0",
+              "actual_onboard_trip": "311S_27",
+              "actual_onboard_line": "311S",
+              "current_stage0": {
+                "type": 3,
+                "line": "311S",
+                "destStop": "122S17_311S23_406X15",
+                "known": true,
+                "source": "native_current_stage0"
+              },
+              "additional_intent": {
+                "source": "additional_preloaded_journey_intent",
+                "available": true,
+                "transfer_stop": "122S17_311S23_406X15",
+                "final_stop": "122S22_406X20",
+                "first_leg_transfer_at_receiver": true,
+                "receiver_remaining_route_compatible": true,
+                "next_leg_permitted_lines": null
+              }
+            }
+          }
+        ],
+        "torch_rng_checked": true,
+        "guard": {
+          "before": {
+            "clock": 18966.0,
+            "ledger": {
+              "time_seconds": 18966.0,
+              "waiting_passengers": 425.0,
+              "in_vehicle_passengers": 873.0,
+              "accrued_wait_seconds": 6759180.0,
+              "accrued_in_vehicle_seconds": 15915979.0
+            }
+          },
+          "after": {
+            "clock": 18966.0,
+            "ledger": {
+              "time_seconds": 18966.0,
+              "waiting_passengers": 425.0,
+              "in_vehicle_passengers": 873.0,
+              "accrued_wait_seconds": 6759180.0,
+              "accrued_in_vehicle_seconds": 15915979.0
+            }
+          }
+        },
+        "error_count": 0,
+        "errors": [],
+        "semantics": "Counts cover actual onboard people of all active vehicles whose remaining native stop plan contains the receiver stop. Current-stage destinations are planned, not realized arrivals. Additional whole-journey intent does not supply next-leg permission; no ETA is inferred. Ledger counts may lag current native membership by one tick."
+      },
+      "runtime": {
+        "python": "3.10.14",
+        "numpy": "2.1.3",
+        "sumo": [
+          22,
+          "SUMO 1.25.0"
+        ],
+        "h2o_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/H2Oplus",
+        "sumo_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/assets/SUMO_ruiguang"
+      },
+      "target_ledger": {
+        "time_seconds": 18966.0,
+        "waiting_passengers": 425,
+        "in_vehicle_passengers": 873,
+        "accrued_wait_seconds": 6759180.0,
+        "accrued_in_vehicle_seconds": 15915979.0
+      },
+      "target_reference_ledger": {
+        "time_seconds": 18966.0,
+        "waiting_passengers": 425,
+        "in_vehicle_passengers": 873,
+        "accrued_wait_seconds": 6759180.0,
+        "accrued_in_vehicle_seconds": 15915979.0
+      },
+      "target_apply_calls_before": 13499,
+      "target_apply_calls_after": 13499,
+      "target_command_applied": false,
+      "replay": {
+        "all_pass": true,
+        "status": "target_reached",
+        "target_sequence": 13151,
+        "target_clock": 18966.0,
+        "actions_read": 13152,
+        "actions_checked": 13152,
+        "ticks_integrated": 18966,
+        "last_reference_ledger": {
+          "time_seconds": 18966.0,
+          "waiting_passengers": 425,
+          "in_vehicle_passengers": 873,
+          "accrued_wait_seconds": 6759180.0,
+          "accrued_in_vehicle_seconds": 15915979.0
+        },
+        "action_paths": [
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_same_state_holding_v114_20261029/runs/stable/actions.jsonl",
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_same_state_holding_v114_20261029/runs/stable/branches/low/actions.jsonl"
+        ],
+        "tick_paths": [
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_same_state_holding_v114_20261029/runs/stable/ticks.jsonl",
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_same_state_holding_v114_20261029/runs/stable/branches/low/ticks.jsonl"
+        ],
+        "failure": null,
+        "action_comparison": "All recorded EventStream fields exact; observer visit_index excluded",
+        "ledger_semantics": "Integrate tick-start counts through end=issue clock; retain last tick counts"
+      },
+      "scenario_metadata": {
+        "name": "stable",
+        "installed_at_seconds": 503.0,
+        "scheduled_shock_at_seconds": 9000.0,
+        "actual_shock_at_seconds": null,
+        "speed_factor": 0.65,
+        "edge_id": "E_J282_J328.50",
+        "lane_ids": [
+          "E_J282_J328.50_0",
+          "E_J282_J328.50_1",
+          "E_J282_J328.50_2",
+          "E_J282_J328.50_3"
+        ],
+        "edge_length_meters": 723.3,
+        "directly_affected_lines": [
+          "7X",
+          "102X",
+          "705X"
+        ],
+        "upstream_stop": "7X13_102X26_705X27",
+        "downstream_stop": "7X14_102X27_705X28",
+        "lane_caps": [],
+        "metric_every_seconds": 300.0,
+        "mechanism": "native lane speed cap; no intervention indicator in policy input",
+        "time_semantics": "after the native tick at actual_shock_at_seconds; subsequent motion uses the new cap",
+        "cost_semantics": "2*accrued_wait_seconds + accrued_in_vehicle_seconds; includes unfinished passengers"
+      },
+      "budget": {
+        "native_seconds": 18966.0,
+        "native_seconds_is_lower_bound": false,
+        "learner_created": false,
+        "optimizer_updates": 0,
+        "feedback_admitted": 0,
+        "world_refits": 0,
+        "checkpoint_loaded": false,
+        "source_collected": 0,
+        "terminal_labels_created": 0,
+        "released_transitions_discarded": 13133,
+        "physical_intervals_discarded": 13094,
+        "completed_transitions": 13151,
+        "applied_commands": 13499,
+        "full_day_completed": false
+      },
+      "execution_wall": {
+        "native_started_wall": 1793248444.2009733,
+        "native_finished_wall": 1793248822.1104205,
+        "elapsed_seconds": 380.10926549881697
+      }
+    }
+  },
+  "budget": {
+    "native_seconds": 33513.0,
+    "known_native_seconds": 33513.0,
+    "native_seconds_is_lower_bound": false,
+    "optimizer_updates": 0,
+    "feedback_admitted": 0,
+    "learner_created": false
+  },
+  "performance_evidence": false,
+  "automatic_followup": false
+}

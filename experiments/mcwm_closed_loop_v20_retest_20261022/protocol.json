@@ -1,0 +1,115 @@
+{
+  "name": "thesis-mcwm-service-diagnostic-v20-retest-20261022",
+  "scheduler_priority": "high",
+  "source_version": "mcwm_closed_loop_state_response_v18_20261022",
+  "prior_review": "mcwm_closed_loop_v19_review_20261022",
+  "fixed_seed": 6201,
+  "fixed_scenario": "stable",
+  "fixed_window": "late",
+  "fixed_lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "mapping": "native",
+  "fixed_selection": "Reuse the three v19 predeclared v18 training anchors, without selecting by new response truth.",
+  "anchors": {
+    "7X": {
+      "id": "train/7X/late",
+      "sequence": 11755,
+      "started_at": 16865,
+      "source_index": 2
+    },
+    "102X": {
+      "id": "train/102X/late",
+      "sequence": 11641,
+      "started_at": 16700,
+      "source_index": 5
+    },
+    "705X": {
+      "id": "train/705X/late",
+      "sequence": 12023,
+      "started_at": 17235,
+      "source_index": 8
+    }
+  },
+  "first_branch": {
+    "line": "7X",
+    "arm": "low",
+    "output_relative": "branches/native/7X/low"
+  },
+  "first_action_seconds": {
+    "low": 0,
+    "high": 7.5
+  },
+  "suffix_seconds": 300,
+  "observation": {
+    "ledger_seconds": 1,
+    "relative_clock": [
+      0,
+      300
+    ],
+    "phase_boundaries": [
+      0,
+      75,
+      150,
+      225,
+      300
+    ],
+    "ledger": "Every native second: cumulative global waiting/ride passenger seconds and passenger stocks. Use cumulative ledger differences for exact phase accounting.",
+    "service": "Passive arrival, departure, service-ready, boarding/alighting, service order, capacity/free capacity and stranded/eligible queue observations. Native detection and ledger delivery clocks remain distinct.",
+    "scope": "Global ledger; service events retain line, trip, vehicle and stop identity, with target lines and fork stop separately summarized.",
+    "storage": "Full clock and event traces stay resident. Export only bounded JSON summaries and necessary short logs.",
+    "future_information": "Future service observations are diagnostic truth only; no model fit or policy input uses them."
+  },
+  "invariants": {
+    "initializer_seed": 6201,
+    "initializer_updates": 50000,
+    "target_external_seed": 84201,
+    "history_rows": 32768,
+    "source_rows": 4096,
+    "training_labels_per_day": 285,
+    "ordinary_labels_per_day": 267,
+    "paired_labels_per_day": 18,
+    "training_pair_outcome_slots": 2,
+    "horizon_seconds": 24000,
+    "physical_source_intervals": 102,
+    "target_physical_updates": 0,
+    "trust": "Original v18 formula and prefix updates; all suffix learning remains zero."
+  },
+  "diagnostic_compute_budget": {
+    "new_main_days": 0,
+    "new_training_labels": 0,
+    "truth_labels_enter_training": 0,
+    "new_branch_queries_maximum": 6,
+    "new_suffix_seconds_maximum": 1800,
+    "first_branch_reused": true,
+    "remaining_branches": 5,
+    "old_native_outcomes_for_exact_reproduction": 6,
+    "new_tail_branches": 0,
+    "prefix_replay": "Record replay seconds, original labels and update counts separately; never count them as new independent training data.",
+    "failures": "Preserve failed outputs and separately account their prefix and suffix costs. No automatic requeue.",
+    "failed_previous_attempt": {
+      "task": "t211062",
+      "prefix_sim_seconds": 16865,
+      "suffix_sim_seconds": 300,
+      "replay_target_labels": 265,
+      "replay_policy_updates": 424,
+      "diagnostic_action_outcomes": 1,
+      "evidence": "failed_attempt_audit.json",
+      "missing": "No finalized summary, cutoff person-set sample, or final counter aggregate was saved."
+    },
+    "total_v20_attempted_outcomes_planned": 7,
+    "total_v20_suffix_seconds_planned": 2100,
+    "scope": "This revision submits six valid observational suffixes. The original failed completed suffix is a separate seventh attempted outcome/300 seconds; no hidden reuse as a successful arm."
+  },
+  "admission": "First native 7X low must reproduce complete prefix, old predictions and truth exactly, actual action, real event clock, 301 ledger snapshots and zero suffix training before launching the other five arms.",
+  "output_limits": {
+    "preflight_gate_bytes": 12000,
+    "service_summary_bytes": 30000
+  },
+  "model_change": "Not selected. Inspect paired matched-clock service evidence before choosing at most one change.",
+  "independent_confirmation": "not_submitted",
+  "original_version": "mcwm_closed_loop_service_diagnostic_v20_20261022",
+  "revision_reason": "Fix the native suffix finalization order; preserve the failed original first arm and all old results."
+}

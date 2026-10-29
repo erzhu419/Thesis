@@ -1,0 +1,127 @@
+{
+  "source": "/home/erzhu419/mine_code/Thesis/output/Gemini/word_assets_20261015/final_formula_content_review_20261019/source_snapshot.docx",
+  "source_size": 21532377,
+  "source_mtime_epoch": 1792370400.5075333,
+  "source_stat_unchanged_during_read": true,
+  "scope": "所有word/*.xml中全部oMath（行内、编号、无编号显示、符号表/表格）；只读。",
+  "summary": {
+    "oMath_total": 4825,
+    "oMath_unlabeled_display": 678,
+    "native_display_oMath": 1106,
+    "math_runs_total": 30287,
+    "math_mode_runs": 29996,
+    "visible_characters_checked": 44173,
+    "oMath_inline": 3719,
+    "native_inline_oMath": 3719,
+    "structural_sign_characters_checked": 612,
+    "oMath_numbered": 428,
+    "normal_text_runs": 291,
+    "U200B_characters": 217,
+    "eqArr_ampersand_characters": 38
+  },
+  "parts_with_math": [
+    {
+      "part": "word/document.xml",
+      "oMath_count": 4825
+    }
+  ],
+  "font_resolution_method": "全部run按docDefaults→段落basedOn链→字符样式链→直接w:rPr解析；样式b/i按OOXML切换语义，直接字体覆盖下层主题。显式m:scr/m:sty先按Unicode数学字母映射，然后在该run有效字体cmap核对，不能无条件用文档mathFont替代。结构符号仍使用控制数学字体。忽略空白/格式控制字符；eqArr &另列，不当缺glyph。",
+  "audit_correction": "前次将非nor样式字母统一按Cambria Math检查漏掉3个script Z。现全部818styled字符按run有效字体重新核对；缺主要字体glyph只是候选，PDF实际gid0另标。",
+  "font_selection_limit": "缺失列表表示所解析主要字体cmap无该glyph；Office实际fallback和PDF是否gid0由redraw独立审计确认。默认hint下数学符号走hAnsi；hint=eastAsia的相应符号区走东亚字体。",
+  "font_evidence": {
+    "('Cambria Math', False, False)": {
+      "file": "/mnt/c/Windows/Fonts/cambria.ttc",
+      "ttc_index": 1,
+      "family": "Cambria Math",
+      "style": "Regular",
+      "available": true,
+      "unicode_glyphs": 4650
+    },
+    "('SimSun', False, False)": {
+      "file": "/mnt/c/Windows/Fonts/simsun.ttc",
+      "ttc_index": 0,
+      "family": "SimSun",
+      "style": "Regular",
+      "available": true,
+      "unicode_glyphs": 28849
+    }
+  },
+  "font_character_counts": [
+    {
+      "font": "Cambria Math",
+      "mode": "math",
+      "characters": 43774
+    },
+    {
+      "font": "Cambria Math",
+      "mode": "normal",
+      "characters": 307
+    },
+    {
+      "font": "宋体",
+      "mode": "normal",
+      "characters": 52
+    },
+    {
+      "font": "宋体",
+      "mode": "math",
+      "characters": 2
+    }
+  ],
+  "missing_primary_glyph_groups": [],
+  "missing_primary_glyph_runs": [],
+  "unresolved_font_runs": [],
+  "styled_math_character_checks": {
+    "counts": [
+      {
+        "script": "script",
+        "style": "p",
+        "characters_checked": 707
+      },
+      {
+        "script": "roman",
+        "style": "p",
+        "characters_checked": 20421
+      },
+      {
+        "script": "double-struck",
+        "style": "p",
+        "characters_checked": 186
+      },
+      {
+        "script": "roman",
+        "style": "bi",
+        "characters_checked": 21
+      },
+      {
+        "script": "script",
+        "style": "i",
+        "characters_checked": 76
+      },
+      {
+        "script": "roman",
+        "style": "b",
+        "characters_checked": 8
+      },
+      {
+        "script": "sans-serif",
+        "style": "p",
+        "characters_checked": 3
+      }
+    ],
+    "missing": []
+  },
+  "structural_sign_missing_glyphs": [],
+  "minimal_repair_boundary": {
+    "preferred_scope": "仅missing_primary_glyph_runs中被PDF字形0或原生显示确认的非中文符号字符；不整体替换oMath，不全篇改数学字体。",
+    "action": "将确诊符号单独拆run（如同run混有其他字母），只为该符号run显式指定Cambria Math的ascii/hAnsi/eastAsia/cs并去同run冲突主题字体属性；保留m:nor/字号/其他运算，先由单点原生预览证实是否还需恢复数学模式。",
+    "preserve": [
+      "全部文字和数学字符",
+      "原生分式、矩阵、上下标、m:scr/m:sty",
+      "已正确的单位/中文Normal Text",
+      "段落pPr、公式表几何、式号、引用、书签"
+    ],
+    "candidate_normal_text_runs": 0,
+    "not_authorized_here": "本审计不修改原Word，也不实施全篇字体恢复。"
+  }
+}

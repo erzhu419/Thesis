@@ -1,0 +1,109 @@
+{
+  "name": "mcwm_historical_coverage_v111_20261029",
+  "stage": "Full historical critic coverage at unchanged historical total weight",
+  "authorization": "User explicitly authorized historical critic coverage128 at unchanged historical total weight and all other settings/cost gates; separately account added compute, complete four days and analyze; old code/results read-only and small receipts only.",
+  "training_seed": 6201,
+  "external_seed": 106206,
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "arms": [
+    "fresh",
+    "no_fresh"
+  ],
+  "input_checkpoint": "experiments/mcwm_full_state_recovery_v105_20261029/run/seed6201/full_state.pt",
+  "v105_protocol": "experiments/mcwm_full_state_recovery_v105_20261029/protocol.json",
+  "v106_protocol": "experiments/mcwm_endpoint_restore_v106_20261029/protocol.json",
+  "v106_summary": "experiments/mcwm_endpoint_restore_v106_20261029/run/seed6201/summary.json",
+  "frozen_reference_root": "experiments/mcwm_closed_loop_historical_comparison_v104_20261028/runs_runtime_fix/6201/106206",
+  "edge_xml": "experiments/sumo_eval/runtime/H2Oplus/bus_h2o/network_data/a_sorted_busline_edge.xml",
+  "horizon_seconds": 24000,
+  "shock_at_seconds": 9000,
+  "speed_factor": 0.65,
+  "metric_interval_seconds": 300,
+  "full_day_departed_passengers": 15079,
+  "periods": {
+    "full_day": [
+      0,
+      24000
+    ],
+    "early": [
+      9000,
+      12000
+    ],
+    "post_budget": [
+      18300,
+      24000
+    ]
+  },
+  "feedback_first_deadline": 1200,
+  "feedback_last_deadline": 18000,
+  "feedback_interval_seconds": 300,
+  "feedback_records_per_packet": 5,
+  "feedback_delay_seconds": 30,
+  "target_record_budget": 285,
+  "policy_updates_per_packet": 8,
+  "policy_update_budget": 456,
+  "fresh_pool_capacity": 285,
+  "fresh_rows": 64,
+  "private_seed": 606201,
+  "selection": "Latest five eligible complete positive-time nonterminal rows per original release window. Retain all admitted rows up to285. No risk selection or recent30 truncation.",
+  "learning_change": "In fresh, original historical128 contributes0.1875, fresh64 contributes0.1875, source128 contributes0.375, model128 contributes0.25. Keep v109 original auxiliary batches. Main256 target unchanged; recompute original full256 target inside a Torch RNG fork restored to the pre-main-target state, use its missing historical64 suffix, and add64 critic predictions. No new replay draw or optimizer step.",
+  "scientific_estimand": "Effect of recovering historical batch coverage128 from64 at the same0.1875 total historical TD weight. It redistributes that weight across all original128; not full retention of the no_fresh historical gradient, and not an equal-compute comparison.",
+  "preserved": "70000 endpoint with full offline and the complete saved source replay from24999 collected events; original MappingTrainer, .75real+.25model TD,128 model batch,original .1V+.9SAC bootstrap,world banks,trust rule,Adam state,tapered learning rates and raw completion-safety F. No CQL addition.",
+  "model_refits": 0,
+  "source_collection_events": 0,
+  "offline_training_updates": 0,
+  "trust_updates_per_arm": 114,
+  "new_native_days": 4,
+  "new_native_seconds": 96000,
+  "total_new_target_training_labels": 570,
+  "total_policy_updates": 1824,
+  "preflight": "Two stable arms run concurrently and continue their same full days. Compare their complete pre-first-update prefixes and first8-update receipts on the server; pass launches the two shock arms, irrespective of early cost sign. No duplicate native preflight.",
+  "primary_metric": "(2W+R)/15079 over the full24000-second day, including accrued unfinished passenger time; negative fresh-minus-comparator is better.",
+  "cost_gate": "Complete four days and technical checks. fresh-minus-matched-no_fresh mean<0,stable<=0,shock<0; additionally fresh-minus-same-actor-frozen<=0 in each scenario and at least one<0. Report no_fresh-minus-frozen to distinguish baseline drift. Early and tail windows are descriptive, not new gates.",
+  "inference_scope": "One training seed and one external seed across two scenarios; a development pilot, not independent confirmation or a universal zero-degradation guarantee.",
+  "failure": "Preserve actual consumed work. Technical failure holds remaining launch; no rerun. Complete cost-gate failure closes this fixed candidate; no automatic pool,quota,seed,window or algorithm tuning.",
+  "success": "Read out the fixed historical coverage study; no automatic additional seeds or new candidate after completion.",
+  "runtime": {
+    "device": "cpu",
+    "threads": 1,
+    "ram_mb": 16000,
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006"
+    ]
+  },
+  "priority": "high",
+  "old_code_and_results_read_only": true,
+  "downloads": "Small summaries/logs only. Prefix comparisons run on server. No CSV,trajectory,dataset or checkpoint downloads.",
+  "summary_max_bytes": 32000,
+  "v107_root": "experiments/mcwm_full_mcwm_dripping_pilot_v107_20261029",
+  "mechanism_gate": "Original auxiliary batches for V/actor/temperature; historical128 coverage, coefficient identities, main Torch RNG preservation, identical common target rows, actual extra critic64/bootstrap256 per update. no_fresh complete logs and costs exactly reproduce v109. Check the reused first8 and all456 updates.",
+  "synthetic_verification": "Only small synthetic batch-routing/update fixtures before native launch; any synthetic optimizer calls are separately recorded. No extra real-data training or native preflight day.",
+  "v109_root": "experiments/mcwm_critic_only_fresh_v109_20261029",
+  "added_compute": {
+    "per_fresh_update": {
+      "critic_supervised_rows": 64,
+      "bootstrap_forward_calls": 1,
+      "bootstrap_forward_rows": 256
+    },
+    "per_fresh_day": {
+      "critic_supervised_rows": 29184,
+      "bootstrap_forward_calls": 456,
+      "bootstrap_forward_rows": 116736
+    },
+    "both_fresh_days": {
+      "critic_supervised_rows": 58368,
+      "bootstrap_forward_calls": 912,
+      "bootstrap_forward_rows": 233472
+    },
+    "no_fresh_added": 0,
+    "description": "Counts distinguish additional critic supervision from full-batch target recomputation; no added optimizer steps, labels or simulation days."
+  }
+}

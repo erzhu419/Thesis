@@ -1,0 +1,81 @@
+{
+  "status": "AUTHORIZED_NATIVE_PREFIXES",
+  "purpose": "Passively populate receiver current-leg destination count for the entire immutable v121 selection in a NEW dataset view.",
+  "cases": [
+    {
+      "scenario": "stable",
+      "roots": 285,
+      "packets": 57,
+      "final_root": {
+        "receiver": "311X_25",
+        "station": "311X11",
+        "sequence": 12467,
+        "observed_at": 17910.0,
+        "source_group": "v113/no_fresh/stable"
+      },
+      "stop_before_apply_sequence": 12467,
+      "stop_before_apply_clock": 17910.0
+    },
+    {
+      "scenario": "local_speed_drop",
+      "roots": 285,
+      "packets": 57,
+      "final_root": {
+        "receiver": "7X_46",
+        "station": "7X16_102X29_705X30",
+        "sequence": 12455,
+        "observed_at": 17910.0,
+        "source_group": "v113/no_fresh/local_speed_drop"
+      },
+      "stop_before_apply_sequence": 12455,
+      "stop_before_apply_clock": 17910.0
+    }
+  ],
+  "reference": "Qualified v120 recorded proposals, commands and tick ledger, v121 immutable selection and v126 frozen metadata manifest.",
+  "initialization": "Original external seed106206 and scenario configuration, recorded no_fresh proposals; no learner or checkpoint load.",
+  "observation": "At every original selected root, call v124 current-stage observer before unchanged apply. No outcomes select or replace roots. Store all raw observations on server.",
+  "stopping": "Capture the last selected root at17910 and stop before applying it; do not replay any later suffix or synthesize terminal labels.",
+  "budget": {
+    "maximum_new_native_seconds": 35820,
+    "observed_roots": 570,
+    "new_policy_actions": 0,
+    "optimizer_updates": 0,
+    "new_predictor_fits": 0,
+    "world_refits": 0,
+    "checkpoint_loads": 0,
+    "feedback_training_admissions": 0
+  },
+  "preserved": {
+    "original_F": true,
+    "original_decision_timing": true,
+    "original_service_constants": true,
+    "old_code_and_results": "read-only",
+    "sample_semantics": "Full original285 selected roots and57 packets per scenario; no selection or label changes."
+  },
+  "runtime": {
+    "require_node": "node001",
+    "cpu": 1,
+    "ram_mb": 8000,
+    "threads": 1
+  },
+  "validation": "First require qualified replay and action agreement. Report complete/missing receiver fields across all570 slots and shared135 prefix equality; derive binary targets from original60-second evidence using v126 interface, report prefix class support and suffix class counts separately. Do not fit, impute, replace roots, or recover targets from full-day future departures.",
+  "decision": "If complete and both prefix classes exist, report readiness for a separate fixed chronological factual prediction study under v126. If coverage or class support fails, report HOLD and the precise cause. No automatic fitting or extension.",
+  "cost_gate": "Complete four days and technical checks. fresh-minus-matched-no_fresh mean<0,stable<=0,shock<0; additionally fresh-minus-same-actor-frozen<=0 in each scenario and at least one<0. Report no_fresh-minus-frozen to distinguish baseline drift. Early and tail windows are descriptive, not new gates.",
+  "output_bound_bytes": 16000,
+  "automatic_launch": false,
+  "name": "mcwm_full_receiver_observation_v127_20261029",
+  "reference_root": "experiments/mcwm_service_replay_v120_20261029/runs",
+  "qualified_root": "experiments/mcwm_service_replay_v120_20261029/review",
+  "selected_root": "experiments/mcwm_service_opportunity_v121_20261029/runs",
+  "metadata": "experiments/mcwm_closed_loop_formal_20261020/inputs/history_metadata.json",
+  "edge_xml": "experiments/sumo_eval/runtime/H2Oplus/bus_h2o/network_data/a_sorted_busline_edge.xml",
+  "horizon_seconds": 24000,
+  "external_seed": 106206,
+  "scenario_settings": {
+    "shock_at": 9000.0,
+    "factor": 0.65,
+    "metric_every": 300.0
+  },
+  "new_native_budget": 35820,
+  "selected_manifest": "experiments/mcwm_service_risk_contract_v126_20261029/selected_roots_metadata.json"
+}

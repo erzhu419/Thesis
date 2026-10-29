@@ -1,0 +1,64 @@
+{
+  "status": "complete",
+  "implementation_gate_pass": true,
+  "training_started": false,
+  "source_summary_bytes": 36387,
+  "native_summary_bytes": 3039,
+  "total_summary_bytes": 39426,
+  "trace_std_ratio_range": [
+    0.264228496,
+    0.352603001
+  ],
+  "native_absolute_std_ratio_range": [
+    0.2494524292750336,
+    0.3326557209700762
+  ],
+  "native_paired_zero_contexts": 8,
+  "native_paired_contexts": 12,
+  "native_705X_post456_noise": "float32 assembly dominates paired variation after common draw cancellation; nonzero mean remains",
+  "remaining_mean_not_removed": true,
+  "control_improvement_established": false,
+  "new_training_updates": 0,
+  "new_feedback_slots": 0,
+  "new_native_branches": 0,
+  "tasks": {
+    "frozen": [
+      "t211542",
+      "t211543",
+      "t211544",
+      "t211545"
+    ],
+    "summary": "t211547",
+    "native_summary": "t211548",
+    "priority": "high"
+  },
+  "next_plan": {
+    "name": "same_flow_single_step_M1_vs_M8",
+    "recommended": true,
+    "started": false,
+    "lambda_trace_both": 0,
+    "positive_draws": [
+      1,
+      8
+    ],
+    "feedback_slots_per_arm": 285,
+    "updates_per_arm": 456,
+    "replay_timing": "15warmup_then9630_admit270_before432updates",
+    "requirements": [
+      "M1_reproduce_original57pack_learning_Adam_and_RNG",
+      "same_initializer_minibatches_update_schedule_and_candidate_actions",
+      "M8_extra7draws_use_separate_RNG_preserving_native_first_draw_and_other_RNG",
+      "retain_parameters_and_Adam_across_packs",
+      "keep_actor_V_observations_F_sampling_features_and_trust",
+      "report_extra_target_forward_compute_separately"
+    ],
+    "outcomes": [
+      "target_and_critic_level_noise",
+      "common_action_advantages",
+      "F_executed_holding"
+    ],
+    "stop_gate": "Only level change without persistent action advantage and F separation does not justify native branches.",
+    "later_gate": "Persistent action effects only qualify for new heldout physical truth; no control benefit claim.",
+    "trace_change": "Not combined with M8. FixedM_lambda0_vs_lambda1 is a separate later contrast."
+  }
+}

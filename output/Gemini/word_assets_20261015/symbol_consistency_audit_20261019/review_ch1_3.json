@@ -1,0 +1,3230 @@
+{
+  "read_only": true,
+  "scope": "第1–3章，P416–1676；M122–1506。正文及公式不修改。",
+  "findings": [
+    {
+      "id": "C13-01",
+      "kind": "table_notation_mismatch",
+      "table_rows": [
+        8,
+        9
+      ],
+      "finding": "正文物理驻站量是a/a_max，归一化编码是ã；表却列u/u_max和a^n。u_max与a^n在非符号表OMML中没有对应符号。",
+      "evidence": [
+        {
+          "M": 126,
+          "P": 601,
+          "formula": null,
+          "tex": "a_{\\max}"
+        },
+        {
+          "M": 127,
+          "P": 603,
+          "formula": "2-1",
+          "tex": "a = max\\left( 0,\\ \\min\\left\\{ \\, t^{d} - t^{s},\\ a_{\\max}\\, \\right\\} \\right)"
+        },
+        {
+          "M": 441,
+          "P": 889,
+          "formula": null,
+          "tex": "a \\in \\lbrack 0,60\\rbrack"
+        },
+        {
+          "M": 442,
+          "P": 889,
+          "formula": null,
+          "tex": "a = 0"
+        },
+        {
+          "M": 445,
+          "P": 889,
+          "formula": null,
+          "tex": "\\widetilde{a} \\in \\lbrack - 1,1\\rbrack"
+        },
+        {
+          "M": 450,
+          "P": 889,
+          "formula": null,
+          "tex": "a = 30\\,(\\widetilde{a} + 1)"
+        }
+      ],
+      "minimal_fix": "只修表8–9为a,a_max和ã；正文不动。"
+    },
+    {
+      "id": "C13-02",
+      "kind": "table_notation_mismatch",
+      "table_rows": [
+        12,
+        14
+      ],
+      "finding": "人数积分正式定义使用N^w(t)/N^b(t)，不是表的N_w(t)/N_v(t)；累计个体时间是T_p^w/T_p^b，表中T^ride/T^trip没有该用法。",
+      "evidence": [
+        {
+          "M": 471,
+          "P": 898,
+          "formula": null,
+          "tex": "i"
+        },
+        {
+          "M": 472,
+          "P": 898,
+          "formula": null,
+          "tex": "t_{i}"
+        },
+        {
+          "M": 474,
+          "P": 900,
+          "formula": "2-34",
+          "tex": "r_{i}^{pass}\\mspace{6mu} = \\mspace{6mu} - \\int_{t_{i}}^{t_{i + 1}}\\left( \\, 2\\, N^{w}(t) + N^{b}(t)\\, \\right)\\, dt"
+        },
+        {
+          "M": 486,
+          "P": 903,
+          "formula": null,
+          "tex": "T_{p}^{w}"
+        },
+        {
+          "M": 487,
+          "P": 903,
+          "formula": null,
+          "tex": "T_{p}^{b}"
+        },
+        {
+          "M": 489,
+          "P": 905,
+          "formula": "2-35",
+          "tex": "G\\mspace{6mu} = \\mspace{6mu}\\frac{1}{N_{dep}}\\sum_{p \\in \\mathcal{P}_{dep}}^{}\\left( \\, 2\\, T_{p}^{w} + T_{p}^{b}\\, \\right)\\mspace{6mu} = \\mspace{6mu}\\frac{1}{N_{dep}}\\int_{0}^{T_{hor}}\\left( \\, 2\\, N^{w}(t) + N^{b}(t)\\, \\right)\\, dt"
+        },
+        {
+          "M": 714,
+          "P": 1032,
+          "formula": "3-17",
+          "tex": "\\mathbb{E\\lbrack}W\\rbrack\\mspace{6mu} = \\mspace{6mu}\\frac{\\mathbb{E\\lbrack}H^{2}\\rbrack}{2\\,\\mathbb{E\\lbrack}H\\rbrack}\\mspace{6mu} = \\mspace{6mu}\\frac{\\mathbb{E\\lbrack}H\\rbrack}{2} + \\frac{Var(H)}{2\\,\\mathbb{E\\lbrack}H\\rbrack}\\mspace{6mu} = \\mspace{6mu}\\frac{\\mathbb{E\\lbrack}H\\rbrack}{2}\\left( 1 + {CV}_{H}^{2} \\right)"
+        }
+      ],
+      "minimal_fix": "表12改为实际上标人数记号；表14保留W并列T_p^w、T_p^b，分别注明随机等待与累计时间。"
+    },
+    {
+      "id": "C13-03",
+      "kind": "table_notation_mismatch",
+      "table_rows": [
+        34,
+        63,
+        64
+      ],
+      "finding": "拼接输入是粗斜体x；离散变量c_j、类别数n_j、嵌入维数d_j、矩阵E_j、隐藏宽度h均已明确。z^emb、m_cat、c_cat,j、n_cat、p_hid、d_emb在正文未以对应意义使用。表34的e_i实际在第6章表示模型误差，不能称类别编码映射。",
+      "evidence": [
+        {
+          "M": 574,
+          "P": 953,
+          "formula": null,
+          "tex": "c_{1},c_{2},\\ldots,c_{m}"
+        },
+        {
+          "M": 575,
+          "P": 953,
+          "formula": null,
+          "tex": "\\mathbf{o}"
+        },
+        {
+          "M": 576,
+          "P": 953,
+          "formula": null,
+          "tex": "j"
+        },
+        {
+          "M": 578,
+          "P": 953,
+          "formula": null,
+          "tex": "E_{j} \\in \\mathbb{R}^{n_{j} \\times d_{j}}"
+        },
+        {
+          "M": 579,
+          "P": 953,
+          "formula": null,
+          "tex": "c_{j}"
+        },
+        {
+          "M": 585,
+          "P": 955,
+          "formula": "3-4",
+          "tex": "\\mathbf{x} = \\left\\lbrack \\, E_{1}(c_{1}) \\oplus E_{2}(c_{2}) \\oplus \\cdots \\oplus E_{m}(c_{m}) \\oplus \\mathbf{o}\\, \\right\\rbrack"
+        },
+        {
+          "M": 589,
+          "P": 959,
+          "formula": "3-5",
+          "tex": "d_{j} = min\\left( 50,\\ \\lfloor n_{j}/2\\rfloor \\right)"
+        },
+        {
+          "M": 594,
+          "P": 963,
+          "formula": "3-6",
+          "tex": "\\mathbf{x} = \\left\\lbrack \\,{Emb}_{v}(c_{v}) \\oplus {Emb}_{s}(c_{s}) \\oplus {Emb}_{t}(c_{t}) \\oplus {Emb}_{d}(c_{d}) \\oplus \\mathbf{o}\\, \\right\\rbrack"
+        },
+        {
+          "M": 595,
+          "P": 966,
+          "formula": null,
+          "tex": "n"
+        },
+        {
+          "M": 598,
+          "P": 966,
+          "formula": null,
+          "tex": "n \\cdot h"
+        },
+        {
+          "M": 3061,
+          "P": 2847,
+          "formula": null,
+          "tex": "e_{i}"
+        }
+      ],
+      "minimal_fix": "按第3.2.3节现有记号修表34/63/64，并注明该节作用域；不把局部索引字母差异本身判错。"
+    },
+    {
+      "id": "C13-04",
+      "kind": "table_notation_mismatch",
+      "table_rows": [
+        65,
+        86
+      ],
+      "finding": "共享回放总样本数为N、车辆v贡献数为N_v、小批量为B；表使用未出现的N_buf/N_buf,b/B_batch。",
+      "evidence": [
+        {
+          "M": 563,
+          "P": 946,
+          "formula": null,
+          "tex": "\\mathcal{D}"
+        },
+        {
+          "M": 564,
+          "P": 946,
+          "formula": null,
+          "tex": "N = \\sum_{v}^{}N_{v}"
+        },
+        {
+          "M": 566,
+          "P": 946,
+          "formula": null,
+          "tex": "N_{v}"
+        },
+        {
+          "M": 567,
+          "P": 946,
+          "formula": null,
+          "tex": "B"
+        },
+        {
+          "M": 570,
+          "P": 948,
+          "formula": "3-3",
+          "tex": "\\mathbb{E}\\left\\lbrack B_{v} \\right\\rbrack = B \\cdot \\frac{N_{v}}{N}"
+        }
+      ],
+      "minimal_fix": "表65改N,N_v；表86仅把B_batch改B，保留附录已有K_max/n_rem。"
+    },
+    {
+      "id": "C13-05",
+      "kind": "table_definition_mismatch",
+      "table_rows": [
+        67
+      ],
+      "finding": "2-19中的扰动、半径和后继价值向量分别是δ、ρ、V；表的δ_dual/ρ_dual/f_dual未对应，且V不能释为一般特征向量。",
+      "evidence": [
+        {
+          "M": 264,
+          "P": 689,
+          "formula": null,
+          "tex": "\\delta"
+        },
+        {
+          "M": 265,
+          "P": 689,
+          "formula": null,
+          "tex": "V"
+        },
+        {
+          "M": 266,
+          "P": 689,
+          "formula": null,
+          "tex": "\\parallel \\delta \\parallel \\leq \\rho"
+        },
+        {
+          "M": 267,
+          "P": 689,
+          "formula": null,
+          "tex": "\\parallel \\cdot \\parallel_{*}"
+        },
+        {
+          "M": 268,
+          "P": 691,
+          "formula": "2-19",
+          "tex": "\\min_{\\parallel \\delta \\parallel \\, \\leq \\,\\rho}\\ \\left\\langle p^{\\circ} + \\delta,\\ V \\right\\rangle\\mspace{6mu} = \\mspace{6mu}\\left\\langle p^{\\circ},\\ V \\right\\rangle\\mspace{6mu} - \\mspace{6mu}\\rho\\, \\parallel V \\parallel_{*}"
+        }
+      ],
+      "minimal_fix": "表67改δ、ρ、V；释为线性分布扰动、约束半径与后继状态价值向量，注明2.3节。"
+    },
+    {
+      "id": "C13-06",
+      "kind": "table_index_role_mismatch",
+      "table_rows": [
+        2
+      ],
+      "finding": "表把i固定释为站点位置，但3-1中i是班次、j是站点；同车转移的i另作事件序号。车辆实际使用v，j_tr并未使用。",
+      "evidence": [
+        {
+          "M": 411,
+          "P": 834,
+          "formula": null,
+          "tex": "v"
+        },
+        {
+          "M": 412,
+          "P": 834,
+          "formula": null,
+          "tex": "i"
+        },
+        {
+          "M": 525,
+          "P": 934,
+          "formula": null,
+          "tex": "i"
+        },
+        {
+          "M": 526,
+          "P": 934,
+          "formula": null,
+          "tex": "j"
+        },
+        {
+          "M": 534,
+          "P": 936,
+          "formula": "3-1",
+          "tex": "y_{i,j}^{d} = y_{i,j}^{a} + d_{i,j}^{svc} + a_{i,j} + d_{i,j}^{exit},\\quad\\quad y_{i,j + 1}^{a} = y_{i,j}^{d} + d_{i,j}^{run}"
+        },
+        {
+          "M": 551,
+          "P": 945,
+          "formula": null,
+          "tex": "v"
+        },
+        {
+          "M": 552,
+          "P": 945,
+          "formula": null,
+          "tex": "i"
+        }
+      ],
+      "minimal_fix": "表列实际v/i/j并按2.7.1和3.2.2区分作用域；不要重命名正文索引。"
+    },
+    {
+      "id": "C13-07",
+      "kind": "table_notation_mismatch",
+      "table_rows": [
+        26
+      ],
+      "finding": "正式终止标志使用d_t、d、d_i；表中的d_k^term在正文未使用。",
+      "evidence": [
+        {
+          "M": 199,
+          "P": 636,
+          "formula": null,
+          "tex": "s_{t + 1}"
+        },
+        {
+          "M": 204,
+          "P": 638,
+          "formula": "2-8",
+          "tex": "y_{t} = r_{t} + \\gamma\\,(1 - d_{t})\\,\\max_{a'\\mathcal{\\in A}}Q_{\\bar{\\theta}}(s_{t + 1},a'),\\quad\\quad\\mathcal{L(}\\theta) = \\mathbb{E}_{(s_{t},a_{t},r_{t},s_{t + 1},d_{t}\\mathcal{) \\sim D}}\\left\\lbrack \\,(Q_{\\theta}(s_{t},a_{t}) - y_{t})^{2}\\, \\right\\rbrack"
+        },
+        {
+          "M": 358,
+          "P": 733,
+          "formula": null,
+          "tex": "\\beta > 0"
+        },
+        {
+          "M": 814,
+          "P": 1089,
+          "formula": null,
+          "tex": "y_{k}"
+        },
+        {
+          "M": 815,
+          "P": 1091,
+          "formula": "3-29",
+          "tex": "y_{k} = r + \\gamma\\,(1 - d)\\,\\left( \\,{\\widehat{Q}}_{\\phi_{k}'}(s',\\ a') - \\lambda_{epi}\\,\\Gamma_{epi}(s',\\ a') - \\lambda_{ale}\\,\\kappa_{k} - \\alpha\\log\\pi_{\\theta}(a' \\mid s')\\, \\right)"
+        }
+      ],
+      "minimal_fix": "保留γ/Γ_k，终止标记列实际d_t、d_i、d。"
+    },
+    {
+      "id": "C13-08",
+      "kind": "table_target_notation_mismatch",
+      "table_rows": [
+        61
+      ],
+      "finding": "正文目标参数用φ_k′，RE-SAC对应目标网络用带帽Q_{φ_k′}；表φ_j^-不对应。下标j/k可以随文换索引，但上标负号与撇号及目标帽记号须照实际列出。",
+      "evidence": [
+        {
+          "M": 233,
+          "P": 664,
+          "formula": null,
+          "tex": "Q_{\\phi_{1}'},Q_{\\phi_{2}'}"
+        },
+        {
+          "M": 235,
+          "P": 666,
+          "formula": "2-14",
+          "tex": "y_{t} = r_{t} +"
+        },
+        {
+          "M": 236,
+          "P": 667,
+          "formula": "2-14",
+          "tex": "\\gamma\\,(1 - d_{t})\\,\\left( \\,\\min_{k \\in \\{ 1,2\\}}Q_{\\phi_{k}'}(s_{t + 1},a_{t}') - \\alpha\\log\\pi_{\\theta}(a_{t}' \\mid s_{t + 1})\\, \\right),\\quad\\quad"
+        },
+        {
+          "M": 663,
+          "P": 1006,
+          "formula": null,
+          "tex": "\\{{\\widehat{Q}}_{\\phi_{k}'}(s,a)\\}_{k = 1}^{K}"
+        },
+        {
+          "M": 702,
+          "P": 1027,
+          "formula": null,
+          "tex": "k"
+        },
+        {
+          "M": 802,
+          "P": 1085,
+          "formula": null,
+          "tex": "k"
+        },
+        {
+          "M": 815,
+          "P": 1091,
+          "formula": "3-29",
+          "tex": "y_{k} = r + \\gamma\\,(1 - d)\\,\\left( \\,{\\widehat{Q}}_{\\phi_{k}'}(s',\\ a') - \\lambda_{epi}\\,\\Gamma_{epi}(s',\\ a') - \\lambda_{ale}\\,\\kappa_{k} - \\alpha\\log\\pi_{\\theta}(a' \\mid s')\\, \\right)"
+        },
+        {
+          "M": 822,
+          "P": 1093,
+          "formula": null,
+          "tex": "k"
+        }
+      ],
+      "minimal_fix": "表61列φ_k、φ_k′、带帽Q_{φ_k′}；表前目标网络说明由root合并修正，正文目标参数不改。"
+    },
+    {
+      "id": "C13-09",
+      "kind": "missing_core_symbols",
+      "table_rows": [
+        7,
+        33,
+        41
+      ],
+      "finding": "反复使用的集成规模K、共享经验池𝒟、单线路计划间隔h_s和冻结合成惩罚Λ在表中缺少相应实际条目。K不能由回合事件数K_evt替代。",
+      "evidence": [
+        {
+          "M": 502,
+          "P": 912,
+          "formula": null,
+          "tex": "K"
+        },
+        {
+          "M": 505,
+          "P": 912,
+          "formula": null,
+          "tex": "K = 5 \\sim 10"
+        },
+        {
+          "M": 521,
+          "P": 932,
+          "formula": null,
+          "tex": "h_{s} = 360"
+        },
+        {
+          "M": 563,
+          "P": 946,
+          "formula": null,
+          "tex": "\\mathcal{D}"
+        },
+        {
+          "M": 605,
+          "P": 969,
+          "formula": null,
+          "tex": "h_{s} = 360"
+        },
+        {
+          "M": 661,
+          "P": 1006,
+          "formula": null,
+          "tex": "K"
+        },
+        {
+          "M": 673,
+          "P": 1015,
+          "formula": null,
+          "tex": "K > 1"
+        },
+        {
+          "M": 682,
+          "P": 1021,
+          "formula": null,
+          "tex": "\\rho_{ipm}"
+        },
+        {
+          "M": 865,
+          "P": 1115,
+          "formula": null,
+          "tex": "\\Lambda(s,a) = \\mathbb{E}_{s' \\sim P( \\cdot \\mid s,a),\\, a' \\sim \\pi( \\cdot \\mid s')}\\left\\lbrack \\lambda_{epi}\\,\\Gamma_{epi}(s',a') + \\lambda_{ale}\\,\\kappa_{k} \\right\\rbrack"
+        },
+        {
+          "M": 867,
+          "P": 1115,
+          "formula": null,
+          "tex": "\\mathcal{T}_{\\Lambda}"
+        },
+        {
+          "M": 868,
+          "P": 1117,
+          "formula": "3-33",
+          "tex": "(\\mathcal{T}_{\\Lambda}Q)(s,\\ a) = R(s,\\ a) + \\gamma\\,\\left( \\,\\mathbb{E}_{s' \\sim P( \\cdot \\mid s,a)}\\left\\lbrack \\, V^{Q}(s')\\, \\right\\rbrack - \\Lambda(s,\\ a)\\, \\right)"
+        }
+      ],
+      "minimal_fix": "表7补h_s、表33补𝒟、表41补Λ(s,a)；另增加K=价值网络集成成员数。"
+    },
+    {
+      "id": "C13-10",
+      "kind": "same_parameter_loses_subscript",
+      "table_rows": [],
+      "finding": "式3-11定义奖励衰减尺度τ_h，但3.4.5及表3-6/3-7中同一量17处改写成τ，并与P1093的软更新系数τ重名。",
+      "evidence": [
+        {
+          "M": 642,
+          "P": 993,
+          "formula": null,
+          "tex": "\\tau_{h} > 0"
+        },
+        {
+          "M": 644,
+          "P": 995,
+          "formula": "3-11",
+          "tex": "r_{E}(h_{f},\\ h_{b},\\ a) = exp\\left( - \\frac{|h_{f} - h_{b}|}{\\tau_{h}} \\right) + w \\cdot exp\\left( - \\frac{a}{60} \\right),\\quad\\quad a \\in \\lbrack 0,\\ 60\\rbrack"
+        },
+        {
+          "M": 1196,
+          "P": 1360,
+          "formula": null,
+          "tex": "\\tau = 60\\text{ s},w = 0"
+        },
+        {
+          "M": 1197,
+          "P": 1360,
+          "formula": null,
+          "tex": "\\tau = 60\\text{ s},w = 0.5"
+        },
+        {
+          "M": 1198,
+          "P": 1360,
+          "formula": null,
+          "tex": "\\tau = 1\\text{ s},w = 0.5"
+        },
+        {
+          "M": 1204,
+          "P": 1375,
+          "formula": null,
+          "tex": "\\tau = 60,w = 0"
+        },
+        {
+          "M": 1209,
+          "P": 1381,
+          "formula": null,
+          "tex": "\\tau = 60,w = 0.5"
+        },
+        {
+          "M": 1214,
+          "P": 1387,
+          "formula": null,
+          "tex": "\\tau = 1,w = 0.5"
+        },
+        {
+          "M": 1223,
+          "P": 1399,
+          "formula": null,
+          "tex": "\\tau = 60,w = 0"
+        },
+        {
+          "M": 1228,
+          "P": 1405,
+          "formula": null,
+          "tex": "\\tau = 60,w = 0.5"
+        },
+        {
+          "M": 1233,
+          "P": 1411,
+          "formula": null,
+          "tex": "\\tau = 1,w = 0.5"
+        },
+        {
+          "M": 1242,
+          "P": 1432,
+          "formula": null,
+          "tex": "\\tau = 60,w = 0"
+        },
+        {
+          "M": 1247,
+          "P": 1438,
+          "formula": null,
+          "tex": "\\tau = 60,w = 0.5"
+        },
+        {
+          "M": 1252,
+          "P": 1444,
+          "formula": null,
+          "tex": "\\tau = 1,w = 0.5"
+        },
+        {
+          "M": 1261,
+          "P": 1456,
+          "formula": null,
+          "tex": "\\tau = 60,w = 0"
+        },
+        {
+          "M": 1266,
+          "P": 1462,
+          "formula": null,
+          "tex": "\\tau = 60,w = 0.5"
+        },
+        {
+          "M": 1271,
+          "P": 1468,
+          "formula": null,
+          "tex": "\\tau = 1,w = 0.5"
+        },
+        {
+          "M": 1284,
+          "P": 1473,
+          "formula": null,
+          "tex": "\\tau"
+        },
+        {
+          "M": 1286,
+          "P": 1473,
+          "formula": null,
+          "tex": "\\tau = 1"
+        }
+      ],
+      "minimal_fix": "正文只记录：上述17处应τ→τ_h；P1093/M824软更新τ保留。本次修表不执行正文修改。"
+    },
+    {
+      "id": "C13-11",
+      "kind": "body_coordinate_convention_needs_clarification",
+      "table_rows": [
+        8,
+        9,
+        37
+      ],
+      "finding": "2.7.3将a定义为物理秒、ã为归一化坐标，3-32却把ã作为当前采样动作并与历史a直接相减，未声明这两个动作是否已处于同一归一化坐标。不能据此断定实现算错。",
+      "evidence": [
+        {
+          "M": 441,
+          "P": 889,
+          "formula": null,
+          "tex": "a \\in \\lbrack 0,60\\rbrack"
+        },
+        {
+          "M": 445,
+          "P": 889,
+          "formula": null,
+          "tex": "\\widetilde{a} \\in \\lbrack - 1,1\\rbrack"
+        },
+        {
+          "M": 450,
+          "P": 889,
+          "formula": null,
+          "tex": "a = 30\\,(\\widetilde{a} + 1)"
+        },
+        {
+          "M": 848,
+          "P": 1107,
+          "formula": "3-32",
+          "tex": "\\mathbb{E}_{s\\mathcal{\\sim D,}\\,\\widetilde{a} \\sim \\pi_{\\theta}\\left( \\cdot \\mid s \\right)}\\left\\lbrack \\,\\alpha\\log\\pi_{\\theta}\\left( \\widetilde{a}\\mid s \\right) - \\left( \\,\\bar{Q}\\left( s,\\ \\widetilde{a} \\right) + \\beta_{lcb}\\,\\sigma_{Q}\\left( s,\\ \\widetilde{a} \\right)\\, \\right)\\, \\right\\rbrack +"
+        },
+        {
+          "M": 849,
+          "P": 1108,
+          "formula": "3-32",
+          "tex": "\\beta_{bc}\\,\\mathbb{E}_{(s,\\, a)\\mathcal{\\sim D,}\\,\\widetilde{a} \\sim \\pi_{\\theta}\\left( \\cdot \\mid s \\right)}\\lbrack\\, \\parallel \\widetilde{a} - a \\parallel_{2}^{2}\\,\\rbrack,\\quad 其中\\quad\\beta_{lcb} \\leq 0"
+        },
+        {
+          "M": 850,
+          "P": 1110,
+          "formula": null,
+          "tex": "\\widetilde{a}"
+        },
+        {
+          "M": 851,
+          "P": 1110,
+          "formula": null,
+          "tex": "a"
+        }
+      ],
+      "minimal_fix": "记录为正文需澄清坐标约定；本次只修符号表，不改损失或正文。"
+    },
+    {
+      "id": "C13-12",
+      "kind": "missing_actual_alias",
+      "table_rows": [
+        41,
+        54,
+        71
+      ],
+      "finding": "第3章动作价值聚合写V^Q而表仅列附录实际使用的V_Q；IQL第2章写τ_e而表仅列τ_IQL；3-36/3-40的误差界为ε/ε_act而表列未使用的ε_iter/ε_Q,act。",
+      "evidence": [
+        {
+          "M": 348,
+          "P": 731,
+          "formula": "2-26",
+          "tex": "\\mathcal{L}_{V}(\\nu)\\mspace{6mu} = \\mspace{6mu}\\mathbb{E}_{(s,\\, a) \\sim \\mathcal{D}_{off}}\\left\\lbrack \\,|\\,\\tau_{e}\\mathbb{- I}\\left\\{ A(s,\\ a) < 0 \\right\\}\\,|\\mspace{6mu} A(s,\\ a)^{2}\\, \\right\\rbrack"
+        },
+        {
+          "M": 349,
+          "P": 733,
+          "formula": null,
+          "tex": "\\mathbb{I\\{ \\cdot \\}}"
+        },
+        {
+          "M": 869,
+          "P": 1119,
+          "formula": null,
+          "tex": "V^{Q}(s')"
+        },
+        {
+          "M": 870,
+          "P": 1119,
+          "formula": null,
+          "tex": "V^{Q}(s') = \\max_{a'\\mathcal{\\in A}}Q(s',a')"
+        },
+        {
+          "M": 911,
+          "P": 1133,
+          "formula": "3-36",
+          "tex": "\\parallel \\, Q_{i} - Q_{\\Lambda}^{*}\\, \\parallel_{\\infty}\\mspace{6mu} \\leq \\mspace{6mu}\\gamma^{\\, i}\\, \\parallel \\, Q_{0} - Q_{\\Lambda}^{*}\\, \\parallel_{\\infty}\\mspace{6mu} + \\mspace{6mu}\\frac{\\varepsilon}{1 - \\gamma}"
+        },
+        {
+          "M": 952,
+          "P": 1150,
+          "formula": null,
+          "tex": "\\max_{i}|\\eta(s,a_{i})| \\leq \\varepsilon_{act}"
+        },
+        {
+          "M": 957,
+          "P": 1152,
+          "formula": "3-40",
+          "tex": "0\\mspace{6mu} \\leq \\mspace{6mu} Q^{ref}(s,\\ a^{*}) - Q^{ref}(s,\\ \\widehat{a})\\mspace{6mu} \\leq \\mspace{6mu}\\eta(s,\\ \\widehat{a}) - \\eta(s,\\ a^{*})\\mspace{6mu} \\leq \\mspace{6mu} 2\\,\\varepsilon_{act}"
+        }
+      ],
+      "minimal_fix": "保留附录已经使用的符号，按章补V^Q和τ_e；表71用实际ε、ε_act替换两个未使用语义下标。"
+    }
+  ],
+  "accepted": [
+    {
+      "symbols": "ν、ζ（CVaR与其他作用域）",
+      "evidence": [
+        {
+          "M": 281,
+          "P": 698,
+          "formula": null,
+          "tex": "Z"
+        },
+        {
+          "M": 282,
+          "P": 698,
+          "formula": null,
+          "tex": "\\nu \\in (0,1\\rbrack"
+        },
+        {
+          "M": 285,
+          "P": 700,
+          "formula": "2-21",
+          "tex": "{CVaR}_{\\nu}(Z)\\mspace{6mu} = \\mspace{6mu}\\min_{\\xi\\mathbb{\\in R}}\\ \\left\\{ \\,\\xi + \\frac{1}{\\nu}\\,\\mathbb{E\\lbrack}\\,(Z - \\xi)_{+}\\,\\rbrack\\, \\right\\}\\mspace{6mu} = \\mspace{6mu}\\sup_{0\\, \\leq \\,\\zeta\\, \\leq \\, 1/\\nu,\\ \\mathbb{E\\lbrack}\\zeta\\rbrack = 1}\\ \\mathbb{E}\\lbrack\\,\\zeta\\, Z\\,\\rbrack,\\quad"
+        },
+        {
+          "M": 288,
+          "P": 703,
+          "formula": null,
+          "tex": "\\zeta \\in \\lbrack 0,1/\\nu\\rbrack"
+        },
+        {
+          "M": 345,
+          "P": 729,
+          "formula": null,
+          "tex": "V_{\\nu}(s)"
+        },
+        {
+          "M": 348,
+          "P": 731,
+          "formula": "2-26",
+          "tex": "\\mathcal{L}_{V}(\\nu)\\mspace{6mu} = \\mspace{6mu}\\mathbb{E}_{(s,\\, a) \\sim \\mathcal{D}_{off}}\\left\\lbrack \\,|\\,\\tau_{e}\\mathbb{- I}\\left\\{ A(s,\\ a) < 0 \\right\\}\\,|\\mspace{6mu} A(s,\\ a)^{2}\\, \\right\\rbrack"
+        }
+      ],
+      "reason": "第2.3节对Z/ν/ξ/ζ已有明确局部定义；附录A另用C_traj/β_tail/η_risk/ζ_risk。属于合理跨章重定义，表31–32可补第2章别名与作用域，不改正文。"
+    },
+    {
+      "symbols": "θ（DQN与演员参数）",
+      "evidence": [
+        {
+          "M": 196,
+          "P": 636,
+          "formula": null,
+          "tex": "Q_{\\bar{\\theta}}"
+        },
+        {
+          "M": 197,
+          "P": 636,
+          "formula": null,
+          "tex": "\\bar{\\theta}"
+        },
+        {
+          "M": 204,
+          "P": 638,
+          "formula": "2-8",
+          "tex": "y_{t} = r_{t} + \\gamma\\,(1 - d_{t})\\,\\max_{a'\\mathcal{\\in A}}Q_{\\bar{\\theta}}(s_{t + 1},a'),\\quad\\quad\\mathcal{L(}\\theta) = \\mathbb{E}_{(s_{t},a_{t},r_{t},s_{t + 1},d_{t}\\mathcal{) \\sim D}}\\left\\lbrack \\,(Q_{\\theta}(s_{t},a_{t}) - y_{t})^{2}\\, \\right\\rbrack"
+        },
+        {
+          "M": 213,
+          "P": 641,
+          "formula": null,
+          "tex": "a"
+        },
+        {
+          "M": 215,
+          "P": 643,
+          "formula": "2-9",
+          "tex": "\\nabla_{\\theta}J(\\mu_{\\theta})\\mspace{6mu} \\approx \\mspace{6mu}\\mathbb{E}_{s_{t}\\mathcal{\\sim D}}\\left\\lbrack \\,\\nabla_{\\theta}\\mu_{\\theta}(s_{t})\\mspace{6mu}\\nabla_{a}Q_{\\phi}(s_{t},a)|_{a = \\mu_{\\theta}(s_{t})}\\, \\right\\rbrack"
+        }
+      ],
+      "reason": "2.2节按算法明确重定义参数；不把DQN的Q_θ与后文SAC的π_θ当作同一模型参数冲突。"
+    },
+    {
+      "symbols": "W_1（距离与局部权重矩阵）",
+      "evidence": [
+        {
+          "M": 683,
+          "P": 1023,
+          "formula": "3-16",
+          "tex": "\\inf_{q \\in \\mathcal{P}_{s,a}}\\mathbb{E}_{s' \\sim q}\\left\\lbrack \\, V(s')\\, \\right\\rbrack\\mspace{6mu} \\geq \\mspace{6mu}\\mathbb{E}_{s' \\sim p^{\\circ}}\\left\\lbrack \\, V(s')\\, \\right\\rbrack\\mspace{6mu} - \\mspace{6mu}\\rho_{ipm} \\cdot Lip(V)"
+        },
+        {
+          "M": 825,
+          "P": 1093,
+          "formula": null,
+          "tex": "\\kappa_{k}"
+        },
+        {
+          "M": 826,
+          "P": 1093,
+          "formula": null,
+          "tex": "ReLU(cW_{1}\\mathbf{x}) = c\\, ReLU(W_{1}\\mathbf{x})"
+        },
+        {
+          "M": 829,
+          "P": 1093,
+          "formula": null,
+          "tex": "(W_{1},W_{2})"
+        },
+        {
+          "M": 831,
+          "P": 1095,
+          "formula": "3-30",
+          "tex": "c\\, \\parallel W_{1} \\parallel_{1} + \\frac{1}{c}\\, \\parallel W_{2} \\parallel_{1}\\mspace{6mu} \\neq \\mspace{6mu} \\parallel W_{1} \\parallel_{1} + \\parallel W_{2} \\parallel_{1}\\quad\\quad(c > 0,\\ c \\neq 1)"
+        }
+      ],
+      "reason": "3-16的Wasserstein背景与3-30的ReLU权重矩阵由上下文及矩阵类型区分；无需全局改字母。"
+    },
+    {
+      "symbols": "局部i/j/k/n/m索引或维数",
+      "evidence": [
+        {
+          "M": 534,
+          "P": 936,
+          "formula": "3-1",
+          "tex": "y_{i,j}^{d} = y_{i,j}^{a} + d_{i,j}^{svc} + a_{i,j} + d_{i,j}^{exit},\\quad\\quad y_{i,j + 1}^{a} = y_{i,j}^{d} + d_{i,j}^{run}"
+        },
+        {
+          "M": 570,
+          "P": 948,
+          "formula": "3-3",
+          "tex": "\\mathbb{E}\\left\\lbrack B_{v} \\right\\rbrack = B \\cdot \\frac{N_{v}}{N}"
+        },
+        {
+          "M": 585,
+          "P": 955,
+          "formula": "3-4",
+          "tex": "\\mathbf{x} = \\left\\lbrack \\, E_{1}(c_{1}) \\oplus E_{2}(c_{2}) \\oplus \\cdots \\oplus E_{m}(c_{m}) \\oplus \\mathbf{o}\\, \\right\\rbrack"
+        },
+        {
+          "M": 589,
+          "P": 959,
+          "formula": "3-5",
+          "tex": "d_{j} = min\\left( 50,\\ \\lfloor n_{j}/2\\rfloor \\right)"
+        },
+        {
+          "M": 761,
+          "P": 1058,
+          "formula": "3-23",
+          "tex": "a_{pass}^{*} = \\Pi_{\\lbrack 0,\\,\\bar{a}\\rbrack}\\left( \\frac{\\Delta}{2} - \\frac{n}{4\\lambda} \\right)"
+        },
+        {
+          "M": 947,
+          "P": 1148,
+          "formula": "3-39",
+          "tex": "\\frac{1}{M}\\sum_{i = 1}^{M}e_{Q,i}^{2}\\mspace{6mu} = \\mspace{6mu}({\\bar{e}}_{Q}(s))^{2}\\mspace{6mu} + \\mspace{6mu}\\frac{1}{M}\\sum_{i = 1}^{M}(e_{Q,i} - {\\bar{e}}_{Q}(s))^{2}"
+        }
+      ],
+      "reason": "各局部推导有明确量词和定义；不把索引更换或局部数量n/m本身当作错误。"
+    },
+    {
+      "symbols": "bar(Q)、σ_Q、Γ_epi；λ_ale、λ_epi、κ_k",
+      "evidence": [
+        {
+          "M": 677,
+          "P": 1017,
+          "formula": "3-15",
+          "tex": "\\bar{Q}(s,\\ a) = \\frac{1}{K}\\sum_{k = 1}^{K}Q_{\\phi_{k}}(s,\\ a),\\quad\\quad"
+        },
+        {
+          "M": 678,
+          "P": 1018,
+          "formula": "3-15",
+          "tex": "\\sigma_{Q}(s,\\ a) = \\left\\lbrack \\,\\frac{1}{K - 1}\\sum_{k = 1}^{K}(\\, Q_{\\phi_{k}}(s,\\ a) - \\bar{Q}(s,\\ a)\\,)^{2}\\, \\right\\rbrack^{1/2}"
+        },
+        {
+          "M": 801,
+          "P": 1083,
+          "formula": "3-27",
+          "tex": "\\Gamma_{epi}(s,\\ a) = \\frac{1}{K - 1}\\sum_{k = 1}^{K}\\left( \\,{\\widehat{Q}}_{\\phi_{k}'}(s,\\ a) - \\frac{1}{K}\\sum_{j = 1}^{K}{\\widehat{Q}}_{\\phi_{j}'}(s,\\ a)\\, \\right)^{2}"
+        },
+        {
+          "M": 808,
+          "P": 1087,
+          "formula": "3-28",
+          "tex": "\\kappa_{k} = \\sum_{l}^{} \\parallel \\, W_{\\phi_{k}'}^{(l)}\\, \\parallel_{1}"
+        },
+        {
+          "M": 815,
+          "P": 1091,
+          "formula": "3-29",
+          "tex": "y_{k} = r + \\gamma\\,(1 - d)\\,\\left( \\,{\\widehat{Q}}_{\\phi_{k}'}(s',\\ a') - \\lambda_{epi}\\,\\Gamma_{epi}(s',\\ a') - \\lambda_{ale}\\,\\kappa_{k} - \\alpha\\log\\pi_{\\theta}(a' \\mid s')\\, \\right)"
+        }
+      ],
+      "reason": "表35/85的角色与3-15、3-27~29一致，分别为在线均值/样本标准差、目标样本方差和权重范数修正。j/k仅成员索引。"
+    },
+    {
+      "symbols": "τ（物理积分时刻与软更新系数）",
+      "evidence": [
+        {
+          "M": 824,
+          "P": 1093,
+          "formula": null,
+          "tex": "\\tau"
+        },
+        {
+          "M": 2448,
+          "P": 2398,
+          "formula": "5-6",
+          "tex": "C_{k} = 2\\int_{t_{k}}^{t_{k} + \\Delta t_{k}}N^{w}(\\tau)\\, d\\tau + \\int_{t_{k}}^{t_{k} + \\Delta t_{k}}N^{b}(\\tau)\\, d\\tau,\\quad\\quad r_{k} = - C_{k}"
+        }
+      ],
+      "reason": "这些独立语境已有明确含义，可在表57补软更新作用域；但3.4.5同一奖励参数τ_h丢下标已另列问题。"
+    },
+    {
+      "symbols": "条件示性函数的mathbb I与mathbf1",
+      "evidence": [
+        {
+          "M": 348,
+          "P": 731,
+          "formula": "2-26",
+          "tex": "\\mathcal{L}_{V}(\\nu)\\mspace{6mu} = \\mspace{6mu}\\mathbb{E}_{(s,\\, a) \\sim \\mathcal{D}_{off}}\\left\\lbrack \\,|\\,\\tau_{e}\\mathbb{- I}\\left\\{ A(s,\\ a) < 0 \\right\\}\\,|\\mspace{6mu} A(s,\\ a)^{2}\\, \\right\\rbrack"
+        },
+        {
+          "M": 617,
+          "P": 977,
+          "formula": "3-8",
+          "tex": "\\left( 1 - \\omega(h_{f},h_{b}) \\right)\\,\\varphi(h_{b}) - 0.5\\,|\\, h_{f} - h_{b}\\,| - 20\\,\\mathbb{I}\\left( |\\, h_{f} - h_{s}\\,| > 180\\ \\text{或}\\ |\\, h_{b} - h_{s}\\,| > 180 \\right)"
+        },
+        {
+          "M": 3909,
+          "P": 3636,
+          "formula": "B-22",
+          "tex": "\\begin{array}{r}\np_{correct} = \\frac{1}{2}\\sum_{\\omega}^{}p(\\omega)\\mathbf{1}\\{ D_{cls}(Y_{1}(\\omega)) = 1\\} \\\\\n\\quad + \\frac{1}{2}\\sum_{\\omega}^{}p(\\omega)\\mathbf{1}\\{ D_{cls}(Y_{2}(\\omega)) = 2\\}.\n\\end{array}"
+        },
+        {
+          "M": 3940,
+          "P": 3684,
+          "formula": "B-33",
+          "tex": "\\parallel \\Delta v_{nom} \\parallel_{2}^{2} = 4\\sum_{j = 1}^{n_{a}}(a_{j}^{ref})^{2}\\mathbf{1}\\{ g_{z,j} \\neq g_{\\widehat{z},j}\\},"
+        },
+        {
+          "M": 3941,
+          "P": 3687,
+          "formula": "B-34",
+          "tex": "\\parallel \\Delta v_{nom} \\parallel_{2} = 2\\sqrt{\\sum_{j = 1}^{n_{a}}(a_{j}^{ref})^{2}\\mathbf{1}\\{ g_{z,j} \\neq g_{\\widehat{z},j}\\}}."
+        },
+        {
+          "M": 4017,
+          "P": 3792,
+          "formula": "B-58",
+          "tex": "I_{i,j} = \\mathbf{1}\\left\\{ g_{z_{k + i},j} \\neq g_{\\widehat{z}(k + i,X_{aug,k + i}),j} \\right\\}."
+        }
+      ],
+      "reason": "原生OMML确有双线体I和粗体数字1两种表示，含义相同；补表列实际字体别名，不统一改正文。"
+    }
+  ],
+  "table_row_notes": [
+    {
+      "row": 1,
+      "status": "replace_actual_OD_scope",
+      "actual_notation": "\\mathcal L_{od},l",
+      "evidence": [
+        {
+          "M": 2438,
+          "P": 2394,
+          "formula": "5-5",
+          "tex": "{\\widehat{\\lambda}}_{ol,q} = \\sum_{d:\\, l \\in \\mathcal{L}_{od}}^{}\\lambda_{od,q}\\,\\frac{H_{l}^{- 1}}{\\sum_{m \\in \\mathcal{L}_{od}}^{}H_{m}^{- 1}}"
+        }
+      ],
+      "note": "按5-5实际OD可服务共线线路集合加od下标；原笼统mathcal L在训练损失中另有使用，损失符号由root另增行。"
+    },
+    {
+      "row": 2,
+      "status": "replace_actual",
+      "actual_notation": "v；i；j",
+      "evidence": [
+        {
+          "M": 411,
+          "P": 834,
+          "formula": null,
+          "tex": "v"
+        },
+        {
+          "M": 412,
+          "P": 834,
+          "formula": null,
+          "tex": "i"
+        },
+        {
+          "M": 525,
+          "P": 934,
+          "formula": null,
+          "tex": "i"
+        },
+        {
+          "M": 526,
+          "P": 934,
+          "formula": null,
+          "tex": "j"
+        },
+        {
+          "M": 534,
+          "P": 936,
+          "formula": "3-1",
+          "tex": "y_{i,j}^{d} = y_{i,j}^{a} + d_{i,j}^{svc} + a_{i,j} + d_{i,j}^{exit},\\quad\\quad y_{i,j + 1}^{a} = y_{i,j}^{d} + d_{i,j}^{run}"
+        },
+        {
+          "M": 551,
+          "P": 945,
+          "formula": null,
+          "tex": "v"
+        }
+      ],
+      "note": "按所在节区分事件索引和班次索引。"
+    },
+    {
+      "row": 3,
+      "status": "match",
+      "actual_notation": "t,t_k,Δt_k",
+      "evidence": [
+        {
+          "M": 422,
+          "P": 835,
+          "formula": null,
+          "tex": "t_{k}"
+        },
+        {
+          "M": 423,
+          "P": 835,
+          "formula": null,
+          "tex": "t_{k + 1}"
+        },
+        {
+          "M": 427,
+          "P": 835,
+          "formula": null,
+          "tex": "\\Delta t_{k} = t_{k + 1} - t_{k}"
+        }
+      ],
+      "note": "与事件物理时钟定义一致。"
+    },
+    {
+      "row": 4,
+      "status": "unused_alias",
+      "actual_notation": "T_hor；K_evt未用",
+      "evidence": [
+        {
+          "M": 478,
+          "P": 903,
+          "formula": null,
+          "tex": "T_{hor}"
+        },
+        {
+          "M": 481,
+          "P": 903,
+          "formula": null,
+          "tex": "T_{hor}"
+        },
+        {
+          "M": 562,
+          "P": 945,
+          "formula": null,
+          "tex": "T_{hor}"
+        }
+      ],
+      "note": "K_evt在非表原生上下标中未出现；集成规模K应另列，不能释为事件数。"
+    },
+    {
+      "row": 5,
+      "status": "replace_unused",
+      "actual_notation": "t^d,t^s；y_i,j^a,y_i,j^d",
+      "evidence": [
+        {
+          "M": 124,
+          "P": 601,
+          "formula": null,
+          "tex": "t^{s}"
+        },
+        {
+          "M": 125,
+          "P": 601,
+          "formula": null,
+          "tex": "t^{d}"
+        },
+        {
+          "M": 525,
+          "P": 934,
+          "formula": null,
+          "tex": "i"
+        },
+        {
+          "M": 526,
+          "P": 934,
+          "formula": null,
+          "tex": "j"
+        },
+        {
+          "M": 534,
+          "P": 936,
+          "formula": "3-1",
+          "tex": "y_{i,j}^{d} = y_{i,j}^{a} + d_{i,j}^{svc} + a_{i,j} + d_{i,j}^{exit},\\quad\\quad y_{i,j + 1}^{a} = y_{i,j}^{d} + d_{i,j}^{run}"
+        }
+      ],
+      "note": "原j_tr及plan/act成套记号未用；以下是实际已有的时间记号，不将服务完成时刻误称实际发车时刻。"
+    },
+    {
+      "row": 6,
+      "status": "remove_unused_variant",
+      "actual_notation": "h_f,h_b,hat(h)_b",
+      "evidence": [
+        {
+          "M": 134,
+          "P": 606,
+          "formula": null,
+          "tex": "h_{f}"
+        },
+        {
+          "M": 135,
+          "P": 606,
+          "formula": null,
+          "tex": "{\\widehat{h}}_{b}"
+        },
+        {
+          "M": 453,
+          "P": 892,
+          "formula": null,
+          "tex": "h_{f},h_{b}"
+        }
+      ],
+      "note": "实际前后向量用下标，不用表中上标h^f/h^b。"
+    },
+    {
+      "row": 7,
+      "status": "replace_actual",
+      "actual_notation": "h_f*,h_b*,h_s",
+      "evidence": [
+        {
+          "M": 136,
+          "P": 606,
+          "formula": null,
+          "tex": "h_{f}^{*}"
+        },
+        {
+          "M": 137,
+          "P": 606,
+          "formula": null,
+          "tex": "h_{b}^{*}"
+        },
+        {
+          "M": 467,
+          "P": 897,
+          "formula": null,
+          "tex": "180\\text{ s}"
+        },
+        {
+          "M": 521,
+          "P": 932,
+          "formula": null,
+          "tex": "h_{s} = 360"
+        },
+        {
+          "M": 605,
+          "P": 969,
+          "formula": null,
+          "tex": "h_{s} = 360"
+        }
+      ],
+      "note": "删除未用上标f/b变体，补反复使用的单线路共同计划间隔。"
+    },
+    {
+      "row": 8,
+      "status": "replace_actual",
+      "actual_notation": "a,a_max",
+      "evidence": [
+        {
+          "M": 126,
+          "P": 601,
+          "formula": null,
+          "tex": "a_{\\max}"
+        },
+        {
+          "M": 127,
+          "P": 603,
+          "formula": "2-1",
+          "tex": "a = max\\left( 0,\\ \\min\\left\\{ \\, t^{d} - t^{s},\\ a_{\\max}\\, \\right\\} \\right)"
+        },
+        {
+          "M": 441,
+          "P": 889,
+          "formula": null,
+          "tex": "a \\in \\lbrack 0,60\\rbrack"
+        }
+      ],
+      "note": "物理驻站时长统一用a，不是u。"
+    },
+    {
+      "row": 9,
+      "status": "replace_actual",
+      "actual_notation": "ã",
+      "evidence": [
+        {
+          "M": 445,
+          "P": 889,
+          "formula": null,
+          "tex": "\\widetilde{a} \\in \\lbrack - 1,1\\rbrack"
+        },
+        {
+          "M": 450,
+          "P": 889,
+          "formula": null,
+          "tex": "a = 30\\,(\\widetilde{a} + 1)"
+        }
+      ],
+      "note": "a^n没有对应；正文动作坐标歧义另列，不在本次改正文。"
+    },
+    {
+      "row": 10,
+      "status": "match_generic_indices",
+      "actual_notation": "d_i,j^svc/d_i,j^run/d_i,j^exit",
+      "evidence": [
+        {
+          "M": 528,
+          "P": 934,
+          "formula": null,
+          "tex": "y_{i,j}^{d}"
+        },
+        {
+          "M": 530,
+          "P": 934,
+          "formula": null,
+          "tex": "d_{i,j}^{svc}"
+        },
+        {
+          "M": 531,
+          "P": 934,
+          "formula": null,
+          "tex": "a_{i,j}"
+        },
+        {
+          "M": 534,
+          "P": 936,
+          "formula": "3-1",
+          "tex": "y_{i,j}^{d} = y_{i,j}^{a} + d_{i,j}^{svc} + a_{i,j} + d_{i,j}^{exit},\\quad\\quad y_{i,j + 1}^{a} = y_{i,j}^{d} + d_{i,j}^{run}"
+        }
+      ],
+      "note": "表省略局部i/j索引但物理含义一致，不把省略索引当成错。"
+    },
+    {
+      "row": 11,
+      "status": "replace_unused",
+      "actual_notation": "λ",
+      "evidence": [
+        {
+          "M": 740,
+          "P": 1048,
+          "formula": null,
+          "tex": "\\lambda > 0"
+        },
+        {
+          "M": 745,
+          "P": 1050,
+          "formula": "3-21",
+          "tex": "\\Delta W(a) = \\frac{\\lambda}{2}\\left\\lbrack (h_{f} + a)^{2} - h_{f}^{2} \\right\\rbrack + \\frac{\\lambda}{2}\\left\\lbrack (h_{b} - a)^{2} - h_{b}^{2} \\right\\rbrack = \\lambda a^{2} - \\lambda a\\Delta"
+        },
+        {
+          "M": 761,
+          "P": 1058,
+          "formula": "3-23",
+          "tex": "a_{pass}^{*} = \\Pi_{\\lbrack 0,\\,\\bar{a}\\rbrack}\\left( \\frac{\\Delta}{2} - \\frac{n}{4\\lambda} \\right)"
+        }
+      ],
+      "note": "局部客流解析实际用λ；λ_i、η_i^board没有实际对应符号。"
+    },
+    {
+      "row": 12,
+      "status": "replace_actual",
+      "actual_notation": "N^w(t),N^b(t)",
+      "evidence": [
+        {
+          "M": 471,
+          "P": 898,
+          "formula": null,
+          "tex": "i"
+        },
+        {
+          "M": 472,
+          "P": 898,
+          "formula": null,
+          "tex": "t_{i}"
+        },
+        {
+          "M": 474,
+          "P": 900,
+          "formula": "2-34",
+          "tex": "r_{i}^{pass}\\mspace{6mu} = \\mspace{6mu} - \\int_{t_{i}}^{t_{i + 1}}\\left( \\, 2\\, N^{w}(t) + N^{b}(t)\\, \\right)\\, dt"
+        },
+        {
+          "M": 489,
+          "P": 905,
+          "formula": "2-35",
+          "tex": "G\\mspace{6mu} = \\mspace{6mu}\\frac{1}{N_{dep}}\\sum_{p \\in \\mathcal{P}_{dep}}^{}\\left( \\, 2\\, T_{p}^{w} + T_{p}^{b}\\, \\right)\\mspace{6mu} = \\mspace{6mu}\\frac{1}{N_{dep}}\\int_{0}^{T_{hor}}\\left( \\, 2\\, N^{w}(t) + N^{b}(t)\\, \\right)\\, dt"
+        }
+      ],
+      "note": "原生m:sSup证明这里是上标；N_v另作车辆v贡献样本数，不能当车内人数。"
+    },
+    {
+      "row": 13,
+      "status": "replace_unused_component",
+      "actual_notation": "C_veh,n",
+      "evidence": [
+        {
+          "M": 749,
+          "P": 1052,
+          "formula": null,
+          "tex": "n"
+        },
+        {
+          "M": 750,
+          "P": 1052,
+          "formula": null,
+          "tex": "n \\cdot a"
+        },
+        {
+          "M": 761,
+          "P": 1058,
+          "formula": "3-23",
+          "tex": "a_{pass}^{*} = \\Pi_{\\lbrack 0,\\,\\bar{a}\\rbrack}\\left( \\frac{\\Delta}{2} - \\frac{n}{4\\lambda} \\right)"
+        }
+      ],
+      "note": "n_on未用；n为局部解析已在车内乘客数，其他局部基数n按各自定义。"
+    },
+    {
+      "row": 14,
+      "status": "replace_unused_component",
+      "actual_notation": "W,T_p^w,T_p^b",
+      "evidence": [
+        {
+          "M": 713,
+          "P": 1030,
+          "formula": null,
+          "tex": "\\mathbb{E\\lbrack}W\\rbrack"
+        },
+        {
+          "M": 714,
+          "P": 1032,
+          "formula": "3-17",
+          "tex": "\\mathbb{E\\lbrack}W\\rbrack\\mspace{6mu} = \\mspace{6mu}\\frac{\\mathbb{E\\lbrack}H^{2}\\rbrack}{2\\,\\mathbb{E\\lbrack}H\\rbrack}\\mspace{6mu} = \\mspace{6mu}\\frac{\\mathbb{E\\lbrack}H\\rbrack}{2} + \\frac{Var(H)}{2\\,\\mathbb{E\\lbrack}H\\rbrack}\\mspace{6mu} = \\mspace{6mu}\\frac{\\mathbb{E\\lbrack}H\\rbrack}{2}\\left( 1 + {CV}_{H}^{2} \\right)"
+        },
+        {
+          "M": 486,
+          "P": 903,
+          "formula": null,
+          "tex": "T_{p}^{w}"
+        },
+        {
+          "M": 487,
+          "P": 903,
+          "formula": null,
+          "tex": "T_{p}^{b}"
+        },
+        {
+          "M": 489,
+          "P": 905,
+          "formula": "2-35",
+          "tex": "G\\mspace{6mu} = \\mspace{6mu}\\frac{1}{N_{dep}}\\sum_{p \\in \\mathcal{P}_{dep}}^{}\\left( \\, 2\\, T_{p}^{w} + T_{p}^{b}\\, \\right)\\mspace{6mu} = \\mspace{6mu}\\frac{1}{N_{dep}}\\int_{0}^{T_{hor}}\\left( \\, 2\\, N^{w}(t) + N^{b}(t)\\, \\right)\\, dt"
+        }
+      ],
+      "note": "W是随机到达乘客等待时间；T_p^w/T_p^b是截止规定时域已累计的时间。"
+    },
+    {
+      "row": 15,
+      "status": "match",
+      "actual_notation": "C_k,G",
+      "evidence": [
+        {
+          "M": 489,
+          "P": 905,
+          "formula": "2-35",
+          "tex": "G\\mspace{6mu} = \\mspace{6mu}\\frac{1}{N_{dep}}\\sum_{p \\in \\mathcal{P}_{dep}}^{}\\left( \\, 2\\, T_{p}^{w} + T_{p}^{b}\\, \\right)\\mspace{6mu} = \\mspace{6mu}\\frac{1}{N_{dep}}\\int_{0}^{T_{hor}}\\left( \\, 2\\, N^{w}(t) + N^{b}(t)\\, \\right)\\, dt"
+        },
+        {
+          "M": 2448,
+          "P": 2398,
+          "formula": "5-6",
+          "tex": "C_{k} = 2\\int_{t_{k}}^{t_{k} + \\Delta t_{k}}N^{w}(\\tau)\\, d\\tau + \\int_{t_{k}}^{t_{k} + \\Delta t_{k}}N^{b}(\\tau)\\, d\\tau,\\quad\\quad r_{k} = - C_{k}"
+        }
+      ],
+      "note": "事件成本和人均广义时间成本实际定义相符。"
+    },
+    {
+      "row": 16,
+      "status": "remove_unused_component",
+      "actual_notation": "N_dep,𝒫_dep",
+      "evidence": [
+        {
+          "M": 483,
+          "P": 903,
+          "formula": null,
+          "tex": "N_{dep} = |\\mathcal{P}_{dep}|"
+        },
+        {
+          "M": 484,
+          "P": 903,
+          "formula": null,
+          "tex": "p \\in \\mathcal{P}_{dep}"
+        },
+        {
+          "M": 489,
+          "P": 905,
+          "formula": "2-35",
+          "tex": "G\\mspace{6mu} = \\mspace{6mu}\\frac{1}{N_{dep}}\\sum_{p \\in \\mathcal{P}_{dep}}^{}\\left( \\, 2\\, T_{p}^{w} + T_{p}^{b}\\, \\right)\\mspace{6mu} = \\mspace{6mu}\\frac{1}{N_{dep}}\\int_{0}^{T_{hor}}\\left( \\, 2\\, N^{w}(t) + N^{b}(t)\\, \\right)\\, dt"
+        }
+      ],
+      "note": "N_cmp没有原生上下标用法；应保留实际定义的进入系统人数及集合。"
+    },
+    {
+      "row": 17,
+      "status": "match_add_base",
+      "actual_notation": "H,CV_H",
+      "evidence": [
+        {
+          "M": 704,
+          "P": 1030,
+          "formula": null,
+          "tex": "H > 0"
+        },
+        {
+          "M": 707,
+          "P": 1030,
+          "formula": null,
+          "tex": "{CV}_{H} = \\sqrt{Var(H)}\\mathbb{/E\\lbrack}H\\rbrack"
+        },
+        {
+          "M": 714,
+          "P": 1032,
+          "formula": "3-17",
+          "tex": "\\mathbb{E\\lbrack}W\\rbrack\\mspace{6mu} = \\mspace{6mu}\\frac{\\mathbb{E\\lbrack}H^{2}\\rbrack}{2\\,\\mathbb{E\\lbrack}H\\rbrack}\\mspace{6mu} = \\mspace{6mu}\\frac{\\mathbb{E\\lbrack}H\\rbrack}{2} + \\frac{Var(H)}{2\\,\\mathbb{E\\lbrack}H\\rbrack}\\mspace{6mu} = \\mspace{6mu}\\frac{\\mathbb{E\\lbrack}H\\rbrack}{2}\\left( 1 + {CV}_{H}^{2} \\right)"
+        }
+      ],
+      "note": "CV_H含义一致，H为所对应的正随机车头时距。"
+    },
+    {
+      "row": 18,
+      "status": "match",
+      "actual_notation": "𝒮,𝒜,s,a",
+      "evidence": [
+        {
+          "M": 147,
+          "P": 617,
+          "formula": null,
+          "tex": "\\mathcal{S}"
+        },
+        {
+          "M": 148,
+          "P": 617,
+          "formula": null,
+          "tex": "\\mathcal{A}"
+        },
+        {
+          "M": 149,
+          "P": 617,
+          "formula": null,
+          "tex": "P(s' \\mid s,a)"
+        },
+        {
+          "M": 150,
+          "P": 617,
+          "formula": null,
+          "tex": "s\\mathcal{\\in S}"
+        }
+      ],
+      "note": "原生mathcal作用域可包住逗号，不能按导出TeX拆分残留报错。"
+    },
+    {
+      "row": 19,
+      "status": "match",
+      "actual_notation": "P,R,r",
+      "evidence": [
+        {
+          "M": 151,
+          "P": 617,
+          "formula": null,
+          "tex": "a\\mathcal{\\in A}"
+        },
+        {
+          "M": 152,
+          "P": 617,
+          "formula": null,
+          "tex": "s'\\mathcal{\\in S}"
+        },
+        {
+          "M": 153,
+          "P": 617,
+          "formula": null,
+          "tex": "R(s,a\\mathbb{) = E\\lbrack}r_{t} \\mid s_{t} = s,a_{t} = a\\rbrack"
+        },
+        {
+          "M": 179,
+          "P": 625,
+          "formula": "2-5",
+          "tex": "Q^{\\pi}(s,a) = R(s,a) + \\gamma\\,\\mathbb{E}_{s' \\sim P( \\cdot \\mid s,a)}\\left\\lbrack \\, V^{\\pi}(s')\\, \\right\\rbrack"
+        }
+      ],
+      "note": "分别为转移核、期望即时奖励及实际奖励；确定性头时距奖励R(h_f,h_b)是具体奖励函数而非另一个对象。"
+    },
+    {
+      "row": 21,
+      "status": "match",
+      "actual_notation": "π_θ,Q_φ,V_ν",
+      "evidence": [
+        {
+          "M": 220,
+          "P": 650,
+          "formula": null,
+          "tex": "\\pi_{\\theta}(a \\mid s)"
+        },
+        {
+          "M": 237,
+          "P": 668,
+          "formula": "2-14",
+          "tex": "\\mathcal{L}_{Q}(\\phi_{k}) = \\mathbb{E}_{(s_{t},a_{t},r_{t},s_{t + 1},d_{t}\\mathcal{) \\sim D}}\\left\\lbrack \\,(Q_{\\phi_{k}}(s_{t},a_{t}) - y_{t})^{2}\\, \\right\\rbrack"
+        },
+        {
+          "M": 345,
+          "P": 729,
+          "formula": null,
+          "tex": "V_{\\nu}(s)"
+        }
+      ],
+      "note": "与SAC/IQL模型参数对应。"
+    },
+    {
+      "row": 25,
+      "status": "accepted_local_redefinition",
+      "actual_notation": "θ/φ/ν",
+      "evidence": [
+        {
+          "M": 196,
+          "P": 636,
+          "formula": null,
+          "tex": "Q_{\\bar{\\theta}}"
+        },
+        {
+          "M": 204,
+          "P": 638,
+          "formula": "2-8",
+          "tex": "y_{t} = r_{t} + \\gamma\\,(1 - d_{t})\\,\\max_{a'\\mathcal{\\in A}}Q_{\\bar{\\theta}}(s_{t + 1},a'),\\quad\\quad\\mathcal{L(}\\theta) = \\mathbb{E}_{(s_{t},a_{t},r_{t},s_{t + 1},d_{t}\\mathcal{) \\sim D}}\\left\\lbrack \\,(Q_{\\theta}(s_{t},a_{t}) - y_{t})^{2}\\, \\right\\rbrack"
+        },
+        {
+          "M": 213,
+          "P": 641,
+          "formula": null,
+          "tex": "a"
+        },
+        {
+          "M": 345,
+          "P": 729,
+          "formula": null,
+          "tex": "V_{\\nu}(s)"
+        }
+      ],
+      "note": "DQN示例θ与SAC演员θ作用域不同，正文已说明。"
+    },
+    {
+      "row": 26,
+      "status": "replace_unused_component",
+      "actual_notation": "γ,Γ_k,d_t,d_i,d",
+      "evidence": [
+        {
+          "M": 199,
+          "P": 636,
+          "formula": null,
+          "tex": "s_{t + 1}"
+        },
+        {
+          "M": 204,
+          "P": 638,
+          "formula": "2-8",
+          "tex": "y_{t} = r_{t} + \\gamma\\,(1 - d_{t})\\,\\max_{a'\\mathcal{\\in A}}Q_{\\bar{\\theta}}(s_{t + 1},a'),\\quad\\quad\\mathcal{L(}\\theta) = \\mathbb{E}_{(s_{t},a_{t},r_{t},s_{t + 1},d_{t}\\mathcal{) \\sim D}}\\left\\lbrack \\,(Q_{\\theta}(s_{t},a_{t}) - y_{t})^{2}\\, \\right\\rbrack"
+        },
+        {
+          "M": 814,
+          "P": 1089,
+          "formula": null,
+          "tex": "y_{k}"
+        },
+        {
+          "M": 815,
+          "P": 1091,
+          "formula": "3-29",
+          "tex": "y_{k} = r + \\gamma\\,(1 - d)\\,\\left( \\,{\\widehat{Q}}_{\\phi_{k}'}(s',\\ a') - \\lambda_{epi}\\,\\Gamma_{epi}(s',\\ a') - \\lambda_{ale}\\,\\kappa_{k} - \\alpha\\log\\pi_{\\theta}(a' \\mid s')\\, \\right)"
+        }
+      ],
+      "note": "d_k^term是表中新增但正文未用的记号。"
+    },
+    {
+      "row": 27,
+      "status": "match",
+      "actual_notation": "α",
+      "evidence": [
+        {
+          "M": 228,
+          "P": 660,
+          "formula": null,
+          "tex": "\\alpha > 0"
+        },
+        {
+          "M": 229,
+          "P": 662,
+          "formula": "2-13",
+          "tex": "J_{SAC}(\\pi) = \\mathbb{E}_{\\pi}\\left\\lbrack \\,\\sum_{t = 0}^{\\infty}\\gamma^{t}\\,(\\, r_{t} + \\alpha\\,\\mathcal{H(}\\pi( \\cdot \\mid s_{t}))\\,)\\, \\right\\rbrack"
+        },
+        {
+          "M": 243,
+          "P": 676,
+          "formula": "2-16",
+          "tex": "\\mathcal{L(}\\alpha) = \\mathbb{E}_{s_{t}\\mathcal{\\sim D,}\\, a_{t} \\sim \\pi_{\\theta}( \\cdot \\mid s_{t})}\\left\\lbrack \\, - \\alpha\\,\\left( \\log\\pi_{\\theta}(a_{t} \\mid s_{t}) + \\bar{\\mathcal{H}}\\, \\right)\\, \\right\\rbrack"
+        },
+        {
+          "M": 672,
+          "P": 1015,
+          "formula": null,
+          "tex": "\\alpha > 0"
+        }
+      ],
+      "note": "主文熵温度α含义一致；α_ent是否保留由附录对应实例合并。"
+    },
+    {
+      "row": 28,
+      "status": "add_existing_alias",
+      "actual_notation": "p°,𝒫_s,a；𝒰_s,a",
+      "evidence": [
+        {
+          "M": 269,
+          "P": 693,
+          "formula": null,
+          "tex": "\\langle p^{\\circ},V\\rangle"
+        },
+        {
+          "M": 270,
+          "P": 693,
+          "formula": null,
+          "tex": "\\mathcal{P}_{s,a}"
+        },
+        {
+          "M": 681,
+          "P": 1021,
+          "formula": null,
+          "tex": "p^{\\circ}"
+        },
+        {
+          "M": 683,
+          "P": 1023,
+          "formula": "3-16",
+          "tex": "\\inf_{q \\in \\mathcal{P}_{s,a}}\\mathbb{E}_{s' \\sim q}\\left\\lbrack \\, V(s')\\, \\right\\rbrack\\mspace{6mu} \\geq \\mspace{6mu}\\mathbb{E}_{s' \\sim p^{\\circ}}\\left\\lbrack \\, V(s')\\, \\right\\rbrack\\mspace{6mu} - \\mspace{6mu}\\rho_{ipm} \\cdot Lip(V)"
+        }
+      ],
+      "note": "第2–3章用𝒫，表中𝒰在附录已用，保留并标作用域。"
+    },
+    {
+      "row": 29,
+      "status": "add_existing_alias",
+      "actual_notation": "σ_𝒫_s,a(u)；σ_𝒰(f),Ω_𝒰(V)",
+      "evidence": [
+        {
+          "M": 271,
+          "P": 693,
+          "formula": null,
+          "tex": "\\mathcal{P}_{s,a}"
+        },
+        {
+          "M": 275,
+          "P": 693,
+          "formula": null,
+          "tex": "\\sigma_{\\mathcal{P}_{s,a}} \\geq 0"
+        },
+        {
+          "M": 276,
+          "P": 695,
+          "formula": "2-20",
+          "tex": "\\inf_{q \\in \\mathcal{P}_{s,a}}\\ \\mathbb{E}_{s' \\sim q}\\left\\lbrack \\, V(s')\\, \\right\\rbrack\\mspace{6mu} = \\mspace{6mu}\\mathbb{E}_{s' \\sim p^{\\circ}}\\left\\lbrack \\, V(s')\\, \\right\\rbrack\\mspace{6mu} - \\mspace{6mu}\\sigma_{\\mathcal{P}_{s,a}}( - V)"
+        }
+      ],
+      "note": "第2章支持函数采用𝒫下标，不能删除附录实际𝒰形式。"
+    },
+    {
+      "row": 30,
+      "status": "add_existing_alias",
+      "actual_notation": "ρ_ipm,Lip(V)；保留表中附录记号",
+      "evidence": [
+        {
+          "M": 680,
+          "P": 1021,
+          "formula": null,
+          "tex": "\\mathcal{P}_{s,a}"
+        },
+        {
+          "M": 683,
+          "P": 1023,
+          "formula": "3-16",
+          "tex": "\\inf_{q \\in \\mathcal{P}_{s,a}}\\mathbb{E}_{s' \\sim q}\\left\\lbrack \\, V(s')\\, \\right\\rbrack\\mspace{6mu} \\geq \\mspace{6mu}\\mathbb{E}_{s' \\sim p^{\\circ}}\\left\\lbrack \\, V(s')\\, \\right\\rbrack\\mspace{6mu} - \\mspace{6mu}\\rho_{ipm} \\cdot Lip(V)"
+        },
+        {
+          "M": 684,
+          "P": 1025,
+          "formula": null,
+          "tex": "Lip(V)"
+        }
+      ],
+      "note": "第3章的分布半径和Lipschitz量已有实际名字。"
+    },
+    {
+      "row": 31,
+      "status": "accepted_cross_chapter_alias",
+      "actual_notation": "第2章Z；附录C_traj,𝔓₀",
+      "evidence": [
+        {
+          "M": 281,
+          "P": 698,
+          "formula": null,
+          "tex": "Z"
+        },
+        {
+          "M": 285,
+          "P": 700,
+          "formula": "2-21",
+          "tex": "{CVaR}_{\\nu}(Z)\\mspace{6mu} = \\mspace{6mu}\\min_{\\xi\\mathbb{\\in R}}\\ \\left\\{ \\,\\xi + \\frac{1}{\\nu}\\,\\mathbb{E\\lbrack}\\,(Z - \\xi)_{+}\\,\\rbrack\\, \\right\\}\\mspace{6mu} = \\mspace{6mu}\\sup_{0\\, \\leq \\,\\zeta\\, \\leq \\, 1/\\nu,\\ \\mathbb{E\\lbrack}\\zeta\\rbrack = 1}\\ \\mathbb{E}\\lbrack\\,\\zeta\\, Z\\,\\rbrack,\\quad"
+        },
+        {
+          "M": 293,
+          "P": 703,
+          "formula": null,
+          "tex": "\\{ Q_{\\phi_{k}}\\}_{k = 1}^{K}"
+        }
+      ],
+      "note": "不删除附录已经实际使用的成本/名义分布符号；Z在分布RL介绍中也按语境作随机回报。"
+    },
+    {
+      "row": 32,
+      "status": "accepted_cross_chapter_alias",
+      "actual_notation": "第2章ν,ξ,ζ；附录β_tail,η_risk,ζ_risk,𝒵",
+      "evidence": [
+        {
+          "M": 282,
+          "P": 698,
+          "formula": null,
+          "tex": "\\nu \\in (0,1\\rbrack"
+        },
+        {
+          "M": 285,
+          "P": 700,
+          "formula": "2-21",
+          "tex": "{CVaR}_{\\nu}(Z)\\mspace{6mu} = \\mspace{6mu}\\min_{\\xi\\mathbb{\\in R}}\\ \\left\\{ \\,\\xi + \\frac{1}{\\nu}\\,\\mathbb{E\\lbrack}\\,(Z - \\xi)_{+}\\,\\rbrack\\, \\right\\}\\mspace{6mu} = \\mspace{6mu}\\sup_{0\\, \\leq \\,\\zeta\\, \\leq \\, 1/\\nu,\\ \\mathbb{E\\lbrack}\\zeta\\rbrack = 1}\\ \\mathbb{E}\\lbrack\\,\\zeta\\, Z\\,\\rbrack,\\quad"
+        },
+        {
+          "M": 288,
+          "P": 703,
+          "formula": null,
+          "tex": "\\zeta \\in \\lbrack 0,1/\\nu\\rbrack"
+        },
+        {
+          "M": 289,
+          "P": 703,
+          "formula": null,
+          "tex": "\\nu"
+        }
+      ],
+      "note": "ν与价值参数、ζ与连续策略潜变量均属明确局部重定义。"
+    },
+    {
+      "row": 33,
+      "status": "add_core",
+      "actual_notation": "𝒟；𝒟_off,𝒟_sim",
+      "evidence": [
+        {
+          "M": 202,
+          "P": 636,
+          "formula": null,
+          "tex": "y_{t}"
+        },
+        {
+          "M": 343,
+          "P": 729,
+          "formula": null,
+          "tex": "\\mathcal{D}_{off}"
+        },
+        {
+          "M": 362,
+          "P": 739,
+          "formula": null,
+          "tex": "\\mathcal{D}_{off}"
+        },
+        {
+          "M": 563,
+          "P": 946,
+          "formula": null,
+          "tex": "\\mathcal{D}"
+        }
+      ],
+      "note": "通用共享经验池𝒟被反复使用。"
+    },
+    {
+      "row": 34,
+      "status": "replace_actual_with_font",
+      "actual_notation": "粗斜体x、c_j、E_j",
+      "evidence": [
+        {
+          "M": 574,
+          "P": 953,
+          "formula": null,
+          "tex": "c_{1},c_{2},\\ldots,c_{m}"
+        },
+        {
+          "M": 575,
+          "P": 953,
+          "formula": null,
+          "tex": "\\mathbf{o}"
+        },
+        {
+          "M": 576,
+          "P": 953,
+          "formula": null,
+          "tex": "j"
+        },
+        {
+          "M": 578,
+          "P": 953,
+          "formula": null,
+          "tex": "E_{j} \\in \\mathbb{R}^{n_{j} \\times d_{j}}"
+        },
+        {
+          "M": 585,
+          "P": 955,
+          "formula": "3-4",
+          "tex": "\\mathbf{x} = \\left\\lbrack \\, E_{1}(c_{1}) \\oplus E_{2}(c_{2}) \\oplus \\cdots \\oplus E_{m}(c_{m}) \\oplus \\mathbf{o}\\, \\right\\rbrack"
+        },
+        {
+          "M": 594,
+          "P": 963,
+          "formula": "3-6",
+          "tex": "\\mathbf{x} = \\left\\lbrack \\,{Emb}_{v}(c_{v}) \\oplus {Emb}_{s}(c_{s}) \\oplus {Emb}_{t}(c_{t}) \\oplus {Emb}_{d}(c_{d}) \\oplus \\mathbf{o}\\, \\right\\rbrack"
+        },
+        {
+          "M": 3061,
+          "P": 2847,
+          "formula": null,
+          "tex": "e_{i}"
+        }
+      ],
+      "note": "原生x的m:sty=bi；表中z^emb为普通斜体且未用，e_i实际是第6章预测误差。"
+    },
+    {
+      "row": 35,
+      "status": "match",
+      "actual_notation": "bar(Q),σ_Q,Γ_epi",
+      "evidence": [
+        {
+          "M": 677,
+          "P": 1017,
+          "formula": "3-15",
+          "tex": "\\bar{Q}(s,\\ a) = \\frac{1}{K}\\sum_{k = 1}^{K}Q_{\\phi_{k}}(s,\\ a),\\quad\\quad"
+        },
+        {
+          "M": 678,
+          "P": 1018,
+          "formula": "3-15",
+          "tex": "\\sigma_{Q}(s,\\ a) = \\left\\lbrack \\,\\frac{1}{K - 1}\\sum_{k = 1}^{K}(\\, Q_{\\phi_{k}}(s,\\ a) - \\bar{Q}(s,\\ a)\\,)^{2}\\, \\right\\rbrack^{1/2}"
+        },
+        {
+          "M": 801,
+          "P": 1083,
+          "formula": "3-27",
+          "tex": "\\Gamma_{epi}(s,\\ a) = \\frac{1}{K - 1}\\sum_{k = 1}^{K}\\left( \\,{\\widehat{Q}}_{\\phi_{k}'}(s,\\ a) - \\frac{1}{K}\\sum_{j = 1}^{K}{\\widehat{Q}}_{\\phi_{j}'}(s,\\ a)\\, \\right)^{2}"
+        }
+      ],
+      "note": "在线均值/样本标准差和目标样本方差角色匹配，bar/overline导出长度差不作错误。"
+    },
+    {
+      "row": 36,
+      "status": "remove_unused_case_variant",
+      "actual_notation": "β_bc,β_ood,β_lcb",
+      "evidence": [
+        {
+          "M": 837,
+          "P": 1100,
+          "formula": "3-31",
+          "tex": "\\mathcal{L}_{Q}(\\phi_{k}) = \\mathbb{E}_{(s,\\, a,\\, r,\\, s',\\, d\\mathcal{) \\sim D}}\\left\\lbrack \\,(Q_{\\phi_{k}}(s,\\ a) - y_{k})^{2} + \\beta_{ood}\\,\\sigma_{Q}(s,\\ a)\\, \\right\\rbrack"
+        },
+        {
+          "M": 848,
+          "P": 1107,
+          "formula": "3-32",
+          "tex": "\\mathbb{E}_{s\\mathcal{\\sim D,}\\,\\widetilde{a} \\sim \\pi_{\\theta}\\left( \\cdot \\mid s \\right)}\\left\\lbrack \\,\\alpha\\log\\pi_{\\theta}\\left( \\widetilde{a}\\mid s \\right) - \\left( \\,\\bar{Q}\\left( s,\\ \\widetilde{a} \\right) + \\beta_{lcb}\\,\\sigma_{Q}\\left( s,\\ \\widetilde{a} \\right)\\, \\right)\\, \\right\\rbrack +"
+        },
+        {
+          "M": 849,
+          "P": 1108,
+          "formula": "3-32",
+          "tex": "\\beta_{bc}\\,\\mathbb{E}_{(s,\\, a)\\mathcal{\\sim D,}\\,\\widetilde{a} \\sim \\pi_{\\theta}\\left( \\cdot \\mid s \\right)}\\lbrack\\, \\parallel \\widetilde{a} - a \\parallel_{2}^{2}\\,\\rbrack,\\quad 其中\\quad\\beta_{lcb} \\leq 0"
+        }
+      ],
+      "note": "全书非表原生β下标未发现大写BC；小写bc实际已用。"
+    },
+    {
+      "row": 37,
+      "status": "remove_unused_case_variant",
+      "actual_notation": "𝓛_bc、ã",
+      "evidence": [
+        {
+          "M": 849,
+          "P": 1108,
+          "formula": "3-32",
+          "tex": "\\beta_{bc}\\,\\mathbb{E}_{(s,\\, a)\\mathcal{\\sim D,}\\,\\widetilde{a} \\sim \\pi_{\\theta}\\left( \\cdot \\mid s \\right)}\\lbrack\\, \\parallel \\widetilde{a} - a \\parallel_{2}^{2}\\,\\rbrack,\\quad 其中\\quad\\beta_{lcb} \\leq 0"
+        },
+        {
+          "M": 850,
+          "P": 1110,
+          "formula": null,
+          "tex": "\\widetilde{a}"
+        },
+        {
+          "M": 1648,
+          "P": 1752,
+          "formula": "4-12",
+          "tex": "\\mathcal{L}_{\\pi,base}(\\theta) = \\mathbb{E}_{s\\mathcal{\\sim D,}\\,\\widetilde{a} \\sim \\pi_{\\theta}( \\cdot \\mid s)}\\left\\lbrack \\,\\alpha\\log\\pi_{\\theta}(\\widetilde{a} \\mid s) - \\left( \\,\\bar{Q}(s,\\ \\widetilde{a}) + \\beta_{eff}\\,\\sigma_{Q}(s,\\ \\widetilde{a})\\, \\right)\\, \\right\\rbrack + \\beta_{bc}\\,\\mathcal{L}_{bc}"
+        },
+        {
+          "M": 1737,
+          "P": 1786,
+          "formula": null,
+          "tex": "\\mathcal{L}_{bc}"
+        },
+        {
+          "M": 1738,
+          "P": 1788,
+          "formula": "4-18",
+          "tex": "\\mathcal{L}_{bc}(\\theta) = \\frac{1}{B}\\sum_{(s,\\, a) \\sim \\mathcal{D}_{B},\\ \\widetilde{a} \\sim \\pi_{\\theta}( \\cdot \\mid s)}^{} \\parallel \\,\\widetilde{a} - a\\, \\parallel_{2}^{2}"
+        }
+      ],
+      "note": "大写BC形式未出现；小写bc已在后续章节使用，保留该现有记号。"
+    },
+    {
+      "row": 41,
+      "status": "add_existing_alias",
+      "actual_notation": "𝒯,𝒝,V_Q,V^Q,Λ",
+      "evidence": [
+        {
+          "M": 867,
+          "P": 1115,
+          "formula": null,
+          "tex": "\\mathcal{T}_{\\Lambda}"
+        },
+        {
+          "M": 868,
+          "P": 1117,
+          "formula": "3-33",
+          "tex": "(\\mathcal{T}_{\\Lambda}Q)(s,\\ a) = R(s,\\ a) + \\gamma\\,\\left( \\,\\mathbb{E}_{s' \\sim P( \\cdot \\mid s,a)}\\left\\lbrack \\, V^{Q}(s')\\, \\right\\rbrack - \\Lambda(s,\\ a)\\, \\right)"
+        },
+        {
+          "M": 869,
+          "P": 1119,
+          "formula": null,
+          "tex": "V^{Q}(s')"
+        },
+        {
+          "M": 911,
+          "P": 1133,
+          "formula": "3-36",
+          "tex": "\\parallel \\, Q_{i} - Q_{\\Lambda}^{*}\\, \\parallel_{\\infty}\\mspace{6mu} \\leq \\mspace{6mu}\\gamma^{\\, i}\\, \\parallel \\, Q_{0} - Q_{\\Lambda}^{*}\\, \\parallel_{\\infty}\\mspace{6mu} + \\mspace{6mu}\\frac{\\varepsilon}{1 - \\gamma}"
+        },
+        {
+          "M": 915,
+          "P": 1135,
+          "formula": null,
+          "tex": "\\gamma + \\lambda_{ale} \\geq 1"
+        },
+        {
+          "M": 3667,
+          "P": 3400,
+          "formula": "A-3",
+          "tex": "V_{Q}(s) = \\max_{a}Q(s,a),"
+        },
+        {
+          "M": 4038,
+          "P": 3818,
+          "formula": "C-2",
+          "tex": "V_{Q}(s) = \\max_{a}Q(s,a)."
+        }
+      ],
+      "note": "V_Q在附录确实使用，不能替换掉；主文V^Q亦须列。𝒝在3.3.3兼作有界函数空间及局部反例算子，按参数类型区分。"
+    },
+    {
+      "row": 54,
+      "status": "add_existing_alias",
+      "actual_notation": "第2章τ_e；后文τ_IQL",
+      "evidence": [
+        {
+          "M": 346,
+          "P": 729,
+          "formula": null,
+          "tex": "A(s,a) = \\widehat{Q}(s,a) - V_{\\nu}(s)"
+        },
+        {
+          "M": 348,
+          "P": 731,
+          "formula": "2-26",
+          "tex": "\\mathcal{L}_{V}(\\nu)\\mspace{6mu} = \\mspace{6mu}\\mathbb{E}_{(s,\\, a) \\sim \\mathcal{D}_{off}}\\left\\lbrack \\,|\\,\\tau_{e}\\mathbb{- I}\\left\\{ A(s,\\ a) < 0 \\right\\}\\,|\\mspace{6mu} A(s,\\ a)^{2}\\, \\right\\rbrack"
+        },
+        {
+          "M": 349,
+          "P": 733,
+          "formula": null,
+          "tex": "\\mathbb{I\\{ \\cdot \\}}"
+        }
+      ],
+      "note": "IQL期望分位水平的τ_e与第6章误差尺度τ_e作用域不同，补列别名；Huber现用符号由第6章审查合并。"
+    },
+    {
+      "row": 57,
+      "status": "add_role_scope",
+      "actual_notation": "τ（积分时刻/软更新系数）；τ_h（奖励尺度）",
+      "evidence": [
+        {
+          "M": 642,
+          "P": 993,
+          "formula": null,
+          "tex": "\\tau_{h} > 0"
+        },
+        {
+          "M": 644,
+          "P": 995,
+          "formula": "3-11",
+          "tex": "r_{E}(h_{f},\\ h_{b},\\ a) = exp\\left( - \\frac{|h_{f} - h_{b}|}{\\tau_{h}} \\right) + w \\cdot exp\\left( - \\frac{a}{60} \\right),\\quad\\quad a \\in \\lbrack 0,\\ 60\\rbrack"
+        },
+        {
+          "M": 824,
+          "P": 1093,
+          "formula": null,
+          "tex": "\\tau"
+        },
+        {
+          "M": 2448,
+          "P": 2398,
+          "formula": "5-6",
+          "tex": "C_{k} = 2\\int_{t_{k}}^{t_{k} + \\Delta t_{k}}N^{w}(\\tau)\\, d\\tau + \\int_{t_{k}}^{t_{k} + \\Delta t_{k}}N^{b}(\\tau)\\, d\\tau,\\quad\\quad r_{k} = - C_{k}"
+        }
+      ],
+      "note": "不能把软更新τ当物理时间；奖励参数17处丢h下标另列，正文此次不改。"
+    },
+    {
+      "row": 61,
+      "status": "replace_target_actual",
+      "actual_notation": "φ_k,φ_k′,hat(Q)_φ_kprime",
+      "evidence": [
+        {
+          "M": 663,
+          "P": 1006,
+          "formula": null,
+          "tex": "\\{{\\widehat{Q}}_{\\phi_{k}'}(s,a)\\}_{k = 1}^{K}"
+        },
+        {
+          "M": 702,
+          "P": 1027,
+          "formula": null,
+          "tex": "k"
+        },
+        {
+          "M": 802,
+          "P": 1085,
+          "formula": null,
+          "tex": "k"
+        },
+        {
+          "M": 815,
+          "P": 1091,
+          "formula": "3-29",
+          "tex": "y_{k} = r + \\gamma\\,(1 - d)\\,\\left( \\,{\\widehat{Q}}_{\\phi_{k}'}(s',\\ a') - \\lambda_{epi}\\,\\Gamma_{epi}(s',\\ a') - \\lambda_{ale}\\,\\kappa_{k} - \\alpha\\log\\pi_{\\theta}(a' \\mid s')\\, \\right)"
+        },
+        {
+          "M": 822,
+          "P": 1093,
+          "formula": null,
+          "tex": "k"
+        }
+      ],
+      "note": "核到目标参数是撇号，目标网络另带帽；下标k/j只是成员索引。"
+    },
+    {
+      "row": 63,
+      "status": "replace_components",
+      "actual_notation": "m（类别数）；M（候选动作数）",
+      "evidence": [
+        {
+          "M": 574,
+          "P": 953,
+          "formula": null,
+          "tex": "c_{1},c_{2},\\ldots,c_{m}"
+        },
+        {
+          "M": 585,
+          "P": 955,
+          "formula": "3-4",
+          "tex": "\\mathbf{x} = \\left\\lbrack \\, E_{1}(c_{1}) \\oplus E_{2}(c_{2}) \\oplus \\cdots \\oplus E_{m}(c_{m}) \\oplus \\mathbf{o}\\, \\right\\rbrack"
+        },
+        {
+          "M": 939,
+          "P": 1146,
+          "formula": null,
+          "tex": "s"
+        },
+        {
+          "M": 947,
+          "P": 1148,
+          "formula": "3-39",
+          "tex": "\\frac{1}{M}\\sum_{i = 1}^{M}e_{Q,i}^{2}\\mspace{6mu} = \\mspace{6mu}({\\bar{e}}_{Q}(s))^{2}\\mspace{6mu} + \\mspace{6mu}\\frac{1}{M}\\sum_{i = 1}^{M}(e_{Q,i} - {\\bar{e}}_{Q}(s))^{2}"
+        }
+      ],
+      "note": "m_cat/m_act未用；m_batch交由第5–6章实际同时车组量合并。"
+    },
+    {
+      "row": 64,
+      "status": "replace_actual",
+      "actual_notation": "c_j,n_j,h,d_j；局部n,d",
+      "evidence": [
+        {
+          "M": 575,
+          "P": 953,
+          "formula": null,
+          "tex": "\\mathbf{o}"
+        },
+        {
+          "M": 578,
+          "P": 953,
+          "formula": null,
+          "tex": "E_{j} \\in \\mathbb{R}^{n_{j} \\times d_{j}}"
+        },
+        {
+          "M": 579,
+          "P": 953,
+          "formula": null,
+          "tex": "c_{j}"
+        },
+        {
+          "M": 589,
+          "P": 959,
+          "formula": "3-5",
+          "tex": "d_{j} = min\\left( 50,\\ \\lfloor n_{j}/2\\rfloor \\right)"
+        },
+        {
+          "M": 595,
+          "P": 966,
+          "formula": null,
+          "tex": "n"
+        },
+        {
+          "M": 596,
+          "P": 966,
+          "formula": null,
+          "tex": "h"
+        },
+        {
+          "M": 598,
+          "P": 966,
+          "formula": null,
+          "tex": "n \\cdot h"
+        },
+        {
+          "M": 602,
+          "P": 966,
+          "formula": null,
+          "tex": "d(n + h)"
+        }
+      ],
+      "note": "语义下标整组只在表内，不是普通i/j换索引问题。"
+    },
+    {
+      "row": 65,
+      "status": "replace_actual",
+      "actual_notation": "N,N_v",
+      "evidence": [
+        {
+          "M": 563,
+          "P": 946,
+          "formula": null,
+          "tex": "\\mathcal{D}"
+        },
+        {
+          "M": 564,
+          "P": 946,
+          "formula": null,
+          "tex": "N = \\sum_{v}^{}N_{v}"
+        },
+        {
+          "M": 566,
+          "P": 946,
+          "formula": null,
+          "tex": "N_{v}"
+        },
+        {
+          "M": 570,
+          "P": 948,
+          "formula": "3-3",
+          "tex": "\\mathbb{E}\\left\\lbrack B_{v} \\right\\rbrack = B \\cdot \\frac{N_{v}}{N}"
+        }
+      ],
+      "note": "N_buf/N_buf,b与N_off都没有非表原生对应；N_v在这里是回放样本数。"
+    },
+    {
+      "row": 67,
+      "status": "replace_actual_and_role",
+      "actual_notation": "δ,ρ,V",
+      "evidence": [
+        {
+          "M": 264,
+          "P": 689,
+          "formula": null,
+          "tex": "\\delta"
+        },
+        {
+          "M": 265,
+          "P": 689,
+          "formula": null,
+          "tex": "V"
+        },
+        {
+          "M": 266,
+          "P": 689,
+          "formula": null,
+          "tex": "\\parallel \\delta \\parallel \\leq \\rho"
+        },
+        {
+          "M": 267,
+          "P": 689,
+          "formula": null,
+          "tex": "\\parallel \\cdot \\parallel_{*}"
+        },
+        {
+          "M": 268,
+          "P": 691,
+          "formula": "2-19",
+          "tex": "\\min_{\\parallel \\delta \\parallel \\, \\leq \\,\\rho}\\ \\left\\langle p^{\\circ} + \\delta,\\ V \\right\\rangle\\mspace{6mu} = \\mspace{6mu}\\left\\langle p^{\\circ},\\ V \\right\\rangle\\mspace{6mu} - \\mspace{6mu}\\rho\\, \\parallel V \\parallel_{*}"
+        }
+      ],
+      "note": "V是后继价值向量，不是特征向量。"
+    },
+    {
+      "row": 71,
+      "status": "replace_unused_components",
+      "actual_notation": "ε（迭代误差界）、ε_act（动作相关误差界）",
+      "evidence": [
+        {
+          "M": 908,
+          "P": 1131,
+          "formula": null,
+          "tex": "\\parallel Q_{j + 1} - \\mathcal{T}_{\\Lambda}Q_{j} \\parallel_{\\infty} \\leq \\varepsilon"
+        },
+        {
+          "M": 911,
+          "P": 1133,
+          "formula": "3-36",
+          "tex": "\\parallel \\, Q_{i} - Q_{\\Lambda}^{*}\\, \\parallel_{\\infty}\\mspace{6mu} \\leq \\mspace{6mu}\\gamma^{\\, i}\\, \\parallel \\, Q_{0} - Q_{\\Lambda}^{*}\\, \\parallel_{\\infty}\\mspace{6mu} + \\mspace{6mu}\\frac{\\varepsilon}{1 - \\gamma}"
+        },
+        {
+          "M": 952,
+          "P": 1150,
+          "formula": null,
+          "tex": "\\max_{i}|\\eta(s,a_{i})| \\leq \\varepsilon_{act}"
+        },
+        {
+          "M": 957,
+          "P": 1152,
+          "formula": "3-40",
+          "tex": "0\\mspace{6mu} \\leq \\mspace{6mu} Q^{ref}(s,\\ a^{*}) - Q^{ref}(s,\\ \\widehat{a})\\mspace{6mu} \\leq \\mspace{6mu}\\eta(s,\\ \\widehat{a}) - \\eta(s,\\ a^{*})\\mspace{6mu} \\leq \\mspace{6mu} 2\\,\\varepsilon_{act}"
+        }
+      ],
+      "note": "保留附录已用ε_dist、ε_path；不用表内新增但实际未用的ε_iter/ε_Q,act。"
+    },
+    {
+      "row": 85,
+      "status": "match_generic_indices",
+      "actual_notation": "λ_ale,λ_epi,κ_k",
+      "evidence": [
+        {
+          "M": 688,
+          "P": 1025,
+          "formula": null,
+          "tex": "\\kappa_{k}"
+        },
+        {
+          "M": 695,
+          "P": 1026,
+          "formula": null,
+          "tex": "\\lambda_{epi} \\geq 0"
+        },
+        {
+          "M": 801,
+          "P": 1083,
+          "formula": "3-27",
+          "tex": "\\Gamma_{epi}(s,\\ a) = \\frac{1}{K - 1}\\sum_{k = 1}^{K}\\left( \\,{\\widehat{Q}}_{\\phi_{k}'}(s,\\ a) - \\frac{1}{K}\\sum_{j = 1}^{K}{\\widehat{Q}}_{\\phi_{j}'}(s,\\ a)\\, \\right)^{2}"
+        },
+        {
+          "M": 808,
+          "P": 1087,
+          "formula": "3-28",
+          "tex": "\\kappa_{k} = \\sum_{l}^{} \\parallel \\, W_{\\phi_{k}'}^{(l)}\\, \\parallel_{1}"
+        },
+        {
+          "M": 815,
+          "P": 1091,
+          "formula": "3-29",
+          "tex": "y_{k} = r + \\gamma\\,(1 - d)\\,\\left( \\,{\\widehat{Q}}_{\\phi_{k}'}(s',\\ a') - \\lambda_{epi}\\,\\Gamma_{epi}(s',\\ a') - \\lambda_{ale}\\,\\kappa_{k} - \\alpha\\log\\pi_{\\theta}(a' \\mid s')\\, \\right)"
+        }
+      ],
+      "note": "成员索引j/k不构成物理角色差异；三项定义一致。"
+    },
+    {
+      "row": 86,
+      "status": "replace_unused_component",
+      "actual_notation": "B,K_max,n_rem",
+      "evidence": [
+        {
+          "M": 567,
+          "P": 946,
+          "formula": null,
+          "tex": "B"
+        },
+        {
+          "M": 570,
+          "P": 948,
+          "formula": "3-3",
+          "tex": "\\mathbb{E}\\left\\lbrack B_{v} \\right\\rbrack = B \\cdot \\frac{N_{v}}{N}"
+        }
+      ],
+      "note": "B_batch未使用；正文小批量明确为B。"
+    },
+    {
+      "row": 96,
+      "status": "match_components",
+      "actual_notation": "I_f,I_b",
+      "evidence": [
+        {
+          "M": 622,
+          "P": 980,
+          "formula": null,
+          "tex": "I_{f} = I_{b} = 1"
+        },
+        {
+          "M": 623,
+          "P": 980,
+          "formula": null,
+          "tex": "e_{f},e_{b}"
+        },
+        {
+          "M": 624,
+          "P": 980,
+          "formula": null,
+          "tex": "\\omega_{h}"
+        },
+        {
+          "M": 634,
+          "P": 988,
+          "formula": "3-10",
+          "tex": "p_{f} = 20\\, I_{f}\\,\\tanh\\left( \\frac{e_{f} - 0.5\\, h_{f}^{*}}{30} \\right),\\quad"
+        },
+        {
+          "M": 635,
+          "P": 989,
+          "formula": "3-10",
+          "tex": "\\quad p_{b} = 20\\, I_{b}\\,\\tanh\\left( \\frac{e_{b} - 0.5\\, h_{b}^{*}}{30} \\right),\\quad\\quad"
+        }
+      ],
+      "note": "邻车标记实际已用；ξ_time部分由第5–6章实际运营进度量合并。"
+    },
+    {
+      "row": 60,
+      "status": "add_native_font_alias",
+      "actual_notation": "𝟙函数的两种实际字体：double-struck I与粗体1",
+      "evidence": [
+        {
+          "M": 348,
+          "P": 731,
+          "formula": "2-26",
+          "tex": "\\mathcal{L}_{V}(\\nu)\\mspace{6mu} = \\mspace{6mu}\\mathbb{E}_{(s,\\, a) \\sim \\mathcal{D}_{off}}\\left\\lbrack \\,|\\,\\tau_{e}\\mathbb{- I}\\left\\{ A(s,\\ a) < 0 \\right\\}\\,|\\mspace{6mu} A(s,\\ a)^{2}\\, \\right\\rbrack"
+        },
+        {
+          "M": 617,
+          "P": 977,
+          "formula": "3-8",
+          "tex": "\\left( 1 - \\omega(h_{f},h_{b}) \\right)\\,\\varphi(h_{b}) - 0.5\\,|\\, h_{f} - h_{b}\\,| - 20\\,\\mathbb{I}\\left( |\\, h_{f} - h_{s}\\,| > 180\\ \\text{或}\\ |\\, h_{b} - h_{s}\\,| > 180 \\right)"
+        },
+        {
+          "M": 3909,
+          "P": 3636,
+          "formula": "B-22",
+          "tex": "\\begin{array}{r}\np_{correct} = \\frac{1}{2}\\sum_{\\omega}^{}p(\\omega)\\mathbf{1}\\{ D_{cls}(Y_{1}(\\omega)) = 1\\} \\\\\n\\quad + \\frac{1}{2}\\sum_{\\omega}^{}p(\\omega)\\mathbf{1}\\{ D_{cls}(Y_{2}(\\omega)) = 2\\}.\n\\end{array}"
+        },
+        {
+          "M": 3940,
+          "P": 3684,
+          "formula": "B-33",
+          "tex": "\\parallel \\Delta v_{nom} \\parallel_{2}^{2} = 4\\sum_{j = 1}^{n_{a}}(a_{j}^{ref})^{2}\\mathbf{1}\\{ g_{z,j} \\neq g_{\\widehat{z},j}\\},"
+        },
+        {
+          "M": 3941,
+          "P": 3687,
+          "formula": "B-34",
+          "tex": "\\parallel \\Delta v_{nom} \\parallel_{2} = 2\\sqrt{\\sum_{j = 1}^{n_{a}}(a_{j}^{ref})^{2}\\mathbf{1}\\{ g_{z,j} \\neq g_{\\widehat{z},j}\\}}."
+        },
+        {
+          "M": 4017,
+          "P": 3792,
+          "formula": "B-58",
+          "tex": "I_{i,j} = \\mathbf{1}\\left\\{ g_{z_{k + i},j} \\neq g_{\\widehat{z}(k + i,X_{aug,k + i}),j} \\right\\}."
+        }
+      ],
+      "note": "主文IQL/3-8实际I的m:scr=double-struck、m:sty=p；附录B多式的数字1明确m:sty=b。二者都是示性函数。I_f/I_b则是普通斜体I带邻车下标，不应一并改字体。"
+    },
+    {
+      "row": 22,
+      "status": "replace_actual",
+      "actual_notation": "\\widehat Q_{\\min}",
+      "evidence": [
+        {
+          "M": 2497,
+          "P": 2413,
+          "formula": null,
+          "tex": "{\\widehat{Q}}_{\\min}(s,a) = \\min_{k \\in \\{ 1,2\\}}{\\widehat{Q}}_{\\phi_{k}'}(s,a)"
+        },
+        {
+          "M": 2501,
+          "P": 2415,
+          "formula": "5-9",
+          "tex": "V_{soft}(s')\\mspace{6mu} = \\mspace{6mu}\\mathbb{E}_{a' \\sim \\pi_{\\theta}( \\cdot \\mid s')}\\left\\lbrack \\,\\min_{k \\in \\{ 1,2\\}}{\\widehat{Q}}_{\\phi_{k}'}(s',\\ a') - \\alpha\\log\\pi_{\\theta}(a' \\mid s')\\, \\right\\rbrack"
+        },
+        {
+          "M": 2508,
+          "P": 2418,
+          "formula": null,
+          "tex": "A(s,a) = {\\widehat{Q}}_{\\min}(s,a) - V_{\\nu}(s)"
+        }
+      ],
+      "note": "P2413明确是两个目标动作价值网络较小估计，现有帽号不可丢。原生Q带m:acc，min正体；不是无帽当前Q_min或上标负号Q_min^-。",
+      "suggested_symbol_tex": "$\\widehat Q_{\\min}$",
+      "suggested_definition": "两个目标动作价值网络输出的较小估计（5.2节）"
+    },
+    {
+      "row": 24,
+      "status": "unused_replace_with_existing_constant",
+      "actual_notation": "\\epsilon",
+      "evidence": [
+        {
+          "M": 612,
+          "P": 973,
+          "formula": null,
+          "tex": "\\epsilon > 0"
+        },
+        {
+          "M": 613,
+          "P": 973,
+          "formula": null,
+          "tex": "10^{- 6}"
+        }
+      ],
+      "note": "ε_fp仅符号表出现，全文没有浮点机器精度的定义。原生M612字形为ϵ，普通斜体；它是人为取定的防零常数，不能释为机器精度。也可直接删除原24行。",
+      "suggested_symbol_tex": "$\\epsilon$",
+      "suggested_definition": "奖励权重分母中避免除零的极小正数，取10^-6（2.7.4及3.2.4节）"
+    },
+    {
+      "row": 56,
+      "status": "replace_unused_alias",
+      "actual_notation": "r_k,R(s,a)",
+      "evidence": [
+        {
+          "M": 153,
+          "P": 617,
+          "formula": null,
+          "tex": "R(s,a\\mathbb{) = E\\lbrack}r_{t} \\mid s_{t} = s,a_{t} = a\\rbrack"
+        },
+        {
+          "M": 2448,
+          "P": 2398,
+          "formula": "5-6",
+          "tex": "C_{k} = 2\\int_{t_{k}}^{t_{k} + \\Delta t_{k}}N^{w}(\\tau)\\, d\\tau + \\int_{t_{k}}^{t_{k} + \\Delta t_{k}}N^{b}(\\tau)\\, d\\tau,\\quad\\quad r_{k} = - C_{k}"
+        },
+        {
+          "M": 2667,
+          "P": 2501,
+          "formula": null,
+          "tex": "\\iota \\in \\{ sim,tgt\\}"
+        },
+        {
+          "M": 2669,
+          "P": 2501,
+          "formula": null,
+          "tex": "\\Delta M_{\\iota}(\\pi)"
+        },
+        {
+          "M": 2671,
+          "P": 2503,
+          "formula": "5-20",
+          "tex": "\\Delta M_{\\iota}(\\pi) = {\\bar{M}}_{\\iota}(\\pi) - {\\bar{M}}_{\\iota}(\\pi_{0}),\\quad\\quad e_{M}(\\pi) = \\frac{\\Delta M_{sim}(\\pi) - \\Delta M_{tgt}(\\pi)}{{\\bar{M}}_{tgt}(\\pi_{0})}"
+        }
+      ],
+      "note": "R_iota仅表中出现；全书实际ι用于环境指标M_iota及ΔM_iota，不能据此创造奖励R_iota。一般期望即时奖励已在P617定义为R(s,a)。可与19行合并以免重复。",
+      "suggested_symbol_tex": "$r_k,R(s,a)$",
+      "suggested_definition": "一次事件区间的实际奖励与给定状态动作下的期望即时奖励；二者通过条件期望联系"
+    },
+    {
+      "row": 73,
+      "status": "match_native",
+      "actual_notation": "f_{c_{\\mathrm{coef}}},c_{\\mathrm{coef}},c_{\\mathrm{coef},i}",
+      "evidence": [
+        {
+          "M": 4415,
+          "P": 4220,
+          "formula": null,
+          "tex": "c_{coef}"
+        },
+        {
+          "M": 4416,
+          "P": 4222,
+          "formula": "D-50",
+          "tex": "f_{c_{coef}}(x) = \\sum_{i = 1}^{n}c_{coef,i}\\varphi_{i}(x)."
+        },
+        {
+          "M": 4417,
+          "P": 4226,
+          "formula": "D-51",
+          "tex": "Df_{c_{coef}}(x) = \\sum_{i = 1}^{n}c_{coef,i}D\\varphi_{i}(x)."
+        }
+      ],
+      "note": "D-50/51实际直接采用c_{coef,i}，其原生结构为c加单层下标coef,i，非仅(c_coef)_i的括号写法。coef正体、i普通斜体，原表此含义和写法正确。",
+      "suggested_symbol_tex": "$f_{c_{\\mathrm{coef}}},c_{\\mathrm{coef}},c_{\\mathrm{coef},i}$",
+      "suggested_definition": "拟合符号模型、其系数向量及第i个系数分量"
+    },
+    {
+      "row": 75,
+      "status": "match_role_add_actual_local_indices",
+      "actual_notation": "V_{n,k}^{O,\\mathrm{path}},Q_{n,k}^{O,\\mathrm{path}}",
+      "evidence": [
+        {
+          "M": 3960,
+          "P": 3692,
+          "formula": null,
+          "tex": "V_{n,k}^{O,path}"
+        },
+        {
+          "M": 3964,
+          "P": 3694,
+          "formula": "B-35",
+          "tex": "\\begin{array}{r}\nQ_{n,k}^{O,path}(x_{aug},v_{nom}) = r\\left( x_{phys},clip(v_{nom} + \\varepsilon_{k}),e_{k} \\right) \\\\\n\\quad + V_{n,k + 1}^{O,path}\\left( F_{aug}(x_{aug},v_{nom},e_{k}) \\right).\n\\end{array}"
+        },
+        {
+          "M": 3965,
+          "P": 3698,
+          "formula": "B-36",
+          "tex": "\\begin{array}{r}\n\\Delta_{n,k}^{O}(x_{aug}) = Q_{n,k}^{O,path}\\left( x_{aug},v_{nom}^{C}(k,x_{aug}) \\right) \\\\\n\\quad - Q_{n,k}^{O,path}\\left( x_{aug},v_{nom}^{O}(k,x_{aug}) \\right).\n\\end{array}"
+        },
+        {
+          "M": 3974,
+          "P": 3708,
+          "formula": null,
+          "tex": "V_{n,k + 1}^{O,path}(x_{aug,C}')"
+        },
+        {
+          "M": 3975,
+          "P": 3710,
+          "formula": "B-39",
+          "tex": "\\begin{array}{r}\n{\\Delta J}_{n + 1,k}(x_{aug}) = Q_{n,k}^{O,path}\\left( x_{aug},v_{nom}^{C}(k,x_{aug}) \\right) \\\\\n\\quad - Q_{n,k}^{O,path}\\left( x_{aug},v_{nom}^{O}(k,x_{aug}) \\right) \\\\\n + {\\Delta J}_{n,k + 1}(x_{aug,C}').\n\\end{array}"
+        },
+        {
+          "M": 3978,
+          "P": 3715,
+          "formula": "B-40",
+          "tex": "|Q_{n,k}^{O,path}\\left( x_{aug},v_{nom}^{C}(k,x_{aug}) \\right) - Q_{n,k}^{O,path}\\left( x_{aug},v_{nom}^{O}(k,x_{aug}) \\right)| \\leq b_{Q,loc}(k,x_{aug}),"
+        }
+      ],
+      "note": "原生O没有m:scr，确为普通斜体O，不是mathcal O；path正体。零匹配来自实际增加n,k下标，含义一致，保留并可列全实际记号。",
+      "suggested_symbol_tex": "$V_{n,k}^{O,\\mathrm{path}},Q_{n,k}^{O,\\mathrm{path}},\\Delta J,\\Delta V$",
+      "suggested_definition": "固定外生序列下的参照路径价值及动作价值、路径回报差与期望价值差；n、k为对应路径推导的步数和时刻索引"
+    }
+  ],
+  "table_patches": [
+    {
+      "row": 1,
+      "operation": "replace",
+      "old_symbol": "$\\mathcal{L,l}$",
+      "old_definition": "方向性线路服务集合及其元素",
+      "suggested_symbol_tex": "$\\mathcal L_{od},l$",
+      "suggested_definition": "可服务起讫站点对(o,d)的共线线路服务集合及其中线路元素（5-5）",
+      "evidence_math_ids": [
+        2438
+      ]
+    },
+    {
+      "row": 2,
+      "operation": "replace",
+      "old_symbol": "$b,j_{tr},i$",
+      "old_definition": "车辆、班次和线路内站点位置索引",
+      "suggested_symbol_tex": "$v,i,j$",
+      "suggested_definition": "车辆索引v；同车事件序号i（2.7.1节）；班次索引i与站点序号j（3.2.2节）",
+      "evidence_math_ids": [
+        411,
+        412,
+        525,
+        526,
+        534,
+        551
+      ]
+    },
+    {
+      "row": 4,
+      "operation": "replace",
+      "old_symbol": "$T_{hor},K_{evt}$",
+      "old_definition": "控制时域终点和回合内事件数",
+      "suggested_symbol_tex": "$T_{\\mathrm{hor}}$",
+      "suggested_definition": "规定评价与控制时域的终点",
+      "evidence_math_ids": [
+        478,
+        481,
+        562
+      ]
+    },
+    {
+      "row": 5,
+      "operation": "replace",
+      "old_symbol": "$t_{j_{tr}}^{plan},t_{j_{tr}}^{act}$",
+      "old_definition": "班次计划与实际发车时刻",
+      "suggested_symbol_tex": "$t^{\\mathrm d},t^{\\mathrm s}$；$y_{i,j}^{\\mathrm a},y_{i,j}^{\\mathrm d}$",
+      "suggested_definition": "本站计划离站时刻与完成必要上下客服务的时刻（2.1节）；第i班次第j站实际到站与离站时刻（3.2.2节）",
+      "evidence_math_ids": [
+        124,
+        125,
+        525,
+        526,
+        534
+      ]
+    },
+    {
+      "row": 6,
+      "operation": "replace",
+      "old_symbol": "$h^{f},h^{b}$；$h_{f},h_{b},{\\widehat{h}}_{b}$",
+      "old_definition": "前向与后向车头时距",
+      "suggested_symbol_tex": "$h_f,h_b,\\widehat h_b$",
+      "suggested_definition": "前向、后向车头时距及决策时刻可得的后向车头时距估计值",
+      "evidence_math_ids": [
+        134,
+        135,
+        453
+      ]
+    },
+    {
+      "row": 7,
+      "operation": "replace",
+      "old_symbol": "$h^{f,*},h^{b,*}$；$h_{f}^{*},h_{b}^{*}$",
+      "old_definition": "前向与后向计划间隔",
+      "suggested_symbol_tex": "$h_f^*,h_b^*,h_s$",
+      "suggested_definition": "前向与后向计划间隔；单线路等间隔场景的共同计划间隔h_s",
+      "evidence_math_ids": [
+        136,
+        137,
+        467,
+        521,
+        605
+      ]
+    },
+    {
+      "row": 8,
+      "operation": "replace",
+      "old_symbol": "$u,u_{\\max}$",
+      "old_definition": "以秒计的驻站时长及其上限",
+      "suggested_symbol_tex": "$a,a_{\\max}$",
+      "suggested_definition": "以秒计的附加驻站时长及其上限",
+      "evidence_math_ids": [
+        126,
+        127,
+        441
+      ]
+    },
+    {
+      "row": 9,
+      "operation": "replace",
+      "old_symbol": "$a,a^{n}$",
+      "old_definition": "决策模型动作变量及归一化附加驻站动作编码",
+      "suggested_symbol_tex": "$\\widetilde a$",
+      "suggested_definition": "策略网络内部的归一化附加驻站动作，取值范围[-1,1]",
+      "evidence_math_ids": [
+        445,
+        450
+      ]
+    },
+    {
+      "row": 11,
+      "operation": "replace",
+      "old_symbol": "$\\lambda_{i},\\eta_{i}^{board}$",
+      "old_definition": "站点客流到达率及单位乘客上车服务时间",
+      "suggested_symbol_tex": "$\\lambda$",
+      "suggested_definition": "局部乘客成本解析中的恒定乘客到达率，单位为人/秒（3.2.6节）",
+      "evidence_math_ids": [
+        740,
+        745,
+        761
+      ]
+    },
+    {
+      "row": 12,
+      "operation": "replace",
+      "old_symbol": "$N_{w}(t),N_{v}(t)$",
+      "old_definition": "时刻$t$的候车与车内人数",
+      "suggested_symbol_tex": "$N^{w}(t),N^{b}(t)$",
+      "suggested_definition": "物理时刻t全系统候车与车内乘客人数",
+      "evidence_math_ids": [
+        471,
+        472,
+        474,
+        489
+      ]
+    },
+    {
+      "row": 13,
+      "operation": "replace",
+      "old_symbol": "$C_{veh},n_{on}$",
+      "old_definition": "车辆容量与当前载客人数",
+      "suggested_symbol_tex": "$C_{\\mathrm{veh}},n$",
+      "suggested_definition": "车辆容量；局部乘客成本解析中已在车内的乘客人数n（3.2.6节）",
+      "evidence_math_ids": [
+        749,
+        750,
+        761
+      ]
+    },
+    {
+      "row": 14,
+      "operation": "replace",
+      "old_symbol": "$W,T^{ride},T^{trip}$",
+      "old_definition": "候车时间、车内时间与总出行时间；单位随对应统计协议给出",
+      "suggested_symbol_tex": "$W,T_p^w,T_p^b$",
+      "suggested_definition": "随机到达乘客的候车时间W；乘客p在规定评价时域内累计的候车与车内时间",
+      "evidence_math_ids": [
+        713,
+        714,
+        486,
+        487,
+        489
+      ]
+    },
+    {
+      "row": 16,
+      "operation": "replace",
+      "old_symbol": "$N_{dep},N_{cmp}$",
+      "old_definition": "已出发及已完成行程的乘客数",
+      "suggested_symbol_tex": "$N_{\\mathrm{dep}},\\mathcal P_{\\mathrm{dep}}$",
+      "suggested_definition": "规定评价时域内进入系统的独立出行乘客数及其集合",
+      "evidence_math_ids": [
+        483,
+        484,
+        489
+      ]
+    },
+    {
+      "row": 17,
+      "operation": "replace",
+      "old_symbol": "${CV}_{H}$",
+      "old_definition": "车头时距的变异系数（Coefficient of Variation，CV）",
+      "suggested_symbol_tex": "$H,\\mathrm{CV}_H$",
+      "suggested_definition": "随机车头时距及其变异系数",
+      "evidence_math_ids": [
+        704,
+        707,
+        714
+      ]
+    },
+    {
+      "row": 26,
+      "operation": "replace",
+      "old_symbol": "$\\gamma,\\Gamma_{k},d_{k}^{term}$",
+      "old_definition": "折扣因子、事件延续因子和终止标记",
+      "suggested_symbol_tex": "$\\gamma,\\Gamma_k,d_t,d_i,d$",
+      "suggested_definition": "折扣因子、事件延续因子与回合终止标记；终止标记的索引随对应事件定义",
+      "evidence_math_ids": [
+        199,
+        204,
+        814,
+        815
+      ]
+    },
+    {
+      "row": 28,
+      "operation": "replace",
+      "old_symbol": "$p^{\\circ},\\mathcal{U}_{s,a}$",
+      "old_definition": "固定状态动作对上的名义后继分布与允许的分布集合",
+      "suggested_symbol_tex": "$p^\\circ,\\mathcal P_{s,a},\\mathcal U_{s,a}$",
+      "suggested_definition": "固定状态动作对的名义后继分布及允许后继分布集合；主文用𝒫，附录A另用𝒰",
+      "evidence_math_ids": [
+        269,
+        270,
+        681,
+        683
+      ]
+    },
+    {
+      "row": 29,
+      "operation": "replace",
+      "old_symbol": "$\\sigma_{\\mathcal{U}}(f),\\Omega_{\\mathcal{U}}(V)$",
+      "old_definition": "分布集合的支持函数与其对应的价值正则项",
+      "suggested_symbol_tex": "$\\sigma_{\\mathcal P_{s,a}}(u),\\sigma_{\\mathcal U}(f),\\Omega_{\\mathcal U}(V)$",
+      "suggested_definition": "允许分布集合相对于名义分布的支持函数及相应价值正则项；集合记号按章节区分",
+      "evidence_math_ids": [
+        271,
+        275,
+        276
+      ]
+    },
+    {
+      "row": 30,
+      "operation": "replace",
+      "old_symbol": "$W_{1},d_{\\mathcal{S}},L_{V},\\varepsilon_{ipm}$",
+      "old_definition": "一阶Wasserstein距离、状态距离、状态价值的Lipschitz上界与分布距离半径",
+      "suggested_symbol_tex": "$W_1,d_{\\mathcal S},L_V,\\varepsilon_{\\mathrm{ipm}},\\rho_{\\mathrm{ipm}},\\operatorname{Lip}(V)$",
+      "suggested_definition": "一阶Wasserstein距离、状态距离、价值Lipschitz上界及分布距离半径；第3章相应记作ρ_ipm与Lip(V)",
+      "evidence_math_ids": [
+        680,
+        683,
+        684
+      ]
+    },
+    {
+      "row": 31,
+      "operation": "replace",
+      "old_symbol": "$C_{traj},\\mathbb{P}_{0}$",
+      "old_definition": "轨迹累计成本与固定策略下的名义轨迹分布",
+      "suggested_symbol_tex": "$C_{\\mathrm{traj}},\\mathbb P_0,Z$",
+      "suggested_definition": "轨迹累计成本与固定策略下名义轨迹分布；第2.3节的累计成本（及分布RL语境中的随机回报）记为Z",
+      "evidence_math_ids": [
+        281,
+        285,
+        293
+      ]
+    },
+    {
+      "row": 32,
+      "operation": "replace",
+      "old_symbol": "$\\beta_{tail},\\eta_{risk},\\zeta_{risk},\\mathcal{Z}_{\\beta_{tail}}$",
+      "old_definition": "条件风险价值（Conditional Value-at-Risk，CVaR）尾部概率质量、成本阈值、轨迹重加权密度及其风险包络",
+      "suggested_symbol_tex": "$\\beta_{\\mathrm{tail}},\\eta_{\\mathrm{risk}},\\zeta_{\\mathrm{risk}},\\mathcal Z_{\\beta_{\\mathrm{tail}}}$；$\\nu,\\xi,\\zeta$",
+      "suggested_definition": "CVaR尾部概率质量、成本阈值、轨迹重加权密度及风险包络；第2.3节前三者分别用ν、ξ、ζ",
+      "evidence_math_ids": [
+        282,
+        285,
+        288,
+        289
+      ]
+    },
+    {
+      "row": 33,
+      "operation": "replace",
+      "old_symbol": "$\\mathcal{D}_{off},\\mathcal{D}_{sim}$",
+      "old_definition": "固定目标离线数据与源仿真交互数据",
+      "suggested_symbol_tex": "$\\mathcal D,\\mathcal D_{\\mathrm{off}},\\mathcal D_{\\mathrm{sim}}$",
+      "suggested_definition": "通用经验回放数据、固定目标域离线数据与源仿真交互数据",
+      "evidence_math_ids": [
+        202,
+        343,
+        362,
+        563
+      ]
+    },
+    {
+      "row": 34,
+      "operation": "replace",
+      "old_symbol": "$z^{emb},e_{i},E_{i}$",
+      "old_definition": "拼接后的网络输入、类别编码映射与嵌入矩阵",
+      "suggested_symbol_tex": "$\\boldsymbol x,c_j,E_j$",
+      "suggested_definition": "拼接后的网络输入、离散类别变量及其可学习嵌入查找矩阵（3.2.3节）",
+      "evidence_math_ids": [
+        574,
+        575,
+        576,
+        578,
+        585,
+        594,
+        3061
+      ]
+    },
+    {
+      "row": 36,
+      "operation": "replace",
+      "old_symbol": "$\\beta_{BC},\\beta_{ood},\\beta_{lcb}$；$\\beta_{bc}$",
+      "old_definition": "行为克隆（Behavior Cloning，BC）、价值网络分歧惩罚及策略保守评价项的系数",
+      "suggested_symbol_tex": "$\\beta_{\\mathrm{bc}},\\beta_{\\mathrm{ood}},\\beta_{\\mathrm{lcb}}$",
+      "suggested_definition": "行为克隆辅助项、当前在线价值集成分歧惩罚与策略下置信界保守评价的系数",
+      "evidence_math_ids": [
+        837,
+        848,
+        849
+      ]
+    },
+    {
+      "row": 37,
+      "operation": "replace",
+      "old_symbol": "$\\mathcal{L}_{BC},\\widetilde{a}$；$\\mathcal{L}_{bc}$",
+      "old_definition": "未加权的动作平方误差及其中当前策略的采样动作",
+      "suggested_symbol_tex": "$\\mathcal L_{\\mathrm{bc}},\\widetilde a$",
+      "suggested_definition": "未加权动作平方误差辅助项及当前策略采样动作；ã的归一化定义见2.7.3节",
+      "evidence_math_ids": [
+        849,
+        850,
+        1648,
+        1737,
+        1738
+      ]
+    },
+    {
+      "row": 41,
+      "operation": "replace",
+      "old_symbol": "$\\mathcal{T,B,}V_{Q}$",
+      "old_definition": "贝尔曼更新映射、其统一表示和动作价值聚合",
+      "suggested_symbol_tex": "$\\mathcal T,\\mathcal B,V_Q,V^Q,\\Lambda(s,a)$",
+      "suggested_definition": "贝尔曼更新映射；𝒝表示有界函数空间或相应局部反例算子；动作价值聚合；单步更新内冻结的合成保守惩罚Λ",
+      "evidence_math_ids": [
+        867,
+        868,
+        869,
+        911,
+        915,
+        3667,
+        4038
+      ]
+    },
+    {
+      "row": 61,
+      "operation": "replace",
+      "old_symbol": "$\\phi_{j},\\phi_{j}^{-},Q_{\\phi_{j}^{-}}$",
+      "old_definition": "第$j$个当前动作价值网络参数、目标网络参数及相应目标动作价值函数",
+      "suggested_symbol_tex": "$\\phi_k,\\phi_k^\\prime,\\widehat Q_{\\phi_k^\\prime}$",
+      "suggested_definition": "第k个当前动作价值网络参数、对应目标网络参数及目标动作价值函数",
+      "evidence_math_ids": [
+        663,
+        702,
+        802,
+        815,
+        822
+      ]
+    },
+    {
+      "row": 64,
+      "operation": "replace",
+      "old_symbol": "$c_{cat,j},n_{cat},p_{hid},d_{emb}$",
+      "old_definition": "类别变量取值、类别取值数、隐藏层宽度及嵌入维数",
+      "suggested_symbol_tex": "$c_j,n_j,h,d_j$；$n,d$",
+      "suggested_definition": "第j类类别变量及其类别取值数、第一隐藏层宽度、嵌入维数；单个类别对比中类别数与嵌入维数分别记n与d（3.2.3节）",
+      "evidence_math_ids": [
+        575,
+        578,
+        579,
+        589,
+        595,
+        596,
+        598,
+        602
+      ]
+    },
+    {
+      "row": 65,
+      "operation": "replace",
+      "old_symbol": "$N_{off},N_{buf},N_{buf,b}$",
+      "old_definition": "固定目标离线转移数、共享经验回放中的转移总数及车辆$b$贡献的转移数",
+      "suggested_symbol_tex": "$N,N_v$",
+      "suggested_definition": "共享经验回放中的转移总数及车辆v贡献的转移数（3.2.2节）",
+      "evidence_math_ids": [
+        563,
+        564,
+        566,
+        570
+      ]
+    },
+    {
+      "row": 67,
+      "operation": "replace",
+      "old_symbol": "$\\delta_{dual},\\rho_{dual},f_{dual}$",
+      "old_definition": "线性特征扰动、该扰动的范数约束半径及特征向量",
+      "suggested_symbol_tex": "$\\delta,\\rho,V$",
+      "suggested_definition": "线性后继分布扰动、扰动范数约束半径及后继状态价值向量（2.3节）",
+      "evidence_math_ids": [
+        264,
+        265,
+        266,
+        267,
+        268
+      ]
+    },
+    {
+      "row": 71,
+      "operation": "replace",
+      "old_symbol": "$\\varepsilon_{dist},\\varepsilon_{iter},\\varepsilon_{Q,act},\\varepsilon_{path}$",
+      "old_definition": "最大范数距离、逐次逼近误差的统一上界、动作相关剩余误差上界及误差路径导数界的常数项",
+      "suggested_symbol_tex": "$\\varepsilon_{\\mathrm{dist}},\\varepsilon,\\varepsilon_{\\mathrm{act}},\\varepsilon_{\\mathrm{path}}$",
+      "suggested_definition": "最大范数距离；逐次逼近误差的统一上界ε（3-36）；动作相关剩余误差上界ε_act（3-40）；误差路径导数界的常数项",
+      "evidence_math_ids": [
+        908,
+        911,
+        952,
+        957
+      ]
+    },
+    {
+      "row": 86,
+      "operation": "replace",
+      "old_symbol": "$B_{batch},K_{\\max},n_{rem}$",
+      "old_definition": "训练小批量大小、有限时域分析的决策事件数上界及剩余事件数",
+      "suggested_symbol_tex": "$B,K_{\\max},n_{\\mathrm{rem}}$",
+      "suggested_definition": "训练小批量大小B、有限时域决策事件数上界及剩余事件数",
+      "evidence_math_ids": [
+        567,
+        570
+      ]
+    },
+    {
+      "operation": "add_row",
+      "suggested_symbol_tex": "$K$",
+      "suggested_definition": "动作价值网络集成的成员数；各章按具体方法给定",
+      "evidence_math_ids": [
+        502,
+        505,
+        661,
+        673,
+        798
+      ]
+    },
+    {
+      "row": 60,
+      "operation": "replace",
+      "old_symbol": "$\\mathbf{1}\\{ \\cdot \\},clip, \\odot$",
+      "old_definition": "条件指示函数、区间截断和逐元素乘积",
+      "suggested_symbol_tex": "$\\mathbb I\\{\\cdot\\},\\mathbf1\\{\\cdot\\},\\operatorname{clip},\\odot$",
+      "suggested_definition": "条件示性函数的两种实际书写、区间截断和逐元素乘积",
+      "evidence_math_ids": [
+        348,
+        617,
+        3909,
+        3940,
+        3941,
+        4017
+      ]
+    },
+    {
+      "row": 22,
+      "operation": "replace",
+      "old_symbol": "$Q_{\\min},Q_{\\min}^{-}$",
+      "old_definition": "当前两个动作价值网络与两个目标动作价值网络各自的较小估计",
+      "suggested_symbol_tex": "$\\widehat Q_{\\min}$",
+      "suggested_definition": "两个目标动作价值网络输出的较小估计（5.2节）",
+      "evidence_math_ids": [
+        2497,
+        2501,
+        2508
+      ]
+    },
+    {
+      "row": 24,
+      "operation": "replace",
+      "old_symbol": "$\\varepsilon_{fp}$",
+      "old_definition": "混合动作数值变换采用的浮点机器精度",
+      "suggested_symbol_tex": "$\\epsilon$",
+      "suggested_definition": "奖励权重分母中避免除零的极小正数，取10^-6（2.7.4及3.2.4节）",
+      "evidence_math_ids": [
+        612,
+        613
+      ]
+    },
+    {
+      "row": 56,
+      "operation": "replace",
+      "old_symbol": "$r_{k}$，$R_{\\iota}$",
+      "old_definition": "一次实际奖励与环境条件下的期望单步奖励；二者通过条件期望联系",
+      "suggested_symbol_tex": "$r_k,R(s,a)$",
+      "suggested_definition": "一次事件区间的实际奖励与给定状态动作下的期望即时奖励；二者通过条件期望联系",
+      "evidence_math_ids": [
+        153,
+        2448,
+        2667,
+        2669,
+        2671
+      ]
+    },
+    {
+      "row": 73,
+      "operation": "replace",
+      "old_symbol": "$f_{c_{coef}},c_{coef},c_{coef,i}$",
+      "old_definition": "拟合符号模型、其系数向量及第i个系数分量",
+      "suggested_symbol_tex": "$f_{c_{\\mathrm{coef}}},c_{\\mathrm{coef}},c_{\\mathrm{coef},i}$",
+      "suggested_definition": "拟合符号模型、其系数向量及第i个系数分量",
+      "evidence_math_ids": [
+        4415,
+        4416,
+        4417
+      ]
+    },
+    {
+      "row": 75,
+      "operation": "replace",
+      "old_symbol": "$V^{O,path},Q^{O,path},\\Delta J,\\Delta V$",
+      "old_definition": "固定外生序列下的参照路径价值及动作价值、路径回报差及期望价值差",
+      "suggested_symbol_tex": "$V_{n,k}^{O,\\mathrm{path}},Q_{n,k}^{O,\\mathrm{path}},\\Delta J,\\Delta V$",
+      "suggested_definition": "固定外生序列下的参照路径价值及动作价值、路径回报差与期望价值差；n、k为对应路径推导的步数和时刻索引",
+      "evidence_math_ids": [
+        3960,
+        3964,
+        3965,
+        3974,
+        3975,
+        3978
+      ]
+    }
+  ],
+  "raw_OMML_checks": {
+    "method": "对98行候选逐项回看本域定义；关键未用语义下标另查全书非符号表原生m:sSub/m:sSup，不以格式忽略后的零匹配单独下结论。",
+    "native_font_checks": [
+      "表M43的z^{emb}普通斜体；正文M585/M594的x为m:sty=bi，故patch明确boldsymbol x。",
+      "表M53的V_Q为下标Q；正文M868–874为上标Q；附录M3667等实际使用V_Q，两者均保留。",
+      "表M17为N的下标w/v；正文2-34/35为上标w/b。",
+      "M348/M617的I为double-struck+p；M3909/M3940/M3941/M4017的数字1为b，两类示性函数均实际存在。"
+    ],
+    "unused_native_components": [
+      "u_max",
+      "a^n",
+      "z^emb",
+      "m_cat",
+      "m_batch",
+      "m_act",
+      "c_cat,j",
+      "n_cat",
+      "p_hid",
+      "d_emb",
+      "N_buf",
+      "N_buf,b",
+      "B_batch",
+      "δ_dual",
+      "ρ_dual",
+      "f_dual",
+      "K_evt",
+      "n_on",
+      "N_cmp",
+      "λ_i",
+      "β_BC",
+      "h^f",
+      "h^b"
+    ],
+    "row1_followup": "已核5-5/M2438/P2394的mathcal L_od及l；原建议改为损失行已由实际线路集合写法替代，损失由root另列。"
+  },
+  "main_text_change_requests_record_only": [
+    {
+      "change": "奖励衰减尺度τ→τ_h",
+      "count": 17,
+      "math_ids": [
+        1196,
+        1197,
+        1198,
+        1204,
+        1209,
+        1214,
+        1223,
+        1228,
+        1233,
+        1242,
+        1247,
+        1252,
+        1261,
+        1266,
+        1271,
+        1284,
+        1286
+      ],
+      "preserve_math_ids": [
+        824
+      ]
+    },
+    {
+      "change": "3-32动作坐标约定需澄清",
+      "evidence_math_ids": [
+        441,
+        445,
+        450,
+        848,
+        849,
+        850,
+        851
+      ],
+      "do_not_infer_implementation_error": true
+    }
+  ],
+  "document_modified": false,
+  "additional_requested_rows": "output/Gemini/word_assets_20261015/symbol_consistency_audit_20261019/supplement_rows_22_24_56_73_75.json",
+  "inventory_scope_counts": {
+    "paragraphs": 1261,
+    "math_objects": 1385
+  }
+}

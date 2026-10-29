@@ -1,0 +1,123 @@
+{
+  "read_only": true,
+  "md": "/home/erzhu419/mine_code/Thesis/output/Gemini/重构论文_替换库二次修订_20261016.md",
+  "word": "/home/erzhu419/mine_code/Thesis/output/Gemini/调整完格式的_全公式显示终校_20261019.docx",
+  "scope": {
+    "MD_display_formulas": 376,
+    "MD_inline_formulas": 4226,
+    "integral_symbols": 12,
+    "numbered_formulas_containing_integrals": 7,
+    "inline_integral_expressions": 2,
+    "TeX_group_braces_unmatched": 0,
+    "visible_delimiter_mismatches": 0,
+    "legitimate_half_open_intervals": 21,
+    "current_Word_oMath": 4755
+  },
+  "priority_4_23": {
+    "mathematically_correct": true,
+    "reason": "令e=π−πref、d=x−x₀，则e(x)−e(x₀)=∫₀¹De(ζ(u))d du；将De(x₀)d加减分离即得原式，故两处乘法d均必要，且只需一个du。",
+    "brackets": "{[Dπ(ζ(u))−Dπ(x₀)]−[Dπref(ζ(u))−Dπref(x₀)]}为完整合法分组。Word原生m:d确认外层{}及内层两组[]；d斜体、微分d正体。",
+    "authorized_notation_scope": "delta_d_exact_scope.json"
+  },
+  "integral_formula_review": [
+    {
+      "formula": "2-34",
+      "source_line": 545,
+      "original_tex": "r_i^{\\mathrm{pass}} \\;=\\; -\\int_{t_i}^{t_{i+1}} \\Big(\\,2\\,N^{w}(t) + N^{b}(t)\\,\\Big)\\,\\mathrm{d}t \\tag{2-34}",
+      "correct": true,
+      "mathematical_change_needed": false,
+      "reason": "对时间t积分；末尾dt与被积函数N(t)一致。",
+      "minimal_fix": "无需修改。"
+    },
+    {
+      "formula": "2-35",
+      "source_line": 551,
+      "original_tex": "G \\;=\\; \\frac{1}{N_{\\mathrm{dep}}}\\sum_{p\\in\\mathcal{P}_{\\mathrm{dep}}} \\Big(\\,2\\,T^w_p + T^b_p\\,\\Big) \\;=\\; \\frac{1}{N_{\\mathrm{dep}}}\\int_{0}^{T_{\\mathrm{hor}}} \\Big(\\,2\\,N^{w}(t) + N^{b}(t)\\,\\Big)\\,\\mathrm{d}t \\tag{2-35}",
+      "correct": true,
+      "mathematical_change_needed": false,
+      "reason": "对时间t积分；与乘客个体等待/在车时间求和的对应正确。",
+      "minimal_fix": "无需修改。"
+    },
+    {
+      "formula": "3-26",
+      "source_line": 794,
+      "original_tex": "\\pi^{*}(a\\mid s) = \\frac{\\exp\\!\\big(Q(s,\\ a) / \\alpha\\big)}{\\int_{\\mathcal{A}} \\exp\\!\\big(Q(s,\\ a') / \\alpha\\big)\\,\\mathrm{d}a'} \\tag{3-26}",
+      "correct": true,
+      "mathematical_change_needed": false,
+      "reason": "对动作a′积分作归一化；da′中的d为微分，a′为虚变量。",
+      "minimal_fix": "无需修改。"
+    },
+    {
+      "formula": "4-23",
+      "source_line": 1360,
+      "original_tex": "\\pi(x) - \\pi_{\\mathrm{ref}}(x) \\;=\\; \\Big[\\, \\pi(x_0) - \\pi_{\\mathrm{ref}}(x_0) \\,\\Big] + \\Big[\\, D\\pi(x_0) - D\\pi_{\\mathrm{ref}}(x_0) \\,\\Big]\\,d + \\int_{0}^{1} \\Big\\{\\, \\big[D\\pi(\\zeta(u)) - D\\pi(x_0)\\big] - \\big[D\\pi_{\\mathrm{ref}}(\\zeta(u)) - D\\pi_{\\mathrm{ref}}(x_0)\\big] \\,\\Big\\}\\,d\\;\\mathrm{d}u \\tag{4-23}",
+      "correct": true,
+      "mathematical_change_needed": false,
+      "reason": "两处斜体d为位移向量x−x₀；末尾正体du为测度。外层花括号将两项雅可比差整体乘以位移向量，分组正确。",
+      "minimal_fix": "仅按用户选择将4.3.3的同一位移变量d改为Δd；微分d和定界符不改。"
+    },
+    {
+      "formula": "4-29",
+      "source_line": 1454,
+      "original_tex": "\\bar{m}_{\\mathrm{dem}} = \\frac{1}{T_{\\mathrm{hor}}}\\int_{0}^{T_{\\mathrm{hor}}} m_{\\mathrm{dem}}(t)\\,\\mathrm{d}t \\tag{4-29}",
+      "correct": true,
+      "mathematical_change_needed": false,
+      "reason": "对时间t积分并除运营时域，构成平均需求倍率。",
+      "minimal_fix": "无需修改。"
+    },
+    {
+      "formula": "5-6",
+      "source_line": 1754,
+      "original_tex": "C_k = 2\\int_{t_k}^{t_k + \\Delta t_k} N^{w}(\\tau)\\,\\mathrm{d}\\tau + \\int_{t_k}^{t_k + \\Delta t_k} N^{b}(\\tau)\\,\\mathrm{d}\\tau, \\qquad r_k = -C_k \\tag{5-6}",
+      "correct": true,
+      "mathematical_change_needed": false,
+      "reason": "两项均按τ积分，表示同一事件区间的候车与在车人数积分；两个dτ分别属于两个积分。",
+      "minimal_fix": "无需修改。"
+    },
+    {
+      "formula": "5-7",
+      "source_line": 1758,
+      "original_tex": "C_{\\mathrm{sys}} \\;=\\; \\int_{0}^{T_{\\mathrm{hor}}} \\Big(\\,2\\,N^{w}(\\tau) + N^{b}(\\tau)\\,\\Big)\\,\\mathrm{d}\\tau \\;=\\; \\sum_{p \\in \\mathcal{P}_{\\mathrm{dep}}} \\left(\\, 2\\int_{0}^{T_{\\mathrm{hor}}} \\mathbb{I}_p^{w}(\\tau)\\,\\mathrm{d}\\tau + \\int_{0}^{T_{\\mathrm{hor}}} \\mathbb{I}_p^{b}(\\tau)\\,\\mathrm{d}\\tau \\,\\right) \\;=\\; \\sum_{p \\in \\mathcal{P}_{\\mathrm{dep}}} \\Big(\\, 2\\,T_p^{w} + T_p^{b} \\,\\Big) \\tag{5-7}",
+      "correct": true,
+      "mathematical_change_needed": false,
+      "reason": "左侧人数积分及右侧两个个体指示函数积分均按τ；三处dτ各自完整，求和与积分对应正确。",
+      "minimal_fix": "无需修改。"
+    }
+  ],
+  "inline_integral_review": [
+    {
+      "source_line": 424,
+      "original_tex": "\\mathrm{TV}(P, \\hat{P}) = \\frac{1}{2}\\int |P(s'\\mid s,a) - \\hat{P}(s'\\mid s,a)|\\,\\mathrm{d}s'",
+      "correct": true,
+      "reason": "对s′的总变差密度积分，ds′完整。"
+    },
+    {
+      "source_line": 1362,
+      "original_tex": "\\int_0^1 u\\,\\mathrm{d}u = \\frac{1}{2}",
+      "correct": true,
+      "reason": "∫₀¹u du=1/2，微分完整。"
+    }
+  ],
+  "other_differential_checks": [
+    {
+      "location": "MD 744行（3-20前）",
+      "original_tex": "\\mathrm{d}^2 L_{\\mathrm{hw}} / \\mathrm{d}a^2 = 4 > 0",
+      "correct": true,
+      "reason": "两个平方误差项对a的二阶导数相加为4。"
+    },
+    {
+      "formula": "D-31",
+      "original_tex": "\\frac{\\partial F_{NAU}}{\\partial x_j}=c_{NAU,j}",
+      "correct": true,
+      "reason": "NAU线性映射对输入分量的偏导为对应权重。"
+    }
+  ],
+  "delimiter_notes": [
+    "4-23的{[]}是分组层级，不是空集合/列表异常。",
+    "D-9的[a,b)是半开区间。",
+    "Word若干原生m:d从条件竖线|开始、在)或]结束，配合外部原有左括号构成条件分布或条件期望，不能仅按单个m:d边界判错。",
+    "4处左花括号无右端属于分段结构。"
+  ],
+  "actual_errors": [],
+  "document_modified": false
+}

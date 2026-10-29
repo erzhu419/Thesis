@@ -1,0 +1,111 @@
+{
+  "status": "complete",
+  "decision": "SAVED_ENDPOINT_AND_RESTORED_CONTINUATION_VERIFIED",
+  "input_checkpoint": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_full_state_recovery_v105_20261029/run/seed6201/full_state.pt",
+  "bridge_checkpoint": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_endpoint_restore_v106_20261029/run/seed6201/bridge.pt",
+  "budget": {
+    "diagnostic_attempts": 2,
+    "diagnostic_updates": 2,
+    "new_offline_updates": 0,
+    "source_collection_events": 0,
+    "source_retraining_updates": 0,
+    "target_native_seconds": 0,
+    "target_feedback_labels": 0,
+    "model_refits": 0,
+    "partial_diagnostic_update_possible": false
+  },
+  "comparisons": {
+    "checkpoint_actor_identity": {
+      "all_pass": true,
+      "differing_field_count": 0,
+      "differing_fields": [],
+      "max_abs_difference": 0.0
+    },
+    "saved_to_restored_A": {
+      "all_pass": true,
+      "differing_field_count": 0,
+      "differing_fields": [],
+      "max_abs_difference": 0.0
+    },
+    "bridge_to_restored_B": {
+      "all_pass": true,
+      "differing_field_count": 0,
+      "differing_fields": [],
+      "max_abs_difference": 0.0
+    },
+    "restored_endpoint_next_update": {
+      "all_pass": true,
+      "differing_field_count": 0,
+      "differing_fields": [],
+      "max_abs_difference": 0.0
+    },
+    "terminal_70000_restoration": {
+      "all_pass": true,
+      "differing_field_count": 0,
+      "differing_fields": [],
+      "max_abs_difference": 0.0
+    }
+  },
+  "original_live_continuation_available": false,
+  "evidence_scope": "Saved v105 state and save/load continuation from its restored endpoint",
+  "next_stage_authorized": false,
+  "identity_adjudication": {
+    "all_pass": true,
+    "checks": {
+      "actor_exact": true,
+      "historical_seed": true,
+      "historical_endpoint": true,
+      "original_source_events": true,
+      "original_update_budget": true,
+      "original_source_episodes": true,
+      "original_model_mixture": true,
+      "target_labels_unused": true
+    },
+    "failures": [],
+    "episode_counts": {
+      "observed": {
+        "0.75": 1,
+        "1.0": 1,
+        "1.25": 0
+      },
+      "expected": {
+        "0.75": 1,
+        "1.0": 1,
+        "1.25": 0
+      },
+      "numeric_keys_equal": true,
+      "declared_scales": [
+        0.75,
+        1.0,
+        1.25
+      ],
+      "missing_zero_keys_filled": false
+    },
+    "original_gate_error": {
+      "confirmed": true,
+      "reason": "The live sampler uses float keys; the JSON protocol uses string keys.",
+      "runtime_float_key_example": "{0.75: 1, 1.0: 1, 1.25: 0}",
+      "protocol_string_key_example": "{'0.75': 1, '1.0': 1, '1.25': 0}",
+      "raw_comparison": false,
+      "normalized_comparison": true
+    },
+    "evidence_scope": "Receipt adjudication only. The other seven original checks must remain true and agree with available receipt facts; this does not perform checkpoint restoration or a next-update test."
+  },
+  "runtime": {
+    "host": "node005",
+    "python": "3.10.14",
+    "torch": "2.5.1+cu121",
+    "device": "cpu",
+    "threads": 1
+  },
+  "receipt_metadata": {
+    "seed": 6201,
+    "source_events": 24999,
+    "initializer": "/home/zhengliang01/scheduleurm_work/Thesis/workpapers/最终控制器同条件比较_20261006/inputs/h2oplus_seed6201.pt",
+    "historical_reference_actor": "/home/zhengliang01/scheduleurm_work/Thesis/workpapers/最终控制器同条件比较_20261006/policies/mcwm_aligned_seed6201.pt"
+  },
+  "input_checkpoint_bytes": 144770482,
+  "bridge_checkpoint_bytes": 144768378,
+  "terminal_updates": 70000,
+  "wall_seconds": 85.18021344114095
+}

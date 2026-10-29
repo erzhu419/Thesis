@@ -1,0 +1,28 @@
+{
+  "name": "mcwm_cost_label_maturity_v130_20261029",
+  "status": "AUTHORIZED_READ_ONLY_ANALYSIS",
+  "purpose": "Audit whether existing fixed-root factual passenger-cost labels can mature under the unchanged same-day feedback contract; do not restart the closed departure-risk estimator.",
+  "source": "Qualified v120 runs/<scene> passengers/exchanges/waiting_changes; v121 original285 selected roots; v127 exact pre-action receiver member captures.",
+  "targets": {
+    "receiver_ride": "Sum remaining onboard-membership seconds of the original receiver members until each first membership exit. Off-stop disappearance closes charged ride but does not certify a target-station alighting. New boarders are excluded.",
+    "feeder_wait": "For every original known feeder current-leg cohort member, require observed alighting at the target stop, then integrate actual waiting membership until the next observed boarding or journey completion. Do not substitute elapsed time for waiting. Unknown alighting, incomplete input cohorts and unclosed waits remain explicit."
+  },
+  "time_contract": "Keep each original root,60-second end and packet. A complete label is originally admissible only when it closes by that window end and closure+30<=original packet. Later closure timing is diagnostic only, never late admission, label backfill or a change to the5-per-packet budget.",
+  "shared_prefix": "Original135 roots remain the same pre-action roots. Long outcome labels crossing9000 are not common initialized knowledge. Compare only legally mature common labels as common evidence.",
+  "summary": "Each scene all/prefix/suffix: empty/nonempty roots, original60 admissibility, later closure, right censoring, potential release-before18000 and later-root opportunities; full root/person traces stay server.",
+  "checks": "Reconstructed per-person waiting and riding totals must equal all original final passenger ledgers; reconstruct root receiver membership and match v127 getters before deriving costs.",
+  "constraints": "Root cohorts overlap; no adding root costs into network totals, no action-effect claim. Empty cohorts are counted separately. Hypothetical later packets do not certify capacity under5 slots per packet.",
+  "limits": {
+    "new_native_seconds": 0,
+    "new_collection": 0,
+    "new_fits": 0,
+    "optimizer_updates": 0,
+    "training_admissions": 0,
+    "control_changes": 0
+  },
+  "F": "unchanged",
+  "cost_gate": "Complete four days and technical checks. fresh-minus-matched-no_fresh mean<0,stable<=0,shock<0; additionally fresh-minus-same-actor-frozen<=0 in each scenario and at least one<0. Report no_fresh-minus-frozen to distinguish baseline drift. Early and tail windows are descriptive, not new gates.",
+  "automatic_launch": false,
+  "output_bound_bytes": 16000,
+  "old_code_and_results": "read-only"
+}

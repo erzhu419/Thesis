@@ -1,0 +1,18 @@
+{"stage": "waiting_native_days", "ids": ["t211605", "t211606"], "outputs_present": [false, false], "statuses": {"t211605": "queued", "t211606": "queued"}}
+{"stage": "waiting_native_days", "ids": ["t211605", "t211606"], "outputs_present": [false, false], "statuses": {"t211605": "launching", "t211606": "launching"}}
+{"stage": "waiting_native_days", "ids": ["t211605", "t211606"], "outputs_present": [false, false], "statuses": {"t211605": "running", "t211606": "running"}}
+{"stage": "failed", "status": "failed", "type": "RuntimeError", "message": "[node001] cmd failed (rc=255): mux_client_request_session: read from master failed: Broken pipe\nkex_exchange_identification: Connection closed by remote host\nConnection closed by UNKNOWN port 65535", "new_feedback_slots": 0, "new_training_updates": 0}
+Traceback (most recent call last):
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_physical_truth_v55_20261025/continue_batch.py", line 94, in <module>
+    main()
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_physical_truth_v55_20261025/continue_batch.py", line 59, in main
+    found = await_outputs([['runs/'+case+'/summary.json', 'runs/'+case+'/failure.json']
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_physical_truth_v55_20261025/continue_batch.py", line 31, in await_outputs
+    found = json.loads(infra.scheduler.run_on('node001',
+  File "/home/erzhu419/mine_code/scheduleurm/skill/scheduler_transport/remote_runtime.py", line 184, in run_on
+    return _run_on_impl(
+  File "/home/erzhu419/mine_code/scheduleurm/skill/scheduler_remote/exec.py", line 558, in run_on
+    raise RuntimeError(f"[{node}] cmd failed (rc={proc.returncode}): {proc.stderr.strip()[:300]}")
+RuntimeError: [node001] cmd failed (rc=255): mux_client_request_session: read from master failed: Broken pipe
+kex_exchange_identification: Connection closed by remote host
+Connection closed by UNKNOWN port 65535

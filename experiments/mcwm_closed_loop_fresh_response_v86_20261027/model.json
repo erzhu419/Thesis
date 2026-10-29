@@ -1,0 +1,303 @@
+{
+  "name": "v86_fixed_stale_fresh_cost_response",
+  "arms": {
+    "stale": {
+      "models": {
+        "line": {
+          "coef": [
+            0.999145910736548,
+            1.0703011581745323,
+            -1.004094050527379
+          ],
+          "design_rank": 3,
+          "train_fit": {
+            "target_delta": [
+              -0.7737913654751641,
+              2.4266198023741627,
+              -2.3989654486371776,
+              3.674713177266397,
+              0.6778300948338749,
+              -0.4155447974003581
+            ],
+            "predicted_delta": [
+              0.5287021174678204,
+              0.5874167365995652,
+              -0.6006915170011055,
+              0.5377583351593543,
+              0.5618444151931663,
+              -0.5471429975079748
+            ],
+            "mae": 1.3874182003681703,
+            "rmse": 1.7408907092365862
+          },
+          "feature_names": [
+            "line_7X",
+            "line_102X",
+            "line_705X"
+          ]
+        },
+        "state": {
+          "coef": [
+            0.9761722228626907,
+            1.0451035546469263,
+            -1.0193861933581119,
+            -0.2761230336655722
+          ],
+          "design_rank": 4,
+          "train_fit": {
+            "target_delta": [
+              -0.7737913654751641,
+              2.4266198023741627,
+              -2.3989654486371776,
+              3.674713177266397,
+              0.6778300948338749,
+              -0.4155447974003581
+            ],
+            "predicted_delta": [
+              0.554201055487782,
+              0.6114723180517092,
+              -0.586720682712634,
+              0.5553735410056029,
+              0.5846948213519287,
+              -0.5344176441262213
+            ],
+            "mae": 1.3811220712797576,
+            "rmse": 1.736646195535183
+          },
+          "feature_names": [
+            "line_7X",
+            "line_102X",
+            "line_705X",
+            "headway_response"
+          ]
+        }
+      },
+      "fits": 2,
+      "gate": {
+        "all_pass": true,
+        "checks": {
+          "finite_training_inputs": true,
+          "training_action_support": true,
+          "line_rank_three": true,
+          "state_rank_four": true,
+          "finite_coefficients": true,
+          "two_fixed_solves": true
+        }
+      },
+      "training_scope": {
+        "source_scope": "v84_stale",
+        "pairs": 6,
+        "physical_outcome_labels": 12,
+        "source_seed": 6207,
+        "external_seed": 106207,
+        "label_available_at": 24030,
+        "cases": [
+          "stable/7X",
+          "stable/102X",
+          "stable/705X",
+          "local_speed_drop/7X",
+          "local_speed_drop/102X",
+          "local_speed_drop/705X"
+        ],
+        "heldout_labels_used": 0,
+        "support_reasons": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "fresh": {
+      "models": {
+        "line": {
+          "coef": [
+            0.5732177125816464,
+            -1.2008865258503538,
+            -1.3708162807796793
+          ],
+          "design_rank": 3,
+          "train_fit": {
+            "target_delta": [
+              4.609390543139465,
+              -1.2212348298958817,
+              -0.8236620465548113,
+              -2.7694144174016846,
+              -2.3102990914516877,
+              -3.2979640559718812
+            ],
+            "predicted_delta": [
+              0.2895235267954478,
+              -0.650286176279254,
+              -0.6976203980487059,
+              0.30038585747383967,
+              -0.6418055656950694,
+              -0.6856888857018604
+            ],
+            "mae": 2.061237714894819,
+            "rmse": 2.5177584554337415
+          },
+          "feature_names": [
+            "line_7X",
+            "line_102X",
+            "line_705X"
+          ]
+        },
+        "state": {
+          "coef": [
+            0.5730513621573485,
+            -1.2009074255467558,
+            -1.3708555577589754,
+            -0.001916259202313136
+          ],
+          "design_rank": 4,
+          "train_fit": {
+            "target_delta": [
+              4.609390543139465,
+              -1.2212348298958817,
+              -0.8236620465548113,
+              -2.7694144174016846,
+              -2.3102990914516877,
+              -3.2979640559718812
+            ],
+            "predicted_delta": [
+              0.28968046461823393,
+              -0.6502956650807086,
+              -0.6975806927846359,
+              0.30055203646169953,
+              -0.6417568459551813,
+              -0.6856507600721485
+            ],
+            "mae": 2.061258765394367,
+            "rmse": 2.5177592951191685
+          },
+          "feature_names": [
+            "line_7X",
+            "line_102X",
+            "line_705X",
+            "headway_response"
+          ]
+        }
+      },
+      "fits": 2,
+      "gate": {
+        "all_pass": true,
+        "checks": {
+          "finite_training_inputs": true,
+          "training_action_support": true,
+          "line_rank_three": true,
+          "state_rank_four": true,
+          "finite_coefficients": true,
+          "two_fixed_solves": true
+        }
+      },
+      "training_scope": {
+        "source_scope": "v85_fresh",
+        "pairs": 6,
+        "physical_outcome_labels": 12,
+        "source_seed": 6207,
+        "external_seed": 216207,
+        "label_available_at": 24030,
+        "cases": [
+          "stable/7X",
+          "stable/102X",
+          "stable/705X",
+          "local_speed_drop/7X",
+          "local_speed_drop/102X",
+          "local_speed_drop/705X"
+        ],
+        "heldout_labels_used": 0,
+        "support_reasons": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    }
+  },
+  "feature_names": [
+    "line_7X",
+    "line_102X",
+    "line_705X",
+    "headway_response"
+  ],
+  "ridge": 1.0,
+  "objective": "sum_squared_error_plus_ridge_norm_squared",
+  "target": "(G_candidate-G_reference)/15079",
+  "denominator": 15079.0,
+  "hold_scale": 7.5,
+  "action_support": {
+    "reference_min": 3.0,
+    "reference_max_exclusive": 3.75,
+    "candidate": 7.5,
+    "candidate_tolerance": 1e-05
+  },
+  "legacy_action_support": {
+    "reference_min": 3.0,
+    "reference_max_inclusive": 3.6,
+    "candidate": 7.5,
+    "candidate_tolerance": 1e-05
+  },
+  "primary_readouts": [
+    "stale",
+    "fresh"
+  ],
+  "auxiliary_readouts": [
+    "legacy_narrow"
+  ],
+  "fits": 4,
+  "gate": {
+    "all_pass": true,
+    "checks": {
+      "stale_training_gate": true,
+      "fresh_training_gate": true,
+      "four_fixed_solves": true,
+      "same_reference_snapshots": true,
+      "stale_line_coefficients_exact": true,
+      "stale_state_coefficients_exact": true
+    }
+  },
+  "trained_components": [
+    "stale_D_line",
+    "stale_D_state",
+    "fresh_D_line",
+    "fresh_D_state"
+  ],
+  "actor_updates": 0,
+  "critic_updates": 0,
+  "value_updates": 0,
+  "B_updates": 0,
+  "world_updates": 0,
+  "trust_updates": 0,
+  "fitted_at_wall": 1793115587.6217873,
+  "source_reference_paths": {
+    "stable": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs/stable/reference_actor.pt",
+    "local_speed_drop": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs/local_speed_drop/reference_actor.pt"
+  },
+  "source_native_roots": {
+    "stale": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs",
+    "fresh": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_cost_advantage_v85_20261027/runs"
+  },
+  "training_phase": "After both prior cohorts and their24030 label maturity; before the new heldout episodes",
+  "heldout_external_seed": 316207,
+  "heldout_labels_used": 0,
+  "initialization_updates": 0,
+  "prefix_training_updates": 0,
+  "suffix_training_updates": 0,
+  "source_audit": {
+    "native_pairs_per_arm": 6,
+    "outcome_labels_per_arm": 12,
+    "source_pair_checks_passed": true,
+    "same_reference_snapshots": true,
+    "stale_coefficients_exact": {
+      "line": true,
+      "state": true
+    },
+    "old_model_path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_cost_advantage_v85_20261027/model.json"
+  }
+}

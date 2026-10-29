@@ -1,0 +1,15 @@
+{
+  "status": "CLOSE_FIXED_CUMULATIVE_MEDIAN_CANDIDATE",
+  "technical_pass": true,
+  "prediction_admission_passed": false,
+  "checks": {
+    "fresh_not_worse_than_frozen_each_scene": true,
+    "fresh_strictly_better_than_frozen_some_scene": true,
+    "fresh_not_worse_than_clock_each_scene": false
+  },
+  "finding": "New feedback reduces the frozen median forecast error in both scenes, but both remain inferior to deterministic clock rounding. Close this fixed scalar calibration; no control benefit has been tested.",
+  "closed_candidate_only": "The raw departure-residual cumulative median; not all service-response models or dripping data.",
+  "F": "unchanged",
+  "cost_gate": "Complete four days and technical checks. fresh-minus-matched-no_fresh mean<0,stable<=0,shock<0; additionally fresh-minus-same-actor-frozen<=0 in each scenario and at least one<0. Report no_fresh-minus-frozen to distinguish baseline drift. Early and tail windows are descriptive, not new gates.",
+  "automatic_launch": false
+}

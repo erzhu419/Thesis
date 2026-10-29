@@ -1,0 +1,156 @@
+{
+  "document": "output/Gemini/重构论文_排版稿_20261015.docx",
+  "scope": "Read-only structural and notation audit; no final DOCX or Chinese edited; no PDF generated. Direct body/table row indices are 0-based in audited saved Word.",
+  "summary": {
+    "native_omml_math_count": 4850,
+    "main_numbered_equations": 146,
+    "new_appendix_G_numbered_equations": 2,
+    "preserved_A_F_numbered_equations": 234,
+    "preserved_A_F_native_math_count": 994,
+    "confirmed_equation_issues": 2,
+    "symbol_legend_alias_rows": 5
+  },
+  "issues": [
+    {
+      "id": "eq-reference-D-base",
+      "kind": "wrong_equation_reference",
+      "body_index": 1899,
+      "location": "Appendix D, paragraph immediately following equation(D-4c)",
+      "current": "Lπ,base为第4.2.3节式(4-17)的策略基础目标",
+      "repair": "Replace equation number 4-17 with 4-12 only.",
+      "evidence": "Current (4-12) is L_pi,base; current(4-17) is running reward variance normalization; section4.2.3 remains correct."
+    },
+    {
+      "id": "eq-3-35-delimiters",
+      "kind": "wrong_native_delimiter_group",
+      "body_index": 572,
+      "equation": "3-35",
+      "current": "One native m:d pairs begChr=| with endChr=∥ around the intermediate inequality chain ≤γδ_Q∑P=γ. The mathematical character order is retained, but the native stretching group is wrong.",
+      "repair": "Rebuild this equation only with explicit left/right pairing for two absolute values and the final infinity norm. Preserve number and all prose.",
+      "corrected_omml_asset": "output/Gemini/word_assets_20261015/qa_equation_3_35_corrected.xml",
+      "verified_corrected_delimiter_pairs": [
+        [
+          "|",
+          "|"
+        ],
+        [
+          "|",
+          "|"
+        ],
+        [
+          "∥",
+          "∥"
+        ]
+      ]
+    }
+  ],
+  "symbol_legend": {
+    "table_body_index": 42,
+    "rows_including_header": 101,
+    "judgment": "The preserved legend has valid old appendix notation, so retain old forms. Add current-body aliases in the symbol cell; leave Chinese meanings unchanged. All 100 data rows inspected.",
+    "aliases": [
+      {
+        "table_row_index_0based": 6,
+        "table_row_number_1based_including_header": 7,
+        "old_symbol_latex": "h^{f},h^{b}",
+        "append_symbol_latex": "h_f,h_b,\\hat h_b",
+        "replacement_symbol_latex": "h^{f},h^{b};\\quad h_f,h_b,\\hat h_b",
+        "meaning_unchanged": "前向与后向车头时距",
+        "source_evidence": "MD line254 and537; observed rear headway is hat h_b, reward effective rear headway h_b"
+      },
+      {
+        "table_row_index_0based": 7,
+        "table_row_number_1based_including_header": 8,
+        "old_symbol_latex": "h^{f,*},h^{b,*}",
+        "append_symbol_latex": "h_f^*,h_b^*",
+        "replacement_symbol_latex": "h^{f,*},h^{b,*};\\quad h_f^*,h_b^*",
+        "meaning_unchanged": "前向与后向计划间隔",
+        "source_evidence": "MD line254,537"
+      },
+      {
+        "table_row_index_0based": 28,
+        "table_row_number_1based_including_header": 29,
+        "old_symbol_latex": "\\alpha_{ent}",
+        "append_symbol_latex": "\\alpha",
+        "replacement_symbol_latex": "\\alpha_{ent},\\alpha",
+        "meaning_unchanged": "熵温度",
+        "source_evidence": "MD line314 and throughout SAC definitions"
+      },
+      {
+        "table_row_index_0based": 37,
+        "table_row_number_1based_including_header": 38,
+        "old_symbol_latex": "\\beta_{BC},\\beta_{ood},\\beta_{lcb}",
+        "append_symbol_latex": "\\beta_{\\mathrm{bc}}",
+        "replacement_symbol_latex": "\\beta_{BC},\\beta_{\\mathrm{bc}},\\beta_{ood},\\beta_{lcb}",
+        "meaning_unchanged": "行为克隆（Behavior Cloning，BC）、价值网络分歧惩罚及策略保守评价项的系数",
+        "source_evidence": "MD formula3-32/4-12"
+      },
+      {
+        "table_row_index_0based": 38,
+        "table_row_number_1based_including_header": 39,
+        "old_symbol_latex": "\\mathcal{L}_{BC},\\widetilde{a}",
+        "append_symbol_latex": "\\mathcal{L}_{\\mathrm{bc}}",
+        "replacement_symbol_latex": "\\mathcal{L}_{BC},\\mathcal{L}_{\\mathrm{bc}},\\widetilde{a}",
+        "meaning_unchanged": "未加权的动作平方误差及其中当前策略的采样动作",
+        "source_evidence": "MD formula4-12/4-18"
+      }
+    ],
+    "correct": [
+      "Overbar Q is m:bar with pos=top; σ_Q and Γ_epi remain distinct.",
+      "Target superscript minus is retained on Q_min^-, phi_j^- and Q_phi_j^-; the current body uses prime/bar-parameter notation locally, with no dropped minus.",
+      "γ is the return discount; Γ_k is event continuation; γ_Δ is confidence recursion discount.",
+      "Hat/tilde, superscript/subscript, calligraphic/script and vector notation survive native OMML conversion.",
+      "The old alpha_ent and upper-case BC subscripts still appear in preserved appendices; retain them alongside new aliases."
+    ]
+  },
+  "correct_checks": {
+    "main_MD_tags_equal_Word_number_sequence": true,
+    "main_chapter_equation_ranges": {
+      "2": "1-35",
+      "3": "1-41",
+      "4": "1-31",
+      "5": "1-20",
+      "6": "1-19"
+    },
+    "numbered_equation_duplicates": [],
+    "appendix_A_E_numbered_equation_ranges": {
+      "A": "1-26",
+      "B": "1-60",
+      "C": "1-31",
+      "D": "1-63 plus D-4a through D-4e",
+      "E": "1-46 plus E-23a through E-23c"
+    },
+    "appendix_G_labels": [
+      "附G-1",
+      "附G-2"
+    ],
+    "A_F_OMML_semantic_payload_matches_original": true,
+    "manual_equation_references_to_nonexistent_labels": [],
+    "REF_fields_total": 68,
+    "REF_fields_dangling": [],
+    "word_field_error_texts": [],
+    "raw_latex_commands_in_Word_text": [],
+    "replacement_or_private_use_characters": [],
+    "math_ampersand_count": 97,
+    "ampersands_outside_equation_arrays": [],
+    "ampersand_judgment": "All 97 math ampersands are legal OMML eqArr odd/even alignment/spacer marks, including C-6,C-23,E-27,E-43 and G-1. Do not delete or replace them.",
+    "ampersand_standard_source": "https://www.tei-c.org/release/doc/tei-xsl/profiles/default/docx/from6.html"
+  },
+  "limits": "Structural and source correspondence QA, not a scientific review or new rendered proof. Delimiter mixed pairs used as conditional bars/half-open intervals are not errors merely because the endpoints differ.",
+  "targeted_candidate_verification": {
+    "candidate": "output/Gemini/word_assets_20261015/通篇细节检查_工作稿.docx",
+    "result": "PASS",
+    "equation_3_35": "Exactly three native delimiter groups: |…|, |…| and ∥…∥. Minus and prime are original characters.",
+    "appendix_D_reference": "Corrected to equation(4-12).",
+    "legend_rows_0based": [
+      6,
+      7,
+      28,
+      37,
+      38
+    ],
+    "legend_result": "All intended old and new aliases present, including both h_b and hat h_b. Original Chinese meanings preserved; L_bc retains script mathcal L.",
+    "appendix_inline_prompts": "All 50 A-F prompts are body paragraphs without heading outline, and their initial prompts are bold.",
+    "scope": "Targeted recheck only; unrelated full mathematical payload already independently verified by parent."
+  }
+}

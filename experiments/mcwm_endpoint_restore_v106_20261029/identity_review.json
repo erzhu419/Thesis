@@ -1,0 +1,42 @@
+{
+  "all_pass": true,
+  "checks": {
+    "actor_exact": true,
+    "historical_seed": true,
+    "historical_endpoint": true,
+    "original_source_events": true,
+    "original_update_budget": true,
+    "original_source_episodes": true,
+    "original_model_mixture": true,
+    "target_labels_unused": true
+  },
+  "failures": [],
+  "episode_counts": {
+    "observed": {
+      "0.75": 1,
+      "1.0": 1,
+      "1.25": 0
+    },
+    "expected": {
+      "0.75": 1,
+      "1.0": 1,
+      "1.25": 0
+    },
+    "numeric_keys_equal": true,
+    "declared_scales": [
+      0.75,
+      1.0,
+      1.25
+    ],
+    "missing_zero_keys_filled": false
+  },
+  "original_gate_error": {
+    "confirmed": true,
+    "reason": "The live sampler uses float keys; the JSON protocol uses string keys.",
+    "runtime_float_key_example": "{0.75: 1, 1.0: 1, 1.25: 0}",
+    "protocol_string_key_example": "{'0.75': 1, '1.0': 1, '1.25': 0}",
+    "raw_comparison": false,
+    "normalized_comparison": true
+  },
+  "evidence_scope": "Receipt adjudication only. The other seven original checks must remain true and agree with available receipt facts; this does not perform checkpoint restoration or a next-update test."
+}

@@ -1,0 +1,23 @@
+{
+  "name": "thesis-mcwm-service-opportunity-v77-20261027",
+  "seeds": [6208, 6207],
+  "scenario": "stable",
+  "arms": ["fresh", "no_fresh"],
+  "window": [12000, 16200],
+  "window_right_open": true,
+  "primary_source": "mcwm_closed_loop_frozen_validation_v75_20261027/runs/executed_cql/validation",
+  "replay_source": "mcwm_closed_loop_mid_policy_exchange_v76_20261027/runs",
+  "alignment": "Native trip/bus ID, line, stop, physical visit occurrence. Align complete logs before selecting visits intersecting the window in either arm. Boundary visits reported separately.",
+  "cost_metric": "Actual common-window passenger ledger: (2*waiting_person_seconds+ride_person_seconds)/15079; service proxies are not added to ledger costs.",
+  "passenger_evidence": "Only same-physical-tick inventories. Common arrival queue plus one-arm departure onboard and other-arm still queued is a directly observed service opportunity difference. Compatibility scalar does not establish individual eligibility. Recovery timestamps are observation brackets, not exact boarding times.",
+  "information": "Retrospective diagnosis only; no model selection from held-out truth or future information used in training. No prediction, simulator, learner or checkpoint import.",
+  "priority": "high",
+  "new_simulated_seconds": 0,
+  "new_training_updates": 0,
+  "new_feedback_slots": 0,
+  "truth_fed_back": false,
+  "old_code_and_results_read_only": true,
+  "downloads": "Bounded JSON and necessary short log tails only; passenger IDs and raw logs remain resident.",
+  "max_summary_bytes": 48000,
+  "followup": "Identify at most one evidence-backed change for later full-day testing. Do not start simulation or training, scan thresholds, or expand seeds. If evidence cannot localize a change, preserve that result rather than inventing a cause."
+}

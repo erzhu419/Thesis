@@ -1,0 +1,54 @@
+{
+  "status": "PROPOSED_NOT_LAUNCHED",
+  "purpose": "Determine whether the fixed locally successful holding intervention has net full-day value before designing a fresh service predictor.",
+  "root": {
+    "scenario": "stable",
+    "trip_id": "122S_33",
+    "station_id": "122S17_311S23_406X15",
+    "sequence": 13151,
+    "clock": 18966.0,
+    "diagnostic_person_id": "transfer_8937.0"
+  },
+  "actions": {
+    "low": {
+      "proposal": [
+        0.32619690895080566
+      ],
+      "executed": [
+        -0.8342254161834717
+      ],
+      "hold_seconds": 4.97323751449585
+    },
+    "high": {
+      "proposal": [
+        1.0
+      ],
+      "executed": [
+        -0.75
+      ],
+      "hold_seconds": 7.5
+    }
+  },
+  "continuation": "Both arms use the same v114 stable-low recorded proposals, keyed by trip,stop and issue occurrence; apply the original F at each current state. This is a controlled logged-proposal continuation, not recovered actor or learner. Missing identity stops without fallback.",
+  "horizon_seconds": 24000,
+  "required_reproduction": "Repeat exact prefix and nominal full suffix against v114 stable-low; preserve original F.",
+  "metrics": [
+    "full-day global W,R,2W+R including unfinished people",
+    "fixed root receiver13 and current-stage cohort travel costs and completion",
+    "target actual connection and final status",
+    "end-of-day waiting"
+  ],
+  "optimizer_updates": 0,
+  "feedback_admitted": 0,
+  "checkpoint_loaded": false,
+  "budget": {
+    "new_prefix_native_seconds": 18966,
+    "each_suffix_native_seconds": 5034,
+    "unique_new_native_seconds": 29034,
+    "old_v117_work_is_not_free_recovery": true
+  },
+  "decision": "Net full-day high-minus-low<0 permits service-model design only; otherwise close this fixed intervention. No dose tuning, automatic seeds, or alternate roots.",
+  "unchanged_final_cost_gate": "For a future full controller: full-day fresh-minus-matched-no_fresh mean<0,stable<=0,shock<0; fresh-minus-same-actor-frozen<=0 per scenario and at least one<0. Early/tail descriptive. This short-window diagnostic cannot pass these gates.",
+  "scope": "Known-state diagnostic under a fixed recorded-proposal continuation, not a deployed MC-WM actor feedback policy and not fresh incremental benefit.",
+  "automatic_launch": false
+}

@@ -1,0 +1,186 @@
+{
+  "status": "complete",
+  "integrity_all_pass": true,
+  "cases": {
+    "stable": {
+      "task": "t211592",
+      "scheduler_status": "done",
+      "snapshot_clock": 1824.0,
+      "budget": {
+        "ordinary_labels": 14,
+        "response_labels": 271,
+        "admitted_slots": 285,
+        "actual_updates": 24,
+        "warmup_updates": 24,
+        "response_updates": 0,
+        "reserved_response_updates": 432,
+        "contract_total_updates": 456,
+        "new_native_prefixes": 1,
+        "new_native_branches": 0,
+        "prefix_native_seconds": 24000.0,
+        "duplicate_prefixes": 0,
+        "diagnostic_truth_reused": 0
+      },
+      "spans_seconds": {
+        "7X": 315.0,
+        "102X": 310.0,
+        "705X": 309.0
+      },
+      "missing_roots": [],
+      "missing300": [],
+      "zero_duration_labels": 90,
+      "persisted": {
+        "all_pass": true,
+        "checks": {
+          "feedback271": true,
+          "unique_feedback": true,
+          "support272_including_real_endpoint": true,
+          "all_actual_issue_checks": true,
+          "native_applications271": true,
+          "all_native_application_checks": true
+        },
+        "feedback_rows": 271,
+        "issue_rows": 272,
+        "applications": 271,
+        "c_product": 1.0,
+        "maximum_hold_error": 0.0
+      },
+      "action_coverage": {
+        "7X": {
+          "issues": 21,
+          "executed_zero": 16,
+          "executed_positive": 5,
+          "pointwise_c_min": 1.0,
+          "conditional_overlap_min": 1.0,
+          "all_pass": true
+        },
+        "102X": {
+          "issues": 22,
+          "executed_zero": 9,
+          "executed_positive": 13,
+          "pointwise_c_min": 1.0,
+          "conditional_overlap_min": 1.0,
+          "all_pass": true
+        },
+        "705X": {
+          "issues": 16,
+          "executed_zero": 11,
+          "executed_positive": 5,
+          "pointwise_c_min": 1.0,
+          "conditional_overlap_min": 1.0,
+          "all_pass": true
+        },
+        "all": {
+          "issues": 271,
+          "executed_zero": 162,
+          "executed_positive": 109,
+          "pointwise_c_min": 1.0,
+          "conditional_overlap_min": 0.9999999999999999,
+          "all_pass": true
+        }
+      },
+      "native_wall_seconds": 1004.007954120636,
+      "ready_checkpoint": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_sync_collection_v53_20261025/runs/stable/feedback_ready_model.pt"
+    },
+    "local_speed_drop": {
+      "task": "t211593",
+      "scheduler_status": "done",
+      "snapshot_clock": 1824.0,
+      "budget": {
+        "ordinary_labels": 14,
+        "response_labels": 271,
+        "admitted_slots": 285,
+        "actual_updates": 24,
+        "warmup_updates": 24,
+        "response_updates": 0,
+        "reserved_response_updates": 432,
+        "contract_total_updates": 456,
+        "new_native_prefixes": 1,
+        "new_native_branches": 0,
+        "prefix_native_seconds": 24000.0,
+        "duplicate_prefixes": 0,
+        "diagnostic_truth_reused": 0
+      },
+      "spans_seconds": {
+        "7X": 307.0,
+        "102X": 302.0,
+        "705X": 301.0
+      },
+      "missing_roots": [],
+      "missing300": [],
+      "zero_duration_labels": 95,
+      "persisted": {
+        "all_pass": true,
+        "checks": {
+          "feedback271": true,
+          "unique_feedback": true,
+          "support272_including_real_endpoint": true,
+          "all_actual_issue_checks": true,
+          "native_applications271": true,
+          "all_native_application_checks": true
+        },
+        "feedback_rows": 271,
+        "issue_rows": 272,
+        "applications": 271,
+        "c_product": 1.0,
+        "maximum_hold_error": 0.0
+      },
+      "action_coverage": {
+        "7X": {
+          "issues": 22,
+          "executed_zero": 14,
+          "executed_positive": 8,
+          "pointwise_c_min": 1.0,
+          "conditional_overlap_min": 1.0,
+          "all_pass": true
+        },
+        "102X": {
+          "issues": 21,
+          "executed_zero": 13,
+          "executed_positive": 8,
+          "pointwise_c_min": 1.0,
+          "conditional_overlap_min": 1.0,
+          "all_pass": true
+        },
+        "705X": {
+          "issues": 16,
+          "executed_zero": 14,
+          "executed_positive": 2,
+          "pointwise_c_min": 1.0,
+          "conditional_overlap_min": 1.0,
+          "all_pass": true
+        },
+        "all": {
+          "issues": 271,
+          "executed_zero": 166,
+          "executed_positive": 105,
+          "pointwise_c_min": 1.0,
+          "conditional_overlap_min": 0.9999999999999999,
+          "all_pass": true
+        }
+      },
+      "native_wall_seconds": 902.6247043609619,
+      "ready_checkpoint": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_sync_collection_v53_20261025/runs/local_speed_drop/feedback_ready_model.pt"
+    }
+  },
+  "common_prefix_exact": {
+    "status": "exact",
+    "exact": true,
+    "rows": 5738
+  },
+  "actual_parallel": {
+    "actual_native_overlap_seconds": 866.2009961605072,
+    "actual_parallel": true
+  },
+  "decision": "advance_to_gated_same_flow_sync_M8_one_step_vs_bounded_physical_trace_shadow_comparison; not launched",
+  "reuse": "Use existing feedback_ready learner/replay plus actualpost24 immutable actor and retained Adam/RNG; no new prefix, no repeatedwarmup, no further feedback.",
+  "next_gate": "Same shadow batch validates actual trainer target M1 oracle/M8 sampling and lambda0 first8 parameter-Adam-RNG parity. Preflight first8 counts within each arm432 response updates, not432plus8; retain/reuse each control first packet and continue only unspent steps to contract456. Nonzero trace changes supported continuous labels only; K271 eta9/270, no old heldout truth.",
+  "limitations": [
+    "No response updates executed in v53; current actor therefore has not drifted in this response phase. c1 is the verified fixed-evaluator/behavior identity, not evidence of restored current-actor overlap.",
+    "Shock705X has only2 positive executed actions among16 line records. This supports a small shadow pilot, not independent action-value confirmation.",
+    "No paired counterfactual truth,300second regret or new-policy deployment passenger-cost improvement is established."
+  ],
+  "new_response_training_launched": false,
+  "new_native_branches": 0,
+  "downloaded_final_summary_bytes": 9885
+}

@@ -1,0 +1,85 @@
+{
+  "status": "complete_repacked",
+  "implementation_gate": "pass",
+  "training_gate": "hold",
+  "task_ids": {
+    "scoring": [
+      "t211528",
+      "t211529"
+    ],
+    "failed_summary": "t211530",
+    "successful_repack": "t211534"
+  },
+  "packaging_failure": "Original scoring completed but case summaries exceeded24KB; source failures and arrays preserved. Repack only, no model reload or rescoring.",
+  "successful_summary_transfer_bytes": 31396,
+  "failed_summary_transfer_bytes": 1000,
+  "new_budget": {
+    "new_training_updates": 0,
+    "new_feedback_slots": 0,
+    "new_native_branches": 0,
+    "new_native_seconds": 0,
+    "checkpoints_downloaded": 0,
+    "recovery_checkpoint_loads": 0,
+    "recovery_scoring_calls": 0
+  },
+  "preserved_budget": {
+    "initializer_updates": 50000,
+    "feedback_slots": 285,
+    "ordinary_slots": 15,
+    "response_slots": 270,
+    "updates": 456,
+    "warmup_updates": 24,
+    "response_updates": 432,
+    "horizon_seconds": 24000,
+    "original_run_complete": true
+  },
+  "source_contract": {
+    "initialization_seed": 6202,
+    "native_external_seed": 106243,
+    "F_unchanged": true,
+    "trust_unchanged": true,
+    "source_version": "mcwm_closed_loop_sync_pilot_v43_20261024",
+    "target_config": {
+      "ensemble_size": 2,
+      "subset_size": 2,
+      "replacement": false,
+      "membership_varies": false,
+      "source": "original_run_guard_and_saved_full_membership_rows"
+    }
+  },
+  "native_diag_rows_exact": 1080,
+  "actual_head_membership": "fixed full2of2 withoutreplacement",
+  "head_order_root_delta_range_max": 0.0,
+  "max_component_residual": 3.552714e-14,
+  "score_wall_seconds": {
+    "stable": 10.30305,
+    "local_speed_drop": 12.41976
+  },
+  "candidate": {
+    "name": "positive_joint_sac_mean8",
+    "installed": false,
+    "training_started": false,
+    "positive_samples": 8,
+    "formula": "S8=p0*(Qmin(F0)-alpha*logp0)+p1/8*sum_m[Qmin(F(a_m))-alpha*(logp1+logp_positive(a_m))]; B8=0.1*V+0.9*S8",
+    "sample_contract": "Q and entropy share each sampled positive action. Same eight Gaussian CRNs across paired scoring arms. Native head min and two-action numerical path retained.",
+    "unchanged": [
+      "analytic_gate",
+      "zero_action_branch",
+      "0.1V_plus_0.9SAC",
+      "F",
+      "two_head_min",
+      "matched_recorded_Qbar",
+      "actual_executed_c",
+      "0.9_trace_link_coefficient",
+      "physical_endpoints",
+      "source285_slots456_updates"
+    ],
+    "purpose": "Reduce observed actor Monte Carlo scoring instability; preserve the expected original soft mixed backup rather than deleting entropy or V.",
+    "limitation": "Does not remove systematic bootstrap-minus-Q residual, restore missing physical credit, or establish300s/control gains.",
+    "next_gate": "Frozen-only predeclared8-draw-block comparison before training. M1/lambda0 native bits exact; M8 approximates the same expectation and is not expected to equal a single native sample. Inspect dispersion AND remaining deterministic residual; no automatic training."
+  },
+  "regret300": null,
+  "cost300_direction": null,
+  "deployed_control_gain": null,
+  "source_scope": "Two705Xphysicalrootcontexts, fourreusedarms; otherlinescachedcontextonly. Three actor draws are fixed scoring replicates, not independent days."
+}

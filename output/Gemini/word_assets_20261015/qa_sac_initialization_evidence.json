@@ -1,0 +1,309 @@
+{
+  "question": "225回合F-2完整控制器比较中纯源SAC是否加载50,000次IQL初始化",
+  "verdict": "没有。纯源SAC五个种子均为随机初始化的在线SAC，不加载IQL参数；50,000次IQL初始化适用于H2O+与MC-WM。",
+  "comparison_identity": {
+    "analysis_path": "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006/analysis.json",
+    "status": "complete",
+    "completed_evaluations": 225,
+    "training_seeds": [
+      6201,
+      6202,
+      6203,
+      6204,
+      6205
+    ],
+    "sumo_seeds": [
+      108101,
+      108102,
+      108103,
+      108104,
+      108105
+    ],
+    "demand_scales": [
+      0.75,
+      1.0,
+      1.25
+    ],
+    "mean_cost_seconds": {
+      "mcwm_aligned": 2360.4896847635023,
+      "h2oplus_final": 2383.510506352898,
+      "sac_guarded": 2400.744091638351
+    },
+    "definition": "3 methods × 5 training seeds × 5 new SUMO days × 3 demand scales = 225。以上均值与F-2的2360.49/2383.51/2400.74精确对应。"
+  },
+  "training_schedule": {
+    "mcwm_aligned": {
+      "offline_iql_updates": 50000,
+      "subsequent_updates": 20000,
+      "nominal_source_events": 25000
+    },
+    "h2oplus_final": {
+      "offline_iql_updates": 50000,
+      "subsequent_updates": 20000,
+      "nominal_source_events": 25000
+    },
+    "sac_guarded": {
+      "offline_iql_updates": 0,
+      "initialization": "random",
+      "online_updates_at_selected_export": 20000,
+      "warmup_events": 5000,
+      "nominal_source_events": 25000
+    }
+  },
+  "sac_five_seed_actual_records": [
+    {
+      "seed": 6201,
+      "metadata_path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6201/metadata.json",
+      "actual_arguments": {
+        "offline_updates": 0,
+        "offline_initializer": null,
+        "resume": null,
+        "warmup_events": 5000
+      },
+      "offline_initializer_consumed": null,
+      "method_description": "randomly initialized online-only Soft Actor-Critic",
+      "offline_objective": "none",
+      "export_manifest_path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6201/fewshot_policies/policy_manifest.json",
+      "selected_export": {
+        "path": "fewshot_policies/online_events_000025000.pt",
+        "phase": "online_training",
+        "epoch": 40,
+        "online_events_nominal": 25000,
+        "online_events_actual": 25000,
+        "learner_update_steps": 20000
+      },
+      "completion_path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6201/fewshot_export_summary.json",
+      "completed_utc": "2026-08-14T14:22:02.138894+00:00",
+      "export_passed": true,
+      "zero_and_warmup_actor_identical": true
+    },
+    {
+      "seed": 6202,
+      "metadata_path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6202/metadata.json",
+      "actual_arguments": {
+        "offline_updates": 0,
+        "offline_initializer": null,
+        "resume": null,
+        "warmup_events": 5000
+      },
+      "offline_initializer_consumed": null,
+      "method_description": "randomly initialized online-only Soft Actor-Critic",
+      "offline_objective": "none",
+      "export_manifest_path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6202/fewshot_policies/policy_manifest.json",
+      "selected_export": {
+        "path": "fewshot_policies/online_events_000025000.pt",
+        "phase": "online_training",
+        "epoch": 40,
+        "online_events_nominal": 25000,
+        "online_events_actual": 25000,
+        "learner_update_steps": 20000
+      },
+      "completion_path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6202/fewshot_export_summary.json",
+      "completed_utc": "2026-08-14T14:52:14.344855+00:00",
+      "export_passed": true,
+      "zero_and_warmup_actor_identical": true
+    },
+    {
+      "seed": 6203,
+      "metadata_path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6203/metadata.json",
+      "actual_arguments": {
+        "offline_updates": 0,
+        "offline_initializer": null,
+        "resume": null,
+        "warmup_events": 5000
+      },
+      "offline_initializer_consumed": null,
+      "method_description": "randomly initialized online-only Soft Actor-Critic",
+      "offline_objective": "none",
+      "export_manifest_path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6203/fewshot_policies/policy_manifest.json",
+      "selected_export": {
+        "path": "fewshot_policies/online_events_000025000.pt",
+        "phase": "online_training",
+        "epoch": 40,
+        "online_events_nominal": 25000,
+        "online_events_actual": 25001,
+        "learner_update_steps": 20000
+      },
+      "completion_path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6203/fewshot_export_summary.json",
+      "completed_utc": "2026-08-14T15:35:44.436716+00:00",
+      "export_passed": true,
+      "zero_and_warmup_actor_identical": true
+    },
+    {
+      "seed": 6204,
+      "metadata_path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6204/metadata.json",
+      "actual_arguments": {
+        "offline_updates": 0,
+        "offline_initializer": null,
+        "resume": null,
+        "warmup_events": 5000
+      },
+      "offline_initializer_consumed": null,
+      "method_description": "randomly initialized online-only Soft Actor-Critic",
+      "offline_objective": "none",
+      "export_manifest_path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6204/fewshot_policies/policy_manifest.json",
+      "selected_export": {
+        "path": "fewshot_policies/online_events_000025000.pt",
+        "phase": "online_training",
+        "epoch": 40,
+        "online_events_nominal": 25000,
+        "online_events_actual": 25001,
+        "learner_update_steps": 20000
+      },
+      "completion_path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6204/fewshot_export_summary.json",
+      "completed_utc": "2026-08-14T14:52:20.448410+00:00",
+      "export_passed": true,
+      "zero_and_warmup_actor_identical": true
+    },
+    {
+      "seed": 6205,
+      "metadata_path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6205/metadata.json",
+      "actual_arguments": {
+        "offline_updates": 0,
+        "offline_initializer": null,
+        "resume": null,
+        "warmup_events": 5000
+      },
+      "offline_initializer_consumed": null,
+      "method_description": "randomly initialized online-only Soft Actor-Critic",
+      "offline_objective": "none",
+      "export_manifest_path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6205/fewshot_policies/policy_manifest.json",
+      "selected_export": {
+        "path": "fewshot_policies/online_events_000025000.pt",
+        "phase": "online_training",
+        "epoch": 40,
+        "online_events_nominal": 25000,
+        "online_events_actual": 25001,
+        "learner_update_steps": 20000
+      },
+      "completion_path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed6205/fewshot_export_summary.json",
+      "completed_utc": "2026-08-14T15:45:58.237845+00:00",
+      "export_passed": true,
+      "zero_and_warmup_actor_identical": true
+    }
+  ],
+  "selected_policy_lineage": [
+    {
+      "path": "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006/node_case.py",
+      "lines": "17-18",
+      "fragment": "checkpoint = HERE / policies / (method + _seed{seed}.pt)",
+      "meaning": "225回合评价加载sac_guarded_seed6201至6205固定策略。"
+    },
+    {
+      "path": "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006/stage_assets.py",
+      "lines": "56-59",
+      "fragment": "policies/sac_guarded_seed%d.pt -> thesis-h2o-source-guard-20261006/workspace/H2Oplus/reproducibility/h2oplus_v8_fewshot_results/training/sac-online_seed%d/fewshot_policies/online_events_000025000.pt",
+      "meaning": "sac_guarded是原sac-online的25k源事件冻结导出，仅附加共同执行规则，不重新初始化/训练。"
+    },
+    {
+      "path": "/home/erzhu419/mine_code/Thesis/workpapers/H2O纯源同执行诊断_20261006/replay_node001/replay_raw_seed6201_sumo8101_demand0p75.json",
+      "json_pointer": "policy.training_metadata",
+      "fragment": {
+        "method": "sac-online",
+        "total_updates": 20000,
+        "fewshot_learner_update_steps": 20000,
+        "fewshot_online_events_nominal": 25000,
+        "fewshot_online_events_actual": 25000,
+        "offline_initializer": null,
+        "offline_objective": "none",
+        "method_description": "randomly initialized online-only Soft Actor-Critic"
+      },
+      "meaning": "实际被加载的25k冻结策略在回放JSON中携带相同初始化口径与20k更新计数。"
+    },
+    {
+      "path": "/home/erzhu419/mine_code/Thesis/workpapers/H2O纯源同执行诊断_20261006/replay_check_node001.json",
+      "fragment": {
+        "passed": true,
+        "frozen_actor": true
+      },
+      "meaning": "既有回放核验已确认该actor是保留的原SAC策略，不是本次重新训练。"
+    }
+  ],
+  "h2o_mcwm_actual_initializer_evidence": [
+    {
+      "path": "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006/replay_reference.json",
+      "json_pointer": "policy.training_metadata.offline_initializer_consumed",
+      "fragment": {
+        "offline_updates": 50000,
+        "path": "/home/erzhu419/mine_code/sumo-rl/H2Oplus/reproducibility/deployments/h2oplus_v14_terminal_taper_pilot_v1/workspace/reproducibility/h2oplus_v14_initializers_v1/h2oplus_seed6201.pt",
+        "source_method": "h2oplus",
+        "source_training_seed": 6201,
+        "v14_reuse_authorized": true
+      },
+      "meaning": "实际H2O+冻结策略元数据记录消耗50k IQL初始化。"
+    },
+    {
+      "path": "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006/asset_deployment.json",
+      "fragment": {
+        "validated_prefix_updates": 50000,
+        "validated_actor_training_seeds": [
+          6201,
+          6202,
+          6203,
+          6204,
+          6205
+        ]
+      },
+      "meaning": "五个H2O+初始化在原部署阶段已核实，非论文文字推定。"
+    },
+    {
+      "path": "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006/train_mcwm.py",
+      "lines": "86",
+      "fragment": "learner.load_offline_initializer(args.initializer)",
+      "meaning": "本批新增MC-WM续训实际加载相应IQL初始化。"
+    },
+    {
+      "path": "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006/training_summary.json",
+      "fragment": [
+        {
+          "seed": 6201,
+          "reused_offline_updates": 50000,
+          "continuation_updates": 20000,
+          "source_events": 24999,
+          "target_online_training_events": 0
+        },
+        {
+          "seed": 6202,
+          "reused_offline_updates": 50000,
+          "continuation_updates": 20000,
+          "source_events": 25000,
+          "target_online_training_events": 0
+        },
+        {
+          "seed": 6203,
+          "reused_offline_updates": 50000,
+          "continuation_updates": 20000,
+          "source_events": 25000,
+          "target_online_training_events": 0
+        },
+        {
+          "seed": 6204,
+          "reused_offline_updates": 50000,
+          "continuation_updates": 20000,
+          "source_events": 24999,
+          "target_online_training_events": 0
+        },
+        {
+          "seed": 6205,
+          "reused_offline_updates": 50000,
+          "continuation_updates": 20000,
+          "source_events": 25000,
+          "target_online_training_events": 0
+        }
+      ],
+      "meaning": "五次MC-WM完成记录均为复用50k离线初始化、20k续训。"
+    },
+    {
+      "path": "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006/protocol.json",
+      "json_pointer": "offline_updates",
+      "fragment": {
+        "mcwm_aligned": 50000,
+        "h2oplus_final": 50000,
+        "sac_guarded": 0
+      },
+      "meaning": "原冻结协议与实际记录一致。"
+    }
+  ],
+  "interpretation": "本批按相同名义源事件数与共同执行规则比较完整控制器；纯源SAC没有50k离线预训练，因此不能写三种方法都先做50k IQL或都完成70k梯度更新。H2O+、MC-WM为50k IQL+20k续训，纯源SAC为5k源热身后20k在线更新。原SAC完整长训练summary另有145k最终更新计数，但本批使用25k源事件导出端点，不能误用最终长训练计数。",
+  "access": "仅只读本地既有JSON、日志及脚本；未联网，未读取/复制ckpt、CSV或离线数据，未启动实验。"
+}

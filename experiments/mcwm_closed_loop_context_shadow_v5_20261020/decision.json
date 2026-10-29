@@ -1,0 +1,25 @@
+{
+  "go": true,
+  "stage_a_status": "complete",
+  "stage_a_runs": 4,
+  "decision": "Run the four frozen-world-parameter controls after the native frozen-arm preflight passes.",
+  "evidence": [
+    "All four passive days exactly reproduce v4 costs, budgets and initializers.",
+    "Post-shock historical current context increases error versus saved, but genuine next-packet Bellman errors are nearly identical.",
+    "Eight full optimizer updates propagate local calibration into critics and actors, while the incremental executed holding change remains very small.",
+    "Next-packet shadow TD differences do not establish realized passenger benefits; freezing neural world parameters directly isolates refitting in a real control rollout."
+  ],
+  "comparator": "v4 action_model, same original two seeds crossed with stable and local_speed_drop",
+  "intervention": "Freeze initial neural source/direct/residual world parameters; keep family selection, trust QDelta, replay and policy learning active; local readout disabled.",
+  "budgets_per_full_day": {
+    "initializer_updates": 50000,
+    "target_seconds": 24000,
+    "selected_global_labels": 285,
+    "packets": 57,
+    "policy_updates": 456,
+    "source_rows": 4096,
+    "source_physical_intervals": 102
+  },
+  "next_decision": "Compare full-day and18300–24000 passenger costs separately in both scenarios, plus prequential errors and trust. Consistently worse refitting motivates revising the neural update; better refitting keeps it and focuses revision on local-to-global action consequences. Mixed results retain both hypotheses and do not justify a formal expansion.",
+  "scope": "Two original development seeds; no claim of independent confirmation or isolation of fresh-data benefit from continued policy optimization."
+}

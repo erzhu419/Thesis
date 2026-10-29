@@ -1,0 +1,16 @@
+{
+  "name":"thesis-mcwm-objective-alignment-v58-20261025",
+  "scenarios":["stable","local_speed_drop"],
+  "sources":{"v38":"mcwm_closed_loop_multievent_credit_v38_20261024","v43":"mcwm_closed_loop_sync_pilot_v43_20261024","v53":"mcwm_closed_loop_sync_collection_v53_20261025","v55":"mcwm_closed_loop_physical_truth_v55_20261025"},
+  "cached_models":["zero_memory","per_head_level","shared_level"],
+  "old_slots":["7X/early","102X/early","705X/early","7X/late","102X/late","705X/late"],
+  "current_slots":["102X/early","102X/late","705X/early","705X/late"],
+  "training_seed":6202,"initializer_updates":50000,"feedback_slots":285,"optimizer_updates":456,"horizon_seconds":24000,
+  "reward_scale":0.0001,"scheduler_priority":"high","summary_max_bytes":48000,
+  "cohorts":"v55 has current v54 M8 root predictions,0/7.5s native paired300 ledgers and common mu14, but no full event chain. v38 has genuine paired event chains and cached v37r1 one-sample mixed-Q scores,0/1.875s and original frozen initializer continuation; it is a separate cohort, never a v55 successor. v43 has short paired chains; v53 is a single factual chain.",
+  "bridge":"Raw r=-(2deltaW+deltaR), gamma1, scaled reward1e-4. At a real endpoint T: DeltaQ = 1e-4 Benefit300 -1e-4 Delta(J_T-J300)+Delta entropy+Delta terminal_nonentropy_bootstrap+Delta mixed_gap-Delta sumTD+rounding. Exact300 ledgers do not imply a decision state at300. Split target-online lag within mixed_gap. No continuation ratios are fabricated for unweighted telescope accounting.",
+  "scope":"Inventory and audit only existing declared files. Reuse cached scores without loading checkpoints or resampling actors. Missing memory/successors, old policies, unequal real endpoint clocks, short and single-arm chains remain explicit. Original rootM8 and all models untouched.",
+  "decision":"After support and bridge checks, specify at most one target change, separate finite300 cost-only response supervision from long softQ. No training, native branches or truth ingestion in v58; no superiority claim from an algebraic bridge.",
+  "compute_budget":{"new_training_labels":0,"new_optimizer_updates":0,"new_native_prefixes":0,"new_native_branches":0,"new_native_seconds":0,"truth_admitted":0,"checkpoints_loaded":0,"checkpoints_downloaded":0},
+  "F_unchanged":true,"trust_unchanged":true,"old_results_read_only":true
+}

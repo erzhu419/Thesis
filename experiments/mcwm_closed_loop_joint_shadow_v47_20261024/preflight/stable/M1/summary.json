@@ -1,0 +1,153 @@
+{
+  "status": "complete",
+  "scenario": "stable",
+  "arm": "M1",
+  "phase": "preflight",
+  "priority": "high",
+  "proof": {
+    "all_pass": true,
+    "checks": {
+      "initial_native_parity": true,
+      "slots285": true,
+      "updates456": true,
+      "packets57": true,
+      "original_sampling456_exact": true,
+      "original_training_rng57_exact": true,
+      "original_adam_steps57_exact": true,
+      "optimizer_objects_retained": true,
+      "all270_admitted_before_response_updates": true,
+      "no_world_or_trust": true,
+      "unchanged_single_step_lambda0_structure": true,
+      "F_unchanged": true,
+      "issue_bank_fixed_six_records": true,
+      "no_new_native_or_feedback": true,
+      "post_budget_zero_training": true,
+      "first_step_metrics57_exact": true,
+      "saved_post24_post456_modules_adam_exact": true
+    },
+    "audit_counts": {
+      "sampling_packets": 57,
+      "sampling_steps": 456,
+      "rng_packets": 57,
+      "optimizer_step_packets": 57,
+      "first_step_metric_packets": 57
+    },
+    "source_certifications": [
+      {
+        "updates": 24,
+        "source": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_sync_pilot_v43_20261024/runs/stable/actual_post24_model.pt",
+        "all_pass": true,
+        "checks": {
+          "modules": true,
+          "optimizers": true,
+          "log_alpha": true,
+          "updates": true,
+          "online_updates": true,
+          "sampler": true,
+          "actor_batches": true,
+          "temperature_batches": true,
+          "diagnostic_rng": true,
+          "ratio_optimizer": true,
+          "replay_values_and_memory": true
+        }
+      },
+      {
+        "updates": 456,
+        "source": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_sync_pilot_v43_20261024/runs/stable/learning/post456_model.pt",
+        "all_pass": true,
+        "checks": {
+          "modules": true,
+          "optimizers": true,
+          "log_alpha": true,
+          "updates": true,
+          "online_updates": true,
+          "sampler": true,
+          "actor_batches": true,
+          "temperature_batches": true,
+          "diagnostic_rng": true,
+          "ratio_optimizer": true,
+          "replay_values_and_memory": true
+        }
+      }
+    ],
+    "boundaries": {
+      "full_module_Adam_source_snapshots": [
+        24,
+        456
+      ],
+      "per_packet_full_Adam_snapshots_available": false,
+      "source_rng_scope": "torch_and_private_sampler_and_diagnostic_only",
+      "historic_global_python_numpy_rng_available": false,
+      "per_packet_rng_forced": false,
+      "M1_metrics_reference": true,
+      "M8_parameter_divergence_is_treatment": false,
+      "independent_physical_root_states": 3,
+      "issue_records": 6,
+      "new_300_second_truth": false,
+      "policy_deployed": false
+    }
+  },
+  "budget": {
+    "initializer_updates": 50000,
+    "feedback_slots": 285,
+    "optimizer_updates": 456,
+    "horizon_seconds": 24000,
+    "source_labels_reused": 285,
+    "new_feedback_slots": 0,
+    "new_native_branches": 0,
+    "new_native_seconds": 0,
+    "preflight_extra_optimizer_updates": 456,
+    "formal_optimizer_updates": 0
+  },
+  "extra_compute": {
+    "positive_samples": 1,
+    "extra_positive_samples": 0,
+    "extra_q_forwards": 0,
+    "extra_seconds": 0.0
+  },
+  "actual_target_path": {
+    "offline_objective": "iql",
+    "online_backup": "h2oplus",
+    "observed_calls": 456,
+    "first_call": {
+      "step": 1,
+      "backup": "h2oplus",
+      "batch_rows": 256,
+      "partitions": {
+        "historical": 64,
+        "fresh": 64,
+        "source": 128
+      },
+      "combined_observation_order_exact": true,
+      "positive_estimator_used": true
+    },
+    "last_call": {
+      "step": 8,
+      "backup": "h2oplus",
+      "batch_rows": 256,
+      "partitions": {
+        "historical": 64,
+        "fresh": 64,
+        "source": 128
+      },
+      "combined_observation_order_exact": true,
+      "positive_estimator_used": true
+    },
+    "target_dispatch": "one combined history64/fresh64/source128 call per online update",
+    "applies_to": "all three partitions in the actual combined target",
+    "original_source_batch_tensors_logged": false
+  },
+  "wall": {
+    "started": 1792855460.0,
+    "training_started": 1792855470.0,
+    "training_finished": 1792855570.0,
+    "finished": 1792855570.0,
+    "seconds": 108.451247
+  },
+  "paths": {
+    "scores": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_joint_shadow_v47_20261024/preflight/stable/M1/scores.jsonl",
+    "packets": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_joint_shadow_v47_20261024/preflight/stable/M1/packets.jsonl",
+    "post24_model": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_joint_shadow_v47_20261024/preflight/stable/M1/post24_model.pt",
+    "final_model": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_joint_shadow_v47_20261024/preflight/stable/M1/post456_model.pt"
+  }
+}

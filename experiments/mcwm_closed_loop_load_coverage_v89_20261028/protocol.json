@@ -1,0 +1,60 @@
+{
+  "name": "mcwm_closed_loop_load_coverage_v89_20261028",
+  "source_initializer": 6207,
+  "external_seed": 716207,
+  "scenario": "stable",
+  "observation": {
+    "line": "7X",
+    "issue_window": [12000,12600],
+    "prefix_end": 12600,
+    "original_episode_horizon": 24000,
+    "source_prefix": "mcwm_closed_loop_service_response_v88_20261028/runs/preflight/prefix_trace.jsonl",
+    "sample": "Every7X control issue in the fixed window, before native action application; capture load before action-domain classification",
+    "native_load": "len(vehicle.getPersonIDList(trip_id))/vehicle.getPersonCapacity(trip_id); never use event-time canonical load as the issue-native substitute",
+    "clocks": "Record event and issue separately; native observation starts and ends at issue clock",
+    "guards": "Clock, passenger ledger and Python/NumPy/Torch RNG unchanged",
+    "coverage": "Retain every issue, including original F-domain exclusions and missing native observations",
+    "trace_replay": "Exact streamed comparison of every network issue from0 to12600 with the old v88 parent trace; require equal row counts and exhausted reference EOF"
+  },
+  "action_support": {
+    "reference_min": 3.0,
+    "reference_max_exclusive": 3.75,
+    "candidate": 7.5,
+    "candidate_tolerance": 0.00001,
+    "minimum_gap_native_steps": 2,
+    "at_stop_required": true
+  },
+  "stratification": {
+    "eligible": "All atomic observed rows in the original action domain, only after complete native and trace audits pass",
+    "variable": "issue_native_load_ratio",
+    "rule": "middle_distinct_gap",
+    "algorithm": "U=sorted(distinct eligible load ratios); require len(U)>=2; k=(len(U)-1)//2; cut=(U[k]+U[k+1])/2",
+    "lighter": "load<cut",
+    "heavier": "load>=cut",
+    "weighting": "Distinct service states determine the split, not record frequency, rewards or cost labels",
+    "other_lines_unchanged": {"102X":0.5,"705X":0.5},
+    "old_half_capacity_split": "Report separately; do not relabel the old missing v88 high state as covered",
+    "scope": "Freezes attainable7X sampling strata only; continuous service features, conditional/line model formulas, actor/F/trust and single-intervention control rule are unchanged"
+  },
+  "decision_gate": [
+    "Same frozen actor and exact v88 parent prefix through real12600, nonterminal",
+    "All seven-X issue observations accounted for with atomic clock/ledger/RNG guards and native load",
+    "Zero suffixes, response or TD labels, fits, neural updates, feedback and v87 truth",
+    "At least two distinct observed in-domain load values and nonempty lighter/heavier groups"
+  ],
+  "budget": {
+    "max_native_simulation_seconds":12600,
+    "prefixes":1,
+    "suffixes":0,
+    "labels":0,
+    "new_initialization_updates":0,
+    "new_fits":0,
+    "new_neural_updates":0,
+    "feedback_admission":0,
+    "v87_truth_used":0
+  },
+  "artifacts": "Raw rows and new trace stay resident; only freeze audit and bounded distribution/strata summary are pulled",
+  "priority":"high",
+  "stop_rule":"End after observing and freezing a covariate-only stratification when eligible; decide formal collection separately. No new suffixes, labels, fits, retries, window extensions, future-outcome selection or v87 feedback.",
+  "scientific_scope":"Attainable native-load sampling coverage, not action-value correctness or passenger-cost benefit. New heavier stratum is relative to the observed7X domain, not necessarily50% capacity."
+}

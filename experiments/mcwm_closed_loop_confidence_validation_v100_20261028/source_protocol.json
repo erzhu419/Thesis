@@ -1,0 +1,206 @@
+{
+  "name": "mcwm_closed_loop_state_confidence_v95_20261028",
+  "version": 95,
+  "priority": "high",
+  "stage": "Design and one exposed-data feasibility diagnostic; no new native collection",
+  "source_model": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_history_fit_v93_20261028/model.json",
+  "source_probe": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_history_fit_v93_20261028/training_policy_probe.json",
+  "primary_model": "service_history6",
+  "q_range_for_scaling_only": [
+    0.007957623402277628,
+    0.4999144673347473
+  ],
+  "frozen_reference": {
+    "initializer_seed": 6207,
+    "training_external_seed": 716207,
+    "scenarios": [
+      "stable",
+      "local_speed_drop"
+    ],
+    "actors": "Unchanged scene-specific v84 saved packet37 actors used in v90; never substitute a new final actor",
+    "F": "Original ExecutionAction, applied once to proposals; recorded executed actions are never mapped twice",
+    "actor_and_value_observations": 229,
+    "world_and_trust": "unchanged",
+    "continuation": "Substitute one root action; then permanently the matching scene-specific original reference actor/F on actual states",
+    "scope": "Conditional response under these fixed references; environment and reference-policy effects are not separately identified"
+  },
+  "frozen_common_support": {
+    "action_difference": "(7.5-h_reference)/7.5",
+    "reference_min": 3.0,
+    "reference_max_exclusive": 3.75,
+    "candidate_seconds": 7.5,
+    "maximum_history_age_seconds": 900,
+    "decision_threshold": 0.0,
+    "maximum_interventions": 1,
+    "q_training_ranges": {
+      "7X": [
+        0.007957623402277628,
+        0.4666777531305949
+      ],
+      "102X": [
+        0.007957623402277628,
+        0.4666777531305949
+      ],
+      "705X": [
+        0.007957623402277628,
+        0.4999144673347473
+      ]
+    }
+  },
+  "model": {
+    "residual_target": "D-m, paired remaining-day weighted passenger cost per15079",
+    "x": "2*(q-q_min)/(q_max-q_min)-1, frozen v93 global q range for scaling only",
+    "psi": "[1,x]",
+    "new_parameters": 2,
+    "ridge": 1.0,
+    "penalize_intercept": true,
+    "fit": "beta=(I+Psi_T.T@Psi_T)^(-1)@Psi_T.T@(D-m); one declared ridge, no search",
+    "bias": "b(q)=psi(q)@beta; signed systematic prediction bias, not epistemic variance",
+    "support_scale": "u(q)=sqrt(1+psi(q).T@(I+Psi_T.T@Psi_T)^(-1)@psi(q))",
+    "upper_bound": "U=m+b(q)+C*u(q)",
+    "interpretation": "u is a fixed-design support multiplier, not an identified epistemic standard deviation; only independent calibration supplies the stated marginal coverage",
+    "fit_data": "Two independently drawn new external seeds only; all supported first-line roots, regardless of prediction/label sign",
+    "T_integrity_gate": "Require the declared12 distinct mature paired roots across two seeds, both scenes and all three lines, plus rank2 finite residual design. An unsupported/missing first slot is retained as missing and puts T on HOLD; do not substitute a later root/seed or a zero label.",
+    "no_outcome_scene_input": "No scene bit, reference ID, future reward, suffix state, day-end count or v87 label is a feature"
+  },
+  "calibration": {
+    "seeds": 4,
+    "alpha": 0.2,
+    "block": "Both scenes and three locked line opportunities of one external seed; do not count six roots as independent",
+    "score": "S_b=max(0,max_active((D-m-b(q))/u(q))) over issue-locked common-supported original m<0 roots",
+    "C": "Fourth order statistic of four block scores; missing required labels ->+infinity, never drop or replace a seed",
+    "claim": "At least80% joint marginal seed-block upper coverage under exchangeability of calibration and validation blocks, conditional on fixed training data/model; no accepted-action conditional safety or mean improvement guarantee",
+    "freeze_order": "Collect T; separately review and fit beta/u once; freeze them; collect C independently; freeze C; only then expose validation",
+    "query_rule": "All common-supported first-line opportunities may be paired; the score must include every negative-m root that the new rule could later accept, not only old first-negative",
+    "physical_noop": "Keep actual measured D and flag separately. If technical integrity fails, stop rather than delete the root after observing its suffix",
+    "no_auto_expand": "No extra seeds, model choices, q bins, ridge/alpha/threshold search or refit after calibration"
+  },
+  "deployment": {
+    "opportunity": "First original-domain physically eligible native issue per line12000-12600, locked before q/context checks",
+    "unsupported": "Missing/stale native context or q, or q outside the original per-line v93 range =>reference for that slot; never seek a later replacement",
+    "rule": "First common-supported root with original m<0 AND U<0; at most one substitution, then matching scene-specific original reference actor forever",
+    "actions": "Original actor after F versus farthest legal7.5-second endpoint; preserve actual native clock and original domain",
+    "continuation": "Same-prefix, same exogenous RNG, actual24000 endpoint; labels available at24030; suffix zero training",
+    "metric": "Full-day(2W+R)/15079 using one selected actual paired delta plus common reference endpoint; never sum queried gains",
+    "comparators": [
+      "original_reference",
+      "v93_raw_history6",
+      "v93_line3",
+      "v93_service5",
+      "state_independent_v94_formula_calibrated_on_same_new_C"
+    ],
+    "success": "Actual nonzero supported intervention required. Independent mean cost must improve vs reference and raw history6; report all comparators, each scene, waiting/ride, worst cell and stable tail. Retain old v93/v94 gate conclusions.",
+    "all_reference": "Fails usefulness; do not call it fresh benefit"
+  },
+  "independent_cohorts": {
+    "seed_sampling": "random.Random(202610280095); randint(1,2147483647); draw seven unique seeds in order before any outcomes",
+    "T": [
+      309177151,
+      1476154684
+    ],
+    "C": [
+      178102402,
+      1119764361,
+      1386094634,
+      536907412
+    ],
+    "V": [
+      5696843
+    ],
+    "declared_seed_collision_check": "No occurrence in104 historical MC-WM protocol/manifest files; not a claim about every historical runtime file",
+    "sealed_not_used": [
+      416207,
+      516207,
+      616207,
+      716207,
+      816207
+    ],
+    "no_old_truth_training": "Existing716207 only for exposed design checks; v87 truth and reserved816207 not used by T,C,V"
+  },
+  "proposed_budget": {
+    "status": "NOT_STARTED; only design/readout now",
+    "per_seed": {
+      "scenes": 2,
+      "max_prefix_seconds": 25200,
+      "max_pairs": 6,
+      "max_suffixes": 12,
+      "max_physical_labels": 12,
+      "max_native_seconds": 169200
+    },
+    "T": {
+      "seeds": 2,
+      "max_pairs": 12,
+      "max_physical_labels": 24,
+      "max_native_seconds": 338400
+    },
+    "C": {
+      "seeds": 4,
+      "max_pairs": 24,
+      "max_physical_labels": 48,
+      "max_native_seconds": 676800
+    },
+    "T_plus_C": {
+      "seeds": 6,
+      "max_pairs": 36,
+      "max_physical_labels": 72,
+      "max_native_seconds": 1015200
+    },
+    "V": {
+      "seeds": 1,
+      "max_pairs": 6,
+      "max_physical_labels": 12,
+      "max_native_seconds": 169200
+    },
+    "all_three_stages_native_seconds": 1184400,
+    "preflight": "First T production pair is the physical preflight and reused. Preserve the existing two-child executor; no unverified shared-reference speedup counted",
+    "separate_covariate_preflight_if_requested": {
+      "extra_max_native_seconds": 25200,
+      "all_stages_with_replayed_preflight": 1209600
+    },
+    "new_initialization_steps": 0,
+    "actor_critic_V_alpha_updates": 0,
+    "world_trust_updates": 0,
+    "next_collectible_stage_only": "After this design readout review, at most T collection338400; do not auto-fit beta or start C/V"
+  },
+  "current_exposed_check": {
+    "data": "Existing12 v93 training roots; old716207 labels are already exposed",
+    "fits": 3,
+    "method": "Leave one line out: fit the fixed two-parameter residual model on the other8 roots, compute a training-only standardized max remainder there, and score the held line",
+    "bias_fit_uses_held_line_labels": false,
+    "base_model_has_seen_held_line_labels": true,
+    "training_max_is_not_independent_C": true,
+    "cross_fold_query_choice": "Only a structural diagnostic assembled from three separate fold rules; not one deployable model or a full native policy replay",
+    "first_query_subset": "Use v93 saved earliest-collected-root-per-line query subset; do not call it an exhaustive native first-opportunity scan",
+    "component_report": [
+      "m",
+      "b",
+      "C",
+      "C*(u-1)",
+      "U"
+    ],
+    "feasibility_gate": [
+      "three finite rank2 fits",
+      "at least one accepted and truly beneficial existing first-query root",
+      "cross-fold selected delta negative on average and no positive scene delta",
+      "not all reference"
+    ],
+    "scope": "Passing supports considering independent T collection only. It neither validates the method nor proves calibrated uncertainty/control gains",
+    "single_attempt": "Save one attempt and results; do not retry another ridge/feature/split after seeing outcomes"
+  },
+  "actual_budget": {
+    "native_seconds": 0,
+    "new_labels": 0,
+    "independent_bias_fits": 0,
+    "exposed_diagnostic_fits": 0,
+    "optimizer_updates": 0,
+    "initialization_steps": 0,
+    "remote_bytes_pulled": 0
+  },
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2107.07511",
+      "supports": "Normalized split-conformal scores and independent calibration; block-max adaptation and cost-benefit design are specified here"
+    }
+  ],
+  "stop": "Stop after the saved three-fold exposed readout and decision. No new native task or independent T/C/V fitting/collection in this version."
+}

@@ -1,0 +1,60 @@
+{
+  "name": "mcwm_closed_loop_frozen_response_confirmation_v87_20261028",
+  "purpose": "Independent external-seed confirmation of the unchanged v86 one-intervention fresh/stale method",
+  "source_initializer": 6207,
+  "source_model_directory": "mcwm_closed_loop_fresh_response_v86_20261027",
+  "model_source": "Read v86/model.json directly; do not copy, modify, fit, or consume v86 outcome labels",
+  "reference_source": "Scene-specific v84 reference_actor.pt originating from v75 seed6207 fresh packet37",
+  "original_training": {"stale_external_seed": 106207, "fresh_external_seed": 216207, "pairs_per_arm": 6, "original_closed_form_fits": 4, "new_fits": 0},
+  "confirmation": {
+    "seeds": [416207, 516207, 616207],
+    "scenarios": ["stable", "local_speed_drop"],
+    "lines": ["7X", "102X", "705X"],
+    "issue_window": [12000, 12600],
+    "output_root": "runs",
+    "selection": "First physically eligible issue per line, even if unsupported by the model; no replacement based on predictions or outcomes",
+    "prefix": "Fresh episode from0 under the same frozen scene-specific reference actor; real clock and unchanged F",
+    "actions": "Original actor through F versus the farthest legal F endpoint; executed actions never mapped twice",
+    "paired_execution": "Native low/high child branches from the same complete state, external seed and RNG; actual wall intervals overlap",
+    "continuation": "After the single root intervention permanently frozen reference actor",
+    "terminal": 24000,
+    "label_available_at": 24030
+  },
+  "frozen": {
+    "models": ["stale_state4", "fresh_state4", "legacy_narrow"],
+    "common_support": {"reference_min": 3.0, "reference_max_exclusive": 3.75, "candidate": 7.5, "candidate_tolerance": 0.00001},
+    "legacy_support": {"reference_min": 3.0, "reference_max_inclusive": 3.6, "candidate": 7.5, "candidate_tolerance": 0.00001},
+    "threshold": 0.0,
+    "rule": "first_supported_negative_once_then_reference",
+    "chronology": "issue started_at, then sequence",
+    "outside_support": "null prediction and reference action, no substitute root",
+    "unchanged": ["v86 coefficients", "feature definition", "ridge", "initialization", "actor", "Q", "V", "B", "F", "trust"]
+  },
+  "metric": "Full-day(2W+R)/15079 from the selected actual native suffix plus its common-prefix ledger",
+  "primary_comparators": ["fresh minus same-domain stale", "fresh minus reference actor"],
+  "primary_cohort": "Only the six newly declared seed/scenario cells; v86 external316207 is historical evidence and is not pooled",
+  "continue_conditions": [
+    "all six cells complete and technically valid; at least one fresh intervention",
+    "fresh mean full-day cost across six cells strictly below both same-domain stale and reference",
+    "fresh stable and shock mean costs each do not exceed either comparator",
+    "each of the six cells has fresh cost no greater than either comparator; worst fresh-minus-comparator delta<=0"
+  ],
+  "report": ["six full-day costs", "stable/shock and per-seed means", "waiting/ride decomposition", "win/tie/loss rates", "worst cell against each comparator", "first intervention state and actual action", "query direction/regret as auxiliary", "support/missing/zero-duration exceptions", "actual paired overlap", "native cost and zero training/feedback"],
+  "budget": {
+    "native_prefixes": 6,
+    "native_suffixes": 36,
+    "native_pairs": 18,
+    "physical_outcome_labels": 36,
+    "max_native_simulation_seconds_per_cell": 84600,
+    "max_native_simulation_seconds": 507600,
+    "initialization_steps": 0,
+    "closed_form_fits": 0,
+    "neural_updates": 0,
+    "v86_truth_training_labels": 0,
+    "confirmation_truth_training_labels": 0
+  },
+  "priority": "high",
+  "artifacts": "Only bounded freeze audit, status and aggregate summary are pulled; native states, traces and checkpoints stay on server",
+  "stop_rule": "Report the fixed cohort once. No retuning, additional seeds, outcome feedback, repeated interventions, or automatic control takeover after results.",
+  "limitations": "Confirms external randomness with one fixed initializer and scene-specific reference policies. Response labels were obtained by paired native queries; this does not establish ordinary single-trajectory dripping or a matched comparison to historical final MC-WM."
+}

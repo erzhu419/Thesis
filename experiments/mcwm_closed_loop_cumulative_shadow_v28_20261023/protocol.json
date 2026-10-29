@@ -1,0 +1,255 @@
+{
+  "name": "thesis-mcwm-cumulative-shadow-v28-20261023",
+  "training_seeds": [
+    6201,
+    6202
+  ],
+  "target_seed_offset": 100000,
+  "arms": [
+    "fresh"
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "history_seed": 72021,
+  "history_rows": 32768,
+  "history_blocks": [
+    1201,
+    1202,
+    1203,
+    1204,
+    1205,
+    1206,
+    1207,
+    1208,
+    1209,
+    1210
+  ],
+  "recent_window": 285,
+  "source_rows": 4096,
+  "model_init_updates": 0,
+  "model_refit_updates": 0,
+  "policy_updates_per_packet": 8,
+  "feedback_first_deadline": 1200,
+  "feedback_last_deadline": 18000,
+  "feedback_interval_seconds": 300,
+  "feedback_records_per_packet": 5,
+  "feedback_delay_seconds": 30,
+  "target_record_budget": 285,
+  "policy_update_budget": 456,
+  "shock_at_seconds": 9000,
+  "speed_factor": 0.65,
+  "metric_interval_seconds": 300,
+  "model_td_fraction": 0.0,
+  "selection": "Fixed4 origin days, persistent shadow intervention from9000 through18000, and the same12 factual-state bank evaluated after each of31 packets; no selection by future outcomes or effect signs.",
+  "data_rights": "Main285 factual feedback slots unchanged. At9000 both shadows copy the same full fresh-trained learner; no_fresh drops all recent outcome fields and replaces its64 critic slots with complete historical transitions. New factual packets admitted once per replica; no new environment labels or branches.",
+  "prediction_comparison": "No model-prediction candidate or family selection in this attribution pilot.",
+  "control_comparison": "Only the main fresh origin controls24000 native seconds; it must exactly reproduce v27. Persistent fresh and no_fresh shadows never act in the environment.",
+  "source_budget": "Same archived4096 source rows; no additional source interaction.",
+  "interpretation": "Both shadows inherit208 fresh-trained online steps and130 labels before9000. Main native fresh day supplies the common factual stream. Shadow predictions and holding shifts are conditional diagnostics, not realized passenger-cost effects.",
+  "scheduler_priority": "high",
+  "preflight_seed": 6202,
+  "estimation_target": "Cumulative supervision replacement after the common fresh-trained pre9000 prefix, retaining each arm parameters, Adam and learner sampler across31 factual packets; not an independent all-day no_fresh policy.",
+  "data_permissions": {
+    "factual_feedback_slots_per_day": 285,
+    "counterfactual_queries": 0,
+    "paired_training_labels": 0,
+    "fresh": {
+      "actor_value_temperature": "current s,a",
+      "critic": "fresh complete outcomes"
+    },
+    "no_fresh": {
+      "actor_value_temperature": "current s,a",
+      "critic": "complete historical transition replacement; no fresh r/ns/dt/terminal stored"
+    },
+    "diagnostic_native_history": "Completed factual runs only; IssueAudit counts never enter actor, value, critic or label selection.",
+    "future_reference_probes": "First visible native issue per affected line from old trace in fixed windows, canonical time unchanged; s/a only for evaluation, never replay/training. No counterfactual labels."
+  },
+  "runtime_contract": {
+    "action_transform": "ExecutionAction",
+    "real_td_coefficient": 1,
+    "world_enabled": false,
+    "ratio_correction": false,
+    "temperature_states": "current",
+    "actor_value_covariates": "fresh_current_s_a",
+    "proposal_entropy": "unchanged latent proposal entropy",
+    "optimizer_schedule": "resident actor-before-critic including IQL V and Adam state"
+  },
+  "diagnostic_station_id": "7X13_102X26_705X27",
+  "primary_endpoint": "Within each fixed state, cumulative actor proposal/F-holding differences and both critics scores for identical shared executed candidate actions, separated by seed/scenario/line and bank window across31 packets.",
+  "secondary_endpoints": [
+    "Bellman reward/bootstrap/target decomposition on the same packet feedback and sampled training partitions.",
+    "Fresh cumulative optimizer/RNG exact equality to main after every packet; no_fresh stores s/a only.",
+    "F candidate-alias cases, persistent sign changes, missing state and zero-duration counts; no realized control claims."
+  ],
+  "stages": {
+    "preflight": "First6202 shock replay continuing through full day; gate at9300 after two persistent packets proves state/Adam carryover and exact fresh/main updates. No duplicate short native preflight.",
+    "remaining": "After the gate, submit the other3 full replays together, all high on all Linux CPU nodes.",
+    "completion": "Read four summaries and31*4 cumulative records on server; emit one <=50KB compact summary or an explicit analysis_failure marker. No automatic real control branches."
+  },
+  "compute_budget": {
+    "native_replay_days": 4,
+    "native_replay_seconds": 96000,
+    "main_feedback_slots": 1140,
+    "main_policy_updates": 1824,
+    "shared_prefix_policy_updates_per_day": 208,
+    "shadow_packets_per_day": 31,
+    "shadow_updates_per_arm_per_day": 248,
+    "shadow_optimizer_updates": 1984,
+    "extra_target_labels": 0,
+    "real_control_branches": 0,
+    "extra_short_native_preflights": 0
+  },
+  "diagnostic_windows": {
+    "7X": [
+      {
+        "name": "bootstrap",
+        "start": 1200,
+        "end": 2700
+      },
+      {
+        "name": "response",
+        "start": 3000,
+        "end": 6600
+      },
+      {
+        "name": "late",
+        "start": 15000,
+        "end": 17670
+      }
+    ],
+    "102X": [
+      {
+        "name": "bootstrap",
+        "start": 3600,
+        "end": 6600
+      },
+      {
+        "name": "response",
+        "start": 7200,
+        "end": 11700
+      },
+      {
+        "name": "late",
+        "start": 15000,
+        "end": 17670
+      }
+    ],
+    "705X": [
+      {
+        "name": "bootstrap",
+        "start": 3600,
+        "end": 6600
+      },
+      {
+        "name": "response",
+        "start": 7200,
+        "end": 11700
+      },
+      {
+        "name": "late",
+        "start": 15000,
+        "end": 17670
+      }
+    ]
+  },
+  "native_algorithm": "v25 learning.py, unchanged sampler/features/ExecutionAction/runtime/trust; native fresh replay references immutable v27. v28 only adds cumulative cloned optimizers and common-candidate evaluation.",
+  "new_native_days": 4,
+  "reused_native_days": 0,
+  "origin_arm": "fresh",
+  "shadow_arms": [
+    "fresh",
+    "no_fresh"
+  ],
+  "shadow_deadlines": [
+    9000,
+    9300,
+    9600,
+    9900,
+    10200,
+    10500,
+    10800,
+    11100,
+    11400,
+    11700,
+    12000,
+    12300,
+    12600,
+    12900,
+    13200,
+    13500,
+    13800,
+    14100,
+    14400,
+    14700,
+    15000,
+    15300,
+    15600,
+    15900,
+    16200,
+    16500,
+    16800,
+    17100,
+    17400,
+    17700,
+    18000
+  ],
+  "reference_roots": {
+    "6201": {
+      "stable": "experiments/mcwm_closed_loop_update_attribution_v27_20261023/runs/seed6201/stable",
+      "local_speed_drop": "experiments/mcwm_closed_loop_update_attribution_v27_20261023/runs/seed6201/local_speed_drop"
+    },
+    "6202": {
+      "stable": "experiments/mcwm_closed_loop_update_attribution_v27_20261023/runs/seed6202/stable",
+      "local_speed_drop": "experiments/mcwm_closed_loop_update_attribution_v27_20261023/runs/seed6202/local_speed_drop"
+    }
+  },
+  "shadow_probe_windows": {
+    "9000": [
+      9000,
+      9300
+    ],
+    "9300": [
+      9300,
+      9600
+    ],
+    "11700": [
+      11700,
+      12000
+    ],
+    "18000": [
+      18300,
+      18600
+    ]
+  },
+  "probe_lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "preflight_cell": {
+    "seed": 6202,
+    "scenario": "local_speed_drop"
+  },
+  "bank_deadlines": [
+    9000,
+    9300,
+    11700,
+    18000
+  ],
+  "shadow_start_deadline": 9000,
+  "preflight_gate_deadline": 9300,
+  "summary_max_bytes": 50000,
+  "candidate_proposals": [
+    "initial",
+    "fresh",
+    "no_fresh",
+    "zero",
+    "7.5s"
+  ],
+  "candidate_semantics": "Initial actor at the pre9000 snapshot and current two actor proposals, plus fixed0/7.5-second proposals. Every candidate goes through the same F at the unchanged factual state; both critics score the exact same executed actions. Aliases afterF stay explicit.",
+  "fixed_bank_semantics": "First factual issue per line in each of4 fixed reference windows, states only and original clock preserved. Repeated bank evaluations do not enter training or action selection; metadata distinguishes started_at from canonical clock."
+}

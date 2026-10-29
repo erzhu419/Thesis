@@ -1,0 +1,673 @@
+{
+  "observed_at_utc": "2026-10-23T02:33:30.923894+00:00",
+  "v23": {
+    "status": "complete",
+    "integrity": {
+      "all_pass": true,
+      "checks": {
+        "initializer_50000": true,
+        "history_source_budget": true,
+        "target_horizon_unchanged": true,
+        "physical_source_fixed": true,
+        "original_trust_rule": true,
+        "readouts_admitted_pairs_only": true,
+        "no_heldout_fit": true,
+        "service_models_admitted_pairs_only": true,
+        "service_gate_candidate_not_fitted": true,
+        "actor_real_clock": true,
+        "target_budget_exact": true,
+        "policy_update_budget": true,
+        "native_horizon": true,
+        "post_budget_zero_training": true,
+        "main_trace_complete": true,
+        "training_children_integrity": true,
+        "factual_pair_rows_not_selected": true,
+        "parallel_pair_execution": true
+      }
+    },
+    "budget": {
+      "target_labels": 285,
+      "packets": 57,
+      "ordinary_labels": 267,
+      "paired_action_labels": 18,
+      "training_pairs": 9,
+      "pairs_by_line": {
+        "7X": 3,
+        "102X": 3,
+        "705X": 3
+      },
+      "zero_global_admitted": 10,
+      "pending_pairs": 0,
+      "pending_pair_ids": [],
+      "reserved_pairs": 9,
+      "paired_outcomes_per_pair": 2,
+      "semantics": "Two branch action outcomes replace two ordinary labels in the same five-slot packet; factual source outcomes never add a third label.",
+      "native_seconds": 24000.0,
+      "policy_updates": 456,
+      "trust_updates": 456,
+      "world_updates": 1140,
+      "training_stopped_at": 18000.0
+    },
+    "wall_seconds": 10433.187860012054,
+    "training_branch_budget": {
+      "prefix_sim_seconds": 164254.0,
+      "suffix_sim_seconds": 5400,
+      "replay_target_labels": 2430,
+      "replay_policy_updates": 3888
+    },
+    "sampling_summary": {
+      "all_pass": true,
+      "checks": {
+        "exactly_nine_cells": true,
+        "selected_once": true,
+        "selected_only_planned": true,
+        "all_planned_cells_selected": true,
+        "three_pairs_per_line": true
+      },
+      "selected": [
+        {
+          "id": "train/7X/bootstrap",
+          "line_id": "7X",
+          "window_name": "bootstrap",
+          "issued_at": 1559.0,
+          "selection_reason": "bootstrap_first_eligible",
+          "stratum": {
+            "headway_sign": 1,
+            "third_residual_bin": "above_hold",
+            "third_residual_seconds": 33.12170914425894,
+            "history_spread_seconds": 37.742604992777615,
+            "history_signs": [
+              -1,
+              1,
+              1
+            ]
+          },
+          "target_met": true,
+          "fallback": false
+        },
+        {
+          "id": "train/7X/response",
+          "line_id": "7X",
+          "window_name": "response",
+          "issued_at": 3815.0,
+          "selection_reason": "first_unseen_joint_stratum",
+          "stratum": {
+            "headway_sign": 1,
+            "third_residual_bin": "within_hold",
+            "third_residual_seconds": 0.12170914425905721,
+            "history_spread_seconds": 11.931006168606928,
+            "history_signs": [
+              -1,
+              1,
+              1
+            ]
+          },
+          "target_met": true,
+          "fallback": false
+        },
+        {
+          "id": "train/102X/bootstrap",
+          "line_id": "102X",
+          "window_name": "bootstrap",
+          "issued_at": 4195.0,
+          "selection_reason": "bootstrap_first_eligible",
+          "stratum": {
+            "headway_sign": 1,
+            "third_residual_bin": "above_hold",
+            "third_residual_seconds": 14.121709144259057,
+            "history_spread_seconds": 18.742604992777615,
+            "history_signs": [
+              -1,
+              1,
+              1
+            ]
+          },
+          "target_met": true,
+          "fallback": false
+        },
+        {
+          "id": "train/705X/bootstrap",
+          "line_id": "705X",
+          "window_name": "bootstrap",
+          "issued_at": 4544.0,
+          "selection_reason": "bootstrap_first_eligible",
+          "stratum": {
+            "headway_sign": 1,
+            "third_residual_bin": "within_hold",
+            "third_residual_seconds": -0.8782908557409428,
+            "history_spread_seconds": 12.931006168606928,
+            "history_signs": [
+              -1,
+              1,
+              -1
+            ]
+          },
+          "target_met": true,
+          "fallback": false
+        },
+        {
+          "id": "train/102X/response",
+          "line_id": "102X",
+          "window_name": "response",
+          "issued_at": 7964.0,
+          "selection_reason": "first_unseen_joint_stratum",
+          "stratum": {
+            "headway_sign": 1,
+            "third_residual_bin": "within_hold",
+            "third_residual_seconds": -1.7132203173168818,
+            "history_spread_seconds": 12.74680783700478,
+            "history_signs": [
+              -1,
+              1,
+              -1
+            ]
+          },
+          "target_met": true,
+          "fallback": false
+        },
+        {
+          "id": "train/705X/response",
+          "line_id": "705X",
+          "window_name": "response",
+          "issued_at": 10327.0,
+          "selection_reason": "last_third_first_eligible_fallback",
+          "stratum": {
+            "headway_sign": 1,
+            "third_residual_bin": "within_hold",
+            "third_residual_seconds": -2.372503526912624,
+            "history_spread_seconds": 13.062631629343741,
+            "history_signs": [
+              -1,
+              1,
+              -1
+            ]
+          },
+          "target_met": false,
+          "fallback": true
+        },
+        {
+          "id": "train/7X/late",
+          "line_id": "7X",
+          "window_name": "late",
+          "issued_at": 16243.0,
+          "selection_reason": "first_unseen_joint_stratum",
+          "stratum": {
+            "headway_sign": 1,
+            "third_residual_bin": "below_minus_hold",
+            "third_residual_seconds": -10.84658528707405,
+            "history_spread_seconds": 17.82065858560418,
+            "history_signs": [
+              -1,
+              1,
+              -1
+            ]
+          },
+          "target_met": true,
+          "fallback": false
+        },
+        {
+          "id": "train/102X/late",
+          "line_id": "102X",
+          "window_name": "late",
+          "issued_at": 16248.0,
+          "selection_reason": "first_unseen_joint_stratum",
+          "stratum": {
+            "headway_sign": 1,
+            "third_residual_bin": "below_minus_hold",
+            "third_residual_seconds": -10.84658528707405,
+            "history_spread_seconds": 17.82065858560418,
+            "history_signs": [
+              -1,
+              1,
+              -1
+            ]
+          },
+          "target_met": true,
+          "fallback": false
+        },
+        {
+          "id": "train/705X/late",
+          "line_id": "705X",
+          "window_name": "late",
+          "issued_at": 17232.0,
+          "selection_reason": "last_third_first_eligible_fallback",
+          "stratum": {
+            "headway_sign": 1,
+            "third_residual_bin": "within_hold",
+            "third_residual_seconds": 7.153414712931408,
+            "history_spread_seconds": 12.360541434976767,
+            "history_signs": [
+              -1,
+              1,
+              1
+            ]
+          },
+          "target_met": false,
+          "fallback": true
+        }
+      ],
+      "by_line": {
+        "7X": {
+          "selected_pairs": 3,
+          "unique_joint_strata": [
+            {
+              "headway_sign": 1,
+              "third_residual_bin": "above_hold"
+            },
+            {
+              "headway_sign": 1,
+              "third_residual_bin": "below_minus_hold"
+            },
+            {
+              "headway_sign": 1,
+              "third_residual_bin": "within_hold"
+            }
+          ],
+          "unique_joint_strata_count": 3,
+          "headway_signs": [
+            1
+          ],
+          "target_met_by_window": {
+            "bootstrap": true,
+            "response": true,
+            "late": true
+          }
+        },
+        "102X": {
+          "selected_pairs": 3,
+          "unique_joint_strata": [
+            {
+              "headway_sign": 1,
+              "third_residual_bin": "above_hold"
+            },
+            {
+              "headway_sign": 1,
+              "third_residual_bin": "below_minus_hold"
+            },
+            {
+              "headway_sign": 1,
+              "third_residual_bin": "within_hold"
+            }
+          ],
+          "unique_joint_strata_count": 3,
+          "headway_signs": [
+            1
+          ],
+          "target_met_by_window": {
+            "bootstrap": true,
+            "response": true,
+            "late": true
+          }
+        },
+        "705X": {
+          "selected_pairs": 3,
+          "unique_joint_strata": [
+            {
+              "headway_sign": 1,
+              "third_residual_bin": "within_hold"
+            }
+          ],
+          "unique_joint_strata_count": 1,
+          "headway_signs": [
+            1
+          ],
+          "target_met_by_window": {
+            "bootstrap": true,
+            "response": false,
+            "late": false
+          }
+        }
+      },
+      "missing_ids": [],
+      "eligible_issues": {
+        "train/7X/bootstrap": 1,
+        "train/7X/response": 2,
+        "train/7X/late": 4,
+        "train/102X/bootstrap": 1,
+        "train/102X/response": 2,
+        "train/102X/late": 2,
+        "train/705X/bootstrap": 1,
+        "train/705X/response": 3,
+        "train/705X/late": 4
+      },
+      "waited_for_novel_stratum": {
+        "train/7X/bootstrap": 0,
+        "train/7X/response": 1,
+        "train/7X/late": 3,
+        "train/102X/bootstrap": 0,
+        "train/102X/response": 1,
+        "train/102X/late": 1,
+        "train/705X/bootstrap": 0,
+        "train/705X/response": 2,
+        "train/705X/late": 3
+      },
+      "history_unsupported_issues": {
+        "train/7X/bootstrap": 0,
+        "train/7X/response": 0,
+        "train/7X/late": 0,
+        "train/102X/bootstrap": 0,
+        "train/102X/response": 0,
+        "train/102X/late": 0,
+        "train/705X/bootstrap": 0,
+        "train/705X/response": 0,
+        "train/705X/late": 0
+      },
+      "stratum_definition": {
+        "headway": "sign of unchanged issue_features[3]",
+        "third_history": "third inbound completed-runtime residual",
+        "third_history_bins": {
+          "below_minus_hold": "residual < -7.5 seconds",
+          "within_hold": "-7.5 <= residual <= 7.5 seconds",
+          "above_hold": "residual > 7.5 seconds"
+        },
+        "fallback": "first eligible issue in last third, never retrospective"
+      },
+      "semantics": "Selection uses only strict pre-issue history and issue covariates. Truth, prediction error, reversal labels and old heldouts are not inputs. Structural all_pass is separate from two-strata-per-line scientific coverage."
+    },
+    "training_branch_count": 18,
+    "heldout_anchor_count": 6
+  },
+  "v23_training_gate": {
+    "status": "complete",
+    "stage": "train",
+    "priority": "high",
+    "integrity": {
+      "all_pass": true,
+      "check_count": 49,
+      "failed_checks": []
+    },
+    "scientific_gate": {
+      "passed": false,
+      "checks": {
+        "native_integrity": true,
+        "nine_budgeted_pairs": true,
+        "three_pairs_each_line": true,
+        "all_selected_admitted": true,
+        "issue_state_diversity": false,
+        "supported_two_states_each_line": true,
+        "scored_reversal_state": true
+      },
+      "rule": "Training coverage and scoreable response support only; no model selection or truth-directed resampling."
+    },
+    "training_gate": {
+      "passed": false,
+      "checks": {
+        "native_integrity": true,
+        "nine_budgeted_pairs": true,
+        "three_pairs_each_line": true,
+        "all_selected_admitted": true,
+        "issue_state_diversity": false,
+        "supported_two_states_each_line": true,
+        "scored_reversal_state": true
+      },
+      "rule": "Training coverage and scoreable response support only; no model selection or truth-directed resampling."
+    },
+    "service_validation_eligible": false,
+    "parallel": {
+      "all_pass": true,
+      "check_count": 10,
+      "failed_checks": [],
+      "pairs": [
+        {
+          "id": "train/7X/bootstrap",
+          "passed": true,
+          "overlap_seconds": 27.6829833984375
+        },
+        {
+          "id": "train/7X/response",
+          "passed": true,
+          "overlap_seconds": 278.5441427230835
+        },
+        {
+          "id": "train/102X/bootstrap",
+          "passed": true,
+          "overlap_seconds": 230.38839673995972
+        },
+        {
+          "id": "train/705X/bootstrap",
+          "passed": true,
+          "overlap_seconds": 224.62276911735535
+        },
+        {
+          "id": "train/102X/response",
+          "passed": true,
+          "overlap_seconds": 951.2338440418243
+        },
+        {
+          "id": "train/705X/response",
+          "passed": true,
+          "overlap_seconds": 896.8805115222931
+        },
+        {
+          "id": "train/7X/late",
+          "passed": true,
+          "overlap_seconds": 1446.9396305084229
+        },
+        {
+          "id": "train/102X/late",
+          "passed": true,
+          "overlap_seconds": 1527.4308302402496
+        },
+        {
+          "id": "train/705X/late",
+          "passed": true,
+          "overlap_seconds": 1384.5683288574219
+        }
+      ]
+    },
+    "prediction_replay": {
+      "max_absolute_error": 0.0,
+      "finite_values": 72,
+      "unsupported_values": 36
+    },
+    "macro": {
+      "shared": {
+        "states": 6,
+        "mae_seconds": 2.092500686173629,
+        "sign_correct": 34,
+        "negative_truth_endpoints": 2,
+        "negative_hits": 0,
+        "zero_truth_endpoints": 0
+      },
+      "history": {
+        "states": 6,
+        "mae_seconds": 2.0885816528158307,
+        "sign_correct": 34,
+        "negative_truth_endpoints": 2,
+        "negative_hits": 0,
+        "zero_truth_endpoints": 0
+      }
+    },
+    "by_line": {
+      "7X": {
+        "shared": {
+          "states": 2,
+          "mae_seconds": 3.2825844414064074,
+          "sign_correct": 10,
+          "negative_truth_endpoints": 2,
+          "negative_hits": 0,
+          "zero_truth_endpoints": 0
+        },
+        "history": {
+          "states": 2,
+          "mae_seconds": 3.28105341958449,
+          "sign_correct": 10,
+          "negative_truth_endpoints": 2,
+          "negative_hits": 0,
+          "zero_truth_endpoints": 0
+        }
+      },
+      "102X": {
+        "shared": {
+          "states": 2,
+          "mae_seconds": 1.1712114858237288,
+          "sign_correct": 12,
+          "negative_truth_endpoints": 0,
+          "negative_hits": null,
+          "zero_truth_endpoints": 0
+        },
+        "history": {
+          "states": 2,
+          "mae_seconds": 1.1610407748455154,
+          "sign_correct": 12,
+          "negative_truth_endpoints": 0,
+          "negative_hits": null,
+          "zero_truth_endpoints": 0
+        }
+      },
+      "705X": {
+        "shared": {
+          "states": 2,
+          "mae_seconds": 1.8237061312907503,
+          "sign_correct": 12,
+          "negative_truth_endpoints": 0,
+          "negative_hits": null,
+          "zero_truth_endpoints": 0
+        },
+        "history": {
+          "states": 2,
+          "mae_seconds": 1.8236507640174873,
+          "sign_correct": 12,
+          "negative_truth_endpoints": 0,
+          "negative_hits": null,
+          "zero_truth_endpoints": 0
+        }
+      }
+    },
+    "coverage": {
+      "training_states": 9,
+      "admitted_states": 9,
+      "scored_states": 6,
+      "missing_selected_ids": [],
+      "unadmitted_ids": [],
+      "cold_start_or_unsupported": [
+        "train/7X/bootstrap",
+        "train/102X/bootstrap",
+        "train/705X/bootstrap"
+      ],
+      "scored_reversal_states": [
+        "train/7X/response"
+      ],
+      "scored_reversal_endpoints": 2,
+      "unscored_reversal_endpoints": 0,
+      "missing_truth_endpoints": 0,
+      "extrapolated_scored_states": 6
+    },
+    "missing": {},
+    "global_next_duration": {
+      "positive": 4,
+      "both_zero": 5
+    },
+    "budget": {
+      "main_native_seconds": 24000.0,
+      "training_labels": 285,
+      "training_pairs": 9,
+      "paired_labels": 18,
+      "ordinary_labels": 267,
+      "zero_global_admitted": 10,
+      "training_branches": 18,
+      "prefix_sim_seconds": 164254.0,
+      "suffix_sim_seconds": 5400,
+      "replay_target_labels": 2430,
+      "replay_policy_updates": 3888,
+      "heldout_truth_fitted": 0,
+      "v20_truth_fitted": 0
+    },
+    "decision": {
+      "service_validation_eligible": false,
+      "stage_b": "closed",
+      "independent_confirmation": "not_submitted"
+    },
+    "scope": "This new day training rows only, in original admission order. No old heldout read or fit. Cold-start truth cannot establish scoreable reversal coverage. Correlated endpoints are summarized within states."
+  },
+  "v23_service_gate": {
+    "status": "not_yet_present"
+  },
+  "retry_native": {
+    "status": "not_yet_present"
+  },
+  "retry_day_equivalence": {
+    "status": "not_yet_present"
+  },
+  "retry_day_output_present": false,
+  "latest_acceleration_status": {
+    "observed_at_utc": "2026-10-23T02:44:48.301226+00:00",
+    "native_stream_probe.json": {
+      "status": "complete",
+      "all_pass": true,
+      "checks": {
+        "both_child_initial_states_equal_parent": true,
+        "parent_native_and_rng_unchanged_while_children_run": true,
+        "both_children_same_first_suffix": true,
+        "low_matches_parent_continuation": true,
+        "high_matches_parent_continuation": true,
+        "child_clocks_advance_independently": true,
+        "native_rng_advanced": true,
+        "cpu_actor_after_fork_exact": true,
+        "parent_cpu_actor_unchanged": true,
+        "native_execution_overlaps": true,
+        "route_streams_observed": true,
+        "parent_route_offsets_unchanged": true
+      },
+      "scope": "native_fork_only_not_full_bus_replay",
+      "native_version": [
+        22,
+        "SUMO 1.25.0"
+      ],
+      "torch_version": "2.5.1+cu121",
+      "cpu_threads": 1,
+      "seed": 96201,
+      "prefix_ticks": 1000,
+      "suffix_ticks": 3000,
+      "parent_before_seconds": 1000.0,
+      "parent_after_children_seconds": 1000.0,
+      "child_final_seconds": [
+        4000.0,
+        7000.0
+      ],
+      "vehicle_counts": [
+        447,
+        3612
+      ],
+      "prefix_wall_seconds": 11.569742030464113,
+      "child_wait_wall_seconds": 432.9395719980821,
+      "child_overlap_seconds": 139.29794747103006,
+      "child_exitcodes": {
+        "459863": 0,
+        "459864": 0
+      },
+      "rng_blocks_compared": 65,
+      "route_streams": {
+        "count": 5,
+        "parent_offsets_before": {
+          "3": 1048576,
+          "4": 1048576,
+          "5": 1048576,
+          "6": 1048576,
+          "7": 326440
+        },
+        "parent_offsets_after": {
+          "3": 1048576,
+          "4": 1048576,
+          "5": 1048576,
+          "6": 1048576,
+          "7": 326440
+        },
+        "parent_offsets_unchanged": true
+      },
+      "limitations": [
+        "Current platform/build feasibility only; full Python bus state and model replay remain untested.",
+        "Official support is not asserted for forking a running libsumo instance."
+      ]
+    },
+    "day_equivalence_gate.json": {
+      "status": "not_yet_present"
+    },
+    "benchmark_day/failure.json": {
+      "status": "not_yet_present"
+    },
+    "benchmark_day/gate.json": {
+      "status": "not_yet_present"
+    }
+  }
+}

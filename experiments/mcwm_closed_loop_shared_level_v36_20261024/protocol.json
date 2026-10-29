@@ -1,0 +1,76 @@
+{
+  "name": "thesis-mcwm-shared-level-v36-20261024",
+  "training_seeds": [
+    6202
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "arms": [
+    "zero_memory",
+    "per_head_level",
+    "shared_level"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "target_record_budget": 285,
+  "policy_update_budget": 456,
+  "policy_updates_per_packet": 8,
+  "original_runs": {
+    "stable": "experiments/mcwm_closed_loop_critic_memory_v32_20261023/runs/seed6202/stable",
+    "local_speed_drop": "experiments/mcwm_closed_loop_critic_memory_v32_20261023/runs/seed6202/local_speed_drop"
+  },
+  "memory_dim": 84,
+  "memory_window_seconds": 300,
+  "window_edges": [
+    9000,
+    12000,
+    18000
+  ],
+  "focus_lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "fixed_proposal_hold_seconds": [
+    0.0,
+    7.5,
+    15.0
+  ],
+  "diagnostic_seed": 336202,
+  "summary_max_bytes": 20000,
+  "feedback_first_deadline": 1200,
+  "feedback_last_deadline": 18000,
+  "feedback_interval_seconds": 300,
+  "feedback_records_per_packet": 5,
+  "feedback_delay_seconds": 30,
+  "history_rows": 32768,
+  "source_rows": 4096,
+  "gate": "Native full/subset/features and action-gradient zero-init parity first. Original two arms reproduce v33 packet metrics, all8 sampling/RNG draws and final14 saved predictions. Shared arm same full draw/RNG schedule, only metrics may differ.",
+  "learning": "Only level becomes shared across heads (1x84); action weights remain2x84. All arms start same50000 initializer then same285 facts/57x8. Retain parameters/Adam/target acrosspackets; shared/perhead use same v33 explicit context training routes.",
+  "critic": "Q_h=B_h(s,a)+L(m)+z(a)A_h(m) forshared; original per_head_level L_h(m) and nativezero comparator. Both memory residuals zero-init without RNG draws.",
+  "evaluation": "Old5row packets and cumulative admittedbank scored using v33 probes with RNG restore. Old12 issue states only loaded after all456updates and freeze; common saved actualactions scored directly. No truth read by workers; finalizer joins existing300truth fordevelopment direction/regret, no new control day.",
+  "state_rights": "Train only original285 current/next contexts; no tailbackfill. Load old12 saved issue states/actions only after456updates and freeze; truth joined only by finalizer, never by worker.",
+  "concurrency": "Each scenario reserves3CPU and launches3 independent workers atonce. Require distinctPIDs and positive three-way training overlap; cross-arm8draws/global-privateRNG match.",
+  "compute_budget": {
+    "scenarios": 2,
+    "arms_per_scenario": 3,
+    "feedback_slots_per_arm": 285,
+    "updates_per_arm": 456,
+    "new_shadow_optimizer_updates_total": 2736,
+    "new_target_labels": 0,
+    "new_source_labels": 0,
+    "new_native_days": 0,
+    "new_native_suffixes": 0,
+    "native_seconds": 0,
+    "shadow_recorded_horizon_seconds": 24000
+  },
+  "scheduler_priority": "high",
+  "stages": {
+    "days": "BothscenarioCPU3 high tasks;3concurrent retained workers, same285/456; oldtwo exactreference and all3 RNG/sampling parity.",
+    "finalize": "Resident matched factual-score/old12 issue direction-regret-development comparison; export<=20000bytes, full logs and checkpoints stay server."
+  },
+  "v33_directory": "mcwm_closed_loop_critic_shadow_v33_20261024",
+  "v34_directory": "mcwm_closed_loop_memory_truth_v34_20261024"
+}

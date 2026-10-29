@@ -1,0 +1,54 @@
+{
+  "name": "mcwm_closed_loop_service_consequence_v101_20261028",
+  "sources": [
+    {
+      "version": "mcwm_closed_loop_collection_domain_v97_20261028",
+      "cohort": "T",
+      "seeds": [
+        309177151,
+        1476154684
+      ]
+    },
+    {
+      "version": "mcwm_closed_loop_confidence_calibration_v99_20261028",
+      "cohort": "C",
+      "seeds": [
+        178102402,
+        1119764361,
+        1386094634,
+        536907412
+      ]
+    }
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "expected_pairs": 36,
+  "expected_suffixes": 72,
+  "denominator": 15079,
+  "relative_cuts": [
+    300,
+    900,
+    1800,
+    3600
+  ],
+  "absolute_cuts": [
+    18300,
+    20100,
+    24000
+  ],
+  "clock_matching": "first exact shared observed timestamp at or after requested cut, max60seconds; terminal exact24000",
+  "max_offset_seconds": 60,
+  "comparison": "candidate7.5seconds minus frozen reference3to3.75seconds; no deployment",
+  "new_native_seconds": 0,
+  "new_fits": 0,
+  "optimizer_updates": 0,
+  "V_kept_sealed": true,
+  "max_summary_bytes": 131072
+}

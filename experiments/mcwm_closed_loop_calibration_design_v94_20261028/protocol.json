@@ -1,0 +1,76 @@
+{
+  "name": "mcwm_closed_loop_calibration_design_v94_20261028",
+  "version": 94,
+  "priority": "high",
+  "scope": "Frozen mathematical calibration design and exposed-training feasibility readout only",
+  "source_model": "experiments/mcwm_closed_loop_history_fit_v93_20261028/model.json",
+  "primary_model": "service_history6",
+  "comparators": [
+    "line3",
+    "service5",
+    "original_reference"
+  ],
+  "frozen": [
+    "v93 coefficients and line centers",
+    "ridge1",
+    "original action domain and F",
+    "issue-visible context and strict historical q",
+    "first eligible opportunity per line12000-12600",
+    "one intervention then matching scene-specific reference",
+    "24000 endpoint and24030 label maturity",
+    "trust"
+  ],
+  "candidate": {
+    "unit": "One predeclared external-seed block: both scenes, all three first-line opportunities per scene",
+    "active": "Issue-locked common support and finite negative prediction; support and prediction saved before suffix outcomes",
+    "score": "R[k,b]=max(0,max_active(D[b,j]-prediction[k,b,j]))",
+    "D": "[2*(Wcandidate-Wreference)+(Rcandidate-Rreference)]/15079, issue to real24000 under matching frozen reference continuation",
+    "empty_negative_set": "score0 only; do not fabricate any outcome label",
+    "missing_active_label": "score+infinity; never drop a seed, replace its root or tune the margin",
+    "physical_noop": "Retain actual D and report separately. If the original physical contract fails, stop the block instead of deleting the point",
+    "fixed_proposed_n": 4,
+    "fixed_proposed_alpha": 0.2,
+    "order_statistic": "k=ceil((n+1)*(1-alpha)); margin=sorted_scores[k-1] if k<=n else+infinity",
+    "accept": "prediction+margin<0 at first accepted locked opportunity in each scene, then permanently reference",
+    "calibration_query_union": "Query every issue-locked negative opportunity of any fixed comparator, once per physical root, not only each model first negative",
+    "model_comparison": "Calibrate each model separately; primary q6 fixed. No simultaneous three-model claim and no choosing a model from calibration outcomes",
+    "outcome_selection": "No support, root, seed, label or endpoint selection by future benefit",
+    "claim": "Nominal at-least80% marginal external-seed-block upper coverage under exchangeability; this is neither accepted-action conditional safety nor expected cost improvement",
+    "seed_sampling": "Any future collection must draw seeds independently of outcomes from a frozen sampling law also used by validation. Predeclared arithmetic seeds alone do not establish exchangeability",
+    "all_reference": "No demonstrated fresh benefit; fails the intervention feasibility requirement"
+  },
+  "proposed_budget_only": {
+    "status": "NOT_SUBMITTED; reject current global additive candidate after exposed-training feasibility readout",
+    "covariate_only_first_seed_preflight_seconds": 25200,
+    "four_seed_formal_prefixes": 8,
+    "maximum_pairs": 24,
+    "maximum_suffixes": 48,
+    "maximum_physical_labels": 48,
+    "formal_native_seconds": 676800,
+    "preflight_plus_formal_native_seconds": 702000,
+    "preflight_prefixes_are_replayed_if_formal_collection_begins": true,
+    "no_implicit_seed_expansion": true,
+    "final_validation_and_initialization_budget_included": false
+  },
+  "actual_budget": {
+    "new_native_seconds": 0,
+    "new_branches": 0,
+    "new_labels": 0,
+    "model_solves": 0,
+    "initializer_updates": 0,
+    "optimizer_updates": 0,
+    "world_updates": 0,
+    "trust_updates": 0,
+    "v87_truth_used": 0,
+    "reserved816207_used": 0,
+    "remote_bytes_pulled": 0
+  },
+  "stop": "Do not run the proposed calibration, preflight or reserved validation. No post-hoc grouping, alpha/ridge/feature/threshold tuning to revive this candidate. Preserve v93 and previous gates.",
+  "sources": [
+    {
+      "title": "Angelopoulos and Bates, A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification",
+      "url": "https://arxiv.org/abs/2107.07511",
+      "supports": "Finite-sample split-conformal order statistic and marginal, not conditional, coverage. Seed-block max score is the explicit project adaptation."
+    }
+  ]
+}

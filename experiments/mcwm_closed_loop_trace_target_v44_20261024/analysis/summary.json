@@ -1,0 +1,2634 @@
+{
+  "status": "complete",
+  "priority": "high",
+  "cases": {
+    "stable": {
+      "status": "complete",
+      "scenario": "stable",
+      "priority": "high",
+      "integrity": {
+        "all_pass": true,
+        "checks": {
+          "resident_probe": true,
+          "actual_post24_lambda0_exact": true,
+          "actual_post24_all285_native_exact": true,
+          "actual_post24_six_chains_per_seed": true,
+          "actual_post24_all_real45": true,
+          "actual_post24_decomposition_closure": true,
+          "post456_lambda0_exact": true,
+          "post456_all285_native_exact": true,
+          "post456_six_chains_per_seed": true,
+          "post456_all_real45": true,
+          "post456_decomposition_closure": true
+        }
+      },
+      "source_budget": {
+        "initializer_updates": 50000,
+        "feedback_slots": 285,
+        "ordinary_slots": 15,
+        "response_slots": 270,
+        "updates": 456,
+        "warmup_updates": 24,
+        "response_updates": 432,
+        "horizon_seconds": 24000,
+        "original_run_complete": true
+      },
+      "source_contract": {
+        "scenario": "stable",
+        "initialization_seed": 6202,
+        "native_external_seed": 106243,
+        "F": "unchanged_original_execution_transform",
+        "world_or_trust_changed": false,
+        "response_release_clock": 9630.0,
+        "roots": 3,
+        "chains": 6,
+        "events_per_chain": 45,
+        "native_training_target_draws_replayed": false,
+        "target_contract": "frozen native one-row CRN exact parity, not original SGD target sampling",
+        "label_truth_added": false,
+        "native_suffixes_added": 0
+      },
+      "checkpoints": {
+        "actual_post24": {
+          "proof": {
+            "all_pass": true,
+            "checks": {
+              "frozen_parameters_and_versions": true,
+              "updates": true,
+              "feedback": true,
+              "online_updates": true,
+              "optimizer_steps": true,
+              "optimizer_objects": true,
+              "global_rng": true,
+              "private_rng": true
+            },
+            "new_updates": 0,
+            "new_feedback": 0,
+            "replay_parity": {
+              "all_pass": true,
+              "admitted_rows": 15,
+              "values_exact": true,
+              "causal_contexts_exact": true,
+              "replay_modified": false
+            },
+            "actual_executed_ratio_replay_exact": true,
+            "pair_root_state_and_memory_exact": true,
+            "all_real_chain_links_causal": true,
+            "paired_CRN_target_head_subsets_exact": true,
+            "optimizer_tensor_versions_unchanged": true,
+            "locally_loaded_copy_frozen": true
+          },
+          "all285_lambda0": {
+            "all_pass": true,
+            "rows": 285,
+            "ordinary_rows": 15,
+            "response_rows": 270,
+            "diagnostic_seed": 336202,
+            "native_target_exact": true,
+            "float32_reward_bootstrap_assembly_exact": true,
+            "all285_lambda_zero_trace_exact": true,
+            "current_snapshot_admitted_rows": 15,
+            "future_rows_scored_without_admission": 270,
+            "original_SGD_sampling_reproduced": false
+          },
+          "pairs": [
+            {
+              "line_id": "102X",
+              "primary": {
+                "native_difference": 0.0,
+                "trace_difference": 0.051897049,
+                "correction_difference": 0.051897049,
+                "components": {
+                  "reward": -0.000395697761,
+                  "bootstrap": 0.0517700584,
+                  "minus_matching_target_q": 0.000524832202,
+                  "native_rounding": -5.34630391e-07,
+                  "recurrence_rounding": -1.60924646e-06
+                },
+                "bootstrap_split": {
+                  "value": 0.00104436523,
+                  "sac": 0.0507252671,
+                  "assembly_rounding": 4.26073173e-07
+                },
+                "bootstrap_minus_matching_Q": 0.0522948906,
+                "reconstruction_residual": -1.09356968e-14,
+                "reward_value_vs_weight": {
+                  "common_weight_value_difference": -0.000395697761,
+                  "common_value_weight_difference": 0.0
+                },
+                "terminal_bootstrap_difference": 0.00456060662,
+                "terminal_bootstrap_coefficient": [
+                  0.00969772599,
+                  0.00969772599
+                ],
+                "root_levels": [
+                  -25.8620262,
+                  -25.8101292
+                ],
+                "root_corrections": [
+                  2.79134369,
+                  2.84324074
+                ]
+              },
+              "replicates": [
+                [
+                  336202,
+                  0.0,
+                  0.051897049,
+                  0.051897049,
+                  -0.000395697761,
+                  0.0517700584,
+                  0.000524832202,
+                  0.00456060662,
+                  -0.000395697761,
+                  0.0
+                ],
+                [
+                  336203,
+                  0.0,
+                  0.0759983063,
+                  0.0759983063,
+                  -0.000395697761,
+                  0.0758694661,
+                  0.000524832202,
+                  0.00348328908,
+                  -0.000395697761,
+                  0.0
+                ],
+                [
+                  336204,
+                  0.0,
+                  0.0464420319,
+                  0.0464420319,
+                  -0.000395697761,
+                  0.0463140607,
+                  0.000524832202,
+                  0.00440364154,
+                  -0.000395697761,
+                  0.0
+                ]
+              ],
+              "trace_direction_consistent_across_seeds": true,
+              "trace_difference_range": [
+                0.0464420319,
+                0.0759983063
+              ],
+              "native_difference_range": [
+                0.0,
+                0.0
+              ],
+              "roots": [
+                {
+                  "native_target": -28.6533699,
+                  "trace_target": -25.8620262,
+                  "correction": 2.79134369
+                },
+                {
+                  "native_target": -28.6533699,
+                  "trace_target": -25.8101292,
+                  "correction": 2.84324074
+                }
+              ],
+              "elapsed_seconds": [
+                48.0,
+                49.0
+              ],
+              "zero_duration_events": [
+                13,
+                13
+              ],
+              "terminal_bootstrap": [
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 0.00969772599,
+                  "native_target": -27.7940712,
+                  "raw_reward": -0.0,
+                  "raw_bootstrap": -27.7940712,
+                  "weighted_native_target": -0.269539287,
+                  "weighted_reward": -0.0,
+                  "weighted_bootstrap": -0.269539287,
+                  "weighted_minus_incoming_matching_q": 0.273181169,
+                  "weighted_native_minus_incoming_matching_q": 0.00364188188,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                },
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 0.00969772599,
+                  "native_target": -27.6579952,
+                  "raw_reward": -0.334199995,
+                  "raw_bootstrap": -27.3237953,
+                  "weighted_native_target": -0.268219659,
+                  "weighted_reward": -0.00324097998,
+                  "weighted_bootstrap": -0.26497868,
+                  "weighted_minus_incoming_matching_q": 0.275527802,
+                  "weighted_native_minus_incoming_matching_q": 0.00730814274,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                }
+              ],
+              "all_full_chain_supported": true,
+              "missing_links": [],
+              "max_reconstruction_residual": 3.19744231e-14,
+              "prefix_attribution": [
+                [
+                  8,
+                  20.0,
+                  20.0,
+                  0.430467119,
+                  0.430467119,
+                  4.30281972e-05,
+                  -0.000121671961
+                ],
+                [
+                  16,
+                  31.0,
+                  31.0,
+                  0.18530194,
+                  0.18530194,
+                  0.0126298476,
+                  0.0142862496
+                ],
+                [
+                  24,
+                  34.0,
+                  35.0,
+                  0.0797663924,
+                  0.0797663924,
+                  -0.00888666384,
+                  0.036548385
+                ],
+                [
+                  32,
+                  40.0,
+                  39.0,
+                  0.0343368091,
+                  0.0343368091,
+                  0.00538118554,
+                  0.0522177976
+                ],
+                [
+                  44,
+                  48.0,
+                  49.0,
+                  0.00969772599,
+                  0.00969772599,
+                  -0.000395697761,
+                  0.0522948906
+                ]
+              ]
+            },
+            {
+              "line_id": "705X",
+              "primary": {
+                "native_difference": 0.0,
+                "trace_difference": -0.000421524048,
+                "correction_difference": -0.000421524048,
+                "components": {
+                  "reward": 0.0175674712,
+                  "bootstrap": -0.0891107004,
+                  "minus_matching_target_q": 0.071119759,
+                  "native_rounding": -1.84745295e-07,
+                  "recurrence_rounding": 2.13083287e-06
+                },
+                "bootstrap_split": {
+                  "value": 0.032349621,
+                  "sac": -0.121460034,
+                  "assembly_rounding": -2.87291196e-07
+                },
+                "bootstrap_minus_matching_Q": -0.0179909413,
+                "reconstruction_residual": -1.16539807e-14,
+                "reward_value_vs_weight": {
+                  "common_weight_value_difference": 0.0175674712,
+                  "common_value_weight_difference": 0.0
+                },
+                "terminal_bootstrap_difference": -0.000142352484,
+                "terminal_bootstrap_coefficient": [
+                  0.00969772599,
+                  0.00969772599
+                ],
+                "root_levels": [
+                  -25.3907871,
+                  -25.3912086
+                ],
+                "root_corrections": [
+                  3.6877346,
+                  3.68731308
+                ]
+              },
+              "replicates": [
+                [
+                  336202,
+                  0.0,
+                  -0.000421524048,
+                  -0.000421524048,
+                  0.0175674712,
+                  -0.0891107004,
+                  0.071119759,
+                  -0.000142352484,
+                  0.0175674712,
+                  0.0
+                ],
+                [
+                  336203,
+                  0.0,
+                  -0.0076675415,
+                  -0.0076675415,
+                  0.0175674712,
+                  -0.0963543895,
+                  0.071119759,
+                  -0.00014274092,
+                  0.0175674712,
+                  0.0
+                ],
+                [
+                  336204,
+                  0.0,
+                  0.00142860413,
+                  0.00142860413,
+                  0.0175674712,
+                  -0.0872568849,
+                  0.071119759,
+                  -0.000142352484,
+                  0.0175674712,
+                  0.0
+                ]
+              ],
+              "trace_direction_consistent_across_seeds": false,
+              "trace_difference_range": [
+                -0.0076675415,
+                0.00142860413
+              ],
+              "native_difference_range": [
+                0.0,
+                0.0
+              ],
+              "roots": [
+                {
+                  "native_target": -29.0785217,
+                  "trace_target": -25.3907871,
+                  "correction": 3.6877346
+                },
+                {
+                  "native_target": -29.0785217,
+                  "trace_target": -25.3912086,
+                  "correction": 3.68731308
+                }
+              ],
+              "elapsed_seconds": [
+                51.0,
+                51.0
+              ],
+              "zero_duration_events": [
+                17,
+                14
+              ],
+              "terminal_bootstrap": [
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 0.00969772599,
+                  "native_target": -28.8704605,
+                  "raw_reward": -0.504199982,
+                  "raw_bootstrap": -28.3662605,
+                  "weighted_native_target": -0.279977815,
+                  "weighted_reward": -0.00488959327,
+                  "weighted_bootstrap": -0.275088222,
+                  "weighted_minus_incoming_matching_q": 0.277786149,
+                  "weighted_native_minus_incoming_matching_q": -0.00219166595,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                },
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 0.00969772599,
+                  "native_target": -28.7173386,
+                  "raw_reward": -0.336400002,
+                  "raw_bootstrap": -28.3809395,
+                  "weighted_native_target": -0.278492881,
+                  "weighted_reward": -0.00326231505,
+                  "weighted_bootstrap": -0.275230575,
+                  "weighted_minus_incoming_matching_q": 0.278419263,
+                  "weighted_native_minus_incoming_matching_q": -7.36178388e-05,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                }
+              ],
+              "all_full_chain_supported": true,
+              "missing_links": [],
+              "max_reconstruction_residual": 2.48689958e-14,
+              "prefix_attribution": [
+                [
+                  8,
+                  16.0,
+                  16.0,
+                  0.430467119,
+                  0.430467119,
+                  0.00848957314,
+                  0.0522467901
+                ],
+                [
+                  16,
+                  21.0,
+                  21.0,
+                  0.18530194,
+                  0.18530194,
+                  0.0186077499,
+                  -0.00190134301
+                ],
+                [
+                  24,
+                  25.0,
+                  25.0,
+                  0.0797663924,
+                  0.0797663924,
+                  0.0158947635,
+                  -0.0170292062
+                ],
+                [
+                  32,
+                  31.0,
+                  31.0,
+                  0.0343368091,
+                  0.0343368091,
+                  0.0170084315,
+                  -0.0157870903
+                ],
+                [
+                  44,
+                  51.0,
+                  51.0,
+                  0.00969772599,
+                  0.00969772599,
+                  0.0175674712,
+                  -0.0179909413
+                ]
+              ]
+            },
+            {
+              "line_id": "7X",
+              "primary": {
+                "native_difference": 0.0,
+                "trace_difference": -0.0913352966,
+                "correction_difference": -0.0913352966,
+                "components": {
+                  "reward": -0.00613014779,
+                  "bootstrap": 0.0408998474,
+                  "minus_matching_target_q": -0.126104476,
+                  "native_rounding": 1.26631225e-06,
+                  "recurrence_rounding": -1.78672348e-06
+                },
+                "bootstrap_split": {
+                  "value": 0.00150375782,
+                  "sac": 0.0393970879,
+                  "assembly_rounding": -9.98253322e-07
+                },
+                "bootstrap_minus_matching_Q": -0.0852046284,
+                "reconstruction_residual": -1.94844141e-14,
+                "reward_value_vs_weight": {
+                  "common_weight_value_difference": -0.00613014779,
+                  "common_value_weight_difference": 0.0
+                },
+                "terminal_bootstrap_difference": -0.000781643877,
+                "terminal_bootstrap_coefficient": [
+                  0.00969772599,
+                  0.00969772599
+                ],
+                "root_levels": [
+                  -25.5579014,
+                  -25.6492367
+                ],
+                "root_corrections": [
+                  2.87009621,
+                  2.77876091
+                ]
+              },
+              "replicates": [
+                [
+                  336202,
+                  0.0,
+                  -0.0913352966,
+                  -0.0913352966,
+                  -0.00613014779,
+                  0.0408998474,
+                  -0.126104476,
+                  -0.000781643877,
+                  -0.00613014779,
+                  0.0
+                ],
+                [
+                  336203,
+                  0.0,
+                  -0.112903595,
+                  -0.112903595,
+                  -0.00613014779,
+                  0.0193260291,
+                  -0.126104476,
+                  -0.000890387413,
+                  -0.00613014779,
+                  0.0
+                ],
+                [
+                  336204,
+                  0.0,
+                  -0.0762424469,
+                  -0.0762424469,
+                  -0.00613014779,
+                  0.0559886243,
+                  -0.126104476,
+                  -0.000772469393,
+                  -0.00613014779,
+                  0.0
+                ]
+              ],
+              "trace_direction_consistent_across_seeds": true,
+              "trace_difference_range": [
+                -0.112903595,
+                -0.0762424469
+              ],
+              "native_difference_range": [
+                0.0,
+                0.0
+              ],
+              "roots": [
+                {
+                  "native_target": -28.4279976,
+                  "trace_target": -25.5579014,
+                  "correction": 2.87009621
+                },
+                {
+                  "native_target": -28.4279976,
+                  "trace_target": -25.6492367,
+                  "correction": 2.77876091
+                }
+              ],
+              "elapsed_seconds": [
+                52.0,
+                51.0
+              ],
+              "zero_duration_events": [
+                14,
+                15
+              ],
+              "terminal_bootstrap": [
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 0.00969772599,
+                  "native_target": -29.020483,
+                  "raw_reward": -1.17540002,
+                  "raw_bootstrap": -27.8450832,
+                  "weighted_native_target": -0.281432693,
+                  "weighted_reward": -0.0113987073,
+                  "weighted_bootstrap": -0.270033988,
+                  "weighted_minus_incoming_matching_q": 0.275558747,
+                  "weighted_native_minus_incoming_matching_q": -0.00587394516,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                },
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 0.00969772599,
+                  "native_target": -28.9323845,
+                  "raw_reward": -1.00669992,
+                  "raw_bootstrap": -27.925684,
+                  "weighted_native_target": -0.280578337,
+                  "weighted_reward": -0.00976269998,
+                  "weighted_bootstrap": -0.270815631,
+                  "weighted_minus_incoming_matching_q": 0.275558747,
+                  "weighted_native_minus_incoming_matching_q": -0.00501958979,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                }
+              ],
+              "all_full_chain_supported": true,
+              "missing_links": [],
+              "max_reconstruction_residual": 2.13162821e-14,
+              "prefix_attribution": [
+                [
+                  8,
+                  18.0,
+                  19.0,
+                  0.430467119,
+                  0.430467119,
+                  -0.0726298744,
+                  0.0224592174
+                ],
+                [
+                  16,
+                  28.0,
+                  28.0,
+                  0.18530194,
+                  0.18530194,
+                  -0.0138759279,
+                  -0.0951528406
+                ],
+                [
+                  24,
+                  32.0,
+                  31.0,
+                  0.0797663924,
+                  0.0797663924,
+                  0.00442786999,
+                  -0.0922805305
+                ],
+                [
+                  32,
+                  38.0,
+                  38.0,
+                  0.0343368091,
+                  0.0343368091,
+                  -0.00599076766,
+                  -0.0828139416
+                ],
+                [
+                  44,
+                  52.0,
+                  51.0,
+                  0.00969772599,
+                  0.00969772599,
+                  -0.00613014779,
+                  -0.0852046284
+                ]
+              ]
+            }
+          ]
+        },
+        "post456": {
+          "proof": {
+            "all_pass": true,
+            "checks": {
+              "frozen_parameters_and_versions": true,
+              "updates": true,
+              "feedback": true,
+              "online_updates": true,
+              "optimizer_steps": true,
+              "optimizer_objects": true,
+              "global_rng": true,
+              "private_rng": true
+            },
+            "new_updates": 0,
+            "new_feedback": 0,
+            "replay_parity": {
+              "all_pass": true,
+              "admitted_rows": 285,
+              "values_exact": true,
+              "causal_contexts_exact": true,
+              "replay_modified": false
+            },
+            "actual_executed_ratio_replay_exact": true,
+            "pair_root_state_and_memory_exact": true,
+            "all_real_chain_links_causal": true,
+            "paired_CRN_target_head_subsets_exact": true,
+            "optimizer_tensor_versions_unchanged": true,
+            "locally_loaded_copy_frozen": true
+          },
+          "all285_lambda0": {
+            "all_pass": true,
+            "rows": 285,
+            "ordinary_rows": 15,
+            "response_rows": 270,
+            "diagnostic_seed": 336202,
+            "native_target_exact": true,
+            "float32_reward_bootstrap_assembly_exact": true,
+            "all285_lambda_zero_trace_exact": true,
+            "current_snapshot_admitted_rows": 285,
+            "future_rows_scored_without_admission": 0,
+            "original_SGD_sampling_reproduced": false
+          },
+          "pairs": [
+            {
+              "line_id": "102X",
+              "primary": {
+                "native_difference": 0.00198745728,
+                "trace_difference": 0.00226974487,
+                "correction_difference": 0.000282287598,
+                "components": {
+                  "reward": 0.00106971201,
+                  "bootstrap": -0.00611937279,
+                  "minus_matching_target_q": 0.00732042575,
+                  "native_rounding": -3.84635644e-08,
+                  "recurrence_rounding": -9.81635134e-07
+                },
+                "bootstrap_split": {
+                  "value": -0.000839918482,
+                  "sac": -0.00527971833,
+                  "assembly_rounding": 2.64018272e-07
+                },
+                "bootstrap_minus_matching_Q": 0.00120105297,
+                "reconstruction_residual": 2.75343984e-15,
+                "reward_value_vs_weight": {
+                  "common_weight_value_difference": 0.00110669824,
+                  "common_value_weight_difference": -3.69862346e-05
+                },
+                "terminal_bootstrap_difference": -1.225923e-09,
+                "terminal_bootstrap_coefficient": [
+                  1.93869422e-11,
+                  6.74101254e-11
+                ],
+                "root_levels": [
+                  -26.07304,
+                  -26.0707703
+                ],
+                "root_corrections": [
+                  0.602113724,
+                  0.602396011
+                ]
+              },
+              "replicates": [
+                [
+                  336202,
+                  0.00198745728,
+                  0.00226974487,
+                  0.000282287598,
+                  0.00106971201,
+                  -0.00611937279,
+                  0.00732042575,
+                  -1.225923e-09,
+                  0.00110669824,
+                  -3.69862346e-05
+                ],
+                [
+                  336203,
+                  0.0020866394,
+                  0.0024356842,
+                  0.0003490448,
+                  0.00106971201,
+                  -0.00595453531,
+                  0.00732042575,
+                  -1.22760548e-09,
+                  0.00110669824,
+                  -3.69862346e-05
+                ],
+                [
+                  336204,
+                  0.00196456909,
+                  0.00222396851,
+                  0.000259399414,
+                  0.00106971201,
+                  -0.00616464747,
+                  0.00732042575,
+                  -1.22815852e-09,
+                  0.00110669824,
+                  -3.69862346e-05
+                ]
+              ],
+              "trace_direction_consistent_across_seeds": true,
+              "trace_difference_range": [
+                0.00222396851,
+                0.0024356842
+              ],
+              "native_difference_range": [
+                0.00196456909,
+                0.0020866394
+              ],
+              "roots": [
+                {
+                  "native_target": -26.6751537,
+                  "trace_target": -26.07304,
+                  "correction": 0.602113724
+                },
+                {
+                  "native_target": -26.6731663,
+                  "trace_target": -26.0707703,
+                  "correction": 0.602396011
+                }
+              ],
+              "elapsed_seconds": [
+                48.0,
+                49.0
+              ],
+              "zero_duration_events": [
+                13,
+                13
+              ],
+              "terminal_bootstrap": [
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 1.93869422e-11,
+                  "native_target": -25.8022518,
+                  "raw_reward": -0.0,
+                  "raw_bootstrap": -25.8022518,
+                  "weighted_native_target": -5.00226765e-10,
+                  "weighted_reward": -0.0,
+                  "weighted_bootstrap": -5.00226765e-10,
+                  "weighted_minus_incoming_matching_q": 5.15354954e-10,
+                  "weighted_native_minus_incoming_matching_q": 1.51281884e-11,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                },
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 6.74101254e-11,
+                  "native_target": -25.9408836,
+                  "raw_reward": -0.334199995,
+                  "raw_bootstrap": -25.6066837,
+                  "weighted_native_target": -1.74867822e-09,
+                  "weighted_reward": -2.25284635e-11,
+                  "weighted_bootstrap": -1.72614976e-09,
+                  "weighted_minus_incoming_matching_q": 1.80629134e-09,
+                  "weighted_native_minus_incoming_matching_q": 5.76131258e-11,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                }
+              ],
+              "all_full_chain_supported": true,
+              "missing_links": [],
+              "max_reconstruction_residual": 3.55271368e-15,
+              "prefix_attribution": [
+                [
+                  8,
+                  20.0,
+                  20.0,
+                  0.0366333618,
+                  0.0366327798,
+                  4.63585504e-06,
+                  0.00114309101
+                ],
+                [
+                  16,
+                  31.0,
+                  31.0,
+                  7.82940985e-05,
+                  0.000108612272,
+                  0.00107817971,
+                  0.00113747856
+                ],
+                [
+                  24,
+                  34.0,
+                  35.0,
+                  1.70958945e-06,
+                  4.31688972e-06,
+                  0.00106975817,
+                  0.00119964415
+                ],
+                [
+                  32,
+                  40.0,
+                  39.0,
+                  4.6264776e-08,
+                  5.99448082e-08,
+                  0.00106973805,
+                  0.00120090266
+                ],
+                [
+                  44,
+                  48.0,
+                  49.0,
+                  1.93869422e-11,
+                  6.74101254e-11,
+                  0.00106971201,
+                  0.00120105297
+                ]
+              ]
+            },
+            {
+              "line_id": "705X",
+              "primary": {
+                "native_difference": -1.52587891e-05,
+                "trace_difference": 0.0145225525,
+                "correction_difference": 0.0145378113,
+                "components": {
+                  "reward": 0.000558778396,
+                  "bootstrap": -0.129360612,
+                  "minus_matching_target_q": 0.143325808,
+                  "native_rounding": -3.81924497e-08,
+                  "recurrence_rounding": -1.38377297e-06
+                },
+                "bootstrap_split": {
+                  "value": -0.0137179143,
+                  "sac": -0.115642813,
+                  "assembly_rounding": 1.15531365e-07
+                },
+                "bootstrap_minus_matching_Q": 0.0139651961,
+                "reconstruction_residual": 1.32151234e-14,
+                "reward_value_vs_weight": {
+                  "common_weight_value_difference": 0.00105213952,
+                  "common_value_weight_difference": -0.00049336112
+                },
+                "terminal_bootstrap_difference": 5.30573799e-10,
+                "terminal_bootstrap_coefficient": [
+                  4.93379902e-11,
+                  2.90638363e-11
+                ],
+                "root_levels": [
+                  -25.7966766,
+                  -25.7821541
+                ],
+                "root_corrections": [
+                  1.32087517,
+                  1.33541298
+                ]
+              },
+              "replicates": [
+                [
+                  336202,
+                  -1.52587891e-05,
+                  0.0145225525,
+                  0.0145378113,
+                  0.000558778396,
+                  -0.129360612,
+                  0.143325808,
+                  5.30573799e-10,
+                  0.00105213952,
+                  -0.00049336112
+                ],
+                [
+                  336203,
+                  -1.33514404e-05,
+                  0.0154953003,
+                  0.0155086517,
+                  0.000558778396,
+                  -0.12838769,
+                  0.143325808,
+                  5.31524468e-10,
+                  0.00105213952,
+                  -0.00049336112
+                ],
+                [
+                  336204,
+                  -1.33514404e-05,
+                  0.0140094757,
+                  0.0140228271,
+                  0.000558778396,
+                  -0.129876428,
+                  0.143325808,
+                  5.31900002e-10,
+                  0.00105213952,
+                  -0.00049336112
+                ]
+              ],
+              "trace_direction_consistent_across_seeds": true,
+              "trace_difference_range": [
+                0.0140094757,
+                0.0154953003
+              ],
+              "native_difference_range": [
+                -1.52587891e-05,
+                -1.33514404e-05
+              ],
+              "roots": [
+                {
+                  "native_target": -27.1175518,
+                  "trace_target": -25.7966766,
+                  "correction": 1.32087517
+                },
+                {
+                  "native_target": -27.1175671,
+                  "trace_target": -25.7821541,
+                  "correction": 1.33541298
+                }
+              ],
+              "elapsed_seconds": [
+                51.0,
+                51.0
+              ],
+              "zero_duration_events": [
+                17,
+                14
+              ],
+              "terminal_bootstrap": [
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 4.93379902e-11,
+                  "native_target": -26.6932507,
+                  "raw_reward": -0.504199982,
+                  "raw_bootstrap": -26.1890507,
+                  "weighted_native_target": -1.31699134e-09,
+                  "weighted_reward": -2.48762138e-11,
+                  "weighted_bootstrap": -1.29211513e-09,
+                  "weighted_minus_incoming_matching_q": 1.3336668e-09,
+                  "weighted_native_minus_incoming_matching_q": 1.66754555e-11,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                },
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 2.90638363e-11,
+                  "native_target": -26.5387669,
+                  "raw_reward": -0.336400002,
+                  "raw_bootstrap": -26.2023678,
+                  "weighted_native_target": -7.71318375e-10,
+                  "weighted_reward": -9.77707459e-12,
+                  "weighted_bootstrap": -7.61541327e-10,
+                  "weighted_minus_incoming_matching_q": 7.87432515e-10,
+                  "weighted_native_minus_incoming_matching_q": 1.61141401e-11,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                }
+              ],
+              "all_full_chain_supported": true,
+              "missing_links": [],
+              "max_reconstruction_residual": 1.0658141e-14,
+              "prefix_attribution": [
+                [
+                  8,
+                  16.0,
+                  16.0,
+                  0.00469958883,
+                  0.00660644835,
+                  0.000582133764,
+                  0.0134833009
+                ],
+                [
+                  16,
+                  21.0,
+                  21.0,
+                  8.33511711e-05,
+                  0.000116721482,
+                  0.000561796021,
+                  0.0139604717
+                ],
+                [
+                  24,
+                  25.0,
+                  25.0,
+                  3.3128855e-06,
+                  3.10198591e-06,
+                  0.00055843225,
+                  0.0139658291
+                ],
+                [
+                  32,
+                  31.0,
+                  31.0,
+                  7.49260266e-08,
+                  8.89308163e-08,
+                  0.000558771673,
+                  0.0139652116
+                ],
+                [
+                  44,
+                  51.0,
+                  51.0,
+                  4.93379902e-11,
+                  2.90638363e-11,
+                  0.000558778396,
+                  0.0139651961
+                ]
+              ]
+            },
+            {
+              "line_id": "7X",
+              "primary": {
+                "native_difference": 0.0,
+                "trace_difference": -0.00670051575,
+                "correction_difference": -0.00670051575,
+                "components": {
+                  "reward": -0.0103325289,
+                  "bootstrap": 0.0401008285,
+                  "minus_matching_target_q": -0.0364699848,
+                  "native_rounding": 2.34584617e-07,
+                  "recurrence_rounding": 9.34808629e-07
+                },
+                "bootstrap_split": {
+                  "value": 0.00395858636,
+                  "sac": 0.0361439284,
+                  "assembly_rounding": -1.68622731e-06
+                },
+                "bootstrap_minus_matching_Q": 0.00363084373,
+                "reconstruction_residual": -1.03649728e-15,
+                "reward_value_vs_weight": {
+                  "common_weight_value_difference": -0.0105123773,
+                  "common_value_weight_difference": 0.000179848472
+                },
+                "terminal_bootstrap_difference": 2.8230194e-09,
+                "terminal_bootstrap_coefficient": [
+                  1.96002723e-10,
+                  8.73601343e-11
+                ],
+                "root_levels": [
+                  -24.9046268,
+                  -24.9113274
+                ],
+                "root_corrections": [
+                  1.66948509,
+                  1.66278458
+                ]
+              },
+              "replicates": [
+                [
+                  336202,
+                  0.0,
+                  -0.00670051575,
+                  -0.00670051575,
+                  -0.0103325289,
+                  0.0401008285,
+                  -0.0364699848,
+                  2.8230194e-09,
+                  -0.0105123773,
+                  0.000179848472
+                ],
+                [
+                  336203,
+                  0.0,
+                  -0.00691223145,
+                  -0.00691223145,
+                  -0.0103325289,
+                  0.0398879159,
+                  -0.0364699848,
+                  2.81413934e-09,
+                  -0.0105123773,
+                  0.000179848472
+                ],
+                [
+                  336204,
+                  0.0,
+                  -0.0067024231,
+                  -0.0067024231,
+                  -0.0103325289,
+                  0.0401016211,
+                  -0.0364699848,
+                  2.82827375e-09,
+                  -0.0105123773,
+                  0.000179848472
+                ]
+              ],
+              "trace_direction_consistent_across_seeds": true,
+              "trace_difference_range": [
+                -0.00691223145,
+                -0.00670051575
+              ],
+              "native_difference_range": [
+                0.0,
+                0.0
+              ],
+              "roots": [
+                {
+                  "native_target": -26.5741119,
+                  "trace_target": -24.9046268,
+                  "correction": 1.66948509
+                },
+                {
+                  "native_target": -26.5741119,
+                  "trace_target": -24.9113274,
+                  "correction": 1.66278458
+                }
+              ],
+              "elapsed_seconds": [
+                52.0,
+                51.0
+              ],
+              "zero_duration_events": [
+                14,
+                15
+              ],
+              "terminal_bootstrap": [
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 1.96002723e-10,
+                  "native_target": -27.2057858,
+                  "raw_reward": -1.17540002,
+                  "raw_bootstrap": -26.030386,
+                  "weighted_native_target": -5.33240809e-09,
+                  "weighted_reward": -2.30381604e-10,
+                  "weighted_bootstrap": -5.10202653e-09,
+                  "weighted_minus_incoming_matching_q": 5.2541297e-09,
+                  "weighted_native_minus_incoming_matching_q": -7.82783931e-11,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                },
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 8.73601343e-11,
+                  "native_target": -27.0941963,
+                  "raw_reward": -1.00669992,
+                  "raw_bootstrap": -26.0874958,
+                  "weighted_native_target": -2.36695263e-09,
+                  "weighted_reward": -8.79454401e-11,
+                  "weighted_bootstrap": -2.27900714e-09,
+                  "weighted_minus_incoming_matching_q": 2.34181006e-09,
+                  "weighted_native_minus_incoming_matching_q": -2.51425655e-11,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                }
+              ],
+              "all_full_chain_supported": true,
+              "missing_links": [],
+              "max_reconstruction_residual": 7.10542736e-15,
+              "prefix_attribution": [
+                [
+                  8,
+                  18.0,
+                  19.0,
+                  0.0866577842,
+                  0.0866577842,
+                  -0.0146351916,
+                  0.00552673358
+                ],
+                [
+                  16,
+                  28.0,
+                  28.0,
+                  0.000170573063,
+                  0.000102586043,
+                  -0.0103438672,
+                  0.00372922936
+                ],
+                [
+                  24,
+                  32.0,
+                  31.0,
+                  5.74960767e-06,
+                  6.40898467e-06,
+                  -0.0103318092,
+                  0.00362914059
+                ],
+                [
+                  32,
+                  38.0,
+                  38.0,
+                  3.27394667e-07,
+                  1.20157985e-07,
+                  -0.0103325403,
+                  0.00363119633
+                ],
+                [
+                  44,
+                  52.0,
+                  51.0,
+                  1.96002723e-10,
+                  8.73601343e-11,
+                  -0.0103325289,
+                  0.00363084373
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      "schema": {
+        "replicate_columns": [
+          "seed",
+          "native_high_minus_low",
+          "trace_high_minus_low",
+          "correction_high_minus_low",
+          "reward_high_minus_low",
+          "bootstrap_high_minus_low",
+          "minus_matching_Q_high_minus_low",
+          "terminal_bootstrap_high_minus_low",
+          "common_weight_reward_difference",
+          "common_reward_weight_difference"
+        ],
+        "prefix_columns": [
+          "links",
+          "low_elapsed_seconds",
+          "high_elapsed_seconds",
+          "low_reach_weight",
+          "high_reach_weight",
+          "cumulative_reward_high_minus_low",
+          "cumulative_bootstrap_minus_matching_Q_high_minus_low"
+        ],
+        "action_difference": "high1.875_minus_low0; higher target favors high action",
+        "primary_seed": 336202,
+        "prefix_attribution": "event-indexed partial sums of the fixed full45 target, not alternate truncated targets or matched-clock causal costs",
+        "reward_weight_split": "Delta(w*r)=mean(w)*Delta(r)+mean(r)*Delta(w)",
+        "terminal_dependency": "unrolled algebraic coefficient; not an SGD gradient",
+        "exactness": "native frozen-snapshot _target parity under diagnostic CRN; historic sampled training targets not replayed"
+      },
+      "diagnostic_budget": {
+        "new_training_updates": 0,
+        "new_feedback_slots": 0,
+        "new_native_branches": 0,
+        "new_native_seconds": 0,
+        "checkpoints_downloaded": 0,
+        "resident_checkpoints_loaded": 2
+      },
+      "scientific_scope": {
+        "physical_horizon": "existing45 actual closures only, about50seconds",
+        "cost300_direction": null,
+        "regret300": null,
+        "deployed_control_gain": null
+      },
+      "wall_seconds": 72.022963,
+      "decision": {
+        "shadow_training_started": false,
+        "next_gate": "Review whether actual rewards yield a reproducible root action difference after bootstrap/Qbar cancellation, attenuation and terminal dependence. No automatic training or new collection."
+      }
+    },
+    "local_speed_drop": {
+      "status": "complete",
+      "scenario": "local_speed_drop",
+      "priority": "high",
+      "integrity": {
+        "all_pass": true,
+        "checks": {
+          "resident_probe": true,
+          "actual_post24_lambda0_exact": true,
+          "actual_post24_all285_native_exact": true,
+          "actual_post24_six_chains_per_seed": true,
+          "actual_post24_all_real45": true,
+          "actual_post24_decomposition_closure": true,
+          "post456_lambda0_exact": true,
+          "post456_all285_native_exact": true,
+          "post456_six_chains_per_seed": true,
+          "post456_all_real45": true,
+          "post456_decomposition_closure": true
+        }
+      },
+      "source_budget": {
+        "initializer_updates": 50000,
+        "feedback_slots": 285,
+        "ordinary_slots": 15,
+        "response_slots": 270,
+        "updates": 456,
+        "warmup_updates": 24,
+        "response_updates": 432,
+        "horizon_seconds": 24000,
+        "original_run_complete": true
+      },
+      "source_contract": {
+        "scenario": "local_speed_drop",
+        "initialization_seed": 6202,
+        "native_external_seed": 106243,
+        "F": "unchanged_original_execution_transform",
+        "world_or_trust_changed": false,
+        "response_release_clock": 9630.0,
+        "roots": 3,
+        "chains": 6,
+        "events_per_chain": 45,
+        "native_training_target_draws_replayed": false,
+        "target_contract": "frozen native one-row CRN exact parity, not original SGD target sampling",
+        "label_truth_added": false,
+        "native_suffixes_added": 0
+      },
+      "checkpoints": {
+        "actual_post24": {
+          "proof": {
+            "all_pass": true,
+            "checks": {
+              "frozen_parameters_and_versions": true,
+              "updates": true,
+              "feedback": true,
+              "online_updates": true,
+              "optimizer_steps": true,
+              "optimizer_objects": true,
+              "global_rng": true,
+              "private_rng": true
+            },
+            "new_updates": 0,
+            "new_feedback": 0,
+            "replay_parity": {
+              "all_pass": true,
+              "admitted_rows": 15,
+              "values_exact": true,
+              "causal_contexts_exact": true,
+              "replay_modified": false
+            },
+            "actual_executed_ratio_replay_exact": true,
+            "pair_root_state_and_memory_exact": true,
+            "all_real_chain_links_causal": true,
+            "paired_CRN_target_head_subsets_exact": true,
+            "optimizer_tensor_versions_unchanged": true,
+            "locally_loaded_copy_frozen": true
+          },
+          "all285_lambda0": {
+            "all_pass": true,
+            "rows": 285,
+            "ordinary_rows": 15,
+            "response_rows": 270,
+            "diagnostic_seed": 336202,
+            "native_target_exact": true,
+            "float32_reward_bootstrap_assembly_exact": true,
+            "all285_lambda_zero_trace_exact": true,
+            "current_snapshot_admitted_rows": 15,
+            "future_rows_scored_without_admission": 270,
+            "original_SGD_sampling_reproduced": false
+          },
+          "pairs": [
+            {
+              "line_id": "102X",
+              "primary": {
+                "native_difference": 0.0,
+                "trace_difference": 0.0103569031,
+                "correction_difference": 0.0103569031,
+                "components": {
+                  "reward": 0.0124638794,
+                  "bootstrap": -0.0835485956,
+                  "minus_matching_target_q": 0.0814412084,
+                  "native_rounding": -2.7788902e-07,
+                  "recurrence_rounding": 6.88748008e-07
+                },
+                "bootstrap_split": {
+                  "value": -0.0123848298,
+                  "sac": -0.0711644,
+                  "assembly_rounding": 6.34198755e-07
+                },
+                "bootstrap_minus_matching_Q": -0.00210738718,
+                "reconstruction_residual": 8.86964113e-15,
+                "reward_value_vs_weight": {
+                  "common_weight_value_difference": 0.0124638794,
+                  "common_value_weight_difference": 0.0
+                },
+                "terminal_bootstrap_difference": 0.00163285476,
+                "terminal_bootstrap_coefficient": [
+                  0.00969772599,
+                  0.00969772599
+                ],
+                "root_levels": [
+                  -25.781168,
+                  -25.7708111
+                ],
+                "root_corrections": [
+                  2.87220192,
+                  2.88255882
+                ]
+              },
+              "replicates": [
+                [
+                  336202,
+                  0.0,
+                  0.0103569031,
+                  0.0103569031,
+                  0.0124638794,
+                  -0.0835485956,
+                  0.0814412084,
+                  0.00163285476,
+                  0.0124638794,
+                  0.0
+                ],
+                [
+                  336203,
+                  0.0,
+                  -0.0130748749,
+                  -0.0130748749,
+                  0.0124638794,
+                  -0.106980247,
+                  0.0814412084,
+                  0.00195111319,
+                  0.0124638794,
+                  0.0
+                ],
+                [
+                  336204,
+                  0.0,
+                  0.0289649963,
+                  0.0289649963,
+                  0.0124638794,
+                  -0.0649392754,
+                  0.0814412084,
+                  0.00137493337,
+                  0.0124638794,
+                  0.0
+                ]
+              ],
+              "trace_direction_consistent_across_seeds": false,
+              "trace_difference_range": [
+                -0.0130748749,
+                0.0289649963
+              ],
+              "native_difference_range": [
+                0.0,
+                0.0
+              ],
+              "roots": [
+                {
+                  "native_target": -28.6533699,
+                  "trace_target": -25.781168,
+                  "correction": 2.87220192
+                },
+                {
+                  "native_target": -28.6533699,
+                  "trace_target": -25.7708111,
+                  "correction": 2.88255882
+                }
+              ],
+              "elapsed_seconds": [
+                49.0,
+                49.0
+              ],
+              "zero_duration_events": [
+                17,
+                14
+              ],
+              "terminal_bootstrap": [
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 0.00969772599,
+                  "native_target": -27.8274021,
+                  "raw_reward": -0.167099997,
+                  "raw_bootstrap": -27.6603012,
+                  "weighted_native_target": -0.269862521,
+                  "weighted_reward": -0.00162048999,
+                  "weighted_bootstrap": -0.268242022,
+                  "weighted_minus_incoming_matching_q": 0.275963497,
+                  "weighted_native_minus_incoming_matching_q": 0.00610097666,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                },
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 0.00969772599,
+                  "native_target": -27.4919262,
+                  "raw_reward": -0.0,
+                  "raw_bootstrap": -27.4919262,
+                  "weighted_native_target": -0.266609167,
+                  "weighted_reward": -0.0,
+                  "weighted_bootstrap": -0.266609167,
+                  "weighted_minus_incoming_matching_q": 0.272327017,
+                  "weighted_native_minus_incoming_matching_q": 0.00571784945,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                }
+              ],
+              "all_full_chain_supported": true,
+              "missing_links": [],
+              "max_reconstruction_residual": 3.19744231e-14,
+              "prefix_attribution": [
+                [
+                  8,
+                  20.0,
+                  20.0,
+                  0.430467119,
+                  0.430467119,
+                  0.0,
+                  -5.7589946e-05
+                ],
+                [
+                  16,
+                  31.0,
+                  31.0,
+                  0.18530194,
+                  0.18530194,
+                  0.00603859102,
+                  -0.0473369276
+                ],
+                [
+                  24,
+                  34.0,
+                  34.0,
+                  0.0797663924,
+                  0.0797663924,
+                  0.0100910189,
+                  0.00861547407
+                ],
+                [
+                  32,
+                  40.0,
+                  40.0,
+                  0.0343368091,
+                  0.0343368091,
+                  0.0115310957,
+                  -0.0153619723
+                ],
+                [
+                  44,
+                  49.0,
+                  49.0,
+                  0.00969772599,
+                  0.00969772599,
+                  0.0124638794,
+                  -0.00210738718
+                ]
+              ]
+            },
+            {
+              "line_id": "705X",
+              "primary": {
+                "native_difference": 0.0,
+                "trace_difference": -0.00838661194,
+                "correction_difference": -0.00838661194,
+                "components": {
+                  "reward": -0.00858795924,
+                  "bootstrap": 0.3465039,
+                  "minus_matching_target_q": -0.346305254,
+                  "native_rounding": 3.45703081e-07,
+                  "recurrence_rounding": 2.35608616e-06
+                },
+                "bootstrap_split": {
+                  "value": 0.0168131791,
+                  "sac": 0.329690987,
+                  "assembly_rounding": -2.66182432e-07
+                },
+                "bootstrap_minus_matching_Q": 0.000198645517,
+                "reconstruction_residual": 2.07490275e-14,
+                "reward_value_vs_weight": {
+                  "common_weight_value_difference": -0.00858795924,
+                  "common_value_weight_difference": 0.0
+                },
+                "terminal_bootstrap_difference": -0.00473349755,
+                "terminal_bootstrap_coefficient": [
+                  0.00969772599,
+                  0.00969772599
+                ],
+                "root_levels": [
+                  -25.2706966,
+                  -25.2790833
+                ],
+                "root_corrections": [
+                  3.80782509,
+                  3.79943848
+                ]
+              },
+              "replicates": [
+                [
+                  336202,
+                  0.0,
+                  -0.00838661194,
+                  -0.00838661194,
+                  -0.00858795924,
+                  0.3465039,
+                  -0.346305254,
+                  -0.00473349755,
+                  -0.00858795924,
+                  0.0
+                ],
+                [
+                  336203,
+                  0.0,
+                  0.0262336731,
+                  0.0262336731,
+                  -0.00858795924,
+                  0.381129047,
+                  -0.346305254,
+                  -0.000387067059,
+                  -0.00858795924,
+                  0.0
+                ],
+                [
+                  336204,
+                  0.0,
+                  -0.00958442688,
+                  -0.00958442688,
+                  -0.00858795924,
+                  0.345308541,
+                  -0.346305254,
+                  -0.00566947994,
+                  -0.00858795924,
+                  0.0
+                ]
+              ],
+              "trace_direction_consistent_across_seeds": false,
+              "trace_difference_range": [
+                -0.00958442688,
+                0.0262336731
+              ],
+              "native_difference_range": [
+                0.0,
+                0.0
+              ],
+              "roots": [
+                {
+                  "native_target": -29.0785217,
+                  "trace_target": -25.2706966,
+                  "correction": 3.80782509
+                },
+                {
+                  "native_target": -29.0785217,
+                  "trace_target": -25.2790833,
+                  "correction": 3.79943848
+                }
+              ],
+              "elapsed_seconds": [
+                52.0,
+                51.0
+              ],
+              "zero_duration_events": [
+                17,
+                17
+              ],
+              "terminal_bootstrap": [
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 0.00969772599,
+                  "native_target": -28.5507488,
+                  "raw_reward": -0.672599971,
+                  "raw_bootstrap": -27.878149,
+                  "weighted_native_target": -0.276877339,
+                  "weighted_reward": -0.00652269023,
+                  "weighted_bootstrap": -0.270354651,
+                  "weighted_minus_incoming_matching_q": 0.277361811,
+                  "weighted_native_minus_incoming_matching_q": 0.000484471968,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                },
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 0.00969772599,
+                  "native_target": -28.8704529,
+                  "raw_reward": -0.504199982,
+                  "raw_bootstrap": -28.3662529,
+                  "weighted_native_target": -0.279977741,
+                  "weighted_reward": -0.00488959327,
+                  "weighted_bootstrap": -0.275088148,
+                  "weighted_minus_incoming_matching_q": 0.277739112,
+                  "weighted_native_minus_incoming_matching_q": -0.00223862969,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                }
+              ],
+              "all_full_chain_supported": true,
+              "missing_links": [],
+              "max_reconstruction_residual": 2.48689958e-14,
+              "prefix_attribution": [
+                [
+                  8,
+                  17.0,
+                  17.0,
+                  0.430467119,
+                  0.430467119,
+                  0.0,
+                  0.0146711339
+                ],
+                [
+                  16,
+                  20.0,
+                  21.0,
+                  0.18530194,
+                  0.18530194,
+                  -0.0333631232,
+                  0.0950215235
+                ],
+                [
+                  24,
+                  25.0,
+                  26.0,
+                  0.0797663924,
+                  0.0797663924,
+                  -0.0233235817,
+                  0.000742298991
+                ],
+                [
+                  32,
+                  30.0,
+                  31.0,
+                  0.0343368091,
+                  0.0343368091,
+                  -0.0135601281,
+                  0.00466259669
+                ],
+                [
+                  44,
+                  52.0,
+                  51.0,
+                  0.00969772599,
+                  0.00969772599,
+                  -0.00858795924,
+                  0.000198645517
+                ]
+              ]
+            },
+            {
+              "line_id": "7X",
+              "primary": {
+                "native_difference": 0.0,
+                "trace_difference": 0.0533561707,
+                "correction_difference": 0.0533561707,
+                "components": {
+                  "reward": -0.00302896446,
+                  "bootstrap": 0.138499778,
+                  "minus_matching_target_q": -0.0821151928,
+                  "native_rounding": 2.29980831e-10,
+                  "recurrence_rounding": 5.49664956e-07
+                },
+                "bootstrap_split": {
+                  "value": 0.00870016789,
+                  "sac": 0.12979995,
+                  "assembly_rounding": -3.40317042e-07
+                },
+                "bootstrap_minus_matching_Q": 0.0563845852,
+                "reconstruction_residual": -1.3343493e-14,
+                "reward_value_vs_weight": {
+                  "common_weight_value_difference": -0.00302896446,
+                  "common_value_weight_difference": 0.0
+                },
+                "terminal_bootstrap_difference": 0.00355662947,
+                "terminal_bootstrap_coefficient": [
+                  0.00969772599,
+                  0.00969772599
+                ],
+                "root_levels": [
+                  -25.5133705,
+                  -25.4600143
+                ],
+                "root_corrections": [
+                  2.91462708,
+                  2.96798325
+                ]
+              },
+              "replicates": [
+                [
+                  336202,
+                  0.0,
+                  0.0533561707,
+                  0.0533561707,
+                  -0.00302896446,
+                  0.138499778,
+                  -0.0821151928,
+                  0.00355662947,
+                  -0.00302896446,
+                  0.0
+                ],
+                [
+                  336203,
+                  0.0,
+                  0.0360870361,
+                  0.0360870361,
+                  -0.00302896446,
+                  0.121226251,
+                  -0.0821151928,
+                  0.00350065771,
+                  -0.00302896446,
+                  0.0
+                ],
+                [
+                  336204,
+                  0.0,
+                  0.0651283264,
+                  0.0651283264,
+                  -0.00302896446,
+                  0.150271754,
+                  -0.0821151928,
+                  0.0036793012,
+                  -0.00302896446,
+                  0.0
+                ]
+              ],
+              "trace_direction_consistent_across_seeds": true,
+              "trace_difference_range": [
+                0.0360870361,
+                0.0651283264
+              ],
+              "native_difference_range": [
+                0.0,
+                0.0
+              ],
+              "roots": [
+                {
+                  "native_target": -28.4279976,
+                  "trace_target": -25.5133705,
+                  "correction": 2.91462708
+                },
+                {
+                  "native_target": -28.4279976,
+                  "trace_target": -25.4600143,
+                  "correction": 2.96798325
+                }
+              ],
+              "elapsed_seconds": [
+                52.0,
+                52.0
+              ],
+              "zero_duration_events": [
+                15,
+                15
+              ],
+              "terminal_bootstrap": [
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 0.00969772599,
+                  "native_target": -29.386797,
+                  "raw_reward": -1.17659998,
+                  "raw_bootstrap": -28.2101974,
+                  "weighted_native_target": -0.284985105,
+                  "weighted_reward": -0.0114103442,
+                  "weighted_bootstrap": -0.273574765,
+                  "weighted_minus_incoming_matching_q": 0.27673815,
+                  "weighted_native_minus_incoming_matching_q": -0.00824695515,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                },
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 0.00969772599,
+                  "native_target": -29.0196495,
+                  "raw_reward": -1.17619991,
+                  "raw_bootstrap": -27.8434486,
+                  "weighted_native_target": -0.281424609,
+                  "weighted_reward": -0.0114064645,
+                  "weighted_bootstrap": -0.270018136,
+                  "weighted_minus_incoming_matching_q": 0.275934235,
+                  "weighted_native_minus_incoming_matching_q": -0.00549037402,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                }
+              ],
+              "all_full_chain_supported": true,
+              "missing_links": [],
+              "max_reconstruction_residual": 3.90798505e-14,
+              "prefix_attribution": [
+                [
+                  8,
+                  19.0,
+                  19.0,
+                  0.430467119,
+                  0.430467119,
+                  8.60948811e-05,
+                  0.00629493552
+                ],
+                [
+                  16,
+                  28.0,
+                  27.0,
+                  0.18530194,
+                  0.18530194,
+                  0.033162895,
+                  -0.104550332
+                ],
+                [
+                  24,
+                  32.0,
+                  32.0,
+                  0.0797663924,
+                  0.0797663924,
+                  -0.0056652738,
+                  0.0727475991
+                ],
+                [
+                  32,
+                  38.0,
+                  38.0,
+                  0.0343368091,
+                  0.0343368091,
+                  -0.00271380945,
+                  0.0505344168
+                ],
+                [
+                  44,
+                  52.0,
+                  52.0,
+                  0.00969772599,
+                  0.00969772599,
+                  -0.00302896446,
+                  0.0563845852
+                ]
+              ]
+            }
+          ]
+        },
+        "post456": {
+          "proof": {
+            "all_pass": true,
+            "checks": {
+              "frozen_parameters_and_versions": true,
+              "updates": true,
+              "feedback": true,
+              "online_updates": true,
+              "optimizer_steps": true,
+              "optimizer_objects": true,
+              "global_rng": true,
+              "private_rng": true
+            },
+            "new_updates": 0,
+            "new_feedback": 0,
+            "replay_parity": {
+              "all_pass": true,
+              "admitted_rows": 285,
+              "values_exact": true,
+              "causal_contexts_exact": true,
+              "replay_modified": false
+            },
+            "actual_executed_ratio_replay_exact": true,
+            "pair_root_state_and_memory_exact": true,
+            "all_real_chain_links_causal": true,
+            "paired_CRN_target_head_subsets_exact": true,
+            "optimizer_tensor_versions_unchanged": true,
+            "locally_loaded_copy_frozen": true
+          },
+          "all285_lambda0": {
+            "all_pass": true,
+            "rows": 285,
+            "ordinary_rows": 15,
+            "response_rows": 270,
+            "diagnostic_seed": 336202,
+            "native_target_exact": true,
+            "float32_reward_bootstrap_assembly_exact": true,
+            "all285_lambda_zero_trace_exact": true,
+            "current_snapshot_admitted_rows": 285,
+            "future_rows_scored_without_admission": 0,
+            "original_SGD_sampling_reproduced": false
+          },
+          "pairs": [
+            {
+              "line_id": "102X",
+              "primary": {
+                "native_difference": 0.00128936768,
+                "trace_difference": 0.000547409058,
+                "correction_difference": -0.000741958618,
+                "components": {
+                  "reward": 0.00026372182,
+                  "bootstrap": 0.00100159465,
+                  "minus_matching_target_q": -0.000716907735,
+                  "native_rounding": -1.27801703e-08,
+                  "recurrence_rounding": -9.86898172e-07
+                },
+                "bootstrap_split": {
+                  "value": -2.02336512e-05,
+                  "sac": 0.00102184017,
+                  "assembly_rounding": -1.18648195e-08
+                },
+                "bootstrap_minus_matching_Q": 0.000284686916,
+                "reconstruction_residual": -4.42679747e-16,
+                "reward_value_vs_weight": {
+                  "common_weight_value_difference": 0.000264991486,
+                  "common_value_weight_difference": -1.2696664e-06
+                },
+                "terminal_bootstrap_difference": 1.11713839e-09,
+                "terminal_bootstrap_coefficient": [
+                  9.04709509e-11,
+                  4.77427014e-11
+                ],
+                "root_levels": [
+                  -26.1171989,
+                  -26.1166515
+                ],
+                "root_corrections": [
+                  0.582485199,
+                  0.58174324
+                ]
+              },
+              "replicates": [
+                [
+                  336202,
+                  0.00128936768,
+                  0.000547409058,
+                  -0.000741958618,
+                  0.00026372182,
+                  0.00100159465,
+                  -0.000716907735,
+                  1.11713839e-09,
+                  0.000264991486,
+                  -1.2696664e-06
+                ],
+                [
+                  336203,
+                  0.00134277344,
+                  0.000579833984,
+                  -0.000762939453,
+                  0.00026372182,
+                  0.00103285388,
+                  -0.000716907735,
+                  1.11714858e-09,
+                  0.000264991486,
+                  -1.2696664e-06
+                ],
+                [
+                  336204,
+                  0.00127410889,
+                  0.000528335571,
+                  -0.000745773315,
+                  0.00026372182,
+                  0.000980965042,
+                  -0.000716907735,
+                  1.12003333e-09,
+                  0.000264991486,
+                  -1.2696664e-06
+                ]
+              ],
+              "trace_direction_consistent_across_seeds": true,
+              "trace_difference_range": [
+                0.000528335571,
+                0.000579833984
+              ],
+              "native_difference_range": [
+                0.00127410889,
+                0.00134277344
+              ],
+              "roots": [
+                {
+                  "native_target": -26.6996841,
+                  "trace_target": -26.1171989,
+                  "correction": 0.582485199
+                },
+                {
+                  "native_target": -26.6983948,
+                  "trace_target": -26.1166515,
+                  "correction": 0.58174324
+                }
+              ],
+              "elapsed_seconds": [
+                49.0,
+                49.0
+              ],
+              "zero_duration_events": [
+                17,
+                14
+              ],
+              "terminal_bootstrap": [
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 9.04709509e-11,
+                  "native_target": -26.0717926,
+                  "raw_reward": -0.167099997,
+                  "raw_bootstrap": -25.9046917,
+                  "weighted_native_target": -2.35873987e-09,
+                  "weighted_reward": -1.51176957e-11,
+                  "weighted_bootstrap": -2.34362209e-09,
+                  "weighted_minus_incoming_matching_q": 2.42951417e-09,
+                  "weighted_native_minus_incoming_matching_q": 7.07743029e-11,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                },
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 4.77427014e-11,
+                  "native_target": -25.6894493,
+                  "raw_reward": -0.0,
+                  "raw_bootstrap": -25.6894493,
+                  "weighted_native_target": -1.22648371e-09,
+                  "weighted_reward": -0.0,
+                  "weighted_bootstrap": -1.22648371e-09,
+                  "weighted_minus_incoming_matching_q": 1.26388195e-09,
+                  "weighted_native_minus_incoming_matching_q": 3.7398243e-11,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                }
+              ],
+              "all_full_chain_supported": true,
+              "missing_links": [],
+              "max_reconstruction_residual": 3.55271368e-15,
+              "prefix_attribution": [
+                [
+                  8,
+                  20.0,
+                  20.0,
+                  0.0357444021,
+                  0.0357450165,
+                  -1.02836367e-06,
+                  0.000747011262
+                ],
+                [
+                  16,
+                  31.0,
+                  31.0,
+                  0.000120605982,
+                  9.87433472e-05,
+                  0.000260540105,
+                  0.000323617762
+                ],
+                [
+                  24,
+                  34.0,
+                  34.0,
+                  4.01137802e-06,
+                  3.36139328e-06,
+                  0.000263800559,
+                  0.000284271348
+                ],
+                [
+                  32,
+                  40.0,
+                  40.0,
+                  1.25414962e-07,
+                  1.38143216e-07,
+                  0.000263686107,
+                  0.000284872063
+                ],
+                [
+                  44,
+                  49.0,
+                  49.0,
+                  9.04709509e-11,
+                  4.77427014e-11,
+                  0.00026372182,
+                  0.000284686916
+                ]
+              ]
+            },
+            {
+              "line_id": "705X",
+              "primary": {
+                "native_difference": -1.14440918e-05,
+                "trace_difference": 0.00192642212,
+                "correction_difference": 0.00193786621,
+                "components": {
+                  "reward": -0.000161017283,
+                  "bootstrap": -0.0315493046,
+                  "minus_matching_target_q": 0.0336385905,
+                  "native_rounding": 2.07346892e-09,
+                  "recurrence_rounding": -1.84852094e-06
+                },
+                "bootstrap_split": {
+                  "value": -0.00323484664,
+                  "sac": -0.0283144273,
+                  "assembly_rounding": -3.07112535e-08
+                },
+                "bootstrap_minus_matching_Q": 0.00208928585,
+                "reconstruction_residual": -2.29005183e-15,
+                "reward_value_vs_weight": {
+                  "common_weight_value_difference": -0.000102098463,
+                  "common_value_weight_difference": -5.89188196e-05
+                },
+                "terminal_bootstrap_difference": -4.22856303e-10,
+                "terminal_bootstrap_coefficient": [
+                  5.50085682e-11,
+                  7.08626107e-11
+                ],
+                "root_levels": [
+                  -25.8882313,
+                  -25.8863049
+                ],
+                "root_corrections": [
+                  1.29964828,
+                  1.30158615
+                ]
+              },
+              "replicates": [
+                [
+                  336202,
+                  -1.14440918e-05,
+                  0.00192642212,
+                  0.00193786621,
+                  -0.000161017283,
+                  -0.0315493046,
+                  0.0336385905,
+                  -4.22856303e-10,
+                  -0.000102098463,
+                  -5.89188196e-05
+                ],
+                [
+                  336203,
+                  -1.33514404e-05,
+                  0.00194168091,
+                  0.00195503235,
+                  -0.000161017283,
+                  -0.0315342909,
+                  0.0336385905,
+                  -4.22059746e-10,
+                  -0.000102098463,
+                  -5.89188196e-05
+                ],
+                [
+                  336204,
+                  -1.14440918e-05,
+                  0.00188064575,
+                  0.00189208984,
+                  -0.000161017283,
+                  -0.031597536,
+                  0.0336385905,
+                  -4.24382734e-10,
+                  -0.000102098463,
+                  -5.89188196e-05
+                ]
+              ],
+              "trace_direction_consistent_across_seeds": true,
+              "trace_difference_range": [
+                0.00188064575,
+                0.00194168091
+              ],
+              "native_difference_range": [
+                -1.33514404e-05,
+                -1.14440918e-05
+              ],
+              "roots": [
+                {
+                  "native_target": -27.1878796,
+                  "trace_target": -25.8882313,
+                  "correction": 1.29964828
+                },
+                {
+                  "native_target": -27.187891,
+                  "trace_target": -25.8863049,
+                  "correction": 1.30158615
+                }
+              ],
+              "elapsed_seconds": [
+                52.0,
+                51.0
+              ],
+              "zero_duration_events": [
+                17,
+                17
+              ],
+              "terminal_bootstrap": [
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 5.50085682e-11,
+                  "native_target": -26.7480698,
+                  "raw_reward": -0.672599971,
+                  "raw_bootstrap": -26.07547,
+                  "weighted_native_target": -1.47137302e-09,
+                  "weighted_reward": -3.69987614e-11,
+                  "weighted_bootstrap": -1.43437427e-09,
+                  "weighted_minus_incoming_matching_q": 1.48514027e-09,
+                  "weighted_native_minus_incoming_matching_q": 1.37672506e-11,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                },
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 7.08626107e-11,
+                  "native_target": -26.7130928,
+                  "raw_reward": -0.504199982,
+                  "raw_bootstrap": -26.2088928,
+                  "weighted_native_target": -1.8929595e-09,
+                  "weighted_reward": -3.5728927e-11,
+                  "weighted_bootstrap": -1.85723057e-09,
+                  "weighted_minus_incoming_matching_q": 1.91605356e-09,
+                  "weighted_native_minus_incoming_matching_q": 2.30940628e-11,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                }
+              ],
+              "all_full_chain_supported": true,
+              "missing_links": [],
+              "max_reconstruction_residual": 1.0658141e-14,
+              "prefix_attribution": [
+                [
+                  8,
+                  17.0,
+                  17.0,
+                  0.00621587129,
+                  0.00621547399,
+                  5.30564691e-07,
+                  0.000815018461
+                ],
+                [
+                  16,
+                  20.0,
+                  21.0,
+                  8.77452788e-05,
+                  0.000195957294,
+                  -0.000156681304,
+                  0.00197219395
+                ],
+                [
+                  24,
+                  25.0,
+                  26.0,
+                  2.67720868e-06,
+                  5.68906623e-06,
+                  -0.000161749467,
+                  0.00208946404
+                ],
+                [
+                  32,
+                  30.0,
+                  31.0,
+                  6.45896045e-08,
+                  9.93858808e-08,
+                  -0.000161014119,
+                  0.002089275
+                ],
+                [
+                  44,
+                  52.0,
+                  51.0,
+                  5.50085682e-11,
+                  7.08626107e-11,
+                  -0.000161017283,
+                  0.00208928585
+                ]
+              ]
+            },
+            {
+              "line_id": "7X",
+              "primary": {
+                "native_difference": 0.0,
+                "trace_difference": -0.00123786926,
+                "correction_difference": -0.00123786926,
+                "components": {
+                  "reward": -0.00302686663,
+                  "bootstrap": -0.0076246296,
+                  "minus_matching_target_q": 0.00941353201,
+                  "native_rounding": 4.56902532e-08,
+                  "recurrence_rounding": 4.92649636e-08
+                },
+                "bootstrap_split": {
+                  "value": -0.000850834335,
+                  "sac": -0.00677368049,
+                  "assembly_rounding": -1.14768925e-07
+                },
+                "bootstrap_minus_matching_Q": 0.00178890242,
+                "reconstruction_residual": 2.69337504e-15,
+                "reward_value_vs_weight": {
+                  "common_weight_value_difference": -0.0030362427,
+                  "common_value_weight_difference": 9.37606177e-06
+                },
+                "terminal_bootstrap_difference": -8.97604661e-10,
+                "terminal_bootstrap_coefficient": [
+                  1.57930691e-10,
+                  1.93933423e-10
+                ],
+                "root_levels": [
+                  -24.99259,
+                  -24.9938278
+                ],
+                "root_corrections": [
+                  1.60969734,
+                  1.60845947
+                ]
+              },
+              "replicates": [
+                [
+                  336202,
+                  0.0,
+                  -0.00123786926,
+                  -0.00123786926,
+                  -0.00302686663,
+                  -0.0076246296,
+                  0.00941353201,
+                  -8.97604661e-10,
+                  -0.0030362427,
+                  9.37606177e-06
+                ],
+                [
+                  336203,
+                  0.0,
+                  -0.001329422,
+                  -0.001329422,
+                  -0.00302686663,
+                  -0.0077148665,
+                  0.00941353201,
+                  -8.87404689e-10,
+                  -0.0030362427,
+                  9.37606177e-06
+                ],
+                [
+                  336204,
+                  0.0,
+                  -0.00122451782,
+                  -0.00122451782,
+                  -0.00302686663,
+                  -0.00761083584,
+                  0.00941353201,
+                  -8.98038298e-10,
+                  -0.0030362427,
+                  9.37606177e-06
+                ]
+              ],
+              "trace_direction_consistent_across_seeds": true,
+              "trace_difference_range": [
+                -0.001329422,
+                -0.00122451782
+              ],
+              "native_difference_range": [
+                0.0,
+                0.0
+              ],
+              "roots": [
+                {
+                  "native_target": -26.6022873,
+                  "trace_target": -24.99259,
+                  "correction": 1.60969734
+                },
+                {
+                  "native_target": -26.6022873,
+                  "trace_target": -24.9938278,
+                  "correction": 1.60845947
+                }
+              ],
+              "elapsed_seconds": [
+                52.0,
+                52.0
+              ],
+              "zero_duration_events": [
+                15,
+                15
+              ],
+              "terminal_bootstrap": [
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 1.57930691e-10,
+                  "native_target": -27.4902229,
+                  "raw_reward": -1.17659998,
+                  "raw_bootstrap": -26.3136234,
+                  "weighted_native_target": -4.34154991e-09,
+                  "weighted_reward": -1.85821248e-10,
+                  "weighted_bootstrap": -4.15572873e-09,
+                  "weighted_minus_incoming_matching_q": 4.24515606e-09,
+                  "weighted_native_minus_incoming_matching_q": -9.63938466e-11,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                },
+                {
+                  "event": 44,
+                  "true_terminal": false,
+                  "coefficient": 1.93933423e-10,
+                  "native_target": -27.2332535,
+                  "raw_reward": -1.17619991,
+                  "raw_bootstrap": -26.0570526,
+                  "weighted_native_target": -5.28143806e-09,
+                  "weighted_reward": -2.28104475e-10,
+                  "weighted_bootstrap": -5.0533334e-09,
+                  "weighted_minus_incoming_matching_q": 5.2067766e-09,
+                  "weighted_native_minus_incoming_matching_q": -7.46614529e-11,
+                  "coefficient_scope": "algebraic_unrolled_coefficient_not_SGD_gradient"
+                }
+              ],
+              "all_full_chain_supported": true,
+              "missing_links": [],
+              "max_reconstruction_residual": 7.10542736e-15,
+              "prefix_attribution": [
+                [
+                  8,
+                  19.0,
+                  19.0,
+                  0.085342666,
+                  0.085342666,
+                  1.70688221e-05,
+                  0.0014970468
+                ],
+                [
+                  16,
+                  28.0,
+                  27.0,
+                  0.000128902181,
+                  0.000277327331,
+                  -0.00298171938,
+                  0.00146554647
+                ],
+                [
+                  24,
+                  32.0,
+                  32.0,
+                  1.17024548e-05,
+                  1.7260295e-05,
+                  -0.00302705998,
+                  0.00178091317
+                ],
+                [
+                  32,
+                  38.0,
+                  38.0,
+                  3.23010215e-07,
+                  4.38819212e-07,
+                  -0.00302685367,
+                  0.00178876566
+                ],
+                [
+                  44,
+                  52.0,
+                  52.0,
+                  1.57930691e-10,
+                  1.93933423e-10,
+                  -0.00302686663,
+                  0.00178890242
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      "schema": {
+        "replicate_columns": [
+          "seed",
+          "native_high_minus_low",
+          "trace_high_minus_low",
+          "correction_high_minus_low",
+          "reward_high_minus_low",
+          "bootstrap_high_minus_low",
+          "minus_matching_Q_high_minus_low",
+          "terminal_bootstrap_high_minus_low",
+          "common_weight_reward_difference",
+          "common_reward_weight_difference"
+        ],
+        "prefix_columns": [
+          "links",
+          "low_elapsed_seconds",
+          "high_elapsed_seconds",
+          "low_reach_weight",
+          "high_reach_weight",
+          "cumulative_reward_high_minus_low",
+          "cumulative_bootstrap_minus_matching_Q_high_minus_low"
+        ],
+        "action_difference": "high1.875_minus_low0; higher target favors high action",
+        "primary_seed": 336202,
+        "prefix_attribution": "event-indexed partial sums of the fixed full45 target, not alternate truncated targets or matched-clock causal costs",
+        "reward_weight_split": "Delta(w*r)=mean(w)*Delta(r)+mean(r)*Delta(w)",
+        "terminal_dependency": "unrolled algebraic coefficient; not an SGD gradient",
+        "exactness": "native frozen-snapshot _target parity under diagnostic CRN; historic sampled training targets not replayed"
+      },
+      "diagnostic_budget": {
+        "new_training_updates": 0,
+        "new_feedback_slots": 0,
+        "new_native_branches": 0,
+        "new_native_seconds": 0,
+        "checkpoints_downloaded": 0,
+        "resident_checkpoints_loaded": 2
+      },
+      "scientific_scope": {
+        "physical_horizon": "existing45 actual closures only, about50seconds",
+        "cost300_direction": null,
+        "regret300": null,
+        "deployed_control_gain": null
+      },
+      "wall_seconds": 73.4733095,
+      "decision": {
+        "shadow_training_started": false,
+        "next_gate": "Review whether actual rewards yield a reproducible root action difference after bootstrap/Qbar cancellation, attenuation and terminal dependence. No automatic training or new collection."
+      }
+    }
+  },
+  "integrity": {
+    "all_pass": true
+  },
+  "source_contract": {
+    "initializer_updates": 50000,
+    "feedback_slots_per_case": 285,
+    "optimizer_updates_per_case": 456,
+    "horizon_seconds": 24000,
+    "F_unchanged": true,
+    "trust_unchanged": true
+  },
+  "new_budget": {
+    "training_updates": 0,
+    "feedback_slots": 0,
+    "native_branches": 0,
+    "native_seconds": 0,
+    "checkpoint_downloads": 0
+  },
+  "decision": {
+    "shadow_training_started": false,
+    "next_gate": "Read-only trace target precheck complete only if integrity passes; inspect paired reward/bootstrap/correction and CRN spread before deciding a new same-flow training version."
+  }
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "project": "Thesis",
+    "description": "mcwm_closed_loop_confidence_fit_v98_20261028 one fixed T bias fit",
+    "signature": "mcwm_closed_loop_confidence_fit_v98_20261028/fixed_fit",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_confidence_fit_v98_20261028",
+    "cmd": "/usr/bin/python3 -B -u /home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_confidence_fit_v98_20261028/fit.py",
+    "priority": "high",
+    "allowed_nodes": [
+      "local"
+    ],
+    "require_node": "local",
+    "cpu": 1,
+    "ram_mb": 1000,
+    "vram": 0,
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "allow_cpu_training": true,
+    "cpu_training_justification": "One fixed two-parameter CPU ridge solve on the complete12 paired T labels; no simulation, neural update, calibration or validation.",
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "skip_launch_staging": true,
+    "no_auto_requeue": true
+  }
+]

@@ -1,0 +1,18 @@
+{"at": "2026-10-22T11:29:06.616524+00:00", "stage": "started", "priority": "high", "service_days": 1, "conditional_response_days": 3, "total_days_maximum": 4, "labels_per_day": 285, "service_heldout_branches": 12, "conditional_response_heldout_branches": 36, "service_preflight_reused": true, "independent_confirmation": "not_submitted"}
+{"at": "2026-10-22T11:29:09.146922+00:00", "stage": "waiting_service_day", "first": {"path": "stage_a/runs/stable/seed6201", "status": "pending"}, "first_gate": false, "service_pairs_terminal": 0, "service_pairs_bad": [], "response_days_terminal": 0, "response_days_bad": [], "response_days_passed": 0, "response_pairs_terminal": 0, "response_pairs_bad": [], "analysis_failures": [], "service_gate": null, "response_summary": null}
+{"at": "2026-10-22T13:48:33.300434+00:00", "stage": "stopped", "error_type": "RuntimeError", "error": "[node001] cmd failed (rc=255): kex_exchange_identification: Connection closed by remote host\nConnection closed by UNKNOWN port 65535"}
+Traceback (most recent call last):
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_service_shift_v21_20261022/continue_batch.py", line 113, in <module>
+    main()
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_service_shift_v21_20261022/continue_batch.py", line 88, in main
+    wait_until('waiting_service_day', lambda v:v['first_gate'])
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_service_shift_v21_20261022/continue_batch.py", line 55, in wait_until
+    value = metadata()
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_service_shift_v21_20261022/continue_batch.py", line 48, in metadata
+    return json.loads(infra.scheduler.run_on('node001', shlex.join([infra.PYTHON, '-c', code]),
+  File "/home/erzhu419/mine_code/scheduleurm/skill/scheduler_transport/remote_runtime.py", line 184, in run_on
+    return _run_on_impl(
+  File "/home/erzhu419/mine_code/scheduleurm/skill/scheduler_remote/exec.py", line 558, in run_on
+    raise RuntimeError(f"[{node}] cmd failed (rc={proc.returncode}): {proc.stderr.strip()[:300]}")
+RuntimeError: [node001] cmd failed (rc=255): kex_exchange_identification: Connection closed by remote host
+Connection closed by UNKNOWN port 65535

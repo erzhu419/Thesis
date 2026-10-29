@@ -1,0 +1,168 @@
+{
+  "status": "technical_hold",
+  "technical_pass": false,
+  "error": {
+    "type": "RuntimeError",
+    "message": "Fixed numerical solver HOLD: maximum_newton_steps"
+  },
+  "gate": {
+    "passed": false,
+    "per_scene_noninferiority": {
+      "stable": {
+        "frozen": false,
+        "hold_only": false,
+        "past_prevalence": true,
+        "clock_zero_risk": true
+      },
+      "local_speed_drop": {
+        "frozen": false,
+        "hold_only": false,
+        "past_prevalence": false,
+        "clock_zero_risk": false
+      }
+    },
+    "strict_vs_frozen": false,
+    "strict_vs_hold_only": false,
+    "failed_conditions": [
+      "technical_pass",
+      "complete_two_scenes",
+      "stable:fresh_not_noninferior_to_frozen",
+      "stable:fresh_not_noninferior_to_hold_only",
+      "local_speed_drop:fresh_not_noninferior_to_frozen",
+      "local_speed_drop:fresh_not_noninferior_to_hold_only",
+      "local_speed_drop:fresh_not_noninferior_to_past_prevalence",
+      "local_speed_drop:fresh_not_noninferior_to_clock_zero_risk",
+      "no_strict_improvement_vs_frozen",
+      "no_strict_improvement_vs_hold_only"
+    ]
+  },
+  "cases": {
+    "stable": {
+      "count": 150,
+      "brier": {
+        "fresh": 0.0450843349188111,
+        "frozen": 0.044986130914845636,
+        "hold_only": 0.04501906593212236,
+        "past_prevalence": 0.0454305698597921,
+        "clock_zero_risk": 0.04666666666666667
+      },
+      "fresh_minus": {
+        "frozen": 9.820400396546441e-05,
+        "hold_only": 6.526898668873793e-05,
+        "past_prevalence": -0.00034623494098100227,
+        "clock_zero_risk": -0.0015823317478555685
+      },
+      "by_label": {
+        "0": {
+          "count": 143,
+          "brier": {
+            "fresh": 0.0011556802984666419,
+            "frozen": 0.0006601241693291622,
+            "hold_only": 0.0011208131535062245,
+            "past_prevalence": 0.0004866758050641358,
+            "clock_zero_risk": 0.0
+          },
+          "fresh_minus": {
+            "frozen": 0.0004955561291374797,
+            "hold_only": 3.4867144960417425e-05,
+            "past_prevalence": 0.0006690044934025061,
+            "clock_zero_risk": 0.0011556802984666419
+          }
+        },
+        "1": {
+          "count": 7,
+          "brier": {
+            "fresh": 0.9424839935915622,
+            "frozen": 0.9505031258589679,
+            "hold_only": 0.9417976584095663,
+            "past_prevalence": 0.9635701198349491,
+            "clock_zero_risk": 1.0
+          },
+          "fresh_minus": {
+            "frozen": -0.008019132267405693,
+            "hold_only": 0.0006863351819959007,
+            "past_prevalence": -0.021086126243386905,
+            "clock_zero_risk": -0.05751600640843779
+          }
+        }
+      },
+      "by_n": {
+        "n=0": {
+          "count": 145,
+          "brier": {
+            "fresh": 0.0400077327463792,
+            "frozen": 0.03998612496425632,
+            "hold_only": 0.040001634443834894,
+            "past_prevalence": 0.04023825878052493,
+            "clock_zero_risk": 0.041379310344827586
+          },
+          "fresh_minus": {
+            "frozen": 2.1607782122880226e-05,
+            "hold_only": 6.098302544305101e-06,
+            "past_prevalence": -0.00023052603414572964,
+            "clock_zero_risk": -0.001371577598448387
+          }
+        },
+        "n>0": {
+          "count": 5,
+          "brier": {
+            "fresh": 0.1923057979193362,
+            "frozen": 0.18998630348193582,
+            "hold_only": 0.1905245790924589,
+            "past_prevalence": 0.19600759115854016,
+            "clock_zero_risk": 0.2
+          },
+          "fresh_minus": {
+            "frozen": 0.002319494437400371,
+            "hold_only": 0.00178121882687729,
+            "past_prevalence": -0.003701793239203971,
+            "clock_zero_risk": -0.00769420208066382
+          }
+        }
+      }
+    }
+  },
+  "scene_runs": {
+    "stable": {
+      "predictions": 150,
+      "released_packets": 29,
+      "final_history_rows": 280,
+      "latest_used_deadline": 17700,
+      "frozen_unchanged": true,
+      "last_coefficients": {
+        "full": [
+          -3.2933691602925292,
+          0.8322943251296933,
+          0.06485185442453531
+        ],
+        "hold_only": [
+          -3.2779545181308025,
+          0.057984571474678226
+        ]
+      }
+    }
+  },
+  "compute": {
+    "predictor_fits": 69,
+    "converged_fits": 68,
+    "initialization_fits": 2,
+    "refits": 67,
+    "newton_steps": 514,
+    "line_search_evaluations": 2870,
+    "objective_evaluations": 2939,
+    "max_final_gradient": 2.1461521622356816e-08,
+    "max_newton_steps_per_fit": 100,
+    "elapsed_seconds": 1.5023960312828422
+  },
+  "limits": {
+    "new_native_seconds": 0,
+    "new_collection": 0,
+    "actor_critic_optimizer_updates": 0,
+    "world_refits": 0,
+    "new_control_actions": 0,
+    "hyperparameter_sweeps": 0
+  },
+  "control_benefit_evidence": false,
+  "independent_confirmation": false,
+  "automatic_followup": false
+}

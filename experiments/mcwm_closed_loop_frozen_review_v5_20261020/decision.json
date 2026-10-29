@@ -1,0 +1,12 @@
+{
+  "decision": "Do not adopt blanket neural-world freezing or expand formal control experiments yet.",
+  "evidence_scope": "Completed native preflight and four real controls, seeds6201/6202 crossed with stable/local_speed_drop; same initialization, target duration and global-label/policy-update budget as action_model.",
+  "observations": [
+    "Frozen world improves stable full-day costs in both seeds, but worsens shock full-day and post-stop costs in both seeds.",
+    "Frozen world has lower average global prediction error on its own trajectories, but lower trust; these metrics do not rank control performance consistently.",
+    "Prediction scores are on different realized trajectories, not matched factual transitions, and trust measures postfit six-head Bellman confidence rather than raw prequential global MSE."
+  ],
+  "next_step": "A new v6 passive diagnosis on the existing action_model development setup: retain the initial frozen world twin in server memory; score both worlds at the same causal issues and on the next untrained selected packet, separately per family and under the same selected family; record six-head error, common-evaluator Bellman error, trust training error/tau/instantaneous confidence/bootstrap and actor-action weights. Any twin trust learner must receive the same observed replay sequence, rather than remaining at its initial state.",
+  "optimizer_followup": "Extend matched eight-step shadows to online versus frozen neural worlds, using shared replay/target draws and fixed actual trust, to isolate how parameter adaptation changes the critic, action preferences and next-packet TD. No shadow branch controls the environment.",
+  "gates": "Require exact reproduction of baseline control cost and unchanged label/update budgets. A model-update revision is justified only after same-flow held-future and action-value evidence identify a specific failure; then test a small stable/shock control comparison before any formal expansion."
+}

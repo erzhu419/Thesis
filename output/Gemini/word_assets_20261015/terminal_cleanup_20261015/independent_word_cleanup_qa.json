@@ -1,0 +1,2312 @@
+{
+  "before": "/home/erzhu419/mine_code/Thesis/output/Gemini/word_assets_20261015/terminal_cleanup_20261015/修改前_通篇校核版.docx",
+  "after": "/home/erzhu419/mine_code/Thesis/output/Gemini/重构论文_终审局部修订_20261015.docx",
+  "new_top_level_paragraph_ids": [],
+  "retained_top_level_paragraph_order_unchanged": true,
+  "retained_paragraph_properties_changed": [],
+  "removed_top_level_paragraphs": [
+    {
+      "old_block": 1010,
+      "text": "此外，为独立验证模型类别选择与残差辨识机制，本章另在受控动力学平台上构造源—目标环境对开展机制验证实验。在受控动力学任务中，源环境与目标环境共享相同的状态空间、动作空间、折扣因子 γ∈[0,1) 与初始状态分布，每一对源—目标环境仅改变单一物理动力学因素（分别为执行器输出能力、重力加速度或接触摩擦系数）；任务采用固定决策时间步长，世界模型的预测对象为单步状态"
+    },
+    {
+      "old_block": 1012,
+      "text": "与公交跨保真任务严格目标域固定离线数据、仅追加源仿真在线交互不同，受控动力学实验允许在训练期间继续采集一定预算的目标环境在线转移数据并入目标经验池，专门用于剖析模型自适应选择与在线更新机理。"
+    },
+    {
+      "old_block": 1041,
+      "text": "以受控动力学任务为例说明标准化一步预测误差的计算方式：对第 i 条转移数据，将真实单步状态增量与即时奖励拼接构成 (ns+1) 维联合预测目标向量 zi（其中 ns=dim(S) 为状态空间维数）："
+    },
+    {
+      "old_block": 1050,
+      "text": "此外，在受控动力学任务中，针对物理状态范围、单步状态跳变幅度及奖励合理范围设置确定性的有效性判据：满足全部物理边界条件的预测样本取有效性指示标记 χi=1，越界样本取 χi=0，合成最终模型样本权重："
+    },
+    {
+      "old_block": 1079,
+      "text": "6.4.1 受控动力学基准对照实验"
+    },
+    {
+      "old_block": 1080,
+      "text": "本节在受控动力学平台上对比MC-WM与五种代表性基线方法，考察相同目标交互预算下各方法的控制回报与运行违例次数。全章实验旨在回答以下四个问题：（1）在受控动力学偏移任务中，MC-WM相对于仅目标数据SAC、仅源仿真SAC、基于分类器奖励修正的DARC、直接目标MBPO及固定残差方法的适应效果如何？（2）一步预测误差能否直接等同于最终控制收益，模型类别选择、置"
+    },
+    {
+      "old_block": 1081,
+      "text": "受控实验在多刚体连续运动控制仿真平台中构建三组单因素动力学偏移基准任务（表6-2）：每对源环境与目标环境具有完全相同的多连杆刚体结构、状态维数与关节力矩动作维数，分别单独改变执行器输出能力（执行器偏移任务）、重力加速度（重力偏移任务）与接触摩擦系数（摩擦偏移任务），并定义相应的姿态、速度或位置安全违例判据（违例按触发二次惩罚的步数及越界提前终止事件计数）。"
+    },
+    {
+      "old_block": 1082,
+      "text": "表6-2 受控动力学实验的三组源—目标动力学偏移设置与运行违例定义"
+    },
+    {
+      "old_block": 1084,
+      "text": "实验将完整 MC-WM 与五种方法开展对照：① 固定残差方法（Fixed Residual）：始终强制使用残差世界模型，保留SINDy稀疏加神经修正、置信度评价与近期访问加权，但关闭更新方式调节、附加违例代价与验证策略恢复；② 直接目标MBPO[189]：使用相同概率集成结构直接拟合目标数据并生成一步预测样本，不保留源预测；③ 仅目标数据SAC（Target"
+    },
+    {
+      "old_block": 1085,
+      "text": ""
+    },
+    {
+      "old_block": 1086,
+      "text": "图6-3 受控动力学实验各方法的目标环境训练、验证与测试交互量"
+    },
+    {
+      "old_block": 1087,
+      "text": ""
+    },
+    {
+      "old_block": 1088,
+      "text": "图6-4 受控动力学偏移下的独立测试回报与违例对比"
+    },
+    {
+      "old_block": 1089,
+      "text": ""
+    },
+    {
+      "old_block": 1090,
+      "text": "图6-5 受控动力学变化下各预定训练阶段的验证回报曲线"
+    },
+    {
+      "old_block": 1091,
+      "text": ""
+    },
+    {
+      "old_block": 1092,
+      "text": "图6-6 模型适应过程中的验证违例次数变化曲线"
+    },
+    {
+      "old_block": 1093,
+      "text": "表6-3汇总了三种动力学偏移任务下MC-WM相对于五种对照方法的独立测试配对差异及95%自助法置信区间，各方法的交互步数构成、测试分布及8个验证时点的演化轨迹分别如图6-3至图6-6所示。"
+    },
+    {
+      "old_block": 1094,
+      "text": "表6-3 受控动力学偏移三项任务中MC-WM相对于各基线方法的配对测试差异汇总（10次独立训练配对统计）"
+    },
+    {
+      "old_block": 1096,
+      "text": "综合表6-3与图6-4至图6-6的结果可以看出，MC-WM在受控动力学偏移下展现出显著且稳健的适应优势：首先，相对于仅使用目标数据的无模型SAC，MC-WM在全部三个任务中均实现了控制回报的提升与运行违例的显著下降——执行器偏移任务、重力偏移任务和摩擦偏移任务的平均回报分别增加 +1,925.7、+1,184.5 和 +133.4（95%配对置信区间全部严格"
+    },
+    {
+      "old_block": 1097,
+      "text": "6.4.2 模型选择与组成因素消融分析"
+    },
+    {
+      "old_block": 1098,
+      "text": "为检验第6.3.1节“按模型选择验证集误差自动选择残差模型或直接目标模型（式(6-12)）”的实际控制意义，在3个任务的30次MC-WM主训练基础上，保持策略初始化、经验采样与后续优化的随机数序列完全一致，额外开展强制采用残差模型与强制采用直接目标模型的受控干预对比（共60次附加训练，结果见表6-4与图6-7、图6-8）。"
+    },
+    {
+      "old_block": 1099,
+      "text": "表6-4 按验证误差自动选择模型类别相对于强制采用未选中候选模型的配对测试差异（10次训练统计）"
+    },
+    {
+      "old_block": 1101,
+      "text": ""
+    },
+    {
+      "old_block": 1102,
+      "text": "图6-7 自动模型选择相对另一候选模型的训练配对差"
+    },
+    {
+      "old_block": 1103,
+      "text": ""
+    },
+    {
+      "old_block": 1104,
+      "text": "图6-8 模型选择对照中初始验证误差差异与控制结果的关系"
+    },
+    {
+      "old_block": 1105,
+      "text": "表6-4、图6-7与图6-8清晰地揭示了模型自动选择机制的作用规律与边界： 第一，验证集误差准则成功识别出了源预测模型严重失效的场景，避免了强行保留错误源关系导致的性能崩塌。在执行器偏移任务中，源预测模型与目标动力学差异悬殊（残差模型与直接模型的验证集标准化误差差值均值高达 0.835），式(6-12)在全部10次训练中均准确选中了直接目标模型，使测试回报相"
+    },
+    {
+      "old_block": 1106,
+      "text": "在此基础上，进一步通过240次组件消融训练与60次稠密/稀疏残差网络结构对比训练（图6-9）剖析其余组成因素的作用："
+    },
+    {
+      "old_block": 1107,
+      "text": "组件消融结果：移除测试前基于验证时点的策略参数恢复机制后，执行器偏移任务与摩擦偏移任务的测试回报分别显著下降 428.8（区间 [-650.1,-212.8]）与 84.2（区间 [-158.8,-24.9]）；移除分阶段运行违例代价后，执行器偏移任务每回合违例激增 17.02 次（区间 [0.83,46.07]），摩擦偏移任务虽回报增加 58.6（区间 ["
+    },
+    {
+      "old_block": 1108,
+      "text": "SINDy稀疏残差与双层64单元ReLU稠密残差对比：如图6-9所示，稠密残差网络比SINDy稀疏加补充网络配置分别多出 1,414、1,347 和 1,386 个可训练参数；稀疏结构在执行器偏移任务中显著降低了预测误差（稠密减稀疏误差差为 +0.629，区间 [0.485,0.796]），在其余两任务中预测误差略高（-0.103 与 -0.007），而两者"
+    },
+    {
+      "old_block": 1109,
+      "text": ""
+    },
+    {
+      "old_block": 1110,
+      "text": "图6-9 稠密与稀疏残差模型的配对比较"
+    },
+    {
+      "old_block": 1176,
+      "text": "第一，关于受控动力学机制验证与模型自动选择的意义（回应问题1与问题2）。在允许追加目标交互的受控动力学偏移任务中，MC-WM相对于仅目标数据SAC在三项任务上均显著提高了控制回报（+1,925.7,+1,184.5,+133.4）并减少了运行违例，相对于分类器奖励修正方法DARC亦全面占优（+2,222.7,+3,686.2,+142.1）。强制类别干预实验"
+    },
+    {
+      "old_block": 1427,
+      "text": "[218]UDRESCU S M, TEGMARK M. AI Feynman: a Physics-Inspired Method for Symbolic Regression[EB/OL]. arXiv, 2019[2026-09-29]. https://arxiv.org/abs/1905.11481."
+    },
+    {
+      "old_block": 1428,
+      "text": "[219]ZOLMAN N, LAGEMANN C, FASEL U, et al. SINDy-RL: Interpretable and Efficient Model-Based Reinforcement Learning[EB/OL]. arXiv, 2024[2026-09-29]. https://arxiv.org/abs/2403.0911"
+    },
+    {
+      "old_block": 1429,
+      "text": "[220]ROSS S, GORDON G J, BAGNELL J A. A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning[EB/OL]. arXiv, 2010[2026-09-29]. https://arxiv.org/ab"
+    },
+    {
+      "old_block": 1431,
+      "text": "[222]HENDERSON P, ISLAM R, BACHMAN P, et al. Deep Reinforcement Learning that Matters[EB/OL]. arXiv, 2017[2026-09-29]. https://arxiv.org/abs/1709.06560."
+    },
+    {
+      "old_block": 1432,
+      "text": "[223]COLAS C, SIGAUD O, OUDEYER P Y. How Many Random Seeds? Statistical Power Analysis in Deep Reinforcement Learning Experiments[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org"
+    },
+    {
+      "old_block": 1433,
+      "text": "[224]AGARWAL R, SCHWARZER M, CASTRO P S, et al. Deep Reinforcement Learning at the Edge of the Statistical Precipice[EB/OL]. arXiv, 2021[2026-09-29]. https://arxiv.org/abs/2108.132"
+    },
+    {
+      "old_block": 1434,
+      "text": "[225]TESSLER C, MANKOWITZ D J, MANNOR S. Reward Constrained Policy Optimization[EB/OL]. arXiv, 2018[2026-09-29]. https://arxiv.org/abs/1805.11074."
+    },
+    {
+      "old_block": 1435,
+      "text": "[226]STOOKE A, ACHIAM J, ABBEEL P. Responsive Safety in Reinforcement Learning by PID Lagrangian Methods[EB/OL]. arXiv, 2020[2026-09-29]. https://arxiv.org/abs/2007.03964."
+    },
+    {
+      "old_block": 2173,
+      "text": "（一）概率动力学集成网络结构。受控动力学任务的源世界模型与直接目标世界模型各由 5 个概率神经网络成员组成，每个成员包含3个全连接隐藏层，每层200个神经元，采用Sigmoid线性单元（SiLU）激活函数，输出单步状态增量与即时奖励的高斯分布均值及对角方差；输入与输出的标准化缩放参数在各自首次拟合时确定并锁定。"
+    },
+    {
+      "old_block": 2174,
+      "text": "（二）SINDy稀疏加掩码神经残差模型结构。记冻结源模型集成的平均状态增量预测与平均奖励预测分别为 usim(x) 与 ρsim(x)，第 i 条目标样本的状态残差训练标签为 yiΔs=(si+1-si)-usim(xi)，残差模型的后继状态预测 sres'、奖励预测 rres 及状态修正函数 Δs(x) 分别为："
+    },
+    {
+      "old_block": 2176,
+      "text": "式中，奖励残差 Δr,ζ(x) 为单隐层64单元ReLU网络；Θ(x) 为经均方根缩放的二次多项式候选特征向量，B 为采用序贯阈值最小二乘法（岭参数与系数阈值均取 0.05）拟合的逐输出稀疏系数矩阵，μ 为至少被一个状态维度选中的特征并集二元掩码，gψ 为单隐层32单元SiLU补充网络（其输出层权重零初始化，使初始残差预测精确等于稀疏线性修正）。特征筛选要求"
+    },
+    {
+      "old_block": 2177,
+      "text": "（三）在线继续拟合与近期访问核密度加权。受控动力学任务每新增 1,000 次目标环境在线交互，使用最多 50,000 条目标数据继续拟合已选模型（源模型始终冻结）。残差状态拟合以最近 10,000 个同策略近期状态—动作对为参考库，计算拟合样本 i 在标准化空间中到8个最近邻参考点的平均欧氏距离 di（带宽 hd 取 {di} 的中位数），赋予样本拟合权重："
+    },
+    {
+      "old_block": 2179,
+      "text": "回合终止状态另由单隐层64单元ReLU二元分类器预测（输出概率 >0.5 判为终止，仅当目标经验池中终止样本占比超 2% 时启用）。"
+    },
+    {
+      "old_block": 2180,
+      "text": "（四）受控任务策略训练与验证恢复准则。采用3个动作价值网络（附加系数为 0.01 的在线集成标准差惩罚），策略按均值减2倍标准差（βlcb=-2）评价动作并保留系数为 10-3 的行为克隆项；运行违例代价系数在前半程（前20,000步在线交互）置 0、后半程线性增至 10[225,226]；每250次目标交互从目标经验池抽取400个状态生成一步模型样本。训练"
+    }
+  ],
+  "changed_retained_paragraphs": [
+    {
+      "old_block": 23,
+      "new_block": 23,
+      "paragraph_id": "27C03348",
+      "changes": [
+        {
+          "old": "与车内载客",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 33,
+      "new_block": 33,
+      "paragraph_id": "4F7923DC",
+      "changes": [
+        {
+          "old": ",",
+          "new": " and"
+        },
+        {
+          "old": "s, and onboard load",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 176,
+      "new_block": 176,
+      "paragraph_id": "5794D9BE",
+      "changes": [
+        {
+          "old": "加班",
+          "new": "支援"
+        }
+      ]
+    },
+    {
+      "old_block": 178,
+      "new_block": 178,
+      "paragraph_id": "2CAF0118",
+      "changes": [
+        {
+          "old": "历史运行数据（以下将包含状态、动作、奖励与后继状态的目标环境历史交互轨迹称为“",
+          "new": ""
+        },
+        {
+          "old": "",
+          "new": "固定"
+        },
+        {
+          "old": "训练",
+          "new": ""
+        },
+        {
+          "old": "”，以区别于线路图和时刻表等静态基础资料）",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 179,
+      "new_block": 179,
+      "paragraph_id": "50C9BC86",
+      "changes": [
+        {
+          "old": "底层",
+          "new": "基础"
+        }
+      ]
+    },
+    {
+      "old_block": 195,
+      "new_block": 195,
+      "paragraph_id": "725984B6",
+      "changes": [
+        {
+          "old": "",
+          "new": "支援"
+        },
+        {
+          "old": "平峰",
+          "new": "主力"
+        },
+        {
+          "old": "底层",
+          "new": "基础"
+        }
+      ]
+    },
+    {
+      "old_block": 205,
+      "new_block": 205,
+      "paragraph_id": "26C8BD4C",
+      "changes": [
+        {
+          "old": "",
+          "new": "支援"
+        },
+        {
+          "old": "平峰",
+          "new": "主力"
+        }
+      ]
+    },
+    {
+      "old_block": 228,
+      "new_block": 228,
+      "paragraph_id": "4AAB7893",
+      "changes": [
+        {
+          "old": "底层",
+          "new": "基础"
+        }
+      ]
+    },
+    {
+      "old_block": 248,
+      "new_block": 248,
+      "paragraph_id": "283A1652",
+      "changes": [
+        {
+          "old": "分别",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 251,
+      "new_block": 251,
+      "paragraph_id": "29F46C14",
+      "changes": [
+        {
+          "old": "大幅",
+          "new": "明显"
+        }
+      ]
+    },
+    {
+      "old_block": 295,
+      "new_block": 295,
+      "paragraph_id": "77111C19",
+      "changes": [
+        {
+          "old": "底层",
+          "new": "基础"
+        },
+        {
+          "old": "底层",
+          "new": "基础"
+        }
+      ]
+    },
+    {
+      "old_block": 308,
+      "new_block": 308,
+      "paragraph_id": "41D2310C",
+      "changes": [
+        {
+          "old": "底层",
+          "new": "基础"
+        }
+      ]
+    },
+    {
+      "old_block": 326,
+      "new_block": 326,
+      "paragraph_id": "3CD2BE63",
+      "changes": [
+        {
+          "old": "极其",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 346,
+      "new_block": 346,
+      "paragraph_id": "2459ECB3",
+      "changes": [
+        {
+          "old": "间隔",
+          "new": "车头时距"
+        },
+        {
+          "old": "间隔",
+          "new": "车头时距"
+        }
+      ]
+    },
+    {
+      "old_block": 354,
+      "new_block": 354,
+      "paragraph_id": "01B40F10",
+      "changes": [
+        {
+          "old": "底层",
+          "new": "基础"
+        }
+      ]
+    },
+    {
+      "old_block": 359,
+      "new_block": 359,
+      "paragraph_id": "2DB0E13F",
+      "changes": [
+        {
+          "old": "底层",
+          "new": "基础"
+        }
+      ]
+    },
+    {
+      "old_block": 366,
+      "new_block": 366,
+      "paragraph_id": "14EE7E34",
+      "changes": [
+        {
+          "old": "本车车内载客率、",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 382,
+      "new_block": 382,
+      "paragraph_id": "698EB957",
+      "changes": [
+        {
+          "old": "明显小",
+          "new": "低"
+        },
+        {
+          "old": "计划间隔",
+          "new": "串车判定"
+        },
+        {
+          "old": "",
+          "new": "；双向单线路场景的阈值为180秒"
+        }
+      ]
+    },
+    {
+      "old_block": 396,
+      "new_block": 396,
+      "paragraph_id": "16B1D2B8",
+      "changes": [
+        {
+          "old": "底层",
+          "new": "基础"
+        }
+      ]
+    },
+    {
+      "old_block": 397,
+      "new_block": 397,
+      "paragraph_id": "3EEDA06E",
+      "changes": [
+        {
+          "old": "底层",
+          "new": "基础"
+        }
+      ]
+    },
+    {
+      "old_block": 401,
+      "new_block": 401,
+      "paragraph_id": "09ACFFFB",
+      "changes": [
+        {
+          "old": "",
+          "new": "较"
+        },
+        {
+          "old": "幅",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 422,
+      "new_block": 422,
+      "paragraph_id": "105C35AA",
+      "changes": [
+        {
+          "old": "底层",
+          "new": "基础"
+        }
+      ]
+    },
+    {
+      "old_block": 437,
+      "new_block": 437,
+      "paragraph_id": "40B05B06",
+      "changes": [
+        {
+          "old": "当两侧邻",
+          "new": "前车与后"
+        }
+      ]
+    },
+    {
+      "old_block": 439,
+      "new_block": 439,
+      "paragraph_id": "59A1C1B8",
+      "changes": [
+        {
+          "old": "两侧",
+          "new": "前、后向"
+        }
+      ]
+    },
+    {
+      "old_block": 441,
+      "new_block": 441,
+      "paragraph_id": "29853BFD",
+      "changes": [
+        {
+          "old": "一侧",
+          "new": "的前车或后车对应的"
+        },
+        {
+          "old": "不存在一侧",
+          "new": "无邻车方向"
+        },
+        {
+          "old": "",
+          "new": "除前后向偏差同时越限情形外，"
+        }
+      ]
+    },
+    {
+      "old_block": 455,
+      "new_block": 455,
+      "paragraph_id": "736DB285",
+      "changes": [
+        {
+          "old": "无偏",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 541,
+      "new_block": 541,
+      "paragraph_id": "13A9D51C",
+      "changes": [
+        {
+          "old": "",
+          "new": "在"
+        },
+        {
+          "old": "停靠保存",
+          "new": "站点记录"
+        },
+        {
+          "old": "间隔",
+          "new": "车头时距"
+        }
+      ]
+    },
+    {
+      "old_block": 544,
+      "new_block": 544,
+      "paragraph_id": "5BC4F29E",
+      "changes": [
+        {
+          "old": "",
+          "new": "差值与百分比按未舍入结果计算。"
+        }
+      ]
+    },
+    {
+      "old_block": 560,
+      "new_block": 560,
+      "paragraph_id": "24E4CCF3",
+      "changes": [
+        {
+          "old": "事件",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 575,
+      "new_block": 575,
+      "paragraph_id": "5038CA90",
+      "changes": [
+        {
+          "old": "底层",
+          "new": "基础"
+        }
+      ]
+    },
+    {
+      "old_block": 595,
+      "new_block": 595,
+      "paragraph_id": "5CFEA817",
+      "changes": [
+        {
+          "old": "",
+          "new": "；另三个共同评价日复评"
+        }
+      ]
+    },
+    {
+      "old_block": 597,
+      "new_block": 597,
+      "paragraph_id": "35AE74BF",
+      "changes": [
+        {
+          "old": "以及最优的车头时距均衡性",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 632,
+      "new_block": 632,
+      "paragraph_id": "6F947532",
+      "changes": [
+        {
+          "old": "底层",
+          "new": "基础"
+        }
+      ]
+    },
+    {
+      "old_block": 634,
+      "new_block": 634,
+      "paragraph_id": "7AFB4472",
+      "changes": [
+        {
+          "old": "底层",
+          "new": "基础"
+        },
+        {
+          "old": "底层",
+          "new": "基础"
+        }
+      ]
+    },
+    {
+      "old_block": 635,
+      "new_block": 635,
+      "paragraph_id": "147DB6F6",
+      "changes": [
+        {
+          "old": "大幅",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 650,
+      "new_block": 650,
+      "paragraph_id": "49BBD38C",
+      "changes": [
+        {
+          "old": "底层",
+          "new": "基础"
+        }
+      ]
+    },
+    {
+      "old_block": 653,
+      "new_block": 653,
+      "paragraph_id": "0137D0E9",
+      "changes": [
+        {
+          "old": "极其",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 667,
+      "new_block": 667,
+      "paragraph_id": "3225B0CE",
+      "changes": [
+        {
+          "old": "1.",
+          "new": "（一）"
+        }
+      ]
+    },
+    {
+      "old_block": 683,
+      "new_block": 683,
+      "paragraph_id": "35CE6197",
+      "changes": [
+        {
+          "old": "2.",
+          "new": "（二）"
+        }
+      ]
+    },
+    {
+      "old_block": 687,
+      "new_block": 687,
+      "paragraph_id": "333DC19E",
+      "changes": [
+        {
+          "old": "3.",
+          "new": "（三）"
+        }
+      ]
+    },
+    {
+      "old_block": 750,
+      "new_block": 750,
+      "paragraph_id": "5F54B79C",
+      "changes": [
+        {
+          "old": "，单位：千",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 806,
+      "new_block": 806,
+      "paragraph_id": "4702267E",
+      "changes": [
+        {
+          "old": "轻微",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 848,
+      "new_block": 848,
+      "paragraph_id": "3E2B34DC",
+      "changes": [
+        {
+          "old": "底层",
+          "new": "基础"
+        }
+      ]
+    },
+    {
+      "old_block": 953,
+      "new_block": 953,
+      "paragraph_id": "13EC6753",
+      "changes": [
+        {
+          "old": "事件",
+          "new": ""
+        },
+        {
+          "old": "率",
+          "new": "比例"
+        }
+      ]
+    },
+    {
+      "old_block": 960,
+      "new_block": 960,
+      "paragraph_id": "4A1438AF",
+      "changes": [
+        {
+          "old": "高达",
+          "new": ""
+        },
+        {
+          "old": "极其",
+          "new": ""
+        },
+        {
+          "old": "率",
+          "new": "比例"
+        },
+        {
+          "old": "率",
+          "new": "比例"
+        },
+        {
+          "old": "率",
+          "new": "比例"
+        },
+        {
+          "old": "极其",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 965,
+      "new_block": 965,
+      "paragraph_id": "01928257",
+      "changes": [
+        {
+          "old": "",
+          "new": "F.2及附录"
+        },
+        {
+          "old": "第五部分",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 975,
+      "new_block": 975,
+      "paragraph_id": "3B691AC4",
+      "changes": [
+        {
+          "old": "第五部分",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 982,
+      "new_block": 982,
+      "paragraph_id": "6A437E6E",
+      "changes": [
+        {
+          "old": "",
+          "new": "较"
+        },
+        {
+          "old": "幅",
+          "new": "的"
+        }
+      ]
+    },
+    {
+      "old_block": 985,
+      "new_block": 985,
+      "paragraph_id": "080DBF95",
+      "changes": [
+        {
+          "old": "率",
+          "new": "比例"
+        },
+        {
+          "old": "、RLPD",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 1000,
+      "new_block": 1000,
+      "paragraph_id": "21D9132B",
+      "changes": [
+        {
+          "old": "；同时，为深入剖析模型类别选择与残差修正的底层机理，另在受控动力学平台上开展允许追加目标交互的受控实验，两类实验按各自的数据条件独立展开并分别解释",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 1004,
+      "new_block": 1004,
+      "paragraph_id": "050D1063",
+      "changes": [
+        {
+          "old": "以及受控动力学实验的任务条件",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 1009,
+      "new_block": 1009,
+      "paragraph_id": "5FA4A7AD",
+      "changes": [
+        {
+          "old": "极具挑战性的",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 1019,
+      "new_block": 1016,
+      "paragraph_id": "438426E9",
+      "changes": [
+        {
+          "old": "3",
+          "new": "2"
+        }
+      ]
+    },
+    {
+      "old_block": 1020,
+      "new_block": 1017,
+      "paragraph_id": "3FD58EBD",
+      "changes": [
+        {
+          "old": "（受控动力学任务的概率集成与SINDy稀疏残差网络结构详见文末附录说明）",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 1027,
+      "new_block": 1024,
+      "paragraph_id": "29108B11",
+      "changes": [
+        {
+          "old": "4",
+          "new": "3"
+        }
+      ]
+    },
+    {
+      "old_block": 1028,
+      "new_block": 1025,
+      "paragraph_id": "7AB3D1E8",
+      "changes": [
+        {
+          "old": "3",
+          "new": "2"
+        },
+        {
+          "old": "误差，受控动力学任务取状态增量预测均方",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 1030,
+      "new_block": 1027,
+      "paragraph_id": "243D94D8",
+      "changes": [
+        {
+          "old": "，受控动力学任务取 γΔ=0.5",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 1032,
+      "new_block": 1029,
+      "paragraph_id": "46606A95",
+      "changes": [
+        {
+          "old": "6",
+          "new": "5"
+        },
+        {
+          "old": "4",
+          "new": "2"
+        },
+        {
+          "old": "6",
+          "new": "5"
+        }
+      ]
+    },
+    {
+      "old_block": 1036,
+      "new_block": 1033,
+      "paragraph_id": "7CDF737A",
+      "changes": [
+        {
+          "old": "4",
+          "new": "0"
+        },
+        {
+          "old": "9",
+          "new": "8"
+        }
+      ]
+    },
+    {
+      "old_block": 1040,
+      "new_block": 1037,
+      "paragraph_id": "3720C6B9",
+      "changes": [
+        {
+          "old": "受控动力学任务中，将初始采集的 10,000 条目标域转移数据按固定随机划分拆分为互不重叠的三部分：80% 作为参数拟合集、10% 作为用于SINDy残差特征筛选与直接模型提前停止（Early Stopping）的验证集、剩余 10% 作为专门用于最终候选比选的模型选择验证集 Ical；在",
+          "new": ""
+        },
+        {
+          "old": "则",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 1043,
+      "new_block": 1038,
+      "paragraph_id": "3614CF54",
+      "changes": [
+        {
+          "old": "在样本 i 上的集成均值预测为 zi(m)",
+          "new": ""
+        },
+        {
+          "old": "第 k 个目标维度在参数拟合集上的经验标准差为 ςk（当 ςk≤10-6 时置为 1），则",
+          "new": ""
+        },
+        {
+          "old": "标准化均方根",
+          "new": ""
+        },
+        {
+          "old": "定义为：",
+          "new": "按式(6-2)计算。"
+        }
+      ]
+    },
+    {
+      "old_block": 1045,
+      "new_block": 1039,
+      "paragraph_id": "33B6EBD3",
+      "changes": [
+        {
+          "old": "按拟合集标准差 ςk 进行逐维无量纲化，避免了数值幅值较大的单一状态分量或奖励项主导整体误差评估。据此，",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 1047,
+      "new_block": 1041,
+      "paragraph_id": "0EAE4296",
+      "changes": [
+        {
+          "old": "12",
+          "new": "9"
+        },
+        {
+          "old": "3",
+          "new": "2"
+        },
+        {
+          "old": "在受控动力学任务中，残差模型结合SINDy[134,216,218,219]与掩码神经网络拟合源预测与目标观测之间的动力学差异；同时考虑到策略在训练过程中不断演进会改变所访问的状态分布（即序贯决策中的数据分布漂移[220,192]），模型在后续训练中按近期策略访问状态邻域的核密度权重动态重拟合（受控任务的稀疏残差结构与核加权公式详见本章末附录说明）。",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 1049,
+      "new_block": 1043,
+      "paragraph_id": "1BD13FA8",
+      "changes": [
+        {
+          "old": "5",
+          "new": "4"
+        },
+        {
+          "old": "5",
+          "new": "4"
+        },
+        {
+          "old": "6",
+          "new": "5"
+        },
+        {
+          "old": "8",
+          "new": "7"
+        },
+        {
+          "old": "7",
+          "new": "6"
+        }
+      ]
+    },
+    {
+      "old_block": 1052,
+      "new_block": 1044,
+      "paragraph_id": "5534F74D",
+      "changes": [
+        {
+          "old": "且将满足 wi≤0.01 的低置信模型样本直接剔除、不纳入价值网络梯度更新。",
+          "new": ""
+        },
+        {
+          "old": "2",
+          "new": ""
+        },
+        {
+          "old": "",
+          "new": "8"
+        },
+        {
+          "old": "8",
+          "new": "7"
+        }
+      ]
+    },
+    {
+      "old_block": 1058,
+      "new_block": 1050,
+      "paragraph_id": "66B70872",
+      "changes": [
+        {
+          "old": "9",
+          "new": "8"
+        }
+      ]
+    },
+    {
+      "old_block": 1059,
+      "new_block": 1051,
+      "paragraph_id": "16CBEE42",
+      "changes": [
+        {
+          "old": "9",
+          "new": "8"
+        }
+      ]
+    },
+    {
+      "old_block": 1060,
+      "new_block": 1052,
+      "paragraph_id": "28802295",
+      "changes": [
+        {
+          "old": "9",
+          "new": "8"
+        }
+      ]
+    },
+    {
+      "old_block": 1062,
+      "new_block": 1054,
+      "paragraph_id": "3F4D0CC1",
+      "changes": [
+        {
+          "old": "4",
+          "new": "2"
+        }
+      ]
+    },
+    {
+      "old_block": 1064,
+      "new_block": 1056,
+      "paragraph_id": "347530A5",
+      "changes": [
+        {
+          "old": "6",
+          "new": "5"
+        },
+        {
+          "old": "8",
+          "new": "7"
+        }
+      ]
+    },
+    {
+      "old_block": 1071,
+      "new_block": 1063,
+      "paragraph_id": "2F7A597A",
+      "changes": [
+        {
+          "old": "7",
+          "new": "3"
+        }
+      ]
+    },
+    {
+      "old_block": 1073,
+      "new_block": 1065,
+      "paragraph_id": "6D6D9292",
+      "changes": [
+        {
+          "old": "7",
+          "new": "3"
+        },
+        {
+          "old": "8",
+          "new": "4"
+        },
+        {
+          "old": "12",
+          "new": "9"
+        }
+      ]
+    },
+    {
+      "old_block": 1074,
+      "new_block": 1066,
+      "paragraph_id": "1F9CD763",
+      "changes": [
+        {
+          "old": "6",
+          "new": "5"
+        },
+        {
+          "old": "8",
+          "new": "7"
+        },
+        {
+          "old": "6",
+          "new": "5"
+        },
+        {
+          "old": "8",
+          "new": "7"
+        },
+        {
+          "old": "7",
+          "new": "6"
+        }
+      ]
+    },
+    {
+      "old_block": 1076,
+      "new_block": 1068,
+      "paragraph_id": "1BEDB1F0",
+      "changes": [
+        {
+          "old": "9",
+          "new": "5"
+        },
+        {
+          "old": "在受控动力学任务（取 γΔ=0.5）中，原始递推的不动点权重为 worig⋆=0.51/(1-0.5)=0.52=0.25，仍保有足够的更新强度；然而",
+          "new": ""
+        },
+        {
+          "old": "9",
+          "new": "8"
+        },
+        {
+          "old": "8",
+          "new": "7"
+        }
+      ]
+    },
+    {
+      "old_block": 1078,
+      "new_block": 1070,
+      "paragraph_id": "2E571B2E",
+      "changes": [
+        {
+          "old": "实验围绕第6.4.1节提出的四个核心问题依次展开，包含受控动力学实验（6.4.1节与6.4.2节）与",
+          "new": ""
+        },
+        {
+          "old": "3",
+          "new": "1"
+        },
+        {
+          "old": "5",
+          "new": "3"
+        },
+        {
+          "old": "两大部分，并在6.4.6节综合讨论结论边界与两章分工关系。受控动力学实验允许追加目标环境交互且每对源—目标环境仅改变单一物理参数，定位为模型类别选择与样本加权机制的机制验证实验；多线路公交实验",
+          "new": ""
+        },
+        {
+          "old": "3",
+          "new": "1"
+        },
+        {
+          "old": "4",
+          "new": "2"
+        },
+        {
+          "old": "5",
+          "new": "3"
+        }
+      ]
+    },
+    {
+      "old_block": 1111,
+      "new_block": 1071,
+      "paragraph_id": "5C3E4F87",
+      "changes": [
+        {
+          "old": "3",
+          "new": "1"
+        }
+      ]
+    },
+    {
+      "old_block": 1112,
+      "new_block": 1072,
+      "paragraph_id": "5D7DD5F5",
+      "changes": [
+        {
+          "old": "在完成受控动力学机制验证后，",
+          "new": ""
+        },
+        {
+          "old": "正式转向",
+          "new": "研究"
+        },
+        {
+          "old": "6",
+          "new": "5"
+        }
+      ]
+    },
+    {
+      "old_block": 1113,
+      "new_block": 1073,
+      "paragraph_id": "3F85EF72",
+      "changes": [
+        {
+          "old": "5",
+          "new": "2"
+        },
+        {
+          "old": "4",
+          "new": "2"
+        },
+        {
+          "old": "5",
+          "new": "3"
+        }
+      ]
+    },
+    {
+      "old_block": 1114,
+      "new_block": 1074,
+      "paragraph_id": "103FC148",
+      "changes": [
+        {
+          "old": "5",
+          "new": "2"
+        }
+      ]
+    },
+    {
+      "old_block": 1116,
+      "new_block": 1076,
+      "paragraph_id": "65290CC0",
+      "changes": [
+        {
+          "old": "6",
+          "new": "3"
+        }
+      ]
+    },
+    {
+      "old_block": 1117,
+      "new_block": 1077,
+      "paragraph_id": "72DB0481",
+      "changes": [
+        {
+          "old": "6",
+          "new": "3"
+        }
+      ]
+    },
+    {
+      "old_block": 1119,
+      "new_block": 1079,
+      "paragraph_id": "4D0EFE02",
+      "changes": [
+        {
+          "old": "6",
+          "new": "3"
+        },
+        {
+          "old": "",
+          "new": "自动选择组比无模型基线多耗时约1.98分钟，单状态推理仍为毫秒量级。"
+        }
+      ]
+    },
+    {
+      "old_block": 1120,
+      "new_block": 1080,
+      "paragraph_id": "533367FE",
+      "changes": [
+        {
+          "old": "6",
+          "new": "5"
+        },
+        {
+          "old": "7",
+          "new": "4"
+        },
+        {
+          "old": "10",
+          "new": "3"
+        },
+        {
+          "old": "9",
+          "new": "8"
+        },
+        {
+          "old": "8",
+          "new": "5"
+        },
+        {
+          "old": "11",
+          "new": "4"
+        }
+      ]
+    },
+    {
+      "old_block": 1121,
+      "new_block": 1081,
+      "paragraph_id": "7629703C",
+      "changes": [
+        {
+          "old": "7",
+          "new": "4"
+        }
+      ]
+    },
+    {
+      "old_block": 1124,
+      "new_block": 1084,
+      "paragraph_id": "55192C51",
+      "changes": [
+        {
+          "old": "10",
+          "new": "3"
+        }
+      ]
+    },
+    {
+      "old_block": 1125,
+      "new_block": 1085,
+      "paragraph_id": "41C602B5",
+      "changes": [
+        {
+          "old": "8",
+          "new": "5"
+        }
+      ]
+    },
+    {
+      "old_block": 1129,
+      "new_block": 1089,
+      "paragraph_id": "5C15CED4",
+      "changes": [
+        {
+          "old": "11",
+          "new": "4"
+        }
+      ]
+    },
+    {
+      "old_block": 1130,
+      "new_block": 1090,
+      "paragraph_id": "4BAC777A",
+      "changes": [
+        {
+          "old": "7",
+          "new": "4"
+        },
+        {
+          "old": "8",
+          "new": "5"
+        },
+        {
+          "old": "10",
+          "new": "3"
+        },
+        {
+          "old": "11",
+          "new": "4"
+        },
+        {
+          "old": "6",
+          "new": "5"
+        },
+        {
+          "old": "8",
+          "new": "5"
+        }
+      ]
+    },
+    {
+      "old_block": 1131,
+      "new_block": 1091,
+      "paragraph_id": "327062B5",
+      "changes": [
+        {
+          "old": "4",
+          "new": "2"
+        }
+      ]
+    },
+    {
+      "old_block": 1132,
+      "new_block": 1092,
+      "paragraph_id": "1C877600",
+      "changes": [
+        {
+          "old": "3",
+          "new": "1"
+        },
+        {
+          "old": "12",
+          "new": "5"
+        }
+      ]
+    },
+    {
+      "old_block": 1134,
+      "new_block": 1094,
+      "paragraph_id": "44014468",
+      "changes": [
+        {
+          "old": "12",
+          "new": "5"
+        }
+      ]
+    },
+    {
+      "old_block": 1135,
+      "new_block": 1095,
+      "paragraph_id": "7FAA1D79",
+      "changes": [
+        {
+          "old": "12",
+          "new": "5"
+        }
+      ]
+    },
+    {
+      "old_block": 1137,
+      "new_block": 1097,
+      "paragraph_id": "0AC9FCAF",
+      "changes": [
+        {
+          "old": "6",
+          "new": "5"
+        },
+        {
+          "old": "6",
+          "new": "5"
+        },
+        {
+          "old": "9",
+          "new": "5"
+        }
+      ]
+    },
+    {
+      "old_block": 1138,
+      "new_block": 1098,
+      "paragraph_id": "01EF7515",
+      "changes": [
+        {
+          "old": "8",
+          "new": "7"
+        },
+        {
+          "old": "9",
+          "new": "6"
+        },
+        {
+          "old": "13",
+          "new": "6"
+        },
+        {
+          "old": "14",
+          "new": "7"
+        }
+      ]
+    },
+    {
+      "old_block": 1139,
+      "new_block": 1099,
+      "paragraph_id": "5A6B603F",
+      "changes": [
+        {
+          "old": "9",
+          "new": "6"
+        }
+      ]
+    },
+    {
+      "old_block": 1143,
+      "new_block": 1103,
+      "paragraph_id": "2539DE80",
+      "changes": [
+        {
+          "old": "13",
+          "new": "6"
+        }
+      ]
+    },
+    {
+      "old_block": 1145,
+      "new_block": 1105,
+      "paragraph_id": "4956B2E7",
+      "changes": [
+        {
+          "old": "14",
+          "new": "7"
+        }
+      ]
+    },
+    {
+      "old_block": 1146,
+      "new_block": 1106,
+      "paragraph_id": "1E1A1E9D",
+      "changes": [
+        {
+          "old": "9",
+          "new": "6"
+        },
+        {
+          "old": "13",
+          "new": "6"
+        },
+        {
+          "old": "14",
+          "new": "7"
+        },
+        {
+          "old": "14",
+          "new": "7"
+        },
+        {
+          "old": "6",
+          "new": "5"
+        },
+        {
+          "old": "8",
+          "new": "7"
+        },
+        {
+          "old": "13",
+          "new": "6"
+        },
+        {
+          "old": "9",
+          "new": "6"
+        },
+        {
+          "old": "15",
+          "new": "8"
+        }
+      ]
+    },
+    {
+      "old_block": 1148,
+      "new_block": 1108,
+      "paragraph_id": "2575E8CA",
+      "changes": [
+        {
+          "old": "15",
+          "new": "8"
+        }
+      ]
+    },
+    {
+      "old_block": 1149,
+      "new_block": 1109,
+      "paragraph_id": "37704BF3",
+      "changes": [
+        {
+          "old": "5",
+          "new": "3"
+        }
+      ]
+    },
+    {
+      "old_block": 1152,
+      "new_block": 1112,
+      "paragraph_id": "4B7CBDE8",
+      "changes": [
+        {
+          "old": "10",
+          "new": "7"
+        },
+        {
+          "old": "16",
+          "new": "9"
+        }
+      ]
+    },
+    {
+      "old_block": 1153,
+      "new_block": 1113,
+      "paragraph_id": "0B8E48EC",
+      "changes": [
+        {
+          "old": "10",
+          "new": "7"
+        }
+      ]
+    },
+    {
+      "old_block": 1155,
+      "new_block": 1115,
+      "paragraph_id": "5B5B2526",
+      "changes": [
+        {
+          "old": "",
+          "new": "与表6-6不同的评价日、两档需求共"
+        }
+      ]
+    },
+    {
+      "old_block": 1157,
+      "new_block": 1117,
+      "paragraph_id": "53B81CD8",
+      "changes": [
+        {
+          "old": "16",
+          "new": "9"
+        }
+      ]
+    },
+    {
+      "old_block": 1158,
+      "new_block": 1118,
+      "paragraph_id": "59375ACA",
+      "changes": [
+        {
+          "old": "10",
+          "new": "7"
+        },
+        {
+          "old": "16",
+          "new": "9"
+        }
+      ]
+    },
+    {
+      "old_block": 1160,
+      "new_block": 1120,
+      "paragraph_id": "746319C9",
+      "changes": [
+        {
+          "old": "",
+          "new": "3种方案 ×"
+        },
+        {
+          "old": "第五部分",
+          "new": ""
+        },
+        {
+          "old": "",
+          "new": "按MC-WM减H2O+计算的"
+        }
+      ]
+    },
+    {
+      "old_block": 1162,
+      "new_block": 1122,
+      "paragraph_id": "0F7E2469",
+      "changes": [
+        {
+          "old": "10",
+          "new": "7"
+        },
+        {
+          "old": "7",
+          "new": "0"
+        }
+      ]
+    },
+    {
+      "old_block": 1164,
+      "new_block": 1124,
+      "paragraph_id": "53C21A3C",
+      "changes": [
+        {
+          "old": "7",
+          "new": "0"
+        }
+      ]
+    },
+    {
+      "old_block": 1166,
+      "new_block": 1126,
+      "paragraph_id": "27883906",
+      "changes": [
+        {
+          "old": "8",
+          "new": "1"
+        }
+      ]
+    },
+    {
+      "old_block": 1167,
+      "new_block": 1127,
+      "paragraph_id": "300073AC",
+      "changes": [
+        {
+          "old": "8",
+          "new": "1"
+        },
+        {
+          "old": "8",
+          "new": "9"
+        }
+      ]
+    },
+    {
+      "old_block": 1174,
+      "new_block": 1134,
+      "paragraph_id": "767C2932",
+      "changes": [
+        {
+          "old": "6",
+          "new": "4"
+        }
+      ]
+    },
+    {
+      "old_block": 1175,
+      "new_block": 1135,
+      "paragraph_id": "14456C36",
+      "changes": [
+        {
+          "old": "受控动力学实验与",
+          "new": ""
+        },
+        {
+          "old": "全部",
+          "new": ""
+        },
+        {
+          "old": "第6.4.1节提出的四个问题及",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 1177,
+      "new_block": 1136,
+      "paragraph_id": "4845A6A6",
+      "changes": [
+        {
+          "old": "二",
+          "new": "一"
+        },
+        {
+          "old": "（回应问题3与问题4）",
+          "new": ""
+        },
+        {
+          "old": "3",
+          "new": "1"
+        },
+        {
+          "old": "4",
+          "new": "2"
+        },
+        {
+          "old": "6",
+          "new": "5"
+        },
+        {
+          "old": "8",
+          "new": "7"
+        }
+      ]
+    },
+    {
+      "old_block": 1178,
+      "new_block": 1137,
+      "paragraph_id": "3316FE41",
+      "changes": [
+        {
+          "old": "三",
+          "new": "二"
+        }
+      ]
+    },
+    {
+      "old_block": 1181,
+      "new_block": 1140,
+      "paragraph_id": "1322F190",
+      "changes": [
+        {
+          "old": "；受控动力学实验表明，当源模型关系在目标环境中不再适用时（如执行器偏移任务），验证集准则自动选中直接目标模型，相较于强制使用残差修正使平均测试回报显著提高 +1,529.9（95%配对置信区间 [426.9,2833.1]），证实了不预设残差结构必优、交由未参与拟合的验证集数据客观择优的必要性",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 1191,
+      "new_block": 1150,
+      "paragraph_id": "67EE3E1F",
+      "changes": [
+        {
+          "old": "底层",
+          "new": "基础"
+        }
+      ]
+    },
+    {
+      "old_block": 1194,
+      "new_block": 1153,
+      "paragraph_id": "277336F3",
+      "changes": [
+        {
+          "old": "5",
+          "new": "3"
+        }
+      ]
+    },
+    {
+      "old_block": 1200,
+      "new_block": 1159,
+      "paragraph_id": "07BD6D44",
+      "changes": [
+        {
+          "old": "4",
+          "new": "2"
+        },
+        {
+          "old": "5",
+          "new": "3"
+        }
+      ]
+    },
+    {
+      "old_block": 1205,
+      "new_block": 1164,
+      "paragraph_id": "1AF7379C",
+      "changes": [
+        {
+          "old": "大幅",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 1430,
+      "new_block": 1386,
+      "paragraph_id": "6C3C5B16",
+      "changes": [
+        {
+          "old": "2",
+          "new": ""
+        },
+        {
+          "old": "",
+          "new": "8"
+        }
+      ]
+    },
+    {
+      "old_block": 2134,
+      "new_block": 2085,
+      "paragraph_id": "3935FCBE",
+      "changes": [
+        {
+          "old": "4",
+          "new": "2"
+        },
+        {
+          "old": "5",
+          "new": "3"
+        }
+      ]
+    },
+    {
+      "old_block": 2137,
+      "new_block": 2088,
+      "paragraph_id": "77AAC404",
+      "changes": [
+        {
+          "old": "3",
+          "new": "1"
+        },
+        {
+          "old": "5",
+          "new": "3"
+        }
+      ]
+    },
+    {
+      "old_block": 2139,
+      "new_block": 2090,
+      "paragraph_id": "601D4DEC",
+      "changes": [
+        {
+          "old": "；完成率平均降低0.011个百分点",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 2142,
+      "new_block": 2093,
+      "paragraph_id": "11B26012",
+      "changes": [
+        {
+          "old": "同时",
+          "new": ""
+        },
+        {
+          "old": "与完成率",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 2143,
+      "new_block": 2094,
+      "paragraph_id": "031C468B",
+      "changes": [
+        {
+          "old": "，完成率越高越好",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 2144,
+      "new_block": 2095,
+      "paragraph_id": "6ECAF838",
+      "changes": [
+        {
+          "old": "3",
+          "new": "1"
+        }
+      ]
+    },
+    {
+      "old_block": 2148,
+      "new_block": 2099,
+      "paragraph_id": "463827EE",
+      "changes": [
+        {
+          "old": "",
+          "new": ".4"
+        },
+        {
+          "old": "的",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 2149,
+      "new_block": 2100,
+      "paragraph_id": "7360B9F0",
+      "changes": [
+        {
+          "old": "、行程完成率",
+          "new": ""
+        },
+        {
+          "old": "，行程完成率单独报告",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 2152,
+      "new_block": 2103,
+      "paragraph_id": "0CD04CE6",
+      "changes": [
+        {
+          "old": "c",
+          "new": "b"
+        }
+      ]
+    },
+    {
+      "old_block": 2153,
+      "new_block": 2104,
+      "paragraph_id": "2E22DDF6",
+      "changes": [
+        {
+          "old": "，行程完成率分别为96.8445%、96.6864%和96.5819%",
+          "new": ""
+        },
+        {
+          "old": "；完成率提高0.2626个百分点",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 2155,
+      "new_block": 2106,
+      "paragraph_id": "45293CCE",
+      "changes": [
+        {
+          "old": "3",
+          "new": "1"
+        }
+      ]
+    },
+    {
+      "old_block": 2157,
+      "new_block": 2108,
+      "paragraph_id": "776410C7",
+      "changes": [
+        {
+          "old": "左",
+          "new": ""
+        },
+        {
+          "old": "，右图正值表示提高完成率",
+          "new": ""
+        },
+        {
+          "old": "，两个面板采用各自单位和色标",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 2162,
+      "new_block": 2113,
+      "paragraph_id": "0F403934",
+      "changes": [
+        {
+          "old": "与完成率",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "old_block": 2164,
+      "new_block": 2115,
+      "paragraph_id": "5502DF00",
+      "changes": [
+        {
+          "old": "3",
+          "new": "1"
+        },
+        {
+          "old": "3",
+          "new": "1"
+        }
+      ]
+    },
+    {
+      "old_block": 2165,
+      "new_block": 2116,
+      "paragraph_id": "6A31ECCC",
+      "changes": [
+        {
+          "old": "4",
+          "new": "2"
+        }
+      ]
+    },
+    {
+      "old_block": 2166,
+      "new_block": 2117,
+      "paragraph_id": "18563A3C",
+      "changes": [
+        {
+          "old": "5",
+          "new": "3"
+        }
+      ]
+    },
+    {
+      "old_block": 2167,
+      "new_block": 2118,
+      "paragraph_id": "3F04C765",
+      "changes": [
+        {
+          "old": "5",
+          "new": "3"
+        }
+      ]
+    },
+    {
+      "old_block": 2168,
+      "new_block": 2119,
+      "paragraph_id": "35623EFD",
+      "changes": [
+        {
+          "old": "5",
+          "new": "2"
+        }
+      ]
+    },
+    {
+      "old_block": 2170,
+      "new_block": 2121,
+      "paragraph_id": "39EAF71F",
+      "changes": [
+        {
+          "old": "5",
+          "new": "3"
+        },
+        {
+          "old": "分别",
+          "new": ""
+        },
+        {
+          "old": "与叠加行程完成保障",
+          "new": ""
+        },
+        {
+          "old": "8",
+          "new": "4"
+        },
+        {
+          "old": "8",
+          "new": "4"
+        }
+      ]
+    },
+    {
+      "old_block": 2172,
+      "new_block": 2123,
+      "paragraph_id": "41B884AA",
+      "changes": [
+        {
+          "old": "受控动力学任务模型与",
+          "new": "公交"
+        }
+      ]
+    },
+    {
+      "old_block": 2181,
+      "new_block": 2124,
+      "paragraph_id": "22B81203",
+      "changes": [
+        {
+          "old": "（五）",
+          "new": ""
+        },
+        {
+          "old": "5",
+          "new": "3"
+        }
+      ]
+    }
+  ],
+  "original_math_objects": 4858,
+  "current_math_objects": 4661,
+  "math_objects_not_identical_to_any_original": [
+    {
+      "count": 1,
+      "text": "Ck,G",
+      "xml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:wpc=\"http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas\" xmlns:cx=\"http://schemas.microsoft.com/office/drawing/2014/chartex\" xmlns:cx1=\"http://schemas.microsoft.com/office/drawing/2015/9/8/chartex\" xmlns:cx2=\"http://schemas.microsoft.com/office/drawing/2015/10/21/chartex\" xmlns:cx3=\"http://schemas.microsoft.com/office/drawing/2016/5/9/chartex\" xmlns:cx4=\"http://schemas.microsoft.com/office/drawing/2016/5/10/chartex\" xmlns:cx5=\"http://schemas.microsoft.com/office/drawing/2016/5/11/chartex\" xmlns:cx6=\"http://schemas.microsoft.com/office/drawing/2016/5/12/chartex\" xmlns:cx7=\"http://schemas.microsoft.com/office/drawing/2016/5/13/chartex\" xmlns:cx8=\"http://schemas.microsoft.com/office/drawing/2016/5/14/chartex\" xmlns:mc=\"http://schemas.openxmlformats.org/markup-compatibility/2006\" xmlns:aink=\"http://schemas.microsoft.com/office/drawing/2016/ink\" xmlns:am3d=\"http://schemas.microsoft.com/office/drawing/2017/model3d\" xmlns:o=\"urn:schemas-microsoft-com:office:office\" xmlns:r=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\" xmlns:v=\"urn:schemas-microsoft-com:vml\" xmlns:wp14=\"http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing\" xmlns:wp=\"http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing\" xmlns:w10=\"urn:schemas-microsoft-com:office:word\" xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\" xmlns:w14=\"http://schemas.microsoft.com/office/word/2010/wordml\" xmlns:w15=\"http://schemas.microsoft.com/office/word/2012/wordml\" xmlns:w16cex=\"http://schemas.microsoft.com/office/word/2018/wordml/cex\" xmlns:w16cid=\"http://schemas.microsoft.com/office/word/2016/wordml/cid\" xmlns:w16=\"http://schemas.microsoft.com/office/word/2018/wordml\" xmlns:w16sdtdh=\"http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash\" xmlns:w16se=\"http://schemas.microsoft.com/office/word/2015/wordml/symex\" xmlns:wpg=\"http://schemas.microsoft.com/office/word/2010/wordprocessingGroup\" xmlns:wpi=\"http://schemas.microsoft.com/office/word/2010/wordprocessingInk\" xmlns:wne=\"http://schemas.microsoft.com/office/word/2006/wordml\" xmlns:wps=\"http://schemas.microsoft.com/office/word/2010/wordprocessingShape\"><m:sSub><m:sSubPr><m:ctrlPr><w:rPr><w:rFonts w:ascii=\"Cambria Math\" w:hAnsi=\"Cambria Math\"/><w:sz w:val=\"21\"/><w:szCs w:val=\"21\"/></w:rPr></m:ctrlPr></m:sSubPr><m:e><m:r><w:rPr><w:rFonts w:ascii=\"Cambria Math\" w:hAnsi=\"Cambria Math\"/><w:sz w:val=\"21\"/><w:szCs w:val=\"21\"/></w:rPr><m:t>C</m:t></m:r></m:e><m:sub><m:r><w:rPr><w:rFonts w:ascii=\"Cambria Math\" w:hAnsi=\"Cambria Math\"/><w:sz w:val=\"21\"/><w:szCs w:val=\"21\"/></w:rPr><m:t>k</m:t></m:r></m:sub></m:sSub><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><w:rPr><w:rFonts w:ascii=\"Cambria Math\" w:hAnsi=\"Cambria Math\"/><w:sz w:val=\"21\"/><w:szCs w:val=\"21\"/></w:rPr><m:t>,</m:t></m:r><m:r><w:rPr><w:rFonts w:ascii=\"Cambria Math\" w:hAnsi=\"Cambria Math\"/><w:sz w:val=\"21\"/><w:szCs w:val=\"21\"/></w:rPr><m:t>G</m:t></m:r></m:oMath>"
+    },
+    {
+      "count": 1,
+      "text": "psig,Nwin",
+      "xml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:wpc=\"http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas\" xmlns:cx=\"http://schemas.microsoft.com/office/drawing/2014/chartex\" xmlns:cx1=\"http://schemas.microsoft.com/office/drawing/2015/9/8/chartex\" xmlns:cx2=\"http://schemas.microsoft.com/office/drawing/2015/10/21/chartex\" xmlns:cx3=\"http://schemas.microsoft.com/office/drawing/2016/5/9/chartex\" xmlns:cx4=\"http://schemas.microsoft.com/office/drawing/2016/5/10/chartex\" xmlns:cx5=\"http://schemas.microsoft.com/office/drawing/2016/5/11/chartex\" xmlns:cx6=\"http://schemas.microsoft.com/office/drawing/2016/5/12/chartex\" xmlns:cx7=\"http://schemas.microsoft.com/office/drawing/2016/5/13/chartex\" xmlns:cx8=\"http://schemas.microsoft.com/office/drawing/2016/5/14/chartex\" xmlns:mc=\"http://schemas.openxmlformats.org/markup-compatibility/2006\" xmlns:aink=\"http://schemas.microsoft.com/office/drawing/2016/ink\" xmlns:am3d=\"http://schemas.microsoft.com/office/drawing/2017/model3d\" xmlns:o=\"urn:schemas-microsoft-com:office:office\" xmlns:r=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\" xmlns:v=\"urn:schemas-microsoft-com:vml\" xmlns:wp14=\"http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing\" xmlns:wp=\"http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing\" xmlns:w10=\"urn:schemas-microsoft-com:office:word\" xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\" xmlns:w14=\"http://schemas.microsoft.com/office/word/2010/wordml\" xmlns:w15=\"http://schemas.microsoft.com/office/word/2012/wordml\" xmlns:w16cex=\"http://schemas.microsoft.com/office/word/2018/wordml/cex\" xmlns:w16cid=\"http://schemas.microsoft.com/office/word/2016/wordml/cid\" xmlns:w16=\"http://schemas.microsoft.com/office/word/2018/wordml\" xmlns:w16sdtdh=\"http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash\" xmlns:w16se=\"http://schemas.microsoft.com/office/word/2015/wordml/symex\" xmlns:wpg=\"http://schemas.microsoft.com/office/word/2010/wordprocessingGroup\" xmlns:wpi=\"http://schemas.microsoft.com/office/word/2010/wordprocessingInk\" xmlns:wne=\"http://schemas.microsoft.com/office/word/2006/wordml\" xmlns:wps=\"http://schemas.microsoft.com/office/word/2010/wordprocessingShape\"><m:sSub><m:sSubPr><m:ctrlPr><w:rPr><w:rFonts w:ascii=\"Cambria Math\" w:hAnsi=\"Cambria Math\"/></w:rPr></m:ctrlPr></m:sSubPr><m:e><m:r><w:rPr><w:rFonts w:ascii=\"Cambria Math\" w:hAnsi=\"Cambria Math\"/><w:sz w:val=\"21\"/><w:szCs w:val=\"21\"/></w:rPr><m:t>p</m:t></m:r></m:e><m:sub><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><w:rPr><w:rFonts w:ascii=\"Cambria Math\" w:hAnsi=\"Cambria Math\"/><w:sz w:val=\"21\"/><w:szCs w:val=\"21\"/></w:rPr><m:t>sig</m:t></m:r></m:sub></m:sSub><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><w:rPr><w:rFonts w:ascii=\"Cambria Math\" w:hAnsi=\"Cambria Math\"/><w:sz w:val=\"21\"/><w:szCs w:val=\"21\"/></w:rPr><m:t>,</m:t></m:r><m:sSub><m:sSubPr><m:ctrlPr><w:rPr><w:rFonts w:ascii=\"Cambria Math\" w:hAnsi=\"Cambria Math\"/></w:rPr></m:ctrlPr></m:sSubPr><m:e><m:r><w:rPr><w:rFonts w:ascii=\"Cambria Math\" w:hAnsi=\"Cambria Math\"/><w:sz w:val=\"21\"/><w:szCs w:val=\"21\"/></w:rPr><m:t>N</m:t></m:r></m:e><m:sub><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><w:rPr><w:rFonts w:ascii=\"Cambria Math\" w:hAnsi=\"Cambria Math\"/><w:sz w:val=\"21\"/><w:szCs w:val=\"21\"/></w:rPr><m:t>win</m:t></m:r></m:sub></m:sSub></m:oMath>"
+    },
+    {
+      "count": 1,
+      "text": "88.39",
+      "xml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:wpc=\"http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas\" xmlns:cx=\"http://schemas.microsoft.com/office/drawing/2014/chartex\" xmlns:cx1=\"http://schemas.microsoft.com/office/drawing/2015/9/8/chartex\" xmlns:cx2=\"http://schemas.microsoft.com/office/drawing/2015/10/21/chartex\" xmlns:cx3=\"http://schemas.microsoft.com/office/drawing/2016/5/9/chartex\" xmlns:cx4=\"http://schemas.microsoft.com/office/drawing/2016/5/10/chartex\" xmlns:cx5=\"http://schemas.microsoft.com/office/drawing/2016/5/11/chartex\" xmlns:cx6=\"http://schemas.microsoft.com/office/drawing/2016/5/12/chartex\" xmlns:cx7=\"http://schemas.microsoft.com/office/drawing/2016/5/13/chartex\" xmlns:cx8=\"http://schemas.microsoft.com/office/drawing/2016/5/14/chartex\" xmlns:mc=\"http://schemas.openxmlformats.org/markup-compatibility/2006\" xmlns:aink=\"http://schemas.microsoft.com/office/drawing/2016/ink\" xmlns:am3d=\"http://schemas.microsoft.com/office/drawing/2017/model3d\" xmlns:o=\"urn:schemas-microsoft-com:office:office\" xmlns:r=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\" xmlns:v=\"urn:schemas-microsoft-com:vml\" xmlns:wp14=\"http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing\" xmlns:wp=\"http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing\" xmlns:w10=\"urn:schemas-microsoft-com:office:word\" xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\" xmlns:w14=\"http://schemas.microsoft.com/office/word/2010/wordml\" xmlns:w15=\"http://schemas.microsoft.com/office/word/2012/wordml\" xmlns:w16cex=\"http://schemas.microsoft.com/office/word/2018/wordml/cex\" xmlns:w16cid=\"http://schemas.microsoft.com/office/word/2016/wordml/cid\" xmlns:w16=\"http://schemas.microsoft.com/office/word/2018/wordml\" xmlns:w16sdtdh=\"http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash\" xmlns:w16se=\"http://schemas.microsoft.com/office/word/2015/wordml/symex\" xmlns:wpg=\"http://schemas.microsoft.com/office/word/2010/wordprocessingGroup\" xmlns:wpi=\"http://schemas.microsoft.com/office/word/2010/wordprocessingInk\" xmlns:wne=\"http://schemas.microsoft.com/office/word/2006/wordml\" xmlns:wps=\"http://schemas.microsoft.com/office/word/2010/wordprocessingShape\"><m:r><w:rPr><w:rFonts w:ascii=\"Cambria Math\" w:hAnsi=\"Cambria Math\"/></w:rPr><m:t>88.39</m:t></m:r></m:oMath>"
+    }
+  ],
+  "figure_caption_count": 53,
+  "drawing_count": 53,
+  "table_caption_count": 46,
+  "chapter6_figures": [
+    "6-1",
+    "6-2",
+    "6-3",
+    "6-4",
+    "6-5",
+    "6-6",
+    "6-7",
+    "6-8",
+    "6-9",
+    "6-10",
+    "6-11"
+  ],
+  "chapter6_tables": [
+    "6-1",
+    "6-2",
+    "6-3",
+    "6-4",
+    "6-5",
+    "6-6",
+    "6-7"
+  ],
+  "chapter6_equations": [
+    "6-1",
+    "6-2",
+    "6-3",
+    "6-4",
+    "6-5",
+    "6-6",
+    "6-7",
+    "6-8",
+    "6-9",
+    "6-10",
+    "6-11",
+    "6-12",
+    "6-13",
+    "6-14",
+    "6-15"
+  ],
+  "reference_count": 218,
+  "references_continuous": true,
+  "citation_label_target_mismatches": [],
+  "missing_chapter6_equation_references": [],
+  "broken_links_excluding_old_TOC": [],
+  "old_TOC_links_pending_native_refresh": [
+    {
+      "block": 143,
+      "type": "hyperlink",
+      "target": "_Toc242987526",
+      "text": "6.4.1 受控动力学基准对照实验193"
+    },
+    {
+      "block": 143,
+      "type": "field",
+      "target": "_Toc242987526"
+    },
+    {
+      "block": 144,
+      "type": "hyperlink",
+      "target": "_Toc242987527",
+      "text": "6.4.2 模型选择与组成因素消融分析200"
+    },
+    {
+      "block": 144,
+      "type": "field",
+      "target": "_Toc242987527"
+    }
+  ]
+}

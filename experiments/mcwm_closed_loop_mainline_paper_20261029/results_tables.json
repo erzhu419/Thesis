@@ -1,0 +1,1828 @@
+{
+  "status": "read_only_verified",
+  "cost": "J=(2*accrued_wait+accrued_ride)/15079; weighted seconds per full-day departing passenger, include unfinished journeys",
+  "sources": {
+    "v73_development": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_decoupled_feedback_v73_20261026/results/development.json",
+    "v75_independent_validation": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_frozen_validation_v75_20261027/results/validation.json",
+    "v104_historical_bridge": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_historical_comparison_v104_20261028/summary.json",
+    "training_identity": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_historical_comparison_v104_20261028/attribution_inputs.json"
+  },
+  "primary_matched": {
+    "full_day": {
+      "mean_cost_difference": -5.94623869841007,
+      "percent_change": -0.2685888839888497,
+      "mean_wait_seconds_per_passenger_difference": -1.7702323319406712,
+      "mean_ride_seconds_per_passenger_difference": -2.4057740345292586,
+      "wins": 4,
+      "losses": 2,
+      "ties": 0,
+      "expected_cells": 6,
+      "complete_cells": 6,
+      "missing_cells": 0,
+      "win_fraction": 0.6666666666666666,
+      "loss_fraction": 0.3333333333333333,
+      "winning_mean_reduction": 10.216642350288453,
+      "losing_mean_increase": 2.5945686053451027,
+      "worst_cost_difference": 4.655945354466439
+    },
+    "periods": {
+      "full_day": {
+        "overall": {
+          "mean_cost_difference": -5.94623869841007,
+          "percent_change": -0.2685888839888497,
+          "mean_wait_seconds_per_passenger_difference": -1.7702323319406712,
+          "mean_ride_seconds_per_passenger_difference": -2.4057740345292586,
+          "wins": 4,
+          "losses": 2,
+          "ties": 0,
+          "expected_cells": 6,
+          "complete_cells": 6,
+          "missing_cells": 0,
+          "win_fraction": 0.6666666666666666,
+          "loss_fraction": 0.3333333333333333,
+          "winning_mean_reduction": 10.216642350288453,
+          "losing_mean_increase": 2.5945686053451027,
+          "worst_cost_difference": 4.655945354466439
+        },
+        "by_scenario": {
+          "stable": {
+            "mean_cost_difference": -4.559210380882632,
+            "percent_change": -0.20639168669955876,
+            "mean_wait_seconds_per_passenger_difference": -1.3993854588058714,
+            "mean_ride_seconds_per_passenger_difference": -1.7604394632712683,
+            "wins": 2,
+            "losses": 1,
+            "ties": 0,
+            "expected_cells": 3,
+            "complete_cells": 3,
+            "missing_cells": 0,
+            "win_fraction": 0.6666666666666666,
+            "loss_fraction": 0.3333333333333333,
+            "winning_mean_reduction": 9.166788248557623,
+            "losing_mean_increase": 4.655945354466439,
+            "worst_cost_difference": 4.655945354466439
+          },
+          "local_speed_drop": {
+            "mean_cost_difference": -7.333267015938418,
+            "percent_change": -0.33051290868935285,
+            "mean_wait_seconds_per_passenger_difference": -2.141079205075471,
+            "mean_ride_seconds_per_passenger_difference": -3.051108605787249,
+            "wins": 2,
+            "losses": 1,
+            "ties": 0,
+            "expected_cells": 3,
+            "complete_cells": 3,
+            "missing_cells": 0,
+            "win_fraction": 0.6666666666666666,
+            "loss_fraction": 0.3333333333333333,
+            "winning_mean_reduction": 11.266496452019283,
+            "losing_mean_increase": 0.5331918562237661,
+            "worst_cost_difference": 0.5331918562237661
+          }
+        }
+      },
+      "early": {
+        "overall": {
+          "mean_cost_difference": -5.022912659990652,
+          "percent_change": -1.283289876732791,
+          "mean_wait_seconds_per_passenger_difference": -1.420584919424364,
+          "mean_ride_seconds_per_passenger_difference": -2.1817428211419903,
+          "wins": 5,
+          "losses": 1,
+          "ties": 0,
+          "expected_cells": 6,
+          "complete_cells": 6,
+          "missing_cells": 0,
+          "win_fraction": 0.8333333333333334,
+          "loss_fraction": 0.16666666666666666,
+          "winning_mean_reduction": 6.645148882551894,
+          "losing_mean_increase": 3.088268452815157,
+          "worst_cost_difference": 3.088268452815157
+        },
+        "by_scenario": {
+          "stable": {
+            "mean_cost_difference": -4.765744854875379,
+            "percent_change": -1.2247717627809862,
+            "mean_wait_seconds_per_passenger_difference": -1.4432654685323978,
+            "mean_ride_seconds_per_passenger_difference": -1.87921391781065,
+            "wins": 3,
+            "losses": 0,
+            "ties": 0,
+            "expected_cells": 3,
+            "complete_cells": 3,
+            "missing_cells": 0,
+            "win_fraction": 1.0,
+            "loss_fraction": 0.0,
+            "winning_mean_reduction": 4.765744854875436,
+            "losing_mean_increase": null,
+            "worst_cost_difference": -2.5164135552755624
+          },
+          "local_speed_drop": {
+            "mean_cost_difference": -5.280080465106039,
+            "percent_change": -1.3411254167733118,
+            "mean_wait_seconds_per_passenger_difference": -1.3979043703163303,
+            "mean_ride_seconds_per_passenger_difference": -2.484271724473331,
+            "wins": 2,
+            "losses": 1,
+            "ties": 0,
+            "expected_cells": 3,
+            "complete_cells": 3,
+            "missing_cells": 0,
+            "win_fraction": 0.6666666666666666,
+            "loss_fraction": 0.3333333333333333,
+            "winning_mean_reduction": 9.46425492406658,
+            "losing_mean_increase": 3.088268452815157,
+            "worst_cost_difference": 3.088268452815157
+          }
+        }
+      },
+      "post_budget": {
+        "overall": {
+          "mean_cost_difference": -0.7582841479319882,
+          "percent_change": -0.20899350488824459,
+          "mean_wait_seconds_per_passenger_difference": -0.32664632933217774,
+          "mean_ride_seconds_per_passenger_difference": -0.10499148926763269,
+          "wins": 3,
+          "losses": 3,
+          "ties": 0,
+          "expected_cells": 6,
+          "complete_cells": 6,
+          "missing_cells": 0,
+          "win_fraction": 0.5,
+          "loss_fraction": 0.5,
+          "winning_mean_reduction": 2.7087340009284353,
+          "losing_mean_increase": 1.1921657050644399,
+          "worst_cost_difference": 3.2733603024073545
+        },
+        "by_scenario": {
+          "stable": {
+            "mean_cost_difference": -1.0114729093440928,
+            "percent_change": -0.2788406697611915,
+            "mean_wait_seconds_per_passenger_difference": -0.17812852311160063,
+            "mean_ride_seconds_per_passenger_difference": -0.6552158631208916,
+            "wins": 2,
+            "losses": 1,
+            "ties": 0,
+            "expected_cells": 3,
+            "complete_cells": 3,
+            "missing_cells": 0,
+            "win_fraction": 0.6666666666666666,
+            "loss_fraction": 0.3333333333333333,
+            "winning_mean_reduction": 3.153889515219845,
+            "losing_mean_increase": 3.2733603024073545,
+            "worst_cost_difference": 3.2733603024073545
+          },
+          "local_speed_drop": {
+            "mean_cost_difference": -0.5050953865198835,
+            "percent_change": -0.1391788320990035,
+            "mean_wait_seconds_per_passenger_difference": -0.4751641355527549,
+            "mean_ride_seconds_per_passenger_difference": 0.4452328845856262,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "expected_cells": 3,
+            "complete_cells": 3,
+            "missing_cells": 0,
+            "win_fraction": 0.3333333333333333,
+            "loss_fraction": 0.6666666666666666,
+            "winning_mean_reduction": 1.8184229723456156,
+            "losing_mean_increase": 0.15156840639298252,
+            "worst_cost_difference": 0.2778698852708885
+          }
+        }
+      }
+    },
+    "absolute_full_day_cost": {
+      "fresh": 2207.934920529655,
+      "no_fresh": 2213.8811592280654
+    },
+    "independent_seed_unit": {
+      "independent_unit": "training seed; stable and shock averaged within seed",
+      "rows": [
+        {
+          "seed": 6206,
+          "periods": {
+            "full_day": {
+              "status": "complete",
+              "paired_scenario_mean": -14.109722130114733
+            },
+            "early": {
+              "status": "complete",
+              "paired_scenario_mean": -11.78155050069634
+            },
+            "post_budget": {
+              "status": "complete",
+              "paired_scenario_mean": -1.0076265004310585
+            }
+          }
+        },
+        {
+          "seed": 6207,
+          "periods": {
+            "full_day": {
+              "status": "complete",
+              "paired_scenario_mean": -6.3235625704621725
+            },
+            "early": {
+              "status": "complete",
+              "paired_scenario_mean": 0.28592744876979737
+            },
+            "post_budget": {
+              "status": "complete",
+              "paired_scenario_mean": -3.042841037204056
+            }
+          }
+        },
+        {
+          "seed": 6208,
+          "periods": {
+            "full_day": {
+              "status": "complete",
+              "paired_scenario_mean": 2.5945686053451027
+            },
+            "early": {
+              "status": "complete",
+              "paired_scenario_mean": -3.5731149280456123
+            },
+            "post_budget": {
+              "status": "complete",
+              "paired_scenario_mean": 1.7756150938391215
+            }
+          }
+        }
+      ],
+      "expected_seeds": 3,
+      "complete_seeds": 3,
+      "mean_paired_difference": -5.946238698410601,
+      "improved_seeds": 2,
+      "degraded_seeds": 1,
+      "interpretation": "Six condition cells are not six independent training seeds; observed win fractions are not future probabilities."
+    },
+    "descriptive_seed_difference_sample_sd": 8.35853529166488
+  },
+  "historical_system_comparison": {
+    "absolute_full_day_cost": {
+      "historical_five_actor_mean": 2215.134259566284,
+      "fresh": 2207.934920529655,
+      "matched_no_fresh": 2213.8811592280654
+    },
+    "cross_actor_environment": {
+      "n": 30,
+      "wins": 20,
+      "losses": 10,
+      "ties": 0,
+      "win_fraction": 0.6666666666666666,
+      "mean": -7.199339036629317,
+      "winning_mean_reduction": 13.809264540088929,
+      "losing_mean_increase": 6.020511970289908,
+      "best": -35.211884077193645,
+      "worst": 9.282910007294959
+    },
+    "percent_change_of_means": -0.32500689317309517,
+    "six_environment_comparison_to_actor_mean": {
+      "n": 6,
+      "wins": 6,
+      "losses": 0,
+      "ties": 0,
+      "win_fraction": 1.0,
+      "mean": -7.1993390366293015,
+      "winning_mean_reduction": 7.1993390366293015,
+      "losing_mean_increase": null,
+      "best": -13.976391007361144,
+      "worst": -2.180874063266856
+    },
+    "actors": [
+      {
+        "actor_seed": 6201,
+        "historical_six_environment_mean": 2222.0152198421647,
+        "fresh_six_environment_mean": 2207.934920529655,
+        "comparison": {
+          "n": 6,
+          "wins": 6,
+          "losses": 0,
+          "ties": 0,
+          "win_fraction": 1.0,
+          "mean": -14.080299312509775,
+          "winning_mean_reduction": 14.080299312509775,
+          "losing_mean_increase": null,
+          "best": -21.135420120697745,
+          "worst": -7.847005769613588
+        }
+      },
+      {
+        "actor_seed": 6202,
+        "historical_six_environment_mean": 2200.510511307116,
+        "fresh_six_environment_mean": 2207.934920529655,
+        "comparison": {
+          "n": 6,
+          "wins": 0,
+          "losses": 6,
+          "ties": 0,
+          "win_fraction": 0.0,
+          "mean": 7.42440922253915,
+          "winning_mean_reduction": null,
+          "losing_mean_increase": 7.42440922253915,
+          "best": 2.673585781550628,
+          "worst": 9.282910007294959
+        }
+      },
+      {
+        "actor_seed": 6203,
+        "historical_six_environment_mean": 2213.6683467073412,
+        "fresh_six_environment_mean": 2207.934920529655,
+        "comparison": {
+          "n": 6,
+          "wins": 4,
+          "losses": 2,
+          "ties": 0,
+          "win_fraction": 0.6666666666666666,
+          "mean": -5.733426177686397,
+          "winning_mean_reduction": 9.72169905166129,
+          "losing_mean_increase": 2.2431195702633886,
+          "best": -17.141720273227747,
+          "worst": 3.0837588699514527
+        }
+      },
+      {
+        "actor_seed": 6204,
+        "historical_six_environment_mean": 2207.27842253023,
+        "fresh_six_environment_mean": 2207.934920529655,
+        "comparison": {
+          "n": 6,
+          "wins": 4,
+          "losses": 2,
+          "ties": 0,
+          "win_fraction": 0.6666666666666666,
+          "mean": 0.6564979994252553,
+          "winning_mean_reduction": 1.8083593076464695,
+          "losing_mean_increase": 5.586212613568705,
+          "best": -3.1158564891570677,
+          "worst": 6.8318190861464245
+        }
+      },
+      {
+        "actor_seed": 6205,
+        "historical_six_environment_mean": 2232.1987974445697,
+        "fresh_six_environment_mean": 2207.934920529655,
+        "comparison": {
+          "n": 6,
+          "wins": 6,
+          "losses": 0,
+          "ties": 0,
+          "win_fraction": 1.0,
+          "mean": -24.263876914914817,
+          "winning_mean_reduction": 24.263876914914817,
+          "losing_mean_increase": null,
+          "best": -35.211884077193645,
+          "worst": -14.25412825784224
+        }
+      }
+    ],
+    "comparison_matrix": [
+      {
+        "actor_seed": 6201,
+        "environment_seed": 106206,
+        "scenario": "stable",
+        "fresh_minus_actor": -8.920352808541793
+      },
+      {
+        "actor_seed": 6202,
+        "environment_seed": 106206,
+        "scenario": "stable",
+        "fresh_minus_actor": 8.3567875853837
+      },
+      {
+        "actor_seed": 6203,
+        "environment_seed": 106206,
+        "scenario": "stable",
+        "fresh_minus_actor": -4.423303932621366
+      },
+      {
+        "actor_seed": 6204,
+        "environment_seed": 106206,
+        "scenario": "stable",
+        "fresh_minus_actor": 4.340606140990985
+      },
+      {
+        "actor_seed": 6205,
+        "environment_seed": 106206,
+        "scenario": "stable",
+        "fresh_minus_actor": -20.56721267988587
+      },
+      {
+        "actor_seed": 6201,
+        "environment_seed": 106206,
+        "scenario": "local_speed_drop",
+        "fresh_minus_actor": -19.084355726507056
+      },
+      {
+        "actor_seed": 6202,
+        "environment_seed": 106206,
+        "scenario": "local_speed_drop",
+        "fresh_minus_actor": 6.047019033092056
+      },
+      {
+        "actor_seed": 6203,
+        "environment_seed": 106206,
+        "scenario": "local_speed_drop",
+        "fresh_minus_actor": -2.7172226274951754
+      },
+      {
+        "actor_seed": 6204,
+        "environment_seed": 106206,
+        "scenario": "local_speed_drop",
+        "fresh_minus_actor": -1.363551959679171
+      },
+      {
+        "actor_seed": 6205,
+        "environment_seed": 106206,
+        "scenario": "local_speed_drop",
+        "fresh_minus_actor": -25.327077392400042
+      },
+      {
+        "actor_seed": 6201,
+        "environment_seed": 106207,
+        "scenario": "stable",
+        "fresh_minus_actor": -19.623250878705676
+      },
+      {
+        "actor_seed": 6202,
+        "environment_seed": 106207,
+        "scenario": "stable",
+        "fresh_minus_actor": 2.673585781550628
+      },
+      {
+        "actor_seed": 6203,
+        "environment_seed": 106207,
+        "scenario": "stable",
+        "fresh_minus_actor": -14.60454937330087
+      },
+      {
+        "actor_seed": 6204,
+        "environment_seed": 106207,
+        "scenario": "stable",
+        "fresh_minus_actor": -3.1158564891570677
+      },
+      {
+        "actor_seed": 6205,
+        "environment_seed": 106207,
+        "scenario": "stable",
+        "fresh_minus_actor": -35.211884077193645
+      },
+      {
+        "actor_seed": 6201,
+        "environment_seed": 106207,
+        "scenario": "local_speed_drop",
+        "fresh_minus_actor": -21.135420120697745
+      },
+      {
+        "actor_seed": 6202,
+        "environment_seed": 106207,
+        "scenario": "local_speed_drop",
+        "fresh_minus_actor": 9.039392532661623
+      },
+      {
+        "actor_seed": 6203,
+        "environment_seed": 106207,
+        "scenario": "local_speed_drop",
+        "fresh_minus_actor": -17.141720273227747
+      },
+      {
+        "actor_seed": 6204,
+        "environment_seed": 106207,
+        "scenario": "local_speed_drop",
+        "fresh_minus_actor": 6.8318190861464245
+      },
+      {
+        "actor_seed": 6205,
+        "environment_seed": 106207,
+        "scenario": "local_speed_drop",
+        "fresh_minus_actor": -31.472047217985164
+      },
+      {
+        "actor_seed": 6201,
+        "environment_seed": 106208,
+        "scenario": "stable",
+        "fresh_minus_actor": -7.8714105709927935
+      },
+      {
+        "actor_seed": 6202,
+        "environment_seed": 106208,
+        "scenario": "stable",
+        "fresh_minus_actor": 9.146760395251931
+      },
+      {
+        "actor_seed": 6203,
+        "environment_seed": 106208,
+        "scenario": "stable",
+        "fresh_minus_actor": 1.4024802705753245
+      },
+      {
+        "actor_seed": 6204,
+        "environment_seed": 106208,
+        "scenario": "stable",
+        "fresh_minus_actor": -1.5841236156243212
+      },
+      {
+        "actor_seed": 6205,
+        "environment_seed": 106208,
+        "scenario": "stable",
+        "fresh_minus_actor": -18.750911864181944
+      },
+      {
+        "actor_seed": 6201,
+        "environment_seed": 106208,
+        "scenario": "local_speed_drop",
+        "fresh_minus_actor": -7.847005769613588
+      },
+      {
+        "actor_seed": 6202,
+        "environment_seed": 106208,
+        "scenario": "local_speed_drop",
+        "fresh_minus_actor": 9.282910007294959
+      },
+      {
+        "actor_seed": 6203,
+        "environment_seed": 106208,
+        "scenario": "local_speed_drop",
+        "fresh_minus_actor": 3.0837588699514527
+      },
+      {
+        "actor_seed": 6204,
+        "environment_seed": 106208,
+        "scenario": "local_speed_drop",
+        "fresh_minus_actor": -1.169905166125318
+      },
+      {
+        "actor_seed": 6205,
+        "environment_seed": 106208,
+        "scenario": "local_speed_drop",
+        "fresh_minus_actor": -14.25412825784224
+      }
+    ],
+    "period_aggregates": {
+      "full_day": {
+        "dynamic_mean": {
+          "fresh": {
+            "wait_per_passenger": 560.8487742334814,
+            "ride_per_passenger": 1086.237372062692,
+            "cost_per_passenger": 2207.934920529655
+          },
+          "no_fresh": {
+            "wait_per_passenger": 562.6190065654222,
+            "ride_per_passenger": 1088.6431460972215,
+            "cost_per_passenger": 2213.8811592280654
+          }
+        },
+        "dynamic_minus_historical": {
+          "fresh": {
+            "wait_per_passenger": -7.169328204788144,
+            "ride_per_passenger": 7.139317372946834,
+            "cost_per_passenger": -7.199339036629226
+          },
+          "no_fresh": {
+            "wait_per_passenger": -5.399095872847397,
+            "ride_per_passenger": 9.54509140747632,
+            "cost_per_passenger": -1.253100338218701
+          }
+        },
+        "historical_mean": {
+          "wait_per_passenger": 568.0181024382696,
+          "ride_per_passenger": 1079.0980546897451,
+          "cost_per_passenger": 2215.134259566284
+        }
+      },
+      "early": {
+        "dynamic_mean": {
+          "fresh": {
+            "wait_per_passenger": 74.69001038972523,
+            "ride_per_passenger": 237.00611225324403,
+            "cost_per_passenger": 386.3861330326945
+          },
+          "no_fresh": {
+            "wait_per_passenger": 76.11059530914959,
+            "ride_per_passenger": 239.18785507438602,
+            "cost_per_passenger": 391.4090456926852
+          }
+        },
+        "dynamic_minus_historical": {
+          "fresh": {
+            "wait_per_passenger": -1.131774874549592,
+            "ride_per_passenger": 1.248973185666614,
+            "cost_per_passenger": -1.0145765634325699
+          },
+          "no_fresh": {
+            "wait_per_passenger": 0.288810044874765,
+            "ride_per_passenger": 3.430716006808609,
+            "cost_per_passenger": 4.008336096558139
+          }
+        },
+        "historical_mean": {
+          "wait_per_passenger": 75.82178526427482,
+          "ride_per_passenger": 235.7571390675774,
+          "cost_per_passenger": 387.40070959612706
+        }
+      },
+      "post_budget": {
+        "dynamic_mean": {
+          "fresh": {
+            "wait_per_passenger": 136.99501514247189,
+            "ride_per_passenger": 88.07834294935562,
+            "cost_per_passenger": 362.0683732342994
+          },
+          "no_fresh": {
+            "wait_per_passenger": 137.32166147180405,
+            "ride_per_passenger": 88.18333443862325,
+            "cost_per_passenger": 362.82665738223136
+          }
+        },
+        "dynamic_minus_historical": {
+          "fresh": {
+            "wait_per_passenger": -1.955817140836018,
+            "ride_per_passenger": -1.0779472555651353,
+            "cost_per_passenger": -4.9895815372372
+          },
+          "no_fresh": {
+            "wait_per_passenger": -1.6291708115038546,
+            "ride_per_passenger": -0.9729557662975026,
+            "cost_per_passenger": -4.231297389305212
+          }
+        },
+        "historical_mean": {
+          "wait_per_passenger": 138.9508322833079,
+          "ride_per_passenger": 89.15629020492075,
+          "cost_per_passenger": 367.0579547715366
+        }
+      }
+    },
+    "attribution_identity": {
+      "fresh_minus_history": -7.199339036629226,
+      "no_fresh_minus_history": -1.253100338218701,
+      "fresh_minus_no_fresh": -5.946238698410525
+    },
+    "weighting": "Equal environment weights within each historical actor, then equal weights across all five actor means. Five-actor mean is arithmetic, not an executed ensemble."
+  },
+  "per_environment": [
+    {
+      "training_seed": 6206,
+      "environment_seed": 106206,
+      "scenario": "stable",
+      "periods": {
+        "full_day": {
+          "fresh": {
+            "wait_per_passenger": 562.0652563167318,
+            "ride_per_passenger": 1084.3040652563168,
+            "cost_per_passenger": 2208.4345778897805
+          },
+          "no_fresh": {
+            "wait_per_passenger": 563.5688706147622,
+            "ride_per_passenger": 1087.9884607732608,
+            "cost_per_passenger": 2215.1262020027852
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 568.4630678426952,
+            "ride_per_passenger": 1075.7511373433251,
+            "cost_per_passenger": 2212.6772730287153
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": -1.5036142980303566,
+            "ride_per_passenger": -3.6843955169440505,
+            "cost_per_passenger": -6.691624113004764
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -6.397811525963334,
+            "ride_per_passenger": 8.552927912991663,
+            "cost_per_passenger": -4.242695138934778
+          }
+        },
+        "early": {
+          "fresh": {
+            "wait_per_passenger": 74.21294515551429,
+            "ride_per_passenger": 235.38457457391073,
+            "cost_per_passenger": 383.81046488493934
+          },
+          "no_fresh": {
+            "wait_per_passenger": 76.19298361960342,
+            "ride_per_passenger": 239.1051793885536,
+            "cost_per_passenger": 391.4911466277605
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 75.13187877180185,
+            "ride_per_passenger": 234.73327143709793,
+            "cost_per_passenger": 384.99702898070166
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": -1.9800384640891338,
+            "ride_per_passenger": -3.7206048146428827,
+            "cost_per_passenger": -7.68068174282115
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -0.9189336162875605,
+            "ride_per_passenger": 0.6513031368127997,
+            "cost_per_passenger": -1.1865640957623214
+          }
+        },
+        "post_budget": {
+          "fresh": {
+            "wait_per_passenger": 137.55686716625772,
+            "ride_per_passenger": 87.23708468731348,
+            "cost_per_passenger": 362.3508190198289
+          },
+          "no_fresh": {
+            "wait_per_passenger": 137.96140327607932,
+            "ride_per_passenger": 88.46853239604748,
+            "cost_per_passenger": 364.3913389482061
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 139.59148484647523,
+            "ride_per_passenger": 88.27947476623119,
+            "cost_per_passenger": 367.46244445918165
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": -0.40453610982160626,
+            "ride_per_passenger": -1.2314477087339952,
+            "cost_per_passenger": -2.0405199283771935
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -2.034617680217508,
+            "ride_per_passenger": -1.0423900789177054,
+            "cost_per_passenger": -5.111625439352736
+          }
+        }
+      }
+    },
+    {
+      "training_seed": 6206,
+      "environment_seed": 106206,
+      "scenario": "local_speed_drop",
+      "periods": {
+        "full_day": {
+          "fresh": {
+            "wait_per_passenger": 562.6953378871278,
+            "ride_per_passenger": 1085.6656276941442,
+            "cost_per_passenger": 2211.0563034683996
+          },
+          "no_fresh": {
+            "wait_per_passenger": 567.4928045626368,
+            "ride_per_passenger": 1097.598514490351,
+            "cost_per_passenger": 2232.5841236156243
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 569.4164865044102,
+            "ride_per_passenger": 1080.7123681941773,
+            "cost_per_passenger": 2219.5453412029974
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": -4.797466675508986,
+            "ride_per_passenger": -11.93288679620673,
+            "cost_per_passenger": -21.527820147224702
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -6.721148617282324,
+            "ride_per_passenger": 4.953259499966862,
+            "cost_per_passenger": -8.489037734597787
+          }
+        },
+        "early": {
+          "fresh": {
+            "wait_per_passenger": 75.20949665097154,
+            "ride_per_passenger": 235.6612507460707,
+            "cost_per_passenger": 386.0802440480138
+          },
+          "no_fresh": {
+            "wait_per_passenger": 79.35506333311227,
+            "ride_per_passenger": 243.25253664036077,
+            "cost_per_passenger": 401.96266330658534
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 75.80510643941906,
+            "ride_per_passenger": 235.67111877445456,
+            "cost_per_passenger": 387.2813316532926
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": -4.145566682140725,
+            "ride_per_passenger": -7.591285894290081,
+            "cost_per_passenger": -15.882419258571531
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -0.5956097884475184,
+            "ride_per_passenger": -0.009868028383863248,
+            "cost_per_passenger": -1.2010876052788149
+          }
+        },
+        "post_budget": {
+          "fresh": {
+            "wait_per_passenger": 137.4470455600504,
+            "ride_per_passenger": 88.24643544001592,
+            "cost_per_passenger": 363.1405265601167
+          },
+          "no_fresh": {
+            "wait_per_passenger": 137.63160687048213,
+            "ride_per_passenger": 87.85204589163737,
+            "cost_per_passenger": 363.11525963260164
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 139.47993898799655,
+            "ride_per_passenger": 89.80529212812522,
+            "cost_per_passenger": 368.7651701041183
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": -0.18456131043171808,
+            "ride_per_passenger": 0.3943895483785411,
+            "cost_per_passenger": 0.02526692751507653
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -2.032893427946135,
+            "ride_per_passenger": -1.5588566881093016,
+            "cost_per_passenger": -5.624643544001572
+          }
+        }
+      }
+    },
+    {
+      "training_seed": 6207,
+      "environment_seed": 106207,
+      "scenario": "stable",
+      "periods": {
+        "full_day": {
+          "fresh": {
+            "wait_per_passenger": 557.8507195437363,
+            "ride_per_passenger": 1084.1759400490748,
+            "cost_per_passenger": 2199.8773791365475
+          },
+          "no_fresh": {
+            "wait_per_passenger": 564.5412825784204,
+            "ride_per_passenger": 1082.4367663638172,
+            "cost_per_passenger": 2211.519331520658
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 568.5774918761191,
+            "ride_per_passenger": 1076.6987863916706,
+            "cost_per_passenger": 2213.8537701439086
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": -6.690563034684033,
+            "ride_per_passenger": 1.7391736852575832,
+            "cost_per_passenger": -11.641952384110482
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -10.72677233238278,
+            "ride_per_passenger": 7.4771536574041875,
+            "cost_per_passenger": -13.976391007361144
+          }
+        },
+        "early": {
+          "fresh": {
+            "wait_per_passenger": 73.44505603819881,
+            "ride_per_passenger": 236.66489820279858,
+            "cost_per_passenger": 383.5550102791962
+          },
+          "no_fresh": {
+            "wait_per_passenger": 75.31288546985874,
+            "ride_per_passenger": 235.4456528947543,
+            "cost_per_passenger": 386.0714238344718
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 75.53263479010545,
+            "ride_per_passenger": 236.20472179852777,
+            "cost_per_passenger": 387.2699913787386
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": -1.8678294316599278,
+            "ride_per_passenger": 1.219245308044293,
+            "cost_per_passenger": -2.5164135552755624
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -2.0875787519066336,
+            "ride_per_passenger": 0.4601764042708112,
+            "cost_per_passenger": -3.714981099542399
+          }
+        },
+        "post_budget": {
+          "fresh": {
+            "wait_per_passenger": 135.87240533191857,
+            "ride_per_passenger": 87.8476689435639,
+            "cost_per_passenger": 359.592479607401
+          },
+          "no_fresh": {
+            "wait_per_passenger": 137.9573579149811,
+            "ride_per_passenger": 87.9450228795013,
+            "cost_per_passenger": 363.8597387094635
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 139.10127992572453,
+            "ride_per_passenger": 88.7377412295245,
+            "cost_per_passenger": 366.94030108097354
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": -2.084952583062517,
+            "ride_per_passenger": -0.09735393593739161,
+            "cost_per_passenger": -4.267259102062496
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -3.228874593805955,
+            "ride_per_passenger": -0.8900722859605992,
+            "cost_per_passenger": -7.347821473572537
+          }
+        }
+      }
+    },
+    {
+      "training_seed": 6207,
+      "environment_seed": 106207,
+      "scenario": "local_speed_drop",
+      "periods": {
+        "full_day": {
+          "fresh": {
+            "wait_per_passenger": 561.3159360700312,
+            "ride_per_passenger": 1090.6343258836794,
+            "cost_per_passenger": 2213.2661980237417
+          },
+          "no_fresh": {
+            "wait_per_passenger": 563.8942900722859,
+            "ride_per_passenger": 1086.4827906359837,
+            "cost_per_passenger": 2214.2713707805556
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 570.0266463293322,
+            "ride_per_passenger": 1083.9885005636977,
+            "cost_per_passenger": 2224.0417932223622
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": -2.5783540022547413,
+            "ride_per_passenger": 4.1515352476956195,
+            "cost_per_passenger": -1.005172756813863
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -8.710710259300981,
+            "ride_per_passenger": 6.645825319981668,
+            "cost_per_passenger": -10.775595198620522
+          }
+        },
+        "early": {
+          "fresh": {
+            "wait_per_passenger": 75.65382319782479,
+            "ride_per_passenger": 239.86166191392002,
+            "cost_per_passenger": 391.1693083095696
+          },
+          "no_fresh": {
+            "wait_per_passenger": 75.96299489356058,
+            "ride_per_passenger": 236.15505006963326,
+            "cost_per_passenger": 388.08103985675444
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 77.2604947277671,
+            "ride_per_passenger": 237.66765700643276,
+            "cost_per_passenger": 392.188646461967
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": -0.3091716957357846,
+            "ride_per_passenger": 3.706611844286755,
+            "cost_per_passenger": 3.088268452815157
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -1.6066715299423038,
+            "ride_per_passenger": 2.1940049074872547,
+            "cost_per_passenger": -1.0193381523973812
+          }
+        },
+        "post_budget": {
+          "fresh": {
+            "wait_per_passenger": 136.8586113137476,
+            "ride_per_passenger": 89.03866304131574,
+            "cost_per_passenger": 362.75588566881095
+          },
+          "no_fresh": {
+            "wait_per_passenger": 137.8413687910339,
+            "ride_per_passenger": 88.8915710590888,
+            "cost_per_passenger": 364.57430864115656
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 139.12161283904769,
+            "ride_per_passenger": 90.0405066648982,
+            "cost_per_passenger": 368.2837323429936
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": -0.9827574772862988,
+            "ride_per_passenger": 0.14709198222693942,
+            "cost_per_passenger": -1.8184229723456156
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -2.2630015253000977,
+            "ride_per_passenger": -1.0018436235824595,
+            "cost_per_passenger": -5.527846674182626
+          }
+        }
+      }
+    },
+    {
+      "training_seed": 6208,
+      "environment_seed": 106208,
+      "scenario": "stable",
+      "periods": {
+        "full_day": {
+          "fresh": {
+            "wait_per_passenger": 560.9777836726573,
+            "ride_per_passenger": 1083.0810398567544,
+            "cost_per_passenger": 2205.0366072020693
+          },
+          "no_fresh": {
+            "wait_per_passenger": 556.9817627163605,
+            "ride_per_passenger": 1086.4171364148817,
+            "cost_per_passenger": 2200.380661847603
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 565.8578022415279,
+            "ride_per_passenger": 1076.8524437960077,
+            "cost_per_passenger": 2208.568048279064
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": 3.996020956296775,
+            "ride_per_passenger": -3.3360965581273376,
+            "cost_per_passenger": 4.655945354466439
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -4.880018568870582,
+            "ride_per_passenger": 6.228596060746668,
+            "cost_per_passenger": -3.5314410769947244
+          }
+        },
+        "early": {
+          "fresh": {
+            "wait_per_passenger": 74.66065388951522,
+            "ride_per_passenger": 236.35466542874195,
+            "cost_per_passenger": 385.6759732077724
+          },
+          "no_fresh": {
+            "wait_per_passenger": 75.14258239936335,
+            "ride_per_passenger": 239.4909476755753,
+            "cost_per_passenger": 389.776112474302
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 75.34091120100803,
+            "ride_per_passenger": 234.71204987068108,
+            "cost_per_passenger": 385.39387227269714
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": -0.4819285098481316,
+            "ride_per_passenger": -3.1362822468333604,
+            "cost_per_passenger": -4.100139266529595
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -0.6802573114928094,
+            "ride_per_passenger": 1.642615558060868,
+            "cost_per_passenger": 0.28210093507527745
+          }
+        },
+        "post_budget": {
+          "fresh": {
+            "wait_per_passenger": 138.0067643742954,
+            "ride_per_passenger": 87.23549306983222,
+            "cost_per_passenger": 363.249021818423
+          },
+          "no_fresh": {
+            "wait_per_passenger": 136.05166125074606,
+            "ride_per_passenger": 87.8723390145235,
+            "cost_per_passenger": 359.97566151601563
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 138.20208236620465,
+            "ride_per_passenger": 88.85927448769812,
+            "cost_per_passenger": 365.26343922010744
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": 1.9551031235493213,
+            "ride_per_passenger": -0.636845944691288,
+            "cost_per_passenger": 3.2733603024073545
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -0.19531799190926336,
+            "ride_per_passenger": -1.6237814178658994,
+            "cost_per_passenger": -2.0144174016844545
+          }
+        }
+      }
+    },
+    {
+      "training_seed": 6208,
+      "environment_seed": 106208,
+      "scenario": "local_speed_drop",
+      "periods": {
+        "full_day": {
+          "fresh": {
+            "wait_per_passenger": 560.1876119106041,
+            "ride_per_passenger": 1089.5632336361828,
+            "cost_per_passenger": 2209.938457457391
+          },
+          "no_fresh": {
+            "wait_per_passenger": 559.2350288480668,
+            "ride_per_passenger": 1090.9352079050334,
+            "cost_per_passenger": 2209.4052656011672
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 565.7671198355329,
+            "ride_per_passenger": 1080.5850918495921,
+            "cost_per_passenger": 2212.119331520658
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": 0.9525830625373146,
+            "ride_per_passenger": -1.3719742688506358,
+            "cost_per_passenger": 0.5331918562237661
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -5.579507924928748,
+            "ride_per_passenger": 8.97814178659064,
+            "cost_per_passenger": -2.180874063266856
+          }
+        },
+        "early": {
+          "fresh": {
+            "wait_per_passenger": 74.95808740632668,
+            "ride_per_passenger": 238.10962265402216,
+            "cost_per_passenger": 388.0257974666755
+          },
+          "no_fresh": {
+            "wait_per_passenger": 74.69706213939916,
+            "ride_per_passenger": 241.67776377743883,
+            "cost_per_passenger": 391.0718880562371
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 75.85968565554745,
+            "ride_per_passenger": 235.55401551827043,
+            "cost_per_passenger": 387.27338682936534
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": 0.2610252669275184,
+            "ride_per_passenger": -3.568141123416666,
+            "cost_per_passenger": -3.0460905895616293
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -0.9015982492207684,
+            "ride_per_passenger": 2.5556071357517283,
+            "cost_per_passenger": 0.7524106373101631
+          }
+        },
+        "post_budget": {
+          "fresh": {
+            "wait_per_passenger": 136.22839710856158,
+            "ride_per_passenger": 88.86471251409245,
+            "cost_per_passenger": 361.3215067312156
+          },
+          "no_fresh": {
+            "wait_per_passenger": 136.48657072750183,
+            "ride_per_passenger": 88.07049539094105,
+            "cost_per_passenger": 361.0436368459447
+          },
+          "historical_five_actor_mean": {
+            "wait_per_passenger": 138.20859473439882,
+            "ride_per_passenger": 89.21545195304728,
+            "cost_per_passenger": 365.63264142184494
+          },
+          "fresh_minus_no_fresh": {
+            "wait_per_passenger": -0.2581736189402477,
+            "ride_per_passenger": 0.7942171231513981,
+            "cost_per_passenger": 0.2778698852708885
+          },
+          "fresh_minus_historical_mean": {
+            "wait_per_passenger": -1.980197625837235,
+            "ride_per_passenger": -0.3507394389548324,
+            "cost_per_passenger": -4.311134690629331
+          }
+        }
+      }
+    }
+  ],
+  "development_v73": {
+    "overall": {
+      "mean_cost_difference": -3.773045294780786,
+      "percent_change": -0.17092895468593827,
+      "mean_wait_seconds_per_passenger_difference": -0.16932488891836783,
+      "mean_ride_seconds_per_passenger_difference": -3.4343955169441074,
+      "wins": 4,
+      "losses": 0,
+      "ties": 0,
+      "expected_cells": 4,
+      "complete_cells": 4,
+      "missing_cells": 0,
+      "win_fraction": 1.0,
+      "loss_fraction": 0.0,
+      "winning_mean_reduction": 3.7730452947809,
+      "losing_mean_increase": null,
+      "worst_cost_difference": -1.384574573910868
+    },
+    "primary_scope": "development only; old stable per-cell tail gate remains failed"
+  },
+  "information_contract": {
+    "covariate_slots_per_day": 285,
+    "complete_outcome_slots_per_fresh_day": 285,
+    "complete_outcome_slots_per_no_fresh_day": 0,
+    "fresh_unique_record_counts": [
+      306,
+      310,
+      309,
+      307,
+      308,
+      309
+    ],
+    "fresh_unique_record_cap": 342,
+    "updates_per_optimizer_per_day": 456,
+    "optimizer_types": [
+      "critic",
+      "value",
+      "actor",
+      "alpha"
+    ],
+    "feedback_packets": 57,
+    "world_updates": 0,
+    "trust_updates": 0,
+    "counterfactual_queries": 0,
+    "initial_offline_updates_per_seed": 50000,
+    "v75_fresh_and_no_fresh_model_TD": false,
+    "historical_model_TD": {
+      "real_weight": 0.75,
+      "model_weight": 0.25
+    },
+    "backup_mixture": {
+      "value": 0.1,
+      "SAC": 0.9,
+      "is_world_TD_mixture": false
+    }
+  },
+  "budgets": {
+    "v75": {
+      "initialization": {
+        "planned_initializers": 3,
+        "planned_offline_updates": 150000,
+        "completed_initializers": 3,
+        "actual_offline_updates": 150000,
+        "actual_online_updates": 0,
+        "complete": true
+      },
+      "response": {
+        "planned_native_days": 12,
+        "planned_native_seconds": 288000,
+        "planned_covariate_slots": 3420,
+        "planned_complete_fresh_results": 1710,
+        "planned_updates_per_optimizer": 5472,
+        "native_branches": 0,
+        "cached_cost_baseline_days": 0,
+        "actual_covariate_slots": 3420,
+        "actual_complete_fresh_results": 1710,
+        "actual_distinct_target_records": 3559,
+        "actual_native_seconds": 288000.0,
+        "actual_updates_per_optimizer": {
+          "critic": 5472,
+          "value": 5472,
+          "actor": 5472,
+          "alpha": 5472
+        }
+      }
+    },
+    "v104": {
+      "new_native_seconds": 720000.0,
+      "known_native_seconds": 720000.0,
+      "is_lower_bound": false,
+      "unknown_spend_slots": 0,
+      "declared_native_seconds": 720000,
+      "reused_v75_native_seconds": 288000.0
+    }
+  },
+  "claim_boundaries": [
+    "Current majority/mean criterion accepts observed mainline benefits; never retroactively relabel the old v73 stable-tail gate as passed.",
+    "Three heldout training initializers with two correlated scenarios each; no six-independent-replicate claim.",
+    "The thirty historical actor-environment comparisons reuse six fresh episodes and five historical actors; no thirty-independent-replicate or p-value claim.",
+    "Historical comparison ranks different complete training recipes, not historical-final-MC-WM plus dripping alone.",
+    "Matched fresh/no_fresh isolates the specified fresh-result supervision recipe, not all possible dripping methods.",
+    "New validation demand XML remains fixed; initial and environmental seed changes are paired, not independently crossed.",
+    "Causal misalignment/transport failure is a hypothesis; cost heterogeneity alone does not identify confounding or causal structure change."
+  ],
+  "actions": {
+    "old_files_modified": false,
+    "remote_downloads": 0,
+    "new_simulations": 0,
+    "new_fits": 0,
+    "new_training": 0
+  },
+  "development_ablation": {
+    "scope": "Same four exposed6201/6203×scene development cells, never pooled with v75 independent validation. Both own and fixed baselines shown; v73 expands unique target record budget.",
+    "sources": {
+      "v70": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_recent30_mixed_cql_v70_20261026/results/development.json",
+      "v72": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_v72_review_20261026/results/development.json",
+      "v73": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_decoupled_feedback_v73_20261026/results/development.json"
+    },
+    "seed_level_validation_range": [
+      -14.109722130114733,
+      2.5945686053451027
+    ],
+    "columns": [
+      "version",
+      "seed",
+      "scene",
+      "full_vs_fixed",
+      "full_vs_own",
+      "full_own_minus_fixed",
+      "tail_vs_fixed",
+      "tail_vs_own",
+      "tail_own_minus_fixed"
+    ],
+    "rows": [
+      [
+        "v70",
+        6201,
+        "stable",
+        8.158432256780998,
+        8.158432256780998,
+        0.0,
+        6.471914583195144,
+        6.471914583195144,
+        0.0
+      ],
+      [
+        "v70",
+        6201,
+        "local_speed_drop",
+        -4.236222561177783,
+        -4.236222561177783,
+        0.0,
+        2.530207573446546,
+        2.530207573446546,
+        0.0
+      ],
+      [
+        "v70",
+        6203,
+        "stable",
+        -0.12553882883457845,
+        -0.12553882883457845,
+        0.0,
+        4.510047085350493,
+        4.510047085350493,
+        0.0
+      ],
+      [
+        "v70",
+        6203,
+        "local_speed_drop",
+        -6.32210358777138,
+        -6.32210358777138,
+        0.0,
+        -1.917832747529701,
+        -1.917832747529701,
+        0.0
+      ],
+      [
+        "v72",
+        6201,
+        "stable",
+        2.7542277339343855,
+        0.8799655149546197,
+        1.8742622189797657,
+        2.0133297964055714,
+        0.1340937727965752,
+        1.8792360236089962
+      ],
+      [
+        "v72",
+        6201,
+        "local_speed_drop",
+        -4.581603554612684,
+        -5.272166589296376,
+        0.6905630346836915,
+        -1.0636646992505803,
+        -2.7176205318655207,
+        1.6539558326149404
+      ],
+      [
+        "v72",
+        6203,
+        "stable",
+        -1.7430864115654003,
+        -3.877710723522796,
+        2.1346243119573955,
+        3.571059088799018,
+        3.0162477617879517,
+        0.5548113270110662
+      ],
+      [
+        "v72",
+        6203,
+        "local_speed_drop",
+        -2.581537237217617,
+        -1.3934611048480292,
+        -1.1880761323695879,
+        -1.2755487764440545,
+        -1.461768021752107,
+        0.18621924530805245
+      ],
+      [
+        "v73",
+        6201,
+        "stable",
+        -1.384574573910868,
+        -1.384574573910868,
+        0.0,
+        0.7269049671728567,
+        0.7269049671728567,
+        0.0
+      ],
+      [
+        "v73",
+        6201,
+        "local_speed_drop",
+        -4.663638172292849,
+        -4.663638172292849,
+        0.0,
+        -0.23284037403010416,
+        -0.23284037403010416,
+        0.0
+      ],
+      [
+        "v73",
+        6203,
+        "stable",
+        -1.7044233702499696,
+        -1.7044233702499696,
+        0.0,
+        0.46707341335633146,
+        0.46707341335633146,
+        0.0
+      ],
+      [
+        "v73",
+        6203,
+        "local_speed_drop",
+        -7.339545062669913,
+        -7.339545062669913,
+        0.0,
+        -1.8548975396246874,
+        -1.8548975396246874,
+        0.0
+      ]
+    ],
+    "aggregate_rows": [
+      [
+        "v70",
+        "full_day",
+        {
+          "fresh_minus_fixed_v70_no_fresh": -0.631358180250686,
+          "fresh_minus_own_no_fresh": -0.631358180250686,
+          "own_no_fresh_minus_fixed": 0.0,
+          "fresh_wins_vs_fixed": 3,
+          "fresh_wins_vs_own": 3,
+          "stable_mean_vs_fixed": 4.01644671397321,
+          "stable_mean_vs_own": 4.01644671397321
+        }
+      ],
+      [
+        "v70",
+        "post_budget",
+        {
+          "fresh_minus_fixed_v70_no_fresh": 2.8985841236156205,
+          "fresh_minus_own_no_fresh": 2.8985841236156205,
+          "own_no_fresh_minus_fixed": 0.0,
+          "fresh_wins_vs_fixed": 1,
+          "fresh_wins_vs_own": 1,
+          "stable_mean_vs_fixed": 5.490980834272818,
+          "stable_mean_vs_own": 5.490980834272818
+        }
+      ],
+      [
+        "v72",
+        "full_day",
+        {
+          "fresh_minus_fixed_v70_no_fresh": -1.537999867365329,
+          "fresh_minus_own_no_fresh": -2.4158432256781452,
+          "own_no_fresh_minus_fixed": 0.8778433583128162,
+          "fresh_wins_vs_fixed": 3,
+          "fresh_wins_vs_own": 3,
+          "stable_mean_vs_fixed": 0.5055706611844926,
+          "stable_mean_vs_own": -1.498872604284088
+        }
+      ],
+      [
+        "v72",
+        "post_budget",
+        {
+          "fresh_minus_fixed_v70_no_fresh": 0.8112938523774886,
+          "fresh_minus_own_no_fresh": -0.2572617547582752,
+          "own_no_fresh_minus_fixed": 1.0685556071357638,
+          "fresh_wins_vs_fixed": 2,
+          "fresh_wins_vs_own": 2,
+          "stable_mean_vs_fixed": 2.7921944426022947,
+          "stable_mean_vs_own": 1.5751707672922635
+        }
+      ],
+      [
+        "v73",
+        "full_day",
+        {
+          "fresh_minus_fixed_v70_no_fresh": -3.7730452947809,
+          "fresh_minus_own_no_fresh": -3.7730452947809,
+          "own_no_fresh_minus_fixed": 0.0,
+          "fresh_wins_vs_fixed": 4,
+          "fresh_wins_vs_own": 4,
+          "stable_mean_vs_fixed": -1.5444989720804188,
+          "stable_mean_vs_own": -1.5444989720804188
+        }
+      ],
+      [
+        "v73",
+        "post_budget",
+        {
+          "fresh_minus_fixed_v70_no_fresh": -0.22343988328140085,
+          "fresh_minus_own_no_fresh": -0.22343988328140085,
+          "own_no_fresh_minus_fixed": 0.0,
+          "fresh_wins_vs_fixed": 2,
+          "fresh_wins_vs_own": 2,
+          "stable_mean_vs_fixed": 0.5969891902645941,
+          "stable_mean_vs_own": 0.5969891902645941
+        }
+      ]
+    ],
+    "validation_seed_delta_summary": {
+      "n": 3,
+      "mean": -5.946238698410601,
+      "sample_sd": 8.35853529166488,
+      "min": -14.109722130114733,
+      "max": 2.5945686053451027
+    }
+  },
+  "supplemental_full_mcwm_pilot": {
+    "scope": "Separate6201/106206 stable/shock development pilot; not pooled with v75 independent validation and not a second validation of the v73 recipe.",
+    "sources": {
+      "v105": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_full_state_recovery_v105_20261029/RESULTS_AND_NEXT.md",
+      "v106": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_endpoint_restore_v106_20261029/summary.json",
+      "v107": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_full_mcwm_dripping_pilot_v107_20261029/summary.json"
+    },
+    "recovery": {
+      "seed": 6201,
+      "historical_actor_exact": true,
+      "v105_old_hold_preserved": true,
+      "v106_correction": "Float scene keys versus JSON string keys caused the old identity failure; normalized existing receipts agree without retraining.",
+      "restoration_checks": {
+        "checkpoint_actor_identity": {
+          "all_pass": true,
+          "max_abs_difference": 0.0
+        },
+        "saved_to_restored_A": {
+          "all_pass": true,
+          "max_abs_difference": 0.0
+        },
+        "bridge_to_restored_B": {
+          "all_pass": true,
+          "max_abs_difference": 0.0
+        },
+        "restored_endpoint_next_update": {
+          "all_pass": true,
+          "max_abs_difference": 0.0
+        },
+        "terminal_70000_restoration": {
+          "all_pass": true,
+          "max_abs_difference": 0.0
+        }
+      },
+      "terminal_updates": 70000,
+      "original_live_continuation_available": false,
+      "evidence_boundary": "Historical actor identity is exact; the rebuilt full checkpoint is internally save/load and next-update equivalent. Original lost hidden learning state cannot be directly compared. Onlyseed6201 reconstructed.",
+      "v105_budget": {
+        "reused_offline_updates": 50000,
+        "source_continuation_updates": 20000,
+        "source_events": 24999,
+        "target_native_seconds": 0
+      },
+      "v106_budget": {
+        "diagnostic_attempts": 2,
+        "diagnostic_updates": 2,
+        "new_offline_updates": 0,
+        "source_collection_events": 0,
+        "source_retraining_updates": 0,
+        "target_native_seconds": 0,
+        "target_feedback_labels": 0,
+        "model_refits": 0,
+        "partial_diagnostic_update_possible": false
+      }
+    },
+    "pilot": {
+      "status": "complete",
+      "decision": {
+        "state": "CLOSE_FIXED_PILOT",
+        "cost_gate_pass": false,
+        "automatic_new_experiments": false
+      },
+      "integrity": {
+        "all_pass": true,
+        "errors": []
+      },
+      "training_seed": 6201,
+      "external_seed": 106206,
+      "independent_training_seeds": 1,
+      "full_day_scene_comparisons": [
+        {
+          "scenario": "stable",
+          "comparisons": {
+            "fresh_minus_matched": {
+              "wait_per_passenger": 0.2140725512301742,
+              "ride_per_passenger": 1.6942768088069897,
+              "cost_per_passenger": 2.122421911267338
+            },
+            "no_fresh_minus_frozen": {
+              "wait_per_passenger": -0.11850918495917995,
+              "ride_per_passenger": -0.6430797798263939,
+              "cost_per_passenger": -0.8800981497447538
+            },
+            "fresh_minus_frozen": {
+              "wait_per_passenger": 0.09556336627099427,
+              "ride_per_passenger": 1.0511970289805959,
+              "cost_per_passenger": 1.2423237615225844
+            }
+          },
+          "values": {
+            "wait_per_passenger": 562.6241130048412,
+            "ride_per_passenger": 1093.3490284501625,
+            "cost_per_passenger": 2218.597254459845
+          }
+        },
+        {
+          "scenario": "local_speed_drop",
+          "comparisons": {
+            "fresh_minus_matched": {
+              "wait_per_passenger": -2.4224418064858355,
+              "ride_per_passenger": 0.7241196365805536,
+              "cost_per_passenger": -4.120763976390663
+            },
+            "no_fresh_minus_frozen": {
+              "wait_per_passenger": -4.3812587041580855,
+              "ride_per_passenger": 4.705285496385841,
+              "cost_per_passenger": -4.0572319119305575
+            },
+            "fresh_minus_frozen": {
+              "wait_per_passenger": -6.803700510643921,
+              "ride_per_passenger": 5.429405132966394,
+              "cost_per_passenger": -8.17799588832122
+            }
+          },
+          "values": {
+            "wait_per_passenger": 561.1023277405664,
+            "ride_per_passenger": 1099.7580078254525,
+            "cost_per_passenger": 2221.9626633065855
+          }
+        }
+      ],
+      "all_window_means": {
+        "full_day": {
+          "fresh_minus_matched": {
+            "wait_per_passenger": -1.1041846276278307,
+            "ride_per_passenger": 1.2091982226937716,
+            "cost_per_passenger": -0.9991710325616623
+          },
+          "no_fresh_minus_frozen": {
+            "wait_per_passenger": -2.2498839445586327,
+            "ride_per_passenger": 2.0311028582797235,
+            "cost_per_passenger": -2.4686650308376556
+          },
+          "fresh_minus_frozen": {
+            "wait_per_passenger": -3.3540685721864634,
+            "ride_per_passenger": 3.240301080973495,
+            "cost_per_passenger": -3.467836063399318
+          }
+        },
+        "early": {
+          "fresh_minus_matched": {
+            "wait_per_passenger": -1.1124743020094172,
+            "ride_per_passenger": 0.5799787784335706,
+            "cost_per_passenger": -1.6449698255852354
+          },
+          "no_fresh_minus_frozen": {
+            "wait_per_passenger": 1.4289077525034841,
+            "ride_per_passenger": 2.4203528085416792,
+            "cost_per_passenger": 5.278168313548662
+          },
+          "fresh_minus_frozen": {
+            "wait_per_passenger": 0.3164334504940669,
+            "ride_per_passenger": 3.00033158697525,
+            "cost_per_passenger": 3.6331984879634263
+          }
+        },
+        "post_budget": {
+          "fresh_minus_matched": {
+            "wait_per_passenger": 0.4404469792426511,
+            "ride_per_passenger": 0.2667948802971054,
+            "cost_per_passenger": 1.1476888387824147
+          },
+          "no_fresh_minus_frozen": {
+            "wait_per_passenger": -1.2372504808011087,
+            "ride_per_passenger": -0.868757875190667,
+            "cost_per_passenger": -3.3432588367928986
+          },
+          "fresh_minus_frozen": {
+            "wait_per_passenger": -0.7968035015584576,
+            "ride_per_passenger": -0.6019629948935616,
+            "cost_per_passenger": -2.195569998010484
+          }
+        }
+      },
+      "cost_gates": {
+        "matched_mean_negative": true,
+        "stable_matched_nonpositive": false,
+        "shock_matched_negative": true,
+        "each_frozen_nonpositive": false,
+        "some_frozen_negative": true
+      },
+      "fresh_vs_matched_wins": 1,
+      "fresh_vs_matched_cells": 2,
+      "fresh_vs_matched_win_fraction": 0.5,
+      "strict_majority_improvement_observed": false,
+      "matched_post_budget_scene_deltas": {
+        "stable": 1.0229458186882425,
+        "local_speed_drop": 1.2724318588765868
+      },
+      "budget": {
+        "new_native_seconds": 96000.0,
+        "known_native_seconds": 96000.0,
+        "native_seconds_is_lower_bound": false,
+        "declared_native_seconds": 96000,
+        "actual_by_cell": {
+          "stable/fresh": {
+            "native_seconds": 24000.0,
+            "native_seconds_is_lower_bound": false,
+            "packets": 57,
+            "feedback_slots_selected": 285,
+            "feedback_slots": 285,
+            "target_training_labels": 285,
+            "policy_updates": 456,
+            "update_attempts": 456,
+            "trust_updates": 114,
+            "model_generated_rows": 58368,
+            "partial_update_possible": false,
+            "source_collection_events": 0,
+            "model_refits": 0,
+            "offline_training_updates": 0,
+            "counterfactual_queries": 0,
+            "training_stopped_at": 18000.0
+          },
+          "stable/no_fresh": {
+            "native_seconds": 24000.0,
+            "native_seconds_is_lower_bound": false,
+            "packets": 57,
+            "feedback_slots_selected": 285,
+            "feedback_slots": 285,
+            "target_training_labels": 0,
+            "policy_updates": 456,
+            "update_attempts": 456,
+            "trust_updates": 114,
+            "model_generated_rows": 58368,
+            "partial_update_possible": false,
+            "source_collection_events": 0,
+            "model_refits": 0,
+            "offline_training_updates": 0,
+            "counterfactual_queries": 0,
+            "training_stopped_at": 18000.0
+          },
+          "local_speed_drop/fresh": {
+            "native_seconds": 24000.0,
+            "native_seconds_is_lower_bound": false,
+            "packets": 57,
+            "feedback_slots_selected": 285,
+            "feedback_slots": 285,
+            "target_training_labels": 285,
+            "policy_updates": 456,
+            "update_attempts": 456,
+            "trust_updates": 114,
+            "model_generated_rows": 58368,
+            "partial_update_possible": false,
+            "source_collection_events": 0,
+            "model_refits": 0,
+            "offline_training_updates": 0,
+            "counterfactual_queries": 0,
+            "training_stopped_at": 18002.0
+          },
+          "local_speed_drop/no_fresh": {
+            "native_seconds": 24000.0,
+            "native_seconds_is_lower_bound": false,
+            "packets": 57,
+            "feedback_slots_selected": 285,
+            "feedback_slots": 285,
+            "target_training_labels": 0,
+            "policy_updates": 456,
+            "update_attempts": 456,
+            "trust_updates": 114,
+            "model_generated_rows": 58368,
+            "partial_update_possible": false,
+            "source_collection_events": 0,
+            "model_refits": 0,
+            "offline_training_updates": 0,
+            "counterfactual_queries": 0,
+            "training_stopped_at": 18001.0
+          }
+        }
+      },
+      "recipe_difference_from_v75": "Original rebuilt70000-step MappingTrainer; .75real+.25model TD; generated128rows/update; trust114/day; cumulative285fresh latest5, no risk selection/recent30, no CQL. Complete-transition replacement changes V/actor/temperature data as well as critic.",
+      "model_rows_per_arm": 58368,
+      "optimizer_updates_per_arm": 456,
+      "no_new_model_fit": true,
+      "trust_updates_per_arm": 114,
+      "attribution": "Total fresh-transition effect under the rebuilt full MC-WM recipe, not pure critic-outcome supervision and not an isolated world-model ablation.",
+      "no_reopening": "CLOSE_FIXED_PILOT remains. Negative mean alone does not meet current strict-majority standard because only1/2cells improve; no automatic retuning/reconstruction/extra seeds."
+    }
+  }
+}

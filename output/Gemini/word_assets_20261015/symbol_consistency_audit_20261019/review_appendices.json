@@ -1,0 +1,2963 @@
+{
+  "read_only": true,
+  "source": "/home/erzhu419/mine_code/Thesis/output/Gemini/word_assets_20261015/symbol_consistency_audit_20261019/source_snapshot.docx",
+  "scope": "主要符号表98行与附录A–F全文数学定义；必要处核正文对应定义及原生OMML。",
+  "coverage": [
+    {
+      "appendix": "A",
+      "math_objects_read": 149,
+      "math_id_first_last": [
+        3642,
+        3790
+      ],
+      "paragraph_first_last": [
+        3384,
+        3525
+      ]
+    },
+    {
+      "appendix": "B",
+      "math_objects_read": 230,
+      "math_id_first_last": [
+        3791,
+        4020
+      ],
+      "paragraph_first_last": [
+        3526,
+        3807
+      ]
+    },
+    {
+      "appendix": "C",
+      "math_objects_read": 140,
+      "math_id_first_last": [
+        4021,
+        4160
+      ],
+      "paragraph_first_last": [
+        3808,
+        3963
+      ]
+    },
+    {
+      "appendix": "D",
+      "math_objects_read": 296,
+      "math_id_first_last": [
+        4161,
+        4456
+      ],
+      "paragraph_first_last": [
+        3964,
+        4287
+      ]
+    },
+    {
+      "appendix": "E",
+      "math_objects_read": 237,
+      "math_id_first_last": [
+        4457,
+        4693
+      ],
+      "paragraph_first_last": [
+        4288,
+        4511
+      ]
+    },
+    {
+      "appendix": "F",
+      "math_objects_read": 62,
+      "math_id_first_last": [
+        4694,
+        4755
+      ],
+      "paragraph_first_last": [
+        4512,
+        4572
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "APP-01",
+      "kind": "symbol_table_unintroduced_alias",
+      "table": {
+        "row": 97,
+        "symbol": "$\\mathcal{l}_{sym},{\\bar{\\mathcal{l}}}_{sym}^{+}$",
+        "definition": "策略与符号参考的归一化导数误差及一批后继状态上的均值",
+        "locations": [
+          {
+            "math_id": 120,
+            "paragraph": 294,
+            "formula_number": null,
+            "tex": "\\mathcal{l}_{sym},{\\bar{\\mathcal{l}}}_{sym}^{+}",
+            "mathXPath": "/w:document/w:body/w:tbl[3]/w:tr[98]/w:tc[1]/w:p/m:oMathPara/m:oMath"
+          }
+        ]
+      },
+      "finding": "表中后继状态批均值写作bar(l_sym)^+，但主文和附录D均明确定义为bar(L_JC)'；大小写、下标与上标均不对应，且没有给出二者同义的定义。",
+      "actual_notation": "\\bar{\\mathcal L}_{JC}'",
+      "actual_locations": [
+        {
+          "math_id": 1715,
+          "paragraph": 1772,
+          "formula_number": null,
+          "tex": "{\\bar{\\mathcal{L}}}_{JC}' = \\frac{1}{B}\\sum_{i = 1}^{B}\\mathcal{l}_{sym}(x_{i}')",
+          "mathXPath": "/w:document/w:body/w:p[616]/m:oMath[7]"
+        },
+        {
+          "math_id": 1718,
+          "paragraph": 1774,
+          "formula_number": "4-16",
+          "tex": "y_{i} = \\frac{r_{i}}{\\sigma_{r}} + \\gamma\\,(1 - d_{i})\\,\\left( \\,\\min_{k \\in \\left\\{ 1,2,3 \\right\\}}{\\widehat{Q}}_{\\phi_{k}'}\\left( s_{i}',\\ a_{i}' \\right) - \\alpha\\log\\pi_{\\theta}(a_{i}' \\mid s_{i}') - \\lambda_{sym}\\, sg({\\bar{\\mathcal{L}}}_{JC}')\\, \\right)",
+          "mathXPath": "/w:document/w:body/w:tbl[112]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4204,
+          "paragraph": 4001,
+          "formula_number": "D-4d",
+          "tex": "{\\bar{\\mathcal{L}}}_{JC}' = \\frac{1}{B}\\sum_{i = 1}^{B}\\mathcal{l}_{sym}(x_{i}')",
+          "mathXPath": "/w:document/w:body/w:tbl[309]/w:tr[1]/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4205,
+          "paragraph": 4004,
+          "formula_number": "D-4e",
+          "tex": "y_{i} = \\frac{r_{i}}{\\sigma_{r}} + (1 - d_{i})\\gamma\\left\\lbrack \\min_{1 \\leq k \\leq 3}{\\widehat{Q}}_{\\phi_{k}'}(s_{i}',a_{i}') - \\alpha\\log\\pi_{\\theta}(a_{i}' \\mid s_{i}') - \\lambda_{sym}\\, sg\\left( {\\bar{\\mathcal{L}}}_{JC}' \\right) \\right\\rbrack.",
+          "mathXPath": "/w:document/w:body/w:tbl[309]/w:tr[2]/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4389,
+          "paragraph": 4205,
+          "formula_number": null,
+          "tex": "sg({\\bar{\\mathcal{L}}}_{JC}')",
+          "mathXPath": "/w:document/w:body/w:p[1543]/m:oMath"
+        }
+      ],
+      "native_evidence": {
+        "table": {
+          "math_id": 120,
+          "paragraph": 294,
+          "formula_number": null,
+          "tex": "\\mathcal{l}_{sym},{\\bar{\\mathcal{l}}}_{sym}^{+}",
+          "mathXPath": "/w:document/w:body/w:tbl[3]/w:tr[98]/w:tc[1]/w:p/m:oMathPara/m:oMath",
+          "native_runs": [
+            {
+              "run": 1,
+              "text": "l",
+              "runXPath": "/w:document/w:body/w:tbl[3]/w:tr[98]/w:tc[1]/w:p/m:oMathPara/m:oMath/m:sSub/m:e/m:r",
+              "math_properties": {
+                "scr": "script"
+              }
+            },
+            {
+              "run": 2,
+              "text": "sym",
+              "runXPath": "/w:document/w:body/w:tbl[3]/w:tr[98]/w:tc[1]/w:p/m:oMathPara/m:oMath/m:sSub/m:sub/m:r",
+              "math_properties": {
+                "sty": "p"
+              }
+            },
+            {
+              "run": 4,
+              "text": "l",
+              "runXPath": "/w:document/w:body/w:tbl[3]/w:tr[98]/w:tc[1]/w:p/m:oMathPara/m:oMath/m:sSubSup/m:e/m:acc/m:e/m:r",
+              "math_properties": {
+                "scr": "script"
+              }
+            },
+            {
+              "run": 5,
+              "text": "sym",
+              "runXPath": "/w:document/w:body/w:tbl[3]/w:tr[98]/w:tc[1]/w:p/m:oMathPara/m:oMath/m:sSubSup/m:sub/m:r",
+              "math_properties": {
+                "sty": "p"
+              }
+            },
+            {
+              "run": 6,
+              "text": "+",
+              "runXPath": "/w:document/w:body/w:tbl[3]/w:tr[98]/w:tc[1]/w:p/m:oMathPara/m:oMath/m:sSubSup/m:sup/m:r",
+              "math_properties": {
+                "sty": "p"
+              }
+            }
+          ]
+        },
+        "D_4d": {
+          "math_id": 4204,
+          "paragraph": 4001,
+          "formula_number": "D-4d",
+          "tex": "{\\bar{\\mathcal{L}}}_{JC}' = \\frac{1}{B}\\sum_{i = 1}^{B}\\mathcal{l}_{sym}(x_{i}')",
+          "mathXPath": "/w:document/w:body/w:tbl[309]/w:tr[1]/w:tc[2]/w:p/m:oMathPara/m:oMath",
+          "native_runs": [
+            {
+              "run": 1,
+              "text": "L",
+              "runXPath": "/w:document/w:body/w:tbl[309]/w:tr[1]/w:tc[2]/w:p/m:oMathPara/m:oMath/m:sSubSup[1]/m:e/m:acc/m:e/m:r",
+              "math_properties": {
+                "scr": "script",
+                "sty": "p"
+              }
+            },
+            {
+              "run": 2,
+              "text": "JC",
+              "runXPath": "/w:document/w:body/w:tbl[309]/w:tr[1]/w:tc[2]/w:p/m:oMathPara/m:oMath/m:sSubSup[1]/m:sub/m:r",
+              "math_properties": {
+                "sty": "p"
+              }
+            },
+            {
+              "run": 3,
+              "text": "'",
+              "runXPath": "/w:document/w:body/w:tbl[309]/w:tr[1]/w:tc[2]/w:p/m:oMathPara/m:oMath/m:sSubSup[1]/m:sup/m:r",
+              "math_properties": {
+                "sty": "p"
+              }
+            },
+            {
+              "run": 16,
+              "text": "'",
+              "runXPath": "/w:document/w:body/w:tbl[309]/w:tr[1]/w:tc[2]/w:p/m:oMathPara/m:oMath/m:sSubSup[2]/m:sup/m:r",
+              "math_properties": {
+                "sty": "p"
+              }
+            }
+          ]
+        }
+      },
+      "minimal_correction": "将表97第二个符号改为正文及式(D-4d)实际使用的bar(L_JC)'；不重命名正文公式。",
+      "table_patch": {
+        "row": 97,
+        "correct_tex": "\\mathcal{l}_{sym},\\bar{\\mathcal{L}}_{JC}^{\\prime}",
+        "correct_definition": "策略与符号参考的逐状态归一化导数误差，以及同一小批量后继状态上的均值（第4.2.3节、附录D.1）"
+      }
+    },
+    {
+      "id": "APP-02",
+      "kind": "symbol_table_unintroduced_alias",
+      "table": {
+        "row": 86,
+        "symbol": "$B_{batch},K_{\\max},n_{rem}$",
+        "definition": "训练小批量大小、有限时域分析的决策事件数上界及剩余事件数",
+        "locations": [
+          {
+            "math_id": 109,
+            "paragraph": 272,
+            "formula_number": null,
+            "tex": "B_{batch},K_{\\max},n_{rem}",
+            "mathXPath": "/w:document/w:body/w:tbl[3]/w:tr[87]/w:tc[1]/w:p/m:oMathPara/m:oMath"
+          }
+        ]
+      },
+      "finding": "训练小批量大小在附录D明确写为B=256，式(D-4c)、(D-4d)均使用B；表列B_batch没有在本节引入为别名。",
+      "actual_notation": "B",
+      "actual_locations": [
+        {
+          "math_id": 4199,
+          "paragraph": 3997,
+          "formula_number": "D-4c",
+          "tex": "\\begin{array}{r}\n\\mathcal{l}_{sym}(x) = \\frac{\\parallel J_{\\mu}(x) - J_{f}(x) \\parallel_{F}^{2}}{1 + \\parallel J_{f}(x) \\parallel_{F}^{2}}, \\\\\n\\mathcal{L}_{\\pi} = \\mathcal{L}_{\\pi,base} + \\frac{0.01}{B}\\sum_{i = 1}^{B}\\mathcal{l}_{sym}(x_{i}),\n\\end{array}",
+          "mathXPath": "/w:document/w:body/w:tbl[308]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4201,
+          "paragraph": 3999,
+          "formula_number": null,
+          "tex": "B = 256",
+          "mathXPath": "/w:document/w:body/w:p[1469]/m:oMath[2]"
+        },
+        {
+          "math_id": 4204,
+          "paragraph": 4001,
+          "formula_number": "D-4d",
+          "tex": "{\\bar{\\mathcal{L}}}_{JC}' = \\frac{1}{B}\\sum_{i = 1}^{B}\\mathcal{l}_{sym}(x_{i}')",
+          "mathXPath": "/w:document/w:body/w:tbl[309]/w:tr[1]/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        }
+      ],
+      "native_evidence": {
+        "table": {
+          "math_id": 109,
+          "paragraph": 272,
+          "formula_number": null,
+          "tex": "B_{batch},K_{\\max},n_{rem}",
+          "mathXPath": "/w:document/w:body/w:tbl[3]/w:tr[87]/w:tc[1]/w:p/m:oMathPara/m:oMath",
+          "native_runs": [
+            {
+              "run": 1,
+              "text": "B",
+              "runXPath": "/w:document/w:body/w:tbl[3]/w:tr[87]/w:tc[1]/w:p/m:oMathPara/m:oMath/m:sSub[1]/m:e/m:r",
+              "math_properties": {}
+            },
+            {
+              "run": 2,
+              "text": "batch",
+              "runXPath": "/w:document/w:body/w:tbl[3]/w:tr[87]/w:tc[1]/w:p/m:oMathPara/m:oMath/m:sSub[1]/m:sub/m:r",
+              "math_properties": {
+                "sty": "p"
+              }
+            }
+          ]
+        },
+        "D_4d": {
+          "math_id": 4204,
+          "paragraph": 4001,
+          "formula_number": "D-4d",
+          "tex": "{\\bar{\\mathcal{L}}}_{JC}' = \\frac{1}{B}\\sum_{i = 1}^{B}\\mathcal{l}_{sym}(x_{i}')",
+          "mathXPath": "/w:document/w:body/w:tbl[309]/w:tr[1]/w:tc[2]/w:p/m:oMathPara/m:oMath",
+          "native_runs": [
+            {
+              "run": 6,
+              "text": "B",
+              "runXPath": "/w:document/w:body/w:tbl[309]/w:tr[1]/w:tc[2]/w:p/m:oMathPara/m:oMath/m:f/m:den/m:r",
+              "math_properties": {}
+            },
+            {
+              "run": 10,
+              "text": "B",
+              "runXPath": "/w:document/w:body/w:tbl[309]/w:tr[1]/w:tc[2]/w:p/m:oMathPara/m:oMath/m:nary/m:sup/m:r",
+              "math_properties": {}
+            }
+          ]
+        }
+      },
+      "minimal_correction": "符号表采用B并注明训练小批量作用域；附录E.5中B为另行定义的回归拟合Lipschitz常数，不据此重命名正文。",
+      "table_patch": {
+        "row": 86,
+        "correct_tex": "B,K_{\\max},n_{rem}",
+        "correct_definition": "训练小批量大小（第4章、附录D.1；附录E.5同形字母B另指回归拟合映射的Lipschitz常数）、有限事件时域的决策事件数上界及剩余事件数（第6章、附录E.3）"
+      }
+    },
+    {
+      "id": "APP-03",
+      "kind": "symbol_table_math_variant_mismatch",
+      "table": {
+        "row": 39,
+        "symbol": "$\\mathsf{H}_{k},K_{z}(z' \\mid z)$",
+        "definition": "模式推断使用的状态动作历史与隐模式转移概率",
+        "locations": [
+          {
+            "math_id": 50,
+            "paragraph": 178,
+            "formula_number": null,
+            "tex": "\\mathsf{H}_{k},K_{z}(z' \\mid z)",
+            "mathXPath": "/w:document/w:body/w:tbl[3]/w:tr[40]/w:tc[1]/w:p/m:oMathPara/m:oMath"
+          }
+        ]
+      },
+      "finding": "同为模式推断所用的历史H_k，表39的H原生m:scr=sans-serif且m:sty=p；主文及附录B的H无m:scr、无m:sty，是默认数学字母。差异不是Pandoc跨组宏造成。",
+      "actual_notation": "H_k（默认数学字母）",
+      "actual_locations": [
+        {
+          "math_id": 1554,
+          "paragraph": 1708,
+          "formula_number": null,
+          "tex": "H_{k} = (s_{0},a_{0},s_{1},\\ldots,a_{k - 1},s_{k})",
+          "mathXPath": "/w:document/w:body/w:p[591]/m:oMath[2]"
+        },
+        {
+          "math_id": 3930,
+          "paragraph": 3667,
+          "formula_number": "B-29",
+          "tex": "D_{KL}(\\mathsf{P}_{z}^{\\pi_{beh}} \\parallel \\mathsf{P}_{z'}^{\\pi_{beh}}) = \\sum_{k = 0}^{N_{hor} - 1}\\mathbb{E}_{\\mathsf{P}_{z}^{\\pi_{beh}}}\\left\\lbrack D_{KL}(P_{z}( \\cdot \\mid H_{k},a_{k}) \\parallel P_{z'}( \\cdot \\mid H_{k},a_{k})) \\right\\rbrack,",
+          "mathXPath": "/w:document/w:body/w:tbl[243]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 3932,
+          "paragraph": 3669,
+          "formula_number": null,
+          "tex": "H_{k}",
+          "mathXPath": "/w:document/w:body/w:p[1347]/m:oMath[2]"
+        },
+        {
+          "math_id": 3951,
+          "paragraph": 3691,
+          "formula_number": null,
+          "tex": "H_{k}",
+          "mathXPath": "/w:document/w:body/w:p[1354]/m:oMath[3]"
+        },
+        {
+          "math_id": 3954,
+          "paragraph": 3691,
+          "formula_number": null,
+          "tex": "H_{k + 1} = H_{k} \\frown \\xi_{k}",
+          "mathXPath": "/w:document/w:body/w:p[1354]/m:oMath[6]"
+        }
+      ],
+      "native_evidence": {
+        "table": {
+          "math_id": 50,
+          "paragraph": 178,
+          "formula_number": null,
+          "tex": "\\mathsf{H}_{k},K_{z}(z' \\mid z)",
+          "mathXPath": "/w:document/w:body/w:tbl[3]/w:tr[40]/w:tc[1]/w:p/m:oMathPara/m:oMath",
+          "native_runs": [
+            {
+              "run": 1,
+              "text": "H",
+              "runXPath": "/w:document/w:body/w:tbl[3]/w:tr[40]/w:tc[1]/w:p/m:oMathPara/m:oMath/m:sSub[1]/m:e/m:r",
+              "math_properties": {
+                "scr": "sans-serif",
+                "sty": "p"
+              }
+            }
+          ]
+        },
+        "B_29": {
+          "math_id": 3930,
+          "paragraph": 3667,
+          "formula_number": "B-29",
+          "tex": "D_{KL}(\\mathsf{P}_{z}^{\\pi_{beh}} \\parallel \\mathsf{P}_{z'}^{\\pi_{beh}}) = \\sum_{k = 0}^{N_{hor} - 1}\\mathbb{E}_{\\mathsf{P}_{z}^{\\pi_{beh}}}\\left\\lbrack D_{KL}(P_{z}( \\cdot \\mid H_{k},a_{k}) \\parallel P_{z'}( \\cdot \\mid H_{k},a_{k})) \\right\\rbrack,",
+          "mathXPath": "/w:document/w:body/w:tbl[243]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath",
+          "native_runs": [
+            {
+              "run": 33,
+              "text": "H",
+              "runXPath": "/w:document/w:body/w:tbl[243]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath/m:d/m:e/m:sSub[3]/m:e/m:r",
+              "math_properties": {}
+            },
+            {
+              "run": 43,
+              "text": "H",
+              "runXPath": "/w:document/w:body/w:tbl[243]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath/m:d/m:e/m:sSub[6]/m:e/m:r",
+              "math_properties": {}
+            }
+          ]
+        },
+        "B_definition": {
+          "math_id": 3951,
+          "paragraph": 3691,
+          "formula_number": null,
+          "tex": "H_{k}",
+          "mathXPath": "/w:document/w:body/w:p[1354]/m:oMath[3]",
+          "native_runs": [
+            {
+              "run": 1,
+              "text": "H",
+              "runXPath": "/w:document/w:body/w:p[1354]/m:oMath[3]/m:sSub/m:e/m:r",
+              "math_properties": {}
+            }
+          ]
+        }
+      },
+      "minimal_correction": "让符号表H的数学字体与已定义并实际使用的H_k一致。",
+      "table_patch": {
+        "row": 39,
+        "correct_tex": "H_{k},\\Psi(z^{\\prime}\\mid z)",
+        "correct_definition": "模式推断使用的状态动作历史（第4.2.2节、附录B.4和B.6）与隐模式转移概率（式4-6）",
+        "coordinated_supplement": "H按原生实际使用的默认数学字母；同时合并主文审查确认的K_z→Psi，不另改正文。"
+      }
+    },
+    {
+      "id": "APP-04",
+      "kind": "symbol_table_math_variant_mismatch",
+      "table": {
+        "row": 83,
+        "symbol": "$\\mathcal{X}_{\\delta},L_{adj},L_{occ}$",
+        "definition": "由各状态动作对及其后继状态对应的概率残差组成的实向量空间；策略调整敏感性及访问分布敏感性上界",
+        "locations": [
+          {
+            "math_id": 106,
+            "paragraph": 266,
+            "formula_number": null,
+            "tex": "\\mathcal{X}_{\\delta},L_{adj},L_{occ}",
+            "mathXPath": "/w:document/w:body/w:tbl[3]/w:tr[84]/w:tc[1]/w:p/m:oMathPara/m:oMath"
+          }
+        ]
+      },
+      "finding": "概率残差实向量空间在E.5和式(E-27)实际为X_delta（X原生无m:scr）；表83却将同一X设m:scr=script，即mathcal X_delta。字母角色和下标相同，数学字体不一致。",
+      "actual_notation": "X_delta（默认数学字母）",
+      "actual_locations": [
+        {
+          "math_id": 4573,
+          "paragraph": 4418,
+          "formula_number": null,
+          "tex": "X_{\\delta} = \\mathbb{R}^{\\mathcal{|S|}\\,\\mathcal{|A|}\\,\\mathcal{|S|}}",
+          "mathXPath": "/w:document/w:body/w:p[1618]/m:oMath"
+        },
+        {
+          "math_id": 4574,
+          "paragraph": 4420,
+          "formula_number": "E-27",
+          "tex": "\\begin{array}{r}\nX_{\\delta} = \\mathbb{R}^{\\mathcal{|S|}\\,\\mathcal{|A|}\\,\\mathcal{|S|}}, \\\\\n\\mathcal{C}_{\\delta} = \\left\\{ \\delta \\in X_{\\delta}:\\ P_{sim} + \\delta \\geq 0,\\ \\sum_{s'}^{}\\delta(s,a,s') = 0 \\right\\}, \\\\\nF:\\mathcal{C}_{\\delta} \\rightarrow \\mathcal{C}_{\\delta},\n\\end{array}",
+          "mathXPath": "/w:document/w:body/w:tbl[396]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        }
+      ],
+      "native_evidence": {
+        "table": {
+          "math_id": 106,
+          "paragraph": 266,
+          "formula_number": null,
+          "tex": "\\mathcal{X}_{\\delta},L_{adj},L_{occ}",
+          "mathXPath": "/w:document/w:body/w:tbl[3]/w:tr[84]/w:tc[1]/w:p/m:oMathPara/m:oMath",
+          "native_runs": [
+            {
+              "run": 1,
+              "text": "X",
+              "runXPath": "/w:document/w:body/w:tbl[3]/w:tr[84]/w:tc[1]/w:p/m:oMathPara/m:oMath/m:sSub[1]/m:e/m:r",
+              "math_properties": {
+                "scr": "script"
+              }
+            }
+          ]
+        },
+        "E_definition": {
+          "math_id": 4573,
+          "paragraph": 4418,
+          "formula_number": null,
+          "tex": "X_{\\delta} = \\mathbb{R}^{\\mathcal{|S|}\\,\\mathcal{|A|}\\,\\mathcal{|S|}}",
+          "mathXPath": "/w:document/w:body/w:p[1618]/m:oMath",
+          "native_runs": [
+            {
+              "run": 1,
+              "text": "X",
+              "runXPath": "/w:document/w:body/w:p[1618]/m:oMath/m:sSub/m:e/m:r",
+              "math_properties": {}
+            }
+          ]
+        },
+        "E_27": {
+          "math_id": 4574,
+          "paragraph": 4420,
+          "formula_number": "E-27",
+          "tex": "\\begin{array}{r}\nX_{\\delta} = \\mathbb{R}^{\\mathcal{|S|}\\,\\mathcal{|A|}\\,\\mathcal{|S|}}, \\\\\n\\mathcal{C}_{\\delta} = \\left\\{ \\delta \\in X_{\\delta}:\\ P_{sim} + \\delta \\geq 0,\\ \\sum_{s'}^{}\\delta(s,a,s') = 0 \\right\\}, \\\\\nF:\\mathcal{C}_{\\delta} \\rightarrow \\mathcal{C}_{\\delta},\n\\end{array}",
+          "mathXPath": "/w:document/w:body/w:tbl[396]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath",
+          "native_runs": [
+            {
+              "run": 1,
+              "text": "X",
+              "runXPath": "/w:document/w:body/w:tbl[396]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath/m:eqArr/m:e[1]/m:sSub/m:e/m:r",
+              "math_properties": {}
+            },
+            {
+              "run": 18,
+              "text": "X",
+              "runXPath": "/w:document/w:body/w:tbl[396]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath/m:eqArr/m:e[2]/m:d/m:e/m:sSub[1]/m:e/m:r",
+              "math_properties": {}
+            }
+          ]
+        }
+      },
+      "minimal_correction": "让表83的X字体与附录E.5现用X_delta一致。",
+      "table_patch": {
+        "row": 83,
+        "correct_tex": "X_{\\delta},L_{adj},L_{occ}",
+        "correct_definition": "由状态动作对及后继状态的概率残差组成的实向量空间，以及策略调整映射和访问分布映射的Lipschitz常数（附录E.5）"
+      }
+    },
+    {
+      "id": "APP-05",
+      "kind": "repeated_core_symbol_missing_from_table",
+      "related_table_rows": [
+        18,
+        32,
+        38
+      ],
+      "finding": "候选运行模式集合mathcal Z在主文和附录C、D反复出现，但主要符号表只列模式元素z、信念rho和增益G_z，未收该模式集合。表32的带beta_tail下标Z是风险包络，并不能代替模式集合条目。",
+      "actual_notation": "\\mathcal Z（候选模式集合）",
+      "actual_locations": [
+        {
+          "math_id": 1573,
+          "paragraph": 1712,
+          "formula_number": null,
+          "tex": "\\mathcal{Z}",
+          "mathXPath": "/w:document/w:body/w:p[592]/m:oMath[5]"
+        },
+        {
+          "math_id": 1580,
+          "paragraph": 1719,
+          "formula_number": "4-6",
+          "tex": "b'(z')\\mspace{6mu} = \\mspace{6mu}\\sum_{z\\mathcal{\\in Z}}^{}\\Psi(z'\\mspace{6mu}|\\mspace{6mu} z)\\, b^{+}(z)",
+          "mathXPath": "/w:document/w:body/w:tbl[102]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4021,
+          "paragraph": 3811,
+          "formula_number": null,
+          "tex": "\\mathcal{Z}",
+          "mathXPath": "/w:document/w:body/w:p[1396]/m:oMath[1]"
+        },
+        {
+          "math_id": 4029,
+          "paragraph": 3812,
+          "formula_number": null,
+          "tex": "\\mathcal{Z}",
+          "mathXPath": "/w:document/w:body/w:p[1397]/m:oMath[3]"
+        },
+        {
+          "math_id": 4034,
+          "paragraph": 3814,
+          "formula_number": "C-1",
+          "tex": "P_{z}(s' \\mid s,a) \\geq 0,\\quad\\quad\\sum_{s'}^{}P_{z}(s' \\mid s,a) = 1.",
+          "mathXPath": "/w:document/w:body/w:tbl[272]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4042,
+          "paragraph": 3827,
+          "formula_number": "C-4",
+          "tex": "\\rho(z) \\geq 0,\\quad\\quad\\sum_{z\\mathcal{\\in Z}}^{}\\rho(z) = 1.",
+          "mathXPath": "/w:document/w:body/w:tbl[275]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4043,
+          "paragraph": 3831,
+          "formula_number": "C-5",
+          "tex": "(\\mathcal{T}_{\\rho}Q)(s,a) = \\sum_{z\\mathcal{\\in Z}}^{}\\rho(z)(\\mathcal{T}_{z}Q)(s,a).",
+          "mathXPath": "/w:document/w:body/w:tbl[276]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4368,
+          "paragraph": 4181,
+          "formula_number": null,
+          "tex": "\\mathcal{S,A,Z}",
+          "mathXPath": "/w:document/w:body/w:p[1537]/m:oMath[1]"
+        }
+      ],
+      "minimal_correction": "在模式符号行补入mathcal Z及有限候选模式集合含义；保留与风险包络Z_beta_tail的区别。",
+      "table_patch": {
+        "row": 38,
+        "correct_tex": "\\mathcal{Z},z,\\rho(z),G_{z}",
+        "correct_definition": "有限候选运行模式集合及模式元素、模式信念分布和模式条件执行增益（第4章、附录B–D；附录C、D的算子比较中模式信念固定）"
+      }
+    }
+  ],
+  "accepted": [
+    {
+      "table_rows": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        42
+      ],
+      "scope": "附录A",
+      "finding": "alpha_ent与正文alpha在P3386明确同义；支持函数、Wasserstein半径ipm、轨迹成本traj及CVaR的tail/risk下标均实际使用。kappa_ale在式(A-2)明确定义为含lambda_ale的标量，不与表85未加权kappa_j强行等同。",
+      "locations": [
+        {
+          "math_id": 3642,
+          "paragraph": 3386,
+          "formula_number": null,
+          "tex": "\\alpha_{ent}",
+          "mathXPath": "/w:document/w:body/w:p[1232]/m:oMath[1]"
+        },
+        {
+          "math_id": 3665,
+          "paragraph": 3395,
+          "formula_number": "A-2",
+          "tex": "\\kappa_{ale} = \\lambda_{ale}\\sum_{l}^{} \\parallel W_{l} \\parallel_{1}.",
+          "mathXPath": "/w:document/w:body/w:tbl[190]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 3733,
+          "paragraph": 3487,
+          "formula_number": null,
+          "tex": "\\mathcal{U}",
+          "mathXPath": "/w:document/w:body/w:p[1274]/m:oMath[1]"
+        },
+        {
+          "math_id": 3753,
+          "paragraph": 3498,
+          "formula_number": "A-21",
+          "tex": "\\inf_{p\\mathcal{\\in U}}\\mathbb{E}_{p}\\lbrack V\\rbrack \\geq \\mathbb{E}_{p^{\\circ}}\\lbrack V\\rbrack - \\varepsilon_{ipm}L_{V}.",
+          "mathXPath": "/w:document/w:body/w:tbl[209]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 3769,
+          "paragraph": 3508,
+          "formula_number": "A-23",
+          "tex": "{CVaR}_{\\beta_{tail}}(C_{traj}) = \\inf_{\\eta_{risk}\\mathbb{\\in R}}\\left\\{ \\eta_{risk} + \\frac{1}{\\beta_{tail}}\\mathbb{E}_{\\mathbb{P}_{0}}\\lbrack(C_{traj} - \\eta_{risk})_{+}\\rbrack \\right\\}.",
+          "mathXPath": "/w:document/w:body/w:tbl[211]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 3771,
+          "paragraph": 3512,
+          "formula_number": "A-24",
+          "tex": "\\mathcal{Z}_{\\beta_{tail}} = \\left\\{ \\zeta_{risk}:\\ 0 \\leq \\zeta_{risk} \\leq \\frac{1}{\\beta_{tail}},\\quad\\mathbb{E}_{\\mathbb{P}_{0}}\\lbrack\\zeta_{risk}\\rbrack = 1 \\right\\}.",
+          "mathXPath": "/w:document/w:body/w:tbl[212]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 3772,
+          "paragraph": 3516,
+          "formula_number": "A-25",
+          "tex": "{CVaR}_{\\beta_{tail}}(C_{traj}) = \\sup_{\\zeta_{risk} \\in \\mathcal{Z}_{\\beta_{tail}}}\\mathbb{E}_{\\mathbb{P}_{0}}\\lbrack\\zeta_{risk}C_{traj}\\rbrack.",
+          "mathXPath": "/w:document/w:body/w:tbl[213]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        }
+      ]
+    },
+    {
+      "table_rows": [
+        66
+      ],
+      "scope": "附录B.4",
+      "finding": "H_obs、h_obs、P_obs,1和P_obs,2确为原文所用，不是表中新加别名；式(B-24)至(B-29)完整沿用。",
+      "actual_locations": [
+        {
+          "math_id": 3913,
+          "paragraph": 3643,
+          "formula_number": null,
+          "tex": "H_{obs}",
+          "mathXPath": "/w:document/w:body/w:p[1339]/m:oMath[1]"
+        },
+        {
+          "math_id": 3917,
+          "paragraph": 3643,
+          "formula_number": null,
+          "tex": "P_{obs,1}(y \\mid h_{obs})",
+          "mathXPath": "/w:document/w:body/w:p[1339]/m:oMath[5]"
+        },
+        {
+          "math_id": 3918,
+          "paragraph": 3643,
+          "formula_number": null,
+          "tex": "P_{obs,2}(y \\mid h_{obs})",
+          "mathXPath": "/w:document/w:body/w:p[1339]/m:oMath[6]"
+        },
+        {
+          "math_id": 3919,
+          "paragraph": 3646,
+          "formula_number": "B-24",
+          "tex": "D_{KL}(p \\parallel q) = \\sum_{h_{obs}}^{}p(h_{obs})log\\frac{p(h_{obs})}{q(h_{obs})}.",
+          "mathXPath": "/w:document/w:body/w:tbl[238]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 3920,
+          "paragraph": 3650,
+          "formula_number": "B-25",
+          "tex": "\\begin{array}{r}\nD_{KL}(pP_{obs,1} \\parallel qP_{obs,2}) = D_{KL}(p \\parallel q) \\\\\n\\quad + \\sum_{h_{obs}}^{}p(h_{obs})\\, D_{KL}\\left( P_{obs,1}( \\cdot \\mid h_{obs}) \\parallel P_{obs,2}( \\cdot \\mid h_{obs}) \\right).\n\\end{array}",
+          "mathXPath": "/w:document/w:body/w:tbl[239]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 3930,
+          "paragraph": 3667,
+          "formula_number": "B-29",
+          "tex": "D_{KL}(\\mathsf{P}_{z}^{\\pi_{beh}} \\parallel \\mathsf{P}_{z'}^{\\pi_{beh}}) = \\sum_{k = 0}^{N_{hor} - 1}\\mathbb{E}_{\\mathsf{P}_{z}^{\\pi_{beh}}}\\left\\lbrack D_{KL}(P_{z}( \\cdot \\mid H_{k},a_{k}) \\parallel P_{z'}( \\cdot \\mid H_{k},a_{k})) \\right\\rbrack,",
+          "mathXPath": "/w:document/w:body/w:tbl[243]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        }
+      ]
+    },
+    {
+      "table_rows": [
+        74,
+        75,
+        76,
+        88,
+        89
+      ],
+      "scope": "附录B",
+      "finding": "exec/nom/ref/beh/act/phys/aug及路径上标O,path均有实际定义；候选脚本对V^{O,path}/Q^{O,path}的零匹配是因实际还带n,k下标，不构成缺用。",
+      "actual_locations": [
+        {
+          "math_id": 3801,
+          "paragraph": 3539,
+          "formula_number": "B-3",
+          "tex": "u_{exec} = clip(v_{nom} + \\varepsilon).",
+          "mathXPath": "/w:document/w:body/w:tbl[217]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 3825,
+          "paragraph": 3563,
+          "formula_number": "B-8",
+          "tex": "a_{inv} = G_{act}^{- 1}v_{nom}^{*},\\quad\\quad a_{inv,j} = v_{nom,j}^{*}/g_{j}.",
+          "mathXPath": "/w:document/w:body/w:tbl[222]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 3851,
+          "paragraph": 3581,
+          "formula_number": "B-12",
+          "tex": "G_{z}^{2} = I_{n_{a}},\\quad\\quad G_{z}^{- 1} = G_{z}.",
+          "mathXPath": "/w:document/w:body/w:tbl[226]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 3930,
+          "paragraph": 3667,
+          "formula_number": "B-29",
+          "tex": "D_{KL}(\\mathsf{P}_{z}^{\\pi_{beh}} \\parallel \\mathsf{P}_{z'}^{\\pi_{beh}}) = \\sum_{k = 0}^{N_{hor} - 1}\\mathbb{E}_{\\mathsf{P}_{z}^{\\pi_{beh}}}\\left\\lbrack D_{KL}(P_{z}( \\cdot \\mid H_{k},a_{k}) \\parallel P_{z'}( \\cdot \\mid H_{k},a_{k})) \\right\\rbrack,",
+          "mathXPath": "/w:document/w:body/w:tbl[243]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 3964,
+          "paragraph": 3694,
+          "formula_number": "B-35",
+          "tex": "\\begin{array}{r}\nQ_{n,k}^{O,path}(x_{aug},v_{nom}) = r\\left( x_{phys},clip(v_{nom} + \\varepsilon_{k}),e_{k} \\right) \\\\\n\\quad + V_{n,k + 1}^{O,path}\\left( F_{aug}(x_{aug},v_{nom},e_{k}) \\right).\n\\end{array}",
+          "mathXPath": "/w:document/w:body/w:tbl[248]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 3965,
+          "paragraph": 3698,
+          "formula_number": "B-36",
+          "tex": "\\begin{array}{r}\n\\Delta_{n,k}^{O}(x_{aug}) = Q_{n,k}^{O,path}\\left( x_{aug},v_{nom}^{C}(k,x_{aug}) \\right) \\\\\n\\quad - Q_{n,k}^{O,path}\\left( x_{aug},v_{nom}^{O}(k,x_{aug}) \\right).\n\\end{array}",
+          "mathXPath": "/w:document/w:body/w:tbl[249]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 3985,
+          "paragraph": 3724,
+          "formula_number": "B-42",
+          "tex": "\\begin{array}{r}\nF_{dyn,e}(x_{aug},v_{nom}) = F_{aug}(x_{aug},v_{nom},e), \\\\\nr_{e}(x_{aug},v_{nom}) = r\\left( x_{phys},clip(v_{nom} + \\varepsilon(e)),e \\right).\n\\end{array}",
+          "mathXPath": "/w:document/w:body/w:tbl[255]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4015,
+          "paragraph": 3783,
+          "formula_number": "B-56",
+          "tex": "|Q_{n,k}^{O}(x_{aug},{v_{nom}}^{C}(k,x_{aug})) - Q_{n,k}^{O}(x_{aug},{v_{nom}}^{O}(k,x_{aug}))| \\leq L_{Q,act}(k,x_{aug}) \\parallel {v_{nom}}^{C}(k,x_{aug}) - {v_{nom}}^{O}(k,x_{aug}) \\parallel_{2}.",
+          "mathXPath": "/w:document/w:body/w:tbl[267]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        }
+      ]
+    },
+    {
+      "table_rows": [
+        38,
+        40,
+        58,
+        68
+      ],
+      "scope": "附录C",
+      "finding": "rho、Omega_prior、O_belief,n、c_fb与delta_post实际使用；先验旧/新与后验新/旧比的方向在P3937明示互为倒数，表40定义相符。",
+      "actual_locations": [
+        {
+          "math_id": 4025,
+          "paragraph": 3811,
+          "formula_number": null,
+          "tex": "\\rho^{(2)}",
+          "mathXPath": "/w:document/w:body/w:p[1396]/m:oMath[5]"
+        },
+        {
+          "math_id": 4135,
+          "paragraph": 3935,
+          "formula_number": "C-27",
+          "tex": "O_{belief,n} = \\frac{1}{\\Omega_{prior}}{L_{evid}}^{2n}.",
+          "mathXPath": "/w:document/w:body/w:tbl[297]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4137,
+          "paragraph": 3937,
+          "formula_number": null,
+          "tex": "O_{belief,0} = 1/\\Omega_{prior}",
+          "mathXPath": "/w:document/w:body/w:p[1440]/m:oMath[2]"
+        },
+        {
+          "math_id": 4138,
+          "paragraph": 3937,
+          "formula_number": null,
+          "tex": "L_{evid}^{2}",
+          "mathXPath": "/w:document/w:body/w:p[1440]/m:oMath[3]"
+        },
+        {
+          "math_id": 4141,
+          "paragraph": 3940,
+          "formula_number": "C-28",
+          "tex": "L_{evid}^{2n} \\geq \\frac{\\Omega_{prior}}{\\delta_{post}},",
+          "mathXPath": "/w:document/w:body/w:tbl[298]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4148,
+          "paragraph": 3950,
+          "formula_number": "C-30",
+          "tex": "\\rho_{n}(new) = \\frac{O_{belief,n}}{1 + O_{belief,n}} \\geq \\frac{1}{1 + \\delta_{post}} \\geq 1 - \\delta_{post},",
+          "mathXPath": "/w:document/w:body/w:tbl[300]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        }
+      ]
+    },
+    {
+      "table_rows": [
+        59,
+        69,
+        70,
+        71,
+        72,
+        73,
+        90,
+        91,
+        92
+      ],
+      "scope": "附录D",
+      "finding": "f_sh、f_c_coef、c_coef/i、eps_val/der/path、X_eval/in/out、e_map/path、eps_sym/pol/IRM/emp和Delta_gen均实际出现且与表义相符；mu_det,theta的det宏包装不同不代表没用。",
+      "actual_locations": [
+        {
+          "math_id": 4164,
+          "paragraph": 3969,
+          "formula_number": "D-1",
+          "tex": "|{\\mu_{\\det}}'(x) - {f_{ref}}'(x)| \\leq \\varepsilon_{der},\\quad\\quad x \\in X_{eval}.",
+          "mathXPath": "/w:document/w:body/w:tbl[302]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4186,
+          "paragraph": 3988,
+          "formula_number": "D-4a",
+          "tex": "\\begin{array}{r}\nq_{\\theta}(x) = \\beta_{0} + f_{\\theta}(x) - f_{\\theta}\\left( x_{ref}(x) \\right), \\\\\n\\mu_{det,\\theta}(x) = tanh\\left( q_{\\theta}(x) \\right), \\\\\na_{hold}(x) = 30\\,\\left\\lbrack 1 + \\mu_{det,\\theta}(x) \\right\\rbrack.\n\\end{array}",
+          "mathXPath": "/w:document/w:body/w:tbl[306]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4241,
+          "paragraph": 4055,
+          "formula_number": "D-15",
+          "tex": "|\\mu_{\\det}(b) - f_{ref}(b)| \\leq \\varepsilon_{val} + \\varepsilon_{der}(b - a) + \\frac{L_{D\\mu} + L_{Df}}{2}(b - a)^{2}.",
+          "mathXPath": "/w:document/w:body/w:tbl[320]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4254,
+          "paragraph": 4069,
+          "formula_number": "D-18",
+          "tex": "\\parallel e_{map}(x) - e_{map}(x_{0}) \\parallel \\leq \\sup_{0 \\leq t \\leq 1} \\parallel De_{map}(z(t)) \\parallel \\, \\parallel \\Delta x \\parallel \\leq \\varepsilon_{der} \\parallel \\Delta x \\parallel .",
+          "mathXPath": "/w:document/w:body/w:tbl[323]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4262,
+          "paragraph": 4074,
+          "formula_number": "D-19",
+          "tex": "\\parallel e_{path}(0) \\parallel \\leq \\varepsilon_{val},\\quad\\quad \\parallel e_{path, +}'(t) \\parallel \\leq \\varepsilon_{path} + L_{path}t,",
+          "mathXPath": "/w:document/w:body/w:tbl[324]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4288,
+          "paragraph": 4097,
+          "formula_number": "D-24",
+          "tex": "e_{path}(t) = \\mu_{\\det}(x_{0} + t\\Delta x) - f_{ref}(x_{0} + t\\Delta x).",
+          "mathXPath": "/w:document/w:body/w:tbl[329]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4416,
+          "paragraph": 4222,
+          "formula_number": "D-50",
+          "tex": "f_{c_{coef}}(x) = \\sum_{i = 1}^{n}c_{coef,i}\\varphi_{i}(x).",
+          "mathXPath": "/w:document/w:body/w:tbl[354]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4417,
+          "paragraph": 4226,
+          "formula_number": "D-51",
+          "tex": "Df_{c_{coef}}(x) = \\sum_{i = 1}^{n}c_{coef,i}D\\varphi_{i}(x).",
+          "mathXPath": "/w:document/w:body/w:tbl[355]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4420,
+          "paragraph": 4231,
+          "formula_number": "D-52",
+          "tex": "\\begin{aligned}\n \\parallel Df_{ref}(x) - Df_{c_{coef}}(x) \\parallel & \\leq \\varepsilon_{sym}, \\\\\n \\parallel D\\mu_{\\det}(x) - Df_{c_{coef}}(x) \\parallel & \\leq \\varepsilon_{pol}.\n\\end{aligned}",
+          "mathXPath": "/w:document/w:body/w:tbl[356]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4436,
+          "paragraph": 4246,
+          "formula_number": "D-55",
+          "tex": "\\parallel Df_{e}(x) - Df_{c_{coef}}(x) \\parallel \\leq \\varepsilon_{IRM},\\quad\\quad e\\mathcal{\\in E,}\\ x \\in D_{e},",
+          "mathXPath": "/w:document/w:body/w:tbl[359]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4442,
+          "paragraph": 4262,
+          "formula_number": "D-59",
+          "tex": "f_{e}(x) = f_{sh}(x) + f_{s,e}(x),",
+          "mathXPath": "/w:document/w:body/w:tbl[363]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4447,
+          "paragraph": 4266,
+          "formula_number": "D-60",
+          "tex": "\\parallel Df_{c_{coef}}(x) - Df_{sh}(x) \\parallel \\leq \\varepsilon_{sh},",
+          "mathXPath": "/w:document/w:body/w:tbl[364]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4451,
+          "paragraph": 4276,
+          "formula_number": "D-62",
+          "tex": "|{\\mu_{\\det}}'(a) - {f_{ref}}'(a)| \\leq \\varepsilon_{emp} + \\Delta_{gen},",
+          "mathXPath": "/w:document/w:body/w:tbl[366]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4455,
+          "paragraph": 4280,
+          "formula_number": "D-63",
+          "tex": "\\begin{aligned}\n|\\mu_{\\det}(b) - f_{ref}(b)| \\leq & \\varepsilon_{val} + (\\varepsilon_{emp} + \\Delta_{gen})(b - a) \\\\\n & + \\frac{L_{D\\mu} + L_{Df}}{2}(b - a)^{2}.\n\\end{aligned}",
+          "mathXPath": "/w:document/w:body/w:tbl[367]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        }
+      ]
+    },
+    {
+      "table_rows": [
+        69,
+        87,
+        97
+      ],
+      "scope": "附录D.1、D.4",
+      "finding": "P3985–3995明确给出mu_det,theta与正文tilde a、f_ref与符号参考动作、J_mu/J_f与正文Dpi/Dpi_sym的对应；NAU权重c_NAU,i在(D-30)–(D-31)实际使用。没有把NAU性质套给不含NAU配置。",
+      "actual_locations": [
+        {
+          "math_id": 4173,
+          "paragraph": 3985,
+          "formula_number": null,
+          "tex": "x",
+          "mathXPath": "/w:document/w:body/w:p[1464]/m:oMath[1]"
+        },
+        {
+          "math_id": 4185,
+          "paragraph": 3986,
+          "formula_number": null,
+          "tex": "a_{hold}(x)",
+          "mathXPath": "/w:document/w:body/w:p[1465]/m:oMath[7]"
+        },
+        {
+          "math_id": 4193,
+          "paragraph": 3991,
+          "formula_number": null,
+          "tex": "f_{ref}(x) \\equiv {\\widetilde{a}}_{sym}(x)",
+          "mathXPath": "/w:document/w:body/w:p[1467]/m:oMath[5]"
+        },
+        {
+          "math_id": 4194,
+          "paragraph": 3993,
+          "formula_number": "D-4b",
+          "tex": "f_{ref}(x) = {clip}_{\\lbrack - 0.999,0.999\\rbrack}\\left\\lbrack \\frac{\\sum_{{\\widetilde{a}}_{k} \\in \\mathcal{A}_{g}}^{}{\\widetilde{a}}_{k}\\exp\\left( - \\widehat{c}(x,{\\widetilde{a}}_{k})/\\tau_{boltz} \\right)}{\\sum_{{\\widetilde{a}}_{k'} \\in \\mathcal{A}_{g}}^{}\\exp\\left( - \\widehat{c}(x,{\\widetilde{a}}_{k'})/\\tau_{boltz} \\right)} \\right\\rbrack.",
+          "mathXPath": "/w:document/w:body/w:tbl[307]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4195,
+          "paragraph": 3995,
+          "formula_number": null,
+          "tex": "J_{\\mu}(x) = D\\mu_{det,\\theta}(x) \\equiv D\\pi(x)",
+          "mathXPath": "/w:document/w:body/w:p[1468]/m:oMath[1]"
+        },
+        {
+          "math_id": 4196,
+          "paragraph": 3995,
+          "formula_number": null,
+          "tex": "J_{f}(x) = Df_{ref}(x) \\equiv D\\pi_{sym}(x)",
+          "mathXPath": "/w:document/w:body/w:p[1468]/m:oMath[2]"
+        },
+        {
+          "math_id": 4306,
+          "paragraph": 4125,
+          "formula_number": "D-30",
+          "tex": "F_{NAU}(x) = \\sum_{i = 1}^{n}c_{NAU,i}x_{i},\\quad\\quad c_{NAU,i} \\in \\{ - 1,0,1\\}.",
+          "mathXPath": "/w:document/w:body/w:tbl[335]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4309,
+          "paragraph": 4129,
+          "formula_number": "D-31",
+          "tex": "\\frac{\\partial F_{NAU}}{\\partial x_{j}} = c_{NAU,j}.",
+          "mathXPath": "/w:document/w:body/w:tbl[336]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        }
+      ]
+    },
+    {
+      "table_rows": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        83,
+        86
+      ],
+      "scope": "附录E",
+      "finding": "eps_P/r/V、L_adj/occ、K_max/n_rem、gamma_Delta、c_const/c_min^Delta、原及归一化T_Delta/Q^Delta均与定义相符。gamma=1的有限事件界与gamma_Delta<1的置信递推明确分开。表83的X字体差异单列APP-04。",
+      "actual_locations": [
+        {
+          "math_id": 4500,
+          "paragraph": 4363,
+          "formula_number": "E-17",
+          "tex": "\\varepsilon_{P} = \\max_{s,a}TV\\left( P_{tgt}( \\cdot \\mid s,a),\\ {\\widehat{P}}_{R}( \\cdot \\mid s,a) \\right).",
+          "mathXPath": "/w:document/w:body/w:tbl[383]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4513,
+          "paragraph": 4388,
+          "formula_number": "E-23",
+          "tex": "\\varepsilon_{V} \\leq \\frac{\\varepsilon_{r}}{1 - \\gamma} + \\frac{2\\gamma R_{\\max}}{(1 - \\gamma)^{2}}\\varepsilon_{P}.",
+          "mathXPath": "/w:document/w:body/w:tbl[389]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4521,
+          "paragraph": 4392,
+          "formula_number": "E-23a",
+          "tex": "e_{n_{rem}} = \\parallel V_{n_{rem}}^{\\pi} - {\\widehat{V}}_{n_{rem}}^{\\pi} \\parallel_{\\infty},\\quad\\quad e_{0} = 0.",
+          "mathXPath": "/w:document/w:body/w:tbl[390]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4531,
+          "paragraph": 4400,
+          "formula_number": "E-23c",
+          "tex": "\\parallel V_{K_{\\max}}^{\\pi} - {\\widehat{V}}_{K_{\\max}}^{\\pi} \\parallel_{\\infty} \\leq K_{\\max}\\varepsilon_{r} + K_{\\max}(K_{\\max} - 1)R_{\\max}\\varepsilon_{P}.",
+          "mathXPath": "/w:document/w:body/w:tbl[392]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4593,
+          "paragraph": 4438,
+          "formula_number": "E-31",
+          "tex": "\\parallel F(\\delta_{1}) - F(\\delta_{2}) \\parallel_{\\infty} \\leq L_{adj}L_{occ}B \\parallel \\delta_{1} - \\delta_{2} \\parallel_{\\infty},",
+          "mathXPath": "/w:document/w:body/w:tbl[400]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4651,
+          "paragraph": 4492,
+          "formula_number": null,
+          "tex": "x = (s,a)",
+          "mathXPath": "/w:document/w:body/w:p[1644]/m:oMath[1]"
+        },
+        {
+          "math_id": 4661,
+          "paragraph": 4494,
+          "formula_number": "E-43",
+          "tex": "\\begin{array}{r}\n(T_{\\Delta}^{\\pi}Q^{\\Delta})(x) = logc(x) + \\gamma_{\\Delta}\\sum_{x'}^{}K_{\\Delta}^{\\pi}(x' \\mid x)Q^{\\Delta}(x'), \\\\\n({\\widetilde{T}}_{\\Delta}^{\\pi}Q^{\\Delta})(x) = (1 - \\gamma_{\\Delta})logc(x) + \\gamma_{\\Delta}\\sum_{x'}^{}K_{\\Delta}^{\\pi}(x' \\mid x)Q^{\\Delta}(x'),\n\\end{array}",
+          "mathXPath": "/w:document/w:body/w:tbl[410]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4668,
+          "paragraph": 4499,
+          "formula_number": "E-44",
+          "tex": "\\begin{array}{r}\n{\\widetilde{Q}}^{\\Delta,*}(x) = (1 - \\gamma_{\\Delta})\\, Q^{\\Delta,*}(x), \\\\\n\\exp\\left( {\\widetilde{Q}}^{\\Delta,*}(x) \\right) = \\lbrack exp\\left( Q^{\\Delta,*}(x) \\right)\\rbrack^{1 - \\gamma_{\\Delta}}.\n\\end{array}",
+          "mathXPath": "/w:document/w:body/w:tbl[411]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4678,
+          "paragraph": 4507,
+          "formula_number": "E-46",
+          "tex": "\\begin{array}{r}\n(1 - \\gamma_{\\Delta})Q^{\\Delta,*}(x) = (1 - \\gamma_{\\Delta})logc(x) \\\\\n\\quad + \\gamma_{\\Delta}\\sum_{x'}^{}K_{\\Delta}^{\\pi}(x' \\mid x)\\,\\left\\lbrack (1 - \\gamma_{\\Delta})Q^{\\Delta,*}(x') \\right\\rbrack \\\\\n = \\left( {\\widetilde{T}}_{\\Delta}^{\\pi}\\left\\lbrack (1 - \\gamma_{\\Delta})Q^{\\Delta,*} \\right\\rbrack \\right)(x).\n\\end{array}",
+          "mathXPath": "/w:document/w:body/w:tbl[413]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4693,
+          "paragraph": 4510,
+          "formula_number": null,
+          "tex": "(0,\\infty)",
+          "mathXPath": "/w:document/w:body/w:p[1650]/m:oMath[12]"
+        }
+      ]
+    },
+    {
+      "scope": "附录E.1与正文状态残差",
+      "finding": "hat delta是转移概率加性残差，表45的hat Delta_s/r是连续状态/奖励预测残差；P4319已明确二者对象不同，属于有说明的不同记号，不能互相替换。",
+      "paragraphs": [
+        4319
+      ],
+      "actual_locations": [
+        {
+          "math_id": 4471,
+          "paragraph": 4308,
+          "formula_number": "E-5",
+          "tex": "{\\widehat{P}}_{R}(s' \\mid s,a) = P_{sim}(s' \\mid s,a) + \\widehat{\\delta}(s,a,s').",
+          "mathXPath": "/w:document/w:body/w:tbl[371]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        },
+        {
+          "math_id": 4473,
+          "paragraph": 4312,
+          "formula_number": "E-6",
+          "tex": "P_{sim}(s' \\mid s,a) + \\widehat{\\delta}(s,a,s') \\geq 0,\\quad\\quad\\sum_{s'}^{}\\widehat{\\delta}(s,a,s') = 0.",
+          "mathXPath": "/w:document/w:body/w:tbl[372]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath"
+        }
+      ]
+    },
+    {
+      "scope": "附录各局部证明",
+      "finding": "A中的f、D中的a/b/n/m/g和E.6中的e_real/e_resid/w_rank/tau_rank等均在相应命题或小节局部定义；求和索引和局部证明变量的复用不作为一符多义或核心漏收。D批量B与E.5回归映射Lipschitz常数B分属明确作用域。",
+      "paragraphs": [
+        99,
+        3999,
+        4008,
+        4436,
+        4442
+      ]
+    },
+    {
+      "scope": "附录F",
+      "finding": "仅实验预算、需求倍率、源样本权重w_sim、成本及置信区间等局部量；未发现与表内定义冲突的数学记号。",
+      "paragraphs": [
+        4530,
+        4531,
+        4535,
+        4536,
+        4569,
+        4570,
+        4571
+      ]
+    }
+  ],
+  "handoff_to_other_scopes": [
+    "表39的K_z实际主文采用Psi(z'|z)，由第4–6章审查合并。",
+    "表67的dual对应第2章delta/rho/V及特征向量定义问题、表71iter、表77learn由第1–6章范围复核合并，不在此重复制造附录缺用问题。"
+  ],
+  "changes_made_to_thesis": false,
+  "table_row_notes": [
+    {
+      "row": 1,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 2,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 3,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 4,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 5,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 6,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 7,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 8,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 9,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 10,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 11,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 12,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 13,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 14,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 15,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 16,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 17,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 18,
+      "status": "correct",
+      "actual_symbols": "S,A,s,a",
+      "confirmed_locations": [
+        {
+          "math_id": 3649,
+          "paragraph": 3387,
+          "formula_number": null
+        },
+        {
+          "math_id": 3650,
+          "paragraph": 3387,
+          "formula_number": null
+        },
+        {
+          "math_id": 3651,
+          "paragraph": 3387,
+          "formula_number": null
+        },
+        {
+          "math_id": 3792,
+          "paragraph": 3531,
+          "formula_number": "B-1"
+        },
+        {
+          "math_id": 4027,
+          "paragraph": 3812,
+          "formula_number": null
+        },
+        {
+          "math_id": 4028,
+          "paragraph": 3812,
+          "formula_number": null
+        },
+        {
+          "math_id": 4457,
+          "paragraph": 4290,
+          "formula_number": null
+        },
+        {
+          "math_id": 4458,
+          "paragraph": 4290,
+          "formula_number": null
+        }
+      ],
+      "note": "集合与元素按附录条件定义。"
+    },
+    {
+      "row": 19,
+      "status": "correct",
+      "actual_symbols": "P,R,r",
+      "confirmed_locations": [
+        {
+          "math_id": 3655,
+          "paragraph": 3392,
+          "formula_number": null
+        },
+        {
+          "math_id": 3657,
+          "paragraph": 3392,
+          "formula_number": null
+        },
+        {
+          "math_id": 3805,
+          "paragraph": 3541,
+          "formula_number": null
+        },
+        {
+          "math_id": 3807,
+          "paragraph": 3541,
+          "formula_number": null
+        },
+        {
+          "math_id": 4462,
+          "paragraph": 4292,
+          "formula_number": "E-1"
+        },
+        {
+          "math_id": 4463,
+          "paragraph": 4295,
+          "formula_number": "E-2"
+        }
+      ],
+      "note": "环境核、奖励函数及实际事件奖励在各段定义一致。"
+    },
+    {
+      "row": 20,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 21,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 22,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 23,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 24,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 25,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 26,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 27,
+      "status": "correct",
+      "actual_symbols": "alpha_ent（正文alpha）",
+      "confirmed_locations": [
+        {
+          "math_id": 3642,
+          "paragraph": 3386,
+          "formula_number": null
+        },
+        {
+          "math_id": 3667,
+          "paragraph": 3400,
+          "formula_number": "A-3"
+        },
+        {
+          "math_id": 3668,
+          "paragraph": 3401,
+          "formula_number": "A-3"
+        },
+        {
+          "math_id": 3675,
+          "paragraph": 3413,
+          "formula_number": null
+        },
+        {
+          "math_id": 4205,
+          "paragraph": 4004,
+          "formula_number": "D-4e"
+        }
+      ],
+      "note": "P3386直接声明alpha_ent即正文alpha。"
+    },
+    {
+      "row": 28,
+      "status": "correct",
+      "actual_symbols": "p^circ,U_s,a",
+      "confirmed_locations": [
+        {
+          "math_id": 3733,
+          "paragraph": 3487,
+          "formula_number": null
+        },
+        {
+          "math_id": 3734,
+          "paragraph": 3487,
+          "formula_number": null
+        },
+        {
+          "math_id": 3742,
+          "paragraph": 3494,
+          "formula_number": null
+        }
+      ],
+      "note": "A.7由固定状态动作对的一般U逐点取U_s,a，非改名遗漏。"
+    },
+    {
+      "row": 29,
+      "status": "correct",
+      "actual_symbols": "sigma_U(f),Omega_U(V)",
+      "confirmed_locations": [
+        {
+          "math_id": 3736,
+          "paragraph": 3487,
+          "formula_number": null
+        },
+        {
+          "math_id": 3737,
+          "paragraph": 3487,
+          "formula_number": null
+        },
+        {
+          "math_id": 3740,
+          "paragraph": 3491,
+          "formula_number": "A-20"
+        }
+      ],
+      "note": "A.7支持函数和对偶惩罚按表定义。"
+    },
+    {
+      "row": 30,
+      "status": "correct",
+      "actual_symbols": "W1,d_S,L_V,epsilon_ipm",
+      "confirmed_locations": [
+        {
+          "math_id": 3744,
+          "paragraph": 3495,
+          "formula_number": null
+        },
+        {
+          "math_id": 3745,
+          "paragraph": 3495,
+          "formula_number": null
+        },
+        {
+          "math_id": 3746,
+          "paragraph": 3495,
+          "formula_number": null
+        },
+        {
+          "math_id": 3751,
+          "paragraph": 3495,
+          "formula_number": null
+        },
+        {
+          "math_id": 3753,
+          "paragraph": 3498,
+          "formula_number": "A-21"
+        }
+      ],
+      "note": "A.7确实使用ipm下标，不是表起别名。"
+    },
+    {
+      "row": 31,
+      "status": "correct",
+      "actual_symbols": "C_traj,P_0",
+      "confirmed_locations": [
+        {
+          "math_id": 3764,
+          "paragraph": 3506,
+          "formula_number": null
+        },
+        {
+          "math_id": 3765,
+          "paragraph": 3506,
+          "formula_number": null
+        },
+        {
+          "math_id": 3769,
+          "paragraph": 3508,
+          "formula_number": "A-23"
+        },
+        {
+          "math_id": 3772,
+          "paragraph": 3516,
+          "formula_number": "A-25"
+        }
+      ],
+      "note": "A.7轨迹成本和名义轨迹分布对应。"
+    },
+    {
+      "row": 32,
+      "status": "correct",
+      "actual_symbols": "beta_tail,eta_risk,zeta_risk,Z_beta_tail",
+      "confirmed_locations": [
+        {
+          "math_id": 3766,
+          "paragraph": 3506,
+          "formula_number": null
+        },
+        {
+          "math_id": 3767,
+          "paragraph": 3506,
+          "formula_number": null
+        },
+        {
+          "math_id": 3769,
+          "paragraph": 3508,
+          "formula_number": "A-23"
+        },
+        {
+          "math_id": 3770,
+          "paragraph": 3510,
+          "formula_number": null
+        },
+        {
+          "math_id": 3771,
+          "paragraph": 3512,
+          "formula_number": "A-24"
+        },
+        {
+          "math_id": 3772,
+          "paragraph": 3516,
+          "formula_number": "A-25"
+        }
+      ],
+      "note": "tail/risk语义下标实际用于A.7；与模式集合Z区分。"
+    },
+    {
+      "row": 33,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 34,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 35,
+      "status": "partly_confirmed",
+      "actual_symbols": "Qbar,sigma_Q,Gamma_epi",
+      "confirmed_locations": [
+        {
+          "math_id": 3658,
+          "paragraph": 3392,
+          "formula_number": null
+        },
+        {
+          "math_id": 4100,
+          "paragraph": 3909,
+          "formula_number": null
+        },
+        {
+          "math_id": 4101,
+          "paragraph": 3909,
+          "formula_number": null
+        }
+      ],
+      "note": "A固定Gamma_epi与C.5集成均值/标准差均实际使用；表称目标集成方差的工程定义由主文审查。"
+    },
+    {
+      "row": 36,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 37,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 38,
+      "status": "missing_core_set",
+      "actual_symbols": "z,rho(z),G_z；另缺候选模式集合Z",
+      "confirmed_locations": [
+        {
+          "math_id": 3796,
+          "paragraph": 3537,
+          "formula_number": null
+        },
+        {
+          "math_id": 4021,
+          "paragraph": 3811,
+          "formula_number": null
+        },
+        {
+          "math_id": 4025,
+          "paragraph": 3811,
+          "formula_number": null
+        },
+        {
+          "math_id": 4042,
+          "paragraph": 3827,
+          "formula_number": "C-4"
+        },
+        {
+          "math_id": 4368,
+          "paragraph": 4181,
+          "formula_number": null
+        }
+      ],
+      "note": "现有三个符号用途相符；APP-05补查反复出现的模式集合。"
+    },
+    {
+      "row": 39,
+      "status": "notation_mismatch",
+      "actual_symbols": "H_k；主文模式转移为Psi(zprime|z)",
+      "confirmed_locations": [
+        {
+          "math_id": 1554,
+          "paragraph": 1708,
+          "formula_number": null
+        },
+        {
+          "math_id": 1580,
+          "paragraph": 1719,
+          "formula_number": "4-6"
+        },
+        {
+          "math_id": 3930,
+          "paragraph": 3667,
+          "formula_number": "B-29"
+        },
+        {
+          "math_id": 3932,
+          "paragraph": 3669,
+          "formula_number": null
+        },
+        {
+          "math_id": 3951,
+          "paragraph": 3691,
+          "formula_number": null
+        }
+      ],
+      "note": "H字体APP-03；K_z别名由主文4–6审查合并。"
+    },
+    {
+      "row": 40,
+      "status": "correct",
+      "actual_symbols": "Omega_prior,O_belief,n",
+      "confirmed_locations": [
+        {
+          "math_id": 4130,
+          "paragraph": 3933,
+          "formula_number": null
+        },
+        {
+          "math_id": 4135,
+          "paragraph": 3935,
+          "formula_number": "C-27"
+        },
+        {
+          "math_id": 4137,
+          "paragraph": 3937,
+          "formula_number": null
+        },
+        {
+          "math_id": 4148,
+          "paragraph": 3950,
+          "formula_number": "C-30"
+        }
+      ],
+      "note": "P3937明确初始与累计概率比方向不同，表义正确。"
+    },
+    {
+      "row": 41,
+      "status": "correct",
+      "actual_symbols": "T,B,V_Q",
+      "confirmed_locations": [
+        {
+          "math_id": 3674,
+          "paragraph": 3410,
+          "formula_number": "A-5"
+        },
+        {
+          "math_id": 3676,
+          "paragraph": 3414,
+          "formula_number": null
+        },
+        {
+          "math_id": 3688,
+          "paragraph": 3431,
+          "formula_number": "A-9"
+        },
+        {
+          "math_id": 4038,
+          "paragraph": 3818,
+          "formula_number": "C-2"
+        },
+        {
+          "math_id": 4375,
+          "paragraph": 4187,
+          "formula_number": "D-42"
+        }
+      ],
+      "note": "A的一般聚合V与具体V_Q均有定义，不能混成同一字体。"
+    },
+    {
+      "row": 42,
+      "status": "partly_confirmed",
+      "actual_symbols": "c_pen(s,a),V_pi Q",
+      "confirmed_locations": [
+        {
+          "math_id": 3669,
+          "paragraph": 3403,
+          "formula_number": null
+        },
+        {
+          "math_id": 3670,
+          "paragraph": 3405,
+          "formula_number": "A-4"
+        },
+        {
+          "math_id": 3671,
+          "paragraph": 3407,
+          "formula_number": null
+        },
+        {
+          "math_id": 3675,
+          "paragraph": 3413,
+          "formula_number": null
+        }
+      ],
+      "note": "A固定惩罚与固定策略软聚合相符；C.5另将c_pen定义为标量放大系数，表释义跨章作用域由主文审查登记。"
+    },
+    {
+      "row": 43,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 44,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 45,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 46,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 47,
+      "status": "correct",
+      "actual_symbols": "gamma_Delta",
+      "confirmed_locations": [
+        {
+          "math_id": 4661,
+          "paragraph": 4494,
+          "formula_number": "E-43"
+        },
+        {
+          "math_id": 4662,
+          "paragraph": 4496,
+          "formula_number": null
+        },
+        {
+          "math_id": 4678,
+          "paragraph": 4507,
+          "formula_number": "E-46"
+        },
+        {
+          "math_id": 4693,
+          "paragraph": 4510,
+          "formula_number": null
+        }
+      ],
+      "note": "E.9独立于策略折扣gamma，均有明确条件。"
+    },
+    {
+      "row": 48,
+      "status": "correct",
+      "actual_symbols": "c_const",
+      "confirmed_locations": [
+        {
+          "math_id": 4684,
+          "paragraph": 4510,
+          "formula_number": null
+        },
+        {
+          "math_id": 4686,
+          "paragraph": 4510,
+          "formula_number": null
+        },
+        {
+          "math_id": 4687,
+          "paragraph": 4510,
+          "formula_number": null
+        },
+        {
+          "math_id": 4688,
+          "paragraph": 4510,
+          "formula_number": null
+        },
+        {
+          "math_id": 4693,
+          "paragraph": 4510,
+          "formula_number": null
+        }
+      ],
+      "note": "E.9常值局部可靠性评分使用const下标。"
+    },
+    {
+      "row": 49,
+      "status": "partly_confirmed",
+      "actual_symbols": "Qtilde^Delta",
+      "confirmed_locations": [
+        {
+          "math_id": 4667,
+          "paragraph": 4497,
+          "formula_number": null
+        },
+        {
+          "math_id": 4668,
+          "paragraph": 4499,
+          "formula_number": "E-44"
+        },
+        {
+          "math_id": 4680,
+          "paragraph": 4509,
+          "formula_number": null
+        },
+        {
+          "math_id": 4693,
+          "paragraph": 4510,
+          "formula_number": null
+        }
+      ],
+      "note": "归一化Q在附录E实际使用；ytilde/wtilde的更新实现由主文审查。"
+    },
+    {
+      "row": 50,
+      "status": "correct",
+      "actual_symbols": "T_Delta^pi,Ttilde_Delta^pi,K_Delta^pi",
+      "confirmed_locations": [
+        {
+          "math_id": 4655,
+          "paragraph": 4492,
+          "formula_number": null
+        },
+        {
+          "math_id": 4661,
+          "paragraph": 4494,
+          "formula_number": "E-43"
+        },
+        {
+          "math_id": 4663,
+          "paragraph": 4497,
+          "formula_number": null
+        },
+        {
+          "math_id": 4664,
+          "paragraph": 4497,
+          "formula_number": null
+        },
+        {
+          "math_id": 4678,
+          "paragraph": 4507,
+          "formula_number": "E-46"
+        }
+      ],
+      "note": "E.9原算子、归一化算子和含非终止条件次概率核完全对应。"
+    },
+    {
+      "row": 51,
+      "status": "correct",
+      "actual_symbols": "c_min^Delta",
+      "confirmed_locations": [
+        {
+          "math_id": 4653,
+          "paragraph": 4492,
+          "formula_number": null
+        }
+      ],
+      "note": "E.9定义c(x)的严格正下界。"
+    },
+    {
+      "row": 52,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 53,
+      "status": "correct",
+      "actual_symbols": "epsilon_P,epsilon_r,epsilon_V",
+      "confirmed_locations": [
+        {
+          "math_id": 4500,
+          "paragraph": 4363,
+          "formula_number": "E-17"
+        },
+        {
+          "math_id": 4503,
+          "paragraph": 4369,
+          "formula_number": null
+        },
+        {
+          "math_id": 4510,
+          "paragraph": 4380,
+          "formula_number": "E-21"
+        },
+        {
+          "math_id": 4513,
+          "paragraph": 4388,
+          "formula_number": "E-23"
+        },
+        {
+          "math_id": 4531,
+          "paragraph": 4400,
+          "formula_number": "E-23c"
+        }
+      ],
+      "note": "E.3包括折扣界与有限无折扣事件界，定义不冲突。"
+    },
+    {
+      "row": 54,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 55,
+      "status": "correct",
+      "actual_symbols": "norm_infinity,norm_2",
+      "confirmed_locations": [
+        {
+          "math_id": 3652,
+          "paragraph": 3389,
+          "formula_number": "A-1"
+        },
+        {
+          "math_id": 3940,
+          "paragraph": 3684,
+          "formula_number": "B-33"
+        },
+        {
+          "math_id": 3941,
+          "paragraph": 3687,
+          "formula_number": "B-34"
+        },
+        {
+          "math_id": 4479,
+          "paragraph": 4328,
+          "formula_number": "E-9"
+        }
+      ],
+      "note": "D一般赋范空间用其先行定义范数，Frobenius范数在P3999另定义，不按此行强行当欧氏范数。"
+    },
+    {
+      "row": 56,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 57,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 58,
+      "status": "correct",
+      "actual_symbols": "c_fb,c_symfb",
+      "confirmed_locations": [
+        {
+          "math_id": 4116,
+          "paragraph": 3928,
+          "formula_number": null
+        },
+        {
+          "math_id": 4120,
+          "paragraph": 3932,
+          "formula_number": null
+        },
+        {
+          "math_id": 4399,
+          "paragraph": 4211,
+          "formula_number": null
+        },
+        {
+          "math_id": 4400,
+          "paragraph": 4213,
+          "formula_number": "D-48"
+        }
+      ],
+      "note": "C和D两个反例的距离因子均实际采用这些下标。"
+    },
+    {
+      "row": 59,
+      "status": "correct",
+      "actual_symbols": "f_sh,f_c_coef,epsilon_sh",
+      "confirmed_locations": [
+        {
+          "math_id": 4416,
+          "paragraph": 4222,
+          "formula_number": "D-50"
+        },
+        {
+          "math_id": 4442,
+          "paragraph": 4262,
+          "formula_number": "D-59"
+        },
+        {
+          "math_id": 4443,
+          "paragraph": 4264,
+          "formula_number": null
+        },
+        {
+          "math_id": 4445,
+          "paragraph": 4264,
+          "formula_number": null
+        },
+        {
+          "math_id": 4446,
+          "paragraph": 4264,
+          "formula_number": null
+        },
+        {
+          "math_id": 4447,
+          "paragraph": 4266,
+          "formula_number": "D-60"
+        }
+      ],
+      "note": "共享真实部分、拟合模型及导数误差界在D.9明确区分。与行73重复由root另核。"
+    },
+    {
+      "row": 60,
+      "status": "partly_confirmed",
+      "actual_symbols": "1{condition},clip",
+      "confirmed_locations": [
+        {
+          "math_id": 3795,
+          "paragraph": 3535,
+          "formula_number": "B-2"
+        },
+        {
+          "math_id": 3909,
+          "paragraph": 3636,
+          "formula_number": "B-22"
+        },
+        {
+          "math_id": 3940,
+          "paragraph": 3684,
+          "formula_number": "B-33"
+        },
+        {
+          "math_id": 4017,
+          "paragraph": 3792,
+          "formula_number": "B-58"
+        }
+      ],
+      "note": "B截断与指示函数用途相符；逐元素积在主文定义。"
+    },
+    {
+      "row": 61,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 62,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 63,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 64,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 65,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 66,
+      "status": "correct",
+      "actual_symbols": "H_obs,h_obs,P_obs,1,P_obs,2",
+      "confirmed_locations": [
+        {
+          "math_id": 3913,
+          "paragraph": 3643,
+          "formula_number": null
+        },
+        {
+          "math_id": 3915,
+          "paragraph": 3643,
+          "formula_number": null
+        },
+        {
+          "math_id": 3917,
+          "paragraph": 3643,
+          "formula_number": null
+        },
+        {
+          "math_id": 3918,
+          "paragraph": 3643,
+          "formula_number": null
+        },
+        {
+          "math_id": 3919,
+          "paragraph": 3646,
+          "formula_number": "B-24"
+        },
+        {
+          "math_id": 3920,
+          "paragraph": 3650,
+          "formula_number": "B-25"
+        },
+        {
+          "math_id": 3930,
+          "paragraph": 3667,
+          "formula_number": "B-29"
+        }
+      ],
+      "note": "B.4确实采用obs语义下标；KL链式展开未沿用另一套旧名。"
+    },
+    {
+      "row": 67,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 68,
+      "status": "partly_confirmed",
+      "actual_symbols": "delta_post",
+      "confirmed_locations": [
+        {
+          "math_id": 4138,
+          "paragraph": 3937,
+          "formula_number": null
+        },
+        {
+          "math_id": 4141,
+          "paragraph": 3940,
+          "formula_number": "C-28"
+        },
+        {
+          "math_id": 4148,
+          "paragraph": 3950,
+          "formula_number": "C-30"
+        },
+        {
+          "math_id": 4156,
+          "paragraph": 3957,
+          "formula_number": "C-31"
+        }
+      ],
+      "note": "C.8后验容差post下标实际存在；delta_h与delta_det在主文范围。"
+    },
+    {
+      "row": 69,
+      "status": "correct",
+      "actual_symbols": "mu_det,mu_det,theta,f_ref",
+      "confirmed_locations": [
+        {
+          "math_id": 4161,
+          "paragraph": 3967,
+          "formula_number": null
+        },
+        {
+          "math_id": 4185,
+          "paragraph": 3986,
+          "formula_number": null
+        },
+        {
+          "math_id": 4186,
+          "paragraph": 3988,
+          "formula_number": "D-4a"
+        },
+        {
+          "math_id": 4193,
+          "paragraph": 3991,
+          "formula_number": null
+        },
+        {
+          "math_id": 4194,
+          "paragraph": 3993,
+          "formula_number": "D-4b"
+        }
+      ],
+      "note": "D.1明确参数化完整策略与主文动作映射的对应；det宏包装差异不构成未使用。"
+    },
+    {
+      "row": 70,
+      "status": "correct",
+      "actual_symbols": "epsilon_val,epsilon_der,L_Dmu,L_Df",
+      "confirmed_locations": [
+        {
+          "math_id": 4164,
+          "paragraph": 3969,
+          "formula_number": "D-1"
+        },
+        {
+          "math_id": 4166,
+          "paragraph": 3973,
+          "formula_number": "D-2"
+        },
+        {
+          "math_id": 4221,
+          "paragraph": 4023,
+          "formula_number": "D-8"
+        },
+        {
+          "math_id": 4241,
+          "paragraph": 4055,
+          "formula_number": "D-15"
+        },
+        {
+          "math_id": 4285,
+          "paragraph": 4089,
+          "formula_number": "D-22"
+        },
+        {
+          "math_id": 4286,
+          "paragraph": 4093,
+          "formula_number": "D-23"
+        }
+      ],
+      "note": "D.1–D.3直接使用这些完整语义下标。"
+    },
+    {
+      "row": 71,
+      "status": "partly_confirmed",
+      "actual_symbols": "epsilon_dist,epsilon_path",
+      "confirmed_locations": [
+        {
+          "math_id": 3679,
+          "paragraph": 3423,
+          "formula_number": null
+        },
+        {
+          "math_id": 3681,
+          "paragraph": 3425,
+          "formula_number": "A-8"
+        },
+        {
+          "math_id": 4261,
+          "paragraph": 4072,
+          "formula_number": null
+        },
+        {
+          "math_id": 4262,
+          "paragraph": 4074,
+          "formula_number": "D-19"
+        },
+        {
+          "math_id": 4293,
+          "paragraph": 4107,
+          "formula_number": null
+        }
+      ],
+      "note": "A.2最大距离及D.3路径导数误差均对应；iter/Q,act属主文范围，不从附录缺用推断未使用。"
+    },
+    {
+      "row": 72,
+      "status": "correct",
+      "actual_symbols": "X_eval,X_in,X_out",
+      "confirmed_locations": [
+        {
+          "math_id": 4163,
+          "paragraph": 3967,
+          "formula_number": null
+        },
+        {
+          "math_id": 4167,
+          "paragraph": 3976,
+          "formula_number": null
+        },
+        {
+          "math_id": 4168,
+          "paragraph": 3976,
+          "formula_number": null
+        },
+        {
+          "math_id": 4243,
+          "paragraph": 4059,
+          "formula_number": null
+        },
+        {
+          "math_id": 4419,
+          "paragraph": 4229,
+          "formula_number": null
+        }
+      ],
+      "note": "D.1/D.3/D.8使用相应分析域和实赋范输入输出空间。"
+    },
+    {
+      "row": 73,
+      "status": "correct",
+      "actual_symbols": "f_c_coef,c_coef,c_coef,i",
+      "confirmed_locations": [
+        {
+          "math_id": 4414,
+          "paragraph": 4220,
+          "formula_number": null
+        },
+        {
+          "math_id": 4416,
+          "paragraph": 4222,
+          "formula_number": "D-50"
+        },
+        {
+          "math_id": 4417,
+          "paragraph": 4226,
+          "formula_number": "D-51"
+        },
+        {
+          "math_id": 4418,
+          "paragraph": 4229,
+          "formula_number": null
+        },
+        {
+          "math_id": 4424,
+          "paragraph": 4237,
+          "formula_number": null
+        }
+      ],
+      "note": "D-50/51、D-52/53/55/56/60完整采用coef层级；不是旧f_c的漏替换。"
+    },
+    {
+      "row": 74,
+      "status": "correct",
+      "actual_symbols": "u_exec,v_nom,mu_ref,pi_beh",
+      "confirmed_locations": [
+        {
+          "math_id": 3801,
+          "paragraph": 3539,
+          "formula_number": "B-3"
+        },
+        {
+          "math_id": 3811,
+          "paragraph": 3542,
+          "formula_number": null
+        },
+        {
+          "math_id": 3812,
+          "paragraph": 3544,
+          "formula_number": "B-4"
+        },
+        {
+          "math_id": 3869,
+          "paragraph": 3604,
+          "formula_number": "B-17"
+        },
+        {
+          "math_id": 3870,
+          "paragraph": 3605,
+          "formula_number": "B-17"
+        },
+        {
+          "math_id": 3930,
+          "paragraph": 3667,
+          "formula_number": "B-29"
+        },
+        {
+          "math_id": 3931,
+          "paragraph": 3669,
+          "formula_number": null
+        }
+      ],
+      "note": "B名义/执行动作与共同历史行为策略分别定义。"
+    },
+    {
+      "row": 75,
+      "status": "correct",
+      "actual_symbols": "V^{O,path},Q^{O,path},Delta J,Delta V",
+      "confirmed_locations": [
+        {
+          "math_id": 3964,
+          "paragraph": 3694,
+          "formula_number": "B-35"
+        },
+        {
+          "math_id": 3965,
+          "paragraph": 3698,
+          "formula_number": "B-36"
+        },
+        {
+          "math_id": 3969,
+          "paragraph": 3702,
+          "formula_number": "B-37"
+        },
+        {
+          "math_id": 3970,
+          "paragraph": 3704,
+          "formula_number": null
+        },
+        {
+          "math_id": 3975,
+          "paragraph": 3710,
+          "formula_number": "B-39"
+        },
+        {
+          "math_id": 3998,
+          "paragraph": 3747,
+          "formula_number": null
+        },
+        {
+          "math_id": 3999,
+          "paragraph": 3749,
+          "formula_number": "B-48"
+        }
+      ],
+      "note": "V/Q实际带n,k下标，因此候选零匹配是假阴性；逐路径与期望价值明确区分。"
+    },
+    {
+      "row": 76,
+      "status": "correct",
+      "actual_symbols": "kappa_fix,L_Q,act,mu_fb,C_pen",
+      "confirmed_locations": [
+        {
+          "math_id": 4037,
+          "paragraph": 3816,
+          "formula_number": null
+        },
+        {
+          "math_id": 4014,
+          "paragraph": 3781,
+          "formula_number": null
+        },
+        {
+          "math_id": 4015,
+          "paragraph": 3783,
+          "formula_number": "B-56"
+        },
+        {
+          "math_id": 4394,
+          "paragraph": 4207,
+          "formula_number": null
+        },
+        {
+          "math_id": 4395,
+          "paragraph": 4207,
+          "formula_number": null
+        },
+        {
+          "math_id": 4404,
+          "paragraph": 4217,
+          "formula_number": "D-49"
+        }
+      ],
+      "note": "C/D固定标量，B局部动作价值敏感性及D反馈斜率/截距均有对应。"
+    },
+    {
+      "row": 77,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 78,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 79,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 80,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 81,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 82,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 83,
+      "status": "notation_font_mismatch",
+      "actual_symbols": "X_delta,L_adj,L_occ",
+      "confirmed_locations": [
+        {
+          "math_id": 4573,
+          "paragraph": 4418,
+          "formula_number": null
+        },
+        {
+          "math_id": 4574,
+          "paragraph": 4420,
+          "formula_number": "E-27"
+        },
+        {
+          "math_id": 4589,
+          "paragraph": 4436,
+          "formula_number": null
+        },
+        {
+          "math_id": 4590,
+          "paragraph": 4436,
+          "formula_number": null
+        },
+        {
+          "math_id": 4593,
+          "paragraph": 4438,
+          "formula_number": "E-31"
+        }
+      ],
+      "note": "内容含义相符，唯表X为script而E为默认字母，原生实证APP-04。"
+    },
+    {
+      "row": 84,
+      "status": "partly_confirmed",
+      "actual_symbols": "varphi_cls",
+      "confirmed_locations": [
+        {
+          "math_id": 4598,
+          "paragraph": 4442,
+          "formula_number": null
+        },
+        {
+          "math_id": 4605,
+          "paragraph": 4447,
+          "formula_number": "E-33"
+        },
+        {
+          "math_id": 4619,
+          "paragraph": 4461,
+          "formula_number": "E-36"
+        },
+        {
+          "math_id": 4637,
+          "paragraph": 4486,
+          "formula_number": "E-42"
+        }
+      ],
+      "note": "E.6静态分类后验评分有定义；目标网络负号上标与v_trf由主文审查。"
+    },
+    {
+      "row": 85,
+      "status": "partly_confirmed",
+      "actual_symbols": "lambda_ale,lambda_epi；A另记加权kappa_ale",
+      "confirmed_locations": [
+        {
+          "math_id": 3644,
+          "paragraph": 3386,
+          "formula_number": null
+        },
+        {
+          "math_id": 3645,
+          "paragraph": 3386,
+          "formula_number": null
+        },
+        {
+          "math_id": 3665,
+          "paragraph": 3395,
+          "formula_number": "A-2"
+        },
+        {
+          "math_id": 3662,
+          "paragraph": 3393,
+          "formula_number": null
+        }
+      ],
+      "note": "不把A已加权kappa_ale误当未加权kappa_j，主文目标权重范数另核。"
+    },
+    {
+      "row": 86,
+      "status": "notation_mismatch",
+      "actual_symbols": "训练批量B；有限时域K_max,n_rem",
+      "confirmed_locations": [
+        {
+          "math_id": 4199,
+          "paragraph": 3997,
+          "formula_number": "D-4c"
+        },
+        {
+          "math_id": 4201,
+          "paragraph": 3999,
+          "formula_number": null
+        },
+        {
+          "math_id": 4204,
+          "paragraph": 4001,
+          "formula_number": "D-4d"
+        },
+        {
+          "math_id": 4515,
+          "paragraph": 4390,
+          "formula_number": null
+        },
+        {
+          "math_id": 4520,
+          "paragraph": 4390,
+          "formula_number": null
+        },
+        {
+          "math_id": 4521,
+          "paragraph": 4392,
+          "formula_number": "E-23a"
+        },
+        {
+          "math_id": 4531,
+          "paragraph": 4400,
+          "formula_number": "E-23c"
+        }
+      ],
+      "note": "只有B_batch别名不对应APP-02；其余两符号在E-23a–c正确。"
+    },
+    {
+      "row": 87,
+      "status": "partly_confirmed",
+      "actual_symbols": "c_NAU,i",
+      "confirmed_locations": [
+        {
+          "math_id": 4306,
+          "paragraph": 4125,
+          "formula_number": "D-30"
+        },
+        {
+          "math_id": 4307,
+          "paragraph": 4127,
+          "formula_number": null
+        },
+        {
+          "math_id": 4309,
+          "paragraph": 4129,
+          "formula_number": "D-31"
+        }
+      ],
+      "note": "D.4实际NAU线性权重对应；w_IS,i/c_bel在主文范围。"
+    },
+    {
+      "row": 88,
+      "status": "correct",
+      "actual_symbols": "G_act,a_inv,I_n_a",
+      "confirmed_locations": [
+        {
+          "math_id": 3822,
+          "paragraph": 3561,
+          "formula_number": null
+        },
+        {
+          "math_id": 3825,
+          "paragraph": 3563,
+          "formula_number": "B-8"
+        },
+        {
+          "math_id": 3826,
+          "paragraph": 3567,
+          "formula_number": "B-9"
+        },
+        {
+          "math_id": 3849,
+          "paragraph": 3579,
+          "formula_number": null
+        },
+        {
+          "math_id": 3851,
+          "paragraph": 3581,
+          "formula_number": "B-12"
+        }
+      ],
+      "note": "B.2一般可逆增益、逆指令与极性单位矩阵对应。"
+    },
+    {
+      "row": 89,
+      "status": "correct",
+      "actual_symbols": "x_phys,x_aug,F_phys,F_aug",
+      "confirmed_locations": [
+        {
+          "math_id": 3802,
+          "paragraph": 3541,
+          "formula_number": null
+        },
+        {
+          "math_id": 3804,
+          "paragraph": 3541,
+          "formula_number": null
+        },
+        {
+          "math_id": 3806,
+          "paragraph": 3541,
+          "formula_number": null
+        },
+        {
+          "math_id": 3950,
+          "paragraph": 3691,
+          "formula_number": null
+        },
+        {
+          "math_id": 3957,
+          "paragraph": 3691,
+          "formula_number": null
+        },
+        {
+          "math_id": 3964,
+          "paragraph": 3694,
+          "formula_number": "B-35"
+        },
+        {
+          "math_id": 3985,
+          "paragraph": 3724,
+          "formula_number": "B-42"
+        }
+      ],
+      "note": "B.6明确从物理状态扩充至含完整历史和信念的状态，角色连续。"
+    },
+    {
+      "row": 90,
+      "status": "correct",
+      "actual_symbols": "e_map,e_path",
+      "confirmed_locations": [
+        {
+          "math_id": 4212,
+          "paragraph": 4012,
+          "formula_number": null
+        },
+        {
+          "math_id": 4219,
+          "paragraph": 4018,
+          "formula_number": "D-7"
+        },
+        {
+          "math_id": 4257,
+          "paragraph": 4072,
+          "formula_number": null
+        },
+        {
+          "math_id": 4262,
+          "paragraph": 4074,
+          "formula_number": "D-19"
+        },
+        {
+          "math_id": 4288,
+          "paragraph": 4097,
+          "formula_number": "D-24"
+        },
+        {
+          "math_id": 4289,
+          "paragraph": 4101,
+          "formula_number": "D-25"
+        }
+      ],
+      "note": "D.2/D.3误差映射与路径误差不是同一输入域，均有显式定义。"
+    },
+    {
+      "row": 91,
+      "status": "correct",
+      "actual_symbols": "epsilon_sym,epsilon_pol,epsilon_IRM",
+      "confirmed_locations": [
+        {
+          "math_id": 4420,
+          "paragraph": 4231,
+          "formula_number": "D-52"
+        },
+        {
+          "math_id": 4421,
+          "paragraph": 4233,
+          "formula_number": null
+        },
+        {
+          "math_id": 4422,
+          "paragraph": 4233,
+          "formula_number": null
+        },
+        {
+          "math_id": 4423,
+          "paragraph": 4235,
+          "formula_number": "D-53"
+        },
+        {
+          "math_id": 4436,
+          "paragraph": 4246,
+          "formula_number": "D-55"
+        },
+        {
+          "math_id": 4437,
+          "paragraph": 4248,
+          "formula_number": null
+        },
+        {
+          "math_id": 4439,
+          "paragraph": 4254,
+          "formula_number": "D-57"
+        }
+      ],
+      "note": "D.8/9分别为模型-参考、策略-模型和跨环境导数误差界。"
+    },
+    {
+      "row": 92,
+      "status": "correct",
+      "actual_symbols": "epsilon_emp,Delta_gen",
+      "confirmed_locations": [
+        {
+          "math_id": 4451,
+          "paragraph": 4276,
+          "formula_number": "D-62"
+        },
+        {
+          "math_id": 4452,
+          "paragraph": 4278,
+          "formula_number": null
+        },
+        {
+          "math_id": 4453,
+          "paragraph": 4278,
+          "formula_number": null
+        },
+        {
+          "math_id": 4455,
+          "paragraph": 4280,
+          "formula_number": "D-63"
+        }
+      ],
+      "note": "D.10明确为给定经验界及推广界，实际公式使用同一记号。"
+    },
+    {
+      "row": 93,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 94,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 95,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 96,
+      "status": "outside_appendix_scope",
+      "note": "本轮未在附录定义链中评判整行，交主文分工核对，不据零匹配判未使用。"
+    },
+    {
+      "row": 97,
+      "status": "notation_mismatch",
+      "actual_symbols": "l_sym正确；后继均值实际bar(L_JC)prime",
+      "confirmed_locations": [
+        {
+          "math_id": 4197,
+          "paragraph": 3995,
+          "formula_number": null
+        },
+        {
+          "math_id": 4199,
+          "paragraph": 3997,
+          "formula_number": "D-4c"
+        },
+        {
+          "math_id": 4204,
+          "paragraph": 4001,
+          "formula_number": "D-4d"
+        },
+        {
+          "math_id": 4205,
+          "paragraph": 4004,
+          "formula_number": "D-4e"
+        }
+      ],
+      "note": "APP-01；不是表列bar(l_sym)^+。"
+    },
+    {
+      "row": 98,
+      "status": "outside_appendix_scope",
+      "actual_symbols": "A中的zeta_risk不是连续高斯潜变量",
+      "confirmed_locations": [
+        {
+          "math_id": 3770,
+          "paragraph": 3510,
+          "formula_number": null
+        },
+        {
+          "math_id": 3771,
+          "paragraph": 3512,
+          "formula_number": "A-24"
+        },
+        {
+          "math_id": 3772,
+          "paragraph": 3516,
+          "formula_number": "A-25"
+        }
+      ],
+      "note": "附录A带risk下标，不能因两者基字母相同误报；裸zeta实际连续分支由主文审查。"
+    }
+  ],
+  "table_patches": [
+    {
+      "row": 97,
+      "correct_tex": "\\mathcal{l}_{sym},\\bar{\\mathcal{L}}_{JC}^{\\prime}",
+      "correct_definition": "策略与符号参考的逐状态归一化导数误差，以及同一小批量后继状态上的均值（第4.2.3节、附录D.1）"
+    },
+    {
+      "row": 86,
+      "correct_tex": "B,K_{\\max},n_{rem}",
+      "correct_definition": "训练小批量大小（第4章、附录D.1；附录E.5同形字母B另指回归拟合映射的Lipschitz常数）、有限事件时域的决策事件数上界及剩余事件数（第6章、附录E.3）"
+    },
+    {
+      "row": 39,
+      "correct_tex": "H_{k},\\Psi(z^{\\prime}\\mid z)",
+      "correct_definition": "模式推断使用的状态动作历史（第4.2.2节、附录B.4和B.6）与隐模式转移概率（式4-6）",
+      "coordinated_supplement": "H按原生实际使用的默认数学字母；同时合并主文审查确认的K_z→Psi，不另改正文。"
+    },
+    {
+      "row": 83,
+      "correct_tex": "X_{\\delta},L_{adj},L_{occ}",
+      "correct_definition": "由状态动作对及后继状态的概率残差组成的实向量空间，以及策略调整映射和访问分布映射的Lipschitz常数（附录E.5）"
+    },
+    {
+      "row": 38,
+      "correct_tex": "\\mathcal{Z},z,\\rho(z),G_{z}",
+      "correct_definition": "有限候选运行模式集合及模式元素、模式信念分布和模式条件执行增益（第4章、附录B–D；附录C、D的算子比较中模式信念固定）"
+    }
+  ],
+  "summary": "A–F共1114个数学对象及全部定义已读；确认5项表内修订（2个未声明别名、2个原生数学字体不一致、1个核心模式集合漏收），全部只修符号表。98行rownotes中46行给出附录确证或作用域说明，其余交主文分工，不按零匹配自动判错。"
+}

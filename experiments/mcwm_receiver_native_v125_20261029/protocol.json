@@ -1,0 +1,151 @@
+{
+  "status": "AUTHORIZED_NATIVE_PREFIXES",
+  "purpose": "Validate the new receiver current-leg observation at the same12 exposed native states, with unchanged actions and costs up to each stop point.",
+  "cases": [
+    {
+      "scenario": "stable",
+      "targets": [
+        {
+          "sequence": 5824,
+          "issue_clock": 9153.0,
+          "receiver": "122S_17",
+          "station": "122S17_311S23_406X15",
+          "visit_index": 18
+        },
+        {
+          "sequence": 8038,
+          "issue_clock": 11910.0,
+          "receiver": "705X_9",
+          "station": "7X17_102X30_705X31",
+          "visit_index": 32
+        },
+        {
+          "sequence": 8489,
+          "issue_clock": 12509.0,
+          "receiver": "311S_21",
+          "station": "311S09",
+          "visit_index": 10
+        },
+        {
+          "sequence": 9194,
+          "issue_clock": 13409.0,
+          "receiver": "311X_17",
+          "station": "122X26_311X26",
+          "visit_index": 27
+        },
+        {
+          "sequence": 9419,
+          "issue_clock": 13707.0,
+          "receiver": "311S_23",
+          "station": "311S03",
+          "visit_index": 4
+        },
+        {
+          "sequence": 10540,
+          "issue_clock": 15209.0,
+          "receiver": "7S_42",
+          "station": "7S15_102S15_705S22",
+          "visit_index": 16
+        },
+        {
+          "sequence": 11627,
+          "issue_clock": 16705.0,
+          "receiver": "102X_29",
+          "station": "102X06",
+          "visit_index": 7
+        }
+      ],
+      "stop_before_apply_sequence": 11627,
+      "stop_before_apply_clock": 16705.0
+    },
+    {
+      "scenario": "local_speed_drop",
+      "targets": [
+        {
+          "sequence": 8490,
+          "issue_clock": 12510.0,
+          "receiver": "311S_21",
+          "station": "311S09",
+          "visit_index": 10
+        },
+        {
+          "sequence": 11612,
+          "issue_clock": 16704.0,
+          "receiver": "102X_29",
+          "station": "102X06",
+          "visit_index": 7
+        },
+        {
+          "sequence": 11822,
+          "issue_clock": 17005.0,
+          "receiver": "311X_21",
+          "station": "311X33",
+          "visit_index": 34
+        },
+        {
+          "sequence": 12251,
+          "issue_clock": 17604.0,
+          "receiver": "406X_25",
+          "station": "406X29",
+          "visit_index": 30
+        },
+        {
+          "sequence": 12452,
+          "issue_clock": 17908.0,
+          "receiver": "122S_31",
+          "station": "102X16_122S18_311S24_406X16",
+          "visit_index": 19
+        }
+      ],
+      "stop_before_apply_sequence": 12452,
+      "stop_before_apply_clock": 17908.0
+    }
+  ],
+  "reference": "Server-resident v120 replay action/tick logs, qualified v120 review and v121/v123 root identities. Reuse the recorded proposals through the original F; compare every issued state/action and accumulated passenger ledger in place.",
+  "initialization": "Original external seed106206 and scenario configuration, recorded no_fresh proposals; no learner or checkpoint load.",
+  "observation": "Only at the listed12 roots, call v124 capture_receiver_service before apply. Match source_group/sequence/clock/receiver/station to the immutable reference. Complete people-stage evidence stays server-side; output counts and completeness only.",
+  "stopping": "Stop each prefix immediately after observing its last listed root, before that root action is applied. No suffix or terminal labels are synthesized.",
+  "budget": {
+    "maximum_new_native_seconds": 34613.0,
+    "observed_roots": 12,
+    "new_policy_actions": 0,
+    "optimizer_updates": 0,
+    "new_predictor_fits": 0,
+    "world_refits": 0,
+    "checkpoint_loads": 0,
+    "feedback_training_admissions": 0
+  },
+  "preserved": {
+    "original_F": true,
+    "original_decision_timing": true,
+    "original_service_constants": true,
+    "old_code_and_results": "read-only",
+    "sample_semantics": "Diagnostic roots only; no change to the285 training slots or historical selection."
+  },
+  "runtime": {
+    "require_node": "node001",
+    "cpu": 1,
+    "ram_mb": 8000,
+    "threads": 1
+  },
+  "validation": "Check reproduction and pre-action getter passivity. Distinguish complete count0 from unreadable/unsupported stages. Compare future alighting from already retained logs only after the new observation is sealed, as a diagnostic; never backfill current features or training labels.",
+  "decision": "If state/action/ledger or clock binding fails, retain the failed prefix and stop. If the new field is incomplete or does not distinguish pending alighting, report that limitation without retargeting. Successful observation admits a later response-model design only, not automatic fit or control deployment.",
+  "cost_gate": "Complete four days and technical checks. fresh-minus-matched-no_fresh mean<0,stable<=0,shock<0; additionally fresh-minus-same-actor-frozen<=0 in each scenario and at least one<0. Report no_fresh-minus-frozen to distinguish baseline drift. Early and tail windows are descriptive, not new gates.",
+  "output_bound_bytes": 16000,
+  "automatic_launch": false,
+  "name": "mcwm_receiver_native_v125_20261029",
+  "reference_root": "experiments/mcwm_service_replay_v120_20261029/runs",
+  "qualified_root": "experiments/mcwm_service_replay_v120_20261029/review",
+  "selected_root": "experiments/mcwm_service_opportunity_v121_20261029/runs",
+  "evidence_root": "experiments/mcwm_departure_attribution_v123_20261029/runs",
+  "metadata": "experiments/mcwm_closed_loop_formal_20261020/inputs/history_metadata.json",
+  "edge_xml": "experiments/sumo_eval/runtime/H2Oplus/bus_h2o/network_data/a_sorted_busline_edge.xml",
+  "horizon_seconds": 24000,
+  "external_seed": 106206,
+  "scenario_settings": {
+    "shock_at": 9000.0,
+    "factor": 0.65,
+    "metric_every": 300.0
+  },
+  "new_native_budget": 34613
+}

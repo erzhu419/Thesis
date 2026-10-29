@@ -1,0 +1,49 @@
+{
+  "status": "AUTHORIZED_LOG_ATTRIBUTION",
+  "purpose": "Explain the remaining actual departure delay beyond deterministic clock rounding before proposing another predictor.",
+  "fixed_roots": {
+    "stable": {
+      "non_clock_exact_sequences": [
+        5824,
+        8038,
+        8489,
+        9194,
+        10540,
+        11627
+      ],
+      "censored_sequences": [
+        9419
+      ]
+    },
+    "local_speed_drop": {
+      "non_clock_exact_sequences": [
+        8490,
+        11612,
+        11822,
+        12251,
+        12452
+      ],
+      "censored_sequences": []
+    }
+  },
+  "root_count": 12,
+  "source": "Existing server-resident v120 native commands, visits, exchanges, contexts and the existing v121/v122 labels. Read relevant existing simulator/observer code only as needed to resolve event semantics.",
+  "scope": "For all11 non-clock-exact mature roots and the one60-second censored root, reconstruct command application, nominal and clock-rounded deadline, actual stop/service events, boarding/alighting and subsequent same-vehicle commands. Separate directly logged facts from inferred causes; account for the stable18 and shock16 extra seconds without assuming they are pure boarding duration.",
+  "censoring": "The censored root stays censored in v121/v122 training and score. A later native event may be described only in this diagnostic timeline; it must not replace the original60-second label or enter calibration.",
+  "outputs": "Compact per-root reason/timeline summaries and a judgement whether any remaining state-dependent target is observable from pre-action inputs. Keep full evidence on server; no per-root figures or broad replay.",
+  "limits": {
+    "new_native_seconds": 0,
+    "optimizer_updates": 0,
+    "new_collection": 0,
+    "new_predictor_fits": 0,
+    "reselections": 0,
+    "action_changes": 0,
+    "dose_sweeps": 0
+  },
+  "F": "unchanged",
+  "cost_gate": "Complete four days and technical checks. fresh-minus-matched-no_fresh mean<0,stable<=0,shock<0; additionally fresh-minus-same-actor-frozen<=0 in each scenario and at least one<0. Report no_fresh-minus-frozen to distinguish baseline drift. Early and tail windows are descriptive, not new gates.",
+  "decision": "If mechanisms are directly computable, use that finding in a separate future service-response design; if unobservable or unresolved, retain the gap. Do not automatically fit a new residual model or deploy a controller.",
+  "old_code_and_results": "read-only",
+  "output_bound_bytes": 12000,
+  "automatic_launch": false
+}

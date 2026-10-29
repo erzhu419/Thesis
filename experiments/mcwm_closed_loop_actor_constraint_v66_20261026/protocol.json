@@ -1,0 +1,86 @@
+{
+  "name": "thesis-mcwm-actor-constraint-v66-20261026",
+  "candidate": "actor_constrained",
+  "development_seeds": [
+    6201,
+    6203
+  ],
+  "confirmation_seeds": [
+    6202,
+    6204,
+    6205
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "arms": [
+    "fresh",
+    "no_fresh"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "feedback_slots": 285,
+  "policy_updates": 456,
+  "external_seed_offset": 100000,
+  "candidate_change": "Relative to frozen v64: add only coefficient1.0 times KL(new hurdle policy || actor frozen at this packet start) to every original SAC actor loss. Bernoulli gate KL + p_new times conditional latent Normal KL. Fresh/no_fresh use the identical constraint; sampling, fresh-V target, update order/456 actor+critic+V+alpha steps, F and trust unchanged.",
+  "motivation": "User adopted Astra V65_LOSS_MECHANISM_AND_OPTIONS.md first-priority actor-only intervention. Test whether limited fresh factual corrections can improve actual control without unrestricted policy movement. KL is a soft penalty, not a hard bound or performance guarantee.",
+  "fixed_training": "Same exact per-seed50000 initializer and Adam; original285 paid slots in57 packets,8 actor/critic/V/alpha updates each; original four replay draws and parent mixed-target RNG; full24000-second native day. Packet reference actor frozen throughout8 steps and refreshed once per packet. No delayed actor, CQL, new features, trust, F, trace or memory changes.",
+  "primary_metric": "Full-day(2W+R)/all departed passengers including accrued unfinished-trip time. Negative fresh-minus-no_fresh is better.",
+  "cost_gate": "Complete all fixed cells and audits. Fresh must beat matched constrained no_fresh and immutable original no_fresh: each overall mean<0,stable<=0,shock<0. Also require fresh-vs-old-fresh full-day mean<=0,9000-12000 mean<0,worst full-day cell relative to old no_fresh no larger than before,and stable18300-24000 mean relative to old no_fresh<=0. No KL or holding metric substitutes for passenger cost. Baseline shift is reported explicitly; improvement versus both baselines rules out a purely degraded matched control. All conditions predeclared before new costs.",
+  "baseline_exactness": "New no_fresh is constrained too, so it need not reproduce old unconstrained costs. Read old fresh and no_fresh only as absolute references; never substitute either for new paired arms.",
+  "development_days": 8,
+  "confirmation_days": 0,
+  "branch_queries": 0,
+  "ordinary_single_trajectory_dripping": true,
+  "priority": "high",
+  "summary_max_bytes": 48000,
+  "old_code_and_results_read_only": true,
+  "downloads": "Necessary small JSON/log tails only. Prefix/metric comparison server-side; no CSV, trajectory or checkpoint downloads.",
+  "technical_failure": "Record failure and consumed work. Reuse the first full-day native pair for preflight; no duplicate preflight days. Do not retry unknown native submission. Transient read failures retain existing handles.",
+  "scientific_failure": "Close this fixed actor candidate on the preregistered actual-cost conditions; do not tune beta, change seeds, combine delayed updates/CQL, or adjust F/trust after outcomes.",
+  "goal_completion": "Only a fixed8-day development test. A pass supports deciding on future frozen confirmation; no automatic independent cohort, no automatic global completion.",
+  "actor_kl_coefficient": 1.0,
+  "original_reference_by_seed": {
+    "6201": {
+      "directory": "mcwm_closed_loop_fresh_value_v64_20261025",
+      "relative": "runs/fresh_value/development/seed{seed}/{scenario}"
+    },
+    "6203": {
+      "directory": "mcwm_closed_loop_fresh_value_confirmation_v65_20261025",
+      "relative": "runs/fresh_value/confirmation/seed{seed}/{scenario}"
+    }
+  },
+  "primary_gate": "See cost_gate; matched, original, early/worst preservation and stable-tail conditions are all required.",
+  "new_native_days": 8,
+  "reused_development_days": 0,
+  "native_preflight": {
+    "seed": 6201,
+    "scenario": "stable",
+    "reuse_full_day": true,
+    "feedback_slots": 5,
+    "policy_updates": 8
+  },
+  "actor_constraint": {
+    "coefficient": 1.0,
+    "reference": "deployed actor at each packet start, frozen8 steps",
+    "orientation": "new||packet_reference",
+    "scope": "Bernoulli(gate)+p_new*KL(N_new||N_reference)",
+    "strength_fixed_before_results": true,
+    "adaptive_coefficient": false,
+    "hard_execution_bound": false
+  },
+  "diagnostic_policy_probe": "Exactly the five newly admitted paid states per packet, compared before/after8 steps using identical canonical states and F. No new labels or random draws; line and packet release window retained; gate crossings and physical holding seconds reported independently of KL.",
+  "authorization": "User explicitly requested100percent advancement according to Astra first-priority actor constraint, with both arms matched and original no_fresh reference retained.",
+  "early_window_seconds": [
+    9000,
+    12000
+  ],
+  "post_budget_window_seconds": [
+    18300,
+    24000
+  ],
+  "seed_scope": "6201 previously benefited and6203 contains two known v65 losses. This is prespecified remedial development, not an independent test;6205 bad shock is not used for development selection. No new-cost-based seed or beta choice.",
+  "follow_up": "No automatic confirmation or second algorithm. Retain all four development cells. Future confirmation seeds are predeclared only, not authorized by a success flag.",
+  "reference_report": "experiments/mcwm_closed_loop_full_project_review_20261026/V65_LOSS_MECHANISM_AND_OPTIONS.md"
+}

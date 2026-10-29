@@ -1,0 +1,586 @@
+{
+  "status": "complete",
+  "all_pass": true,
+  "cases": {
+    "stable": {
+      "status": "complete",
+      "scenario": "stable",
+      "integrity": {
+        "all_pass": true,
+        "checks": {
+          "replay_exact": true,
+          "actual_commands_exact": true,
+          "fixed_roots_observed": true,
+          "exact_stop_clock": true,
+          "final_target_unapplied": true,
+          "nonterminal_stop": true,
+          "scenario_applied": true
+        }
+      },
+      "runtime": {
+        "sumo": [
+          22,
+          "SUMO 1.25.0"
+        ],
+        "h2o_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/H2Oplus",
+        "sumo_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/assets/SUMO_ruiguang"
+      },
+      "target_ledger": {
+        "time_seconds": 16705.0,
+        "waiting_passengers": 798,
+        "in_vehicle_passengers": 1258,
+        "accrued_wait_seconds": 5075063.0,
+        "accrued_in_vehicle_seconds": 12954031.0
+      },
+      "target_reference_ledger": {
+        "time_seconds": 16705.0,
+        "waiting_passengers": 798,
+        "in_vehicle_passengers": 1258,
+        "accrued_wait_seconds": 5075063.0,
+        "accrued_in_vehicle_seconds": 12954031.0
+      },
+      "target_command_applied": false,
+      "replay": {
+        "all_pass": true,
+        "status": "target_reached",
+        "target_sequence": 11627,
+        "target_clock": 16705.0,
+        "actions_read": 11628,
+        "actions_checked": 11628,
+        "ticks_integrated": 16705,
+        "last_reference_ledger": {
+          "time_seconds": 16705.0,
+          "waiting_passengers": 798,
+          "in_vehicle_passengers": 1258,
+          "accrued_wait_seconds": 5075063.0,
+          "accrued_in_vehicle_seconds": 12954031.0
+        },
+        "action_paths": [
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_service_replay_v120_20261029/runs/stable/actions.jsonl"
+        ],
+        "tick_paths": [
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_service_replay_v120_20261029/runs/stable/ticks.jsonl"
+        ],
+        "failure": null,
+        "action_comparison": "All recorded EventStream fields exact; observer visit_index excluded",
+        "ledger_semantics": "Integrate tick-start counts through end=issue clock; retain last tick counts"
+      },
+      "commands_checked": 11931,
+      "observed_sequences": [
+        5824,
+        8038,
+        8489,
+        9194,
+        9419,
+        10540,
+        11627
+      ],
+      "scenario_metadata": {
+        "name": "stable",
+        "installed_at_seconds": 503.0,
+        "scheduled_shock_at_seconds": 9000.0,
+        "actual_shock_at_seconds": null,
+        "speed_factor": 0.65,
+        "edge_id": "E_J282_J328.50",
+        "lane_ids": [
+          "E_J282_J328.50_0",
+          "E_J282_J328.50_1",
+          "E_J282_J328.50_2",
+          "E_J282_J328.50_3"
+        ],
+        "edge_length_meters": 723.3,
+        "directly_affected_lines": [
+          "7X",
+          "102X",
+          "705X"
+        ],
+        "upstream_stop": "7X13_102X26_705X27",
+        "downstream_stop": "7X14_102X27_705X28",
+        "lane_caps": [],
+        "metric_every_seconds": 300.0,
+        "mechanism": "native lane speed cap; no intervention indicator in policy input",
+        "time_semantics": "after the native tick at actual_shock_at_seconds; subsequent motion uses the new cap",
+        "cost_semantics": "2*accrued_wait_seconds + accrued_in_vehicle_seconds; includes unfinished passengers"
+      },
+      "observation": {
+        "status": "complete",
+        "all_pass": true,
+        "roots": [
+          {
+            "sequence": 5824,
+            "issue": 9153.0,
+            "receiver": "122S_17",
+            "station": "122S17_311S23_406X15",
+            "onboard": 15,
+            "current_dest_count": 0,
+            "complete": true,
+            "estimated_ready_age": 1.0,
+            "future_alighted_onboard_count": 0,
+            "matched_IDs_equal_or_null": true,
+            "postissue_boarded_people": 2,
+            "postissue_alighted_people": 0,
+            "postissue_boarding_events": 2,
+            "postissue_alighting_events": 0,
+            "last_at_stop_exchange_time": 9159.0,
+            "actual_departure": 9162.0,
+            "capture_status": "complete",
+            "read_error_count": 0,
+            "passivity_passed": true
+          },
+          {
+            "sequence": 8038,
+            "issue": 11910.0,
+            "receiver": "705X_9",
+            "station": "7X17_102X30_705X31",
+            "onboard": 49,
+            "current_dest_count": 2,
+            "complete": true,
+            "estimated_ready_age": 1.5,
+            "future_alighted_onboard_count": 2,
+            "matched_IDs_equal_or_null": true,
+            "postissue_boarded_people": 1,
+            "postissue_alighted_people": 2,
+            "postissue_boarding_events": 1,
+            "postissue_alighting_events": 2,
+            "last_at_stop_exchange_time": 11916.0,
+            "actual_departure": 11920.0,
+            "capture_status": "complete",
+            "read_error_count": 0,
+            "passivity_passed": true
+          },
+          {
+            "sequence": 8489,
+            "issue": 12509.0,
+            "receiver": "311S_21",
+            "station": "311S09",
+            "onboard": 48,
+            "current_dest_count": 0,
+            "complete": true,
+            "estimated_ready_age": 1.0,
+            "future_alighted_onboard_count": 0,
+            "matched_IDs_equal_or_null": true,
+            "postissue_boarded_people": 1,
+            "postissue_alighted_people": 0,
+            "postissue_boarding_events": 1,
+            "postissue_alighting_events": 0,
+            "last_at_stop_exchange_time": 12543.0,
+            "actual_departure": 12546.0,
+            "capture_status": "complete",
+            "read_error_count": 0,
+            "passivity_passed": true
+          },
+          {
+            "sequence": 9194,
+            "issue": 13409.0,
+            "receiver": "311X_17",
+            "station": "122X26_311X26",
+            "onboard": 46,
+            "current_dest_count": 0,
+            "complete": true,
+            "estimated_ready_age": 1.0,
+            "future_alighted_onboard_count": 0,
+            "matched_IDs_equal_or_null": true,
+            "postissue_boarded_people": 1,
+            "postissue_alighted_people": 0,
+            "postissue_boarding_events": 1,
+            "postissue_alighting_events": 0,
+            "last_at_stop_exchange_time": 13413.0,
+            "actual_departure": 13416.0,
+            "capture_status": "complete",
+            "read_error_count": 0,
+            "passivity_passed": true
+          },
+          {
+            "sequence": 9419,
+            "issue": 13707.0,
+            "receiver": "311S_23",
+            "station": "311S03",
+            "onboard": 10,
+            "current_dest_count": 0,
+            "complete": true,
+            "estimated_ready_age": 1.0,
+            "future_alighted_onboard_count": 0,
+            "matched_IDs_equal_or_null": true,
+            "postissue_boarded_people": 1,
+            "postissue_alighted_people": 0,
+            "postissue_boarding_events": 1,
+            "postissue_alighting_events": 0,
+            "last_at_stop_exchange_time": 13766.0,
+            "actual_departure": 13769.0,
+            "capture_status": "complete",
+            "read_error_count": 0,
+            "passivity_passed": true
+          },
+          {
+            "sequence": 10540,
+            "issue": 15209.0,
+            "receiver": "7S_42",
+            "station": "7S15_102S15_705S22",
+            "onboard": 8,
+            "current_dest_count": 0,
+            "complete": true,
+            "estimated_ready_age": 1.0,
+            "future_alighted_onboard_count": 0,
+            "matched_IDs_equal_or_null": true,
+            "postissue_boarded_people": 1,
+            "postissue_alighted_people": 0,
+            "postissue_boarding_events": 1,
+            "postissue_alighting_events": 0,
+            "last_at_stop_exchange_time": 15214.0,
+            "actual_departure": 15217.0,
+            "capture_status": "complete",
+            "read_error_count": 0,
+            "passivity_passed": true
+          },
+          {
+            "sequence": 11627,
+            "issue": 16705.0,
+            "receiver": "102X_29",
+            "station": "102X06",
+            "onboard": 23,
+            "current_dest_count": 0,
+            "complete": true,
+            "estimated_ready_age": 1.0,
+            "future_alighted_onboard_count": 0,
+            "matched_IDs_equal_or_null": true,
+            "postissue_boarded_people": 1,
+            "postissue_alighted_people": 0,
+            "postissue_boarding_events": 1,
+            "postissue_alighting_events": 0,
+            "last_at_stop_exchange_time": 16709.0,
+            "actual_departure": 16712.0,
+            "capture_status": "complete",
+            "read_error_count": 0,
+            "passivity_passed": true
+          }
+        ],
+        "totals": {
+          "roots": 7,
+          "complete_current_stage_roots": 7,
+          "current_dest_positive_roots": 1,
+          "current_dest_zero_roots": 6,
+          "current_dest_unknown_roots": 0,
+          "current_dest_count_sum_complete_roots": 2,
+          "future_alighted_onboard_count_sum_known_memberships": 2,
+          "future_alighted_onboard_unknown_roots": 0,
+          "matched_equal_roots": 7,
+          "matched_unequal_roots": 0,
+          "matched_unknown_roots": 0,
+          "postissue_boarded_people_sum": 8,
+          "postissue_alighted_people_sum": 2
+        },
+        "semantics": "Current observations remain unchanged. Future comparison uses issue<time<=actual departure in the same native visit, intersected with actual issue-time onboard IDs. Equality is diagnostic, never an admission gate. Unknown current stages retain null counts/equality; known membership can still support a future alighting count. People counts are unique within each root; totals sum root memberships, not independent people. Last exchange and departure are observed tick times, not a universal service formula. No features or training labels are backfilled."
+      },
+      "budget": {
+        "native_seconds": 16705.0,
+        "native_seconds_is_lower_bound": false,
+        "native_seconds_exact_stop": true,
+        "learner_created": false,
+        "optimizer_updates": 0,
+        "feedback_admitted": 0,
+        "new_predictor_fits": 0,
+        "checkpoint_loaded": false,
+        "world_refits": 0,
+        "new_policy_actions": 0,
+        "applied_commands": 11931,
+        "observed_roots": 7,
+        "released_transitions_discarded": 11601,
+        "physical_intervals_discarded": 11545,
+        "full_day_completed": false
+      },
+      "execution_wall": {
+        "native_started_wall": 1793261322.2311342,
+        "native_finished_wall": 1793261694.2959557,
+        "elapsed_seconds": 374.4772307034582
+      }
+    },
+    "local_speed_drop": {
+      "status": "complete",
+      "scenario": "local_speed_drop",
+      "integrity": {
+        "all_pass": true,
+        "checks": {
+          "replay_exact": true,
+          "actual_commands_exact": true,
+          "fixed_roots_observed": true,
+          "exact_stop_clock": true,
+          "final_target_unapplied": true,
+          "nonterminal_stop": true,
+          "scenario_applied": true
+        }
+      },
+      "runtime": {
+        "sumo": [
+          22,
+          "SUMO 1.25.0"
+        ],
+        "h2o_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/H2Oplus",
+        "sumo_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/assets/SUMO_ruiguang"
+      },
+      "target_ledger": {
+        "time_seconds": 17908.0,
+        "waiting_passengers": 908,
+        "in_vehicle_passengers": 1396,
+        "accrued_wait_seconds": 6133447.0,
+        "accrued_in_vehicle_seconds": 14639084.0
+      },
+      "target_reference_ledger": {
+        "time_seconds": 17908.0,
+        "waiting_passengers": 908,
+        "in_vehicle_passengers": 1396,
+        "accrued_wait_seconds": 6133447.0,
+        "accrued_in_vehicle_seconds": 14639084.0
+      },
+      "target_command_applied": false,
+      "replay": {
+        "all_pass": true,
+        "status": "target_reached",
+        "target_sequence": 12452,
+        "target_clock": 17908.0,
+        "actions_read": 12453,
+        "actions_checked": 12453,
+        "ticks_integrated": 17908,
+        "last_reference_ledger": {
+          "time_seconds": 17908.0,
+          "waiting_passengers": 908,
+          "in_vehicle_passengers": 1396,
+          "accrued_wait_seconds": 6133447.0,
+          "accrued_in_vehicle_seconds": 14639084.0
+        },
+        "action_paths": [
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_service_replay_v120_20261029/runs/local_speed_drop/actions.jsonl"
+        ],
+        "tick_paths": [
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_service_replay_v120_20261029/runs/local_speed_drop/ticks.jsonl"
+        ],
+        "failure": null,
+        "action_comparison": "All recorded EventStream fields exact; observer visit_index excluded",
+        "ledger_semantics": "Integrate tick-start counts through end=issue clock; retain last tick counts"
+      },
+      "commands_checked": 12779,
+      "observed_sequences": [
+        8490,
+        11612,
+        11822,
+        12251,
+        12452
+      ],
+      "scenario_metadata": {
+        "name": "local_speed_drop",
+        "installed_at_seconds": 503.0,
+        "scheduled_shock_at_seconds": 9000.0,
+        "actual_shock_at_seconds": 9000.0,
+        "speed_factor": 0.65,
+        "edge_id": "E_J282_J328.50",
+        "lane_ids": [
+          "E_J282_J328.50_0",
+          "E_J282_J328.50_1",
+          "E_J282_J328.50_2",
+          "E_J282_J328.50_3"
+        ],
+        "edge_length_meters": 723.3,
+        "directly_affected_lines": [
+          "7X",
+          "102X",
+          "705X"
+        ],
+        "upstream_stop": "7X13_102X26_705X27",
+        "downstream_stop": "7X14_102X27_705X28",
+        "lane_caps": [
+          {
+            "lane_id": "E_J282_J328.50_0",
+            "original_mps": 13.89,
+            "requested_mps": 9.028500000000001,
+            "observed_mps": 9.028500000000001
+          },
+          {
+            "lane_id": "E_J282_J328.50_1",
+            "original_mps": 13.89,
+            "requested_mps": 9.028500000000001,
+            "observed_mps": 9.028500000000001
+          },
+          {
+            "lane_id": "E_J282_J328.50_2",
+            "original_mps": 13.89,
+            "requested_mps": 9.028500000000001,
+            "observed_mps": 9.028500000000001
+          },
+          {
+            "lane_id": "E_J282_J328.50_3",
+            "original_mps": 13.89,
+            "requested_mps": 9.028500000000001,
+            "observed_mps": 9.028500000000001
+          }
+        ],
+        "metric_every_seconds": 300.0,
+        "mechanism": "native lane speed cap; no intervention indicator in policy input",
+        "time_semantics": "after the native tick at actual_shock_at_seconds; subsequent motion uses the new cap",
+        "cost_semantics": "2*accrued_wait_seconds + accrued_in_vehicle_seconds; includes unfinished passengers"
+      },
+      "observation": {
+        "status": "complete",
+        "all_pass": true,
+        "roots": [
+          {
+            "sequence": 8490,
+            "issue": 12510.0,
+            "receiver": "311S_21",
+            "station": "311S09",
+            "onboard": 48,
+            "current_dest_count": 0,
+            "complete": true,
+            "estimated_ready_age": 1.0,
+            "future_alighted_onboard_count": 0,
+            "matched_IDs_equal_or_null": true,
+            "postissue_boarded_people": 1,
+            "postissue_alighted_people": 0,
+            "postissue_boarding_events": 1,
+            "postissue_alighting_events": 0,
+            "last_at_stop_exchange_time": 12543.0,
+            "actual_departure": 12546.0,
+            "capture_status": "complete",
+            "read_error_count": 0,
+            "passivity_passed": true
+          },
+          {
+            "sequence": 11612,
+            "issue": 16704.0,
+            "receiver": "102X_29",
+            "station": "102X06",
+            "onboard": 23,
+            "current_dest_count": 0,
+            "complete": true,
+            "estimated_ready_age": 1.0,
+            "future_alighted_onboard_count": 0,
+            "matched_IDs_equal_or_null": true,
+            "postissue_boarded_people": 1,
+            "postissue_alighted_people": 0,
+            "postissue_boarding_events": 1,
+            "postissue_alighting_events": 0,
+            "last_at_stop_exchange_time": 16709.0,
+            "actual_departure": 16712.0,
+            "capture_status": "complete",
+            "read_error_count": 0,
+            "passivity_passed": true
+          },
+          {
+            "sequence": 11822,
+            "issue": 17005.0,
+            "receiver": "311X_21",
+            "station": "311X33",
+            "onboard": 33,
+            "current_dest_count": 2,
+            "complete": true,
+            "estimated_ready_age": 1.5,
+            "future_alighted_onboard_count": 2,
+            "matched_IDs_equal_or_null": true,
+            "postissue_boarded_people": 0,
+            "postissue_alighted_people": 2,
+            "postissue_boarding_events": 0,
+            "postissue_alighting_events": 2,
+            "last_at_stop_exchange_time": 17009.0,
+            "actual_departure": 17012.0,
+            "capture_status": "complete",
+            "read_error_count": 0,
+            "passivity_passed": true
+          },
+          {
+            "sequence": 12251,
+            "issue": 17604.0,
+            "receiver": "406X_25",
+            "station": "406X29",
+            "onboard": 31,
+            "current_dest_count": 2,
+            "complete": true,
+            "estimated_ready_age": 1.0,
+            "future_alighted_onboard_count": 2,
+            "matched_IDs_equal_or_null": true,
+            "postissue_boarded_people": 0,
+            "postissue_alighted_people": 2,
+            "postissue_boarding_events": 0,
+            "postissue_alighting_events": 2,
+            "last_at_stop_exchange_time": 17607.0,
+            "actual_departure": 17611.0,
+            "capture_status": "complete",
+            "read_error_count": 0,
+            "passivity_passed": true
+          },
+          {
+            "sequence": 12452,
+            "issue": 17908.0,
+            "receiver": "122S_31",
+            "station": "102X16_122S18_311S24_406X16",
+            "onboard": 46,
+            "current_dest_count": 5,
+            "complete": true,
+            "estimated_ready_age": 1.0,
+            "future_alighted_onboard_count": 5,
+            "matched_IDs_equal_or_null": true,
+            "postissue_boarded_people": 0,
+            "postissue_alighted_people": 5,
+            "postissue_boarding_events": 0,
+            "postissue_alighting_events": 5,
+            "last_at_stop_exchange_time": 17920.0,
+            "actual_departure": 17923.0,
+            "capture_status": "complete",
+            "read_error_count": 0,
+            "passivity_passed": true
+          }
+        ],
+        "totals": {
+          "roots": 5,
+          "complete_current_stage_roots": 5,
+          "current_dest_positive_roots": 3,
+          "current_dest_zero_roots": 2,
+          "current_dest_unknown_roots": 0,
+          "current_dest_count_sum_complete_roots": 9,
+          "future_alighted_onboard_count_sum_known_memberships": 9,
+          "future_alighted_onboard_unknown_roots": 0,
+          "matched_equal_roots": 5,
+          "matched_unequal_roots": 0,
+          "matched_unknown_roots": 0,
+          "postissue_boarded_people_sum": 2,
+          "postissue_alighted_people_sum": 9
+        },
+        "semantics": "Current observations remain unchanged. Future comparison uses issue<time<=actual departure in the same native visit, intersected with actual issue-time onboard IDs. Equality is diagnostic, never an admission gate. Unknown current stages retain null counts/equality; known membership can still support a future alighting count. People counts are unique within each root; totals sum root memberships, not independent people. Last exchange and departure are observed tick times, not a universal service formula. No features or training labels are backfilled."
+      },
+      "budget": {
+        "native_seconds": 17908.0,
+        "native_seconds_is_lower_bound": false,
+        "native_seconds_exact_stop": true,
+        "learner_created": false,
+        "optimizer_updates": 0,
+        "feedback_admitted": 0,
+        "new_predictor_fits": 0,
+        "checkpoint_loaded": false,
+        "world_refits": 0,
+        "new_policy_actions": 0,
+        "applied_commands": 12779,
+        "observed_roots": 5,
+        "released_transitions_discarded": 12433,
+        "physical_intervals_discarded": 12379,
+        "full_day_completed": false
+      },
+      "execution_wall": {
+        "native_started_wall": 1793261322.3677251,
+        "native_finished_wall": 1793261727.2663498,
+        "elapsed_seconds": 406.86071540787816
+      }
+    }
+  },
+  "budget": {
+    "native_seconds": 34613.0,
+    "known_native_seconds": 34613.0,
+    "native_seconds_is_lower_bound": false,
+    "optimizer_updates": 0,
+    "new_predictor_fits": 0,
+    "new_policy_actions": 0,
+    "feedback_admitted": 0
+  },
+  "performance_evidence": false,
+  "automatic_followup": false,
+  "execution": {
+    "actual_overlap_seconds": 371.9282305240631,
+    "total_native_wall_span_seconds": 405.0352156162262
+  }
+}

@@ -1,0 +1,714 @@
+{
+  "all_summaries_present": true,
+  "finished": 2,
+  "status": "complete",
+  "technical_pass": true,
+  "cases": {
+    "stable": {
+      "status": "complete",
+      "scenario": "stable",
+      "integrity": {
+        "all_pass": true,
+        "checks": {
+          "replay_exact": true,
+          "actual_commands_exact": true,
+          "fixed_roots_observed": true,
+          "exact_stop_clock": true,
+          "final_target_unapplied": true,
+          "nonterminal_stop": true,
+          "scenario_applied": true
+        }
+      },
+      "runtime": {
+        "sumo": [
+          22,
+          "SUMO 1.25.0"
+        ],
+        "h2o_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/H2Oplus",
+        "sumo_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/assets/SUMO_ruiguang"
+      },
+      "target_ledger": {
+        "time_seconds": 17910.0,
+        "waiting_passengers": 901,
+        "in_vehicle_passengers": 1383,
+        "accrued_wait_seconds": 6120696.0,
+        "accrued_in_vehicle_seconds": 14569764.0
+      },
+      "target_reference_ledger": {
+        "time_seconds": 17910.0,
+        "waiting_passengers": 901,
+        "in_vehicle_passengers": 1383,
+        "accrued_wait_seconds": 6120696.0,
+        "accrued_in_vehicle_seconds": 14569764.0
+      },
+      "target_command_applied": false,
+      "replay": {
+        "all_pass": true,
+        "status": "target_reached",
+        "target_sequence": 12467,
+        "target_clock": 17910.0,
+        "actions_read": 12468,
+        "actions_checked": 12468,
+        "ticks_integrated": 17910,
+        "last_reference_ledger": {
+          "time_seconds": 17910.0,
+          "waiting_passengers": 901,
+          "in_vehicle_passengers": 1383,
+          "accrued_wait_seconds": 6120696.0,
+          "accrued_in_vehicle_seconds": 14569764.0
+        },
+        "action_paths": [
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_service_replay_v120_20261029/runs/stable/actions.jsonl"
+        ],
+        "tick_paths": [
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_service_replay_v120_20261029/runs/stable/ticks.jsonl"
+        ],
+        "failure": null,
+        "action_comparison": "All recorded EventStream fields exact; observer visit_index excluded",
+        "ledger_semantics": "Integrate tick-start counts through end=issue clock; retain last tick counts"
+      },
+      "commands_checked": 12792,
+      "observed_roots": 285,
+      "scenario_metadata": {
+        "name": "stable",
+        "installed_at_seconds": 503.0,
+        "scheduled_shock_at_seconds": 9000.0,
+        "actual_shock_at_seconds": null,
+        "speed_factor": 0.65,
+        "edge_id": "E_J282_J328.50",
+        "lane_ids": [
+          "E_J282_J328.50_0",
+          "E_J282_J328.50_1",
+          "E_J282_J328.50_2",
+          "E_J282_J328.50_3"
+        ],
+        "edge_length_meters": 723.3,
+        "directly_affected_lines": [
+          "7X",
+          "102X",
+          "705X"
+        ],
+        "upstream_stop": "7X13_102X26_705X27",
+        "downstream_stop": "7X14_102X27_705X28",
+        "lane_caps": [],
+        "metric_every_seconds": 300.0,
+        "mechanism": "native lane speed cap; no intervention indicator in policy input",
+        "time_semantics": "after the native tick at actual_shock_at_seconds; subsequent motion uses the new cap",
+        "cost_semantics": "2*accrued_wait_seconds + accrued_in_vehicle_seconds; includes unfinished passengers"
+      },
+      "observation": {
+        "collection_complete": true,
+        "field_coverage_complete": true,
+        "inputs_complete": true,
+        "labels_complete": true,
+        "prefix_has_both_classes": false,
+        "passivity_all_pass": true,
+        "total": {
+          "slots": 285,
+          "packets": 57,
+          "packet_size_histogram": {
+            "5": 57
+          },
+          "classes": {
+            "0": 278,
+            "1": 7,
+            "unknown": 0
+          },
+          "fields": {
+            "complete": 285,
+            "missing": 0,
+            "known": {
+              "onboard_count": 285,
+              "current_leg_dest_count": 285,
+              "estimated_service_ready_time": 285,
+              "estimated_service_ready_age_seconds": 285
+            },
+            "current_stage0_complete": 285,
+            "missing_fields": {},
+            "read_errors": {}
+          },
+          "inputs_complete": 285,
+          "n": {
+            "histogram": {
+              "0": 280,
+              "1": 4,
+              "2": 1
+            },
+            "unknown": 0,
+            "unit": "selected root snapshots, not unique passengers"
+          },
+          "n_target_classes": {
+            "n=0": {
+              "0": 274,
+              "1": 6,
+              "unknown": 0
+            },
+            "n>0": {
+              "0": 4,
+              "1": 1,
+              "unknown": 0
+            },
+            "unknown": {
+              "0": 0,
+              "1": 0,
+              "unknown": 0
+            }
+          },
+          "departure_censored": 1,
+          "censored_binary_identifiable": 1,
+          "passivity_passed": 285,
+          "reference_field_checks": {
+            "original_onboard_count": {
+              "true": 285
+            },
+            "original_ready_estimate": {
+              "true": 285
+            }
+          }
+        },
+        "prefix": {
+          "slots": 135,
+          "packets": 27,
+          "packet_size_histogram": {
+            "5": 27
+          },
+          "classes": {
+            "0": 135,
+            "1": 0,
+            "unknown": 0
+          },
+          "fields": {
+            "complete": 135,
+            "missing": 0,
+            "known": {
+              "onboard_count": 135,
+              "current_leg_dest_count": 135,
+              "estimated_service_ready_time": 135,
+              "estimated_service_ready_age_seconds": 135
+            },
+            "current_stage0_complete": 135,
+            "missing_fields": {},
+            "read_errors": {}
+          },
+          "inputs_complete": 135,
+          "n": {
+            "histogram": {
+              "0": 135
+            },
+            "unknown": 0,
+            "unit": "selected root snapshots, not unique passengers"
+          },
+          "n_target_classes": {
+            "n=0": {
+              "0": 135,
+              "1": 0,
+              "unknown": 0
+            },
+            "n>0": {
+              "0": 0,
+              "1": 0,
+              "unknown": 0
+            },
+            "unknown": {
+              "0": 0,
+              "1": 0,
+              "unknown": 0
+            }
+          },
+          "departure_censored": 0,
+          "censored_binary_identifiable": 0,
+          "passivity_passed": 135,
+          "reference_field_checks": {
+            "original_onboard_count": {
+              "true": 135
+            },
+            "original_ready_estimate": {
+              "true": 135
+            }
+          }
+        },
+        "suffix": {
+          "slots": 150,
+          "packets": 30,
+          "packet_size_histogram": {
+            "5": 30
+          },
+          "classes": {
+            "0": 143,
+            "1": 7,
+            "unknown": 0
+          },
+          "fields": {
+            "complete": 150,
+            "missing": 0,
+            "known": {
+              "onboard_count": 150,
+              "current_leg_dest_count": 150,
+              "estimated_service_ready_time": 150,
+              "estimated_service_ready_age_seconds": 150
+            },
+            "current_stage0_complete": 150,
+            "missing_fields": {},
+            "read_errors": {}
+          },
+          "inputs_complete": 150,
+          "n": {
+            "histogram": {
+              "0": 145,
+              "1": 4,
+              "2": 1
+            },
+            "unknown": 0,
+            "unit": "selected root snapshots, not unique passengers"
+          },
+          "n_target_classes": {
+            "n=0": {
+              "0": 139,
+              "1": 6,
+              "unknown": 0
+            },
+            "n>0": {
+              "0": 4,
+              "1": 1,
+              "unknown": 0
+            },
+            "unknown": {
+              "0": 0,
+              "1": 0,
+              "unknown": 0
+            }
+          },
+          "departure_censored": 1,
+          "censored_binary_identifiable": 1,
+          "passivity_passed": 150,
+          "reference_field_checks": {
+            "original_onboard_count": {
+              "true": 150
+            },
+            "original_ready_estimate": {
+              "true": 150
+            }
+          }
+        },
+        "derived_records": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_full_receiver_observation_v127_20261029/runs/stable/derived_records.jsonl",
+        "split": "original packet_deadline <= 9000 versus > 9000",
+        "target_scope": "Original 60-second evidence only; original records are unchanged.",
+        "fits": 0,
+        "performance_evidence": false
+      },
+      "budget": {
+        "native_seconds": 17910.0,
+        "native_seconds_is_lower_bound": false,
+        "native_seconds_exact_stop": true,
+        "learner_created": false,
+        "optimizer_updates": 0,
+        "feedback_admitted": 0,
+        "new_predictor_fits": 0,
+        "checkpoint_loaded": false,
+        "world_refits": 0,
+        "new_policy_actions": 0,
+        "applied_commands": 12792,
+        "observed_roots": 285,
+        "released_transitions_discarded": 12442,
+        "physical_intervals_discarded": 12387,
+        "full_day_completed": false
+      },
+      "execution_wall": {
+        "native_started_wall": 1793264303.5884166,
+        "native_finished_wall": 1793264693.9846606,
+        "elapsed_seconds": 392.34819681290537
+      }
+    },
+    "local_speed_drop": {
+      "status": "complete",
+      "scenario": "local_speed_drop",
+      "integrity": {
+        "all_pass": true,
+        "checks": {
+          "replay_exact": true,
+          "actual_commands_exact": true,
+          "fixed_roots_observed": true,
+          "exact_stop_clock": true,
+          "final_target_unapplied": true,
+          "nonterminal_stop": true,
+          "scenario_applied": true
+        }
+      },
+      "runtime": {
+        "sumo": [
+          22,
+          "SUMO 1.25.0"
+        ],
+        "h2o_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/H2Oplus",
+        "sumo_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/assets/SUMO_ruiguang"
+      },
+      "target_ledger": {
+        "time_seconds": 17910.0,
+        "waiting_passengers": 907,
+        "in_vehicle_passengers": 1398,
+        "accrued_wait_seconds": 6135260.0,
+        "accrued_in_vehicle_seconds": 14641881.0
+      },
+      "target_reference_ledger": {
+        "time_seconds": 17910.0,
+        "waiting_passengers": 907,
+        "in_vehicle_passengers": 1398,
+        "accrued_wait_seconds": 6135260.0,
+        "accrued_in_vehicle_seconds": 14641881.0
+      },
+      "target_command_applied": false,
+      "replay": {
+        "all_pass": true,
+        "status": "target_reached",
+        "target_sequence": 12455,
+        "target_clock": 17910.0,
+        "actions_read": 12456,
+        "actions_checked": 12456,
+        "ticks_integrated": 17910,
+        "last_reference_ledger": {
+          "time_seconds": 17910.0,
+          "waiting_passengers": 907,
+          "in_vehicle_passengers": 1398,
+          "accrued_wait_seconds": 6135260.0,
+          "accrued_in_vehicle_seconds": 14641881.0
+        },
+        "action_paths": [
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_service_replay_v120_20261029/runs/local_speed_drop/actions.jsonl"
+        ],
+        "tick_paths": [
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_service_replay_v120_20261029/runs/local_speed_drop/ticks.jsonl"
+        ],
+        "failure": null,
+        "action_comparison": "All recorded EventStream fields exact; observer visit_index excluded",
+        "ledger_semantics": "Integrate tick-start counts through end=issue clock; retain last tick counts"
+      },
+      "commands_checked": 12781,
+      "observed_roots": 285,
+      "scenario_metadata": {
+        "name": "local_speed_drop",
+        "installed_at_seconds": 503.0,
+        "scheduled_shock_at_seconds": 9000.0,
+        "actual_shock_at_seconds": 9000.0,
+        "speed_factor": 0.65,
+        "edge_id": "E_J282_J328.50",
+        "lane_ids": [
+          "E_J282_J328.50_0",
+          "E_J282_J328.50_1",
+          "E_J282_J328.50_2",
+          "E_J282_J328.50_3"
+        ],
+        "edge_length_meters": 723.3,
+        "directly_affected_lines": [
+          "7X",
+          "102X",
+          "705X"
+        ],
+        "upstream_stop": "7X13_102X26_705X27",
+        "downstream_stop": "7X14_102X27_705X28",
+        "lane_caps": [
+          {
+            "lane_id": "E_J282_J328.50_0",
+            "original_mps": 13.89,
+            "requested_mps": 9.028500000000001,
+            "observed_mps": 9.028500000000001
+          },
+          {
+            "lane_id": "E_J282_J328.50_1",
+            "original_mps": 13.89,
+            "requested_mps": 9.028500000000001,
+            "observed_mps": 9.028500000000001
+          },
+          {
+            "lane_id": "E_J282_J328.50_2",
+            "original_mps": 13.89,
+            "requested_mps": 9.028500000000001,
+            "observed_mps": 9.028500000000001
+          },
+          {
+            "lane_id": "E_J282_J328.50_3",
+            "original_mps": 13.89,
+            "requested_mps": 9.028500000000001,
+            "observed_mps": 9.028500000000001
+          }
+        ],
+        "metric_every_seconds": 300.0,
+        "mechanism": "native lane speed cap; no intervention indicator in policy input",
+        "time_semantics": "after the native tick at actual_shock_at_seconds; subsequent motion uses the new cap",
+        "cost_semantics": "2*accrued_wait_seconds + accrued_in_vehicle_seconds; includes unfinished passengers"
+      },
+      "observation": {
+        "collection_complete": true,
+        "field_coverage_complete": true,
+        "inputs_complete": true,
+        "labels_complete": true,
+        "prefix_has_both_classes": false,
+        "passivity_all_pass": true,
+        "total": {
+          "slots": 285,
+          "packets": 57,
+          "packet_size_histogram": {
+            "5": 57
+          },
+          "classes": {
+            "0": 280,
+            "1": 5,
+            "unknown": 0
+          },
+          "fields": {
+            "complete": 285,
+            "missing": 0,
+            "known": {
+              "onboard_count": 285,
+              "current_leg_dest_count": 285,
+              "estimated_service_ready_time": 285,
+              "estimated_service_ready_age_seconds": 285
+            },
+            "current_stage0_complete": 285,
+            "missing_fields": {},
+            "read_errors": {}
+          },
+          "inputs_complete": 285,
+          "n": {
+            "histogram": {
+              "0": 274,
+              "1": 8,
+              "2": 2,
+              "5": 1
+            },
+            "unknown": 0,
+            "unit": "selected root snapshots, not unique passengers"
+          },
+          "n_target_classes": {
+            "n=0": {
+              "0": 272,
+              "1": 2,
+              "unknown": 0
+            },
+            "n>0": {
+              "0": 8,
+              "1": 3,
+              "unknown": 0
+            },
+            "unknown": {
+              "0": 0,
+              "1": 0,
+              "unknown": 0
+            }
+          },
+          "departure_censored": 0,
+          "censored_binary_identifiable": 0,
+          "passivity_passed": 285,
+          "reference_field_checks": {
+            "original_onboard_count": {
+              "true": 285
+            },
+            "original_ready_estimate": {
+              "true": 285
+            }
+          }
+        },
+        "prefix": {
+          "slots": 135,
+          "packets": 27,
+          "packet_size_histogram": {
+            "5": 27
+          },
+          "classes": {
+            "0": 135,
+            "1": 0,
+            "unknown": 0
+          },
+          "fields": {
+            "complete": 135,
+            "missing": 0,
+            "known": {
+              "onboard_count": 135,
+              "current_leg_dest_count": 135,
+              "estimated_service_ready_time": 135,
+              "estimated_service_ready_age_seconds": 135
+            },
+            "current_stage0_complete": 135,
+            "missing_fields": {},
+            "read_errors": {}
+          },
+          "inputs_complete": 135,
+          "n": {
+            "histogram": {
+              "0": 135
+            },
+            "unknown": 0,
+            "unit": "selected root snapshots, not unique passengers"
+          },
+          "n_target_classes": {
+            "n=0": {
+              "0": 135,
+              "1": 0,
+              "unknown": 0
+            },
+            "n>0": {
+              "0": 0,
+              "1": 0,
+              "unknown": 0
+            },
+            "unknown": {
+              "0": 0,
+              "1": 0,
+              "unknown": 0
+            }
+          },
+          "departure_censored": 0,
+          "censored_binary_identifiable": 0,
+          "passivity_passed": 135,
+          "reference_field_checks": {
+            "original_onboard_count": {
+              "true": 135
+            },
+            "original_ready_estimate": {
+              "true": 135
+            }
+          }
+        },
+        "suffix": {
+          "slots": 150,
+          "packets": 30,
+          "packet_size_histogram": {
+            "5": 30
+          },
+          "classes": {
+            "0": 145,
+            "1": 5,
+            "unknown": 0
+          },
+          "fields": {
+            "complete": 150,
+            "missing": 0,
+            "known": {
+              "onboard_count": 150,
+              "current_leg_dest_count": 150,
+              "estimated_service_ready_time": 150,
+              "estimated_service_ready_age_seconds": 150
+            },
+            "current_stage0_complete": 150,
+            "missing_fields": {},
+            "read_errors": {}
+          },
+          "inputs_complete": 150,
+          "n": {
+            "histogram": {
+              "0": 139,
+              "1": 8,
+              "2": 2,
+              "5": 1
+            },
+            "unknown": 0,
+            "unit": "selected root snapshots, not unique passengers"
+          },
+          "n_target_classes": {
+            "n=0": {
+              "0": 137,
+              "1": 2,
+              "unknown": 0
+            },
+            "n>0": {
+              "0": 8,
+              "1": 3,
+              "unknown": 0
+            },
+            "unknown": {
+              "0": 0,
+              "1": 0,
+              "unknown": 0
+            }
+          },
+          "departure_censored": 0,
+          "censored_binary_identifiable": 0,
+          "passivity_passed": 150,
+          "reference_field_checks": {
+            "original_onboard_count": {
+              "true": 150
+            },
+            "original_ready_estimate": {
+              "true": 150
+            }
+          }
+        },
+        "derived_records": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_full_receiver_observation_v127_20261029/runs/local_speed_drop/derived_records.jsonl",
+        "split": "original packet_deadline <= 9000 versus > 9000",
+        "target_scope": "Original 60-second evidence only; original records are unchanged.",
+        "fits": 0,
+        "performance_evidence": false
+      },
+      "budget": {
+        "native_seconds": 17910.0,
+        "native_seconds_is_lower_bound": false,
+        "native_seconds_exact_stop": true,
+        "learner_created": false,
+        "optimizer_updates": 0,
+        "feedback_admitted": 0,
+        "new_predictor_fits": 0,
+        "checkpoint_loaded": false,
+        "world_refits": 0,
+        "new_policy_actions": 0,
+        "applied_commands": 12781,
+        "observed_roots": 285,
+        "released_transitions_discarded": 12433,
+        "physical_intervals_discarded": 12380,
+        "full_day_completed": false
+      },
+      "execution_wall": {
+        "native_started_wall": 1793264303.513735,
+        "native_finished_wall": 1793264749.2268355,
+        "elapsed_seconds": 448.06903455220163
+      }
+    }
+  },
+  "shared_prefix": {
+    "all_pass": true,
+    "slots": {
+      "stable": 135,
+      "local_speed_drop": 135
+    },
+    "shared_sequences": 135,
+    "exact_roots": 135,
+    "mismatched_roots": 0,
+    "mismatches": [],
+    "missing_stable": {
+      "count": 0,
+      "examples": []
+    },
+    "missing_shock": {
+      "count": 0,
+      "examples": []
+    },
+    "compared": [
+      "meta_except_source_group",
+      "selection",
+      "action",
+      "labels",
+      "entire_observation_except_meta_source_group",
+      "inputs",
+      "target"
+    ]
+  },
+  "budget": {
+    "native_seconds": 35820.0,
+    "native_seconds_is_lower_bound": false,
+    "optimizer_updates": 0,
+    "new_predictor_fits": 0,
+    "new_policy_actions": 0,
+    "feedback_admitted": 0
+  },
+  "automatic_followup": false,
+  "performance_evidence": false,
+  "learning_admission": {
+    "status": "HOLD",
+    "reasons": [
+      "prefix_has_both_classes"
+    ],
+    "fitting_launched": false
+  },
+  "execution": {
+    "actual_overlap_seconds": 390.39624404907227,
+    "total_native_wall_span_seconds": 445.7131004333496
+  }
+}

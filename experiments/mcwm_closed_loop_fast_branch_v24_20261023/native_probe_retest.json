@@ -1,0 +1,48 @@
+{
+  "status": "complete",
+  "all_pass": true,
+  "checks": {
+    "both_child_initial_states_equal_parent": true,
+    "parent_native_and_rng_unchanged_while_children_run": true,
+    "both_children_same_first_suffix": true,
+    "low_matches_parent_continuation": true,
+    "high_matches_parent_continuation": true,
+    "child_clocks_advance_independently": true,
+    "native_rng_advanced": true,
+    "cpu_actor_after_fork_exact": true,
+    "parent_cpu_actor_unchanged": true,
+    "native_execution_overlaps": true
+  },
+  "scope": "native_fork_only_not_full_bus_replay",
+  "native_version": [
+    22,
+    "SUMO 1.25.0"
+  ],
+  "torch_version": "2.5.1+cu121",
+  "cpu_threads": 1,
+  "seed": 96201,
+  "prefix_ticks": 100,
+  "suffix_ticks": 20,
+  "parent_before_seconds": 100.0,
+  "parent_after_children_seconds": 100.0,
+  "child_final_seconds": [
+    120.0,
+    140.0
+  ],
+  "vehicle_counts": [
+    182,
+    129
+  ],
+  "prefix_wall_seconds": 2.2705961987376213,
+  "child_wait_wall_seconds": 0.35167733766138554,
+  "child_overlap_seconds": 0.14379596710205078,
+  "child_exitcodes": {
+    "445321": 0,
+    "445322": 0
+  },
+  "rng_blocks_compared": 65,
+  "limitations": [
+    "Current platform/build feasibility only; full Python bus state and model replay remain untested.",
+    "Official support is not asserted for forking a running libsumo instance."
+  ]
+}

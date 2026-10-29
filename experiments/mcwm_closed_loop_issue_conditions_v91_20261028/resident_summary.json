@@ -1,0 +1,2382 @@
+{
+  "scope": "Existing factual traces and before_suffixes roots only; no labels read",
+  "scenarios": [
+    {
+      "scenario": "stable",
+      "sources": {
+        "parent": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_stratified_collection_v90_20261028/runs/stable/prefix_trace.jsonl",
+        "reference_branch": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_stratified_collection_v90_20261028/runs/stable/pairs/heavier/102X/low/trace.jsonl"
+      },
+      "replay": {
+        "all_actions_exact": true,
+        "reference_overlap_exact": true,
+        "prefix_rows": 8559,
+        "overlap_rows": 446,
+        "full_rows": 13679,
+        "all_event_clocks_visible": true,
+        "condition_historical_only": true
+      },
+      "counts": {
+        "12000-12600/7X": {
+          "issues": 39,
+          "supported": 35,
+          "supported_heavier": 16,
+          "supported_lighter": 19,
+          "unsupported": 4,
+          "unsupported_lighter": 4,
+          "reason/nonpositive_holding_difference": 4,
+          "completion_floor": 3,
+          "without_completion_floor": 1
+        },
+        "12000-12600/102X": {
+          "issues": 51,
+          "supported": 37,
+          "supported_heavier": 2,
+          "supported_lighter": 35,
+          "unsupported": 14,
+          "unsupported_heavier": 1,
+          "reason/nonpositive_holding_difference": 14,
+          "without_completion_floor": 9,
+          "unsupported_lighter": 13,
+          "completion_floor": 5
+        },
+        "12000-12600/705X": {
+          "issues": 36,
+          "unsupported": 13,
+          "unsupported_heavier": 9,
+          "reason/nonpositive_holding_difference": 13,
+          "without_completion_floor": 10,
+          "supported": 23,
+          "supported_heavier": 21,
+          "supported_lighter": 2,
+          "unsupported_lighter": 4,
+          "completion_floor": 3
+        },
+        "12600-15000/7X": {
+          "issues": 160,
+          "supported": 129,
+          "supported_lighter": 65,
+          "unsupported": 31,
+          "unsupported_lighter": 19,
+          "reason/nonpositive_holding_difference": 31,
+          "completion_floor": 14,
+          "unsupported_heavier": 12,
+          "without_completion_floor": 17,
+          "supported_heavier": 64
+        },
+        "12600-15000/102X": {
+          "issues": 189,
+          "supported": 153,
+          "supported_heavier": 30,
+          "supported_lighter": 123,
+          "unsupported": 36,
+          "unsupported_lighter": 33,
+          "reason/nonpositive_holding_difference": 36,
+          "completion_floor": 21,
+          "without_completion_floor": 15,
+          "unsupported_heavier": 3
+        },
+        "12600-15000/705X": {
+          "issues": 165,
+          "unsupported": 39,
+          "unsupported_lighter": 18,
+          "reason/nonpositive_holding_difference": 38,
+          "completion_floor": 11,
+          "supported": 126,
+          "supported_heavier": 97,
+          "unsupported_heavier": 21,
+          "without_completion_floor": 28,
+          "supported_lighter": 29,
+          "reason/reference_holding_outside_3_to_3_75": 1
+        },
+        "15000-18000/7X": {
+          "issues": 199,
+          "supported": 168,
+          "supported_lighter": 95,
+          "unsupported": 31,
+          "unsupported_lighter": 26,
+          "reason/nonpositive_holding_difference": 31,
+          "completion_floor": 20,
+          "supported_heavier": 73,
+          "without_completion_floor": 11,
+          "unsupported_heavier": 5
+        },
+        "15000-18000/102X": {
+          "issues": 189,
+          "supported": 155,
+          "supported_lighter": 113,
+          "unsupported": 34,
+          "unsupported_lighter": 28,
+          "reason/nonpositive_holding_difference": 33,
+          "completion_floor": 19,
+          "supported_heavier": 42,
+          "without_completion_floor": 15,
+          "unsupported_heavier": 6,
+          "reason/reference_holding_outside_3_to_3_75": 1
+        },
+        "15000-18000/705X": {
+          "issues": 197,
+          "supported": 170,
+          "supported_heavier": 135,
+          "unsupported": 27,
+          "unsupported_lighter": 20,
+          "reason/nonpositive_holding_difference": 27,
+          "without_completion_floor": 14,
+          "supported_lighter": 35,
+          "completion_floor": 13,
+          "unsupported_heavier": 7
+        }
+      },
+      "root_conditions": [
+        {
+          "line_id": "7X",
+          "stratum": "heavier",
+          "root": {
+            "sequence": 8110,
+            "started_at": 12001.0,
+            "trip_id": "7X_31",
+            "station_id": "7X10_102X23_705X24"
+          },
+          "local_service_features": [
+            0.2,
+            -0.8
+          ],
+          "event": {
+            "line_id": 11.0,
+            "station_index": 9.0,
+            "sim_time_seconds": 12000.0,
+            "forward_headway_seconds": 354.5,
+            "backward_headway_seconds": 189.61099243164062,
+            "target_forward_headway_seconds": 360.0,
+            "target_backward_headway_seconds": 360.0,
+            "eligible_stranded_passengers": 0.0,
+            "onboard_passengers": 10.0,
+            "eligible_arrival_rate_per_second": 0.0024691359139978886,
+            "base_dwell_seconds": 4.0,
+            "forward_bus_present": 1.0,
+            "backward_bus_present": 1.0,
+            "bus_capacity": 50.0,
+            "system_waiting_passengers": 397.0,
+            "system_in_vehicle_passengers": 1339.0,
+            "event_load_proxy": 0.2,
+            "issue_clock": 12001.0,
+            "event_age_seconds": 1.0
+          },
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.05221744179725647,
+            "historical_only": true,
+            "issue_clock": 12001.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 6
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.31773471832275,
+              "102X": 72.83684408664703,
+              "705X": 75.39873117208481
+            },
+            "latest_completed_at": 11916.0,
+            "latest_observed_at": 11916.0,
+            "latest_age_seconds": 85.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "7X",
+                "trip_id": "7X_30",
+                "completed_at": 11916.0,
+                "observed_at": 11916.0,
+                "nonholding_ready_seconds": 76.45078122615814,
+                "baseline_nonholding_seconds": 73.31773471832275,
+                "normalized_slowdown": 0.05221744179725647
+              }
+            ]
+          },
+          "reference_actor_source": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs/stable/reference_actor.pt"
+        },
+        {
+          "line_id": "102X",
+          "stratum": "heavier",
+          "root": {
+            "sequence": 8113,
+            "started_at": 12003.0,
+            "trip_id": "102X_16",
+            "station_id": "7X14_102X27_705X28"
+          },
+          "local_service_features": [
+            0.56,
+            -0.5
+          ],
+          "event": {
+            "line_id": 1.0,
+            "station_index": 26.0,
+            "sim_time_seconds": 12002.0,
+            "forward_headway_seconds": 721.0,
+            "backward_headway_seconds": 324.6893310546875,
+            "target_forward_headway_seconds": 540.0,
+            "target_backward_headway_seconds": 480.0,
+            "eligible_stranded_passengers": 0.0,
+            "onboard_passengers": 28.0,
+            "eligible_arrival_rate_per_second": 0.001335978857241571,
+            "base_dwell_seconds": 4.0,
+            "forward_bus_present": 1.0,
+            "backward_bus_present": 1.0,
+            "bus_capacity": 50.0,
+            "system_waiting_passengers": 397.0,
+            "system_in_vehicle_passengers": 1338.0,
+            "event_load_proxy": 0.56,
+            "issue_clock": 12003.0,
+            "event_age_seconds": 1.0
+          },
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.05221744179725647,
+            "historical_only": true,
+            "issue_clock": 12003.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 6
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.31773471832275,
+              "102X": 72.83684408664703,
+              "705X": 75.39873117208481
+            },
+            "latest_completed_at": 11916.0,
+            "latest_observed_at": 11916.0,
+            "latest_age_seconds": 87.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "7X",
+                "trip_id": "7X_30",
+                "completed_at": 11916.0,
+                "observed_at": 11916.0,
+                "nonholding_ready_seconds": 76.45078122615814,
+                "baseline_nonholding_seconds": 73.31773471832275,
+                "normalized_slowdown": 0.05221744179725647
+              }
+            ]
+          },
+          "reference_actor_source": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs/stable/reference_actor.pt"
+        },
+        {
+          "line_id": "7X",
+          "stratum": "lighter",
+          "root": {
+            "sequence": 8120,
+            "started_at": 12007.0,
+            "trip_id": "7X_32",
+            "station_id": "7X05_102X18"
+          },
+          "local_service_features": [
+            0.1,
+            -0.94
+          ],
+          "event": {
+            "line_id": 11.0,
+            "station_index": 4.0,
+            "sim_time_seconds": 12006.0,
+            "forward_headway_seconds": 360.0,
+            "backward_headway_seconds": 182.93777465820312,
+            "target_forward_headway_seconds": 360.0,
+            "target_backward_headway_seconds": 360.0,
+            "eligible_stranded_passengers": 0.0,
+            "onboard_passengers": 5.0,
+            "eligible_arrival_rate_per_second": 0.0026984126307070255,
+            "base_dwell_seconds": 7.0,
+            "forward_bus_present": 1.0,
+            "backward_bus_present": 1.0,
+            "bus_capacity": 50.0,
+            "system_waiting_passengers": 399.0,
+            "system_in_vehicle_passengers": 1332.0,
+            "event_load_proxy": 0.1,
+            "issue_clock": 12007.0,
+            "event_age_seconds": 1.0
+          },
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.007957623402277628,
+            "historical_only": true,
+            "issue_clock": 12007.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 6
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.31773471832275,
+              "102X": 72.83684408664703,
+              "705X": 75.39873117208481
+            },
+            "latest_completed_at": 12003.0,
+            "latest_observed_at": 12003.0,
+            "latest_age_seconds": 4.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "102X",
+                "trip_id": "102X_16",
+                "completed_at": 12003.0,
+                "observed_at": 12003.0,
+                "nonholding_ready_seconds": 73.31430149078369,
+                "baseline_nonholding_seconds": 72.83684408664703,
+                "normalized_slowdown": 0.007957623402277628
+              }
+            ]
+          },
+          "reference_actor_source": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs/stable/reference_actor.pt"
+        },
+        {
+          "line_id": "102X",
+          "stratum": "lighter",
+          "root": {
+            "sequence": 8124,
+            "started_at": 12013.0,
+            "trip_id": "102X_18",
+            "station_id": "102X15"
+          },
+          "local_service_features": [
+            0.34,
+            -0.64
+          ],
+          "event": {
+            "line_id": 1.0,
+            "station_index": 14.0,
+            "sim_time_seconds": 12012.0,
+            "forward_headway_seconds": 366.5,
+            "backward_headway_seconds": 191.654541015625,
+            "target_forward_headway_seconds": 540.0,
+            "target_backward_headway_seconds": 420.0,
+            "eligible_stranded_passengers": 0.0,
+            "onboard_passengers": 17.0,
+            "eligible_arrival_rate_per_second": 0.004444444552063942,
+            "base_dwell_seconds": 4.0,
+            "forward_bus_present": 1.0,
+            "backward_bus_present": 1.0,
+            "bus_capacity": 50.0,
+            "system_waiting_passengers": 402.0,
+            "system_in_vehicle_passengers": 1338.0,
+            "event_load_proxy": 0.34,
+            "issue_clock": 12013.0,
+            "event_age_seconds": 1.0
+          },
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.007957623402277628,
+            "historical_only": true,
+            "issue_clock": 12013.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 6
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.31773471832275,
+              "102X": 72.83684408664703,
+              "705X": 75.39873117208481
+            },
+            "latest_completed_at": 12003.0,
+            "latest_observed_at": 12003.0,
+            "latest_age_seconds": 10.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "102X",
+                "trip_id": "102X_16",
+                "completed_at": 12003.0,
+                "observed_at": 12003.0,
+                "nonholding_ready_seconds": 73.31430149078369,
+                "baseline_nonholding_seconds": 72.83684408664703,
+                "normalized_slowdown": 0.007957623402277628
+              }
+            ]
+          },
+          "reference_actor_source": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs/stable/reference_actor.pt"
+        },
+        {
+          "line_id": "705X",
+          "stratum": "heavier",
+          "root": {
+            "sequence": 8130,
+            "started_at": 12017.0,
+            "trip_id": "705X_11",
+            "station_id": "705X15"
+          },
+          "local_service_features": [
+            0.86,
+            0.12
+          ],
+          "event": {
+            "line_id": 9.0,
+            "station_index": 14.0,
+            "sim_time_seconds": 12016.0,
+            "forward_headway_seconds": 697.5,
+            "backward_headway_seconds": 280.7008972167969,
+            "target_forward_headway_seconds": 540.0,
+            "target_backward_headway_seconds": 780.0,
+            "eligible_stranded_passengers": 0.0,
+            "onboard_passengers": 43.0,
+            "eligible_arrival_rate_per_second": 0.003888888983055949,
+            "base_dwell_seconds": 9.0,
+            "forward_bus_present": 1.0,
+            "backward_bus_present": 1.0,
+            "bus_capacity": 50.0,
+            "system_waiting_passengers": 401.0,
+            "system_in_vehicle_passengers": 1338.0,
+            "event_load_proxy": 0.86,
+            "issue_clock": 12017.0,
+            "event_age_seconds": 1.0
+          },
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.007957623402277628,
+            "historical_only": true,
+            "issue_clock": 12017.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 6
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.31773471832275,
+              "102X": 72.83684408664703,
+              "705X": 75.39873117208481
+            },
+            "latest_completed_at": 12003.0,
+            "latest_observed_at": 12003.0,
+            "latest_age_seconds": 14.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "102X",
+                "trip_id": "102X_16",
+                "completed_at": 12003.0,
+                "observed_at": 12003.0,
+                "nonholding_ready_seconds": 73.31430149078369,
+                "baseline_nonholding_seconds": 72.83684408664703,
+                "normalized_slowdown": 0.007957623402277628
+              }
+            ]
+          },
+          "reference_actor_source": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs/stable/reference_actor.pt"
+        },
+        {
+          "line_id": "705X",
+          "stratum": "lighter",
+          "root": {
+            "sequence": 8164,
+            "started_at": 12062.0,
+            "trip_id": "705X_8",
+            "station_id": "705X46"
+          },
+          "local_service_features": [
+            0.2,
+            -0.96
+          ],
+          "event": {
+            "line_id": 9.0,
+            "station_index": 45.0,
+            "sim_time_seconds": 12061.0,
+            "forward_headway_seconds": 622.0,
+            "backward_headway_seconds": 449.8286437988281,
+            "target_forward_headway_seconds": 660.0,
+            "target_backward_headway_seconds": 720.0,
+            "eligible_stranded_passengers": 0.0,
+            "onboard_passengers": 10.0,
+            "eligible_arrival_rate_per_second": 0.0,
+            "base_dwell_seconds": 7.0,
+            "forward_bus_present": 1.0,
+            "backward_bus_present": 1.0,
+            "bus_capacity": 50.0,
+            "system_waiting_passengers": 390.0,
+            "system_in_vehicle_passengers": 1348.0,
+            "event_load_proxy": 0.2,
+            "issue_clock": 12062.0,
+            "event_age_seconds": 1.0
+          },
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.007957623402277628,
+            "historical_only": true,
+            "issue_clock": 12062.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 6
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.31773471832275,
+              "102X": 72.83684408664703,
+              "705X": 75.39873117208481
+            },
+            "latest_completed_at": 12003.0,
+            "latest_observed_at": 12003.0,
+            "latest_age_seconds": 59.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "102X",
+                "trip_id": "102X_16",
+                "completed_at": 12003.0,
+                "observed_at": 12003.0,
+                "nonholding_ready_seconds": 73.31430149078369,
+                "baseline_nonholding_seconds": 72.83684408664703,
+                "normalized_slowdown": 0.007957623402277628
+              }
+            ]
+          },
+          "reference_actor_source": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs/stable/reference_actor.pt"
+        }
+      ],
+      "examples_705x": [
+        {
+          "tag": [
+            12000,
+            12600,
+            false,
+            "heavier"
+          ],
+          "sequence": 8117,
+          "issue_clock": 12005.0,
+          "station_id": "102X22_705X23",
+          "trip_id": "705X_10",
+          "event_load_proxy": 0.94,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": false,
+            "reason": "nonpositive_holding_difference",
+            "reference_hold": 29.8956298828125,
+            "candidate_hold": 0.0,
+            "endpoint_holds": [
+              0.0,
+              34.07305145263672
+            ],
+            "reserve_seconds": 34.07304382324219,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            12000,
+            12600,
+            true,
+            "heavier"
+          ],
+          "sequence": 8130,
+          "issue_clock": 12017.0,
+          "station_id": "705X15",
+          "trip_id": "705X_11",
+          "event_load_proxy": 0.86,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.4991204738616943,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            12000,
+            12600,
+            true,
+            "lighter"
+          ],
+          "sequence": 8164,
+          "issue_clock": 12062.0,
+          "station_id": "705X46",
+          "trip_id": "705X_8",
+          "event_load_proxy": 0.2,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.404354453086853,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            12000,
+            12600,
+            false,
+            "lighter"
+          ],
+          "sequence": 8213,
+          "issue_clock": 12139.0,
+          "station_id": "705X06",
+          "trip_id": "705X_12",
+          "event_load_proxy": 0.44,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": false,
+            "reason": "nonpositive_holding_difference",
+            "reference_hold": 23.49089205265045,
+            "candidate_hold": 0.0,
+            "endpoint_holds": [
+              0.0,
+              31.249996185302734
+            ],
+            "reserve_seconds": 31.249996185302734,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            12600,
+            15000,
+            false,
+            "lighter"
+          ],
+          "sequence": 8561,
+          "issue_clock": 12607.0,
+          "station_id": "705X04",
+          "trip_id": "705X_13",
+          "event_load_proxy": 0.16,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": false,
+            "reason": "nonpositive_holding_difference",
+            "reference_hold": 60.0,
+            "candidate_hold": 60.0,
+            "endpoint_holds": [
+              60.0,
+              60.0
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": true
+          }
+        },
+        {
+          "tag": [
+            12600,
+            15000,
+            true,
+            "heavier"
+          ],
+          "sequence": 8571,
+          "issue_clock": 12616.0,
+          "station_id": "705X40",
+          "trip_id": "705X_9",
+          "event_load_proxy": 0.66,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.232179880142212,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            12600,
+            15000,
+            false,
+            "heavier"
+          ],
+          "sequence": 8597,
+          "issue_clock": 12639.0,
+          "station_id": "7X17_102X30_705X31",
+          "trip_id": "705X_10",
+          "event_load_proxy": 1.0,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": false,
+            "reason": "nonpositive_holding_difference",
+            "reference_hold": 19.295250177383423,
+            "candidate_hold": 0.0,
+            "endpoint_holds": [
+              0.0,
+              19.295249938964844
+            ],
+            "reserve_seconds": 19.29525375366211,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            12600,
+            15000,
+            true,
+            "lighter"
+          ],
+          "sequence": 8682,
+          "issue_clock": 12750.0,
+          "station_id": "705X42",
+          "trip_id": "705X_9",
+          "event_load_proxy": 0.46,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.297039270401001,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            15000,
+            18000,
+            true,
+            "heavier"
+          ],
+          "sequence": 10410,
+          "issue_clock": 15016.0,
+          "station_id": "705X18",
+          "trip_id": "705X_15",
+          "event_load_proxy": 0.8,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.3649849891662598,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            15000,
+            18000,
+            false,
+            "lighter"
+          ],
+          "sequence": 10411,
+          "issue_clock": 15017.0,
+          "station_id": "705X06",
+          "trip_id": "705X_16",
+          "event_load_proxy": 0.44,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": false,
+            "reason": "nonpositive_holding_difference",
+            "reference_hold": 14.999992847442627,
+            "candidate_hold": 0.0,
+            "endpoint_holds": [
+              0.0,
+              14.999992370605469
+            ],
+            "reserve_seconds": 14.999992370605469,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            15000,
+            18000,
+            true,
+            "lighter"
+          ],
+          "sequence": 10421,
+          "issue_clock": 15030.0,
+          "station_id": "705X46",
+          "trip_id": "705X_12",
+          "event_load_proxy": 0.2,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.4864801168441772,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            15000,
+            18000,
+            false,
+            "heavier"
+          ],
+          "sequence": 10621,
+          "issue_clock": 15292.0,
+          "station_id": "705X10",
+          "trip_id": "705X_16",
+          "event_load_proxy": 0.8,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": false,
+            "reason": "nonpositive_holding_difference",
+            "reference_hold": 4.00858461856842,
+            "candidate_hold": 0.0,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          }
+        }
+      ],
+      "future_slots": {
+        "7X/heavier": {
+          "root": {
+            "sequence": 8110,
+            "started_at": 12001.0,
+            "trip_id": "7X_31",
+            "station_id": "7X10_102X23_705X24"
+          },
+          "event_load_proxy": 0.2,
+          "event_age": 1.0,
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.05221744179725647,
+            "historical_only": true,
+            "issue_clock": 12001.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 6
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.31773471832275,
+              "102X": 72.83684408664703,
+              "705X": 75.39873117208481
+            },
+            "latest_completed_at": 11916.0,
+            "latest_observed_at": 11916.0,
+            "latest_age_seconds": 85.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "7X",
+                "trip_id": "7X_30",
+                "completed_at": 11916.0,
+                "observed_at": 11916.0,
+                "nonholding_ready_seconds": 76.45078122615814,
+                "baseline_nonholding_seconds": 73.31773471832275,
+                "normalized_slowdown": 0.05221744179725647
+              }
+            ]
+          },
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.547314405441284,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          },
+          "old_v90_same_root": "heavier"
+        },
+        "102X/heavier": {
+          "root": {
+            "sequence": 8113,
+            "started_at": 12003.0,
+            "trip_id": "102X_16",
+            "station_id": "7X14_102X27_705X28"
+          },
+          "event_load_proxy": 0.56,
+          "event_age": 1.0,
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.05221744179725647,
+            "historical_only": true,
+            "issue_clock": 12003.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 6
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.31773471832275,
+              "102X": 72.83684408664703,
+              "705X": 75.39873117208481
+            },
+            "latest_completed_at": 11916.0,
+            "latest_observed_at": 11916.0,
+            "latest_age_seconds": 87.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "7X",
+                "trip_id": "7X_30",
+                "completed_at": 11916.0,
+                "observed_at": 11916.0,
+                "nonholding_ready_seconds": 76.45078122615814,
+                "baseline_nonholding_seconds": 73.31773471832275,
+                "normalized_slowdown": 0.05221744179725647
+              }
+            ]
+          },
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.553647994995117,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          },
+          "old_v90_same_root": "heavier"
+        },
+        "7X/lighter": {
+          "root": {
+            "sequence": 8120,
+            "started_at": 12007.0,
+            "trip_id": "7X_32",
+            "station_id": "7X05_102X18"
+          },
+          "event_load_proxy": 0.1,
+          "event_age": 1.0,
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.007957623402277628,
+            "historical_only": true,
+            "issue_clock": 12007.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 6
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.31773471832275,
+              "102X": 72.83684408664703,
+              "705X": 75.39873117208481
+            },
+            "latest_completed_at": 12003.0,
+            "latest_observed_at": 12003.0,
+            "latest_age_seconds": 4.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "102X",
+                "trip_id": "102X_16",
+                "completed_at": 12003.0,
+                "observed_at": 12003.0,
+                "nonholding_ready_seconds": 73.31430149078369,
+                "baseline_nonholding_seconds": 72.83684408664703,
+                "normalized_slowdown": 0.007957623402277628
+              }
+            ]
+          },
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.5085493326187134,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          },
+          "old_v90_same_root": "lighter"
+        },
+        "102X/lighter": {
+          "root": {
+            "sequence": 8124,
+            "started_at": 12013.0,
+            "trip_id": "102X_18",
+            "station_id": "102X15"
+          },
+          "event_load_proxy": 0.34,
+          "event_age": 1.0,
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.007957623402277628,
+            "historical_only": true,
+            "issue_clock": 12013.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 6
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.31773471832275,
+              "102X": 72.83684408664703,
+              "705X": 75.39873117208481
+            },
+            "latest_completed_at": 12003.0,
+            "latest_observed_at": 12003.0,
+            "latest_age_seconds": 10.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "102X",
+                "trip_id": "102X_16",
+                "completed_at": 12003.0,
+                "observed_at": 12003.0,
+                "nonholding_ready_seconds": 73.31430149078369,
+                "baseline_nonholding_seconds": 72.83684408664703,
+                "normalized_slowdown": 0.007957623402277628
+              }
+            ]
+          },
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.2984179258346558,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          },
+          "old_v90_same_root": "lighter"
+        },
+        "705X/heavier": {
+          "root": {
+            "sequence": 8130,
+            "started_at": 12017.0,
+            "trip_id": "705X_11",
+            "station_id": "705X15"
+          },
+          "event_load_proxy": 0.86,
+          "event_age": 1.0,
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.007957623402277628,
+            "historical_only": true,
+            "issue_clock": 12017.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 6
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.31773471832275,
+              "102X": 72.83684408664703,
+              "705X": 75.39873117208481
+            },
+            "latest_completed_at": 12003.0,
+            "latest_observed_at": 12003.0,
+            "latest_age_seconds": 14.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "102X",
+                "trip_id": "102X_16",
+                "completed_at": 12003.0,
+                "observed_at": 12003.0,
+                "nonholding_ready_seconds": 73.31430149078369,
+                "baseline_nonholding_seconds": 72.83684408664703,
+                "normalized_slowdown": 0.007957623402277628
+              }
+            ]
+          },
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.4991204738616943,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          },
+          "old_v90_same_root": "heavier"
+        },
+        "705X/lighter": {
+          "root": {
+            "sequence": 8164,
+            "started_at": 12062.0,
+            "trip_id": "705X_8",
+            "station_id": "705X46"
+          },
+          "event_load_proxy": 0.2,
+          "event_age": 1.0,
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.007957623402277628,
+            "historical_only": true,
+            "issue_clock": 12062.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 6
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.31773471832275,
+              "102X": 72.83684408664703,
+              "705X": 75.39873117208481
+            },
+            "latest_completed_at": 12003.0,
+            "latest_observed_at": 12003.0,
+            "latest_age_seconds": 59.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "102X",
+                "trip_id": "102X_16",
+                "completed_at": 12003.0,
+                "observed_at": 12003.0,
+                "nonholding_ready_seconds": 73.31430149078369,
+                "baseline_nonholding_seconds": 72.83684408664703,
+                "normalized_slowdown": 0.007957623402277628
+              }
+            ]
+          },
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.404354453086853,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          },
+          "old_v90_same_root": "lighter"
+        }
+      },
+      "event_age_range": [
+        1.0,
+        1.0
+      ],
+      "history_summary": {
+        "corridor": {
+          "upstream": "7X13_102X26_705X27",
+          "downstream": "7X14_102X27_705X28"
+        },
+        "counts": {
+          "observed_issues": 13679,
+          "corridor_intervals": 102
+        },
+        "intervals_by_line": {
+          "7X": 50,
+          "102X": 31,
+          "705X": 21
+        },
+        "baseline_intervals_by_line": {
+          "7X": 21,
+          "102X": 10,
+          "705X": 6
+        },
+        "minimum_baseline_intervals": 3,
+        "maximum_latest_age_seconds": 900.0,
+        "normalization_seconds": 60.0,
+        "semantics": "Decision-ready issue interval minus the already-executed origin holding command; includes next-stop service and native/issue discretization, not pure departure-to-arrival runtime"
+      },
+      "available_native_issue_counts": "Selected roots only; remaining per-issue native contexts were not logged",
+      "native_at_stop_and_action_step": "Not recoverable for unselected issues; math support is not a new physical preflight"
+    },
+    {
+      "scenario": "local_speed_drop",
+      "sources": {
+        "parent": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_stratified_collection_v90_20261028/runs/local_speed_drop/prefix_trace.jsonl",
+        "reference_branch": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_stratified_collection_v90_20261028/runs/local_speed_drop/pairs/lighter/102X/low/trace.jsonl"
+      },
+      "replay": {
+        "all_actions_exact": true,
+        "reference_overlap_exact": true,
+        "prefix_rows": 8571,
+        "overlap_rows": 455,
+        "full_rows": 13676,
+        "all_event_clocks_visible": true,
+        "condition_historical_only": true
+      },
+      "counts": {
+        "12000-12600/7X": {
+          "issues": 40,
+          "supported": 36,
+          "supported_heavier": 16,
+          "supported_lighter": 20,
+          "unsupported": 4,
+          "unsupported_lighter": 4,
+          "reason/nonpositive_holding_difference": 4,
+          "without_completion_floor": 1,
+          "completion_floor": 3
+        },
+        "12000-12600/102X": {
+          "issues": 50,
+          "supported": 41,
+          "supported_lighter": 40,
+          "supported_heavier": 1,
+          "unsupported": 9,
+          "unsupported_lighter": 9,
+          "reason/nonpositive_holding_difference": 9,
+          "completion_floor": 5,
+          "without_completion_floor": 4
+        },
+        "12000-12600/705X": {
+          "issues": 36,
+          "unsupported": 16,
+          "unsupported_heavier": 10,
+          "reason/nonpositive_holding_difference": 16,
+          "without_completion_floor": 13,
+          "supported": 20,
+          "supported_heavier": 20,
+          "unsupported_lighter": 6,
+          "completion_floor": 3
+        },
+        "12600-15000/7X": {
+          "issues": 158,
+          "supported": 135,
+          "supported_heavier": 71,
+          "supported_lighter": 64,
+          "unsupported": 23,
+          "unsupported_lighter": 19,
+          "reason/nonpositive_holding_difference": 23,
+          "completion_floor": 14,
+          "without_completion_floor": 9,
+          "unsupported_heavier": 4
+        },
+        "12600-15000/102X": {
+          "issues": 185,
+          "supported": 157,
+          "supported_lighter": 125,
+          "supported_heavier": 32,
+          "unsupported": 28,
+          "unsupported_lighter": 26,
+          "reason/nonpositive_holding_difference": 27,
+          "completion_floor": 20,
+          "without_completion_floor": 8,
+          "unsupported_heavier": 2,
+          "reason/reference_holding_outside_3_to_3_75": 1
+        },
+        "12600-15000/705X": {
+          "issues": 166,
+          "unsupported": 32,
+          "unsupported_lighter": 17,
+          "reason/nonpositive_holding_difference": 31,
+          "completion_floor": 11,
+          "supported": 134,
+          "supported_heavier": 107,
+          "unsupported_heavier": 15,
+          "without_completion_floor": 21,
+          "supported_lighter": 27,
+          "reason/reference_holding_outside_3_to_3_75": 1
+        },
+        "15000-18000/7X": {
+          "issues": 198,
+          "supported": 161,
+          "supported_lighter": 99,
+          "supported_heavier": 62,
+          "unsupported": 37,
+          "unsupported_lighter": 26,
+          "reason/nonpositive_holding_difference": 36,
+          "completion_floor": 20,
+          "unsupported_heavier": 11,
+          "without_completion_floor": 17,
+          "reason/reference_holding_outside_3_to_3_75": 1
+        },
+        "15000-18000/102X": {
+          "issues": 191,
+          "supported": 151,
+          "supported_lighter": 111,
+          "unsupported": 40,
+          "unsupported_lighter": 32,
+          "reason/nonpositive_holding_difference": 39,
+          "completion_floor": 18,
+          "supported_heavier": 40,
+          "without_completion_floor": 22,
+          "reason/reference_holding_outside_3_to_3_75": 1,
+          "unsupported_heavier": 8
+        },
+        "15000-18000/705X": {
+          "issues": 200,
+          "supported": 177,
+          "supported_heavier": 138,
+          "unsupported": 23,
+          "unsupported_lighter": 19,
+          "reason/nonpositive_holding_difference": 23,
+          "without_completion_floor": 10,
+          "supported_lighter": 39,
+          "unsupported_heavier": 4,
+          "completion_floor": 13
+        }
+      },
+      "root_conditions": [
+        {
+          "line_id": "102X",
+          "stratum": "lighter",
+          "root": {
+            "sequence": 8116,
+            "started_at": 12002.0,
+            "trip_id": "102X_18",
+            "station_id": "102X15"
+          },
+          "local_service_features": [
+            0.34,
+            -0.62
+          ],
+          "event": {
+            "line_id": 1.0,
+            "station_index": 14.0,
+            "sim_time_seconds": 12001.0,
+            "forward_headway_seconds": 416.5,
+            "backward_headway_seconds": 202.0359344482422,
+            "target_forward_headway_seconds": 540.0,
+            "target_backward_headway_seconds": 420.0,
+            "eligible_stranded_passengers": 0.0,
+            "onboard_passengers": 17.0,
+            "eligible_arrival_rate_per_second": 0.004444444552063942,
+            "base_dwell_seconds": 4.0,
+            "forward_bus_present": 1.0,
+            "backward_bus_present": 1.0,
+            "bus_capacity": 50.0,
+            "system_waiting_passengers": 426.0,
+            "system_in_vehicle_passengers": 1302.0,
+            "event_load_proxy": 0.34,
+            "issue_clock": 12002.0,
+            "event_age_seconds": 1.0
+          },
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.4666777531305949,
+            "historical_only": true,
+            "issue_clock": 12002.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 5
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.42660021781921,
+              "102X": 73.0742763876915,
+              "705X": 75.66579961776733
+            },
+            "latest_completed_at": 11941.0,
+            "latest_observed_at": 11941.0,
+            "latest_age_seconds": 61.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "7X",
+                "trip_id": "7X_30",
+                "completed_at": 11941.0,
+                "observed_at": 11941.0,
+                "nonholding_ready_seconds": 101.42726540565491,
+                "baseline_nonholding_seconds": 73.42660021781921,
+                "normalized_slowdown": 0.4666777531305949
+              }
+            ]
+          },
+          "reference_actor_source": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs/local_speed_drop/reference_actor.pt"
+        },
+        {
+          "line_id": "7X",
+          "stratum": "heavier",
+          "root": {
+            "sequence": 8120,
+            "started_at": 12004.0,
+            "trip_id": "7X_29",
+            "station_id": "7X21_102X34"
+          },
+          "local_service_features": [
+            0.16,
+            -0.88
+          ],
+          "event": {
+            "line_id": 11.0,
+            "station_index": 20.0,
+            "sim_time_seconds": 12003.0,
+            "forward_headway_seconds": 359.5,
+            "backward_headway_seconds": 206.20855712890625,
+            "target_forward_headway_seconds": 360.0,
+            "target_backward_headway_seconds": 360.0,
+            "eligible_stranded_passengers": 0.0,
+            "onboard_passengers": 8.0,
+            "eligible_arrival_rate_per_second": 0.0006349206087179482,
+            "base_dwell_seconds": 4.0,
+            "forward_bus_present": 1.0,
+            "backward_bus_present": 1.0,
+            "bus_capacity": 50.0,
+            "system_waiting_passengers": 426.0,
+            "system_in_vehicle_passengers": 1298.0,
+            "event_load_proxy": 0.16,
+            "issue_clock": 12004.0,
+            "event_age_seconds": 1.0
+          },
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.4666777531305949,
+            "historical_only": true,
+            "issue_clock": 12004.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 5
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.42660021781921,
+              "102X": 73.0742763876915,
+              "705X": 75.66579961776733
+            },
+            "latest_completed_at": 11941.0,
+            "latest_observed_at": 11941.0,
+            "latest_age_seconds": 63.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "7X",
+                "trip_id": "7X_30",
+                "completed_at": 11941.0,
+                "observed_at": 11941.0,
+                "nonholding_ready_seconds": 101.42726540565491,
+                "baseline_nonholding_seconds": 73.42660021781921,
+                "normalized_slowdown": 0.4666777531305949
+              }
+            ]
+          },
+          "reference_actor_source": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs/local_speed_drop/reference_actor.pt"
+        },
+        {
+          "line_id": "7X",
+          "stratum": "lighter",
+          "root": {
+            "sequence": 8125,
+            "started_at": 12007.0,
+            "trip_id": "7X_32",
+            "station_id": "7X05_102X18"
+          },
+          "local_service_features": [
+            0.1,
+            -0.94
+          ],
+          "event": {
+            "line_id": 11.0,
+            "station_index": 4.0,
+            "sim_time_seconds": 12006.0,
+            "forward_headway_seconds": 358.0,
+            "backward_headway_seconds": 172.66993713378906,
+            "target_forward_headway_seconds": 360.0,
+            "target_backward_headway_seconds": 360.0,
+            "eligible_stranded_passengers": 0.0,
+            "onboard_passengers": 5.0,
+            "eligible_arrival_rate_per_second": 0.0026984126307070255,
+            "base_dwell_seconds": 7.0,
+            "forward_bus_present": 1.0,
+            "backward_bus_present": 1.0,
+            "bus_capacity": 50.0,
+            "system_waiting_passengers": 429.0,
+            "system_in_vehicle_passengers": 1296.0,
+            "event_load_proxy": 0.1,
+            "issue_clock": 12007.0,
+            "event_age_seconds": 1.0
+          },
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.4666777531305949,
+            "historical_only": true,
+            "issue_clock": 12007.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 5
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.42660021781921,
+              "102X": 73.0742763876915,
+              "705X": 75.66579961776733
+            },
+            "latest_completed_at": 11941.0,
+            "latest_observed_at": 11941.0,
+            "latest_age_seconds": 66.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "7X",
+                "trip_id": "7X_30",
+                "completed_at": 11941.0,
+                "observed_at": 11941.0,
+                "nonholding_ready_seconds": 101.42726540565491,
+                "baseline_nonholding_seconds": 73.42660021781921,
+                "normalized_slowdown": 0.4666777531305949
+              }
+            ]
+          },
+          "reference_actor_source": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs/local_speed_drop/reference_actor.pt"
+        },
+        {
+          "line_id": "705X",
+          "stratum": "heavier",
+          "root": {
+            "sequence": 8136,
+            "started_at": 12018.0,
+            "trip_id": "705X_11",
+            "station_id": "705X15"
+          },
+          "local_service_features": [
+            0.86,
+            0.12
+          ],
+          "event": {
+            "line_id": 9.0,
+            "station_index": 14.0,
+            "sim_time_seconds": 12017.0,
+            "forward_headway_seconds": 696.5,
+            "backward_headway_seconds": 280.7007751464844,
+            "target_forward_headway_seconds": 540.0,
+            "target_backward_headway_seconds": 780.0,
+            "eligible_stranded_passengers": 0.0,
+            "onboard_passengers": 43.0,
+            "eligible_arrival_rate_per_second": 0.003888888983055949,
+            "base_dwell_seconds": 9.0,
+            "forward_bus_present": 1.0,
+            "backward_bus_present": 1.0,
+            "bus_capacity": 50.0,
+            "system_waiting_passengers": 425.0,
+            "system_in_vehicle_passengers": 1300.0,
+            "event_load_proxy": 0.86,
+            "issue_clock": 12018.0,
+            "event_age_seconds": 1.0
+          },
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.4666777531305949,
+            "historical_only": true,
+            "issue_clock": 12018.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 5
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.42660021781921,
+              "102X": 73.0742763876915,
+              "705X": 75.66579961776733
+            },
+            "latest_completed_at": 11941.0,
+            "latest_observed_at": 11941.0,
+            "latest_age_seconds": 77.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "7X",
+                "trip_id": "7X_30",
+                "completed_at": 11941.0,
+                "observed_at": 11941.0,
+                "nonholding_ready_seconds": 101.42726540565491,
+                "baseline_nonholding_seconds": 73.42660021781921,
+                "normalized_slowdown": 0.4666777531305949
+              }
+            ]
+          },
+          "reference_actor_source": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs/local_speed_drop/reference_actor.pt"
+        },
+        {
+          "line_id": "102X",
+          "stratum": "heavier",
+          "root": {
+            "sequence": 8138,
+            "started_at": 12021.0,
+            "trip_id": "102X_16",
+            "station_id": "7X14_102X27_705X28"
+          },
+          "local_service_features": [
+            0.54,
+            -0.52
+          ],
+          "event": {
+            "line_id": 1.0,
+            "station_index": 26.0,
+            "sim_time_seconds": 12020.0,
+            "forward_headway_seconds": 710.5,
+            "backward_headway_seconds": 214.60403442382812,
+            "target_forward_headway_seconds": 540.0,
+            "target_backward_headway_seconds": 480.0,
+            "eligible_stranded_passengers": 0.0,
+            "onboard_passengers": 27.0,
+            "eligible_arrival_rate_per_second": 0.001335978857241571,
+            "base_dwell_seconds": 6.5,
+            "forward_bus_present": 1.0,
+            "backward_bus_present": 1.0,
+            "bus_capacity": 50.0,
+            "system_waiting_passengers": 424.0,
+            "system_in_vehicle_passengers": 1303.0,
+            "event_load_proxy": 0.54,
+            "issue_clock": 12021.0,
+            "event_age_seconds": 1.0
+          },
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.4666777531305949,
+            "historical_only": true,
+            "issue_clock": 12021.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 5
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.42660021781921,
+              "102X": 73.0742763876915,
+              "705X": 75.66579961776733
+            },
+            "latest_completed_at": 11941.0,
+            "latest_observed_at": 11941.0,
+            "latest_age_seconds": 80.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "7X",
+                "trip_id": "7X_30",
+                "completed_at": 11941.0,
+                "observed_at": 11941.0,
+                "nonholding_ready_seconds": 101.42726540565491,
+                "baseline_nonholding_seconds": 73.42660021781921,
+                "normalized_slowdown": 0.4666777531305949
+              }
+            ]
+          },
+          "reference_actor_source": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs/local_speed_drop/reference_actor.pt"
+        }
+      ],
+      "examples_705x": [
+        {
+          "tag": [
+            12000,
+            12600,
+            false,
+            "heavier"
+          ],
+          "sequence": 8131,
+          "issue_clock": 12017.0,
+          "station_id": "102X22_705X23",
+          "trip_id": "705X_10",
+          "event_load_proxy": 0.98,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": false,
+            "reason": "nonpositive_holding_difference",
+            "reference_hold": 26.173805594444275,
+            "candidate_hold": 0.0,
+            "endpoint_holds": [
+              0.0,
+              26.173805236816406
+            ],
+            "reserve_seconds": 26.173799514770508,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            12000,
+            12600,
+            true,
+            "heavier"
+          ],
+          "sequence": 8136,
+          "issue_clock": 12018.0,
+          "station_id": "705X15",
+          "trip_id": "705X_11",
+          "event_load_proxy": 0.86,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.4698128700256348,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            12000,
+            12600,
+            false,
+            "lighter"
+          ],
+          "sequence": 8170,
+          "issue_clock": 12061.0,
+          "station_id": "705X46",
+          "trip_id": "705X_8",
+          "event_load_proxy": 0.16,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": false,
+            "reason": "nonpositive_holding_difference",
+            "reference_hold": 3.8323652744293213,
+            "candidate_hold": 0.0,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            12600,
+            15000,
+            false,
+            "lighter"
+          ],
+          "sequence": 8575,
+          "issue_clock": 12606.0,
+          "station_id": "705X04",
+          "trip_id": "705X_13",
+          "event_load_proxy": 0.16,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": false,
+            "reason": "nonpositive_holding_difference",
+            "reference_hold": 60.0,
+            "candidate_hold": 60.0,
+            "endpoint_holds": [
+              60.0,
+              60.0
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": true
+          }
+        },
+        {
+          "tag": [
+            12600,
+            15000,
+            true,
+            "heavier"
+          ],
+          "sequence": 8609,
+          "issue_clock": 12649.0,
+          "station_id": "705X39",
+          "trip_id": "705X_9",
+          "event_load_proxy": 0.68,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.3100801706314087,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            12600,
+            15000,
+            false,
+            "heavier"
+          ],
+          "sequence": 8615,
+          "issue_clock": 12657.0,
+          "station_id": "7X16_102X29_705X30",
+          "trip_id": "705X_10",
+          "event_load_proxy": 0.98,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": false,
+            "reason": "nonpositive_holding_difference",
+            "reference_hold": 25.50493597984314,
+            "candidate_hold": 0.0,
+            "endpoint_holds": [
+              0.0,
+              25.50493621826172
+            ],
+            "reserve_seconds": 25.504932403564453,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            12600,
+            15000,
+            true,
+            "lighter"
+          ],
+          "sequence": 8760,
+          "issue_clock": 12840.0,
+          "station_id": "705X42",
+          "trip_id": "705X_9",
+          "event_load_proxy": 0.44,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.5191816091537476,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            15000,
+            18000,
+            true,
+            "heavier"
+          ],
+          "sequence": 10401,
+          "issue_clock": 15015.0,
+          "station_id": "705X18",
+          "trip_id": "705X_15",
+          "event_load_proxy": 0.8,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.3686381578445435,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            15000,
+            18000,
+            false,
+            "lighter"
+          ],
+          "sequence": 10406,
+          "issue_clock": 15017.0,
+          "station_id": "705X06",
+          "trip_id": "705X_16",
+          "event_load_proxy": 0.44,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": false,
+            "reason": "nonpositive_holding_difference",
+            "reference_hold": 15.499995946884155,
+            "candidate_hold": 0.0,
+            "endpoint_holds": [
+              0.0,
+              15.499996185302734
+            ],
+            "reserve_seconds": 15.499995231628418,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            15000,
+            18000,
+            true,
+            "lighter"
+          ],
+          "sequence": 10423,
+          "issue_clock": 15039.0,
+          "station_id": "705X45",
+          "trip_id": "705X_12",
+          "event_load_proxy": 0.28,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.468620181083679,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          }
+        },
+        {
+          "tag": [
+            15000,
+            18000,
+            false,
+            "heavier"
+          ],
+          "sequence": 10520,
+          "issue_clock": 15172.0,
+          "station_id": "705X08",
+          "trip_id": "705X_16",
+          "event_load_proxy": 0.6,
+          "event_age": 1.0,
+          "action": {
+            "reference_exact": true,
+            "math_support": false,
+            "reason": "nonpositive_holding_difference",
+            "reference_hold": 4.61417019367218,
+            "candidate_hold": 0.0,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          }
+        }
+      ],
+      "future_slots": {
+        "102X/lighter": {
+          "root": {
+            "sequence": 8116,
+            "started_at": 12002.0,
+            "trip_id": "102X_18",
+            "station_id": "102X15"
+          },
+          "event_load_proxy": 0.34,
+          "event_age": 1.0,
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.4666777531305949,
+            "historical_only": true,
+            "issue_clock": 12002.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 5
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.42660021781921,
+              "102X": 73.0742763876915,
+              "705X": 75.66579961776733
+            },
+            "latest_completed_at": 11941.0,
+            "latest_observed_at": 11941.0,
+            "latest_age_seconds": 61.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "7X",
+                "trip_id": "7X_30",
+                "completed_at": 11941.0,
+                "observed_at": 11941.0,
+                "nonholding_ready_seconds": 101.42726540565491,
+                "baseline_nonholding_seconds": 73.42660021781921,
+                "normalized_slowdown": 0.4666777531305949
+              }
+            ]
+          },
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.5562068223953247,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          },
+          "old_v90_same_root": "lighter"
+        },
+        "7X/heavier": {
+          "root": {
+            "sequence": 8120,
+            "started_at": 12004.0,
+            "trip_id": "7X_29",
+            "station_id": "7X21_102X34"
+          },
+          "event_load_proxy": 0.16,
+          "event_age": 1.0,
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.4666777531305949,
+            "historical_only": true,
+            "issue_clock": 12004.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 5
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.42660021781921,
+              "102X": 73.0742763876915,
+              "705X": 75.66579961776733
+            },
+            "latest_completed_at": 11941.0,
+            "latest_observed_at": 11941.0,
+            "latest_age_seconds": 63.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "7X",
+                "trip_id": "7X_30",
+                "completed_at": 11941.0,
+                "observed_at": 11941.0,
+                "nonholding_ready_seconds": 101.42726540565491,
+                "baseline_nonholding_seconds": 73.42660021781921,
+                "normalized_slowdown": 0.4666777531305949
+              }
+            ]
+          },
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.412240147590637,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          },
+          "old_v90_same_root": "heavier"
+        },
+        "7X/lighter": {
+          "root": {
+            "sequence": 8125,
+            "started_at": 12007.0,
+            "trip_id": "7X_32",
+            "station_id": "7X05_102X18"
+          },
+          "event_load_proxy": 0.1,
+          "event_age": 1.0,
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.4666777531305949,
+            "historical_only": true,
+            "issue_clock": 12007.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 5
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.42660021781921,
+              "102X": 73.0742763876915,
+              "705X": 75.66579961776733
+            },
+            "latest_completed_at": 11941.0,
+            "latest_observed_at": 11941.0,
+            "latest_age_seconds": 66.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "7X",
+                "trip_id": "7X_30",
+                "completed_at": 11941.0,
+                "observed_at": 11941.0,
+                "nonholding_ready_seconds": 101.42726540565491,
+                "baseline_nonholding_seconds": 73.42660021781921,
+                "normalized_slowdown": 0.4666777531305949
+              }
+            ]
+          },
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.5529112815856934,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          },
+          "old_v90_same_root": "lighter"
+        },
+        "705X/heavier": {
+          "root": {
+            "sequence": 8136,
+            "started_at": 12018.0,
+            "trip_id": "705X_11",
+            "station_id": "705X15"
+          },
+          "event_load_proxy": 0.86,
+          "event_age": 1.0,
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.4666777531305949,
+            "historical_only": true,
+            "issue_clock": 12018.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 5
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.42660021781921,
+              "102X": 73.0742763876915,
+              "705X": 75.66579961776733
+            },
+            "latest_completed_at": 11941.0,
+            "latest_observed_at": 11941.0,
+            "latest_age_seconds": 77.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "7X",
+                "trip_id": "7X_30",
+                "completed_at": 11941.0,
+                "observed_at": 11941.0,
+                "nonholding_ready_seconds": 101.42726540565491,
+                "baseline_nonholding_seconds": 73.42660021781921,
+                "normalized_slowdown": 0.4666777531305949
+              }
+            ]
+          },
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.4698128700256348,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          },
+          "old_v90_same_root": "heavier"
+        },
+        "102X/heavier": {
+          "root": {
+            "sequence": 8138,
+            "started_at": 12021.0,
+            "trip_id": "102X_16",
+            "station_id": "7X14_102X27_705X28"
+          },
+          "event_load_proxy": 0.54,
+          "event_age": 1.0,
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.4666777531305949,
+            "historical_only": true,
+            "issue_clock": 12021.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 5
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.42660021781921,
+              "102X": 73.0742763876915,
+              "705X": 75.66579961776733
+            },
+            "latest_completed_at": 11941.0,
+            "latest_observed_at": 11941.0,
+            "latest_age_seconds": 80.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "7X",
+                "trip_id": "7X_30",
+                "completed_at": 11941.0,
+                "observed_at": 11941.0,
+                "nonholding_ready_seconds": 101.42726540565491,
+                "baseline_nonholding_seconds": 73.42660021781921,
+                "normalized_slowdown": 0.4666777531305949
+              }
+            ]
+          },
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.499780297279358,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          },
+          "old_v90_same_root": "heavier"
+        },
+        "705X/lighter": {
+          "root": {
+            "sequence": 8760,
+            "started_at": 12840.0,
+            "trip_id": "705X_9",
+            "station_id": "705X42"
+          },
+          "event_load_proxy": 0.44,
+          "event_age": 1.0,
+          "condition": {
+            "status": "supported",
+            "reason": null,
+            "value": 0.4999144673347473,
+            "historical_only": true,
+            "issue_clock": 12840.0,
+            "baseline_counts": {
+              "7X": 21,
+              "102X": 10,
+              "705X": 5
+            },
+            "baseline_medians_seconds": {
+              "7X": 73.42660021781921,
+              "102X": 73.0742763876915,
+              "705X": 75.66579961776733
+            },
+            "latest_completed_at": 12661.0,
+            "latest_observed_at": 12661.0,
+            "latest_age_seconds": 179.0,
+            "baseline_last_observed_at": 8932.0,
+            "latest_sources": [
+              {
+                "line_id": "7X",
+                "trip_id": "7X_32",
+                "completed_at": 12661.0,
+                "observed_at": 12661.0,
+                "nonholding_ready_seconds": 103.42146825790405,
+                "baseline_nonholding_seconds": 73.42660021781921,
+                "normalized_slowdown": 0.4999144673347473
+              }
+            ]
+          },
+          "action": {
+            "reference_exact": true,
+            "math_support": true,
+            "reason": null,
+            "reference_hold": 3.5191816091537476,
+            "candidate_hold": 7.5,
+            "endpoint_holds": [
+              0.0,
+              7.5
+            ],
+            "reserve_seconds": 0.0,
+            "completion_floor": false
+          },
+          "old_v90_same_root": null
+        }
+      },
+      "event_age_range": [
+        1.0,
+        1.0
+      ],
+      "history_summary": {
+        "corridor": {
+          "upstream": "7X13_102X26_705X27",
+          "downstream": "7X14_102X27_705X28"
+        },
+        "counts": {
+          "observed_issues": 13676,
+          "corridor_intervals": 102
+        },
+        "intervals_by_line": {
+          "7X": 50,
+          "102X": 31,
+          "705X": 21
+        },
+        "baseline_intervals_by_line": {
+          "7X": 21,
+          "102X": 10,
+          "705X": 5
+        },
+        "minimum_baseline_intervals": 3,
+        "maximum_latest_age_seconds": 900.0,
+        "normalization_seconds": 60.0,
+        "semantics": "Decision-ready issue interval minus the already-executed origin holding command; includes next-stop service and native/issue discretization, not pure departure-to-arrival runtime"
+      },
+      "available_native_issue_counts": "Selected roots only; remaining per-issue native contexts were not logged",
+      "native_at_stop_and_action_step": "Not recoverable for unselected issues; math support is not a new physical preflight"
+    }
+  ],
+  "budget": {
+    "new_native_seconds": 0,
+    "new_branches": 0,
+    "new_labels": 0,
+    "new_fits": 0,
+    "neural_updates": 0,
+    "v87_truth_used": 0
+  },
+  "priority": "high",
+  "all_pass": true
+}

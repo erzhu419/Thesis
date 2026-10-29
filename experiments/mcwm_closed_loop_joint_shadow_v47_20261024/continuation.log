@@ -1,0 +1,34 @@
+{"stage": "preflight_passed", "preflight_task_ids": ["t211552"]}
+{"stage": "waiting_parallel_arms", "ids": ["t211553", "t211554", "t211555", "t211556"], "outputs_present": [false, false, false, false], "statuses": {"t211553": "queued", "t211554": "queued", "t211555": "queued", "t211556": "queued"}}
+{"stage": "failed", "status": "failed", "type": "RuntimeError", "message": "[node001] cmd failed (rc=255): mux_client_request_session: read from master failed: Broken pipe\nkex_exchange_identification: Connection closed by remote host\nConnection closed by UNKNOWN port 65535", "new_feedback_slots": 0, "new_native_branches": 0}
+Traceback (most recent call last):
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_joint_shadow_v47_20261024/continue_batch.py", line 84, in <module>
+    main()
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_joint_shadow_v47_20261024/continue_batch.py", line 69, in main
+    await_outputs([[f'runs/{case}/{arm}/summary.json', f'runs/{case}/{arm}/failure.json']
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_joint_shadow_v47_20261024/continue_batch.py", line 26, in await_outputs
+    found = json.loads(infra.scheduler.run_on('node001',
+  File "/home/erzhu419/mine_code/scheduleurm/skill/scheduler_transport/remote_runtime.py", line 184, in run_on
+    return _run_on_impl(
+  File "/home/erzhu419/mine_code/scheduleurm/skill/scheduler_remote/exec.py", line 558, in run_on
+    raise RuntimeError(f"[{node}] cmd failed (rc={proc.returncode}): {proc.stderr.strip()[:300]}")
+RuntimeError: [node001] cmd failed (rc=255): mux_client_request_session: read from master failed: Broken pipe
+kex_exchange_identification: Connection closed by remote host
+Connection closed by UNKNOWN port 65535
+
+Resuming existing receipts after SSH status-query failure; no task resubmission.
+{"stage": "preflight_passed", "preflight_task_ids": ["t211552"]}
+{"stage": "waiting_parallel_arms", "ids": ["t211553", "t211554", "t211555", "t211556"], "outputs_present": [true, false, false, false], "statuses": {"t211553": "running", "t211554": "running", "t211555": "queued", "t211556": "running"}}
+{"stage": "waiting_parallel_arms", "ids": ["t211553", "t211554", "t211555", "t211556"], "outputs_present": [true, true, false, false], "statuses": {"t211553": "running", "t211554": "running", "t211555": "queued", "t211556": "running"}}
+{"stage": "waiting_parallel_arms", "ids": ["t211553", "t211554", "t211555", "t211556"], "outputs_present": [true, true, false, false], "statuses": {"t211553": "done", "t211554": "done", "t211555": "launching", "t211556": "running"}}
+{"stage": "waiting_parallel_arms", "ids": ["t211553", "t211554", "t211555", "t211556"], "outputs_present": [true, true, false, false], "statuses": {"t211553": "done", "t211554": "done", "t211555": "running", "t211556": "running"}}
+{"stage": "waiting_parallel_arms", "ids": ["t211553", "t211554", "t211555", "t211556"], "outputs_present": [true, true, true, false], "statuses": {"t211553": "done", "t211554": "done", "t211555": "running", "t211556": "running"}}
+Submission waiting for scheduler state lock: finalize
+Submission waiting for scheduler state lock: finalize
+Submission waiting for scheduler state lock: finalize
+Submission waiting for scheduler state lock: finalize
+Submission waiting for scheduler state lock: finalize
+Submission waiting for scheduler state lock: finalize
+Submission waiting for scheduler state lock: finalize
+{"stage": "waiting_small_summary", "ids": ["t211570"], "outputs_present": [false], "statuses": {"t211570": "queued"}}
+{"stage": "collected", "status": "complete", "integrity": {"all_pass": true, "checks": {"stable": {"initial_scores_exact": true, "same58_checkpoints": true, "common_executed_grid": true, "six_roots_three_physical_issues": true, "fixed_bank_and_F_preserved": true, "workers_all_pass": true, "actual_training_overlap": true}, "local_speed_drop": {"initial_scores_exact": true, "same58_checkpoints": true, "common_executed_grid": true, "six_roots_three_physical_issues": true, "fixed_bank_and_F_preserved": true, "workers_all_pass": true, "actual_training_overlap": true}}}, "preflight_task_ids": ["t211552"], "formal_task_ids": ["t211553", "t211554", "t211555", "t211556"], "finalize_task_ids": ["t211570"], "new_feedback_slots": 0, "new_native_branches": 0}

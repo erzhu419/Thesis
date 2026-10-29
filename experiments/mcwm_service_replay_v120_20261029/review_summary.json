@@ -1,0 +1,1371 @@
+{
+  "status": "complete",
+  "cases": {
+    "stable": {
+      "status": "complete",
+      "integrity": {
+        "all_pass": true,
+        "checks": {
+          "other_native_logs_and_accounting_exact": true,
+          "route_end_blocks_equal": true
+        }
+      },
+      "raw_status": "integrity_failed",
+      "raw_summary": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_service_replay_v120_20261029/runs/stable/summary.json",
+      "raw_strict_visit_rows_equal": false,
+      "visit_order_adjudication": {
+        "all_pass": true,
+        "rows": [
+          29130,
+          29130
+        ],
+        "changed_blocks": 7,
+        "changed_rows": 14,
+        "first_failure": null,
+        "semantics": "Rows are [actual,reference]. Only contiguous equal-time route_end blocks are compared as sorted complete JSON records, retaining multiplicity. Block boundaries and all other records remain ordered and exact."
+      },
+      "final_ledger": {
+        "time_seconds": 24000.0,
+        "waiting_passengers": 334,
+        "in_vehicle_passengers": 0,
+        "accrued_wait_seconds": 8480581.0,
+        "accrued_in_vehicle_seconds": 16461062.0
+      },
+      "observation": {
+        "contexts": 13686,
+        "incomplete_contexts": 0
+      },
+      "budget": {
+        "original_native_seconds": 24000.0,
+        "exact_native_seconds": 24000,
+        "additional_native_seconds": 0,
+        "optimizer_updates": 0,
+        "feedback_admitted": 0
+      },
+      "interpretation": "Original strict failure and source logs remain unchanged. Only simultaneous consecutive route_end order is treated as unspecified. No other native record, timestamp or accounting field is relaxed.",
+      "service_records": {
+        "status": "complete",
+        "all_pass": true,
+        "checks": {
+          "observer_coverage": true,
+          "selected_unique": true,
+          "within_budget": true,
+          "all_packet_slots_filled": true,
+          "selected_commands_and_label_builds_valid": true
+        },
+        "counts": {
+          "contexts": 13686,
+          "contexts_with_unknown_inputs": 11782,
+          "contexts_with_incomplete_capture": 0,
+          "window_crosses_horizon": 0,
+          "complete_window_candidates": 13686,
+          "available_after_feedback_budget": 1218,
+          "feedback_window_candidates": 12468
+        },
+        "selected_records": 285,
+        "unique_selected": 285,
+        "packet_slots": 57,
+        "complete_packet_slots": 57,
+        "statistics": {
+          "selected_with_unknown_inputs": 230,
+          "selected_with_incomplete_capture": 0,
+          "observed_root_cohort_positive": 153,
+          "selected_with_incomplete_cohort": 0,
+          "actions_bound": 285,
+          "label_records_built": 285,
+          "receiver_departure_mature": 284,
+          "receiver_visit_count_mature": 284,
+          "complete_cohort_count_mature": 284,
+          "valid_mature_records": 284,
+          "observed_any_boarding_positive": 21,
+          "observed_root_cohort_boarding_positive": 0
+        },
+        "unknown_input_counts_all": {
+          "feeder.x.gap_m": 58471
+        },
+        "unknown_input_counts_selected": {
+          "feeder.x.gap_m": 1118
+        },
+        "action_seconds": {
+          "count": 285,
+          "zero": 0,
+          "minimum": 0.9354203939437866,
+          "maximum": 60.0,
+          "mean": 11.330075904779267
+        },
+        "error_count": 0,
+        "first_errors": [],
+        "budget": {
+          "root_action_records": 285,
+          "limit": 285,
+          "new_native_seconds": 0,
+          "optimizer_updates": 0,
+          "training_admissions": 0
+        },
+        "paths": {
+          "selected_records": "selected_records.jsonl",
+          "packets": "packets.jsonl"
+        },
+        "semantics": "Selection uses only fixed window end plus reporting delay and latest availability/sequence within each release window. Unknown inputs, zero hold, zero boarding and censored labels never change selection. Label evidence ends at issue+window, not at packet delivery. Valid mature records require closed receiver labels and complete root cohort; unknown numeric inputs remain recorded. Passengers/feeders are dependent targets, not extra budget units."
+      }
+    },
+    "local_speed_drop": {
+      "status": "complete",
+      "integrity": {
+        "all_pass": true,
+        "checks": {
+          "other_native_logs_and_accounting_exact": true,
+          "route_end_blocks_equal": true
+        }
+      },
+      "raw_status": "integrity_failed",
+      "raw_summary": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_service_replay_v120_20261029/runs/local_speed_drop/summary.json",
+      "raw_strict_visit_rows_equal": false,
+      "visit_order_adjudication": {
+        "all_pass": true,
+        "rows": [
+          29130,
+          29130
+        ],
+        "changed_blocks": 4,
+        "changed_rows": 8,
+        "first_failure": null,
+        "semantics": "Rows are [actual,reference]. Only contiguous equal-time route_end blocks are compared as sorted complete JSON records, retaining multiplicity. Block boundaries and all other records remain ordered and exact."
+      },
+      "final_ledger": {
+        "time_seconds": 24000.0,
+        "waiting_passengers": 333,
+        "in_vehicle_passengers": 0,
+        "accrued_wait_seconds": 8497390.0,
+        "accrued_in_vehicle_seconds": 16572332.0
+      },
+      "observation": {
+        "contexts": 13686,
+        "incomplete_contexts": 0
+      },
+      "budget": {
+        "original_native_seconds": 24000.0,
+        "exact_native_seconds": 24000,
+        "additional_native_seconds": 0,
+        "optimizer_updates": 0,
+        "feedback_admitted": 0
+      },
+      "interpretation": "Original strict failure and source logs remain unchanged. Only simultaneous consecutive route_end order is treated as unspecified. No other native record, timestamp or accounting field is relaxed.",
+      "service_records": {
+        "status": "complete",
+        "all_pass": true,
+        "checks": {
+          "observer_coverage": true,
+          "selected_unique": true,
+          "within_budget": true,
+          "all_packet_slots_filled": true,
+          "selected_commands_and_label_builds_valid": true
+        },
+        "counts": {
+          "contexts": 13686,
+          "contexts_with_unknown_inputs": 11789,
+          "contexts_with_incomplete_capture": 0,
+          "window_crosses_horizon": 0,
+          "complete_window_candidates": 13686,
+          "available_after_feedback_budget": 1230,
+          "feedback_window_candidates": 12456
+        },
+        "selected_records": 285,
+        "unique_selected": 285,
+        "packet_slots": 57,
+        "complete_packet_slots": 57,
+        "statistics": {
+          "selected_with_unknown_inputs": 230,
+          "selected_with_incomplete_capture": 0,
+          "observed_root_cohort_positive": 149,
+          "selected_with_incomplete_cohort": 0,
+          "actions_bound": 285,
+          "label_records_built": 285,
+          "receiver_departure_mature": 285,
+          "receiver_visit_count_mature": 285,
+          "complete_cohort_count_mature": 285,
+          "valid_mature_records": 285,
+          "observed_any_boarding_positive": 14,
+          "observed_root_cohort_boarding_positive": 0
+        },
+        "unknown_input_counts_all": {
+          "feeder.x.gap_m": 58654
+        },
+        "unknown_input_counts_selected": {
+          "feeder.x.gap_m": 1120
+        },
+        "action_seconds": {
+          "count": 285,
+          "zero": 0,
+          "minimum": 0.9354203939437866,
+          "maximum": 60.0,
+          "mean": 11.902603842082776
+        },
+        "error_count": 0,
+        "first_errors": [],
+        "budget": {
+          "root_action_records": 285,
+          "limit": 285,
+          "new_native_seconds": 0,
+          "optimizer_updates": 0,
+          "training_admissions": 0
+        },
+        "paths": {
+          "selected_records": "selected_records.jsonl",
+          "packets": "packets.jsonl"
+        },
+        "semantics": "Selection uses only fixed window end plus reporting delay and latest availability/sequence within each release window. Unknown inputs, zero hold, zero boarding and censored labels never change selection. Label evidence ends at issue+window, not at packet delivery. Valid mature records require closed receiver labels and complete root cohort; unknown numeric inputs remain recorded. Passengers/feeders are dependent targets, not extra budget units."
+      }
+    }
+  },
+  "new_native_seconds": 0,
+  "original_native_seconds": 48000.0,
+  "profile": {
+    "status": "complete",
+    "data_reconciliation_passed": true,
+    "scenes": {
+      "stable": {
+        "run_status": "complete",
+        "run_integrity": true,
+        "selected_records": 285,
+        "packet_slots": 57,
+        "counts": {
+          "valid_mature": 284,
+          "root_cohort_positive": 153,
+          "root_cohort_boarding_positive": 0,
+          "any_boarding_positive": 21,
+          "departure_mature": 284,
+          "visit_count_mature": 284,
+          "complete_cohort_count_mature": 284,
+          "departure_censored": 1,
+          "cohort_count_censored": 1,
+          "label_missing": 0,
+          "records_with_errors": 0,
+          "unknown_input_records": 230,
+          "incomplete_capture_records": 0,
+          "incomplete_cohort_records": 0,
+          "immediate_cohort_positive_records": 14,
+          "observed_immediate_cohort_members_sum": 25,
+          "immediate_cohort_count_unknown_records": 0,
+          "same_lane_gap_supported_records": 18,
+          "immediate_positive_cohort_gap_supported_records": 2,
+          "feeder_arrival_targets": 1136,
+          "feeder_arrival_right_censored_targets": 1105,
+          "feeder_arrival_left_censored_targets": 17,
+          "records_with_right_censored_feeder_arrival": 230
+        },
+        "ratios": {
+          "valid_mature": {
+            "count": 284,
+            "selected": 285,
+            "fraction": 0.9964912280701754
+          },
+          "departure_mature": {
+            "count": 284,
+            "selected": 285,
+            "fraction": 0.9964912280701754
+          },
+          "visit_count_mature": {
+            "count": 284,
+            "selected": 285,
+            "fraction": 0.9964912280701754
+          },
+          "complete_cohort_count_mature": {
+            "count": 284,
+            "selected": 285,
+            "fraction": 0.9964912280701754
+          },
+          "root_cohort_positive": {
+            "count": 153,
+            "selected": 285,
+            "fraction": 0.5368421052631579
+          },
+          "root_cohort_boarding_positive": {
+            "count": 0,
+            "selected": 285,
+            "fraction": 0.0
+          }
+        },
+        "packet_columns": [
+          "deadline",
+          "selected",
+          "valid_mature",
+          "root_cohort_positive",
+          "root_cohort_boarding_positive",
+          "records_with_errors"
+        ],
+        "packet_rows": [
+          [
+            1200,
+            5,
+            5,
+            1,
+            0,
+            0
+          ],
+          [
+            1500,
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            1800,
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            2100,
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            2400,
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            2700,
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            3000,
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            3300,
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            3600,
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            3900,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            4200,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            4500,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            4800,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            5100,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            5400,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            5700,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            6000,
+            5,
+            5,
+            1,
+            0,
+            0
+          ],
+          [
+            6300,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            6600,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            6900,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            7200,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            7500,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            7800,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            8100,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            8400,
+            5,
+            5,
+            5,
+            0,
+            0
+          ],
+          [
+            8700,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            9000,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            9300,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            9600,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            9900,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            10200,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            10500,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            10800,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            11100,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            11400,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            11700,
+            5,
+            5,
+            5,
+            0,
+            0
+          ],
+          [
+            12000,
+            5,
+            5,
+            5,
+            0,
+            0
+          ],
+          [
+            12300,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            12600,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            12900,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            13200,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            13500,
+            5,
+            5,
+            5,
+            0,
+            0
+          ],
+          [
+            13800,
+            5,
+            4,
+            3,
+            0,
+            0
+          ],
+          [
+            14100,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            14400,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            14700,
+            5,
+            5,
+            5,
+            0,
+            0
+          ],
+          [
+            15000,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            15300,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            15600,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            15900,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            16200,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            16500,
+            5,
+            5,
+            5,
+            0,
+            0
+          ],
+          [
+            16800,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            17100,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            17400,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            17700,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            18000,
+            5,
+            5,
+            3,
+            0,
+            0
+          ]
+        ],
+        "unknown_input_field_counts": {
+          "feeder.x.gap_m": 1118
+        },
+        "action_seconds": {
+          "observed": 285,
+          "missing": 0,
+          "zero": 0,
+          "nonzero": 285,
+          "minimum": 0.9354203939437866,
+          "maximum": 60.0
+        },
+        "same_lane_gap_m": {
+          "feeder_entries": 18,
+          "minimum": -14.557152259619748,
+          "maximum": 14.56424817643393,
+          "negative": 9,
+          "zero": 0,
+          "positive": 9
+        },
+        "mismatch_count": 0,
+        "first_mismatches": [],
+        "selected_error_count": 0,
+        "first_selected_errors": []
+      },
+      "local_speed_drop": {
+        "run_status": "complete",
+        "run_integrity": true,
+        "selected_records": 285,
+        "packet_slots": 57,
+        "counts": {
+          "valid_mature": 285,
+          "root_cohort_positive": 149,
+          "root_cohort_boarding_positive": 0,
+          "any_boarding_positive": 14,
+          "departure_mature": 285,
+          "visit_count_mature": 285,
+          "complete_cohort_count_mature": 285,
+          "departure_censored": 0,
+          "cohort_count_censored": 0,
+          "label_missing": 0,
+          "records_with_errors": 0,
+          "unknown_input_records": 230,
+          "incomplete_capture_records": 0,
+          "incomplete_cohort_records": 0,
+          "immediate_cohort_positive_records": 14,
+          "observed_immediate_cohort_members_sum": 27,
+          "immediate_cohort_count_unknown_records": 0,
+          "same_lane_gap_supported_records": 23,
+          "immediate_positive_cohort_gap_supported_records": 2,
+          "feeder_arrival_targets": 1143,
+          "feeder_arrival_right_censored_targets": 1105,
+          "feeder_arrival_left_censored_targets": 22,
+          "records_with_right_censored_feeder_arrival": 230
+        },
+        "ratios": {
+          "valid_mature": {
+            "count": 285,
+            "selected": 285,
+            "fraction": 1.0
+          },
+          "departure_mature": {
+            "count": 285,
+            "selected": 285,
+            "fraction": 1.0
+          },
+          "visit_count_mature": {
+            "count": 285,
+            "selected": 285,
+            "fraction": 1.0
+          },
+          "complete_cohort_count_mature": {
+            "count": 285,
+            "selected": 285,
+            "fraction": 1.0
+          },
+          "root_cohort_positive": {
+            "count": 149,
+            "selected": 285,
+            "fraction": 0.5228070175438596
+          },
+          "root_cohort_boarding_positive": {
+            "count": 0,
+            "selected": 285,
+            "fraction": 0.0
+          }
+        },
+        "packet_columns": [
+          "deadline",
+          "selected",
+          "valid_mature",
+          "root_cohort_positive",
+          "root_cohort_boarding_positive",
+          "records_with_errors"
+        ],
+        "packet_rows": [
+          [
+            1200,
+            5,
+            5,
+            1,
+            0,
+            0
+          ],
+          [
+            1500,
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            1800,
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            2100,
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            2400,
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            2700,
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            3000,
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            3300,
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            3600,
+            5,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            3900,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            4200,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            4500,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            4800,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            5100,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            5400,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            5700,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            6000,
+            5,
+            5,
+            1,
+            0,
+            0
+          ],
+          [
+            6300,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            6600,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            6900,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            7200,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            7500,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            7800,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            8100,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            8400,
+            5,
+            5,
+            5,
+            0,
+            0
+          ],
+          [
+            8700,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            9000,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            9300,
+            5,
+            5,
+            1,
+            0,
+            0
+          ],
+          [
+            9600,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            9900,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            10200,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            10500,
+            5,
+            5,
+            1,
+            0,
+            0
+          ],
+          [
+            10800,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            11100,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            11400,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            11700,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            12000,
+            5,
+            5,
+            5,
+            0,
+            0
+          ],
+          [
+            12300,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            12600,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            12900,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            13200,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            13500,
+            5,
+            5,
+            5,
+            0,
+            0
+          ],
+          [
+            13800,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            14100,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            14400,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            14700,
+            5,
+            5,
+            5,
+            0,
+            0
+          ],
+          [
+            15000,
+            5,
+            5,
+            1,
+            0,
+            0
+          ],
+          [
+            15300,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            15600,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            15900,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            16200,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            16500,
+            5,
+            5,
+            5,
+            0,
+            0
+          ],
+          [
+            16800,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            17100,
+            5,
+            5,
+            4,
+            0,
+            0
+          ],
+          [
+            17400,
+            5,
+            5,
+            2,
+            0,
+            0
+          ],
+          [
+            17700,
+            5,
+            5,
+            3,
+            0,
+            0
+          ],
+          [
+            18000,
+            5,
+            5,
+            3,
+            0,
+            0
+          ]
+        ],
+        "unknown_input_field_counts": {
+          "feeder.x.gap_m": 1120
+        },
+        "action_seconds": {
+          "observed": 285,
+          "missing": 0,
+          "zero": 0,
+          "nonzero": 285,
+          "minimum": 0.9354203939437866,
+          "maximum": 60.0
+        },
+        "same_lane_gap_m": {
+          "feeder_entries": 23,
+          "minimum": -14.579020265264047,
+          "maximum": 20.89091641244604,
+          "negative": 12,
+          "zero": 0,
+          "positive": 11
+        },
+        "mismatch_count": 0,
+        "first_mismatches": [],
+        "selected_error_count": 0,
+        "first_selected_errors": []
+      }
+    },
+    "common_prefix": {
+      "shock_clock": 9000,
+      "paired_by": [
+        "sequence",
+        "observed_at"
+      ],
+      "removed_context_field_only": "meta.source_group",
+      "pre_shock_records_per_scene": {
+        "stable": 135,
+        "local_speed_drop": 135
+      },
+      "matched_root_identifiers": 135,
+      "unpaired_pre_shock_per_scene": {
+        "stable": 0,
+        "local_speed_drop": 0
+      },
+      "comparison_counts": {
+        "context_equal": 135,
+        "action_equal": 135,
+        "labels_equal": 135,
+        "context_action_equal": 135,
+        "complete_payload_equal": 135,
+        "both_label_windows_end_before_or_at_shock": 135
+      },
+      "first_payload_differences": [],
+      "total_record_slots": 570,
+      "root_units_after_common_prefix_identifier_dedup": 435,
+      "payload_records_after_exact_pre_shock_dedup": 435
+    },
+    "interpretation": "Record slots are not independent observations. The scenes share the pre-shock trajectory; even deduplicated root units remain temporally dependent within the same fixed external seed. Feeder and passenger target counts do not enlarge the root-action sample budget. Missing inputs, censoring, positive boarding and feature support describe this selected data only, not predictor accuracy or controller benefit.",
+    "budget": {
+      "new_native_seconds": 0,
+      "optimizer_updates": 0,
+      "new_selected_records": 0,
+      "fitted_models": 0
+    }
+  },
+  "old_raw_results_unchanged": true,
+  "no_training": true
+}

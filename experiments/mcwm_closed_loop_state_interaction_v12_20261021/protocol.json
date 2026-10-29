@@ -1,0 +1,110 @@
+{
+  "name": "thesis-mcwm-state-interaction-v12-20261021",
+  "scheduler_priority": "high",
+  "preflight_directory": "preflight",
+  "training_seeds": [
+    6201,
+    6202
+  ],
+  "target_seed_offset": 77000,
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "target_lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "history_rows": 32768,
+  "source_rows": 4096,
+  "recent_window": 285,
+  "model_init_updates": 400,
+  "model_refit_updates": 10,
+  "policy_updates_per_packet": 8,
+  "feedback_first_deadline": 1200,
+  "feedback_last_deadline": 18000,
+  "feedback_interval_seconds": 300,
+  "feedback_records_per_packet": 5,
+  "feedback_delay_seconds": 30,
+  "target_record_budget": 285,
+  "policy_update_budget": 456,
+  "shock_at_seconds": 9000,
+  "speed_factor": 0.65,
+  "metric_interval_seconds": 300,
+  "model_td_fraction": 0.25,
+  "response_endpoint_seconds": 300,
+  "response_ridge": 1.0,
+  "calibration_seed_offset": 410000,
+  "calibration_first_issue_seconds": 570,
+  "calibration_heldout_first_issue_seconds": 18000,
+  "source_intervals_per_line_minimum": 5,
+  "source_intervals_per_line_limit": 64,
+  "reference_source_intervals": "../mcwm_closed_loop_diagnostic_v2_20261020/inputs/source_intervals.json",
+  "reference_inputs": "../mcwm_closed_loop_formal_20261020/inputs",
+  "trust": "Unchanged original action_model trust and eight-update rule; endpoint and 58-column candidates are passive on the same new common trajectory.",
+  "selection": "Training uses unchanged v10 windows and seed-fixed commands. After the final packet is actually processed, select the first two jointly executable diagnostic issues independently per line, with a separate seed-fixed balanced low/high order.",
+  "budget": "57 packets x5 distinct issue slots=285; at most one calibration bundle replaces an ordinary global slot per packet. Several endpoint fields do not create extra supervised issue rows. Zero-duration global slots never enter learned global fitting. Retain456policy updates and24000native seconds per day.",
+  "physical_covariate": "Reuse fixed102source physical intervals. No extra unbudgeted target physical labels. The new endpoint models use only selected controlled bundles.",
+  "endpoint_clock": "Action issue and next-stop event delivery use actual native ledger clocks. Native bridge detects an event before finishing its tick, then delivers it one tick later; detection and delivery clocks are recorded separately. Fixed300 is sampled after the exact native tick.",
+  "common_prefix": "Main flows reproduce the resident v11 day or short preflight sequentially, including all issued raw/canonical states, commands and passenger ledger, with exact old predictions. Each new low/high branch reproduces its v12 day anchor and saved predictions; first two heldout anchors per line, unchanged external seed, zero suffix training.",
+  "evaluation": "After the actual final budget packet, all parameters freeze. Preserve per-line0/7.5 coverage; predict both actions before feedback. Compare within-endpoint errors and native300-second action gain direction, regret and stable no-harm. Newly paired second states are development diagnostics, not independent confirmation.",
+  "scope": "Four budget-matched common-flow development days, action-contrast decomposition, then twelve states and24 exact300-second native branches at seed6201. Passive candidates leave trust and deployed controller unchanged; no automatic independent confirmation.",
+  "preflight": {
+    "seed": 6201,
+    "scenario": "stable",
+    "model_init_updates": 2,
+    "model_refit_updates": 1,
+    "feedback_last_deadline": 3900,
+    "target_record_budget": 50,
+    "policy_update_budget": 80,
+    "calibration_heldout_first_issue_seconds": 3900,
+    "preflight_stop_seconds": 5000,
+    "target_line": "7X"
+  },
+  "independent_confirmation": {
+    "status": "not_submitted",
+    "gate": "First review exact v11 common-flow and old-prediction reproduction, v12 pair-prefix equality, actual0/7.5 commands, zero suffix training and contrast reconstruction. Scientific advancement additionally requires native300-second action-gain improvement and stable no-harm; structural integrity alone does not qualify. No automatic independent confirmation."
+  },
+  "paired_seed": 6201,
+  "heldout_issues_per_line": 2,
+  "paired_suffix_seconds": 300,
+  "paired_budget": {
+    "states": 12,
+    "branches": 24,
+    "native_suffix_seconds": 7200,
+    "prefix_replays": "Repeated full prefixes and replayed training issue slots are separately counted, never pooled as fresh labels.",
+    "training_suffix": 0
+  },
+  "residual_baselines": {
+    "fixed300": "Exactly300 seconds; learn wait/ride residuals only.",
+    "same_vehicle_next": "Fixed source physical nonholding plus actual holding; global issue-time waiting/onboard rates.",
+    "global_next": "Unchanged decoded base world duration plus global issue-time waiting/onboard rates; exact batch-zero override retained."
+  },
+  "reference_v11_root": "../mcwm_closed_loop_response_residual_v11_20261021",
+  "reference_v11_preflight_directory": "preflight2",
+  "paired_anchor_indices": [
+    0,
+    1
+  ],
+  "state_interactions": {
+    "columns": 19,
+    "unchanged_level_and_line_holding_columns": 13,
+    "shared_action_state_columns": 6,
+    "ridge": 1.0,
+    "holding_encoding": "u=2*hold/7.5-1",
+    "features": [
+      "forward_headway_deviation",
+      "backward_headway_deviation",
+      "queue_capacity",
+      "onboard_capacity",
+      "global_cost_rate_per_1000",
+      "source_nonholding_per_100"
+    ],
+    "covariates": "All available at issue; no future durations, branch truth or heldout labels used to fit. Existing13cols are retained exactly; baseline already contains global rates and physical duration.",
+    "action_difference": "Decompose baseline + line holding + each state interaction in physical units; delete interactions at fixed fitted weights without refitting.",
+    "fit": "Same budget-selected controlled bundles as all comparators; no hyperparameter selection from v11 paired outcomes."
+  }
+}

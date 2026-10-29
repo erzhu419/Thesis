@@ -1,0 +1,44 @@
+[
+  {
+    "project": "Thesis",
+    "description": "mcwm_closed_loop_historical_comparison_v104_20261028 6201/106206/stable",
+    "signature": "mcwm_closed_loop_historical_comparison_v104_20261028/6201/106206/stable",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_historical_comparison_v104_20261028",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -B -u /home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_historical_comparison_v104_20261028/run.py --training-seed 6201 --external-seed 106206 --scenario stable --out /home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_historical_comparison_v104_20261028/runs/6201/106206/stable",
+    "priority": "high",
+    "allowed_nodes": [
+      "node001",
+      "node002",
+      "node003",
+      "node004",
+      "node005",
+      "node006"
+    ],
+    "cpu": 1,
+    "ram_mb": 4000,
+    "vram": 0,
+    "env": {
+      "THESIS_H2O_ROOT": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/runtime/H2Oplus",
+      "THESIS_MCWM_ROOT": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/MC-WM",
+      "THESIS_SOURCE_ENV": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/source_env",
+      "THESIS_DATASET": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/dataset.h5",
+      "THESIS_SUMO_ROOT": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/assets/SUMO_ruiguang",
+      "SUMO_HOME": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/assets/SUMO_ruiguang",
+      "PYTHONPATH": "/home/zhengliang01/scheduleurm_work/runtimes/h2oplus-eval-v7-sumo125-overlay-v1/site-packages",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "SDL_VIDEODRIVER": "dummy",
+      "MPLBACKEND": "Agg",
+      "LIBSUMO_AS_TRACI": "quiet"
+    },
+    "resource_family": "mcwm_closed_loop_historical_comparison_v104_20261028/native",
+    "ram_resource_family": "mcwm_closed_loop_historical_comparison_v104_20261028/native",
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Frozen historical MC-WM actors, zero optimizer or data-fitting updates; five actors crossed with six fixed v75 environment days. Cap720000 native seconds. First formal day reused; no retry, extra probe or validation-label release.",
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "skip_launch_staging": true,
+    "no_auto_requeue": true
+  }
+]

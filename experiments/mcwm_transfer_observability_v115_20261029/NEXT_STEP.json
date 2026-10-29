@@ -1,0 +1,55 @@
+{
+  "status": "PROPOSED_NOT_LAUNCHED",
+  "name": "v116 logged-action playback for decision-time service observability",
+  "purpose": "Recover missing current native information at two already-exposed connection states; test observability only, not policy improvement.",
+  "cases": [
+    {
+      "scenario": "stable",
+      "trace": "v114 parent prefix plus low suffix",
+      "trip_id": "122S_33",
+      "station_id": "122S17_311S23_406X15",
+      "sequence": 13151,
+      "stop_before_apply_clock": 18966.0,
+      "reason": "Connection vehicle leaves two seconds before the known transfer arrival in this realized trajectory."
+    },
+    {
+      "scenario": "local_speed_drop",
+      "trace": "v114 shared parent prefix",
+      "trip_id": "311X_19",
+      "station_id": "122X22_311X22_406S29",
+      "sequence": 10045,
+      "stop_before_apply_clock": 14547.0,
+      "reason": "Current eligible queue is zero despite a later realized transfer from another active vehicle."
+    }
+  ],
+  "execution": {
+    "external_seed": 106206,
+    "horizon_seconds": 24000,
+    "maximum_new_native_seconds": 33513,
+    "learner_constructed": false,
+    "optimizer_updates": 0,
+    "feedback_admitted": 0,
+    "new_policy_actions": 0,
+    "world_refits": 0,
+    "action_path": "Return the recorded proposed action through the original F; compare every issue identity/raw state/executed action against the closed original trace.",
+    "stop": "Inspect before the named action is applied, then stop without pretending to finish the day or fabricating terminal labels.",
+    "native_rng": "No assumed equivalence from action replay alone: any trace/state mismatch stops the diagnostic, retaining actual cost without retry or alternative root.",
+    "metadata": "Reuse resident history_metadata.json contract and station_max_by_line; no learner/checkpoint restoration.",
+    "ledger_check": "Reconstruct accumulated W/R at each issue clock from retained tick-start waiting/in_vehicle and dt; actions alone do not contain this ledger. Compare in place on server."
+  },
+  "observations": [
+    "native clock and receiver identity, current physical location, speed, stop/next-stop plan, free seats and service-ready status",
+    "active feeder identity/current location/speed/next-stop plan and current native onboard membership",
+    "current person stage0 type/line/destStop; distinguish this from whole-journey transfer metadata",
+    "separate presence/availability of already-known planned transfer intent from realized future boarding or arrival"
+  ],
+  "excluded_inputs": [
+    "future realized arrival/boarding/departure",
+    "future queue or final person status",
+    "unborn passenger route demand as a current observation",
+    "unlogged ETA reconstructed from future visit rows"
+  ],
+  "advance_gate": "Complete playback identity and state checks plus genuine issue-before-apply observability. This only admits later design of a single fixed candidate; it is not a control-benefit gate.",
+  "unchanged_gates": "Any later controller still requires the original matched no_fresh and same-actor frozen MC-WM full-day cost gates.",
+  "no_automatic_followup": true
+}

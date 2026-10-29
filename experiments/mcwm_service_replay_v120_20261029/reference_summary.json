@@ -1,0 +1,362 @@
+{
+  "stable": {
+    "source": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_behavior_replay_v113_20261029/runs/stable/no_fresh",
+    "status": "complete",
+    "integrity": {
+      "all_pass": true,
+      "checks": {
+        "initialization": true,
+        "initial70000": true,
+        "original_learner": true,
+        "original_mixture": true,
+        "policy456": true,
+        "learner_counters": true,
+        "trust114": true,
+        "actor_lr_preserved": true,
+        "model_batches456": true,
+        "no_ratio_updates": true,
+        "phase_counts": true,
+        "full_packets": true,
+        "unique285": true,
+        "outcome_rights": true,
+        "source_unchanged": true,
+        "main_rng_unchanged": true,
+        "no_early_feedback": true,
+        "raw_F": true,
+        "canonical_observation": true,
+        "actor_clock": true,
+        "all_issues": true,
+        "full_day": true,
+        "cohort": true,
+        "ledger_balance": true,
+        "exact_windows": true,
+        "frozen_tail": true,
+        "declared_fresh_mechanism": true,
+        "original_auxiliary_batches": true,
+        "critic_complete_replacements": true,
+        "historical_critic_coverage": true,
+        "extra_critic_computation": true,
+        "extra_bootstrap_computation": true,
+        "main_rng_preserved": true,
+        "common_targets_exact": true,
+        "scenario_contract": true,
+        "native_shock_clock": true,
+        "affected_lanes": true
+      },
+      "failed_checks": []
+    },
+    "observer": {
+      "status": "complete",
+      "checks": {
+        "count_ids_exact": true,
+        "unique_onboard_ids": true,
+        "waiting_onboard_disjoint": true,
+        "ledger_exact": true,
+        "tick_contiguous": true,
+        "observed_people_departed": true,
+        "passenger_totals_exact": true,
+        "visit_ride_exact": true,
+        "phase_totals_reconcile": true
+      },
+      "errors": [],
+      "ledger_exact": true,
+      "start": 0.0,
+      "end": 24000.0,
+      "ticks": 24000,
+      "issues": 13686,
+      "commands": 14075,
+      "passengers": 15079,
+      "visits": 14565,
+      "rejected_commands": 0,
+      "passenger_totals": {
+        "wait": 8480581.0,
+        "ride": 16461062.0,
+        "ride_phases": {
+          "service": 1643552.0,
+          "holding": 1265833.1056041718,
+          "moving": 11422641.0,
+          "traffic_or_other": 2129035.8943958282
+        }
+      },
+      "periods": {
+        "0_9000": {
+          "wait": 1278373.0,
+          "ride": 3328295.0,
+          "ride_phases": {
+            "service": 277739.5,
+            "holding": 202478.1749305725,
+            "moving": 2399551.0,
+            "traffic_or_other": 448526.3250694275
+          }
+        },
+        "9000_12000": {
+          "wait": 1153998.0,
+          "ride": 3602670.0,
+          "ride_phases": {
+            "service": 348763.5,
+            "holding": 286282.5524792671,
+            "moving": 2469523.0,
+            "traffic_or_other": 498100.9475207329
+          }
+        },
+        "12000_18300": {
+          "wait": 3994485.0,
+          "ride": 8170832.0,
+          "ride_phases": {
+            "service": 893680.0,
+            "holding": 701831.5921268463,
+            "moving": 5566582.0,
+            "traffic_or_other": 1008738.4078731537
+          }
+        },
+        "18300_24000": {
+          "wait": 2053725.0,
+          "ride": 1359265.0,
+          "ride_phases": {
+            "service": 123369.0,
+            "holding": 75240.78606748581,
+            "moving": 986985.0,
+            "traffic_or_other": 173670.2139325142
+          }
+        },
+        "12600_12900": {
+          "wait": 139079.0,
+          "ride": 406870.0,
+          "ride_phases": {
+            "service": 42682.5,
+            "holding": 30191.99548625946,
+            "moving": 278932.0,
+            "traffic_or_other": 55063.50451374054
+          }
+        }
+      },
+      "ledger": {
+        "time_seconds": 24000.0,
+        "waiting_passengers": 334,
+        "in_vehicle_passengers": 0,
+        "accrued_wait_seconds": 8480581.0,
+        "accrued_in_vehicle_seconds": 16461062.0
+      },
+      "maximum_count_gap": 0.0,
+      "maximum_ledger_gap": 0.0,
+      "traffic_or_other_reasons": {
+        "off_stop": 1751670.0,
+        "protected_wait": 253769.0,
+        "after_hold": 123596.89439582825
+      },
+      "paths": {
+        "actions": "actions.jsonl",
+        "commands": "commands.jsonl",
+        "ticks": "ticks.jsonl",
+        "exchanges": "exchanges.jsonl",
+        "waiting_changes": "waiting_changes.jsonl",
+        "visit_events": "visit_events.jsonl",
+        "passengers": "passengers.jsonl",
+        "visits": "visits.jsonl"
+      },
+      "semantics": "Native tick-start memberships integrated over actual dt, matching the original ledger. Phase is tick-start physical stop/speed plus original service-ready and actual command time; traffic_or_other includes protected and post-command dwell. Visits own the following road segment. ID changes are observed native-tick exchanges; no causal holding effect is inferred."
+    },
+    "first_action": {
+      "sequence": 0,
+      "started_at": 503.0,
+      "trip_id": "7S_2",
+      "station_id": "7S01_102S01"
+    },
+    "last_action": {
+      "sequence": 13685,
+      "started_at": 21198.0,
+      "trip_id": "311S_28",
+      "station_id": "311S41"
+    },
+    "files": {
+      "actions.jsonl": 36443452,
+      "commands.jsonl": 4848195,
+      "ticks.jsonl": 221828780,
+      "exchanges.jsonl": 5276748,
+      "visit_events.jsonl": 3242540,
+      "waiting_changes.jsonl": 1045994,
+      "passengers.jsonl": 13315058,
+      "visits.jsonl": 17471986
+    }
+  },
+  "local_speed_drop": {
+    "source": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_behavior_replay_v113_20261029/runs/local_speed_drop/no_fresh",
+    "status": "complete",
+    "integrity": {
+      "all_pass": true,
+      "checks": {
+        "initialization": true,
+        "initial70000": true,
+        "original_learner": true,
+        "original_mixture": true,
+        "policy456": true,
+        "learner_counters": true,
+        "trust114": true,
+        "actor_lr_preserved": true,
+        "model_batches456": true,
+        "no_ratio_updates": true,
+        "phase_counts": true,
+        "full_packets": true,
+        "unique285": true,
+        "outcome_rights": true,
+        "source_unchanged": true,
+        "main_rng_unchanged": true,
+        "no_early_feedback": true,
+        "raw_F": true,
+        "canonical_observation": true,
+        "actor_clock": true,
+        "all_issues": true,
+        "full_day": true,
+        "cohort": true,
+        "ledger_balance": true,
+        "exact_windows": true,
+        "frozen_tail": true,
+        "declared_fresh_mechanism": true,
+        "original_auxiliary_batches": true,
+        "critic_complete_replacements": true,
+        "historical_critic_coverage": true,
+        "extra_critic_computation": true,
+        "extra_bootstrap_computation": true,
+        "main_rng_preserved": true,
+        "common_targets_exact": true,
+        "scenario_contract": true,
+        "native_shock_clock": true,
+        "affected_lanes": true
+      },
+      "failed_checks": []
+    },
+    "observer": {
+      "status": "complete",
+      "checks": {
+        "count_ids_exact": true,
+        "unique_onboard_ids": true,
+        "waiting_onboard_disjoint": true,
+        "ledger_exact": true,
+        "tick_contiguous": true,
+        "observed_people_departed": true,
+        "passenger_totals_exact": true,
+        "visit_ride_exact": true,
+        "phase_totals_reconcile": true
+      },
+      "errors": [],
+      "ledger_exact": true,
+      "start": 0.0,
+      "end": 24000.0,
+      "ticks": 24000,
+      "issues": 13686,
+      "commands": 14075,
+      "passengers": 15079,
+      "visits": 14565,
+      "rejected_commands": 0,
+      "passenger_totals": {
+        "wait": 8497390.0,
+        "ride": 16572332.0,
+        "ride_phases": {
+          "service": 1646974.0,
+          "holding": 1257707.6724932194,
+          "moving": 11489070.0,
+          "traffic_or_other": 2178580.3275067806
+        }
+      },
+      "periods": {
+        "0_9000": {
+          "wait": 1278373.0,
+          "ride": 3328295.0,
+          "ride_phases": {
+            "service": 277739.5,
+            "holding": 202478.1749305725,
+            "moving": 2399551.0,
+            "traffic_or_other": 448526.3250694275
+          }
+        },
+        "9000_12000": {
+          "wait": 1160429.0,
+          "ride": 3623611.0,
+          "ride_phases": {
+            "service": 352228.0,
+            "holding": 291847.59554600716,
+            "moving": 2487504.0,
+            "traffic_or_other": 492031.40445399284
+          }
+        },
+        "12000_18300": {
+          "wait": 4004681.0,
+          "ride": 8227126.0,
+          "ride_phases": {
+            "service": 891144.0,
+            "holding": 686218.2864737511,
+            "moving": 5591167.0,
+            "traffic_or_other": 1058596.713526249
+          }
+        },
+        "18300_24000": {
+          "wait": 2053907.0,
+          "ride": 1393300.0,
+          "ride_phases": {
+            "service": 125862.5,
+            "holding": 77163.61554288864,
+            "moving": 1010848.0,
+            "traffic_or_other": 179425.88445711136
+          }
+        },
+        "12600_12900": {
+          "wait": 141029.0,
+          "ride": 409192.0,
+          "ride_phases": {
+            "service": 43349.5,
+            "holding": 28827.08543729782,
+            "moving": 278778.0,
+            "traffic_or_other": 58237.41456270218
+          }
+        }
+      },
+      "ledger": {
+        "time_seconds": 24000.0,
+        "waiting_passengers": 333,
+        "in_vehicle_passengers": 0,
+        "accrued_wait_seconds": 8497390.0,
+        "accrued_in_vehicle_seconds": 16572332.0
+      },
+      "maximum_count_gap": 0.0,
+      "maximum_ledger_gap": 0.0,
+      "traffic_or_other_reasons": {
+        "off_stop": 1803541.0,
+        "protected_wait": 253158.0,
+        "after_hold": 121881.32750678062
+      },
+      "paths": {
+        "actions": "actions.jsonl",
+        "commands": "commands.jsonl",
+        "ticks": "ticks.jsonl",
+        "exchanges": "exchanges.jsonl",
+        "waiting_changes": "waiting_changes.jsonl",
+        "visit_events": "visit_events.jsonl",
+        "passengers": "passengers.jsonl",
+        "visits": "visits.jsonl"
+      },
+      "semantics": "Native tick-start memberships integrated over actual dt, matching the original ledger. Phase is tick-start physical stop/speed plus original service-ready and actual command time; traffic_or_other includes protected and post-command dwell. Visits own the following road segment. ID changes are observed native-tick exchanges; no causal holding effect is inferred."
+    },
+    "first_action": {
+      "sequence": 0,
+      "started_at": 503.0,
+      "trip_id": "7S_2",
+      "station_id": "7S01_102S01"
+    },
+    "last_action": {
+      "sequence": 13685,
+      "started_at": 21199.0,
+      "trip_id": "311S_28",
+      "station_id": "311S41"
+    },
+    "files": {
+      "actions.jsonl": 36458673,
+      "commands.jsonl": 4848274,
+      "ticks.jsonl": 222725567,
+      "exchanges.jsonl": 5277114,
+      "visit_events.jsonl": 3242560,
+      "waiting_changes.jsonl": 1043742,
+      "passengers.jsonl": 13315222,
+      "visits.jsonl": 17471816
+    }
+  }
+}

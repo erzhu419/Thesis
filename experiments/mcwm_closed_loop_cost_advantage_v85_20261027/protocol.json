@@ -1,0 +1,81 @@
+{
+  "name": "thesis-mcwm-cost-advantage-v85-20261027",
+  "priority": "high",
+  "source": "mcwm_closed_loop_reference_collection_v84_20261027",
+  "authorization": "User continued the proposed independentD-only shadow training and predeclared new-state heldout; retain old code/results,high,actual paired parallel,small summaries,no control takeover.",
+  "training": {
+    "source_scope": "v84_train",
+    "pairs": 6,
+    "physical_labels": 12,
+    "label_available_at": 24030,
+    "phase": "after_prior_episode_release",
+    "target": "(G_candidate-G_reference)/15079",
+    "models": {
+      "line": 3,
+      "state": 4
+    },
+    "features": "delta_hold/7.5 times [3line indicators,clip(.5*((back_ratio-1)*back_presence-(forward_ratio-1)*forward_presence),-1,1)]",
+    "objective": "sum squared residual +1*norm_squared",
+    "ridge": 1,
+    "solver": "float64 closed_form",
+    "fits": 2,
+    "start_gate": "finite inputs/coefs,source only6declaredpairs,action support,line rank3/state rank4; no feature/ridge scan or train-fit selection",
+    "shared_B_loss": false,
+    "actor_updates": 0,
+    "critic_updates": 0,
+    "value_updates": 0,
+    "world_updates": 0,
+    "trust_updates": 0
+  },
+  "heldout": {
+    "external_seed": 216207,
+    "source_training_seed": 6207,
+    "scenarios": [
+      "stable",
+      "local_speed_drop"
+    ],
+    "lines": [
+      "7X",
+      "102X",
+      "705X"
+    ],
+    "window": [
+      12000,
+      12600
+    ],
+    "pairs": 6,
+    "suffixes": 12,
+    "reference": "exact v84 scene-specific savedactor; prior-run model available before new episode; deterministic frozen from0",
+    "prefix_scope": "New prefix distribution under frozen actor from0; not a v75 adaptive-prefix restoration",
+    "sampling": "First in-stop physically executable root per line/window; no prediction or futurecost selection",
+    "actions": "original actor viaF versus farthest legalF endpoint; tie smaller hold",
+    "predictor_support": "ref_hold in[3.0,3.6],candidate7.5,increase only; support outside retains None prediction and reference choice,still collect truth without changing roots",
+    "fixed_predictions": "Save both model predictions before nativefork; no RNG effect; never refit from heldout",
+    "target_endpoint": 24000,
+    "label_available_at": 24030,
+    "paired_actual_parallel": true
+  },
+  "budget": {
+    "new_prefixes": 2,
+    "new_suffixes": 12,
+    "new_truth_labels": 12,
+    "maximum_native_seconds": 169200,
+    "new_initialization_updates": 0,
+    "prefix_sgd": 0,
+    "suffix_sgd": 0,
+    "old_network_updates": 0,
+    "D_closed_form_fits": 2,
+    "heldout_labels_fed_back": 0
+  },
+  "primary_gate": "All six valid physicalpairs,reference terminal ledgers equal within scene,preissue frozen predictions andno leakage; state model chooses at least1candidate and query selectioncost lower than reference andline3 overall,stable andshock each<=reference.",
+  "reporting": "direction/MAE on supported subset; all-state selectioncost/regret include explicit reference fallback for OOD. Report coverage,Ood,missing,zero duration,worststate andwait/ride decomposition. Query aggregates are not repeated-control full-day gains.",
+  "stop": "If gatefails no ridge/features/threshold tuning or newroot recovery; no automatic switch of primary model toline3. No control takeover or additionalstudy after result.",
+  "history": "v16/v17 used similar lowdimheadway andfailed; v85 change is full remaining-day reference-anchored target andunchanged continuation,not a claim of new feature.",
+  "downloads": "Small JSON and necessary status/log tails; no CSV,rawtrajectory,checkpoint downloads.",
+  "old_paths_written": [],
+  "single_intervention_shadow_policy": "Per scenario, order root opportunities by(started_at,sequence); first supported negative model prediction triggers one candidate action, then always pi_ref; no negative prediction means all reference. Select the already-executed native branch for its exact single-intervention full-day cost; do not sum query costs as policy cost.",
+  "single_intervention_gate": "In addition to existing query gate, state model one-intervention full-day cost must not exceed reference in either scenario. Report versus line model; no automatic takeover.",
+  "single_intervention_declared_before_heldout": true,
+  "pre_heldout_decision_envelope": "Analytic post-fit sign bounds prove line/state choices identical for all z in[-1,1]; both fall back identically outside action support. Main strict state-over-line promotion gate retained and cannot pass.",
+  "heldout_secondary_purpose": "Assess the fixed common learned action rule versus original reference on predeclared new states. Any gain belongs to paired-cost/line rule,not the state feature. No automatic primary-model substitution or control takeover."
+}

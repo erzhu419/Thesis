@@ -1,0 +1,32 @@
+{
+  "all_pass": true,
+  "checks": {
+    "policy_update_budget": true,
+    "critic_update_budget": true,
+    "value_update_budget": true,
+    "actor_update_budget": true,
+    "alpha_update_budget": true,
+    "slots285": true,
+    "target24000": true,
+    "covariates285": true,
+    "outcomes30": true,
+    "original_mixed_target": true,
+    "cql_point2": true,
+    "original_schedule": true,
+    "runtime_F": true,
+    "optimizer_hooks": true,
+    "analysis_export": true,
+    "native_target_check": true
+  },
+  "torch": "2.5.1+cu121",
+  "runtime_contract": {
+    "action_transform": "ExecutionAction",
+    "real_td_coefficient": 1,
+    "world_enabled": false,
+    "ratio_correction": false,
+    "temperature_states": "current",
+    "actor_value_covariates": "fresh_current_s_a",
+    "proposal_entropy": "unchanged latent proposal entropy",
+    "optimizer_schedule": "resident actor-before-critic including IQL V and Adam state"
+  }
+}

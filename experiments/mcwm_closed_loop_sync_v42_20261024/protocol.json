@@ -1,0 +1,23 @@
+{
+  "name":"thesis-mcwm-sync-v42-20261024",
+  "source_v41":"mcwm_closed_loop_overlap_v41_20261024",
+  "source_v40":"mcwm_closed_loop_trace_design_v40_20261024",
+  "source_v38":"mcwm_closed_loop_multievent_credit_v38_20261024",
+  "source_training":"mcwm_closed_loop_paired_recovery_v37r1_20261024",
+  "source_inputs":"mcwm_closed_loop_formal_20261020/inputs",
+  "inventory_versions":["mcwm_closed_loop_update_attribution_v27_20261023","mcwm_closed_loop_cumulative_shadow_v28_20261023","mcwm_closed_loop_critic_shadow_v33_20261024","mcwm_closed_loop_shared_level_v36_20261024","mcwm_closed_loop_paired_coverage_v37_20261024","mcwm_closed_loop_paired_recovery_v37r1_20261024"],
+  "scenarios":["stable","local_speed_drop"],
+  "models":["zero_memory","per_head_level","shared_level"],
+  "initializer_updates":50000,
+  "feedback_slots":285,
+  "retained_update_budget":456,
+  "horizon_seconds":24000,
+  "chain_events":45,
+  "log_scope":"57 packet metrics record only the first actor step and changing minibatches. Same-packet score pairs certify deterministic gate threshold crossings but do not recover probabilities or weights.",
+  "snapshot_scope":"Inventory actual saved actor files. No SGD replay, inverse fitting or interpolation to create missing50024. Existing50456 endpoints remain retrospective, never substituted for an issue-visible warmup snapshot.",
+  "overlap_controls":["exact v41 initializer-to-final replay","oracle_gate_alignment of behavior probabilities only; recompute expectation under the new hypothetical behavior"],
+  "oracle_scope":"Only isolates residual mean/std mismatch under the same frozen old target. It is not a saved50024 snapshot or legal training denominator and does not certify a new trajectory.",
+  "scheduler_priority":"high",
+  "summary_max_bytes":24000,
+  "compute_budget":{"new_native_prefixes":0,"new_native_branches":0,"new_native_seconds":0,"new_training_labels":0,"new_optimizer_updates":0}
+}

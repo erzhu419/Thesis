@@ -1,0 +1,29 @@
+[
+  {
+    "project": "Thesis",
+    "description": "mcwm_closed_loop_history_fit_v93_20261028 fixed three ridge fits and training readout",
+    "signature": "mcwm_closed_loop_history_fit_v93_20261028/fit_readout",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_history_fit_v93_20261028",
+    "cmd": "/usr/bin/python3 -u /home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_history_fit_v93_20261028/fit.py",
+    "priority": "high",
+    "allowed_nodes": [
+      "local"
+    ],
+    "require_node": "local",
+    "preferred_node": "local",
+    "cpu": 1,
+    "ram_mb": 1000,
+    "vram": 0,
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Exactly three fixed float64 ridge solves of dimensions3/5/6 on twelve already-collected paired roots. This is a bounded local CPU calculation with no simulator, label collection, optimizer or GPU requirement; save coefficients once before training-only readout.",
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "skip_launch_staging": true,
+    "no_auto_requeue": true
+  }
+]

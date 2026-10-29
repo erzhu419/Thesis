@@ -1,0 +1,117 @@
+{
+  "all_pass": true,
+  "checks": {
+    "source_model_exact": true,
+    "source_model_gate_pass": true,
+    "source_training_gate_pass": true,
+    "original_four_fits": true,
+    "source_zero_neural_updates": true,
+    "source_initializer_6207": true,
+    "stable/reference_actor_source": true,
+    "v84_stale/stable/7X": true,
+    "v84_stale/stable/102X": true,
+    "v84_stale/stable/705X": true,
+    "v85_fresh/stable/7X": true,
+    "v85_fresh/stable/102X": true,
+    "v85_fresh/stable/705X": true,
+    "v86_exposed/stable/7X": true,
+    "v86_exposed/stable/102X": true,
+    "v86_exposed/stable/705X": true,
+    "local_speed_drop/reference_actor_source": true,
+    "v84_stale/local_speed_drop/7X": true,
+    "v84_stale/local_speed_drop/102X": true,
+    "v84_stale/local_speed_drop/705X": true,
+    "v85_fresh/local_speed_drop/7X": true,
+    "v85_fresh/local_speed_drop/102X": true,
+    "v85_fresh/local_speed_drop/705X": true,
+    "v86_exposed/local_speed_drop/7X": true,
+    "v86_exposed/local_speed_drop/102X": true,
+    "v86_exposed/local_speed_drop/705X": true
+  },
+  "source_model_path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_fresh_response_v86_20261027/model.json",
+  "source_training_summary_path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_fresh_response_v86_20261027/train_summary.json",
+  "source_initializer": 6207,
+  "confirmation_seeds": [
+    416207,
+    516207,
+    616207
+  ],
+  "heldout_external_seeds": [
+    416207,
+    516207,
+    616207
+  ],
+  "original_training_fits": 4,
+  "new_fits": 0,
+  "new_neural_updates": 0,
+  "heldout_truth_used": 0,
+  "source_reference_paths": {
+    "stable": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs/stable/reference_actor.pt",
+    "local_speed_drop": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs/local_speed_drop/reference_actor.pt"
+  },
+  "frozen": {
+    "action_support": {
+      "reference_min": 3.0,
+      "reference_max_exclusive": 3.75,
+      "candidate": 7.5,
+      "candidate_tolerance": 1e-05
+    },
+    "legacy_action_support": {
+      "reference_min": 3.0,
+      "reference_max_inclusive": 3.6,
+      "candidate": 7.5,
+      "candidate_tolerance": 1e-05
+    },
+    "ridge": 1.0,
+    "denominator": 15079.0,
+    "hold_scale": 7.5,
+    "feature_names": [
+      "line_7X",
+      "line_102X",
+      "line_705X",
+      "headway_response"
+    ],
+    "decision_threshold": 0.0,
+    "policy": "first_supported_negative_once_then_reference",
+    "coefficients": {
+      "stale": {
+        "line": [
+          0.999145910736548,
+          1.0703011581745323,
+          -1.004094050527379
+        ],
+        "state": [
+          0.9761722228626907,
+          1.0451035546469263,
+          -1.0193861933581119,
+          -0.2761230336655722
+        ]
+      },
+      "fresh": {
+        "line": [
+          0.5732177125816464,
+          -1.2008865258503538,
+          -1.3708162807796793
+        ],
+        "state": [
+          0.5730513621573485,
+          -1.2009074255467558,
+          -1.3708555577589754,
+          -0.001916259202313136
+        ]
+      }
+    }
+  },
+  "reference_roots": 18,
+  "native_seconds": 0,
+  "actor_updates": 0,
+  "critic_updates": 0,
+  "value_updates": 0,
+  "B_updates": 0,
+  "world_updates": 0,
+  "trust_updates": 0,
+  "initialization_updates": 0,
+  "prefix_training_updates": 0,
+  "suffix_training_updates": 0,
+  "replay_loaded": false
+}

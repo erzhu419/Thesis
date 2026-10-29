@@ -1,0 +1,41 @@
+{
+  "name": "mcwm_transfer_observability_v115_20261029",
+  "scope": "Read existing v113/v114 logs and source to distinguish causal holding effects, original fresh degradation, and decision-time transfer observability.",
+  "sources": {
+    "original_pair": "experiments/mcwm_behavior_replay_v113_20261029",
+    "same_state_contrast": "experiments/mcwm_same_state_holding_v114_20261029"
+  },
+  "comparators": [
+    "v113 fresh minus matched no_fresh",
+    "v114 low minus high"
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "training_seed": 6201,
+  "external_seed": 106206,
+  "metric": "(2W+R)/15079, full 24000-second day",
+  "fixed_examples": [
+    "transfer_8937.0",
+    "transfer_15055.0"
+  ],
+  "new_native_seconds": 0,
+  "new_training_updates": 0,
+  "new_feedback_collection": 0,
+  "policy_and_F_changed": false,
+  "old_results_read_only": true,
+  "outputs": [
+    "connection_cases.json",
+    "cohort_summary.json",
+    "OBSERVABILITY.md",
+    "RESULTS_AND_NEXT.md",
+    "decision.json"
+  ],
+  "pull_limits_bytes": {
+    "connection_cases": 12000,
+    "cohort_summary": 12000
+  },
+  "decision": "Identify which information is available before issue, distinguish factual connection windows from future truth, and decide one bounded next step. Do not infer a qualified policy constraint from these read-only descriptions.",
+  "frozen_cost_gates": "Any later controller candidate must keep the original matched no_fresh and same-actor frozen MC-WM gates; this readout cannot pass a controller gate."
+}

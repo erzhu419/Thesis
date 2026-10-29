@@ -1,0 +1,150 @@
+{
+  "name": "mcwm_closed_loop_stratified_collection_v90_20261028",
+  "source_initializer": 6207,
+  "purpose": "Fix issue-visible within-line service sampling and conditional paired-response learning, then test native feasibility without fitting",
+  "reference": "Unchanged scene-specific v84 saved actor originating from v75 seed6207 packet37; actor/V observations, F and trust unchanged",
+  "features": {
+    "names": [
+      "onboard_capacity_ratio",
+      "next_stop_capacity_margin"
+    ],
+    "definition": "[L/C, clip((Q_next_compatible-max(0,C-L+A_next))/C,-1,1)]",
+    "load_bin_threshold": {
+      "7X": 0.13,
+      "102X": 0.5,
+      "705X": 0.5
+    },
+    "source": "Current native onboard IDs and next-stop queue IDs plus their current stage0; A_next counts planned current-leg destinations at the next stop",
+    "clock": "Native observation start=end=actual issue clock, with event clock separately recorded",
+    "missing": "Unsupported, never zero-filled or backfilled from future observations",
+    "sampling_effect": "Clock, passenger ledger and Python/NumPy/Torch RNG unchanged",
+    "information_budget": "Only selected labeled roots may enter future fitting. Other candidate contexts are coverage diagnostics only; actor and V retain229 inputs.",
+    "lighter": "native L/C<threshold[line]",
+    "heavier": "native L/C>=threshold[line]",
+    "threshold_source": "Frozen v89 distinct-value midpoint for7X; unchanged50% for102X/705X"
+  },
+  "action_support": {
+    "reference_min": 3.0,
+    "reference_max_exclusive": 3.75,
+    "candidate": 7.5,
+    "candidate_tolerance": 1e-05,
+    "minimum_gap_native_steps": 2
+  },
+  "learning": {
+    "stage": "No fit in v90; only fixed-design support/rank and descriptive paired labels",
+    "source_scope": "v88_train",
+    "training_external_seed": 716207,
+    "training_scenarios": [
+      "stable",
+      "local_speed_drop"
+    ],
+    "pairs": 12,
+    "physical_outcome_labels": 24,
+    "coverage": "Three lines times lighter/heavier times stable/shock; sevenX cut13% instead of old50%",
+    "target": "(G_candidate-G_reference)/15079, G=2*remaining_wait+remaining_ride under matching frozen reference continuation to real24000; label available24030",
+    "line_baseline": "a*beta_line, three parameters, a=(h_candidate-h_reference)/7.5",
+    "conditional": "a*[beta_line+gamma_load*(x_load-mu_line_load)+gamma_margin*(x_margin-mu_line_margin)], five parameters",
+    "centering": "mu_line=sum(a^2*x)/sum(a^2) over training roots of that line only; freeze before holdout",
+    "identification": "Weighted within-line centering makes added columns orthogonal to line columns; same-data ridge line coefficients should match the constant baseline",
+    "objective": "sum_squared_error_plus_ridge_norm_squared",
+    "ridge": 1.0,
+    "solves_when_authorized": 2,
+    "fit_gate": "No authorization to fit in v90; collect and analyze all predetermined roots first. No sign gate.",
+    "evidence_scope": "Rank and in-sample fits do not establish correct actions or passenger-cost improvement"
+  },
+  "future_validation": {
+    "external_seed": 816207,
+    "scenarios": [
+      "stable",
+      "local_speed_drop"
+    ],
+    "not_started": true,
+    "rule": "Unchanged first supported strictly negative prediction, at most once, then permanently reference",
+    "opportunities": "Keep original first physically eligible issue per line in12000-12600: three roots per scenario, not six load-stratified opportunities",
+    "comparators": [
+      "conditional",
+      "same-data line constant",
+      "reference actor"
+    ],
+    "metric": "Actual full-day(2W+R)/15079 from the corresponding native suffix plus common-prefix ledger",
+    "gate": "Predeclare before fitting: conditional mean beats both comparators, each scene and worst cell do not degrade; no query-gain sums"
+  },
+  "budget": {
+    "native_prefixes": 2,
+    "native_suffixes": 22,
+    "native_pairs": 11,
+    "physical_outcome_labels": 22,
+    "reused_pairs": 1,
+    "reused_labels": 2,
+    "logical_cohort_pairs": 12,
+    "logical_cohort_labels": 24,
+    "max_native_simulation_seconds": 289200,
+    "scenario_caps": {
+      "stable": 132600,
+      "local_speed_drop": 156600
+    },
+    "initialization_steps": 0,
+    "closed_form_fits": 0,
+    "neural_updates": 0,
+    "feedback_admission": 0,
+    "v87_truth_used": 0,
+    "historical_separate": {
+      "v88_actual_native_seconds": 36598,
+      "v89_actual_native_seconds": 12600,
+      "total_actual_before_v90": 49198
+    },
+    "cumulative_native_upper_bound_through_v90": 338398,
+    "calculation": "2*12600+22*12000; reused v88 pair is included logically but queried zero times in v90; first new pair is included once"
+  },
+  "priority": "high",
+  "artifacts": "Only bounded freeze audit, collector summary and short status readouts are pulled; native traces, identities and actor checkpoints remain resident",
+  "stop_rule": "Stop after this fixed collection and compact analysis; no automatic fitting, training, new roots, native retries, endpoint fabrication, v87 truth use, or independent confirmation. Technical failure of first new pair stops this collection gate without replacing the root.",
+  "old_paths_written": [],
+  "version": 90,
+  "external_seed": 716207,
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "issue_window": [
+    12000,
+    12600
+  ],
+  "thresholds": {
+    "7X": 0.13,
+    "102X": 0.5,
+    "705X": 0.5
+  },
+  "terminal": 24000,
+  "label_available_at": 24030,
+  "scope": "Formal collection only: frozen strata, original actor/F versus farthest supported endpoint; no fitting or control takeover",
+  "collection": {
+    "pairs": 12,
+    "slots_per_scenario": [
+      "7X/lighter",
+      "7X/heavier",
+      "102X/lighter",
+      "102X/heavier",
+      "705X/lighter",
+      "705X/heavier"
+    ],
+    "rule": "First physically supported issue in each frozen native load stratum on the unchanged reference parent path in12000<=issue<12600; never use labels or future outcomes for selection",
+    "reuse": {
+      "scenario": "stable",
+      "slot": "7X/heavier",
+      "source": "mcwm_closed_loop_service_response_v88_20261028/runs/preflight/pairs/low/7X",
+      "require": "Exact current root, issue ledger, actions, frozen actor, atomic service context and original full parent trace; no repeated suffix queries"
+    },
+    "first_new_pair": "Stable first new chronological pair is part of formal cohort and technical preflight; all native checks must pass before shock parent reset, no sign gate or replacement",
+    "continuation": "Two actual parallel native suffixes from identical complete root/RNG/external seed; substitute root action exactly once then frozen original actor/F on own states to real24000",
+    "prefix": "Continue each unchanged reference parent to12600; stable all8559 issues plusEOF must exactly reproducev88",
+    "missing": "Missing, unsupported, physically inseparable, truncated and zero-duration cases remain explicit; no replacement or retry"
+  },
+  "collection_gate": [
+    "Frozen actor/F issue-input reproduction, atomic context and exact v88 stable prefix/EOF",
+    "All12 declared native roots, exact reused root and old pair integrity; no repeated old label queries",
+    "Actual root holds and departures separated, next same-car arrival observed, same root/RNG/seed and true24000/24030",
+    "Rank3 line and rank5 conditional design using issue-visible covariates and actions only",
+    "Zero fits/neural updates/label admission/v87 truth; actual paired overlap, new budget and historical spend distinct"
+  ]
+}

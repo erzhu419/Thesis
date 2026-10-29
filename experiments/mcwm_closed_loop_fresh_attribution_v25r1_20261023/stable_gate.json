@@ -1,0 +1,281 @@
+{
+  "status": "complete",
+  "stage": "stable",
+  "integrity": {
+    "all_pass": true,
+    "checks": {
+      "stable/fresh/native_complete": true,
+      "stable/fresh/initializer_50000": true,
+      "stable/fresh/history_source_rows": true,
+      "stable/fresh/exact_feedback_budget": true,
+      "stable/fresh/unique_delayed_factual_feedback": true,
+      "stable/fresh/exact_update_horizon": true,
+      "stable/fresh/no_world_trust_queries": true,
+      "stable/fresh/fresh_supervision_rights": true,
+      "stable/fresh/td_quota_exact": true,
+      "stable/fresh/actor_value_state_rule": true,
+      "stable/fresh/unified_f_real_td": true,
+      "stable/fresh/actual_shared_f": true,
+      "stable/fresh/actor_real_clock": true,
+      "stable/fresh/post_budget_zero_training": true,
+      "stable/fresh/correct_cell": true,
+      "stable/fresh/all_fixed_clock_metrics": true,
+      "stable/fresh/final_ledger_matches": true,
+      "stable/fresh/complete_passenger_cost": true,
+      "stable/no_fresh/native_complete": true,
+      "stable/no_fresh/initializer_50000": true,
+      "stable/no_fresh/history_source_rows": true,
+      "stable/no_fresh/exact_feedback_budget": true,
+      "stable/no_fresh/unique_delayed_factual_feedback": true,
+      "stable/no_fresh/exact_update_horizon": true,
+      "stable/no_fresh/no_world_trust_queries": true,
+      "stable/no_fresh/fresh_supervision_rights": true,
+      "stable/no_fresh/td_quota_exact": true,
+      "stable/no_fresh/actor_value_state_rule": true,
+      "stable/no_fresh/unified_f_real_td": true,
+      "stable/no_fresh/actual_shared_f": true,
+      "stable/no_fresh/actor_real_clock": true,
+      "stable/no_fresh/post_budget_zero_training": true,
+      "stable/no_fresh/correct_cell": true,
+      "stable/no_fresh/all_fixed_clock_metrics": true,
+      "stable/no_fresh/final_ledger_matches": true,
+      "stable/no_fresh/complete_passenger_cost": true,
+      "stable/initializer_exact": true,
+      "stable/feedback_deadlines_exact": true,
+      "stable/first_feedback_clock_exact": true,
+      "stable/pre_feedback_prefix_exact": true,
+      "stable/pair_integrity": true,
+      "stable/actual_parallel": true
+    }
+  },
+  "run_evidence": {
+    "stable/fresh": {
+      "status": "complete",
+      "budget": {
+        "target_feedback_slots": 285,
+        "training_fresh_outcomes": 285,
+        "policy_updates": 456,
+        "packets": 57,
+        "native_seconds": 24000.0,
+        "world_updates": 0,
+        "trust_updates": 0,
+        "counterfactual_queries": 0,
+        "training_stopped_at": 18001.0
+      },
+      "replay": {
+        "arm": "fresh",
+        "feedback_slots_received": 285,
+        "recent_covariates": 285,
+        "fresh_outcomes_stored": 285,
+        "td_slots": {
+          "source": 128,
+          "historical_target": 64,
+          "fresh_target": 64,
+          "historical_replacement": 0
+        },
+        "fresh_current_s_a_use": [
+          "IQL value",
+          "SAC actor",
+          "temperature"
+        ],
+        "fresh_outcome_use": [
+          "critic factual Bellman target"
+        ],
+        "no_fresh_replacement": "complete historical (s,a,r,ns,dt,terminal), never hybrid rows",
+        "sampler_draw_order": [
+          "history",
+          "historical replacement",
+          "fresh covariates",
+          "source"
+        ]
+      },
+      "post_budget_counts": {
+        "before": {
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        },
+        "after": {
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        }
+      }
+    },
+    "stable/no_fresh": {
+      "status": "complete",
+      "budget": {
+        "target_feedback_slots": 285,
+        "training_fresh_outcomes": 0,
+        "policy_updates": 456,
+        "packets": 57,
+        "native_seconds": 24000.0,
+        "world_updates": 0,
+        "trust_updates": 0,
+        "counterfactual_queries": 0,
+        "training_stopped_at": 18000.0
+      },
+      "replay": {
+        "arm": "no_fresh",
+        "feedback_slots_received": 285,
+        "recent_covariates": 285,
+        "fresh_outcomes_stored": 0,
+        "td_slots": {
+          "source": 128,
+          "historical_target": 64,
+          "fresh_target": 0,
+          "historical_replacement": 64
+        },
+        "fresh_current_s_a_use": [
+          "IQL value",
+          "SAC actor",
+          "temperature"
+        ],
+        "fresh_outcome_use": [],
+        "no_fresh_replacement": "complete historical (s,a,r,ns,dt,terminal), never hybrid rows",
+        "sampler_draw_order": [
+          "history",
+          "historical replacement",
+          "fresh covariates",
+          "source"
+        ]
+      },
+      "post_budget_counts": {
+        "before": {
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        },
+        "after": {
+          "policy": 456,
+          "world": 0,
+          "trust": 0
+        }
+      }
+    }
+  },
+  "pre_feedback_prefix": {
+    "stable": {
+      "all_pass": true,
+      "compared_rows": 45,
+      "differing_rows": 0,
+      "first_difference_index": null,
+      "stop_exclusive_seconds": 1205.0
+    }
+  },
+  "pre_shock": {},
+  "parallel": {
+    "stable": {
+      "positive_overlap": true,
+      "native_overlap_seconds": 1199.5970754623413,
+      "native_pair_span_seconds": 1944.1592321395874,
+      "arm_occupancy_factor": 1.6170261445829002,
+      "arm_native_wall_seconds": {
+        "fresh": 1199.8398442268372,
+        "no_fresh": 1943.9164633750916
+      },
+      "arms": {
+        "fresh": {
+          "pid": 479984,
+          "native_started_wall": 1792726437.1488824,
+          "native_finished_wall": 1792727636.9887266
+        },
+        "no_fresh": {
+          "pid": 479985,
+          "native_started_wall": 1792726437.3916512,
+          "native_finished_wall": 1792728381.3081145
+        }
+      },
+      "interpretation": "Measured concurrent occupancy, not a serial-counterfactual speedup."
+    }
+  },
+  "absolute_cost": {
+    "stable": {
+      "full_day": {
+        "arms": {
+          "fresh": {
+            "status": "complete",
+            "start": 0,
+            "end": 24000,
+            "accrued_wait_seconds": 8420224.0,
+            "accrued_in_vehicle_seconds": 16454345.0,
+            "generalized_passenger_seconds": 33294793.0,
+            "generalized_seconds_per_departed_passenger": 2208.023940579614,
+            "departed_passengers_denominator": 15079,
+            "denominator_scope": "Full-day departed cohort, including its unfinished passenger time.",
+            "source": "Complete cumulative passenger ledger; no synthetic zero-time metric."
+          },
+          "no_fresh": {
+            "status": "complete",
+            "start": 0,
+            "end": 24000,
+            "accrued_wait_seconds": 8460865.0,
+            "accrued_in_vehicle_seconds": 16424813.0,
+            "generalized_passenger_seconds": 33346543.0,
+            "generalized_seconds_per_departed_passenger": 2211.4558657735924,
+            "departed_passengers_denominator": 15079,
+            "denominator_scope": "Full-day departed cohort, including its unfinished passenger time.",
+            "source": "Complete cumulative passenger ledger; no synthetic zero-time metric."
+          }
+        },
+        "fresh_minus_no_fresh": {
+          "accrued_wait_seconds": -40641.0,
+          "accrued_in_vehicle_seconds": 29532.0,
+          "generalized_passenger_seconds": -51750.0,
+          "generalized_seconds_per_departed_passenger": -3.431925193978259
+        },
+        "favorable_direction": "Negative differences mean lower fresh-arm cost."
+      },
+      "post_budget": {
+        "arms": {
+          "fresh": {
+            "status": "complete",
+            "start": 18300,
+            "end": 24000,
+            "accrued_wait_seconds": 2056462.0,
+            "accrued_in_vehicle_seconds": 1324011.0,
+            "generalized_passenger_seconds": 5436935.0,
+            "generalized_seconds_per_departed_passenger": 360.5633662709729,
+            "departed_passengers_denominator": 15079,
+            "denominator_scope": "Full-day departed cohort, including its unfinished passenger time."
+          },
+          "no_fresh": {
+            "status": "complete",
+            "start": 18300,
+            "end": 24000,
+            "accrued_wait_seconds": 2045107.0,
+            "accrued_in_vehicle_seconds": 1332992.0,
+            "generalized_passenger_seconds": 5423206.0,
+            "generalized_seconds_per_departed_passenger": 359.65289475429404,
+            "departed_passengers_denominator": 15079,
+            "denominator_scope": "Full-day departed cohort, including its unfinished passenger time."
+          }
+        },
+        "fresh_minus_no_fresh": {
+          "accrued_wait_seconds": 11355.0,
+          "accrued_in_vehicle_seconds": -8981.0,
+          "generalized_passenger_seconds": 13729.0,
+          "generalized_seconds_per_departed_passenger": 0.9104715166788537
+        },
+        "favorable_direction": "Negative differences mean lower fresh-arm cost."
+      }
+    }
+  },
+  "recovery": {},
+  "decision": {
+    "implementation_ready": true,
+    "next_action": "run paired shock pilot",
+    "cost_used_as_dispatch_gate": false,
+    "service_reversal_used_as_dispatch_gate": false,
+    "independent_confirmation": "not_authorized_by_this_gate",
+    "stage_b": "closed"
+  },
+  "interpretation": "One paired seed: factual outcome supervision attribution, not independent confirmation or world-model benefit.",
+  "analysis_revision": {
+    "name": "v25r1",
+    "native_runs_unchanged": true,
+    "metric_origin": "First metric equals recorded scenario installation time; all subsequent 300-second grid points are required.",
+    "full_day_cost": "Complete final cumulative ledger, including cost accrued before recorder installation."
+  },
+  "clock_diagnostic": "clock_stable.json"
+}

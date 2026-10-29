@@ -1,0 +1,432 @@
+{
+  "status": "exposed_feasibility_pass",
+  "scope": {
+    "data": "Existing12 v93 training roots; old716207 labels are already exposed",
+    "fits": 3,
+    "method": "Leave one line out: fit the fixed two-parameter residual model on the other8 roots, compute a training-only standardized max remainder there, and score the held line",
+    "bias_fit_uses_held_line_labels": false,
+    "base_model_has_seen_held_line_labels": true,
+    "training_max_is_not_independent_C": true,
+    "cross_fold_query_choice": "Only a structural diagnostic assembled from three separate fold rules; not one deployable model or a full native policy replay",
+    "first_query_subset": "Use v93 saved earliest-collected-root-per-line query subset; do not call it an exhaustive native first-opportunity scan",
+    "component_report": [
+      "m",
+      "b",
+      "C",
+      "C*(u-1)",
+      "U"
+    ],
+    "feasibility_gate": [
+      "three finite rank2 fits",
+      "at least one accepted and truly beneficial existing first-query root",
+      "cross-fold selected delta negative on average and no positive scene delta",
+      "not all reference"
+    ],
+    "scope": "Passing supports considering independent T collection only. It neither validates the method nor proves calibrated uncertainty/control gains",
+    "single_attempt": "Save one attempt and results; do not retry another ridge/feature/split after seeing outcomes"
+  },
+  "checks": {
+    "three_rank2_fits": true,
+    "useful_first_query_selected": true,
+    "selected_mean_below_reference": true,
+    "no_positive_scene_delta": true,
+    "nonzero_intervention": true
+  },
+  "folds": {
+    "7X": {
+      "exposed_bias": {
+        "q_range": [
+          0.007957623402277628,
+          0.4999144673347473
+        ],
+        "coef": [
+          -0.25764390554107647,
+          3.2544655633648474
+        ],
+        "gram_inverse": [
+          [
+            0.11119041647728241,
+            0.0031661975271755002
+          ],
+          [
+            0.0031661975271755002,
+            0.12640767283562307
+          ]
+        ],
+        "n": 8,
+        "rank": 2,
+        "ridge": 1.0,
+        "linear_solves": 1
+      },
+      "training_pressure_not_independent_C": 1.3126681378473763,
+      "training_ids": [
+        "stable/102X/heavier",
+        "stable/102X/lighter",
+        "stable/705X/heavier",
+        "stable/705X/lighter",
+        "local_speed_drop/102X/lighter",
+        "local_speed_drop/705X/heavier",
+        "local_speed_drop/102X/heavier",
+        "local_speed_drop/705X/lighter"
+      ],
+      "held_ids": [
+        "stable/7X/heavier",
+        "stable/7X/lighter",
+        "local_speed_drop/7X/heavier",
+        "local_speed_drop/7X/lighter"
+      ]
+    },
+    "102X": {
+      "exposed_bias": {
+        "q_range": [
+          0.007957623402277628,
+          0.4999144673347473
+        ],
+        "coef": [
+          -0.18086646853668945,
+          2.5883066969809874
+        ],
+        "gram_inverse": [
+          [
+            0.11119041647728241,
+            0.0031661975271755002
+          ],
+          [
+            0.0031661975271755002,
+            0.12640767283562307
+          ]
+        ],
+        "n": 8,
+        "rank": 2,
+        "ridge": 1.0,
+        "linear_solves": 1
+      },
+      "training_pressure_not_independent_C": 0.9088548913661438,
+      "training_ids": [
+        "stable/7X/heavier",
+        "stable/7X/lighter",
+        "stable/705X/heavier",
+        "stable/705X/lighter",
+        "local_speed_drop/7X/heavier",
+        "local_speed_drop/7X/lighter",
+        "local_speed_drop/705X/heavier",
+        "local_speed_drop/705X/lighter"
+      ],
+      "held_ids": [
+        "stable/102X/heavier",
+        "stable/102X/lighter",
+        "local_speed_drop/102X/lighter",
+        "local_speed_drop/102X/heavier"
+      ]
+    },
+    "705X": {
+      "exposed_bias": {
+        "q_range": [
+          0.007957623402277628,
+          0.4999144673347473
+        ],
+        "coef": [
+          -0.2134777424810869,
+          2.490845028331107
+        ],
+        "gram_inverse": [
+          [
+            0.11116602855960885,
+            0.002736533274106215
+          ],
+          [
+            0.002736533274106215,
+            0.13636129436346353
+          ]
+        ],
+        "n": 8,
+        "rank": 2,
+        "ridge": 1.0,
+        "linear_solves": 1
+      },
+      "training_pressure_not_independent_C": 0.5821410111718582,
+      "training_ids": [
+        "stable/7X/heavier",
+        "stable/102X/heavier",
+        "stable/7X/lighter",
+        "stable/102X/lighter",
+        "local_speed_drop/102X/lighter",
+        "local_speed_drop/7X/heavier",
+        "local_speed_drop/7X/lighter",
+        "local_speed_drop/102X/heavier"
+      ],
+      "held_ids": [
+        "stable/705X/heavier",
+        "stable/705X/lighter",
+        "local_speed_drop/705X/heavier",
+        "local_speed_drop/705X/lighter"
+      ]
+    }
+  },
+  "rows": [
+    {
+      "id": "stable/7X/heavier",
+      "line": "7X",
+      "scenario": "stable",
+      "q": 0.05221744179725647,
+      "m": -0.6857540621534781,
+      "prediction": -0.6857540621534781,
+      "delta": -2.4312620200278534,
+      "active": true,
+      "issue_clock": 12001.0,
+      "sequence": 8110,
+      "b": -2.9265212955375577,
+      "C": 1.3126681378473763,
+      "u": 1.091332986851835,
+      "support_inflation": 0.1198899017748373,
+      "U": -2.179717318068822,
+      "eligible_after_bound": true
+    },
+    {
+      "id": "stable/7X/lighter",
+      "line": "7X",
+      "scenario": "stable",
+      "q": 0.007957623402277628,
+      "m": -0.7646495568739906,
+      "prediction": -0.7646495568739906,
+      "delta": -3.0340208236620465,
+      "active": true,
+      "issue_clock": 12007.0,
+      "sequence": 8120,
+      "b": -3.512109468905924,
+      "C": 1.3126681378473763,
+      "u": 1.1096241229617148,
+      "support_inflation": 0.1439000933513059,
+      "U": -2.820190794581232,
+      "eligible_after_bound": true
+    },
+    {
+      "id": "local_speed_drop/7X/heavier",
+      "line": "7X",
+      "scenario": "local_speed_drop",
+      "q": 0.4666777531305949,
+      "m": 0.25935785500808217,
+      "prediction": 0.25935785500808217,
+      "delta": -0.42986935473174614,
+      "active": true,
+      "issue_clock": 12004.0,
+      "sequence": 8120,
+      "b": 2.5570768178001146,
+      "C": 1.3126681378473763,
+      "u": 1.1005554136212659,
+      "support_inflation": 0.13199588754869976,
+      "U": 4.261098698204273,
+      "eligible_after_bound": false
+    },
+    {
+      "id": "local_speed_drop/7X/lighter",
+      "line": "7X",
+      "scenario": "local_speed_drop",
+      "q": 0.4666777531305949,
+      "m": 0.26343408219813946,
+      "prediction": 0.26343408219813946,
+      "delta": 4.202533324491014,
+      "active": true,
+      "issue_clock": 12007.0,
+      "sequence": 8125,
+      "b": 2.5570768178001146,
+      "C": 1.3126681378473763,
+      "u": 1.1005554136212659,
+      "support_inflation": 0.13199588754869976,
+      "U": 4.26517492539433,
+      "eligible_after_bound": false
+    },
+    {
+      "id": "stable/102X/heavier",
+      "line": "102X",
+      "scenario": "stable",
+      "q": 0.05221744179725647,
+      "m": -0.9049501422100477,
+      "prediction": -0.9049501422100477,
+      "delta": -6.459049008554944,
+      "active": true,
+      "issue_clock": 12003.0,
+      "sequence": 8113,
+      "b": -2.303449451042383,
+      "C": 0.9088548913661438,
+      "u": 1.091332986851835,
+      "support_inflation": 0.08300843184337003,
+      "U": -2.216536270042917,
+      "eligible_after_bound": true
+    },
+    {
+      "id": "stable/102X/lighter",
+      "line": "102X",
+      "scenario": "stable",
+      "q": 0.007957623402277628,
+      "m": -1.0288144887998212,
+      "prediction": -1.0288144887998212,
+      "delta": -3.084355726507063,
+      "active": true,
+      "issue_clock": 12013.0,
+      "sequence": 8124,
+      "b": -2.769173165517677,
+      "C": 0.9088548913661438,
+      "u": 1.1096241229617148,
+      "support_inflation": 0.09963242036547805,
+      "U": -2.789500342585876,
+      "eligible_after_bound": true
+    },
+    {
+      "id": "local_speed_drop/102X/lighter",
+      "line": "102X",
+      "scenario": "local_speed_drop",
+      "q": 0.4666777531305949,
+      "m": 0.05037568776660711,
+      "prediction": 0.05037568776660711,
+      "delta": 1.2917302208369255,
+      "active": true,
+      "issue_clock": 12002.0,
+      "sequence": 8116,
+      "b": 2.0577070718828674,
+      "C": 0.9088548913661438,
+      "u": 1.1005554136212659,
+      "support_inflation": 0.09139027952303323,
+      "U": 3.1083279305386515,
+      "eligible_after_bound": false
+    },
+    {
+      "id": "local_speed_drop/102X/heavier",
+      "line": "102X",
+      "scenario": "local_speed_drop",
+      "q": 0.4666777531305949,
+      "m": 0.020699676862986183,
+      "prediction": 0.020699676862986183,
+      "delta": 4.782810531202334,
+      "active": true,
+      "issue_clock": 12021.0,
+      "sequence": 8138,
+      "b": 2.0577070718828674,
+      "C": 0.9088548913661438,
+      "u": 1.1005554136212659,
+      "support_inflation": 0.09139027952303323,
+      "U": 3.0786519196350306,
+      "eligible_after_bound": false
+    },
+    {
+      "id": "stable/705X/heavier",
+      "line": "705X",
+      "scenario": "stable",
+      "q": 0.007957623402277628,
+      "m": -1.0423586639001527,
+      "prediction": -1.0423586639001527,
+      "delta": -6.293189203528085,
+      "active": true,
+      "issue_clock": 12017.0,
+      "sequence": 8130,
+      "b": -2.704322770812194,
+      "C": 0.5821410111718582,
+      "u": 1.114474879203143,
+      "support_inflation": 0.06664052193309394,
+      "U": -3.0978999016073945,
+      "eligible_after_bound": true
+    },
+    {
+      "id": "stable/705X/lighter",
+      "line": "705X",
+      "scenario": "stable",
+      "q": 0.007957623402277628,
+      "m": -0.8604905818639383,
+      "prediction": -0.8604905818639383,
+      "delta": -3.5492406658266464,
+      "active": true,
+      "issue_clock": 12062.0,
+      "sequence": 8164,
+      "b": -2.704322770812194,
+      "C": 0.5821410111718582,
+      "u": 1.114474879203143,
+      "support_inflation": 0.06664052193309394,
+      "U": -2.91603181957118,
+      "eligible_after_bound": true
+    },
+    {
+      "id": "local_speed_drop/705X/heavier",
+      "line": "705X",
+      "scenario": "local_speed_drop",
+      "q": 0.4666777531305949,
+      "m": -0.008943687828082691,
+      "prediction": -0.008943687828082691,
+      "delta": 3.0490085549439616,
+      "active": true,
+      "issue_clock": 12018.0,
+      "sequence": 8136,
+      "b": 1.940803193472685,
+      "C": 0.5821410111718582,
+      "u": 1.103585107470377,
+      "support_inflation": 0.06030113920515092,
+      "U": 2.5743016560216114,
+      "eligible_after_bound": false
+    },
+    {
+      "id": "local_speed_drop/705X/lighter",
+      "line": "705X",
+      "scenario": "local_speed_drop",
+      "q": 0.4999144673347473,
+      "m": 0.19783688707461428,
+      "prediction": 0.19783688707461428,
+      "delta": 3.633198487963393,
+      "active": true,
+      "issue_clock": 12840.0,
+      "sequence": 8760,
+      "b": 2.27736728585002,
+      "C": 0.5821410111718582,
+      "u": 1.119374999484661,
+      "support_inflation": 0.06949308290864055,
+      "U": 3.126838267005133,
+      "eligible_after_bound": false
+    }
+  ],
+  "exposed_point_counts": {
+    "roots": 12,
+    "accepted": 6,
+    "accepted_beneficial": 6,
+    "accepted_harmful": 0,
+    "accepted_first_query": 3
+  },
+  "cross_fold_diagnostic": {
+    "scenes": {
+      "stable": {
+        "opportunities": [
+          "stable/7X/heavier",
+          "stable/102X/heavier",
+          "stable/705X/heavier"
+        ],
+        "cross_fold_diagnostic_selected": "stable/7X/heavier",
+        "selected_delta_per_passenger": -2.4312620200278534,
+        "raw_history6_selected": "stable/7X/heavier",
+        "raw_history6_delta": -2.4312620200278534
+      },
+      "local_speed_drop": {
+        "opportunities": [
+          "local_speed_drop/102X/lighter",
+          "local_speed_drop/7X/heavier",
+          "local_speed_drop/705X/heavier"
+        ],
+        "cross_fold_diagnostic_selected": null,
+        "selected_delta_per_passenger": 0.0,
+        "raw_history6_selected": "local_speed_drop/705X/heavier",
+        "raw_history6_delta": 3.0490085549439616
+      }
+    },
+    "selected_mean_delta": -1.2156310100139267,
+    "raw_history6_mean_delta": 0.3088732674580541,
+    "deployable_single_model": false,
+    "independent_calibration": false,
+    "actual_policy_replay": false
+  },
+  "actual_budget": {
+    "native_seconds": 0,
+    "new_labels": 0,
+    "independent_bias_fits": 0,
+    "exposed_diagnostic_fits": 3,
+    "optimizer_updates": 0,
+    "initialization_steps": 0,
+    "remote_bytes_pulled": 0
+  },
+  "decision": "Consider only the frozen two-seed T collection after review; no collection submitted"
+}

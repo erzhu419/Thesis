@@ -1,0 +1,265 @@
+{
+  "name": "mcwm-mainline-replay-ablation-20261029",
+  "candidate": "executed_cql",
+  "development_seeds": [
+    6206,
+    6207,
+    6208
+  ],
+  "confirmation_seeds": [],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "arms": [
+    "fresh"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "feedback_slots": 285,
+  "policy_updates": 456,
+  "external_seed_offset": 100000,
+  "candidate_change": "Run the unchanged coupled capacity-risk v72/v70 learner on the three existing v75 initializers and six native environments. No recipe selection from these new costs.",
+  "motivation": "Supplement the replay-separation component comparison outside the two v72/v73 development initializations. Reuse actual v75 decoupled fresh costs rather than rerunning them.",
+  "fixed_training": "Identical v75 seed50000 initializer/Adam; original v70 coupled replay,57packets285single-recordcovariate+outcomes,456critic/V/actor/alpha updates,24000seconds,recent30 outcomes,.1V+.9SAC,CQL0.2,canonicalF and no world/trust updates unchanged.",
+  "primary_metric": "Full-day J=(2W+R)/15079 including accrued unfinished-trip time; primary component contrast is cached v75 decoupled fresh minus new coupled fresh.",
+  "cost_gate": "Require all six runs and technical/budget checks, then report decoupled-minus-coupled full-day mean and observed majority, all six cells, seed means, stable/shock, worst and stable tail. The primary contrast is fixed before new coupled costs. Do not require100percent no-degradation; no automatic extension, tuning or reopening of archived gates.",
+  "baseline_exactness": "Cached v75 fresh/no_fresh outputs retained. New coupled recipe has no own no_fresh days; v75 latest5 no_fresh is a fixed reference, not the coupled-risk method matched ablation. Shared initialization and pre-first-update prefix must agree; full trajectories may diverge after selection differences.",
+  "development_days": 6,
+  "confirmation_days": 0,
+  "branch_queries": 0,
+  "ordinary_single_trajectory_dripping": true,
+  "priority": "high",
+  "summary_max_bytes": 64000,
+  "old_code_and_results_read_only": true,
+  "downloads": "Only bounded preflight/day/summary JSON; prefix equality is computed resident on server. No trace CSV or checkpoints downloaded.",
+  "technical_failure": "Recordconsumedwork andexistinghandles. Firstnativepairisreusedfullformalday. No duplicatepreflightdays,unknownsubmissions orautomaticnative retries.",
+  "scientific_failure": "Retain all costs, adverse cases and missing/failed work. No risk quota/window/seed/CQL/target adjustment or automatic extra experiments after the fixed component comparison.",
+  "goal_completion": "Six coupled fresh days and bounded summaries versus existing v75 decoupled fresh and fixed latest5 no_fresh; no initialization, method refit, new matched-no_fresh arm or control replacement.",
+  "original_reference_by_seed": {},
+  "primary_gate": "All six full days technically complete; mean(decoupled_minus_coupled)<0 and more than3of6 full-day cells favor decoupled. All tails/worst cells reported, not new launch gates.",
+  "new_native_days": 6,
+  "reused_development_days": 6,
+  "native_preflight": {
+    "seed": 6206,
+    "scenario": "stable",
+    "arm": "fresh",
+    "reuse_full_day": true,
+    "feedback_slots": 5,
+    "policy_updates": 8,
+    "critic_updates": 8,
+    "value_updates": 8,
+    "actor_updates": 8,
+    "alpha_updates": 8,
+    "packet_schedule": [
+      8,
+      8,
+      8,
+      8
+    ]
+  },
+  "diagnostic_policy_probe": "Passive packet-entry actor snapshot, same5 paid states per packet and unchanged F at packet end. Full12-line coverage retained. No extra feedback or main-stream random draws.",
+  "authorization": "User asks Chapter6 mainline and standalone special-issue paper: fill necessary component evidence; fixed six-day replay-design ablation, no new initializer or algorithm tuning.",
+  "early_window_seconds": [
+    9000,
+    12000
+  ],
+  "post_budget_window_seconds": [
+    18300,
+    24000
+  ],
+  "seed_scope": "Same existing6206/6207/6208 initializer and corresponding external106206/106207/106208; stable/shock average within seed, three training units. Do not claim six independent training seeds.",
+  "follow_up": "First6206stable production day is the first-packet technical preflight and continues without reset. After first8 checks plus server-side pre-update-prefix comparison to cached v75 pass, launch remaining five days in parallel regardless of cost sign. Stop after fixed six-day summary.",
+  "reference_report": "experiments/mcwm_closed_loop_mainline_paper_20261029/RESULTS_AUDIT.md",
+  "critic_updates": 456,
+  "value_updates": 456,
+  "actor_updates": 456,
+  "alpha_updates": 456,
+  "actor_schedule": {
+    "online_actor_update_interval": 1,
+    "online_actor_batch_mode": "latest",
+    "online_update_order": "actor-before-critic",
+    "critic_steps_per_packet": 8,
+    "value_steps_per_packet": 8,
+    "actor_steps_per_packet": 8,
+    "alpha_steps_per_packet": 8,
+    "kl_penalty": false
+  },
+  "scientific_scope": "Component comparison of two complete replay designs at fixed label and update count on6206-6208. These contexts already have v75 outcomes; this is not untouched model-selection confirmation. Unique target record unions differ, so not a total-record-budget-matched isolated causal effect. Do not pool six new coupled days with v75 as new independent fresh replicates.",
+  "source_candidate": "mcwm_closed_loop_recent30_mixed_cql_v70_20261026",
+  "rng_scope": "Selector addsno RNGdraws; alllearnerandprivateoutcome/CQL streams unchangedfromv70. Trajectories maydivergeafterdifferentselectedlabels.",
+  "summary_outputs": [
+    "summary.json"
+  ],
+  "runtime_optimizer_schedule": "resident actor-before-critic including IQL V and Adam state",
+  "cql_coefficient": 0.2,
+  "cql": {
+    "coefficient": 0.2,
+    "coefficient_origin": "Existing native offline_cql_alpha default0.2, frozen engineering development value before new costs; not tuned on v68 outcomes.",
+    "temperature": 1,
+    "rows_per_update": 128,
+    "covariates": "replay.last_covariates:64 historical plus64 current executed(s,a), both arms; no outcome access",
+    "candidates": {
+      "zero": 1,
+      "uniform_latent": 10,
+      "current_actor_positive": 10,
+      "deterministic_positive": 1,
+      "total": 22
+    },
+    "execution": "Every candidate is scored as Q(s,F(s,u)); factual executed a is never transformed again; exact executed aliases count once per state.",
+    "objective": "mean_heads_states(logsumexp(unique candidate Q)-log(unique count)-Q(s,a_fact))",
+    "density": "Finite candidate regularizer; no latent proposal density presented as executed-action density. F can create atoms.",
+    "heads": "all critic heads; no CQL subset sampling",
+    "sampling": "isolated per-step Torch fork seeded before draws, main RNG restored",
+    "extra_budget": "zero labels/native branches/optimizer steps; extra candidate inference and wall time reported",
+    "source": "https://arxiv.org/abs/2006.04779"
+  },
+  "recipe": "capacity_window_recent30_mixed_cql",
+  "original_cql_reference": {},
+  "recency": {
+    "covariate_window": 285,
+    "critic_outcome_window": 30,
+    "outcome_seed_offset": 600000,
+    "history": "Exact imported v63/v60 sampler; complete rows stay together.",
+    "retained": "All285 received rows may remain resident; only latest30 outcomes are eligible for critic resampling."
+  },
+  "fresh_target": {
+    "backup": "h2oplus",
+    "mixed_backup_lambda": 0.1,
+    "formula": "reward_scale*r+discounts*(1-terminal)*(.1*V(ns)+.9*SAC_Q_entropy(ns))",
+    "parent_full_batch_draws_preserved": true,
+    "fresh_value_replacement": false,
+    "no_fresh_target_path": "exact unchanged v68/v69"
+  },
+  "worst_full_day_cost_difference_cap": null,
+  "worst_cap_origin": "No legacy v72 no-harm cap is reused; current mean/majority component protocol is separately declared.",
+  "previous_reference": {},
+  "feedback_selection": {
+    "rule": "latest5_with_one_missing_capacity_risk",
+    "max_replacements_per_packet": 1,
+    "source": "issue observation s only",
+    "index": "i=round(15*s[2]);e=s[5:].reshape(16,14)[i]",
+    "predicate": "e[7]>0 and e[8]>=1",
+    "eligible": "original lower<available_at<=deadline,dt>0,notterminal",
+    "order": "available_at,sequence",
+    "replacement": "latest risk replaces oldest latest5 only when latest5 has no risk",
+    "feedback_records_per_packet": 5,
+    "feedback_slots": 285,
+    "outcome_access": false,
+    "new_random_draws": 0
+  },
+  "new_native_seconds": 144000,
+  "total_feedback_slots": 1710,
+  "total_updates_per_optimizer": 2736,
+  "passenger_scope": "Allpassengersfullcost andfullfinalwaitinginventory; service/transfergroupsandidentitysetsremainserverresident. Original22IDsnotusedforselection orcostgate.",
+  "full_day_departed_passengers": 15079,
+  "stage": "Fixed coupled-risk recipe versus cached v75 decoupled fresh days",
+  "training_seeds": [
+    6206,
+    6207,
+    6208
+  ],
+  "initialization_budget": {
+    "new_offline_updates": 0,
+    "reused_initializers": [
+      6206,
+      6207,
+      6208
+    ],
+    "offline_updates_per_initializer": 50000,
+    "reused_initializer_directory": "experiments/mcwm_closed_loop_frozen_validation_v75_20261027/inputs"
+  },
+  "information_contract": {
+    "coupled_covariate_selections_per_day": 285,
+    "coupled_complete_labels_per_day": 285,
+    "coupled_distinct_target_records_per_day": 285,
+    "decoupled_cached_covariates": 285,
+    "decoupled_cached_complete_labels": 285,
+    "decoupled_actual_distinct_records": [
+      306,
+      310,
+      309,
+      307,
+      308,
+      309
+    ],
+    "meaning": "Same285complete labels and285covariate selection counts, different selection union. Coupled uses exactly the same risk-selected record for covariates/outcomes; decoupled uses latest5 covariates plus risk-selected outcomes. Additional distinct target records are not concealed as equal total information."
+  },
+  "cached_reference": {
+    "root": "experiments/mcwm_closed_loop_frozen_validation_v75_20261027",
+    "results": "results/validation.json",
+    "relative": "runs/executed_cql/validation/seed{seed}/{scenario}/{arm}",
+    "fresh_role": "Primary decoupled design comparator, same initializer/environment/time/update schedule; cached actual evolving full days, never deploy final actors from0.",
+    "no_fresh_role": "Fixed latest5 continued-learning reference only, not own matched no_fresh for new coupled design."
+  },
+  "native_plan": [
+    {
+      "seed": 6206,
+      "scenario": "stable",
+      "arm": "fresh",
+      "external_seed": 106206,
+      "relative_out": "runs/coupled/seed6206/stable/fresh"
+    },
+    {
+      "seed": 6206,
+      "scenario": "local_speed_drop",
+      "arm": "fresh",
+      "external_seed": 106206,
+      "relative_out": "runs/coupled/seed6206/local_speed_drop/fresh"
+    },
+    {
+      "seed": 6207,
+      "scenario": "stable",
+      "arm": "fresh",
+      "external_seed": 106207,
+      "relative_out": "runs/coupled/seed6207/stable/fresh"
+    },
+    {
+      "seed": 6207,
+      "scenario": "local_speed_drop",
+      "arm": "fresh",
+      "external_seed": 106207,
+      "relative_out": "runs/coupled/seed6207/local_speed_drop/fresh"
+    },
+    {
+      "seed": 6208,
+      "scenario": "stable",
+      "arm": "fresh",
+      "external_seed": 106208,
+      "relative_out": "runs/coupled/seed6208/stable/fresh"
+    },
+    {
+      "seed": 6208,
+      "scenario": "local_speed_drop",
+      "arm": "fresh",
+      "external_seed": 106208,
+      "relative_out": "runs/coupled/seed6208/local_speed_drop/fresh"
+    }
+  ],
+  "first_native_day": {
+    "seed": 6206,
+    "scenario": "stable",
+    "arm": "fresh",
+    "external_seed": 106206,
+    "relative_out": "runs/coupled/seed6206/stable/fresh",
+    "first_preflight_relative": "runs/coupled/seed6206/stable/fresh/preflight.json",
+    "cached_v75_relative": "runs/executed_cql/validation/seed6206/stable/fresh/preflight.json",
+    "root_gate": "preflight_gate.json"
+  },
+  "budgets": {
+    "native_days": 6,
+    "new_native_seconds_cap": 144000,
+    "new_complete_factual_labels": 1710,
+    "new_covariate_selections": 1710,
+    "new_distinct_target_records": 1710,
+    "updates_per_optimizer": 2736,
+    "new_initializer_updates": 0,
+    "new_source_interactions": 0,
+    "world_updates": 0,
+    "trust_updates": 0,
+    "counterfactual_queries": 0,
+    "reused_v75_fresh_days": 6,
+    "reused_v75_fresh_native_seconds": 144000
+  },
+  "no_model_or_hyperparameter_fits": true
+}

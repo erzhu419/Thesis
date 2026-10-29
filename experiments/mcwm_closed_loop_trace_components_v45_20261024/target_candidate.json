@@ -1,0 +1,23 @@
+{
+  "name": "positive_joint_sac_mean8",
+  "installed": false,
+  "training_started": false,
+  "positive_samples": 8,
+  "formula": "S8=p0*(Qmin(F0)-alpha*logp0)+p1/8*sum_m[Qmin(F(a_m))-alpha*(logp1+logp_positive(a_m))]; B8=0.1*V+0.9*S8",
+  "sample_contract": "Q and entropy share each sampled positive action. Same eight Gaussian CRNs across paired scoring arms. Native head min and two-action numerical path retained.",
+  "unchanged": [
+    "analytic_gate",
+    "zero_action_branch",
+    "0.1V_plus_0.9SAC",
+    "F",
+    "two_head_min",
+    "matched_recorded_Qbar",
+    "actual_executed_c",
+    "0.9_trace_link_coefficient",
+    "physical_endpoints",
+    "source285_slots456_updates"
+  ],
+  "purpose": "Reduce observed actor Monte Carlo scoring instability; preserve the expected original soft mixed backup rather than deleting entropy or V.",
+  "limitation": "Does not remove systematic bootstrap-minus-Q residual, restore missing physical credit, or establish300s/control gains.",
+  "next_gate": "Frozen-only predeclared8-draw-block comparison before training. M1/lambda0 native bits exact; M8 approximates the same expectation and is not expected to equal a single native sample. Inspect dispersion AND remaining deterministic residual; no automatic training."
+}

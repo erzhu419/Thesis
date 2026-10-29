@@ -1,0 +1,49 @@
+{
+  "reviewed": "symbol_table_plan.json source_row 38–98 and all 10 additions",
+  "findings": [
+    {
+      "source_row": 85,
+      "type": "missing_scope_in_definition",
+      "correct_tex": "\\lambda_{ale},\\lambda_{epi},\\kappa_k,\\kappa_k^{\\prime}",
+      "correct_definition": "目标网络权重范数项系数、目标集成方差项系数；第3章κ_k为第k个目标网络的未加权权重范数，第4章κ_k、κ′_k分别为当前及目标网络的权重范数",
+      "evidence": [
+        {
+          "paragraph": 1085,
+          "math_ids": [
+            807
+          ],
+          "equation": "3-28",
+          "meaning": "将目标网络范数记κ_k"
+        },
+        {
+          "paragraph": 1087,
+          "math_ids": [
+            808
+          ],
+          "equation": "3-28",
+          "meaning": "κ_k=目标权重逐层l1范数和"
+        },
+        {
+          "paragraph": 1736,
+          "math_ids": [
+            1619,
+            1620
+          ],
+          "equation": null,
+          "meaning": "在线与目标范数分别记κ_k和κ′_k"
+        },
+        {
+          "paragraph": 1738,
+          "math_ids": [
+            1624
+          ],
+          "equation": "4-9",
+          "meaning": "使用二者绝对差构造诊断"
+        }
+      ],
+      "minimum_fix": "只补表85完整符号及章节作用域；不改正文、公式。"
+    }
+  ],
+  "accepted": "其余本次读到的38–98行及10个新增行未见确定的符号—字段错位；此前已确认的保留/删除/完整命名方案已正确合并。",
+  "word_modified": false
+}

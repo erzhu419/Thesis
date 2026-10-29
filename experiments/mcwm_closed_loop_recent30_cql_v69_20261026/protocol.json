@@ -1,0 +1,139 @@
+{
+  "name": "thesis-mcwm-recent30-cql-v69-20261026",
+  "candidate": "executed_cql",
+  "development_seeds": [
+    6201,
+    6203
+  ],
+  "confirmation_seeds": [],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "arms": [
+    "fresh",
+    "no_fresh"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "feedback_slots": 285,
+  "policy_updates": 456,
+  "external_seed_offset": 100000,
+  "candidate_change": "Reuse the v63 recent30 complete-outcome sampler (+600000 private seed) within unchanged v68 fresh-V plus executed-action CQL. Current-state/action pool stays285; no_fresh retains its original batch.",
+  "motivation": "User accepted Astra's aligned-seed review: preserve v63's limited positive result and v68 CQL no_fresh progress; test the unverified recent30+fresh-V+CQL combination separately.",
+  "fixed_training": "Same seed50000 initializer and Adam;285labels57packets;456 critic/V/actor/alpha updates;24000seconds;CQL0.2,private CQL seed+68000000,F/trust and original four replay draws unchanged. Recent30 independent outcome draw is exactly the v63 package, not an isolated causal test of replay age.",
+  "primary_metric": "Full-day(2W+R)/all departed passengers including accrued unfinished-trip time. Negative fresh-minus-no_fresh is better.",
+  "cost_gate": "All eight native days and integrity checks complete. Fresh must beat matched CQL no_fresh, cached v68 CQL no_fresh and immutable v64/v65 no_fresh: overall full-day mean<0,stable mean<=0,shock mean<0 for each. Matched post-budget18300-24000 mean<=0 overall and in each scenario. Worst full-day fresh-minus-CQL-no_fresh cell must be no worse than v68 on these same four cells. New no_fresh must exactly reproduce v68 no_fresh ledgers,metrics and full issued-action trace. Early9000-12000 is descriptive only, never a substitute or selection gate.",
+  "baseline_exactness": "Rerun eight paired native days with first stable pair reused for technical preflight. New no_fresh must preserve v68 parameters/Adam/main RNG in synthetic tests and exactly reproduce each cached full native no_fresh path. Do not manufacture a gain from a degraded control.",
+  "development_days": 8,
+  "confirmation_days": 0,
+  "branch_queries": 0,
+  "ordinary_single_trajectory_dripping": true,
+  "priority": "high",
+  "summary_max_bytes": 48000,
+  "old_code_and_results_read_only": true,
+  "downloads": "Necessary small JSON/log tails only. Prefix/metric comparison server-side; no CSV, trajectory or checkpoint downloads.",
+  "technical_failure": "Record failure and consumed work. Reuse the first full-day native pair for preflight; no duplicate preflight days. Do not retry unknown native submission. Transient read failures retain existing handles.",
+  "scientific_failure": "Close this fixed recent30+fresh-V+CQL combination on a failed actual-cost gate. No post-result window,coefficient,seed,sampler,target or timing search. v63 positives and v68 negatives remain unchanged.",
+  "goal_completion": "Fixed8-native-day development batch only. A pass is evidence for deciding independent confirmation,not automatic expansion or global completion.",
+  "original_reference_by_seed": {
+    "6201": {
+      "directory": "mcwm_closed_loop_fresh_value_v64_20261025",
+      "relative": "runs/fresh_value/development/seed{seed}/{scenario}"
+    },
+    "6203": {
+      "directory": "mcwm_closed_loop_fresh_value_confirmation_v65_20261025",
+      "relative": "runs/fresh_value/confirmation/seed{seed}/{scenario}"
+    }
+  },
+  "primary_gate": "All eight native days and integrity checks complete. Fresh must beat matched CQL no_fresh, cached v68 CQL no_fresh and immutable v64/v65 no_fresh: overall full-day mean<0,stable mean<=0,shock mean<0 for each. Matched post-budget18300-24000 mean<=0 overall and in each scenario. Worst full-day fresh-minus-CQL-no_fresh cell must be no worse than v68 on these same four cells. New no_fresh must exactly reproduce v68 no_fresh ledgers,metrics and full issued-action trace. Early9000-12000 is descriptive only, never a substitute or selection gate.",
+  "new_native_days": 8,
+  "reused_development_days": 0,
+  "native_preflight": {
+    "seed": 6201,
+    "scenario": "stable",
+    "reuse_full_day": true,
+    "feedback_slots": 5,
+    "policy_updates": 8,
+    "critic_updates": 8,
+    "value_updates": 8,
+    "actor_updates": 8,
+    "alpha_updates": 8,
+    "packet_schedule": [
+      8,
+      8,
+      8,
+      8
+    ]
+  },
+  "diagnostic_policy_probe": "Passive packet-entry actor snapshot, same5 paid states per packet and unchanged F at packet end. Full12-line coverage retained. No extra feedback or main-stream random draws.",
+  "authorization": "User requested proceeding according to Astra's aligned-seed analysis. New isolated v69, old code and results read-only. Fixed eight-day development only.",
+  "early_window_seconds": [
+    9000,
+    12000
+  ],
+  "post_budget_window_seconds": [
+    18300,
+    24000
+  ],
+  "seed_scope": "6201/6203 x stable/shock are already consumed development contexts. No independent-confirmation claim;6202/6204/6205 also have prior exposed outcomes and are not reserved as pristine confirmation.",
+  "follow_up": "Reuse first stable pair as full days; after technical preflight launch only remaining6 arms. Stop after the fixed8-day cost analysis. A pass requests root review, not automatic confirmation or another algorithm.",
+  "reference_report": "experiments/mcwm_closed_loop_v68_review_20261026/RESULTS.md",
+  "critic_updates": 456,
+  "value_updates": 456,
+  "actor_updates": 456,
+  "alpha_updates": 456,
+  "actor_schedule": {
+    "online_actor_update_interval": 1,
+    "online_actor_batch_mode": "latest",
+    "online_update_order": "actor-before-critic",
+    "critic_steps_per_packet": 8,
+    "value_steps_per_packet": 8,
+    "actor_steps_per_packet": 8,
+    "alpha_steps_per_packet": 8,
+    "kl_penalty": false
+  },
+  "scientific_scope": "The v63 recent30 package changes critic outcome age and its private resampling, not the285 current-covariate pool. This is a new combination, not proven remediation or independent confirmation.",
+  "source_candidate": "mcwm_closed_loop_executed_cql_v68_20261026",
+  "rng_scope": "Reuse v63 private outcome seed+600000 and unchanged original four draws; reuse v68 CQL private seed+68000000. Current s/a and no_fresh critic batch remain bitwise identical at matched states.",
+  "summary_outputs": [
+    "results/development.json",
+    "results/policy_drift.json",
+    "results/recency.json"
+  ],
+  "runtime_optimizer_schedule": "resident actor-before-critic including IQL V and Adam state",
+  "cql_coefficient": 0.2,
+  "cql": {
+    "coefficient": 0.2,
+    "coefficient_origin": "Existing native offline_cql_alpha default0.2, frozen engineering development value before new costs; not tuned on v68 outcomes.",
+    "temperature": 1,
+    "rows_per_update": 128,
+    "covariates": "replay.last_covariates:64 historical plus64 current executed(s,a), both arms; no outcome access",
+    "candidates": {
+      "zero": 1,
+      "uniform_latent": 10,
+      "current_actor_positive": 10,
+      "deterministic_positive": 1,
+      "total": 22
+    },
+    "execution": "Every candidate is scored as Q(s,F(s,u)); factual executed a is never transformed again; exact executed aliases count once per state.",
+    "objective": "mean_heads_states(logsumexp(unique candidate Q)-log(unique count)-Q(s,a_fact))",
+    "density": "Finite candidate regularizer; no latent proposal density presented as executed-action density. F can create atoms.",
+    "heads": "all critic heads; no CQL subset sampling",
+    "sampling": "isolated per-step Torch fork seeded before draws, main RNG restored",
+    "extra_budget": "zero labels/native branches/optimizer steps; extra candidate inference and wall time reported",
+    "source": "https://arxiv.org/abs/2006.04779"
+  },
+  "recipe": "recent30_fresh_value_cql",
+  "original_cql_reference": {
+    "directory": "mcwm_closed_loop_executed_cql_v68_20261026",
+    "relative": "runs/executed_cql/development/seed{seed}/{scenario}"
+  },
+  "recency": {
+    "covariate_window": 285,
+    "critic_outcome_window": 30,
+    "outcome_seed_offset": 600000,
+    "history": "Exact imported v63/v60 sampler; complete rows stay together.",
+    "retained": "All285 received rows may remain resident; only latest30 outcomes are eligible for critic resampling."
+  }
+}

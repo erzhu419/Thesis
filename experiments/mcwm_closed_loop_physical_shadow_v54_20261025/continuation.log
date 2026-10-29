@@ -1,0 +1,36 @@
+{"stage": "waiting_first8_parity", "ids": ["t211596", "t211597"], "outputs_present": [false, false], "statuses": {"t211596": "queued", "t211597": "queued"}}
+{"stage": "waiting_first8_parity", "ids": ["t211596", "t211597"], "outputs_present": [false, false], "statuses": {"t211596": "launching", "t211597": "launching"}}
+{"stage": "waiting_first8_parity", "ids": ["t211596", "t211597"], "outputs_present": [false, false], "statuses": {"t211596": "running", "t211597": "running"}}
+{"stage": "failed", "status": "failed", "type": "RuntimeError", "message": "Traceback (most recent call last):\n  File \"/home/erzhu419/mine_code/scheduleurm/skill/scheduler_state/locks.py\", line 96, in file_lock\n    fcntl.flock(f, op | fcntl.LOCK_NB)\nBlockingIOError: [Errno 11] Resource temporarily unavailable\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/erzhu419/mine_code/scheduleurm/skill/scheduler.py\", line 130, in <module>\n    main()\n  File \"/home/erzhu419/mine_code/scheduleurm/skill/scheduler.py\", line 120, in main\n    return _run_scheduler_cli(_scheduler_cli_deps(), argv=argv)\n  File \"/home/erzhu419/mine_code/scheduleurm/skill/scheduler_commands/cli.py\", line 514, in run_scheduler_cli\n    args.func(args)\n  File \"/home/erzhu419/mine_code/scheduleurm/skill/scheduler_submit/command_runtime.py\", line 86, in cmd_submit_jsonl\n    return _ns(namespace, \"_cmd_submit_jsonl_impl\")(\n  File \"/home/erzhu419/mine_code/scheduleurm/skill/scheduler_submit/command.py\", line 196, in cmd_submit_jsonl\n    with deps.state_lock(timeout_s=getattr(args, \"lock_timeout\", None), purpose=\"submit-jsonl\"):\n  File \"/usr/lib/python3.10/contextlib.py\", line 135, in __enter__\n    return next(self.gen)\n  File \"/home/erzhu419/mine_code/scheduleurm/skill/scheduler_state/locks.py\", line 101, in file_lock\n    raise SchedulerLockTimeout(\nscheduler_state.locks.SchedulerLockTimeout: timed out after 30.0s waiting for scheduler state lock (submit-jsonl)", "new_feedback_slots": 0, "new_native_branches": 0}
+Traceback (most recent call last):
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_physical_shadow_v54_20261025/continue_batch.py", line 87, in <module>
+    main()
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_physical_shadow_v54_20261025/continue_batch.py", line 63, in main
+    formal = launch.formal()
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_physical_shadow_v54_20261025/launch.py", line 33, in formal
+    return infra.submit([infra.task(p, 'formal/'+case+'/'+arm,
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_physical_shadow_v54_20261025/infra.py", line 72, in submit
+    raise RuntimeError(result.stderr.strip() or result.stdout.strip())
+RuntimeError: Traceback (most recent call last):
+  File "/home/erzhu419/mine_code/scheduleurm/skill/scheduler_state/locks.py", line 96, in file_lock
+    fcntl.flock(f, op | fcntl.LOCK_NB)
+BlockingIOError: [Errno 11] Resource temporarily unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/erzhu419/mine_code/scheduleurm/skill/scheduler.py", line 130, in <module>
+    main()
+  File "/home/erzhu419/mine_code/scheduleurm/skill/scheduler.py", line 120, in main
+    return _run_scheduler_cli(_scheduler_cli_deps(), argv=argv)
+  File "/home/erzhu419/mine_code/scheduleurm/skill/scheduler_commands/cli.py", line 514, in run_scheduler_cli
+    args.func(args)
+  File "/home/erzhu419/mine_code/scheduleurm/skill/scheduler_submit/command_runtime.py", line 86, in cmd_submit_jsonl
+    return _ns(namespace, "_cmd_submit_jsonl_impl")(
+  File "/home/erzhu419/mine_code/scheduleurm/skill/scheduler_submit/command.py", line 196, in cmd_submit_jsonl
+    with deps.state_lock(timeout_s=getattr(args, "lock_timeout", None), purpose="submit-jsonl"):
+  File "/usr/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/home/erzhu419/mine_code/scheduleurm/skill/scheduler_state/locks.py", line 101, in file_lock
+    raise SchedulerLockTimeout(
+scheduler_state.locks.SchedulerLockTimeout: timed out after 30.0s waiting for scheduler state lock (submit-jsonl)

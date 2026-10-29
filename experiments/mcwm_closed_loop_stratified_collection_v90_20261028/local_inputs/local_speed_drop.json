@@ -1,0 +1,1326 @@
+{
+  "status": "incomplete",
+  "integrity": {
+    "all_pass": false,
+    "checks": {
+      "six_covariate_slots": false,
+      "six_predeclared_pairs": false,
+      "pair_integrity": true,
+      "actor_frozen": true,
+      "original_reference_actions_reproduced": true,
+      "same_reference_path": true,
+      "freeze_audit_pass": true,
+      "issue_observation_unchanged": true,
+      "parent_prefix_limit": true,
+      "native_budget": true,
+      "exact_reuse_root": true,
+      "prefix_reproduction": true,
+      "actor_real_clock": true,
+      "first_new_pair_gate": true,
+      "known_spend": true,
+      "zero_training_and_admission": true
+    }
+  },
+  "scenario": "local_speed_drop",
+  "seed": 6207,
+  "external_seed": 716207,
+  "prefix_id": "v90/local_speed_drop/external716207",
+  "departed_passengers": 15079,
+  "reference_snapshot": {
+    "prior_run_reference": true,
+    "available_before_heldout_episode": true,
+    "heldout_available_at": 0,
+    "heldout_external_seed": 716207,
+    "source_snapshot_metadata": {
+      "source": "v75",
+      "source_arm": "fresh",
+      "seed": 6207,
+      "scenario": "local_speed_drop",
+      "packets": 37,
+      "covariates": 185,
+      "complete_outcomes": 185,
+      "counts": {
+        "critic": 296,
+        "value": 296,
+        "actor": 296,
+        "alpha": 296
+      },
+      "data_deadline": 12000,
+      "max_available_at": 11999.0,
+      "published_clock": 12001.0,
+      "deterministic": true,
+      "actor_frozen": true,
+      "future_training_used": false
+    },
+    "scenario": "local_speed_drop",
+    "source_training_seed": 6207,
+    "source_offline_updates": 50000,
+    "source_response_updates": 296,
+    "source_total_updates": 50296,
+    "new_optimizer_updates": 0,
+    "source_actor_path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs/local_speed_drop/reference_actor.pt",
+    "source_config_path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_frozen_validation_v75_20261027/runs/executed_cql/validation/seed6207/local_speed_drop/fresh/protocol.json",
+    "source_contract_path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_formal_20261020/inputs/history_metadata.json",
+    "deterministic": true,
+    "actor_frozen": true,
+    "prefix_scope": "New episode controlled from0 by this prior-run frozen actor; not a v75 adaptive-prefix replay"
+  },
+  "reference_reproduction": {
+    "mcwm_closed_loop_reference_collection_v84_20261027/7X": true,
+    "mcwm_closed_loop_reference_collection_v84_20261027/102X": true,
+    "mcwm_closed_loop_reference_collection_v84_20261027/705X": true,
+    "mcwm_closed_loop_cost_advantage_v85_20261027/7X": true,
+    "mcwm_closed_loop_cost_advantage_v85_20261027/102X": true,
+    "mcwm_closed_loop_cost_advantage_v85_20261027/705X": true
+  },
+  "coverage": {
+    "102X/lighter": {
+      "line_id": "102X",
+      "load_bin": "lighter",
+      "root": {
+        "started_at": 12002.0,
+        "sequence": 8116,
+        "trip_id": "102X_18",
+        "station_id": "102X15"
+      },
+      "context": {
+        "observed": true,
+        "z": -0.62,
+        "reasons": [],
+        "clocks": {
+          "issue": 12002.0,
+          "event": 12001.0,
+          "obs_start": 12002.0,
+          "obs_end": 12002.0,
+          "atomic_at_issue": true
+        },
+        "next_stop": "102X16_122S18_311S24_406X16",
+        "capacity": 50.0,
+        "actual_line": "102X",
+        "counts": {
+          "onboard": 17,
+          "next_queue": 11,
+          "release_next": 2,
+          "compatible_next_queue": 4,
+          "seats_after_release": 35.0
+        },
+        "stage_counts": {
+          "onboard": {
+            "read": 17,
+            "driving": 17,
+            "missing": 0,
+            "unsupported": 0
+          },
+          "queue": {
+            "read": 11,
+            "driving": 11,
+            "missing": 0,
+            "unsupported": 0
+          }
+        }
+      },
+      "service": {
+        "observed": true,
+        "reason": null,
+        "reasons": [],
+        "atomic_at_issue": true,
+        "issue_clock": 12002.0,
+        "event_clock": 12001.0,
+        "capacity": 50.0,
+        "counts": {
+          "onboard": 17,
+          "next_queue": 11,
+          "release_next": 2,
+          "compatible_next_queue": 4,
+          "seats_after_release": 35.0
+        },
+        "features": [
+          0.34,
+          -0.62
+        ],
+        "load_bin": "low"
+      },
+      "binding": {
+        "episode_id": 0,
+        "sequence": 8116,
+        "trip_id": "102X_18",
+        "vehicle_id": "102X_fleet_34",
+        "line_id": "102X",
+        "station_id": "102X15",
+        "event_clock": 12001.0,
+        "issue_clock": 12002.0
+      },
+      "observation_checks": {
+        "clock_unchanged": true,
+        "ledger_unchanged": true,
+        "rng_unchanged": true,
+        "issue_clock_exact": true,
+        "event_clock_exact": true,
+        "context_before_action": true
+      },
+      "ref_hold": 3.5562068223953247,
+      "cand_hold": 7.5,
+      "sim_step_seconds": 1.0,
+      "action_step_seconds": 1.0
+    },
+    "7X/heavier": {
+      "line_id": "7X",
+      "load_bin": "heavier",
+      "root": {
+        "started_at": 12004.0,
+        "sequence": 8120,
+        "trip_id": "7X_29",
+        "station_id": "7X21_102X34"
+      },
+      "context": {
+        "observed": true,
+        "z": -0.88,
+        "reasons": [],
+        "clocks": {
+          "issue": 12004.0,
+          "event": 12003.0,
+          "obs_start": 12004.0,
+          "obs_end": 12004.0,
+          "atomic_at_issue": true
+        },
+        "next_stop": "7X22_102X35",
+        "capacity": 50.0,
+        "actual_line": "7X",
+        "counts": {
+          "onboard": 8,
+          "next_queue": 0,
+          "release_next": 2,
+          "compatible_next_queue": 0,
+          "seats_after_release": 44.0
+        },
+        "stage_counts": {
+          "onboard": {
+            "read": 8,
+            "driving": 8,
+            "missing": 0,
+            "unsupported": 0
+          },
+          "queue": {
+            "read": 0,
+            "driving": 0,
+            "missing": 0,
+            "unsupported": 0
+          }
+        }
+      },
+      "service": {
+        "observed": true,
+        "reason": null,
+        "reasons": [],
+        "atomic_at_issue": true,
+        "issue_clock": 12004.0,
+        "event_clock": 12003.0,
+        "capacity": 50.0,
+        "counts": {
+          "onboard": 8,
+          "next_queue": 0,
+          "release_next": 2,
+          "compatible_next_queue": 0,
+          "seats_after_release": 44.0
+        },
+        "features": [
+          0.16,
+          -0.88
+        ],
+        "load_bin": "low"
+      },
+      "binding": {
+        "episode_id": 0,
+        "sequence": 8120,
+        "trip_id": "7X_29",
+        "vehicle_id": "7X_fleet_56",
+        "line_id": "7X",
+        "station_id": "7X21_102X34",
+        "event_clock": 12003.0,
+        "issue_clock": 12004.0
+      },
+      "observation_checks": {
+        "clock_unchanged": true,
+        "ledger_unchanged": true,
+        "rng_unchanged": true,
+        "issue_clock_exact": true,
+        "event_clock_exact": true,
+        "context_before_action": true
+      },
+      "ref_hold": 3.412240147590637,
+      "cand_hold": 7.5,
+      "sim_step_seconds": 1.0,
+      "action_step_seconds": 1.0
+    },
+    "7X/lighter": {
+      "line_id": "7X",
+      "load_bin": "lighter",
+      "root": {
+        "started_at": 12007.0,
+        "sequence": 8125,
+        "trip_id": "7X_32",
+        "station_id": "7X05_102X18"
+      },
+      "context": {
+        "observed": true,
+        "z": -0.94,
+        "reasons": [],
+        "clocks": {
+          "issue": 12007.0,
+          "event": 12006.0,
+          "obs_start": 12007.0,
+          "obs_end": 12007.0,
+          "atomic_at_issue": true
+        },
+        "next_stop": "7X06_102X19",
+        "capacity": 50.0,
+        "actual_line": "7X",
+        "counts": {
+          "onboard": 5,
+          "next_queue": 0,
+          "release_next": 2,
+          "compatible_next_queue": 0,
+          "seats_after_release": 47.0
+        },
+        "stage_counts": {
+          "onboard": {
+            "read": 5,
+            "driving": 5,
+            "missing": 0,
+            "unsupported": 0
+          },
+          "queue": {
+            "read": 0,
+            "driving": 0,
+            "missing": 0,
+            "unsupported": 0
+          }
+        }
+      },
+      "service": {
+        "observed": true,
+        "reason": null,
+        "reasons": [],
+        "atomic_at_issue": true,
+        "issue_clock": 12007.0,
+        "event_clock": 12006.0,
+        "capacity": 50.0,
+        "counts": {
+          "onboard": 5,
+          "next_queue": 0,
+          "release_next": 2,
+          "compatible_next_queue": 0,
+          "seats_after_release": 47.0
+        },
+        "features": [
+          0.1,
+          -0.94
+        ],
+        "load_bin": "low"
+      },
+      "binding": {
+        "episode_id": 0,
+        "sequence": 8125,
+        "trip_id": "7X_32",
+        "vehicle_id": "7X_fleet_52",
+        "line_id": "7X",
+        "station_id": "7X05_102X18",
+        "event_clock": 12006.0,
+        "issue_clock": 12007.0
+      },
+      "observation_checks": {
+        "clock_unchanged": true,
+        "ledger_unchanged": true,
+        "rng_unchanged": true,
+        "issue_clock_exact": true,
+        "event_clock_exact": true,
+        "context_before_action": true
+      },
+      "ref_hold": 3.5529112815856934,
+      "cand_hold": 7.5,
+      "sim_step_seconds": 1.0,
+      "action_step_seconds": 1.0
+    },
+    "705X/heavier": {
+      "line_id": "705X",
+      "load_bin": "heavier",
+      "root": {
+        "started_at": 12018.0,
+        "sequence": 8136,
+        "trip_id": "705X_11",
+        "station_id": "705X15"
+      },
+      "context": {
+        "observed": true,
+        "z": 0.12,
+        "reasons": [],
+        "clocks": {
+          "issue": 12018.0,
+          "event": 12017.0,
+          "obs_start": 12018.0,
+          "obs_end": 12018.0,
+          "atomic_at_issue": true
+        },
+        "next_stop": "705X16",
+        "capacity": 50.0,
+        "actual_line": "705X",
+        "counts": {
+          "onboard": 43,
+          "next_queue": 14,
+          "release_next": 1,
+          "compatible_next_queue": 14,
+          "seats_after_release": 8.0
+        },
+        "stage_counts": {
+          "onboard": {
+            "read": 43,
+            "driving": 43,
+            "missing": 0,
+            "unsupported": 0
+          },
+          "queue": {
+            "read": 14,
+            "driving": 14,
+            "missing": 0,
+            "unsupported": 0
+          }
+        }
+      },
+      "service": {
+        "observed": true,
+        "reason": null,
+        "reasons": [],
+        "atomic_at_issue": true,
+        "issue_clock": 12018.0,
+        "event_clock": 12017.0,
+        "capacity": 50.0,
+        "counts": {
+          "onboard": 43,
+          "next_queue": 14,
+          "release_next": 1,
+          "compatible_next_queue": 14,
+          "seats_after_release": 8.0
+        },
+        "features": [
+          0.86,
+          0.12
+        ],
+        "load_bin": "high"
+      },
+      "binding": {
+        "episode_id": 0,
+        "sequence": 8136,
+        "trip_id": "705X_11",
+        "vehicle_id": "705X_fleet_26",
+        "line_id": "705X",
+        "station_id": "705X15",
+        "event_clock": 12017.0,
+        "issue_clock": 12018.0
+      },
+      "observation_checks": {
+        "clock_unchanged": true,
+        "ledger_unchanged": true,
+        "rng_unchanged": true,
+        "issue_clock_exact": true,
+        "event_clock_exact": true,
+        "context_before_action": true
+      },
+      "ref_hold": 3.4698128700256348,
+      "cand_hold": 7.5,
+      "sim_step_seconds": 1.0,
+      "action_step_seconds": 1.0
+    },
+    "102X/heavier": {
+      "line_id": "102X",
+      "load_bin": "heavier",
+      "root": {
+        "started_at": 12021.0,
+        "sequence": 8138,
+        "trip_id": "102X_16",
+        "station_id": "7X14_102X27_705X28"
+      },
+      "context": {
+        "observed": true,
+        "z": -0.52,
+        "reasons": [],
+        "clocks": {
+          "issue": 12021.0,
+          "event": 12020.0,
+          "obs_start": 12021.0,
+          "obs_end": 12021.0,
+          "atomic_at_issue": true
+        },
+        "next_stop": "7X15_102X28_705X29",
+        "capacity": 50.0,
+        "actual_line": "102X",
+        "counts": {
+          "onboard": 27,
+          "next_queue": 0,
+          "release_next": 3,
+          "compatible_next_queue": 0,
+          "seats_after_release": 26.0
+        },
+        "stage_counts": {
+          "onboard": {
+            "read": 27,
+            "driving": 27,
+            "missing": 0,
+            "unsupported": 0
+          },
+          "queue": {
+            "read": 0,
+            "driving": 0,
+            "missing": 0,
+            "unsupported": 0
+          }
+        }
+      },
+      "service": {
+        "observed": true,
+        "reason": null,
+        "reasons": [],
+        "atomic_at_issue": true,
+        "issue_clock": 12021.0,
+        "event_clock": 12020.0,
+        "capacity": 50.0,
+        "counts": {
+          "onboard": 27,
+          "next_queue": 0,
+          "release_next": 3,
+          "compatible_next_queue": 0,
+          "seats_after_release": 26.0
+        },
+        "features": [
+          0.54,
+          -0.52
+        ],
+        "load_bin": "high"
+      },
+      "binding": {
+        "episode_id": 0,
+        "sequence": 8138,
+        "trip_id": "102X_16",
+        "vehicle_id": "102X_fleet_37",
+        "line_id": "102X",
+        "station_id": "7X14_102X27_705X28",
+        "event_clock": 12020.0,
+        "issue_clock": 12021.0
+      },
+      "observation_checks": {
+        "clock_unchanged": true,
+        "ledger_unchanged": true,
+        "rng_unchanged": true,
+        "issue_clock_exact": true,
+        "event_clock_exact": true,
+        "context_before_action": true
+      },
+      "ref_hold": 3.499780297279358,
+      "cand_hold": 7.5,
+      "sim_step_seconds": 1.0,
+      "action_step_seconds": 1.0
+    }
+  },
+  "selection": {
+    "7X/lighter": {
+      "selected": {
+        "started_at": 12007.0,
+        "sequence": 8125,
+        "trip_id": "7X_32",
+        "station_id": "7X05_102X18"
+      },
+      "attempted": 3,
+      "reasons": {},
+      "status": "selected"
+    },
+    "7X/heavier": {
+      "selected": {
+        "started_at": 12004.0,
+        "sequence": 8120,
+        "trip_id": "7X_29",
+        "station_id": "7X21_102X34"
+      },
+      "attempted": 1,
+      "reasons": {},
+      "status": "selected"
+    },
+    "102X/lighter": {
+      "selected": {
+        "started_at": 12002.0,
+        "sequence": 8116,
+        "trip_id": "102X_18",
+        "station_id": "102X15"
+      },
+      "attempted": 1,
+      "reasons": {},
+      "status": "selected"
+    },
+    "102X/heavier": {
+      "selected": {
+        "started_at": 12021.0,
+        "sequence": 8138,
+        "trip_id": "102X_16",
+        "station_id": "7X14_102X27_705X28"
+      },
+      "attempted": 3,
+      "reasons": {},
+      "status": "selected"
+    },
+    "705X/lighter": {
+      "selected": null,
+      "attempted": 36,
+      "reasons": {
+        "nonpositive_holding_difference": 16
+      },
+      "status": "missing"
+    },
+    "705X/heavier": {
+      "selected": {
+        "started_at": 12018.0,
+        "sequence": 8136,
+        "trip_id": "705X_11",
+        "station_id": "705X15"
+      },
+      "attempted": 2,
+      "reasons": {
+        "nonpositive_holding_difference": 1
+      },
+      "status": "selected"
+    }
+  },
+  "skip_reasons": {
+    "705X/nonpositive_holding_difference": 16
+  },
+  "observation_counts": {
+    "reads": 26,
+    "observed": 26,
+    "unsupported": 0
+  },
+  "observation_checks": {
+    "clock_unchanged": true,
+    "ledger_unchanged": true,
+    "rng_unchanged": true,
+    "issue_clock_exact": true,
+    "event_clock_exact": true,
+    "context_before_action": true
+  },
+  "budget": {
+    "prefixes": 1,
+    "suffixes": 10,
+    "native_prefix_seconds": 12600.0,
+    "suffix_native_seconds": 119896.0,
+    "total_native_seconds": 132496.0,
+    "unknown_suffix_costs": 0,
+    "labels_observed": 10,
+    "new_initialization_updates": 0,
+    "reused_pairs": 0,
+    "reused_labels": 0,
+    "prefix_training_updates": 0,
+    "suffix_updates": 0,
+    "labels_fed_back": 0,
+    "new_fits": 0,
+    "new_neural_updates": 0,
+    "v87_truth_used": 0,
+    "details": [
+      {
+        "line_id": "7X",
+        "load_bin": "lighter",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11993.0
+      },
+      {
+        "line_id": "7X",
+        "load_bin": "lighter",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11993.0
+      },
+      {
+        "line_id": "102X",
+        "load_bin": "lighter",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11998.0
+      },
+      {
+        "line_id": "102X",
+        "load_bin": "lighter",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11998.0
+      },
+      {
+        "line_id": "7X",
+        "load_bin": "heavier",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11996.0
+      },
+      {
+        "line_id": "7X",
+        "load_bin": "heavier",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11996.0
+      },
+      {
+        "line_id": "102X",
+        "load_bin": "heavier",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11979.0
+      },
+      {
+        "line_id": "102X",
+        "load_bin": "heavier",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11979.0
+      },
+      {
+        "line_id": "705X",
+        "load_bin": "heavier",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11982.0
+      },
+      {
+        "line_id": "705X",
+        "load_bin": "heavier",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11982.0
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "status": "complete",
+      "all_pass": true,
+      "checks": {
+        "same_complete_root": true,
+        "same_fixed_reference": true,
+        "same_external_seed": true,
+        "original_actor_root_exact": true,
+        "predeclared_candidate_exact": true,
+        "command_support": true,
+        "actual_departures_observed": true,
+        "physical_departure_separation": true,
+        "actual_next_arrivals": true,
+        "both_real_terminal": true,
+        "nonzero_duration": true,
+        "label_maturity": true,
+        "zero_suffix_training": true,
+        "zero_truth_feedback": true,
+        "native_fork": true,
+        "actual_parallel": true,
+        "parent_actor_frozen": true,
+        "service_context_before_action": true,
+        "same_issue_context": true,
+        "no_replacement_root": true
+      },
+      "line_id": "102X",
+      "scenario": "local_speed_drop",
+      "external_seed": 716207,
+      "reused": false,
+      "source_pair_path": null,
+      "new_stratum_threshold": 0.5,
+      "load_bin": "lighter",
+      "root": {
+        "started_at": 12002.0,
+        "sequence": 8116,
+        "trip_id": "102X_18",
+        "station_id": "102X15"
+      },
+      "service": {
+        "observed": true,
+        "reason": null,
+        "reasons": [],
+        "atomic_at_issue": true,
+        "issue_clock": 12002.0,
+        "event_clock": 12001.0,
+        "capacity": 50.0,
+        "counts": {
+          "onboard": 17,
+          "next_queue": 11,
+          "release_next": 2,
+          "compatible_next_queue": 4,
+          "seats_after_release": 35.0
+        },
+        "features": [
+          0.34,
+          -0.62
+        ],
+        "load_bin": "low"
+      },
+      "reference_hold_seconds": 3.5562068223953247,
+      "candidate_hold_seconds": 7.5,
+      "observation_checks": {
+        "clock_unchanged": true,
+        "ledger_unchanged": true,
+        "rng_unchanged": true,
+        "issue_clock_exact": true,
+        "event_clock_exact": true,
+        "context_before_action": true
+      },
+      "before_suffixes": true,
+      "sim_step_seconds": 1.0,
+      "action_step_seconds": 1.0,
+      "at_stop": true,
+      "overlap_seconds": 354.77809834480286,
+      "remaining": {
+        "reference": {
+          "dt": 11998.0,
+          "wait": 6042587.0,
+          "ride": 9424246.0,
+          "cost": 21509420.0,
+          "observed_at": 24000,
+          "available_at": 24030
+        },
+        "candidate": {
+          "dt": 11998.0,
+          "wait": 6046825.0,
+          "ride": 9435248.0,
+          "cost": 21528898.0,
+          "observed_at": 24000,
+          "available_at": 24030
+        }
+      },
+      "delta": {
+        "wait": 4238.0,
+        "ride": 11002.0,
+        "cost": 19478.0
+      },
+      "physical": {
+        "reference": {
+          "departure_clock": 12006.0,
+          "next_arrival_clock": 12097.0,
+          "missing": {}
+        },
+        "candidate": {
+          "departure_clock": 12010.0,
+          "next_arrival_clock": 12098.0,
+          "missing": {}
+        }
+      },
+      "reference_full_endpoint": {
+        "wait": 8433181.0,
+        "ride": 16424514.0,
+        "cost": 33290876.0
+      }
+    },
+    {
+      "status": "complete",
+      "all_pass": true,
+      "checks": {
+        "same_complete_root": true,
+        "same_fixed_reference": true,
+        "same_external_seed": true,
+        "original_actor_root_exact": true,
+        "predeclared_candidate_exact": true,
+        "command_support": true,
+        "actual_departures_observed": true,
+        "physical_departure_separation": true,
+        "actual_next_arrivals": true,
+        "both_real_terminal": true,
+        "nonzero_duration": true,
+        "label_maturity": true,
+        "zero_suffix_training": true,
+        "zero_truth_feedback": true,
+        "native_fork": true,
+        "actual_parallel": true,
+        "parent_actor_frozen": true,
+        "service_context_before_action": true,
+        "same_issue_context": true,
+        "no_replacement_root": true
+      },
+      "line_id": "7X",
+      "scenario": "local_speed_drop",
+      "external_seed": 716207,
+      "reused": false,
+      "source_pair_path": null,
+      "new_stratum_threshold": 0.13,
+      "load_bin": "heavier",
+      "root": {
+        "started_at": 12004.0,
+        "sequence": 8120,
+        "trip_id": "7X_29",
+        "station_id": "7X21_102X34"
+      },
+      "service": {
+        "observed": true,
+        "reason": null,
+        "reasons": [],
+        "atomic_at_issue": true,
+        "issue_clock": 12004.0,
+        "event_clock": 12003.0,
+        "capacity": 50.0,
+        "counts": {
+          "onboard": 8,
+          "next_queue": 0,
+          "release_next": 2,
+          "compatible_next_queue": 0,
+          "seats_after_release": 44.0
+        },
+        "features": [
+          0.16,
+          -0.88
+        ],
+        "load_bin": "low"
+      },
+      "reference_hold_seconds": 3.412240147590637,
+      "candidate_hold_seconds": 7.5,
+      "observation_checks": {
+        "clock_unchanged": true,
+        "ledger_unchanged": true,
+        "rng_unchanged": true,
+        "issue_clock_exact": true,
+        "event_clock_exact": true,
+        "context_before_action": true
+      },
+      "before_suffixes": true,
+      "sim_step_seconds": 1.0,
+      "action_step_seconds": 1.0,
+      "at_stop": true,
+      "overlap_seconds": 343.21492433547974,
+      "remaining": {
+        "reference": {
+          "dt": 11996.0,
+          "wait": 6041735.0,
+          "ride": 9421648.0,
+          "cost": 21505118.0,
+          "observed_at": 24000,
+          "available_at": 24030
+        },
+        "candidate": {
+          "dt": 11996.0,
+          "wait": 6044475.0,
+          "ride": 9409686.0,
+          "cost": 21498636.0,
+          "observed_at": 24000,
+          "available_at": 24030
+        }
+      },
+      "delta": {
+        "wait": 2740.0,
+        "ride": -11962.0,
+        "cost": -6482.0
+      },
+      "physical": {
+        "reference": {
+          "departure_clock": 12008.0,
+          "next_arrival_clock": 12100.0,
+          "missing": {}
+        },
+        "candidate": {
+          "departure_clock": 12012.0,
+          "next_arrival_clock": 12099.0,
+          "missing": {}
+        }
+      },
+      "reference_full_endpoint": {
+        "wait": 8433181.0,
+        "ride": 16424514.0,
+        "cost": 33290876.0
+      }
+    },
+    {
+      "status": "complete",
+      "all_pass": true,
+      "checks": {
+        "same_complete_root": true,
+        "same_fixed_reference": true,
+        "same_external_seed": true,
+        "original_actor_root_exact": true,
+        "predeclared_candidate_exact": true,
+        "command_support": true,
+        "actual_departures_observed": true,
+        "physical_departure_separation": true,
+        "actual_next_arrivals": true,
+        "both_real_terminal": true,
+        "nonzero_duration": true,
+        "label_maturity": true,
+        "zero_suffix_training": true,
+        "zero_truth_feedback": true,
+        "native_fork": true,
+        "actual_parallel": true,
+        "parent_actor_frozen": true,
+        "service_context_before_action": true,
+        "same_issue_context": true,
+        "no_replacement_root": true
+      },
+      "line_id": "7X",
+      "scenario": "local_speed_drop",
+      "external_seed": 716207,
+      "reused": false,
+      "source_pair_path": null,
+      "new_stratum_threshold": 0.13,
+      "load_bin": "lighter",
+      "root": {
+        "started_at": 12007.0,
+        "sequence": 8125,
+        "trip_id": "7X_32",
+        "station_id": "7X05_102X18"
+      },
+      "service": {
+        "observed": true,
+        "reason": null,
+        "reasons": [],
+        "atomic_at_issue": true,
+        "issue_clock": 12007.0,
+        "event_clock": 12006.0,
+        "capacity": 50.0,
+        "counts": {
+          "onboard": 5,
+          "next_queue": 0,
+          "release_next": 2,
+          "compatible_next_queue": 0,
+          "seats_after_release": 47.0
+        },
+        "features": [
+          0.1,
+          -0.94
+        ],
+        "load_bin": "low"
+      },
+      "reference_hold_seconds": 3.5529112815856934,
+      "candidate_hold_seconds": 7.5,
+      "observation_checks": {
+        "clock_unchanged": true,
+        "ledger_unchanged": true,
+        "rng_unchanged": true,
+        "issue_clock_exact": true,
+        "event_clock_exact": true,
+        "context_before_action": true
+      },
+      "before_suffixes": true,
+      "sim_step_seconds": 1.0,
+      "action_step_seconds": 1.0,
+      "at_stop": true,
+      "overlap_seconds": 346.98526978492737,
+      "remaining": {
+        "reference": {
+          "dt": 11993.0,
+          "wait": 6040452.0,
+          "ride": 9417758.0,
+          "cost": 21498662.0,
+          "observed_at": 24000,
+          "available_at": 24030
+        },
+        "candidate": {
+          "dt": 11993.0,
+          "wait": 6069767.0,
+          "ride": 9422498.0,
+          "cost": 21562032.0,
+          "observed_at": 24000,
+          "available_at": 24030
+        }
+      },
+      "delta": {
+        "wait": 29315.0,
+        "ride": 4740.0,
+        "cost": 63370.0
+      },
+      "physical": {
+        "reference": {
+          "departure_clock": 12011.0,
+          "next_arrival_clock": 12084.0,
+          "missing": {}
+        },
+        "candidate": {
+          "departure_clock": 12015.0,
+          "next_arrival_clock": 12083.0,
+          "missing": {}
+        }
+      },
+      "reference_full_endpoint": {
+        "wait": 8433181.0,
+        "ride": 16424514.0,
+        "cost": 33290876.0
+      }
+    },
+    {
+      "status": "complete",
+      "all_pass": true,
+      "checks": {
+        "same_complete_root": true,
+        "same_fixed_reference": true,
+        "same_external_seed": true,
+        "original_actor_root_exact": true,
+        "predeclared_candidate_exact": true,
+        "command_support": true,
+        "actual_departures_observed": true,
+        "physical_departure_separation": true,
+        "actual_next_arrivals": true,
+        "both_real_terminal": true,
+        "nonzero_duration": true,
+        "label_maturity": true,
+        "zero_suffix_training": true,
+        "zero_truth_feedback": true,
+        "native_fork": true,
+        "actual_parallel": true,
+        "parent_actor_frozen": true,
+        "service_context_before_action": true,
+        "same_issue_context": true,
+        "no_replacement_root": true
+      },
+      "line_id": "705X",
+      "scenario": "local_speed_drop",
+      "external_seed": 716207,
+      "reused": false,
+      "source_pair_path": null,
+      "new_stratum_threshold": 0.5,
+      "load_bin": "heavier",
+      "root": {
+        "started_at": 12018.0,
+        "sequence": 8136,
+        "trip_id": "705X_11",
+        "station_id": "705X15"
+      },
+      "service": {
+        "observed": true,
+        "reason": null,
+        "reasons": [],
+        "atomic_at_issue": true,
+        "issue_clock": 12018.0,
+        "event_clock": 12017.0,
+        "capacity": 50.0,
+        "counts": {
+          "onboard": 43,
+          "next_queue": 14,
+          "release_next": 1,
+          "compatible_next_queue": 14,
+          "seats_after_release": 8.0
+        },
+        "features": [
+          0.86,
+          0.12
+        ],
+        "load_bin": "high"
+      },
+      "reference_hold_seconds": 3.4698128700256348,
+      "candidate_hold_seconds": 7.5,
+      "observation_checks": {
+        "clock_unchanged": true,
+        "ledger_unchanged": true,
+        "rng_unchanged": true,
+        "issue_clock_exact": true,
+        "event_clock_exact": true,
+        "context_before_action": true
+      },
+      "before_suffixes": true,
+      "sim_step_seconds": 1.0,
+      "action_step_seconds": 1.0,
+      "at_stop": true,
+      "overlap_seconds": 331.8027012348175,
+      "remaining": {
+        "reference": {
+          "dt": 11982.0,
+          "wait": 6035750.0,
+          "ride": 9403462.0,
+          "cost": 21474962.0,
+          "observed_at": 24000,
+          "available_at": 24030
+        },
+        "candidate": {
+          "dt": 11982.0,
+          "wait": 6064968.0,
+          "ride": 9391002.0,
+          "cost": 21520938.0,
+          "observed_at": 24000,
+          "available_at": 24030
+        }
+      },
+      "delta": {
+        "wait": 29218.0,
+        "ride": -12460.0,
+        "cost": 45976.0
+      },
+      "physical": {
+        "reference": {
+          "departure_clock": 12022.0,
+          "next_arrival_clock": 12130.0,
+          "missing": {}
+        },
+        "candidate": {
+          "departure_clock": 12026.0,
+          "next_arrival_clock": 12130.0,
+          "missing": {}
+        }
+      },
+      "reference_full_endpoint": {
+        "wait": 8433181.0,
+        "ride": 16424514.0,
+        "cost": 33290876.0
+      }
+    },
+    {
+      "status": "complete",
+      "all_pass": true,
+      "checks": {
+        "same_complete_root": true,
+        "same_fixed_reference": true,
+        "same_external_seed": true,
+        "original_actor_root_exact": true,
+        "predeclared_candidate_exact": true,
+        "command_support": true,
+        "actual_departures_observed": true,
+        "physical_departure_separation": true,
+        "actual_next_arrivals": true,
+        "both_real_terminal": true,
+        "nonzero_duration": true,
+        "label_maturity": true,
+        "zero_suffix_training": true,
+        "zero_truth_feedback": true,
+        "native_fork": true,
+        "actual_parallel": true,
+        "parent_actor_frozen": true,
+        "service_context_before_action": true,
+        "same_issue_context": true,
+        "no_replacement_root": true
+      },
+      "line_id": "102X",
+      "scenario": "local_speed_drop",
+      "external_seed": 716207,
+      "reused": false,
+      "source_pair_path": null,
+      "new_stratum_threshold": 0.5,
+      "load_bin": "heavier",
+      "root": {
+        "started_at": 12021.0,
+        "sequence": 8138,
+        "trip_id": "102X_16",
+        "station_id": "7X14_102X27_705X28"
+      },
+      "service": {
+        "observed": true,
+        "reason": null,
+        "reasons": [],
+        "atomic_at_issue": true,
+        "issue_clock": 12021.0,
+        "event_clock": 12020.0,
+        "capacity": 50.0,
+        "counts": {
+          "onboard": 27,
+          "next_queue": 0,
+          "release_next": 3,
+          "compatible_next_queue": 0,
+          "seats_after_release": 26.0
+        },
+        "features": [
+          0.54,
+          -0.52
+        ],
+        "load_bin": "high"
+      },
+      "reference_hold_seconds": 3.499780297279358,
+      "candidate_hold_seconds": 7.5,
+      "observation_checks": {
+        "clock_unchanged": true,
+        "ledger_unchanged": true,
+        "rng_unchanged": true,
+        "issue_clock_exact": true,
+        "event_clock_exact": true,
+        "context_before_action": true
+      },
+      "before_suffixes": true,
+      "sim_step_seconds": 1.0,
+      "action_step_seconds": 1.0,
+      "at_stop": true,
+      "overlap_seconds": 310.5654375553131,
+      "remaining": {
+        "reference": {
+          "dt": 11979.0,
+          "wait": 6034478.0,
+          "ride": 9399556.0,
+          "cost": 21468512.0,
+          "observed_at": 24000,
+          "available_at": 24030
+        },
+        "candidate": {
+          "dt": 11979.0,
+          "wait": 6057136.0,
+          "ride": 9426360.0,
+          "cost": 21540632.0,
+          "observed_at": 24000,
+          "available_at": 24030
+        }
+      },
+      "delta": {
+        "wait": 22658.0,
+        "ride": 26804.0,
+        "cost": 72120.0
+      },
+      "physical": {
+        "reference": {
+          "departure_clock": 12025.0,
+          "next_arrival_clock": 12057.0,
+          "missing": {}
+        },
+        "candidate": {
+          "departure_clock": 12029.0,
+          "next_arrival_clock": 12061.0,
+          "missing": {}
+        }
+      },
+      "reference_full_endpoint": {
+        "wait": 8433181.0,
+        "ride": 16424514.0,
+        "cost": 33290876.0
+      }
+    }
+  ],
+  "training_started": false,
+  "models_fitted": false,
+  "predictions_used_for_selection": false,
+  "labels_used_for_selection": false,
+  "prefix_reproduction": {
+    "all_pass": true,
+    "checks": {
+      "comparison_exact": true,
+      "all_issues_logged": true
+    },
+    "observed_issues": 8571,
+    "matched_issues": 0,
+    "reference_trace_path": null
+  },
+  "reuse_checks": {},
+  "first_pair_gate": {
+    "status": "passed",
+    "all_pass": true,
+    "checks": {
+      "same_complete_root": true,
+      "same_fixed_reference": true,
+      "same_external_seed": true,
+      "original_actor_root_exact": true,
+      "predeclared_candidate_exact": true,
+      "command_support": true,
+      "actual_departures_observed": true,
+      "physical_departure_separation": true,
+      "actual_next_arrivals": true,
+      "both_real_terminal": true,
+      "nonzero_duration": true,
+      "label_maturity": true,
+      "zero_suffix_training": true,
+      "zero_truth_feedback": true,
+      "native_fork": true,
+      "actual_parallel": true,
+      "parent_actor_frozen": true,
+      "service_context_before_action": true,
+      "same_issue_context": true,
+      "no_replacement_root": true
+    },
+    "scenario": "stable",
+    "slot": "102X/heavier",
+    "root": {
+      "started_at": 12003.0,
+      "sequence": 8113,
+      "trip_id": "102X_16",
+      "station_id": "7X14_102X27_705X28"
+    },
+    "pair_path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_stratified_collection_v90_20261028/runs/stable/pairs/heavier/102X",
+    "labels_used_for_gate": false,
+    "cost_sign_used_for_gate": false,
+    "new_pair_in_formal_cohort": true
+  }
+}

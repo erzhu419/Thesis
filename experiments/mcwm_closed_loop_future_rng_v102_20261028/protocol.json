@@ -1,0 +1,90 @@
+{
+  "name": "mcwm_closed_loop_future_rng_v102_20261028",
+  "frozen_before_native_execution": true,
+  "purpose": "fixed physical root sensitivity to future lane-driving RNG",
+  "roots": [
+    {
+      "case": "T",
+      "external_seed": 1476154684,
+      "scenario": "stable",
+      "sequence": 8128,
+      "clock": 12003,
+      "trip_id": "7X_32",
+      "station_id": "7X05_102X18",
+      "old_D": -3.8701505404867698
+    },
+    {
+      "case": "C",
+      "external_seed": 1119764361,
+      "scenario": "stable",
+      "sequence": 8125,
+      "clock": 12006,
+      "trip_id": "7X_32",
+      "station_id": "7X05_102X18",
+      "old_D": 6.30280522581073
+    }
+  ],
+  "futures": [
+    {
+      "id": "F0",
+      "seed": null,
+      "mode": "identity"
+    },
+    {
+      "id": "F1",
+      "seed": 102001,
+      "mode": "lane_rng_replacement"
+    },
+    {
+      "id": "F2",
+      "seed": 202001,
+      "mode": "lane_rng_replacement"
+    }
+  ],
+  "rng": {
+    "native_version": "SUMO 1.25.0",
+    "pools": 64,
+    "generator": "std::mt19937(seed+pool_index)",
+    "burn_per_pool": 1000000,
+    "intervention": "MSLane::loadRNGState only; no simulation state reload",
+    "other_native_streams": "unchanged"
+  },
+  "arms": [
+    "frozen_reference_action",
+    "7.5_second_root_hold"
+  ],
+  "policy_after_root": "same frozen v84 packet37 actor and F",
+  "fixed_passenger_denominator": 15079,
+  "metric": "D=(2*(W_candidate-W_reference)+(R_candidate-R_reference))/15079; negative improves",
+  "native_seconds": {
+    "capability_probe": 40,
+    "prefix": 24009,
+    "suffix": 143946,
+    "formal_total": 167955,
+    "combined": 167995
+  },
+  "planned_pairs": 6,
+  "planned_suffixes": 12,
+  "distinct_new_future_pairs": 4,
+  "training_updates": 0,
+  "fits": 0,
+  "validation_v100": "sealed",
+  "stop_conditions": [
+    "native RNG-only capability fails",
+    "old prefix or root differs",
+    "F0 individual-arm W/R endpoints fail exact replication",
+    "any physical root change during RNG apply",
+    "paired initial native state differs",
+    "native endpoint or accounting incomplete"
+  ],
+  "readout": "within-root positive and negative D establishes observed sign change; absent flip in three futures is not proof of robustness",
+  "retrieval": {
+    "summary_cap_per_root": 65536,
+    "no_raw_traces": true,
+    "no_checkpoints": true
+  },
+  "sources": [
+    "https://github.com/eclipse-sumo/sumo/blob/v1_25_0/src/microsim/MSLane.cpp#L4468-L4495",
+    "https://github.com/eclipse-sumo/sumo/blob/v1_25_0/src/utils/common/RandHelper.h#L197-L220"
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "name": "mcwm_closed_loop_collection_domain_v97_20261028",
+  "version": 97,
+  "priority": "high",
+  "stage": "Revised independent T collection: separate valid-query domain from model deployment confidence",
+  "source_initializer": 6207,
+  "external_seeds": [
+    309177151,
+    1476154684
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "source_v95": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_state_confidence_v95_20261028/protocol.json",
+  "source_protocol": "source_protocol.json",
+  "source_model": "source_model.json",
+  "frozen_reference": {
+    "initializer_seed": 6207,
+    "training_external_seed": 716207,
+    "scenarios": [
+      "stable",
+      "local_speed_drop"
+    ],
+    "actors": "Unchanged scene-specific v84 saved packet37 actors used in v90; never substitute a new final actor",
+    "F": "Original ExecutionAction, applied once to proposals; recorded executed actions are never mapped twice",
+    "actor_and_value_observations": 229,
+    "world_and_trust": "unchanged",
+    "continuation": "Substitute one root action; then permanently the matching scene-specific original reference actor/F on actual states",
+    "scope": "Conditional response under these fixed references; environment and reference-policy effects are not separately identified"
+  },
+  "frozen_common_support": {
+    "action_difference": "(7.5-h_reference)/7.5",
+    "reference_min": 3.0,
+    "reference_max_exclusive": 3.75,
+    "candidate_seconds": 7.5,
+    "maximum_history_age_seconds": 900,
+    "decision_threshold": 0.0,
+    "maximum_interventions": 1,
+    "q_training_ranges": {
+      "7X": [
+        0.007957623402277628,
+        0.4666777531305949
+      ],
+      "102X": [
+        0.007957623402277628,
+        0.4666777531305949
+      ],
+      "705X": [
+        0.007957623402277628,
+        0.4999144673347473
+      ]
+    }
+  },
+  "q_range_for_scaling_only": [
+    0.007957623402277628,
+    0.4999144673347473
+  ],
+  "root_contract": {
+    "window_start": 12000.0,
+    "window_end_exclusive": 12600.0,
+    "lines": [
+      "7X",
+      "102X",
+      "705X"
+    ],
+    "selection": "First native issue per line passing at-stop, original action/F domain and native command gap; lock before reading context/q support",
+    "no_substitution": "Missing, nonfinite or stale real context/history remains missing/HOLD; do not substitute later roots. Finite old-range extrapolation is eligible.",
+    "q_support": "Require finite strictly historical q with original baseline coverage and900-second age; old per-line q training ranges are annotations only",
+    "candidate": "Frozen reference actor after F versus farthest legal7.5-second endpoint",
+    "prediction": "Frozen v93 line3/service5/history6 pure forward including extrapolation, labeled as such; no sign or suffix-outcome gate",
+    "new_seed_prefix": "NativePrefixTrace has no old716207 expected trajectory; reproduce frozen actors on old inputs instead"
+  },
+  "native_contract": {
+    "same_prefix_and_exogenous_rng": true,
+    "actual_parallel_arms": true,
+    "true_endpoint": 24000.0,
+    "label_available_at": 24030.0,
+    "suffix_training_updates": 0,
+    "admitted_labels": 0,
+    "counterfactual_queries_return_to_reference_after_one_substitution": true,
+    "fork_executor": "Existing verified v34/v84 fork_children and independent route-stream offsets",
+    "actor_observation": 229,
+    "V_observation": 229,
+    "F": "unchanged/applied once",
+    "trust": "unchanged",
+    "initialization": "Reuse saved scene-specific v84 packet37 reference actors from initializer6207; no new initialization",
+    "physical_noop": "If commands, native branches, root/RNG, full endpoints, zero training and factual accounting are intact, lack of departure separation is a reported physical-noop flag, not a missing/invalid label. Preserve measured D, even if nonzero; never impute0 or filter by effect. All other technical failures stop."
+  },
+  "preflight": {
+    "external_seed": 309177151,
+    "scenario": "stable",
+    "kind": "First production pair; included once in the12-pair cohort",
+    "gate_path": "first_pair_gate.json",
+    "reuse_same_live_prefix": true,
+    "allow_other_collectors": "Only after all_pass technical gate; no cost-sign gate. Remainder of the first collector continues live without reset",
+    "failure": "Clock/context/command/root/RNG/terminal/budget failures stop; neither old-q-range extrapolation nor a complete measured departure-noop by itself fails the technical gate.",
+    "no_outcome_selection": true
+  },
+  "budget": {
+    "scenario_cap": 84600,
+    "total_cap": 338400,
+    "prefix_cap_per_scenario": 12600,
+    "expected_collectors": 4,
+    "expected_pairs": 12,
+    "expected_physical_labels": 24,
+    "maximum_suffixes": 24,
+    "initializer_updates": 0,
+    "actor_updates": 0,
+    "critic_updates": 0,
+    "V_updates": 0,
+    "alpha_updates": 0,
+    "world_updates": 0,
+    "trust_updates": 0,
+    "fit_count": 0,
+    "calibration_validation_queries": 0,
+    "prior_training_native_seconds": 349310,
+    "accounting": "New v97 cap338400 includes all four new prefixes and every reference/candidate suffix. Historical v96 prefix12600 is additionally spent; no native resume exists. No reduction by nominal unused v96 budget.",
+    "prior_v96_failed_collection_seconds": 12600,
+    "historical_native_seconds_before_v97": 361910
+  },
+  "analysis": {
+    "fitting": false,
+    "T_integrity_gate": "Require12 distinct mature valid paired roots across the original two T seeds, both scenes and three lines, plus rank2 finite residual design. Old-q-range extrapolation does not make a root missing. Genuine missing/invalid first slots stay missing/HOLD with no replacement or zero label.",
+    "requested": [
+      "same-prefix/RNG/clock and original actor/F",
+      "actual actions/physical separation/parallel overlap",
+      "strict issue-visible context and historical q",
+      "true24000 endpoints and24030 availability",
+      "all zero suffix updates",
+      "per-seed/scene/line waiting,ride,total paired deltas",
+      "frozen m prediction direction/errors",
+      "future two-column design rank without solving",
+      "actual new native cost",
+      "separate valid historical observations from completed paired labels",
+      "report old empirical q interpolation/extrapolation without using it as query gate",
+      "surface native errors separately from ordinary unsupported or not-started collection"
+    ],
+    "missing_policy": "Keep missing,unsupported,zero-duration/noop,truncated and not-started separately; do not replace with zeros",
+    "controls": "No new fitted model and no selecting a policy from T labels in this stage"
+  },
+  "retrieval": {
+    "only_compact_json": true,
+    "per_collector_bytes": 32768,
+    "gate_bytes": 8192,
+    "audit_bytes": 16384,
+    "aggregate_input_cap_bytes": 180224,
+    "final_summary_bytes": 65536,
+    "no_trace_csv_or_checkpoint_download": true,
+    "reuse_frozen_actor_audit": true
+  },
+  "sealed_external_seeds": [
+    416207,
+    516207,
+    616207,
+    716207,
+    816207
+  ],
+  "stop": "Finish the revised T collection and compact analysis. Root agent reviews actual support/errors before authorizing a separate fixed fit and independent C/V; no automatic expansion, retuning, or old-result rewriting.",
+  "supersedes": {
+    "version": 96,
+    "scope": "Query admission, faithful v95 complete-noop label retention, and truthful summary fields; v96 HOLD retained",
+    "reason": "Old empirical q min/max rejected valid near-baseline historical observations before querying outcomes",
+    "old_results_immutable": true
+  },
+  "collection_domain": {
+    "native_context": "Observed finite service state from the current native issue",
+    "history": "Same strictly historical CorridorHistory definition, all baseline counts>=3, latest age<=900s, finite q",
+    "q_empirical_range_is_gate": false,
+    "action": "Same original actor/F reference [3,3.75) and candidate7.5 with existing physical command support",
+    "selection": "Lock first physically eligible issue per line in[12000,12600) before context/history read; no outcome/prediction-sign selection or later replacement"
+  },
+  "candidate_deployment_domain": {
+    "frozen_before_new_labels": true,
+    "eligibility": "Same valid native context, finite strictly historical q and original action domain as collection; old empirical q min/max do not exclude a root",
+    "old_q_range_role": "Frozen scaling and an explicit interpolation/extrapolation annotation only; not a confidence interval",
+    "activation": "No deployment in v97. A separately fitted fixed b/u and independently calibrated C must be frozen before any validation; original m<0 AND U<0; at most one intervention then original reference",
+    "calibration_population": "All potentially accepted first-line roots from this same domain in each independent seed block, including old-q-range extrapolation; no selective omission",
+    "claim": "At most the original exchangeability-dependent80% marginal seed-block upper coverage; no per-action or universal no-harm guarantee",
+    "validation_gate": "A real nonzero intervention; mean actual full-day cost improves vs reference and raw history6; no valid scenario worse than reference; stable tail nonpositive; report stale/line3/service5 and worst cell. All-reference is not a benefit.",
+    "remaining_C_V_seeds": "Unchanged sealed v95 C and V cohorts; not collected or exposed in v97"
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "date": "2026-10-27",
+  "scope": "Read-only extraction from existing v75 metrics.jsonl and summary.json; selected scalar fields only",
+  "resident_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_frozen_validation_v75_20261027/runs/executed_cql/validation",
+  "received_bytes": 19449,
+  "new_simulations": 0,
+  "new_training_updates": 0,
+  "denominator": 15079,
+  "differences": "fresh minus matched no_fresh; W and R in seconds per full-day departed passenger, J=2W+R",
+  "final_waiting": [
+    {
+      "seed": 6206,
+      "scenario": "stable",
+      "fresh": 338,
+      "no_fresh": 339
+    },
+    {
+      "seed": 6206,
+      "scenario": "local_speed_drop",
+      "fresh": 337,
+      "no_fresh": 338
+    },
+    {
+      "seed": 6207,
+      "scenario": "stable",
+      "fresh": 333,
+      "no_fresh": 339
+    },
+    {
+      "seed": 6207,
+      "scenario": "local_speed_drop",
+      "fresh": 335,
+      "no_fresh": 339
+    },
+    {
+      "seed": 6208,
+      "scenario": "stable",
+      "fresh": 339,
+      "no_fresh": 334
+    },
+    {
+      "seed": 6208,
+      "scenario": "local_speed_drop",
+      "fresh": 334,
+      "no_fresh": 335
+    }
+  ],
+  "final_onboard_all_arms": 0,
+  "seed6208": [
+    {
+      "scenario": "stable",
+      "completed": {
+        "fresh": 14740,
+        "no_fresh": 14745
+      },
+      "cumulative": [
+        [
+          9000,
+          -0.007891770011273957,
+          0.5677432190463558,
+          0.5519596790238079,
+          -9,
+          11
+        ],
+        [
+          12000,
+          -0.4898202798594071,
+          -2.5685390277869886,
+          -3.548179587505803,
+          1,
+          -34
+        ],
+        [
+          15000,
+          1.0256648318854036,
+          -2.759732077723987,
+          -0.7084024139531797,
+          3,
+          3
+        ],
+        [
+          16200,
+          1.4956562106240467,
+          -2.9523177929570927,
+          0.038994628291000755,
+          6,
+          4
+        ],
+        [
+          18000,
+          2.074673386829365,
+          -2.522647390410505,
+          1.6266993832482255,
+          0,
+          -1
+        ],
+        [
+          18300,
+          2.0409178327475295,
+          -2.6992506134359044,
+          1.3825850520591545,
+          -1,
+          -22
+        ],
+        [
+          20100,
+          2.702831752768751,
+          -3.6485841236156245,
+          1.7570793819218777,
+          5,
+          3
+        ],
+        [
+          24000,
+          3.9960209562968365,
+          -3.336096558127197,
+          4.655945354466477,
+          5,
+          0
+        ]
+      ]
+    },
+    {
+      "scenario": "local_speed_drop",
+      "completed": {
+        "fresh": 14745,
+        "no_fresh": 14744
+      },
+      "cumulative": [
+        [
+          9000,
+          -0.007891770011273957,
+          0.5677432190463558,
+          0.5519596790238079,
+          -9,
+          11
+        ],
+        [
+          12000,
+          0.25313349691624115,
+          -3.0003979043703164,
+          -2.494130910537834,
+          8,
+          -5
+        ],
+        [
+          15000,
+          1.311691756747795,
+          -3.28111943762849,
+          -0.6577359241328997,
+          1,
+          -3
+        ],
+        [
+          16200,
+          1.3457125804098415,
+          -1.7738576828702168,
+          0.9175674779494662,
+          5,
+          1
+        ],
+        [
+          18000,
+          1.3238941574374958,
+          -1.9955567345314675,
+          0.6522315803435241,
+          -8,
+          -15
+        ],
+        [
+          18300,
+          1.2107566814775517,
+          -2.1661913920021223,
+          0.25532197095298104,
+          2,
+          -4
+        ],
+        [
+          20100,
+          1.2112209032429206,
+          -1.6177465349161084,
+          0.8046952715697329,
+          -1,
+          15
+        ],
+        [
+          24000,
+          0.9525830625373035,
+          -1.3719742688507195,
+          0.5331918562238875,
+          -1,
+          0
+        ]
+      ]
+    }
+  ],
+  "cumulative_columns": [
+    "time_seconds",
+    "delta_W",
+    "delta_R",
+    "delta_J",
+    "delta_waiting_count",
+    "delta_onboard_count"
+  ],
+  "limitations": [
+    "Cumulative cost and endpoint inventories are not per-passenger causal attribution.",
+    "Sampled endpoints do not establish the first continuous-time crossing.",
+    "Different final waiting sets were not identified in this extraction.",
+    "No per-step Q, policy parameter, checkpoint or Adam states were loaded."
+  ]
+}

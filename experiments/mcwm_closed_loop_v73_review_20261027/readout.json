@@ -1,0 +1,1288 @@
+{
+  "review_date": "2026-10-27 Asia/Shanghai",
+  "source": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_decoupled_feedback_v73_20261026",
+  "scheduler_live_verification": [
+    {
+      "id": "t211872",
+      "status": "done",
+      "priority": "high",
+      "node": "node001",
+      "signature": "thesis-mcwm-decoupled-feedback-v73-20261026/analysis/decoupled_feedback_development_analysis"
+    },
+    {
+      "id": "t211866",
+      "status": "done",
+      "priority": "high",
+      "node": "node001",
+      "signature": "thesis-mcwm-decoupled-feedback-v73-20261026/runs/executed_cql/development/seed6201/stable/fresh"
+    },
+    {
+      "id": "t211867",
+      "status": "done",
+      "priority": "high",
+      "node": "node001",
+      "signature": "thesis-mcwm-decoupled-feedback-v73-20261026/runs/executed_cql/development/seed6201/stable/no_fresh"
+    },
+    {
+      "id": "t211868",
+      "status": "done",
+      "priority": "high",
+      "node": "node001",
+      "signature": "thesis-mcwm-decoupled-feedback-v73-20261026/analysis/decoupled_feedback_development_regression"
+    },
+    {
+      "id": "t211869",
+      "status": "done",
+      "priority": "high",
+      "node": "node001",
+      "signature": "thesis-mcwm-decoupled-feedback-v73-20261026/runs/executed_cql/development/seed6201/local_speed_drop/fresh"
+    },
+    {
+      "id": "t211870",
+      "status": "done",
+      "priority": "high",
+      "node": "node001",
+      "signature": "thesis-mcwm-decoupled-feedback-v73-20261026/runs/executed_cql/development/seed6203/stable/fresh"
+    },
+    {
+      "id": "t211871",
+      "status": "done",
+      "priority": "high",
+      "node": "node001",
+      "signature": "thesis-mcwm-decoupled-feedback-v73-20261026/runs/executed_cql/development/seed6203/local_speed_drop/fresh"
+    }
+  ],
+  "integrity": {
+    "all_pass": true,
+    "checked_conditions": 1074,
+    "failed_checks": []
+  },
+  "regression": {
+    "status": "complete",
+    "all_pass": true,
+    "integrity": {
+      "all_pass": true,
+      "checked_conditions": 90,
+      "failed_checks": []
+    },
+    "seed": 6201,
+    "scenario": "stable",
+    "exact": {
+      "ledger": true,
+      "metrics": true,
+      "full_trace": true,
+      "covariate_receipts": true,
+      "initializer": true,
+      "F_and_runtime": true,
+      "optimizer_schedule": true,
+      "target_path": true,
+      "logged_update_values": true,
+      "main_stream_CQL_audit": true,
+      "policy_config": true
+    },
+    "full_trace": {
+      "all_pass": true,
+      "compared_rows": 13689,
+      "differing_rows": 0,
+      "first_difference_index": null,
+      "scope": "complete issued trace; no cutoff"
+    },
+    "update_log": {
+      "all_pass": true,
+      "compared_rows": 114,
+      "expected_rows": 114,
+      "schedule_exact": true,
+      "differing_rows": 0,
+      "first_differences": [],
+      "ignored_profiler_fields": [
+        "regularizer_wall_seconds"
+      ],
+      "scope": "First and eighth update of every57packets; every logged non-profiler field remains exact."
+    },
+    "RNG_scope": {
+      "common_logged_state_fields": [],
+      "CQL_main_rng_preserved": true,
+      "full_rng_states_logged": false
+    },
+    "no_new_baseline_cost_cell": true
+  },
+  "first_pair_actual_parallel": {
+    "positive_overlap": true,
+    "seconds": 1287.665676832199,
+    "elapsed_seconds": [
+      1287.665676832199,
+      1644.4064037799835
+    ]
+  },
+  "native_gates": [
+    {
+      "cell": {
+        "seed": 6201,
+        "scenario": "local_speed_drop",
+        "arm": "fresh",
+        "candidate": "executed_cql",
+        "recipe": "latest5_covariates_capacity_outcomes",
+        "external_seed": 106201
+      },
+      "budget": {
+        "target_feedback_slots": 285,
+        "training_fresh_outcomes": 285,
+        "current_state_action_slots": 285,
+        "covariate_slots": 285,
+        "complete_outcome_slots": 285,
+        "distinct_target_records_used": 306,
+        "unique_learner_target_records": 306,
+        "selected_target_record_union": 306,
+        "selected_union_count": 306,
+        "distinct_target_record_bound": 342,
+        "policy_updates": 456,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "packets": 57,
+        "native_seconds": 24000.0,
+        "world_updates": 0,
+        "trust_updates": 0,
+        "counterfactual_queries": 0,
+        "training_stopped_at": 18006.0
+      },
+      "integrity": {
+        "all_pass": true,
+        "checks": {
+          "capacity_feedback_selection": true,
+          "unchanged_v70_learner": true,
+          "initializer_50000": true,
+          "history_source_unchanged": true,
+          "factual_feedback_285": true,
+          "unique_factual_labels": true,
+          "full_packets": true,
+          "no_early_feedback": true,
+          "critic_value_updates_456": true,
+          "actor_alpha_updates_456": true,
+          "no_world": true,
+          "no_fresh_outcomes_retained": true,
+          "current_covariates_285": true,
+          "covariates_only_state_action": true,
+          "complete_private_outcomes": true,
+          "separate_pool_information_budget": true,
+          "fixed_recent30_replay": true,
+          "recent30_scope": true,
+          "fresh_mixed_target_scope": true,
+          "original_actor_schedule": true,
+          "executed_cql_contract": true,
+          "paid_policy_probes": true,
+          "actor_real_clock": true,
+          "shared_execution_rule": true,
+          "full_native_day": true,
+          "trace_complete": true,
+          "post_budget_zero_training": true,
+          "passenger_ledger_balanced": true
+        }
+      }
+    },
+    {
+      "cell": {
+        "seed": 6201,
+        "scenario": "stable",
+        "arm": "fresh",
+        "candidate": "executed_cql",
+        "recipe": "latest5_covariates_capacity_outcomes",
+        "external_seed": 106201
+      },
+      "budget": {
+        "target_feedback_slots": 285,
+        "training_fresh_outcomes": 285,
+        "current_state_action_slots": 285,
+        "covariate_slots": 285,
+        "complete_outcome_slots": 285,
+        "distinct_target_records_used": 306,
+        "unique_learner_target_records": 306,
+        "selected_target_record_union": 306,
+        "selected_union_count": 306,
+        "distinct_target_record_bound": 342,
+        "policy_updates": 456,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "packets": 57,
+        "native_seconds": 24000.0,
+        "world_updates": 0,
+        "trust_updates": 0,
+        "counterfactual_queries": 0,
+        "training_stopped_at": 18000.0
+      },
+      "integrity": {
+        "all_pass": true,
+        "checks": {
+          "capacity_feedback_selection": true,
+          "unchanged_v70_learner": true,
+          "initializer_50000": true,
+          "history_source_unchanged": true,
+          "factual_feedback_285": true,
+          "unique_factual_labels": true,
+          "full_packets": true,
+          "no_early_feedback": true,
+          "critic_value_updates_456": true,
+          "actor_alpha_updates_456": true,
+          "no_world": true,
+          "no_fresh_outcomes_retained": true,
+          "current_covariates_285": true,
+          "covariates_only_state_action": true,
+          "complete_private_outcomes": true,
+          "separate_pool_information_budget": true,
+          "fixed_recent30_replay": true,
+          "recent30_scope": true,
+          "fresh_mixed_target_scope": true,
+          "original_actor_schedule": true,
+          "executed_cql_contract": true,
+          "paid_policy_probes": true,
+          "actor_real_clock": true,
+          "shared_execution_rule": true,
+          "full_native_day": true,
+          "trace_complete": true,
+          "post_budget_zero_training": true,
+          "passenger_ledger_balanced": true
+        }
+      }
+    },
+    {
+      "cell": {
+        "seed": 6201,
+        "scenario": "stable",
+        "arm": "no_fresh",
+        "candidate": "executed_cql",
+        "recipe": "latest5_covariates_capacity_outcomes",
+        "external_seed": 106201
+      },
+      "budget": {
+        "target_feedback_slots": 285,
+        "training_fresh_outcomes": 0,
+        "current_state_action_slots": 285,
+        "covariate_slots": 285,
+        "complete_outcome_slots": 0,
+        "distinct_target_records_used": 285,
+        "unique_learner_target_records": 285,
+        "selected_target_record_union": 310,
+        "selected_union_count": 310,
+        "distinct_target_record_bound": 285,
+        "policy_updates": 456,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "packets": 57,
+        "native_seconds": 24000.0,
+        "world_updates": 0,
+        "trust_updates": 0,
+        "counterfactual_queries": 0,
+        "training_stopped_at": 18000.0
+      },
+      "integrity": {
+        "all_pass": true,
+        "checks": {
+          "capacity_feedback_selection": true,
+          "unchanged_v70_learner": true,
+          "initializer_50000": true,
+          "history_source_unchanged": true,
+          "factual_feedback_285": true,
+          "unique_factual_labels": true,
+          "full_packets": true,
+          "no_early_feedback": true,
+          "critic_value_updates_456": true,
+          "actor_alpha_updates_456": true,
+          "no_world": true,
+          "no_fresh_outcomes_retained": true,
+          "current_covariates_285": true,
+          "covariates_only_state_action": true,
+          "complete_private_outcomes": true,
+          "separate_pool_information_budget": true,
+          "fixed_recent30_replay": true,
+          "recent30_scope": true,
+          "fresh_mixed_target_scope": true,
+          "original_actor_schedule": true,
+          "executed_cql_contract": true,
+          "paid_policy_probes": true,
+          "actor_real_clock": true,
+          "shared_execution_rule": true,
+          "full_native_day": true,
+          "trace_complete": true,
+          "post_budget_zero_training": true,
+          "passenger_ledger_balanced": true
+        }
+      }
+    },
+    {
+      "cell": {
+        "seed": 6203,
+        "scenario": "local_speed_drop",
+        "arm": "fresh",
+        "candidate": "executed_cql",
+        "recipe": "latest5_covariates_capacity_outcomes",
+        "external_seed": 106203
+      },
+      "budget": {
+        "target_feedback_slots": 285,
+        "training_fresh_outcomes": 285,
+        "current_state_action_slots": 285,
+        "covariate_slots": 285,
+        "complete_outcome_slots": 285,
+        "distinct_target_records_used": 307,
+        "unique_learner_target_records": 307,
+        "selected_target_record_union": 307,
+        "selected_union_count": 307,
+        "distinct_target_record_bound": 342,
+        "policy_updates": 456,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "packets": 57,
+        "native_seconds": 24000.0,
+        "world_updates": 0,
+        "trust_updates": 0,
+        "counterfactual_queries": 0,
+        "training_stopped_at": 18000.0
+      },
+      "integrity": {
+        "all_pass": true,
+        "checks": {
+          "capacity_feedback_selection": true,
+          "unchanged_v70_learner": true,
+          "initializer_50000": true,
+          "history_source_unchanged": true,
+          "factual_feedback_285": true,
+          "unique_factual_labels": true,
+          "full_packets": true,
+          "no_early_feedback": true,
+          "critic_value_updates_456": true,
+          "actor_alpha_updates_456": true,
+          "no_world": true,
+          "no_fresh_outcomes_retained": true,
+          "current_covariates_285": true,
+          "covariates_only_state_action": true,
+          "complete_private_outcomes": true,
+          "separate_pool_information_budget": true,
+          "fixed_recent30_replay": true,
+          "recent30_scope": true,
+          "fresh_mixed_target_scope": true,
+          "original_actor_schedule": true,
+          "executed_cql_contract": true,
+          "paid_policy_probes": true,
+          "actor_real_clock": true,
+          "shared_execution_rule": true,
+          "full_native_day": true,
+          "trace_complete": true,
+          "post_budget_zero_training": true,
+          "passenger_ledger_balanced": true
+        }
+      }
+    },
+    {
+      "cell": {
+        "seed": 6203,
+        "scenario": "stable",
+        "arm": "fresh",
+        "candidate": "executed_cql",
+        "recipe": "latest5_covariates_capacity_outcomes",
+        "external_seed": 106203
+      },
+      "budget": {
+        "target_feedback_slots": 285,
+        "training_fresh_outcomes": 285,
+        "current_state_action_slots": 285,
+        "covariate_slots": 285,
+        "complete_outcome_slots": 285,
+        "distinct_target_records_used": 305,
+        "unique_learner_target_records": 305,
+        "selected_target_record_union": 305,
+        "selected_union_count": 305,
+        "distinct_target_record_bound": 342,
+        "policy_updates": 456,
+        "critic_updates": 456,
+        "value_updates": 456,
+        "actor_updates": 456,
+        "alpha_updates": 456,
+        "packets": 57,
+        "native_seconds": 24000.0,
+        "world_updates": 0,
+        "trust_updates": 0,
+        "counterfactual_queries": 0,
+        "training_stopped_at": 18000.0
+      },
+      "integrity": {
+        "all_pass": true,
+        "checks": {
+          "capacity_feedback_selection": true,
+          "unchanged_v70_learner": true,
+          "initializer_50000": true,
+          "history_source_unchanged": true,
+          "factual_feedback_285": true,
+          "unique_factual_labels": true,
+          "full_packets": true,
+          "no_early_feedback": true,
+          "critic_value_updates_456": true,
+          "actor_alpha_updates_456": true,
+          "no_world": true,
+          "no_fresh_outcomes_retained": true,
+          "current_covariates_285": true,
+          "covariates_only_state_action": true,
+          "complete_private_outcomes": true,
+          "separate_pool_information_budget": true,
+          "fixed_recent30_replay": true,
+          "recent30_scope": true,
+          "fresh_mixed_target_scope": true,
+          "original_actor_schedule": true,
+          "executed_cql_contract": true,
+          "paid_policy_probes": true,
+          "actor_real_clock": true,
+          "shared_execution_rule": true,
+          "full_native_day": true,
+          "trace_complete": true,
+          "post_budget_zero_training": true,
+          "passenger_ledger_balanced": true
+        }
+      }
+    }
+  ],
+  "cost_rows": [
+    {
+      "seed": 6201,
+      "scenario": "stable",
+      "periods": {
+        "full_day": {
+          "wait_per_passenger": -0.9070230121361647,
+          "ride_per_passenger": 0.4294714503614614,
+          "cost_per_passenger": -1.384574573910868
+        },
+        "early": {
+          "wait_per_passenger": -1.000331586975264,
+          "ride_per_passenger": -1.7495855162809164,
+          "cost_per_passenger": -3.7502486902314445
+        },
+        "post_budget": {
+          "wait_per_passenger": 0.09722130114730021,
+          "ride_per_passenger": 0.5324623648782989,
+          "cost_per_passenger": 0.7269049671728567
+        }
+      }
+    },
+    {
+      "seed": 6201,
+      "scenario": "local_speed_drop",
+      "periods": {
+        "full_day": {
+          "wait_per_passenger": 0.19576895019565654,
+          "ride_per_passenger": -5.055176072683935,
+          "cost_per_passenger": -4.663638172292849
+        },
+        "early": {
+          "wait_per_passenger": -1.4221765369056243,
+          "ride_per_passenger": -5.493733006167531,
+          "cost_per_passenger": -8.33808607997878
+        },
+        "post_budget": {
+          "wait_per_passenger": -0.3280058359307816,
+          "ride_per_passenger": 0.4231712978314164,
+          "cost_per_passenger": -0.23284037403010416
+        }
+      }
+    },
+    {
+      "seed": 6203,
+      "scenario": "stable",
+      "periods": {
+        "full_day": {
+          "wait_per_passenger": 1.2608263147424168,
+          "ride_per_passenger": -4.226075999734803,
+          "cost_per_passenger": -1.7044233702499696
+        },
+        "early": {
+          "wait_per_passenger": -0.09364016181443446,
+          "ride_per_passenger": -3.96790238079447,
+          "cost_per_passenger": -4.155182704423396
+        },
+        "post_budget": {
+          "wait_per_passenger": 0.08806950063004138,
+          "ride_per_passenger": 0.29093441209629134,
+          "cost_per_passenger": 0.46707341335633146
+        }
+      }
+    },
+    {
+      "seed": 6203,
+      "scenario": "local_speed_drop",
+      "periods": {
+        "full_day": {
+          "wait_per_passenger": -1.22687180847538,
+          "ride_per_passenger": -4.885801445719153,
+          "cost_per_passenger": -7.339545062669913
+        },
+        "early": {
+          "wait_per_passenger": -0.09907818820876457,
+          "ride_per_passenger": -3.8161681809138486,
+          "cost_per_passenger": -4.014324557331406
+        },
+        "post_budget": {
+          "wait_per_passenger": -0.6974600437694676,
+          "ride_per_passenger": -0.4599774520856954,
+          "cost_per_passenger": -1.8548975396246874
+        }
+      }
+    }
+  ],
+  "aggregates": {
+    "matched": {
+      "full_day": {
+        "overall": {
+          "mean_cost_difference": -3.773045294780786,
+          "percent_change": -0.17092895468593827,
+          "mean_wait_seconds_per_passenger_difference": -0.16932488891836783,
+          "mean_ride_seconds_per_passenger_difference": -3.4343955169441074,
+          "wins": 4,
+          "losses": 0,
+          "ties": 0,
+          "expected_cells": 4,
+          "complete_cells": 4,
+          "missing_cells": 0,
+          "win_fraction": 1.0,
+          "loss_fraction": 0.0,
+          "winning_mean_reduction": 3.7730452947809,
+          "losing_mean_increase": null,
+          "worst_cost_difference": -1.384574573910868
+        },
+        "by_scenario": {
+          "stable": {
+            "mean_cost_difference": -1.544498972079964,
+            "percent_change": -0.07010980638544198,
+            "mean_wait_seconds_per_passenger_difference": 0.17690165130312607,
+            "mean_ride_seconds_per_passenger_difference": -1.898302274686671,
+            "wins": 2,
+            "losses": 0,
+            "ties": 0,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 1.0,
+            "loss_fraction": 0.0,
+            "winning_mean_reduction": 1.5444989720804188,
+            "losing_mean_increase": null,
+            "worst_cost_difference": -1.384574573910868
+          },
+          "local_speed_drop": {
+            "mean_cost_difference": -6.001591617481608,
+            "percent_change": -0.2713465231646755,
+            "mean_wait_seconds_per_passenger_difference": -0.5155514291398617,
+            "mean_ride_seconds_per_passenger_difference": -4.970488759201544,
+            "wins": 2,
+            "losses": 0,
+            "ties": 0,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 1.0,
+            "loss_fraction": 0.0,
+            "winning_mean_reduction": 6.001591617481381,
+            "losing_mean_increase": null,
+            "worst_cost_difference": -4.663638172292849
+          }
+        }
+      },
+      "early": {
+        "overall": {
+          "mean_cost_difference": -5.064460507991328,
+          "percent_change": -1.3035289649514747,
+          "mean_wait_seconds_per_passenger_difference": -0.6538066184760218,
+          "mean_ride_seconds_per_passenger_difference": -3.7568472710391916,
+          "wins": 4,
+          "losses": 0,
+          "ties": 0,
+          "expected_cells": 4,
+          "complete_cells": 4,
+          "missing_cells": 0,
+          "win_fraction": 1.0,
+          "loss_fraction": 0.0,
+          "winning_mean_reduction": 5.064460507991257,
+          "losing_mean_increase": null,
+          "worst_cost_difference": -3.7502486902314445
+        },
+        "by_scenario": {
+          "stable": {
+            "mean_cost_difference": -3.952715697327392,
+            "percent_change": -1.0211246522290405,
+            "mean_wait_seconds_per_passenger_difference": -0.5469858743948492,
+            "mean_ride_seconds_per_passenger_difference": -2.8587439485376933,
+            "wins": 2,
+            "losses": 0,
+            "ties": 0,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 1.0,
+            "loss_fraction": 0.0,
+            "winning_mean_reduction": 3.9527156973274202,
+            "losing_mean_increase": null,
+            "worst_cost_difference": -3.7502486902314445
+          },
+          "local_speed_drop": {
+            "mean_cost_difference": -6.176205318655093,
+            "percent_change": -1.5838694332808356,
+            "mean_wait_seconds_per_passenger_difference": -0.7606273625571944,
+            "mean_ride_seconds_per_passenger_difference": -4.65495059354069,
+            "wins": 2,
+            "losses": 0,
+            "ties": 0,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 1.0,
+            "loss_fraction": 0.0,
+            "winning_mean_reduction": 6.176205318655093,
+            "losing_mean_increase": null,
+            "worst_cost_difference": -4.014324557331406
+          }
+        }
+      },
+      "post_budget": {
+        "overall": {
+          "mean_cost_difference": -0.2234398832814577,
+          "percent_change": -0.061909062904350436,
+          "mean_wait_seconds_per_passenger_difference": -0.2100437694807269,
+          "mean_ride_seconds_per_passenger_difference": 0.1966476556800778,
+          "wins": 2,
+          "losses": 2,
+          "ties": 0,
+          "expected_cells": 4,
+          "complete_cells": 4,
+          "missing_cells": 0,
+          "win_fraction": 0.5,
+          "loss_fraction": 0.5,
+          "winning_mean_reduction": 1.0438689568273958,
+          "losing_mean_increase": 0.5969891902645941,
+          "worst_cost_difference": 0.7269049671728567
+        },
+        "by_scenario": {
+          "stable": {
+            "mean_cost_difference": 0.5969891902645941,
+            "percent_change": 0.16601627335698504,
+            "mean_wait_seconds_per_passenger_difference": 0.09264540088867079,
+            "mean_ride_seconds_per_passenger_difference": 0.4116983884872951,
+            "wins": 0,
+            "losses": 2,
+            "ties": 0,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 0.0,
+            "loss_fraction": 1.0,
+            "winning_mean_reduction": null,
+            "losing_mean_increase": 0.5969891902645941,
+            "worst_cost_difference": 0.7269049671728567
+          },
+          "local_speed_drop": {
+            "mean_cost_difference": -1.0438689568273958,
+            "percent_change": -0.2881739123748511,
+            "mean_wait_seconds_per_passenger_difference": -0.5127329398501246,
+            "mean_ride_seconds_per_passenger_difference": -0.01840307712713951,
+            "wins": 2,
+            "losses": 0,
+            "ties": 0,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 1.0,
+            "loss_fraction": 0.0,
+            "winning_mean_reduction": 1.0438689568273958,
+            "losing_mean_increase": null,
+            "worst_cost_difference": -0.23284037403010416
+          }
+        }
+      }
+    }
+  },
+  "reference_aggregates": {
+    "previous_fresh": {
+      "full_day": {
+        "overall": {
+          "mean_cost_difference": -3.141687114530214,
+          "percent_change": -0.14236747553737863,
+          "mean_wait_seconds_per_passenger_difference": -1.7770574971815165,
+          "mean_ride_seconds_per_passenger_difference": 0.412427879832876,
+          "wins": 4,
+          "losses": 0,
+          "ties": 0,
+          "expected_cells": 4,
+          "complete_cells": 4,
+          "missing_cells": 0,
+          "win_fraction": 1.0,
+          "loss_fraction": 0.0,
+          "winning_mean_reduction": 3.141687114530214,
+          "losing_mean_increase": null,
+          "worst_cost_difference": -0.427415611115066
+        },
+        "by_scenario": {
+          "stable": {
+            "mean_cost_difference": -5.560945686053401,
+            "percent_change": -0.251969929718346,
+            "mean_wait_seconds_per_passenger_difference": -3.398998607334704,
+            "mean_ride_seconds_per_passenger_difference": 1.237051528616007,
+            "wins": 2,
+            "losses": 0,
+            "ties": 0,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 1.0,
+            "loss_fraction": 0.0,
+            "winning_mean_reduction": 5.560945686053628,
+            "losing_mean_increase": null,
+            "worst_cost_difference": -1.5788845414153911
+          },
+          "local_speed_drop": {
+            "mean_cost_difference": -0.7224285430070267,
+            "percent_change": -0.03274089500085878,
+            "mean_wait_seconds_per_passenger_difference": -0.15511638702832897,
+            "mean_ride_seconds_per_passenger_difference": -0.4121957689502551,
+            "wins": 2,
+            "losses": 0,
+            "ties": 0,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 1.0,
+            "loss_fraction": 0.0,
+            "winning_mean_reduction": 0.7224285430067994,
+            "losing_mean_increase": null,
+            "worst_cost_difference": -0.427415611115066
+          }
+        }
+      },
+      "early": {
+        "overall": {
+          "mean_cost_difference": -0.008273095032848232,
+          "percent_change": -0.0021574687590796317,
+          "mean_wait_seconds_per_passenger_difference": 0.016463293321841377,
+          "mean_ride_seconds_per_passenger_difference": -0.04119968167649546,
+          "wins": 2,
+          "losses": 1,
+          "ties": 1,
+          "expected_cells": 4,
+          "complete_cells": 4,
+          "missing_cells": 0,
+          "win_fraction": 0.5,
+          "loss_fraction": 0.25,
+          "winning_mean_reduction": 0.15747065455266807,
+          "losing_mean_increase": 0.2818489289740569,
+          "worst_cost_difference": 0.2818489289740569
+        },
+        "by_scenario": {
+          "stable": {
+            "mean_cost_difference": -0.016314079182961905,
+            "percent_change": -0.004257794945112654,
+            "mean_wait_seconds_per_passenger_difference": 0.032727634458524335,
+            "mean_ride_seconds_per_passenger_difference": -0.08176934809999636,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 0.5,
+            "loss_fraction": 0.5,
+            "winning_mean_reduction": 0.3144770873399807,
+            "losing_mean_increase": 0.2818489289740569,
+            "worst_cost_difference": 0.2818489289740569
+          },
+          "local_speed_drop": {
+            "mean_cost_difference": -0.0002321108826777163,
+            "percent_change": -6.0482064517208126e-05,
+            "mean_wait_seconds_per_passenger_difference": 0.00019895218515841862,
+            "mean_ride_seconds_per_passenger_difference": -0.0006300152529945535,
+            "wins": 1,
+            "losses": 0,
+            "ties": 1,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 0.5,
+            "loss_fraction": 0.0,
+            "winning_mean_reduction": 0.0004642217653554326,
+            "losing_mean_increase": null,
+            "worst_cost_difference": 0.0
+          }
+        }
+      },
+      "post_budget": {
+        "overall": {
+          "mean_cost_difference": -3.1220240068970497,
+          "percent_change": -0.858135377021471,
+          "mean_wait_seconds_per_passenger_difference": -1.4486703362291848,
+          "mean_ride_seconds_per_passenger_difference": -0.2246833344386303,
+          "wins": 3,
+          "losses": 1,
+          "ties": 0,
+          "expected_cells": 4,
+          "complete_cells": 4,
+          "missing_cells": 0,
+          "win_fraction": 0.75,
+          "loss_fraction": 0.25,
+          "winning_mean_reduction": 4.183677078497699,
+          "losing_mean_increase": 0.06293520790501361,
+          "worst_cost_difference": 0.06293520790501361
+        },
+        "by_scenario": {
+          "stable": {
+            "mean_cost_difference": -4.893991644008224,
+            "percent_change": -1.3404972808684803,
+            "mean_wait_seconds_per_passenger_difference": -2.297168247231241,
+            "mean_ride_seconds_per_passenger_difference": -0.29965514954573536,
+            "wins": 2,
+            "losses": 0,
+            "ties": 0,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 1.0,
+            "loss_fraction": 0.0,
+            "winning_mean_reduction": 4.893991644008224,
+            "losing_mean_increase": null,
+            "worst_cost_difference": -4.042973671994162
+          },
+          "local_speed_drop": {
+            "mean_cost_difference": -1.3500563697858183,
+            "percent_change": -0.3723862536744797,
+            "mean_wait_seconds_per_passenger_difference": -0.6001724252271288,
+            "mean_ride_seconds_per_passenger_difference": -0.14971151933152527,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 0.5,
+            "loss_fraction": 0.5,
+            "winning_mean_reduction": 2.7630479474766503,
+            "losing_mean_increase": 0.06293520790501361,
+            "worst_cost_difference": 0.06293520790501361
+          }
+        }
+      }
+    },
+    "capacity_fresh": {
+      "full_day": {
+        "overall": {
+          "mean_cost_difference": -2.235045427415571,
+          "percent_change": -0.10132408128850491,
+          "mean_wait_seconds_per_passenger_difference": -0.7465680748060208,
+          "mean_ride_seconds_per_passenger_difference": -0.7419092778035292,
+          "wins": 3,
+          "losses": 1,
+          "ties": 0,
+          "expected_cells": 4,
+          "complete_cells": 4,
+          "missing_cells": 0,
+          "win_fraction": 0.75,
+          "loss_fraction": 0.25,
+          "winning_mean_reduction": 2.9929482503259046,
+          "losing_mean_increase": 0.038663041315430746,
+          "worst_cost_difference": 0.038663041315430746
+        },
+        "by_scenario": {
+          "stable": {
+            "mean_cost_difference": -2.050069633264684,
+            "percent_change": -0.09303794300580474,
+            "mean_wait_seconds_per_passenger_difference": -1.0868757875190909,
+            "mean_ride_seconds_per_passenger_difference": 0.1236819417733841,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 0.5,
+            "loss_fraction": 0.5,
+            "winning_mean_reduction": 4.138802307845253,
+            "losing_mean_increase": 0.038663041315430746,
+            "worst_cost_difference": 0.038663041315430746
+          },
+          "local_speed_drop": {
+            "mean_cost_difference": -2.420021221566458,
+            "percent_change": -0.10959249769430683,
+            "mean_wait_seconds_per_passenger_difference": -0.4062603620929508,
+            "mean_ride_seconds_per_passenger_difference": -1.6075004973804425,
+            "wins": 2,
+            "losses": 0,
+            "ties": 0,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 1.0,
+            "loss_fraction": 0.0,
+            "winning_mean_reduction": 2.4200212215662305,
+            "losing_mean_increase": null,
+            "worst_cost_difference": -0.08203461768016496
+          }
+        }
+      },
+      "early": {
+        "overall": {
+          "mean_cost_difference": 0.07462364878307426,
+          "percent_change": 0.019464662534386015,
+          "mean_wait_seconds_per_passenger_difference": -0.0830956960010596,
+          "mean_ride_seconds_per_passenger_difference": 0.24081504078520766,
+          "wins": 2,
+          "losses": 2,
+          "ties": 0,
+          "expected_cells": 4,
+          "complete_cells": 4,
+          "missing_cells": 0,
+          "win_fraction": 0.5,
+          "loss_fraction": 0.5,
+          "winning_mean_reduction": 0.07822136746469255,
+          "losing_mean_increase": 0.22746866503084107,
+          "worst_cost_difference": 0.32442469659793005
+        },
+        "by_scenario": {
+          "stable": {
+            "mean_cost_difference": 0.22746866503081264,
+            "percent_change": 0.05940461165100438,
+            "mean_wait_seconds_per_passenger_difference": -0.12470986139663864,
+            "mean_ride_seconds_per_passenger_difference": 0.4768883878241468,
+            "wins": 0,
+            "losses": 2,
+            "ties": 0,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 0.0,
+            "loss_fraction": 1.0,
+            "winning_mean_reduction": null,
+            "losing_mean_increase": 0.22746866503084107,
+            "worst_cost_difference": 0.32442469659793005
+          },
+          "local_speed_drop": {
+            "mean_cost_difference": -0.07822136746472097,
+            "percent_change": -0.0203783144672043,
+            "mean_wait_seconds_per_passenger_difference": -0.04148153060548054,
+            "mean_ride_seconds_per_passenger_difference": 0.004741693746268538,
+            "wins": 2,
+            "losses": 0,
+            "ties": 0,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 1.0,
+            "loss_fraction": 0.0,
+            "winning_mean_reduction": 0.07822136746469255,
+            "losing_mean_increase": null,
+            "worst_cost_difference": -0.02931228861331192
+          }
+        }
+      },
+      "post_budget": {
+        "overall": {
+          "mean_cost_difference": -1.0347337356589037,
+          "percent_change": -0.28605332487548074,
+          "mean_wait_seconds_per_passenger_difference": -0.45974534120299637,
+          "mean_ride_seconds_per_passenger_difference": -0.11524305325287543,
+          "wins": 3,
+          "losses": 1,
+          "ties": 0,
+          "expected_cells": 4,
+          "complete_cells": 4,
+          "missing_cells": 0,
+          "win_fraction": 0.75,
+          "loss_fraction": 0.25,
+          "winning_mean_reduction": 1.656586422618678,
+          "losing_mean_increase": 0.8308243252204761,
+          "worst_cost_difference": 0.8308243252204761
+        },
+        "by_scenario": {
+          "stable": {
+            "mean_cost_difference": -2.1952052523377006,
+            "percent_change": -0.6057593760119394,
+            "mean_wait_seconds_per_passenger_difference": -0.943331785927441,
+            "mean_ride_seconds_per_passenger_difference": -0.3085416804827972,
+            "wins": 2,
+            "losses": 0,
+            "ties": 0,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 1.0,
+            "loss_fraction": 0.0,
+            "winning_mean_reduction": 2.1952052523377006,
+            "losing_mean_increase": null,
+            "worst_cost_difference": -1.2864248292327147
+          },
+          "local_speed_drop": {
+            "mean_cost_difference": 0.1257377810198932,
+            "percent_change": 0.03482402891053722,
+            "mean_wait_seconds_per_passenger_difference": 0.023841103521448304,
+            "mean_ride_seconds_per_passenger_difference": 0.07805557397704632,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "expected_cells": 2,
+            "complete_cells": 2,
+            "missing_cells": 0,
+            "win_fraction": 0.5,
+            "loss_fraction": 0.5,
+            "winning_mean_reduction": 0.5793487631806329,
+            "losing_mean_increase": 0.8308243252204761,
+            "worst_cost_difference": 0.8308243252204761
+          }
+        }
+      }
+    }
+  },
+  "pools": [
+    {
+      "seed": 6201,
+      "scenario": "stable",
+      "covariates": 285,
+      "complete_outcomes": 285,
+      "union": 306,
+      "overlap": 264,
+      "replacements": 21,
+      "risk_windows": 31,
+      "original_covered_risk_windows": 10,
+      "selected_covered_risk_windows": 31,
+      "final_waiting": 332,
+      "final_membership": {
+        "versus_v72_fresh": {
+          "status": "complete",
+          "common_waiting": 329,
+          "left_only": 3,
+          "right_only": 3,
+          "left_minus_right": 0,
+          "actual_unique_left_right": [
+            332,
+            332
+          ],
+          "ledger_waiting_left_right": [
+            332,
+            332
+          ],
+          "actual_inventory_matches_ledger_left_right": [
+            true,
+            true
+          ]
+        },
+        "versus_v70_fresh": {
+          "status": "complete",
+          "common_waiting": 331,
+          "left_only": 1,
+          "right_only": 6,
+          "left_minus_right": -5,
+          "actual_unique_left_right": [
+            332,
+            337
+          ],
+          "ledger_waiting_left_right": [
+            332,
+            337
+          ],
+          "actual_inventory_matches_ledger_left_right": [
+            true,
+            true
+          ]
+        },
+        "versus_v70_no_fresh": {
+          "status": "complete",
+          "common_waiting": 328,
+          "left_only": 4,
+          "right_only": 3,
+          "left_minus_right": 1,
+          "actual_unique_left_right": [
+            332,
+            331
+          ],
+          "ledger_waiting_left_right": [
+            332,
+            331
+          ],
+          "actual_inventory_matches_ledger_left_right": [
+            true,
+            true
+          ]
+        }
+      }
+    },
+    {
+      "seed": 6201,
+      "scenario": "local_speed_drop",
+      "covariates": 285,
+      "complete_outcomes": 285,
+      "union": 306,
+      "overlap": 264,
+      "replacements": 21,
+      "risk_windows": 31,
+      "original_covered_risk_windows": 10,
+      "selected_covered_risk_windows": 31,
+      "final_waiting": 334,
+      "final_membership": {
+        "versus_v72_fresh": {
+          "status": "complete",
+          "common_waiting": 333,
+          "left_only": 1,
+          "right_only": 1,
+          "left_minus_right": 0,
+          "actual_unique_left_right": [
+            334,
+            334
+          ],
+          "ledger_waiting_left_right": [
+            334,
+            334
+          ],
+          "actual_inventory_matches_ledger_left_right": [
+            true,
+            true
+          ]
+        }
+      }
+    },
+    {
+      "seed": 6203,
+      "scenario": "stable",
+      "covariates": 285,
+      "complete_outcomes": 285,
+      "union": 305,
+      "overlap": 265,
+      "replacements": 20,
+      "risk_windows": 30,
+      "original_covered_risk_windows": 10,
+      "selected_covered_risk_windows": 30,
+      "final_waiting": 334,
+      "final_membership": {
+        "versus_v72_fresh": {
+          "status": "complete",
+          "common_waiting": 327,
+          "left_only": 7,
+          "right_only": 12,
+          "left_minus_right": -5,
+          "actual_unique_left_right": [
+            334,
+            339
+          ],
+          "ledger_waiting_left_right": [
+            334,
+            339
+          ],
+          "actual_inventory_matches_ledger_left_right": [
+            true,
+            true
+          ]
+        },
+        "versus_v70_fresh": {
+          "status": "complete",
+          "common_waiting": 332,
+          "left_only": 2,
+          "right_only": 9,
+          "left_minus_right": -7,
+          "actual_unique_left_right": [
+            334,
+            341
+          ],
+          "ledger_waiting_left_right": [
+            334,
+            341
+          ],
+          "actual_inventory_matches_ledger_left_right": [
+            true,
+            true
+          ]
+        },
+        "versus_v70_no_fresh": {
+          "status": "complete",
+          "common_waiting": 331,
+          "left_only": 3,
+          "right_only": 2,
+          "left_minus_right": 1,
+          "actual_unique_left_right": [
+            334,
+            333
+          ],
+          "ledger_waiting_left_right": [
+            334,
+            333
+          ],
+          "actual_inventory_matches_ledger_left_right": [
+            true,
+            true
+          ]
+        }
+      }
+    },
+    {
+      "seed": 6203,
+      "scenario": "local_speed_drop",
+      "covariates": 285,
+      "complete_outcomes": 285,
+      "union": 307,
+      "overlap": 263,
+      "replacements": 22,
+      "risk_windows": 30,
+      "original_covered_risk_windows": 8,
+      "selected_covered_risk_windows": 30,
+      "final_waiting": 333,
+      "final_membership": {
+        "versus_v72_fresh": {
+          "status": "complete",
+          "common_waiting": 332,
+          "left_only": 1,
+          "right_only": 1,
+          "left_minus_right": 0,
+          "actual_unique_left_right": [
+            333,
+            333
+          ],
+          "ledger_waiting_left_right": [
+            333,
+            333
+          ],
+          "actual_inventory_matches_ledger_left_right": [
+            true,
+            true
+          ]
+        }
+      }
+    }
+  ],
+  "budget": {
+    "planned_new_native_days": 5,
+    "planned_native_seconds": 120000,
+    "planned_fresh_outcome_labels": 1140,
+    "planned_covariate_slots": 1425,
+    "planned_updates_per_optimizer": 2280,
+    "cached_baseline_days": 4,
+    "native_branches": 0,
+    "new_initialization_training": 0,
+    "actual_fresh_outcome_labels": 1140,
+    "actual_covariate_slots": 1425,
+    "distinct_target_records_used": 1509,
+    "actual_distinct_records_complete": true
+  },
+  "cost_gates": {
+    "conditions": {
+      "cached_no_fresh_full_day": true,
+      "both_stable_tails": false,
+      "preserves_v70_fresh": true,
+      "worst_cell": true
+    },
+    "worst_full_day_cost_difference_cap": 4.606804164732239
+  },
+  "decision": {
+    "scientific_gate_pass": false,
+    "eligible_for_root_review": false,
+    "advance_to_confirmation": false,
+    "automatic_confirmation": false,
+    "ordinary_dripping_goal_achieved": false,
+    "reason": "candidate_closed_cost_gate_failed"
+  },
+  "new_native_runs_started_in_review": 0,
+  "new_raw_artifact_downloads": 0,
+  "existing_summary_bytes": 67190
+}

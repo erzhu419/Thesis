@@ -1,0 +1,51 @@
+{
+  "name": "mcwm_service_replay_v120_20261029",
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "reference_root": "experiments/mcwm_behavior_replay_v113_20261029/runs",
+  "source_binding": "Both v113 no_fresh observer complete and initial/final issue identities retained in reference_summary.json. All actions/ledger/full native logs must reproduce before selection.",
+  "metadata": "experiments/mcwm_closed_loop_formal_20261020/inputs/history_metadata.json",
+  "edge_xml": "experiments/sumo_eval/runtime/H2Oplus/bus_h2o/network_data/a_sorted_busline_edge.xml",
+  "external_seed": 106206,
+  "horizon_seconds": 24000,
+  "scenario_settings": {
+    "shock_at": 9000.0,
+    "factor": 0.65,
+    "metric_every": 300.0
+  },
+  "feedback_contract": {
+    "feedback_first_deadline": 1200,
+    "feedback_last_deadline": 18000,
+    "feedback_interval_seconds": 300,
+    "feedback_records_per_packet": 5,
+    "feedback_delay_seconds": 30,
+    "target_record_budget": 285
+  },
+  "service_window_seconds": 60,
+  "selection": "Each original packet: latest up to5 unused root-actions with window_end+30 in this release window; first window ends1200, then open-closed300-second windows. Select by timestamps/sequence only. Missing inputs or zero hold/zero board do not filter or backfill. Full logs are not training-budget records.",
+  "native_budget_seconds": 48000,
+  "budget": {
+    "learner_created": false,
+    "optimizer_updates": 0,
+    "feedback_admitted": 0,
+    "checkpoint_loaded": false,
+    "world_refits": 0,
+    "source_collected": 0,
+    "selected_for_future_use_max_per_scene": 285
+  },
+  "capture": "All issues at policy entry before native action; no diagnostic-person requirement or static future intent. Unknown retained explicitly.",
+  "cost_gate": "Complete four days and technical checks. fresh-minus-matched-no_fresh mean<0,stable<=0,shock<0; additionally fresh-minus-same-actor-frozen<=0 in each scenario and at least one<0. Report no_fresh-minus-frozen to distinguish baseline drift. Early and tail windows are descriptive, not new gates.",
+  "failure": "Preserve actual native consumption, no automatic rerun or alternate sources. Failed reproduction prevents data qualification. Data scarcity is reported without favorable reselection.",
+  "scope": "Passive recorded-proposal behavior replay, not restoration of the learner and not independent control-performance confirmation. No fit after completion.",
+  "runtime": {
+    "require_node": "node001",
+    "cpu_per_day": 1,
+    "ram_mb_per_day": 8000,
+    "threads": 1
+  },
+  "old_code_and_results_read_only": true,
+  "summary_max_bytes": 48000,
+  "automatic_followup": false
+}

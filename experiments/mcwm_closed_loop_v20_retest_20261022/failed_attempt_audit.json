@@ -1,0 +1,131 @@
+{
+  "source_anchor": {
+    "id": "train/7X/late",
+    "selected_sequence": 11755,
+    "started_at": 16865.0,
+    "external_seed": 84201,
+    "prefix_counters": {
+      "policy": 50424,
+      "world": 1060,
+      "trust": 424,
+      "physical": 0,
+      "target_labels": 265,
+      "shared_pairs": 6,
+      "route_pairs": 6,
+      "candidate_pairs": 6,
+      "readout_refits": 53
+    },
+    "receipt_count": 53,
+    "last_receipt": {
+      "deadline": 16800,
+      "processed_at": 16804.0,
+      "records": 5
+    }
+  },
+  "failure": {
+    "status": "failed",
+    "cell": {
+      "seed": 6201,
+      "scenario": "stable",
+      "mode": "branch",
+      "target_id": "train/7X/late",
+      "branch": "low"
+    },
+    "type": "KeyError",
+    "message": "'tail_batches'",
+    "time": 17165.0
+  },
+  "resident_prefix_comparison": {
+    "issue_count": 11756,
+    "expected_issue_count": 11756,
+    "exact": true,
+    "first_mismatches": [],
+    "fork_action_comparison": "Compare the fork against the factual source using the saved nominal_a, matching NativePrefixTrace semantics.",
+    "last_sequence": 11755,
+    "last_started_at": 16865.0,
+    "fork_saved_action": [
+      -1.0
+    ],
+    "fork_saved_hold_seconds": 0.0
+  },
+  "resident_service_trace": {
+    "records": {
+      "clock": 301,
+      "issue": 222,
+      "service": 1635
+    },
+    "clock_count": 301,
+    "clock_grid_complete": true,
+    "clock_range": [
+      16865.0,
+      17165.0
+    ],
+    "fixed300_reconstructed": {
+      "dt": 300.0,
+      "wait": 249610.0,
+      "ride": 393256.0,
+      "cost": 892476.0
+    },
+    "old_fixed300": {
+      "dt": 300.0,
+      "wait": 249610.0,
+      "ride": 393256.0,
+      "cost": 892476.0
+    },
+    "fixed300_exact": true,
+    "event_counts": {
+      "issue": 222,
+      "departure": 229,
+      "arrival": 224,
+      "board": 364,
+      "alight": 366,
+      "service_ready": 230
+    },
+    "latest_person_change_observation": 17164.0
+  },
+  "saved_files": {
+    "protocol.json": 9459,
+    "failure.json": 234,
+    "service_trace.jsonl": 1738447,
+    "prefix_trace.jsonl": 39193682
+  },
+  "task": "t211062",
+  "native_log": {
+    "node": "node006",
+    "log_path": "/tmp/sched_t211062.log",
+    "exists": true,
+    "last_training_progress": {
+      "phase": "packet_training",
+      "current": 16804.0,
+      "total": 24000,
+      "unit": "sim_seconds",
+      "elapsed_seconds": 639.2341529438272,
+      "packets": 53,
+      "target_labels": 265
+    },
+    "error_lines": [
+      "KeyError: 'tail_batches'"
+    ]
+  },
+  "status": "failed_preserved_not_admitted",
+  "reuse_as_complete": false,
+  "evidence_limits": {
+    "native_end_counts": "not_saved",
+    "suffix_counter_deltas": "not_saved; the runner source skips all training after fork, but no final counter snapshot was serialized",
+    "actor_clock_aggregate": "not_saved",
+    "service_missing_counters": "not_saved",
+    "final_person_sample": "finish() was not called, so the final (299,300] person-set comparison is unavailable",
+    "old_endpoint_full_and_global_transition": "not_saved in this failed run; fixed300 ledger values alone are independently recovered",
+    "source_acquisition_predictions": "Runtime issue() compared each selected acquisition before this finalization failure; no separate final comparisons count was saved"
+  },
+  "failed_compute_budget": {
+    "prefix_replay_seconds": 16865,
+    "suffix_seconds": 300,
+    "native_seconds_total": 17165,
+    "replayed_labels_at_source_fork": 265,
+    "replayed_policy_updates_at_source_fork": 424,
+    "new_diagnostic_suffix_attempts": 1,
+    "accepted_complete_branches": 0,
+    "new_training_labels": 0
+  }
+}

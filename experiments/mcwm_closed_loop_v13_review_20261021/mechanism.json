@@ -1,0 +1,21 @@
+{
+  "decision": "Do not advance independent confirmation; isolate action assignment and issue-time background errors in a new development version.",
+  "fixed300": {
+    "v12_joint": {"gain_mae": 6742.7826, "direction_correct": 7, "n": 12, "regret": 1148},
+    "separated": {"gain_mae": 7638.5643, "direction_correct": 5, "n": 12, "regret": 1277},
+    "refit_no_cost": {"gain_mae": 6751.8921, "direction_correct": 5, "n": 12, "regret": 1277}
+  },
+  "mechanism": [
+    "The global-rate action term still dominates same-car false gains. At shock 7X state0, separated adds +33208.701 cost units from holding x global rate against a physical baseline of -23182.5 and a true gain of -19910.",
+    "Deleting the term at fixed weights gives same-car direction12/12 and regret0; refitting without it gives10/12 and regret27589. Other action columns absorb part of the original effect after refitting, so a single-column deletion is insufficient.",
+    "Out-of-fold q residualization increases the global-rate action column norm in all four days, for example12.4708 to13.338878 for stable6201. Its prediction adds variance rather than reducing the action-design magnitude in these samples; norm growth alone does not prove statistical bias.",
+    "Fixed300 background OOF cost errors are12722 to14298, whereas the observed paired mean absolute true gain is185.833. The remaining response signal is small relative to single-action label variation.",
+    "The first issue of each balanced line block consumes a new random bit. Its action is independent of the observed pre-issue history under the randomization. The second issue reverses the first assignment and has conditional probability0 or1 once that history is known. Treating all rows as independent p=.5 assignments is invalid.",
+    "All194 training issues are eventually selected; the100 random first positions all survive the final packet. During fitting, availability sorting creates varying release delays. First-position counts are24,25,25,26, with only3 or4 on705X per day."
+  ],
+  "next_diagnostic": {
+    "background": "At issue, save the background prediction from strictly prior released budget-selected labels. Preserve this saved residual target when later labels arrive.",
+    "action": "Use only balanced-block first positions, with known E[u|past]=0 and no learned q. Keep all original selected labels for background fitting. Retain9 original action columns and ridge1 as the direct structural comparison; fixed-weight cost-rate deletion remains diagnostic.",
+    "scope": "The same development prefix and passive comparators, unchanged original285 issue slots, initialization, target time and trust. Report actual random-first counts, cold starts, conditional endpoint support and missingness; no causal identification guarantee or independent confirmation claim."
+  }
+}

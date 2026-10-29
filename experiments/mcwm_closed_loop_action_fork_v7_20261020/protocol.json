@@ -1,0 +1,99 @@
+{
+  "name": "thesis-mcwm-action-fork-v7-20261020",
+  "training_seeds": [
+    6201,
+    6202
+  ],
+  "target_seed_offset": 77000,
+  "arms": [
+    "action_model"
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "history_seed": 72021,
+  "history_rows": 32768,
+  "history_blocks": [
+    1201,
+    1202,
+    1203,
+    1204,
+    1205,
+    1206,
+    1207,
+    1208,
+    1209,
+    1210
+  ],
+  "recent_window": 285,
+  "source_rows": 4096,
+  "model_init_updates": 400,
+  "model_refit_updates": 10,
+  "policy_updates_per_packet": 8,
+  "feedback_first_deadline": 1200,
+  "feedback_last_deadline": 18000,
+  "feedback_interval_seconds": 300,
+  "feedback_records_per_packet": 5,
+  "feedback_delay_seconds": 30,
+  "target_record_budget": 285,
+  "policy_update_budget": 456,
+  "shock_at_seconds": 9000,
+  "speed_factor": 0.65,
+  "metric_interval_seconds": 300,
+  "model_td_fraction": 0.25,
+  "selection": "First distinguishable F(s,-1/+1) upstream issue on the fixed target line in10200–13800; select by public issue state only.",
+  "data_rights": "Prefix reuses the same selected delayed global training budget. Suffix outcomes are additional intervention truth and never enter replay, world, trust or policy training.",
+  "control_comparison": "12 fixed state pairs,24low/high native short branches. Replay exact action_model prefixes; frozen world is a prediction twin, not a deployed controller.",
+  "source_budget": "Same resident4096 source rows and102 source physical intervals for all arms. No new source simulator collection.",
+  "interpretation": "Two original development seeds,12 paired single executed action interventions with frozen-learning300-second native suffixes. Measure nextGLOBAL event and short passenger-ledger effects; these are not full-day controller returns.",
+  "purpose": "Paired single executed holding interventions with a300-second frozen-learner native suffix.",
+  "reference_inputs": "../mcwm_closed_loop_formal_20261020/inputs",
+  "source_calibration_seed": 9102,
+  "source_calibration_policy_seed": 6201,
+  "source_intervals_per_line_limit": 64,
+  "source_intervals_per_line_minimum": 5,
+  "diagnostic_every_packet_update": 0,
+  "physical_feedback_end_seconds": 18000,
+  "physical_prediction": "Existing passive physical calibration/readout follows action_model behavior; none enters active model-TD.",
+  "physical_budget": "All direct same-trip physical labels released with available_at<=18000, delay30. Count separately by arm/line/period; same eligibility/source initialization in all arms, realized labels may differ with policies.",
+  "source_calibration": "Reuse read-only diagnostic v2 source calibration102 intervals, no new source or target collection for initialization.",
+  "result_scope": "Small paired Online/Frozen predicted gains, actual next global event, exact300-second passenger ledger deltas and separate prefix/suffix compute budgets.",
+  "reference_source_intervals": "../mcwm_closed_loop_diagnostic_v2_20261020/inputs/source_intervals.json",
+  "execution_contract": "New arms optimize a latent proposal policy with unchanged proposal entropy; actor and target Q evaluate F_canonical(s,u), imagination and trust use the same transform, deployed once. Canonical state clips headways so F_canonical may differ from original raw-v19 rule; measure rather than assume equivalence.",
+  "reference_v3": "../mcwm_closed_loop_action_local_v3_20261020",
+  "reference_v2": "../mcwm_closed_loop_diagnostic_v2_20261020",
+  "reference_v4": "../mcwm_closed_loop_head_diagnostic_v4_20261020",
+  "preflight": {
+    "seed": 6201,
+    "scenario": "local_speed_drop",
+    "target_line": "7X",
+    "selection_window_seconds": [
+      1500,
+      3900
+    ],
+    "model_init_updates": 2,
+    "model_refit_updates": 1,
+    "policy_updates_per_packet": 8,
+    "feedback_last_deadline": 3900,
+    "shock_at_seconds": 1350
+  },
+  "preflight_directory": "preflight",
+  "selection_window_seconds": [
+    10200,
+    13800
+  ],
+  "suffix_seconds": 300,
+  "diagnostic_budget": {
+    "state_pairs": 12,
+    "branches": 24,
+    "suffix_seconds_per_branch": 300,
+    "suffix_sim_seconds": 7200,
+    "preflight_branches": 2,
+    "preflight_suffix_sim_seconds": 600,
+    "prefix_compute": "All deterministic replayprefixseconds additionally reported; no extra scout runs."
+  },
+  "prefix_training_budget": "At most the unchanged285labels/57packets/456policyupdates; each pair uses identical actual consumed prefix feedback up to its selected state, then no further learning."
+}

@@ -1,0 +1,71 @@
+{
+  "name": "mcwm_closed_loop_fresh_response_v86_20261027",
+  "question": "Does newer completed response supervision improve actual one-intervention full-day cost beyond identical stale supervision and the frozen reference actor?",
+  "old_evidence": "v85 remains HOLD; its six exposed labels are now training, never independent validation.",
+  "source_initializer": 6207,
+  "training": {
+    "stale": {"source": "v84", "external_seed": 106207, "pairs": 6, "physical_outcome_labels": 12},
+    "fresh": {"source": "v85", "external_seed": 216207, "pairs": 6, "physical_outcome_labels": 12},
+    "label_observed_at": 24000,
+    "label_available_at": 24030,
+    "all_six_pairs_used_including_negative_cases": true,
+    "reference_policy": "Identical scene-specific saved v84 actor in both cohorts and all new continuations",
+    "target": "(G_candidate - G_reference)/15079 with G=2*waiting_person_seconds+ride_person_seconds through real24000",
+    "primary_model": "Unchanged state4: holding_difference/7.5 times [line_one_hot(3), clipped_headway_imbalance(1)]",
+    "auxiliary_model": "Unchanged line3, training fit only",
+    "ridge": 1.0,
+    "objective": "sum_squared_error_plus_ridge_norm_squared",
+    "solves_per_arm": 2,
+    "total_solves": 4,
+    "stale_reproduction": "Both old v85 coefficient vectors must reproduce exactly before native evaluation",
+    "new_neural_updates": 0
+  },
+  "common_support": {
+    "reference_min_seconds": 3.0,
+    "reference_max_exclusive_seconds": 3.75,
+    "candidate_seconds": 7.5,
+    "holding_difference": "positive only",
+    "reason": "3.75 is the geometric midpoint of legal endpoints0/7.5; at equality the farthest endpoint is0 and is outside this positive-response model",
+    "outside_support": "prediction=null; use reference, never replace the first root"
+  },
+  "legacy_narrow": "Same stale state4 weights; old inclusive reference support[3,3.6]. Separate support-opening effect from fresh supervision.",
+  "heldout": {
+    "external_seed": 316207,
+    "scenarios": ["stable", "local_speed_drop"],
+    "lines": ["7X", "102X", "705X"],
+    "issue_window": [12000, 12600],
+    "selection": "First physically eligible root per line in each scenario, declared before seeing outcomes, even if model-unsupported",
+    "prefix": "New from0 under scene-specific frozen reference; real actor clock and unchanged F",
+    "actions": "Original actor through F versus farthest legal endpoint; already executed actions are not mapped a second time",
+    "paired_exogenous_seed": "Shared within each complete native fork",
+    "paired_execution": "Actual low/high child wall intervals overlap",
+    "terminal": 24000,
+    "label_available_at": 24030,
+    "suffix_training_updates": 0,
+    "labels_fed_back": 0
+  },
+  "primary_policy": "Chronological first supported negative prediction among the three declared root opportunities; intervene once, then permanently frozen reference. Reconstruct exact full-day cost from that actual native suffix and common-prefix ledger.",
+  "primary_metric": "Full-day(2W+R)/15079, mean across the two scenarios",
+  "continue_conditions": [
+    "all technical integrity checks pass",
+    "fresh actually intervenes in at least one scenario",
+    "fresh mean full-day cost strictly below same-domain stale and reference",
+    "fresh full-day cost in each stable/shock scenario does not exceed either stale or reference"
+  ],
+  "secondary_metrics": ["waiting/ride decomposition", "line/scenario query direction and regret", "worst scene", "stale minus legacy_narrow support effect", "fresh minus stale supervision effect"],
+  "budget": {
+    "native_prefixes": 2,
+    "native_suffixes": 12,
+    "max_native_simulation_seconds": 169200,
+    "new_initialization_steps": 0,
+    "neural_updates": 0,
+    "closed_form_solves": 4,
+    "new_physical_labels": 12,
+    "heldout_training_labels": 0
+  },
+  "frozen": ["saved_reference_actor", "Q", "V", "B", "F", "trust", "feature_definition", "ridge", "zero_decision_threshold", "old_code", "old_results", "old_gates"],
+  "priority": "high",
+  "artifacts": "Raw states, native logs and actor checkpoints stay on server; only bounded JSON summaries are pulled",
+  "limitations": "Training prefixes differ: v84 was adaptive until12000, v85 was frozen from0. This tests newer, better-matched complete supervision, not a pure label-age effect. One initialization and one new external seed do not establish broad independent confirmation or superiority to historical final MC-WM.",
+  "stop_rule": "Failure closes this fixed candidate. No feature/ridge/threshold scan or automatic extra seeds/control takeover. No sums of independent query gains as a joint policy cost."
+}

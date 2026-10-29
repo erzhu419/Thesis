@@ -1,0 +1,61 @@
+{
+  "status": "NATIVE_CURRENT_LEG_OBSERVATION_VALIDATED",
+  "scheduler_done": true,
+  "technical_pass": true,
+  "roots": 12,
+  "complete_roots": 12,
+  "read_errors": 0,
+  "observed_onboard_stage_reads": 380,
+  "positive_roots": [
+    {
+      "scenario": "stable",
+      "sequence": 8038,
+      "clock": 11910.0,
+      "current_count": 2,
+      "later_alighted_onboard": 2
+    },
+    {
+      "scenario": "local_speed_drop",
+      "sequence": 11822,
+      "clock": 17005.0,
+      "current_count": 2,
+      "later_alighted_onboard": 2
+    },
+    {
+      "scenario": "local_speed_drop",
+      "sequence": 12251,
+      "clock": 17604.0,
+      "current_count": 2,
+      "later_alighted_onboard": 2
+    },
+    {
+      "scenario": "local_speed_drop",
+      "sequence": 12452,
+      "clock": 17908.0,
+      "current_count": 5,
+      "later_alighted_onboard": 5
+    }
+  ],
+  "zero_roots": 8,
+  "unknown_roots": 0,
+  "diagnostic_matching_sets": 12,
+  "comparison_is_admission_gate": false,
+  "checked_issue_records": 24081,
+  "checked_applied_commands": 24710,
+  "budget": {
+    "native_seconds": 34613.0,
+    "known_native_seconds": 34613.0,
+    "native_seconds_is_lower_bound": false,
+    "optimizer_updates": 0,
+    "new_predictor_fits": 0,
+    "new_policy_actions": 0,
+    "feedback_admitted": 0
+  },
+  "execution": {
+    "actual_overlap_seconds": 371.9282305240631,
+    "total_native_wall_span_seconds": 405.0352156162262
+  },
+  "conclusion": "The previously omitted receiver current-leg count is observable before action and separates four pending-alighting cases in this exposed panel. It is not a remaining-service-time estimator or evidence of improved control.",
+  "next_scope": "Design one service-response prediction contract using the deterministic clock baseline and current receiver service state. Do not fit on these outcome-selected12 roots or deploy control.",
+  "automatic_followup": false
+}

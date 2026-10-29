@@ -1,0 +1,38 @@
+{
+  "name": "mcwm_service_opportunity_v121_20261029",
+  "source_root": "experiments/mcwm_service_replay_v120_20261029",
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "feedback_contract": {
+    "feedback_first_deadline": 1200,
+    "feedback_last_deadline": 18000,
+    "feedback_interval_seconds": 300,
+    "feedback_records_per_packet": 5,
+    "feedback_delay_seconds": 30,
+    "target_record_budget": 285
+  },
+  "rule": "For each original packet, keep latest5 if it already contains an opportunity. Otherwise replace only its oldest selected root with the latest time-eligible opportunity root in the same release window; at most1 replacement per packet. If none exists, keep original5.",
+  "opportunity_predicate": "At issue, exists feeder with next_stop_matches=true and current_leg_dest_count>0. Do not require a diagnostic person or known future transfer. Do not require same_lane; its undefined cross-lane gap stays missing.",
+  "outcome_blind_selection": true,
+  "label_window_seconds": 60,
+  "cost_gate": "Complete four days and technical checks. fresh-minus-matched-no_fresh mean<0,stable<=0,shock<0; additionally fresh-minus-same-actor-frozen<=0 in each scenario and at least one<0. Report no_fresh-minus-frozen to distinguish baseline drift. Early and tail windows are descriptive, not new gates.",
+  "budget": {
+    "native_seconds": 0,
+    "optimizer_updates": 0,
+    "fit_models": 0,
+    "maximum_records_per_scene": 285,
+    "packets": 57,
+    "slots_per_packet": 5,
+    "maximum_opportunity_substitutions_per_packet": 1,
+    "window_seconds": 60,
+    "feedback_delay_seconds": 30,
+    "last_feedback_deadline": 18000
+  },
+  "decision": "If the fixed predicate still yields no positive connection examples, stop this sampling candidate; no automatic quota2/window/dose changes. Positive coverage only permits defining a separate learning/validation contract, not automatic training or control deployment.",
+  "automatic_followup": false,
+  "old_code_and_results_read_only": true,
+  "output_bound_bytes": 24000,
+  "analysis_partition": "Describe feedback_available_at<=9000, roots>=9000, and boundary separately. This existing shock boundary is not tuned; no fit or split-dependent tuning."
+}

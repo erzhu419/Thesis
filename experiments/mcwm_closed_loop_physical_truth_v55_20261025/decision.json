@@ -1,0 +1,82 @@
+{
+  "version": "v55",
+  "status": "complete",
+  "integrity_all_pass": true,
+  "native_task_ids": [
+    "t211605",
+    "t211606"
+  ],
+  "summary_task_id": "t211607",
+  "priority": "high",
+  "advance_to_control_experiment": false,
+  "decision": "Partial stable early-window action-ranking improvement; shock and all late-window decisions remain unresolved.",
+  "comparator": "v54 frozen synchronous M8 one-step vs bounded physical trace; minQ choice over executable 0/7.5s candidates",
+  "cost_units": "300s aggregate weighted passenger-seconds J=2W+R",
+  "scene_results": {
+    "stable": {
+      "states": 4,
+      "direction_correct_one_step": 0,
+      "direction_correct_trace": 2,
+      "mean_regret_one_step": 528.5,
+      "mean_regret_trace": 131.5,
+      "trace_minus_one_step_cost_mean": -397.0,
+      "trace_minus_one_step_cost_sum": -1588.0,
+      "trace_minus_fixed0_cost_mean_wait_ride_J": [
+        -27.5,
+        -210.5,
+        -265.5
+      ],
+      "trace_worse_than_fixed0_states": 2
+    },
+    "local_speed_drop": {
+      "states": 4,
+      "direction_correct_one_step": 1,
+      "direction_correct_trace": 1,
+      "mean_regret_one_step": 309.75,
+      "mean_regret_trace": 309.75,
+      "trace_minus_one_step_cost_mean": 0.0,
+      "trace_minus_one_step_cost_sum": 0.0,
+      "trace_minus_fixed0_cost_mean_wait_ride_J": [
+        84.5,
+        72.5,
+        241.5
+      ],
+      "trace_worse_than_fixed0_states": 3
+    }
+  },
+  "trace_high_action_choices": 8,
+  "true_high_action_beneficial_states": 3,
+  "late_window_states": 4,
+  "late_window_direction_correct_trace": 0,
+  "trace_candidate_Qdiff_range": [
+    0.11355400085449219,
+    0.13113784790039062
+  ],
+  "stable_improvement_share_from_705X_early": 0.9559193954659949,
+  "own_actor_F_holding_abs_difference_max_seconds": 0.018296241760253906,
+  "own_actor_F_holding_abs_difference_mean_seconds": 0.011499077081680298,
+  "new_native_prefix_seconds": 48000,
+  "new_native_suffix_seconds": 4800,
+  "new_truth_labels": 16,
+  "new_training_labels": 0,
+  "new_optimizer_updates": 0,
+  "source_feedback_slots_per_model": 285,
+  "source_updates_per_model": 456,
+  "missing_states": 0,
+  "nonseparable_or_unknown_states": 0,
+  "zero_duration_next_event_states": 3,
+  "unsupported_issue_attempts": {
+    "stable/102X/early": 1
+  },
+  "recovery": {
+    "collector_ssh_failure": true,
+    "repeated_prefixes": 0,
+    "repeated_suffixes": 0
+  },
+  "next_step": "Attribute frozen per-head action differences at existing eight issue states, focusing on shock102X and late-window sign errors, before choosing one target change.",
+  "limitations": [
+    "Two-candidate Q choice is not actor deployment.",
+    "Long-horizon mixed soft Q and fixed300s passenger-cost targets differ.",
+    "One new exogenous seed and eight predeclared states do not establish general policy or original final MC-WM superiority."
+  ]
+}

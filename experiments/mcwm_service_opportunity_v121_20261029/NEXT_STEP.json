@@ -1,0 +1,36 @@
+{
+  "status": "PROPOSED_NOT_LAUNCHED",
+  "name": "v122_factual_departure_sequential_calibration",
+  "purpose": "Test whether causally available dripping feedback improves prediction of actual departure under the already executed action.",
+  "source": "Server-resident v121/runs/{stable,local_speed_drop}/selected_records.jsonl and frozen packet selection. No population records, extra labels or checkpoints.",
+  "target": "Native receiver departure time. Calibrate residual = actual departure - (action.applied_at + action.hold_seconds). This residual includes clock rounding and remaining service; it is not pure boarding time.",
+  "initialization": "Use the 135 identical shared-prefix roots whose original packet deadlines are <=9000 once. Fit their mature departure residual median once and share this initialization across both scenarios.",
+  "evaluation": "Predict selected roots strictly after9000 in chronological (issue_time,sequence) order. A root exactly at9000, if present, is reported separately as the initialization boundary. Do not move this cutpoint.",
+  "predictors": {
+    "frozen": "applied_at + hold_seconds + fixed shared-prefix median residual",
+    "fresh": "applied_at + hold_seconds + expanding median of the same prefix plus own-scene selected mature residuals from packets with deadline strictly less than current issue_time",
+    "clock_reference": "ceil(applied_at + hold_seconds), with no calibration",
+    "raw_command_reference": "applied_at + hold_seconds, descriptive only"
+  },
+  "feedback": "Release only at the existing recorded packet deadline, never at actual departure plus30. Use the original fixed60-second label and30-second feedback delay. Freeze predictions before reading the current root label. Same-clock packets become usable only for later issue times.",
+  "censoring": "Keep censored records in their original slots; report their count and omit their unobserved point target from MAE and median updates. Never fill from full-day departures after the original60-second window.",
+  "grouping": "The common prefix initializes once; each suffix updates only its own median. All feeder/person labels of a root stay with it. Do not random-split shared roots.",
+  "metrics": "For each scenario report paired MAE fresh/frozen/clock reference, fresh-minus-frozen and fresh-minus-clock MAE, evaluated/censored/boundary counts, and actual calibration recalculation counts. This is sequential factual prediction on exposed data, not independent validation.",
+  "admission": "Continue this scalar calibration candidate only if fresh MAE is no worse than frozen in both scenarios and strictly better in at least one, and no worse than the unfitted clock reference in either scenario. Otherwise close only this fixed cumulative-median candidate; do not sweep windows/features/cutpoints.",
+  "limits": {
+    "new_native_seconds": 0,
+    "optimizer_updates": 0,
+    "new_collection": 0,
+    "checkpoint_loads": 0,
+    "connection_head_fits": 0,
+    "control_changes": 0,
+    "hyperparameter_sweeps": 0,
+    "calibration": "One shared-prefix median plus fixed causal cumulative-median recalculations, explicitly counted."
+  },
+  "F": "unchanged",
+  "cost_gate": "Complete four days and technical checks. fresh-minus-matched-no_fresh mean<0,stable<=0,shock<0; additionally fresh-minus-same-actor-frozen<=0 in each scenario and at least one<0. Report no_fresh-minus-frozen to distinguish baseline drift. Early and tail windows are descriptive, not new gates.",
+  "interpretation": "Forecast gains do not demonstrate holding benefit, counterfactual support or superiority to MC-WM. Both control cost gates remain untested by this factual study.",
+  "automatic_launch": false,
+  "old_code_and_results": "read-only",
+  "transfer": "Only bounded summary; complete predictions and label traces stay on server."
+}

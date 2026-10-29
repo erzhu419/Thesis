@@ -1,0 +1,78 @@
+{
+  "name": "thesis-mcwm-reference-collection-v84-20261027",
+  "status": "authorized_not_submitted",
+  "priority": "high",
+  "source_preflight": "runs/preflight/preflight.json",
+  "source_preflight_task": "t211963",
+  "reference": {
+    "source": "v75",
+    "arm": "fresh",
+    "packets": 37,
+    "covariates": 185,
+    "complete_outcomes": 185,
+    "counts": {
+      "critic": 296,
+      "value": 296,
+      "actor": 296,
+      "alpha": 296
+    },
+    "data_deadline": 12000,
+    "deterministic": true,
+    "actor_frozen": true
+  },
+  "seed": 6207,
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "issue_window": [
+    12000,
+    12600
+  ],
+  "selection": "First native issue per line after packet37, at stop and with reference/candidate physical support gap>=2*max(simulation_step,action_step). No Q, outcome or future state enters selection.",
+  "actions": {
+    "reference": "F(s,pi_ref(s))",
+    "candidate": "F endpoint farthest from reference holding; ties choose smaller holding",
+    "candidate_endpoints": [
+      "F(s,-1)",
+      "F(s,+1)"
+    ],
+    "second_F_mapping": false,
+    "root_interventions": 1
+  },
+  "continuation": "Both suffixes use the same issue-preceding packet37 deterministic actor on their own actual canonical states and real-clock F to24000; no training/admission.",
+  "target": "G_candidate-G_reference, G=2*remaining_wait+remaining_ride; positive means candidate is worse",
+  "observed_at": 24000,
+  "available_at": 24030,
+  "same_day_training": false,
+  "initial_endpoint_preflight_labels_used_for_training": 0,
+  "budget": {
+    "new_prefixes": 2,
+    "new_suffixes": 12,
+    "reference_prefix_covariates": 370,
+    "reference_prefix_complete_outcomes": 370,
+    "restoration_updates_per_optimizer": 592,
+    "new_remaining_day_labels": 12,
+    "maximum_additional_native_seconds": 169200,
+    "maximum_including_preflight_native_seconds": 205200,
+    "including_preflight_labels": 14,
+    "including_preflight_restoration_covariates": 555,
+    "including_preflight_restoration_complete_outcomes": 555,
+    "including_preflight_restoration_updates_per_optimizer": 888,
+    "new_initialization_updates": 0,
+    "new_response_training_updates": 0
+  },
+  "execution": "Two scene tasks; each restores one prefix, then three sequential roots with two simultaneous native suffixes per root; no extra preflight/root replacement/response training.",
+  "technical_gate": "Same complete entry/reference/external seed; exact reference execution; actual physical separation; real24000 ledger minus actual issue ledger; overlap; zero suffix training. No cost sign gate or root replacement.",
+  "scientific_scope": "Counterfactual remaining-day supervision under one frozen-policy intervention, not ordinary single-trajectory dripping or a demonstrated repeated-control improvement.",
+  "authorization": "User explicitly authorized6207stable/shock3lines6pairs,actual paired parallel,horizon24000,label24030,zero suffix training/no truth feedback,169200native seconds,high,small summaries,old code/results read-only.",
+  "source_fixed_contract": "experiments/mcwm_closed_loop_supervision_plan_v84_20261027/COLLECTION_PROTOCOL.json",
+  "sampling_cutoff": "Parent stops at exactly12600 without making terminal; children independently continue to real24000.",
+  "old_paths_written": [],
+  "analysis_output": "summary.json"
+}

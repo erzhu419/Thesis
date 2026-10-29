@@ -1,0 +1,109 @@
+{
+  "training_seeds": [
+    6201,
+    6202
+  ],
+  "target_seed_offset": 77000,
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "target_lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "history_rows": 32768,
+  "source_rows": 4096,
+  "recent_window": 285,
+  "model_init_updates": 400,
+  "model_refit_updates": 10,
+  "policy_updates_per_packet": 8,
+  "feedback_first_deadline": 1200,
+  "feedback_last_deadline": 18000,
+  "feedback_interval_seconds": 300,
+  "feedback_records_per_packet": 5,
+  "feedback_delay_seconds": 30,
+  "target_record_budget": 285,
+  "policy_update_budget": 456,
+  "shock_at_seconds": 9000,
+  "speed_factor": 0.65,
+  "metric_interval_seconds": 300,
+  "model_td_fraction": 0.25,
+  "response_endpoint_seconds": 300,
+  "response_ridge": 1.0,
+  "calibration_seed_offset": 410000,
+  "calibration_first_issue_seconds": 570,
+  "calibration_heldout_first_issue_seconds": 18000,
+  "source_intervals_per_line_minimum": 5,
+  "source_intervals_per_line_limit": 64,
+  "reference_source_intervals": "../mcwm_closed_loop_diagnostic_v2_20261020/inputs/source_intervals.json",
+  "reference_inputs": "../mcwm_closed_loop_formal_20261020/inputs",
+  "paired_seed": 6201,
+  "paired_suffix_seconds": 300,
+  "name": "thesis-mcwm-training-pairs-v15-20261021",
+  "scheduler_priority": "high",
+  "reference_v14_root": "../mcwm_closed_loop_assignment_innovation_v14_20261021",
+  "reference_v14_preflight_directory": "preflight",
+  "training_windows": [
+    {
+      "name": "pre_shock",
+      "start": 6000,
+      "end": 8700
+    },
+    {
+      "name": "post_shock",
+      "start": 12000,
+      "end": 15000
+    }
+  ],
+  "preflight_directory": "preflight",
+  "preflight": {
+    "seed": 6201,
+    "scenario": "stable",
+    "model_init_updates": 2,
+    "model_refit_updates": 1,
+    "feedback_last_deadline": 3900,
+    "target_record_budget": 50,
+    "policy_update_budget": 80,
+    "calibration_heldout_first_issue_seconds": 3900,
+    "preflight_stop_seconds": 5000,
+    "target_line": "7X",
+    "training_windows": [
+      {
+        "name": "preflight",
+        "start": 1200,
+        "end": 3300
+      }
+    ]
+  },
+  "scope": "Diagnostic only: replay existing v14 training prefixes to12 line/scene/window cells, then24 bounded native300-second forks. No new main days, no fitted candidate, no diagnostic outcome feedback. Pre-shock cells share3 physical prefixes across scenes and are not independent replicates.",
+  "selection": "First budget-selected train calibration issue in each fixed half-open clock window with both0/7.5 commands executable; use issue fields and eligibility only, not endpoint truth/error/sign. Preserve missing cells.",
+  "common_prefix": "Exact v14 native states, commands and passenger ledger through the intervention issue using its nominal action; all saved old predictions exact before branch execution. Source feedback receipts and prefix budget match.",
+  "continuation": "Freeze all policy/world/trust/physical/response parameters at the training-period intervention; disable future calibration. The same other-batch commands and external seed apply to both actions.",
+  "endpoint_clock": "Exact native300-second ledger window. Global and same-car endpoints retain their native event clocks; endpoints not observed by cutoff remain missing.",
+  "trust": "Unchanged original action_model trust and eight-update rule; endpoint and 58-column candidates are passive on the same new common trajectory.",
+  "physical_covariate": "Reuse fixed102source physical intervals. No extra unbudgeted target physical labels. The new endpoint models use only selected controlled bundles.",
+  "diagnostic_budget": {
+    "design_states": 12,
+    "branches": 24,
+    "native_suffix_seconds": 7200,
+    "physical_unique_prefixes_expected": 9,
+    "training_suffix": 0,
+    "diagnostic_labels_enter_fit": 0,
+    "prefix_replays": "Prefix seconds, replayed selected training slots and updates reported separately; configured source main day remains285slots/456updates/24000seconds. Forks use only their actual truncated prefixes.",
+    "preflight": "Separate2 native branches,600new suffix seconds, repeated prefix accounting separate."
+  },
+  "future_learning": {
+    "status": "not_submitted",
+    "paired_action_outcomes_per_training_pair": 2,
+    "total_slots_if_started": 285,
+    "rule": "Only after reviewing training differential signal/coverage. Build a new common prefix and reallocate original285slots; no additional training labels hidden on top of the existing budget."
+  },
+  "independent_confirmation": {
+    "status": "not_submitted",
+    "reason": "This version measures development-period action differences; it does not fit or confirm a new controller."
+  }
+}

@@ -1,0 +1,2274 @@
+{
+  "status": "complete",
+  "integrity": {
+    "all_pass": true,
+    "cases": {
+      "stable": {
+        "pipeline_finished": true,
+        "pipeline_integrity": true,
+        "original_prefix_exact": true,
+        "full24000": true,
+        "source50000_initializer": true,
+        "frozen285": true,
+        "frozen456": true,
+        "original_predictions_and_rng": true,
+        "old12_truth_unread": true,
+        "no_new_training": true,
+        "scoring_finished": true,
+        "native_all_checks": true,
+        "six_valid_states": true,
+        "all_real_endpoints": true
+      },
+      "local_speed_drop": {
+        "pipeline_finished": true,
+        "pipeline_integrity": true,
+        "original_prefix_exact": true,
+        "full24000": true,
+        "source50000_initializer": true,
+        "frozen285": true,
+        "frozen456": true,
+        "original_predictions_and_rng": true,
+        "old12_truth_unread": true,
+        "no_new_training": true,
+        "scoring_finished": true,
+        "native_all_checks": true,
+        "six_valid_states": true,
+        "all_real_endpoints": true
+      }
+    }
+  },
+  "schema": {
+    "model_state_columns": [
+      "q_advantage",
+      "q_direction_correct",
+      "q_regret",
+      "first_target_advantage",
+      "first_target_direction_correct",
+      "first_target_regret",
+      "endpoint_reward_delta",
+      "endpoint_bootstrap_delta",
+      "endpoint_stitched_delta",
+      "endpoint_continuation_gap_delta",
+      "endpoint_native_td_delta",
+      "endpoint_target_lag_delta",
+      "endpoint_mixed_behavior_gap_delta"
+    ],
+    "metric_columns": [
+      "states",
+      "nonzero_truth",
+      "zero_truth",
+      "q_direction_correct",
+      "q_regret",
+      "first_target_direction_correct",
+      "first_target_regret",
+      "stitched_scored",
+      "stitched_direction_correct_descriptive",
+      "stitched_regret_descriptive",
+      "equal_endpoint_clocks",
+      "bootstrap_opposes_reward",
+      "bootstrap_dominates_reward"
+    ],
+    "benefit": "low cost minus high cost; positive favors1.875s",
+    "q_and_target": "high minus low; positive favors1.875s",
+    "stitched": "descriptive common-continuation return at observed true event endpoints"
+  },
+  "cases": {
+    "stable": {
+      "status": "complete",
+      "gates": {
+        "pipeline_finished": true,
+        "pipeline_integrity": true,
+        "original_prefix_exact": true,
+        "full24000": true,
+        "source50000_initializer": true,
+        "frozen285": true,
+        "frozen456": true,
+        "original_predictions_and_rng": true,
+        "old12_truth_unread": true,
+        "no_new_training": true,
+        "scoring_finished": true,
+        "native_all_checks": true,
+        "six_valid_states": true,
+        "all_real_endpoints": true
+      },
+      "budget": {
+        "new_native_prefixes": 1,
+        "prefix_native_seconds": 24000.0,
+        "pairs": 6,
+        "suffixes": 12,
+        "fixed300_suffix_seconds": 3600.0,
+        "actual_suffix_native_seconds": 3638.0,
+        "overrun_native_seconds": 38.0,
+        "missing_real_endpoints": 0,
+        "zero_duration_transitions": 511,
+        "diagnostic_truth_outcomes": 12,
+        "new_training_labels": 0,
+        "new_optimizer_updates": 0,
+        "frozen_training_slots": 285,
+        "frozen_updates_per_model": 456,
+        "preflight_duplicate_prefixes": 0,
+        "preflight_duplicate_suffixes": 0,
+        "accounting": "completed_native_summary"
+      },
+      "states": [
+        {
+          "slot": "7X/early",
+          "status": "complete",
+          "integrity": true,
+          "issue": 18311.0,
+          "overlap": 6.688629,
+          "benefit300": 60.0,
+          "fixed300_high_minus_low": {
+            "wait": -26.0,
+            "ride": -8.0,
+            "cost": -60.0
+          },
+          "missing_endpoints": 0,
+          "zero_duration": [
+            65,
+            55
+          ],
+          "overrun": [
+            3.0,
+            1.0
+          ],
+          "endpoint_clocks": [
+            18614.0,
+            18612.0
+          ],
+          "onset": {
+            "fixed_cost": {
+              "clock": 18360.0,
+              "relative_seconds": 49.0,
+              "high_minus_low": 1.0
+            },
+            "fixed_wait": {
+              "clock": 18365.0,
+              "relative_seconds": 54.0,
+              "high_minus_low": -1.0
+            },
+            "fixed_ride": {
+              "clock": 18360.0,
+              "relative_seconds": 49.0,
+              "high_minus_low": 1.0
+            },
+            "event_reward": {
+              "relative_completion": [
+                50.0,
+                50.0
+              ],
+              "same_issue_clock": true,
+              "same_completion_clock": true,
+              "high_minus_low": -1.0
+            },
+            "bootstrap": {
+              "zero_memory": {
+                "relative_completion": [
+                  0.0,
+                  0.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 0.00579834
+              },
+              "per_head_level": {
+                "relative_completion": [
+                  0.0,
+                  0.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 0.005828857
+              },
+              "shared_level": {
+                "relative_completion": [
+                  0.0,
+                  0.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 0.005691528
+              }
+            }
+          },
+          "models": {
+            "zero_memory": [
+              0.005447388,
+              true,
+              0.0,
+              0.00579834,
+              true,
+              0.0,
+              0.4605003,
+              -0.01231766,
+              0.4481826,
+              -0.8203087,
+              -0.3776093,
+              0.4881668,
+              -1.308475
+            ],
+            "per_head_level": [
+              0.008789062,
+              true,
+              0.0,
+              0.005828857,
+              true,
+              0.0,
+              0.4605003,
+              0.01278687,
+              0.4732872,
+              -0.761322,
+              -0.2968712,
+              0.3323975,
+              -1.093719
+            ],
+            "shared_level": [
+              0.003555298,
+              true,
+              0.0,
+              0.005691528,
+              true,
+              0.0,
+              0.4605003,
+              -0.02235031,
+              0.43815,
+              -0.6570625,
+              -0.2225189,
+              0.2504158,
+              -0.9074783
+            ]
+          }
+        },
+        {
+          "slot": "7X/late",
+          "status": "complete",
+          "integrity": true,
+          "issue": 19210.0,
+          "overlap": 5.191175,
+          "benefit300": -2.0,
+          "fixed300_high_minus_low": {
+            "wait": 23.0,
+            "ride": -44.0,
+            "cost": 2.0
+          },
+          "missing_endpoints": 0,
+          "zero_duration": [
+            22,
+            27
+          ],
+          "overrun": [
+            3.0,
+            1.0
+          ],
+          "endpoint_clocks": [
+            19513.0,
+            19511.0
+          ],
+          "onset": {
+            "fixed_cost": {
+              "clock": 19245.0,
+              "relative_seconds": 35.0,
+              "high_minus_low": -1.0
+            },
+            "fixed_wait": {
+              "clock": 19296.0,
+              "relative_seconds": 86.0,
+              "high_minus_low": 1.0
+            },
+            "fixed_ride": {
+              "clock": 19245.0,
+              "relative_seconds": 35.0,
+              "high_minus_low": -1.0
+            },
+            "event_reward": {
+              "relative_completion": [
+                37.0,
+                37.0
+              ],
+              "same_issue_clock": true,
+              "same_completion_clock": true,
+              "high_minus_low": 2.0
+            },
+            "bootstrap": {
+              "zero_memory": {
+                "relative_completion": [
+                  37.0,
+                  37.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": -0.001926422
+              },
+              "per_head_level": {
+                "relative_completion": [
+                  12.0,
+                  12.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 3.814697e-06
+              },
+              "shared_level": {
+                "relative_completion": [
+                  13.0,
+                  13.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 3.814697e-06
+              }
+            }
+          },
+          "models": {
+            "zero_memory": [
+              0.02464676,
+              false,
+              2.0,
+              0.0,
+              false,
+              0.0,
+              0.2543997,
+              -0.6093559,
+              -0.3549563,
+              1.901257,
+              1.521664,
+              0.1403618,
+              1.760895
+            ],
+            "per_head_level": [
+              0.02616501,
+              false,
+              2.0,
+              0.0,
+              false,
+              0.0,
+              0.2543997,
+              -0.5572128,
+              -0.3028132,
+              1.798573,
+              1.469604,
+              0.1905861,
+              1.607986
+            ],
+            "shared_level": [
+              0.02624893,
+              false,
+              2.0,
+              0.0,
+              false,
+              0.0,
+              0.2543997,
+              -0.5606003,
+              -0.3062006,
+              1.914814,
+              1.582375,
+              0.3106728,
+              1.604141
+            ]
+          }
+        },
+        {
+          "slot": "102X/early",
+          "status": "complete",
+          "integrity": true,
+          "issue": 18303.0,
+          "overlap": 7.067869,
+          "benefit300": 369.0,
+          "fixed300_high_minus_low": {
+            "wait": -169.0,
+            "ride": -31.0,
+            "cost": -369.0
+          },
+          "missing_endpoints": 0,
+          "zero_duration": [
+            67,
+            64
+          ],
+          "overrun": [
+            1.0,
+            1.0
+          ],
+          "endpoint_clocks": [
+            18604.0,
+            18604.0
+          ],
+          "onset": {
+            "fixed_cost": {
+              "clock": 18347.0,
+              "relative_seconds": 44.0,
+              "high_minus_low": 1.0
+            },
+            "fixed_wait": {
+              "clock": 18346.0,
+              "relative_seconds": 43.0,
+              "high_minus_low": -1.0
+            },
+            "fixed_ride": {
+              "clock": 18346.0,
+              "relative_seconds": 43.0,
+              "high_minus_low": 2.0
+            },
+            "event_reward": {
+              "relative_completion": [
+                44.0,
+                44.0
+              ],
+              "same_issue_clock": true,
+              "same_completion_clock": true,
+              "high_minus_low": -1.0
+            },
+            "bootstrap": {
+              "zero_memory": {
+                "relative_completion": [
+                  9.0,
+                  9.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 3.051758e-05
+              },
+              "per_head_level": {
+                "relative_completion": [
+                  2.0,
+                  2.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 0.002128601
+              },
+              "shared_level": {
+                "relative_completion": [
+                  2.0,
+                  2.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 0.002120972
+              }
+            }
+          },
+          "models": {
+            "zero_memory": [
+              0.01225281,
+              true,
+              0.0,
+              0.0,
+              false,
+              369.0,
+              0.03689978,
+              0.3414001,
+              0.3782999,
+              0.8447838,
+              1.210819,
+              -0.3240585,
+              1.168842
+            ],
+            "per_head_level": [
+              0.01461029,
+              true,
+              0.0,
+              0.0,
+              false,
+              369.0,
+              0.03689978,
+              0.3678474,
+              0.4047472,
+              0.6603851,
+              1.050503,
+              -0.4187546,
+              1.07914
+            ],
+            "shared_level": [
+              0.01045227,
+              true,
+              0.0,
+              0.0,
+              false,
+              369.0,
+              0.03689978,
+              0.3388596,
+              0.3757593,
+              0.7503166,
+              1.115593,
+              -0.4770889,
+              1.227406
+            ]
+          }
+        },
+        {
+          "slot": "102X/late",
+          "status": "complete",
+          "integrity": true,
+          "issue": 19226.0,
+          "overlap": 5.014999,
+          "benefit300": 30.0,
+          "fixed300_high_minus_low": {
+            "wait": 15.0,
+            "ride": -60.0,
+            "cost": -30.0
+          },
+          "missing_endpoints": 0,
+          "zero_duration": [
+            22,
+            27
+          ],
+          "overrun": [
+            1.0,
+            2.0
+          ],
+          "endpoint_clocks": [
+            19527.0,
+            19528.0
+          ],
+          "onset": {
+            "fixed_cost": {
+              "clock": 19245.0,
+              "relative_seconds": 19.0,
+              "high_minus_low": -1.0
+            },
+            "fixed_wait": {
+              "clock": 19298.0,
+              "relative_seconds": 72.0,
+              "high_minus_low": -1.0
+            },
+            "fixed_ride": {
+              "clock": 19245.0,
+              "relative_seconds": 19.0,
+              "high_minus_low": -1.0
+            },
+            "event_reward": {
+              "relative_completion": [
+                21.0,
+                21.0
+              ],
+              "same_issue_clock": true,
+              "same_completion_clock": true,
+              "high_minus_low": 2.0
+            },
+            "bootstrap": {
+              "zero_memory": {
+                "relative_completion": [
+                  5.0,
+                  5.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 7.629395e-05
+              },
+              "per_head_level": {
+                "relative_completion": [
+                  3.0,
+                  3.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": -3.814697e-06
+              },
+              "shared_level": {
+                "relative_completion": [
+                  3.0,
+                  3.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": -7.629395e-06
+              }
+            }
+          },
+          "models": {
+            "zero_memory": [
+              0.02931213,
+              true,
+              0.0,
+              0.0,
+              false,
+              30.0,
+              -0.1233001,
+              -0.5435677,
+              -0.6668678,
+              1.728146,
+              1.031979,
+              -1.111458,
+              2.839603
+            ],
+            "per_head_level": [
+              0.02986908,
+              true,
+              0.0,
+              -3.814697e-06,
+              false,
+              30.0,
+              -0.1233001,
+              -0.5574265,
+              -0.6807266,
+              1.814976,
+              1.104393,
+              -0.7234306,
+              2.538406
+            ],
+            "shared_level": [
+              0.02698898,
+              true,
+              0.0,
+              -7.629395e-06,
+              false,
+              30.0,
+              -0.1233001,
+              -0.5764809,
+              -0.699781,
+              1.623466,
+              0.8967056,
+              -0.8391953,
+              2.462662
+            ]
+          }
+        },
+        {
+          "slot": "705X/early",
+          "status": "complete",
+          "integrity": true,
+          "issue": 18316.0,
+          "overlap": 6.796733,
+          "benefit300": 6.0,
+          "fixed300_high_minus_low": {
+            "wait": 15.0,
+            "ride": -36.0,
+            "cost": -6.0
+          },
+          "missing_endpoints": 0,
+          "zero_duration": [
+            62,
+            56
+          ],
+          "overrun": [
+            2.0,
+            0.0
+          ],
+          "endpoint_clocks": [
+            18618.0,
+            18616.0
+          ],
+          "onset": {
+            "fixed_cost": {
+              "clock": 18374.0,
+              "relative_seconds": 58.0,
+              "high_minus_low": 1.0
+            },
+            "fixed_wait": {
+              "clock": 18392.0,
+              "relative_seconds": 76.0,
+              "high_minus_low": -1.0
+            },
+            "fixed_ride": {
+              "clock": 18374.0,
+              "relative_seconds": 58.0,
+              "high_minus_low": 1.0
+            },
+            "event_reward": {
+              "relative_completion": [
+                60.0,
+                60.0
+              ],
+              "same_issue_clock": true,
+              "same_completion_clock": true,
+              "high_minus_low": -3.0
+            },
+            "bootstrap": {
+              "zero_memory": {
+                "relative_completion": [
+                  34.0,
+                  34.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 7.629395e-06
+              },
+              "per_head_level": {
+                "relative_completion": [
+                  2.0,
+                  2.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 0.001579285
+              },
+              "shared_level": {
+                "relative_completion": [
+                  2.0,
+                  2.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 0.001579285
+              }
+            }
+          },
+          "models": {
+            "zero_memory": [
+              0.0009613037,
+              true,
+              0.0,
+              0.0,
+              false,
+              6.0,
+              0.4541002,
+              -0.1499901,
+              0.3041101,
+              0.562088,
+              0.8652344,
+              0.2371902,
+              0.3248978
+            ],
+            "per_head_level": [
+              0.00377655,
+              true,
+              0.0,
+              0.0,
+              false,
+              6.0,
+              0.4541002,
+              -0.1574936,
+              0.2966066,
+              0.6921501,
+              0.9849777,
+              0.1446037,
+              0.5475464
+            ],
+            "shared_level": [
+              0.0003204346,
+              true,
+              0.0,
+              0.0,
+              false,
+              6.0,
+              0.4541002,
+              -0.1574707,
+              0.2966295,
+              0.6622353,
+              0.9585266,
+              0.06123352,
+              0.6010017
+            ]
+          }
+        },
+        {
+          "slot": "705X/late",
+          "status": "complete",
+          "integrity": true,
+          "issue": 19240.0,
+          "overlap": 5.267169,
+          "benefit300": -74.0,
+          "fixed300_high_minus_low": {
+            "wait": 43.0,
+            "ride": -12.0,
+            "cost": 74.0
+          },
+          "missing_endpoints": 0,
+          "zero_duration": [
+            22,
+            22
+          ],
+          "overrun": [
+            12.0,
+            11.0
+          ],
+          "endpoint_clocks": [
+            19552.0,
+            19551.0
+          ],
+          "onset": {
+            "fixed_cost": {
+              "clock": 19300.0,
+              "relative_seconds": 60.0,
+              "high_minus_low": 1.0
+            },
+            "fixed_wait": {
+              "clock": 19313.0,
+              "relative_seconds": 73.0,
+              "high_minus_low": 1.0
+            },
+            "fixed_ride": {
+              "clock": 19300.0,
+              "relative_seconds": 60.0,
+              "high_minus_low": 1.0
+            },
+            "event_reward": {
+              "relative_completion": [
+                60.0,
+                60.0
+              ],
+              "same_issue_clock": true,
+              "same_completion_clock": true,
+              "high_minus_low": -1.0
+            },
+            "bootstrap": {
+              "zero_memory": {
+                "relative_completion": [
+                  17.0,
+                  17.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": -0.0002593994
+              },
+              "per_head_level": {
+                "relative_completion": [
+                  7.0,
+                  7.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": -7.629395e-06
+              },
+              "shared_level": {
+                "relative_completion": [
+                  15.0,
+                  15.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": -3.814697e-06
+              }
+            }
+          },
+          "models": {
+            "zero_memory": [
+              0.02765274,
+              false,
+              74.0,
+              0.0,
+              false,
+              0.0,
+              0.1196999,
+              0.002788544,
+              0.1224884,
+              1.744961,
+              1.839794,
+              -0.721714,
+              2.466675
+            ],
+            "per_head_level": [
+              0.02627945,
+              false,
+              74.0,
+              -7.629395e-06,
+              true,
+              0.0,
+              0.1196999,
+              -0.00321579,
+              0.1164841,
+              1.800678,
+              1.890877,
+              -0.684597,
+              2.485275
+            ],
+            "shared_level": [
+              0.02634048,
+              false,
+              74.0,
+              0.0,
+              false,
+              0.0,
+              0.1196999,
+              -0.003311157,
+              0.1163887,
+              1.700623,
+              1.790668,
+              -0.7004662,
+              2.401089
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "all": {
+          "zero_memory": [
+            6,
+            6,
+            0,
+            4,
+            76.0,
+            1,
+            405.0,
+            6,
+            4,
+            104.0,
+            1,
+            3,
+            3
+          ],
+          "per_head_level": [
+            6,
+            6,
+            0,
+            4,
+            76.0,
+            2,
+            405.0,
+            6,
+            4,
+            104.0,
+            1,
+            3,
+            3
+          ],
+          "shared_level": [
+            6,
+            6,
+            0,
+            4,
+            76.0,
+            1,
+            405.0,
+            6,
+            4,
+            104.0,
+            1,
+            4,
+            3
+          ]
+        },
+        "line/7X": {
+          "zero_memory": [
+            2,
+            2,
+            0,
+            1,
+            2.0,
+            1,
+            0.0,
+            2,
+            2,
+            0.0,
+            0,
+            2,
+            1
+          ],
+          "per_head_level": [
+            2,
+            2,
+            0,
+            1,
+            2.0,
+            1,
+            0.0,
+            2,
+            2,
+            0.0,
+            0,
+            1,
+            1
+          ],
+          "shared_level": [
+            2,
+            2,
+            0,
+            1,
+            2.0,
+            1,
+            0.0,
+            2,
+            2,
+            0.0,
+            0,
+            2,
+            1
+          ]
+        },
+        "line/102X": {
+          "zero_memory": [
+            2,
+            2,
+            0,
+            2,
+            0.0,
+            0,
+            399.0,
+            2,
+            1,
+            30.0,
+            1,
+            0,
+            2
+          ],
+          "per_head_level": [
+            2,
+            2,
+            0,
+            2,
+            0.0,
+            0,
+            399.0,
+            2,
+            1,
+            30.0,
+            1,
+            0,
+            2
+          ],
+          "shared_level": [
+            2,
+            2,
+            0,
+            2,
+            0.0,
+            0,
+            399.0,
+            2,
+            1,
+            30.0,
+            1,
+            0,
+            2
+          ]
+        },
+        "line/705X": {
+          "zero_memory": [
+            2,
+            2,
+            0,
+            1,
+            74.0,
+            0,
+            6.0,
+            2,
+            1,
+            74.0,
+            0,
+            1,
+            0
+          ],
+          "per_head_level": [
+            2,
+            2,
+            0,
+            1,
+            74.0,
+            1,
+            6.0,
+            2,
+            1,
+            74.0,
+            0,
+            2,
+            0
+          ],
+          "shared_level": [
+            2,
+            2,
+            0,
+            1,
+            74.0,
+            0,
+            6.0,
+            2,
+            1,
+            74.0,
+            0,
+            2,
+            0
+          ]
+        },
+        "window/early": {
+          "zero_memory": [
+            3,
+            3,
+            0,
+            3,
+            0.0,
+            1,
+            375.0,
+            3,
+            3,
+            0.0,
+            1,
+            2,
+            1
+          ],
+          "per_head_level": [
+            3,
+            3,
+            0,
+            3,
+            0.0,
+            1,
+            375.0,
+            3,
+            3,
+            0.0,
+            1,
+            1,
+            1
+          ],
+          "shared_level": [
+            3,
+            3,
+            0,
+            3,
+            0.0,
+            1,
+            375.0,
+            3,
+            3,
+            0.0,
+            1,
+            2,
+            1
+          ]
+        },
+        "window/late": {
+          "zero_memory": [
+            3,
+            3,
+            0,
+            1,
+            76.0,
+            0,
+            30.0,
+            3,
+            1,
+            104.0,
+            0,
+            1,
+            2
+          ],
+          "per_head_level": [
+            3,
+            3,
+            0,
+            1,
+            76.0,
+            1,
+            30.0,
+            3,
+            1,
+            104.0,
+            0,
+            2,
+            2
+          ],
+          "shared_level": [
+            3,
+            3,
+            0,
+            1,
+            76.0,
+            0,
+            30.0,
+            3,
+            1,
+            104.0,
+            0,
+            2,
+            2
+          ]
+        }
+      },
+      "missing_or_partial": [],
+      "unsupported_visible_attempts": {},
+      "native_failure": null
+    },
+    "local_speed_drop": {
+      "status": "complete",
+      "gates": {
+        "pipeline_finished": true,
+        "pipeline_integrity": true,
+        "original_prefix_exact": true,
+        "full24000": true,
+        "source50000_initializer": true,
+        "frozen285": true,
+        "frozen456": true,
+        "original_predictions_and_rng": true,
+        "old12_truth_unread": true,
+        "no_new_training": true,
+        "scoring_finished": true,
+        "native_all_checks": true,
+        "six_valid_states": true,
+        "all_real_endpoints": true
+      },
+      "budget": {
+        "new_native_prefixes": 1,
+        "prefix_native_seconds": 24000.0,
+        "pairs": 6,
+        "suffixes": 12,
+        "fixed300_suffix_seconds": 3600.0,
+        "actual_suffix_native_seconds": 3622.0,
+        "overrun_native_seconds": 22.0,
+        "missing_real_endpoints": 0,
+        "zero_duration_transitions": 485,
+        "diagnostic_truth_outcomes": 12,
+        "new_training_labels": 0,
+        "new_optimizer_updates": 0,
+        "frozen_training_slots": 285,
+        "frozen_updates_per_model": 456,
+        "preflight_duplicate_prefixes": 0,
+        "preflight_duplicate_suffixes": 0,
+        "accounting": "completed_native_summary"
+      },
+      "states": [
+        {
+          "slot": "7X/early",
+          "status": "complete",
+          "integrity": true,
+          "issue": 18310.0,
+          "overlap": 7.443348,
+          "benefit300": -667.0,
+          "fixed300_high_minus_low": {
+            "wait": -54.0,
+            "ride": 775.0,
+            "cost": 667.0
+          },
+          "missing_endpoints": 0,
+          "zero_duration": [
+            55,
+            58
+          ],
+          "overrun": [
+            3.0,
+            2.0
+          ],
+          "endpoint_clocks": [
+            18613.0,
+            18612.0
+          ],
+          "onset": {
+            "fixed_cost": {
+              "clock": 18340.0,
+              "relative_seconds": 30.0,
+              "high_minus_low": -1.0
+            },
+            "fixed_wait": {
+              "clock": 18340.0,
+              "relative_seconds": 30.0,
+              "high_minus_low": -1.0
+            },
+            "fixed_ride": {
+              "clock": 18340.0,
+              "relative_seconds": 30.0,
+              "high_minus_low": 1.0
+            },
+            "event_reward": {
+              "relative_completion": [
+                31.0,
+                31.0
+              ],
+              "same_issue_clock": true,
+              "same_completion_clock": true,
+              "high_minus_low": 1.0
+            },
+            "bootstrap": {
+              "zero_memory": {
+                "relative_completion": [
+                  3.0,
+                  3.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 7.629395e-06
+              },
+              "per_head_level": {
+                "relative_completion": [
+                  3.0,
+                  3.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 7.629395e-06
+              },
+              "shared_level": {
+                "relative_completion": [
+                  3.0,
+                  3.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": -7.629395e-06
+              }
+            }
+          },
+          "models": {
+            "zero_memory": [
+              0.009063721,
+              false,
+              667.0,
+              0.0,
+              false,
+              0.0,
+              0.1609004,
+              -0.4277458,
+              -0.2668454,
+              -1.460911,
+              -1.736843,
+              0.8527412,
+              -2.313652
+            ],
+            "per_head_level": [
+              0.01152039,
+              false,
+              667.0,
+              7.629395e-06,
+              false,
+              667.0,
+              0.1609004,
+              -0.3754387,
+              -0.2145383,
+              -2.145744,
+              -2.371815,
+              0.3678093,
+              -2.513554
+            ],
+            "shared_level": [
+              0.005638123,
+              false,
+              667.0,
+              0.0,
+              false,
+              0.0,
+              0.1609004,
+              -0.3734283,
+              -0.212528,
+              -2.089035,
+              -2.307232,
+              0.354393,
+              -2.443428
+            ]
+          }
+        },
+        {
+          "slot": "7X/late",
+          "status": "complete",
+          "integrity": true,
+          "issue": 19212.0,
+          "overlap": 5.328157,
+          "benefit300": 41.0,
+          "fixed300_high_minus_low": {
+            "wait": -23.0,
+            "ride": 5.0,
+            "cost": -41.0
+          },
+          "missing_endpoints": 0,
+          "zero_duration": [
+            22,
+            25
+          ],
+          "overrun": [
+            0.0,
+            5.0
+          ],
+          "endpoint_clocks": [
+            19512.0,
+            19517.0
+          ],
+          "onset": {
+            "fixed_cost": {
+              "clock": 19309.0,
+              "relative_seconds": 97.0,
+              "high_minus_low": -1.0
+            },
+            "fixed_wait": {
+              "clock": 19309.0,
+              "relative_seconds": 97.0,
+              "high_minus_low": -1.0
+            },
+            "fixed_ride": {
+              "clock": 19309.0,
+              "relative_seconds": 97.0,
+              "high_minus_low": 1.0
+            },
+            "event_reward": {
+              "relative_completion": [
+                98.0,
+                98.0
+              ],
+              "same_issue_clock": true,
+              "same_completion_clock": true,
+              "high_minus_low": 2.0
+            },
+            "bootstrap": {
+              "zero_memory": {
+                "relative_completion": [
+                  36.0,
+                  36.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 2.288818e-05
+              },
+              "per_head_level": {
+                "relative_completion": [
+                  20.0,
+                  20.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 3.814697e-06
+              },
+              "shared_level": {
+                "relative_completion": [
+                  3.0,
+                  3.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 3.814697e-06
+              }
+            }
+          },
+          "models": {
+            "zero_memory": [
+              0.02412033,
+              true,
+              0.0,
+              0.0,
+              false,
+              41.0,
+              -0.6357001,
+              -0.02540207,
+              -0.6611022,
+              0.8075104,
+              0.1222878,
+              -0.8601112,
+              1.667622
+            ],
+            "per_head_level": [
+              0.02444458,
+              true,
+              0.0,
+              0.0,
+              false,
+              41.0,
+              -0.6357001,
+              0.04755402,
+              -0.5881461,
+              0.7633743,
+              0.1507835,
+              -0.6584969,
+              1.421871
+            ],
+            "shared_level": [
+              0.02456665,
+              true,
+              0.0,
+              0.0,
+              false,
+              41.0,
+              -0.6357001,
+              0.04634476,
+              -0.5893554,
+              0.7712097,
+              0.1572876,
+              -0.6461067,
+              1.417316
+            ]
+          }
+        },
+        {
+          "slot": "102X/early",
+          "status": "complete",
+          "integrity": true,
+          "issue": 18309.0,
+          "overlap": 7.439567,
+          "benefit300": -34.0,
+          "fixed300_high_minus_low": {
+            "wait": 2.0,
+            "ride": 30.0,
+            "cost": 34.0
+          },
+          "missing_endpoints": 0,
+          "zero_duration": [
+            55,
+            63
+          ],
+          "overrun": [
+            0.0,
+            4.0
+          ],
+          "endpoint_clocks": [
+            18609.0,
+            18613.0
+          ],
+          "onset": {
+            "fixed_cost": {
+              "clock": 18328.0,
+              "relative_seconds": 19.0,
+              "high_minus_low": -1.0
+            },
+            "fixed_wait": {
+              "clock": 18330.0,
+              "relative_seconds": 21.0,
+              "high_minus_low": -1.0
+            },
+            "fixed_ride": {
+              "clock": 18328.0,
+              "relative_seconds": 19.0,
+              "high_minus_low": -1.0
+            },
+            "event_reward": {
+              "relative_completion": [
+                20.0,
+                20.0
+              ],
+              "same_issue_clock": true,
+              "same_completion_clock": true,
+              "high_minus_low": 1.0
+            },
+            "bootstrap": {
+              "zero_memory": {
+                "relative_completion": [
+                  8.0,
+                  8.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 4.577637e-05
+              },
+              "per_head_level": {
+                "relative_completion": [
+                  4.0,
+                  4.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": -7.629395e-06
+              },
+              "shared_level": {
+                "relative_completion": [
+                  4.0,
+                  4.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": -7.629395e-06
+              }
+            }
+          },
+          "models": {
+            "zero_memory": [
+              0.009002686,
+              false,
+              34.0,
+              0.0,
+              false,
+              0.0,
+              -0.9163997,
+              0.7847137,
+              -0.131686,
+              1.219582,
+              1.078888,
+              0.3843765,
+              0.8352051
+            ],
+            "per_head_level": [
+              0.01163483,
+              false,
+              34.0,
+              0.0,
+              false,
+              0.0,
+              -0.9163997,
+              0.7809868,
+              -0.1354129,
+              0.018013,
+              -0.1290398,
+              -0.158699,
+              0.176712
+            ],
+            "shared_level": [
+              0.005767822,
+              false,
+              34.0,
+              0.0,
+              false,
+              0.0,
+              -0.9163997,
+              0.7687569,
+              -0.1476428,
+              0.1387405,
+              -0.01469421,
+              -0.1522865,
+              0.2910271
+            ]
+          }
+        },
+        {
+          "slot": "102X/late",
+          "status": "complete",
+          "integrity": true,
+          "issue": 19221.0,
+          "overlap": 5.181454,
+          "benefit300": 41.0,
+          "fixed300_high_minus_low": {
+            "wait": -8.0,
+            "ride": -25.0,
+            "cost": -41.0
+          },
+          "missing_endpoints": 0,
+          "zero_duration": [
+            22,
+            23
+          ],
+          "overrun": [
+            0.0,
+            3.0
+          ],
+          "endpoint_clocks": [
+            19521.0,
+            19524.0
+          ],
+          "onset": {
+            "fixed_cost": {
+              "clock": 19254.0,
+              "relative_seconds": 33.0,
+              "high_minus_low": 1.0
+            },
+            "fixed_wait": {
+              "clock": 19343.0,
+              "relative_seconds": 122.0,
+              "high_minus_low": 1.0
+            },
+            "fixed_ride": {
+              "clock": 19254.0,
+              "relative_seconds": 33.0,
+              "high_minus_low": 1.0
+            },
+            "event_reward": {
+              "relative_completion": [
+                33.0,
+                33.0
+              ],
+              "same_issue_clock": true,
+              "same_completion_clock": true,
+              "high_minus_low": -1.0
+            },
+            "bootstrap": {
+              "zero_memory": {
+                "relative_completion": [
+                  32.0,
+                  32.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": -3.814697e-06
+              },
+              "per_head_level": {
+                "relative_completion": [
+                  3.0,
+                  3.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": -3.814697e-06
+              },
+              "shared_level": {
+                "relative_completion": [
+                  3.0,
+                  3.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": -3.814697e-06
+              }
+            }
+          },
+          "models": {
+            "zero_memory": [
+              0.02550125,
+              true,
+              0.0,
+              0.0,
+              false,
+              41.0,
+              -0.3778999,
+              -0.005592346,
+              -0.3834922,
+              1.072464,
+              0.6634712,
+              -0.3855362,
+              1.458
+            ],
+            "per_head_level": [
+              0.02375412,
+              true,
+              0.0,
+              -3.814697e-06,
+              false,
+              41.0,
+              -0.3778999,
+              0.05537796,
+              -0.3225219,
+              0.9487457,
+              0.6024704,
+              -0.3194962,
+              1.268242
+            ],
+            "shared_level": [
+              0.02376556,
+              true,
+              0.0,
+              -3.814697e-06,
+              false,
+              41.0,
+              -0.3778999,
+              0.05075455,
+              -0.3271453,
+              0.9349937,
+              0.5840836,
+              -0.3412094,
+              1.276203
+            ]
+          }
+        },
+        {
+          "slot": "705X/early",
+          "status": "complete",
+          "integrity": true,
+          "issue": 18306.0,
+          "overlap": 7.512722,
+          "benefit300": -740.0,
+          "fixed300_high_minus_low": {
+            "wait": -54.0,
+            "ride": 848.0,
+            "cost": 740.0
+          },
+          "missing_endpoints": 0,
+          "zero_duration": [
+            57,
+            61
+          ],
+          "overrun": [
+            1.0,
+            0.0
+          ],
+          "endpoint_clocks": [
+            18607.0,
+            18606.0
+          ],
+          "onset": {
+            "fixed_cost": {
+              "clock": 18340.0,
+              "relative_seconds": 34.0,
+              "high_minus_low": -1.0
+            },
+            "fixed_wait": {
+              "clock": 18342.0,
+              "relative_seconds": 36.0,
+              "high_minus_low": -1.0
+            },
+            "fixed_ride": {
+              "clock": 18340.0,
+              "relative_seconds": 34.0,
+              "high_minus_low": -1.0
+            },
+            "event_reward": {
+              "relative_completion": [
+                35.0,
+                35.0
+              ],
+              "same_issue_clock": true,
+              "same_completion_clock": true,
+              "high_minus_low": 1.0
+            },
+            "bootstrap": {
+              "zero_memory": {
+                "relative_completion": [
+                  0.0,
+                  0.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": -0.001358032
+              },
+              "per_head_level": {
+                "relative_completion": [
+                  0.0,
+                  0.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": -0.001792908
+              },
+              "shared_level": {
+                "relative_completion": [
+                  0.0,
+                  0.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": -0.001846313
+              }
+            }
+          },
+          "models": {
+            "zero_memory": [
+              -0.001853943,
+              true,
+              0.0,
+              -0.001358032,
+              true,
+              0.0,
+              0.1548003,
+              0.5450706,
+              0.6998709,
+              -1.695461,
+              -0.9937744,
+              1.52475,
+              -3.220211
+            ],
+            "per_head_level": [
+              3.814697e-05,
+              false,
+              740.0,
+              -0.001792908,
+              true,
+              0.0,
+              0.1548003,
+              0.5134811,
+              0.6682814,
+              -1.975525,
+              -1.307308,
+              1.321827,
+              -3.297352
+            ],
+            "shared_level": [
+              -0.001274109,
+              true,
+              0.0,
+              -0.001846313,
+              true,
+              0.0,
+              0.1548003,
+              0.5177917,
+              0.672592,
+              -1.8904,
+              -1.216576,
+              1.330341,
+              -3.220741
+            ]
+          }
+        },
+        {
+          "slot": "705X/late",
+          "status": "complete",
+          "integrity": true,
+          "issue": 19210.0,
+          "overlap": 5.240613,
+          "benefit300": 112.0,
+          "fixed300_high_minus_low": {
+            "wait": -20.0,
+            "ride": -72.0,
+            "cost": -112.0
+          },
+          "missing_endpoints": 0,
+          "zero_duration": [
+            23,
+            21
+          ],
+          "overrun": [
+            2.0,
+            2.0
+          ],
+          "endpoint_clocks": [
+            19512.0,
+            19512.0
+          ],
+          "onset": {
+            "fixed_cost": {
+              "clock": 19244.0,
+              "relative_seconds": 34.0,
+              "high_minus_low": 1.0
+            },
+            "fixed_wait": {
+              "clock": 19295.0,
+              "relative_seconds": 85.0,
+              "high_minus_low": -1.0
+            },
+            "fixed_ride": {
+              "clock": 19244.0,
+              "relative_seconds": 34.0,
+              "high_minus_low": 1.0
+            },
+            "event_reward": {
+              "relative_completion": [
+                38.0,
+                38.0
+              ],
+              "same_issue_clock": true,
+              "same_completion_clock": true,
+              "high_minus_low": 2.0
+            },
+            "bootstrap": {
+              "zero_memory": {
+                "relative_completion": [
+                  38.0,
+                  38.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": -0.4301224
+              },
+              "per_head_level": {
+                "relative_completion": [
+                  2.0,
+                  2.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 0.0007209778
+              },
+              "shared_level": {
+                "relative_completion": [
+                  2.0,
+                  2.0
+                ],
+                "same_completion_clock": true,
+                "high_minus_low": 0.0008773804
+              }
+            }
+          },
+          "models": {
+            "zero_memory": [
+              0.02482224,
+              true,
+              0.0,
+              0.0,
+              false,
+              112.0,
+              0.01139991,
+              -0.003898621,
+              0.007501289,
+              -0.9038391,
+              -0.9211845,
+              -0.2320595,
+              -0.6717796
+            ],
+            "per_head_level": [
+              0.02487183,
+              true,
+              0.0,
+              0.0,
+              false,
+              112.0,
+              0.01139991,
+              -0.004020691,
+              0.007379219,
+              -1.107853,
+              -1.125366,
+              -0.5567055,
+              -0.5511475
+            ],
+            "shared_level": [
+              0.02492523,
+              true,
+              0.0,
+              0.0,
+              false,
+              112.0,
+              0.01139991,
+              -0.004096985,
+              0.007302925,
+              -1.108448,
+              -1.126095,
+              -0.4754944,
+              -0.6329536
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "all": {
+          "zero_memory": [
+            6,
+            6,
+            0,
+            4,
+            701.0,
+            1,
+            194.0,
+            6,
+            3,
+            822.0,
+            1,
+            3,
+            2
+          ],
+          "per_head_level": [
+            6,
+            6,
+            0,
+            3,
+            1441.0,
+            1,
+            861.0,
+            6,
+            3,
+            822.0,
+            1,
+            5,
+            2
+          ],
+          "shared_level": [
+            6,
+            6,
+            0,
+            4,
+            701.0,
+            1,
+            194.0,
+            6,
+            3,
+            822.0,
+            1,
+            5,
+            2
+          ]
+        },
+        "line/7X": {
+          "zero_memory": [
+            2,
+            2,
+            0,
+            1,
+            667.0,
+            0,
+            41.0,
+            2,
+            1,
+            41.0,
+            0,
+            1,
+            1
+          ],
+          "per_head_level": [
+            2,
+            2,
+            0,
+            1,
+            667.0,
+            0,
+            708.0,
+            2,
+            1,
+            41.0,
+            0,
+            2,
+            1
+          ],
+          "shared_level": [
+            2,
+            2,
+            0,
+            1,
+            667.0,
+            0,
+            41.0,
+            2,
+            1,
+            41.0,
+            0,
+            2,
+            1
+          ]
+        },
+        "line/102X": {
+          "zero_memory": [
+            2,
+            2,
+            0,
+            1,
+            34.0,
+            0,
+            41.0,
+            2,
+            1,
+            41.0,
+            0,
+            1,
+            0
+          ],
+          "per_head_level": [
+            2,
+            2,
+            0,
+            1,
+            34.0,
+            0,
+            41.0,
+            2,
+            1,
+            41.0,
+            0,
+            2,
+            0
+          ],
+          "shared_level": [
+            2,
+            2,
+            0,
+            1,
+            34.0,
+            0,
+            41.0,
+            2,
+            1,
+            41.0,
+            0,
+            2,
+            0
+          ]
+        },
+        "line/705X": {
+          "zero_memory": [
+            2,
+            2,
+            0,
+            2,
+            0.0,
+            1,
+            112.0,
+            2,
+            1,
+            740.0,
+            1,
+            1,
+            1
+          ],
+          "per_head_level": [
+            2,
+            2,
+            0,
+            1,
+            740.0,
+            1,
+            112.0,
+            2,
+            1,
+            740.0,
+            1,
+            1,
+            1
+          ],
+          "shared_level": [
+            2,
+            2,
+            0,
+            2,
+            0.0,
+            1,
+            112.0,
+            2,
+            1,
+            740.0,
+            1,
+            1,
+            1
+          ]
+        },
+        "window/early": {
+          "zero_memory": [
+            3,
+            3,
+            0,
+            1,
+            701.0,
+            1,
+            0.0,
+            3,
+            2,
+            740.0,
+            0,
+            2,
+            2
+          ],
+          "per_head_level": [
+            3,
+            3,
+            0,
+            0,
+            1441.0,
+            1,
+            667.0,
+            3,
+            2,
+            740.0,
+            0,
+            2,
+            2
+          ],
+          "shared_level": [
+            3,
+            3,
+            0,
+            1,
+            701.0,
+            1,
+            0.0,
+            3,
+            2,
+            740.0,
+            0,
+            2,
+            2
+          ]
+        },
+        "window/late": {
+          "zero_memory": [
+            3,
+            3,
+            0,
+            3,
+            0.0,
+            0,
+            194.0,
+            3,
+            1,
+            82.0,
+            1,
+            1,
+            0
+          ],
+          "per_head_level": [
+            3,
+            3,
+            0,
+            3,
+            0.0,
+            0,
+            194.0,
+            3,
+            1,
+            82.0,
+            1,
+            3,
+            0
+          ],
+          "shared_level": [
+            3,
+            3,
+            0,
+            3,
+            0.0,
+            0,
+            194.0,
+            3,
+            1,
+            82.0,
+            1,
+            3,
+            0
+          ]
+        }
+      },
+      "missing_or_partial": [],
+      "unsupported_visible_attempts": {},
+      "native_failure": null
+    }
+  },
+  "observations": {
+    "available_states": 12,
+    "expected_states": 12,
+    "nonzero_fixed300": 12,
+    "zero_fixed300": 0,
+    "initial_reward_equal_but_fixed300_differs": 12,
+    "later_event_reward_gap_by300": 12,
+    "reward_gap_only_after300": 0,
+    "asynchronous_real_endpoints": 10
+  },
+  "stable_q_choice_regret_delta_vs_zero": {
+    "all": {
+      "per_head_level": 0.0,
+      "shared_level": 0.0
+    },
+    "line/7X": {
+      "per_head_level": 0.0,
+      "shared_level": 0.0
+    },
+    "line/102X": {
+      "per_head_level": 0.0,
+      "shared_level": 0.0
+    },
+    "line/705X": {
+      "per_head_level": 0.0,
+      "shared_level": 0.0
+    },
+    "window/early": {
+      "per_head_level": 0.0,
+      "shared_level": 0.0
+    },
+    "window/late": {
+      "per_head_level": 0.0,
+      "shared_level": 0.0
+    }
+  },
+  "decision": {
+    "target_change_selected": false,
+    "new_training": false,
+    "new_native_branches": false,
+    "next_gate": "Review delayed reward onset, CRN bootstrap, continuation and TD gaps before selecting one target change"
+  },
+  "limitations": "Q-choice regret is a300s branch diagnostic, not full-day deployed-policy cost. Stitched targets use frozen mixed bootstrap under common recorded continuation, with different end clocks shown explicitly; no synthetic state or bootstrap at300s. Zero-gain truth is excluded from direction counts. Missing, unsupported and endpoint-censored cases remain separate."
+}

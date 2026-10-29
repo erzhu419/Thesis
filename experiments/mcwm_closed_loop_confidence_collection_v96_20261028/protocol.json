@@ -1,0 +1,153 @@
+{
+  "name": "mcwm_closed_loop_confidence_collection_v96_20261028",
+  "version": 96,
+  "priority": "high",
+  "stage": "Two new training-seed native paired collection and analysis only",
+  "source_initializer": 6207,
+  "external_seeds": [
+    309177151,
+    1476154684
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "source_v95": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_state_confidence_v95_20261028/protocol.json",
+  "source_protocol": "source_protocol.json",
+  "source_model": "source_model.json",
+  "frozen_reference": {
+    "initializer_seed": 6207,
+    "training_external_seed": 716207,
+    "scenarios": [
+      "stable",
+      "local_speed_drop"
+    ],
+    "actors": "Unchanged scene-specific v84 saved packet37 actors used in v90; never substitute a new final actor",
+    "F": "Original ExecutionAction, applied once to proposals; recorded executed actions are never mapped twice",
+    "actor_and_value_observations": 229,
+    "world_and_trust": "unchanged",
+    "continuation": "Substitute one root action; then permanently the matching scene-specific original reference actor/F on actual states",
+    "scope": "Conditional response under these fixed references; environment and reference-policy effects are not separately identified"
+  },
+  "frozen_common_support": {
+    "action_difference": "(7.5-h_reference)/7.5",
+    "reference_min": 3.0,
+    "reference_max_exclusive": 3.75,
+    "candidate_seconds": 7.5,
+    "maximum_history_age_seconds": 900,
+    "decision_threshold": 0.0,
+    "maximum_interventions": 1,
+    "q_training_ranges": {
+      "7X": [
+        0.007957623402277628,
+        0.4666777531305949
+      ],
+      "102X": [
+        0.007957623402277628,
+        0.4666777531305949
+      ],
+      "705X": [
+        0.007957623402277628,
+        0.4999144673347473
+      ]
+    }
+  },
+  "q_range_for_scaling_only": [
+    0.007957623402277628,
+    0.4999144673347473
+  ],
+  "root_contract": {
+    "window_start": 12000.0,
+    "window_end_exclusive": 12600.0,
+    "lines": [
+      "7X",
+      "102X",
+      "705X"
+    ],
+    "selection": "First native issue per line passing at-stop, original action/F domain and native command gap; lock before reading context/q support",
+    "no_substitution": "Missing/stale/unsupported context or q after locking means missing/HOLD; never seek another root, seed or window",
+    "q_support": "Preserve original per-line v93 q range, strict-history issue sources and900-second maximum age",
+    "candidate": "Frozen reference actor after F versus farthest legal7.5-second endpoint",
+    "prediction": "Frozen v93 line3/service5/history6 pure forward only; do not gate selection on model sign or suffix outcome",
+    "new_seed_prefix": "NativePrefixTrace has no old716207 expected trajectory; reproduce frozen actors on old inputs instead"
+  },
+  "native_contract": {
+    "same_prefix_and_exogenous_rng": true,
+    "actual_parallel_arms": true,
+    "true_endpoint": 24000.0,
+    "label_available_at": 24030.0,
+    "suffix_training_updates": 0,
+    "admitted_labels": 0,
+    "counterfactual_queries_return_to_reference_after_one_substitution": true,
+    "fork_executor": "Existing verified v34/v84 fork_children and independent route-stream offsets",
+    "actor_observation": 229,
+    "V_observation": 229,
+    "F": "unchanged/applied once",
+    "trust": "unchanged",
+    "initialization": "Reuse saved scene-specific v84 packet37 reference actors from initializer6207; no new initialization"
+  },
+  "preflight": {
+    "external_seed": 309177151,
+    "scenario": "stable",
+    "kind": "First production pair; included once in the12-pair cohort",
+    "gate_path": "first_pair_gate.json",
+    "reuse_same_live_prefix": true,
+    "allow_other_collectors": "Only after all_pass technical gate; no cost-sign gate. Remainder of the first collector continues live without reset",
+    "failure": "Emit failed gate and preserve spent prefix/suffix budget. Other three collectors do not initialize environments",
+    "no_outcome_selection": true
+  },
+  "budget": {
+    "scenario_cap": 84600,
+    "total_cap": 338400,
+    "prefix_cap_per_scenario": 12600,
+    "expected_collectors": 4,
+    "expected_pairs": 12,
+    "expected_physical_labels": 24,
+    "maximum_suffixes": 24,
+    "initializer_updates": 0,
+    "actor_updates": 0,
+    "critic_updates": 0,
+    "V_updates": 0,
+    "alpha_updates": 0,
+    "world_updates": 0,
+    "trust_updates": 0,
+    "fit_count": 0,
+    "calibration_validation_queries": 0,
+    "prior_training_native_seconds": 349310,
+    "accounting": "Sum all four native prefixes and every reference/candidate suffix; preflight included once; failed known costs retained, unknown costs not filled with zero"
+  },
+  "analysis": {
+    "fitting": false,
+    "T_integrity_gate": "Require the declared12 distinct mature paired roots across two seeds, both scenes and all three lines, plus rank2 finite residual design. An unsupported/missing first slot is retained as missing and puts T on HOLD; do not substitute a later root/seed or a zero label.",
+    "requested": [
+      "same-prefix/RNG/clock and original actor/F",
+      "actual actions/physical separation/parallel overlap",
+      "strict issue-visible context and historical q",
+      "true24000 endpoints and24030 availability",
+      "all zero suffix updates",
+      "per-seed/scene/line waiting,ride,total paired deltas",
+      "frozen m prediction direction/errors",
+      "future two-column design rank without solving",
+      "actual new native cost"
+    ],
+    "missing_policy": "Keep missing,unsupported,zero-duration/noop,truncated and not-started separately; do not replace with zeros",
+    "controls": "No new fitted model and no selecting a policy from T labels in this stage"
+  },
+  "retrieval": {
+    "only_compact_json": true,
+    "per_collector_bytes": 32768,
+    "gate_bytes": 8192,
+    "audit_bytes": 16384,
+    "aggregate_input_cap_bytes": 180224,
+    "final_summary_bytes": 65536,
+    "no_trace_csv_or_checkpoint_download": true
+  },
+  "sealed_external_seeds": [
+    416207,
+    516207,
+    616207,
+    716207,
+    816207
+  ],
+  "stop": "After collection and compact analysis. No automatic bias fit, C/V collection, optimizer update or old result modification."
+}

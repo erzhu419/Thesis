@@ -1,0 +1,1427 @@
+{
+  "status": "complete",
+  "integrity": {
+    "all_pass": true,
+    "checks": {
+      "three_locked_slots": true,
+      "three_formal_pairs": true,
+      "all_slots_supported": true,
+      "pair_integrity": true,
+      "actor_frozen": true,
+      "original_reference_actions_reproduced": true,
+      "same_reference_path": true,
+      "freeze_audit_pass": true,
+      "issue_observation_unchanged": true,
+      "parent_prefix_limit": true,
+      "native_budget": true,
+      "known_spend": true,
+      "zero_training_and_admission": true,
+      "all_issues_logged": true,
+      "actor_real_clock": true,
+      "first_pair_gate": true,
+      "error_free": true
+    }
+  },
+  "scenario": "local_speed_drop",
+  "seed": 6207,
+  "external_seed": 309177151,
+  "prefix_id": "v97/309177151/local_speed_drop",
+  "departed_passengers": 15079,
+  "reference_snapshot": {
+    "prior_run_reference": true,
+    "available_before_heldout_episode": true,
+    "heldout_available_at": 0,
+    "heldout_external_seed": 309177151,
+    "source_snapshot_metadata": {
+      "source": "v75",
+      "source_arm": "fresh",
+      "seed": 6207,
+      "scenario": "local_speed_drop",
+      "packets": 37,
+      "covariates": 185,
+      "complete_outcomes": 185,
+      "counts": {
+        "critic": 296,
+        "value": 296,
+        "actor": 296,
+        "alpha": 296
+      },
+      "data_deadline": 12000,
+      "max_available_at": 11999.0,
+      "published_clock": 12001.0,
+      "deterministic": true,
+      "actor_frozen": true,
+      "future_training_used": false
+    },
+    "scenario": "local_speed_drop",
+    "source_training_seed": 6207,
+    "source_offline_updates": 50000,
+    "source_response_updates": 296,
+    "source_total_updates": 50296,
+    "new_optimizer_updates": 0,
+    "source_actor_path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_reference_collection_v84_20261027/runs/local_speed_drop/reference_actor.pt",
+    "source_config_path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_frozen_validation_v75_20261027/runs/executed_cql/validation/seed6207/local_speed_drop/fresh/protocol.json",
+    "source_contract_path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_formal_20261020/inputs/history_metadata.json",
+    "deterministic": true,
+    "actor_frozen": true,
+    "prefix_scope": "New episode controlled from0 by this prior-run frozen actor; not a v75 adaptive-prefix replay"
+  },
+  "reference_reproduction": {
+    "mcwm_closed_loop_reference_collection_v84_20261027/7X": true,
+    "mcwm_closed_loop_reference_collection_v84_20261027/102X": true,
+    "mcwm_closed_loop_reference_collection_v84_20261027/705X": true,
+    "mcwm_closed_loop_cost_advantage_v85_20261027/7X": true,
+    "mcwm_closed_loop_cost_advantage_v85_20261027/102X": true,
+    "mcwm_closed_loop_cost_advantage_v85_20261027/705X": true
+  },
+  "coverage": {
+    "7X": {
+      "line_id": "7X",
+      "root": {
+        "started_at": 12002.0,
+        "sequence": 8119,
+        "trip_id": "7X_29",
+        "station_id": "7X21_102X34"
+      },
+      "context": {
+        "observed": true,
+        "z": -0.88,
+        "reasons": [],
+        "clocks": {
+          "issue": 12002.0,
+          "event": 12001.0,
+          "obs_start": 12002.0,
+          "obs_end": 12002.0,
+          "atomic_at_issue": true
+        },
+        "next_stop": "7X22_102X35",
+        "capacity": 50.0,
+        "actual_line": "7X",
+        "counts": {
+          "onboard": 8,
+          "next_queue": 0,
+          "release_next": 2,
+          "compatible_next_queue": 0,
+          "seats_after_release": 44.0
+        },
+        "stage_counts": {
+          "onboard": {
+            "read": 8,
+            "driving": 8,
+            "missing": 0,
+            "unsupported": 0
+          },
+          "queue": {
+            "read": 0,
+            "driving": 0,
+            "missing": 0,
+            "unsupported": 0
+          }
+        }
+      },
+      "service": {
+        "observed": true,
+        "reason": null,
+        "reasons": [],
+        "atomic_at_issue": true,
+        "issue_clock": 12002.0,
+        "event_clock": 12001.0,
+        "capacity": 50.0,
+        "counts": {
+          "onboard": 8,
+          "next_queue": 0,
+          "release_next": 2,
+          "compatible_next_queue": 0,
+          "seats_after_release": 44.0
+        },
+        "features": [
+          0.16,
+          -0.88
+        ],
+        "load_bin": "low"
+      },
+      "condition": {
+        "status": "supported",
+        "reason": null,
+        "value": 0.49708443880081177,
+        "historical_only": true,
+        "issue_clock": 12002.0,
+        "baseline_before": 9000.0,
+        "baseline_counts": {
+          "7X": 21,
+          "102X": 9,
+          "705X": 6
+        },
+        "baseline_medians_seconds": {
+          "7X": 73.79879426956177,
+          "102X": 73.41563534736633,
+          "705X": 76.5979853272438
+        },
+        "baseline_latest_completed_at": {
+          "7X": 8856.0,
+          "102X": 8486.0,
+          "705X": 8871.0
+        },
+        "baseline_latest_observed_at": {
+          "7X": 8856.0,
+          "102X": 8486.0,
+          "705X": 8871.0
+        },
+        "latest_completed_at": 11944.0,
+        "latest_observed_at": 11944.0,
+        "latest_age_seconds": 58.0,
+        "latest_sources": [
+          {
+            "line_id": "7X",
+            "trip_id": "7X_30",
+            "start_sequence": 7999,
+            "end_sequence": 8074,
+            "started_at": 11837.0,
+            "completed_at": 11944.0,
+            "observed_at": 11944.0,
+            "start_event_clock": 11836.0,
+            "end_event_clock": 11943.0,
+            "commanded_hold_seconds": 3.3761394023895264,
+            "ready_interval_seconds": 107.0,
+            "nonholding_ready_seconds": 103.62386059761047,
+            "baseline_nonholding_seconds": 73.79879426956177,
+            "normalized_slowdown": 0.49708443880081177
+          }
+        ],
+        "semantics": "Decision-ready issue interval minus the already-executed origin holding command; includes next-stop service and native/issue discretization, not pure departure-to-arrival runtime"
+      },
+      "binding": {
+        "episode_id": 0,
+        "sequence": 8119,
+        "trip_id": "7X_29",
+        "vehicle_id": "7X_fleet_56",
+        "line_id": "7X",
+        "station_id": "7X21_102X34",
+        "event_clock": 12001.0,
+        "issue_clock": 12002.0
+      },
+      "observation_checks": {
+        "clock_unchanged": true,
+        "ledger_unchanged": true,
+        "rng_unchanged": true,
+        "issue_clock_exact": true,
+        "event_clock_exact": true,
+        "context_before_action": true
+      },
+      "predictions": {
+        "line3": -0.23151235511085597,
+        "service5": -0.2336954291076776,
+        "service_history6": 0.32514551484541765
+      },
+      "training_support": {
+        "q": 0.49708443880081177,
+        "training_range": [
+          0.007957623402277628,
+          0.4666777531305949
+        ],
+        "in_training_range": false,
+        "extrapolation": true,
+        "status": "outside_training_range"
+      },
+      "prediction_recorded_at": 12002.0,
+      "before_suffixes": true,
+      "ref_hold": 3.4644323587417603,
+      "cand_hold": 7.5,
+      "sim_step_seconds": 1.0,
+      "action_step_seconds": 1.0,
+      "status": "supported",
+      "reason": null
+    },
+    "102X": {
+      "line_id": "102X",
+      "root": {
+        "started_at": 12004.0,
+        "sequence": 8121,
+        "trip_id": "102X_18",
+        "station_id": "102X15"
+      },
+      "context": {
+        "observed": true,
+        "z": -0.6,
+        "reasons": [],
+        "clocks": {
+          "issue": 12004.0,
+          "event": 12003.0,
+          "obs_start": 12004.0,
+          "obs_end": 12004.0,
+          "atomic_at_issue": true
+        },
+        "next_stop": "102X16_122S18_311S24_406X16",
+        "capacity": 50.0,
+        "actual_line": "102X",
+        "counts": {
+          "onboard": 17,
+          "next_queue": 12,
+          "release_next": 2,
+          "compatible_next_queue": 5,
+          "seats_after_release": 35.0
+        },
+        "stage_counts": {
+          "onboard": {
+            "read": 17,
+            "driving": 17,
+            "missing": 0,
+            "unsupported": 0
+          },
+          "queue": {
+            "read": 12,
+            "driving": 12,
+            "missing": 0,
+            "unsupported": 0
+          }
+        }
+      },
+      "service": {
+        "observed": true,
+        "reason": null,
+        "reasons": [],
+        "atomic_at_issue": true,
+        "issue_clock": 12004.0,
+        "event_clock": 12003.0,
+        "capacity": 50.0,
+        "counts": {
+          "onboard": 17,
+          "next_queue": 12,
+          "release_next": 2,
+          "compatible_next_queue": 5,
+          "seats_after_release": 35.0
+        },
+        "features": [
+          0.34,
+          -0.6
+        ],
+        "load_bin": "low"
+      },
+      "condition": {
+        "status": "supported",
+        "reason": null,
+        "value": 0.49708443880081177,
+        "historical_only": true,
+        "issue_clock": 12004.0,
+        "baseline_before": 9000.0,
+        "baseline_counts": {
+          "7X": 21,
+          "102X": 9,
+          "705X": 6
+        },
+        "baseline_medians_seconds": {
+          "7X": 73.79879426956177,
+          "102X": 73.41563534736633,
+          "705X": 76.5979853272438
+        },
+        "baseline_latest_completed_at": {
+          "7X": 8856.0,
+          "102X": 8486.0,
+          "705X": 8871.0
+        },
+        "baseline_latest_observed_at": {
+          "7X": 8856.0,
+          "102X": 8486.0,
+          "705X": 8871.0
+        },
+        "latest_completed_at": 11944.0,
+        "latest_observed_at": 11944.0,
+        "latest_age_seconds": 60.0,
+        "latest_sources": [
+          {
+            "line_id": "7X",
+            "trip_id": "7X_30",
+            "start_sequence": 7999,
+            "end_sequence": 8074,
+            "started_at": 11837.0,
+            "completed_at": 11944.0,
+            "observed_at": 11944.0,
+            "start_event_clock": 11836.0,
+            "end_event_clock": 11943.0,
+            "commanded_hold_seconds": 3.3761394023895264,
+            "ready_interval_seconds": 107.0,
+            "nonholding_ready_seconds": 103.62386059761047,
+            "baseline_nonholding_seconds": 73.79879426956177,
+            "normalized_slowdown": 0.49708443880081177
+          }
+        ],
+        "semantics": "Decision-ready issue interval minus the already-executed origin holding command; includes next-stop service and native/issue discretization, not pure departure-to-arrival runtime"
+      },
+      "binding": {
+        "episode_id": 0,
+        "sequence": 8121,
+        "trip_id": "102X_18",
+        "vehicle_id": "102X_fleet_34",
+        "line_id": "102X",
+        "station_id": "102X15",
+        "event_clock": 12003.0,
+        "issue_clock": 12004.0
+      },
+      "observation_checks": {
+        "clock_unchanged": true,
+        "ledger_unchanged": true,
+        "rng_unchanged": true,
+        "issue_clock_exact": true,
+        "event_clock_exact": true,
+        "context_before_action": true
+      },
+      "predictions": {
+        "line3": -0.44781299896375104,
+        "service5": -0.43944922892045707,
+        "service_history6": 0.11135403390645554
+      },
+      "training_support": {
+        "q": 0.49708443880081177,
+        "training_range": [
+          0.007957623402277628,
+          0.4666777531305949
+        ],
+        "in_training_range": false,
+        "extrapolation": true,
+        "status": "outside_training_range"
+      },
+      "prediction_recorded_at": 12004.0,
+      "before_suffixes": true,
+      "ref_hold": 3.6890816688537598,
+      "cand_hold": 7.5,
+      "sim_step_seconds": 1.0,
+      "action_step_seconds": 1.0,
+      "status": "supported",
+      "reason": null
+    },
+    "705X": {
+      "line_id": "705X",
+      "root": {
+        "started_at": 12009.0,
+        "sequence": 8128,
+        "trip_id": "705X_10",
+        "station_id": "102X22_705X23"
+      },
+      "context": {
+        "observed": true,
+        "z": -0.02,
+        "reasons": [],
+        "clocks": {
+          "issue": 12009.0,
+          "event": 12008.0,
+          "obs_start": 12009.0,
+          "obs_end": 12009.0,
+          "atomic_at_issue": true
+        },
+        "next_stop": "7X10_102X23_705X24",
+        "capacity": 50.0,
+        "actual_line": "705X",
+        "counts": {
+          "onboard": 49,
+          "next_queue": 2,
+          "release_next": 2,
+          "compatible_next_queue": 2,
+          "seats_after_release": 3.0
+        },
+        "stage_counts": {
+          "onboard": {
+            "read": 49,
+            "driving": 49,
+            "missing": 0,
+            "unsupported": 0
+          },
+          "queue": {
+            "read": 2,
+            "driving": 2,
+            "missing": 0,
+            "unsupported": 0
+          }
+        }
+      },
+      "service": {
+        "observed": true,
+        "reason": null,
+        "reasons": [],
+        "atomic_at_issue": true,
+        "issue_clock": 12009.0,
+        "event_clock": 12008.0,
+        "capacity": 50.0,
+        "counts": {
+          "onboard": 49,
+          "next_queue": 2,
+          "release_next": 2,
+          "compatible_next_queue": 2,
+          "seats_after_release": 3.0
+        },
+        "features": [
+          0.98,
+          -0.02
+        ],
+        "load_bin": "high"
+      },
+      "condition": {
+        "status": "supported",
+        "reason": null,
+        "value": 0.49708443880081177,
+        "historical_only": true,
+        "issue_clock": 12009.0,
+        "baseline_before": 9000.0,
+        "baseline_counts": {
+          "7X": 21,
+          "102X": 9,
+          "705X": 6
+        },
+        "baseline_medians_seconds": {
+          "7X": 73.79879426956177,
+          "102X": 73.41563534736633,
+          "705X": 76.5979853272438
+        },
+        "baseline_latest_completed_at": {
+          "7X": 8856.0,
+          "102X": 8486.0,
+          "705X": 8871.0
+        },
+        "baseline_latest_observed_at": {
+          "7X": 8856.0,
+          "102X": 8486.0,
+          "705X": 8871.0
+        },
+        "latest_completed_at": 11944.0,
+        "latest_observed_at": 11944.0,
+        "latest_age_seconds": 65.0,
+        "latest_sources": [
+          {
+            "line_id": "7X",
+            "trip_id": "7X_30",
+            "start_sequence": 7999,
+            "end_sequence": 8074,
+            "started_at": 11837.0,
+            "completed_at": 11944.0,
+            "observed_at": 11944.0,
+            "start_event_clock": 11836.0,
+            "end_event_clock": 11943.0,
+            "commanded_hold_seconds": 3.3761394023895264,
+            "ready_interval_seconds": 107.0,
+            "nonholding_ready_seconds": 103.62386059761047,
+            "baseline_nonholding_seconds": 73.79879426956177,
+            "normalized_slowdown": 0.49708443880081177
+          }
+        ],
+        "semantics": "Decision-ready issue interval minus the already-executed origin holding command; includes next-stop service and native/issue discretization, not pure departure-to-arrival runtime"
+      },
+      "binding": {
+        "episode_id": 0,
+        "sequence": 8128,
+        "trip_id": "705X_10",
+        "vehicle_id": "705X_fleet_25",
+        "line_id": "705X",
+        "station_id": "102X22_705X23",
+        "event_clock": 12008.0,
+        "issue_clock": 12009.0
+      },
+      "observation_checks": {
+        "clock_unchanged": true,
+        "ledger_unchanged": true,
+        "rng_unchanged": true,
+        "issue_clock_exact": true,
+        "event_clock_exact": true,
+        "context_before_action": true
+      },
+      "predictions": {
+        "line3": -0.406578480885362,
+        "service5": -0.4584447766018776,
+        "service_history6": 0.06498151338238373
+      },
+      "training_support": {
+        "q": 0.49708443880081177,
+        "training_range": [
+          0.007957623402277628,
+          0.4999144673347473
+        ],
+        "in_training_range": true,
+        "extrapolation": false,
+        "status": "within_training_range"
+      },
+      "prediction_recorded_at": 12009.0,
+      "before_suffixes": true,
+      "ref_hold": 3.701266050338745,
+      "cand_hold": 7.5,
+      "sim_step_seconds": 1.0,
+      "action_step_seconds": 1.0,
+      "status": "supported",
+      "reason": null
+    }
+  },
+  "selection": {
+    "7X": {
+      "selected": {
+        "started_at": 12002.0,
+        "sequence": 8119,
+        "trip_id": "7X_29",
+        "station_id": "7X21_102X34"
+      },
+      "attempted": 1,
+      "reasons": {},
+      "status": "complete"
+    },
+    "102X": {
+      "selected": {
+        "started_at": 12004.0,
+        "sequence": 8121,
+        "trip_id": "102X_18",
+        "station_id": "102X15"
+      },
+      "attempted": 1,
+      "reasons": {},
+      "status": "complete"
+    },
+    "705X": {
+      "selected": {
+        "started_at": 12009.0,
+        "sequence": 8128,
+        "trip_id": "705X_10",
+        "station_id": "102X22_705X23"
+      },
+      "attempted": 1,
+      "reasons": {},
+      "status": "complete"
+    }
+  },
+  "observation_counts": {
+    "reads": 3,
+    "observed": 3,
+    "admissible": 3,
+    "unsupported": 0
+  },
+  "observation_checks": {
+    "clock_unchanged": true,
+    "ledger_unchanged": true,
+    "rng_unchanged": true,
+    "issue_clock_exact": true,
+    "event_clock_exact": true,
+    "context_before_action": true
+  },
+  "budget": {
+    "prefixes": 1,
+    "suffixes": 6,
+    "native_prefix_seconds": 12600.0,
+    "suffix_native_seconds": 71970.0,
+    "total_native_seconds": 84570.0,
+    "total_native_seconds_is_lower_bound": false,
+    "unknown_suffix_costs": 0,
+    "labels_observed": 6,
+    "new_initialization_updates": 0,
+    "prefix_training_updates": 0,
+    "suffix_updates": 0,
+    "labels_fed_back": 0,
+    "new_fits": 0,
+    "new_neural_updates": 0,
+    "v87_truth_used": 0,
+    "details": [
+      {
+        "line_id": "7X",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11998.0
+      },
+      {
+        "line_id": "7X",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11998.0
+      },
+      {
+        "line_id": "102X",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11996.0
+      },
+      {
+        "line_id": "102X",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11996.0
+      },
+      {
+        "line_id": "705X",
+        "role": "reference",
+        "status": "complete",
+        "seconds": 11991.0
+      },
+      {
+        "line_id": "705X",
+        "role": "candidate",
+        "status": "complete",
+        "seconds": 11991.0
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "status": "complete",
+      "all_pass": true,
+      "checks": {
+        "same_complete_root": true,
+        "same_fixed_reference": true,
+        "same_external_seed": true,
+        "original_actor_root_exact": true,
+        "predeclared_candidate_exact": true,
+        "command_support": true,
+        "actual_departures_observed": true,
+        "physical_departure_separation": true,
+        "actual_next_arrivals": true,
+        "both_real_terminal": true,
+        "nonzero_duration": true,
+        "label_maturity": true,
+        "zero_suffix_training": true,
+        "zero_truth_feedback": true,
+        "native_fork": true,
+        "actual_parallel": true,
+        "parent_actor_frozen": true,
+        "service_context_before_action": true,
+        "same_issue_context": true,
+        "same_historical_condition": true,
+        "history_strictly_before_issue": true,
+        "no_replacement_root": true
+      },
+      "line_id": "7X",
+      "physical_noop": false,
+      "scenario": "local_speed_drop",
+      "external_seed": 309177151,
+      "root": {
+        "started_at": 12002.0,
+        "sequence": 8119,
+        "trip_id": "7X_29",
+        "station_id": "7X21_102X34"
+      },
+      "context": {
+        "observed": true,
+        "z": -0.88,
+        "reasons": [],
+        "clocks": {
+          "issue": 12002.0,
+          "event": 12001.0,
+          "obs_start": 12002.0,
+          "obs_end": 12002.0,
+          "atomic_at_issue": true
+        },
+        "next_stop": "7X22_102X35",
+        "capacity": 50.0,
+        "actual_line": "7X",
+        "counts": {
+          "onboard": 8,
+          "next_queue": 0,
+          "release_next": 2,
+          "compatible_next_queue": 0,
+          "seats_after_release": 44.0
+        },
+        "stage_counts": {
+          "onboard": {
+            "read": 8,
+            "driving": 8,
+            "missing": 0,
+            "unsupported": 0
+          },
+          "queue": {
+            "read": 0,
+            "driving": 0,
+            "missing": 0,
+            "unsupported": 0
+          }
+        }
+      },
+      "service": {
+        "observed": true,
+        "reason": null,
+        "reasons": [],
+        "atomic_at_issue": true,
+        "issue_clock": 12002.0,
+        "event_clock": 12001.0,
+        "capacity": 50.0,
+        "counts": {
+          "onboard": 8,
+          "next_queue": 0,
+          "release_next": 2,
+          "compatible_next_queue": 0,
+          "seats_after_release": 44.0
+        },
+        "features": [
+          0.16,
+          -0.88
+        ],
+        "load_bin": "low"
+      },
+      "condition": {
+        "status": "supported",
+        "reason": null,
+        "value": 0.49708443880081177,
+        "historical_only": true,
+        "issue_clock": 12002.0,
+        "baseline_before": 9000.0,
+        "baseline_counts": {
+          "7X": 21,
+          "102X": 9,
+          "705X": 6
+        },
+        "baseline_medians_seconds": {
+          "7X": 73.79879426956177,
+          "102X": 73.41563534736633,
+          "705X": 76.5979853272438
+        },
+        "baseline_latest_completed_at": {
+          "7X": 8856.0,
+          "102X": 8486.0,
+          "705X": 8871.0
+        },
+        "baseline_latest_observed_at": {
+          "7X": 8856.0,
+          "102X": 8486.0,
+          "705X": 8871.0
+        },
+        "latest_completed_at": 11944.0,
+        "latest_observed_at": 11944.0,
+        "latest_age_seconds": 58.0,
+        "latest_sources": [
+          {
+            "line_id": "7X",
+            "trip_id": "7X_30",
+            "start_sequence": 7999,
+            "end_sequence": 8074,
+            "started_at": 11837.0,
+            "completed_at": 11944.0,
+            "observed_at": 11944.0,
+            "start_event_clock": 11836.0,
+            "end_event_clock": 11943.0,
+            "commanded_hold_seconds": 3.3761394023895264,
+            "ready_interval_seconds": 107.0,
+            "nonholding_ready_seconds": 103.62386059761047,
+            "baseline_nonholding_seconds": 73.79879426956177,
+            "normalized_slowdown": 0.49708443880081177
+          }
+        ],
+        "semantics": "Decision-ready issue interval minus the already-executed origin holding command; includes next-stop service and native/issue discretization, not pure departure-to-arrival runtime"
+      },
+      "predictions": {
+        "line3": -0.23151235511085597,
+        "service5": -0.2336954291076776,
+        "service_history6": 0.32514551484541765
+      },
+      "training_support": {
+        "q": 0.49708443880081177,
+        "training_range": [
+          0.007957623402277628,
+          0.4666777531305949
+        ],
+        "in_training_range": false,
+        "extrapolation": true,
+        "status": "outside_training_range"
+      },
+      "prediction_recorded_at": 12002.0,
+      "before_suffixes": true,
+      "sim_step_seconds": 1.0,
+      "action_step_seconds": 1.0,
+      "at_stop": true,
+      "reference_hold_seconds": 3.4644323587417603,
+      "candidate_hold_seconds": 7.5,
+      "observation_checks": {
+        "clock_unchanged": true,
+        "ledger_unchanged": true,
+        "rng_unchanged": true,
+        "issue_clock_exact": true,
+        "event_clock_exact": true,
+        "context_before_action": true
+      },
+      "overlap_seconds": 277.19812965393066,
+      "remaining": {
+        "reference": {
+          "dt": 11998.0,
+          "wait": 6057552.0,
+          "ride": 9451556.0,
+          "cost": 21566660.0,
+          "observed_at": 24000,
+          "available_at": 24030
+        },
+        "candidate": {
+          "dt": 11998.0,
+          "wait": 6051275.0,
+          "ride": 9452411.0,
+          "cost": 21554961.0,
+          "observed_at": 24000,
+          "available_at": 24030
+        }
+      },
+      "delta": {
+        "wait": -6277.0,
+        "ride": 855.0,
+        "cost": -11699.0
+      },
+      "physical": {
+        "reference": {
+          "departure_clock": 12006.0,
+          "next_arrival_clock": 12099.0,
+          "missing": {}
+        },
+        "candidate": {
+          "departure_clock": 12010.0,
+          "next_arrival_clock": 12098.0,
+          "missing": {}
+        }
+      },
+      "reference_full_endpoint": {
+        "wait": 8460905.0,
+        "ride": 16460494.0,
+        "cost": 33382304.0
+      }
+    },
+    {
+      "status": "complete",
+      "all_pass": true,
+      "checks": {
+        "same_complete_root": true,
+        "same_fixed_reference": true,
+        "same_external_seed": true,
+        "original_actor_root_exact": true,
+        "predeclared_candidate_exact": true,
+        "command_support": true,
+        "actual_departures_observed": true,
+        "physical_departure_separation": true,
+        "actual_next_arrivals": true,
+        "both_real_terminal": true,
+        "nonzero_duration": true,
+        "label_maturity": true,
+        "zero_suffix_training": true,
+        "zero_truth_feedback": true,
+        "native_fork": true,
+        "actual_parallel": true,
+        "parent_actor_frozen": true,
+        "service_context_before_action": true,
+        "same_issue_context": true,
+        "same_historical_condition": true,
+        "history_strictly_before_issue": true,
+        "no_replacement_root": true
+      },
+      "line_id": "102X",
+      "physical_noop": false,
+      "scenario": "local_speed_drop",
+      "external_seed": 309177151,
+      "root": {
+        "started_at": 12004.0,
+        "sequence": 8121,
+        "trip_id": "102X_18",
+        "station_id": "102X15"
+      },
+      "context": {
+        "observed": true,
+        "z": -0.6,
+        "reasons": [],
+        "clocks": {
+          "issue": 12004.0,
+          "event": 12003.0,
+          "obs_start": 12004.0,
+          "obs_end": 12004.0,
+          "atomic_at_issue": true
+        },
+        "next_stop": "102X16_122S18_311S24_406X16",
+        "capacity": 50.0,
+        "actual_line": "102X",
+        "counts": {
+          "onboard": 17,
+          "next_queue": 12,
+          "release_next": 2,
+          "compatible_next_queue": 5,
+          "seats_after_release": 35.0
+        },
+        "stage_counts": {
+          "onboard": {
+            "read": 17,
+            "driving": 17,
+            "missing": 0,
+            "unsupported": 0
+          },
+          "queue": {
+            "read": 12,
+            "driving": 12,
+            "missing": 0,
+            "unsupported": 0
+          }
+        }
+      },
+      "service": {
+        "observed": true,
+        "reason": null,
+        "reasons": [],
+        "atomic_at_issue": true,
+        "issue_clock": 12004.0,
+        "event_clock": 12003.0,
+        "capacity": 50.0,
+        "counts": {
+          "onboard": 17,
+          "next_queue": 12,
+          "release_next": 2,
+          "compatible_next_queue": 5,
+          "seats_after_release": 35.0
+        },
+        "features": [
+          0.34,
+          -0.6
+        ],
+        "load_bin": "low"
+      },
+      "condition": {
+        "status": "supported",
+        "reason": null,
+        "value": 0.49708443880081177,
+        "historical_only": true,
+        "issue_clock": 12004.0,
+        "baseline_before": 9000.0,
+        "baseline_counts": {
+          "7X": 21,
+          "102X": 9,
+          "705X": 6
+        },
+        "baseline_medians_seconds": {
+          "7X": 73.79879426956177,
+          "102X": 73.41563534736633,
+          "705X": 76.5979853272438
+        },
+        "baseline_latest_completed_at": {
+          "7X": 8856.0,
+          "102X": 8486.0,
+          "705X": 8871.0
+        },
+        "baseline_latest_observed_at": {
+          "7X": 8856.0,
+          "102X": 8486.0,
+          "705X": 8871.0
+        },
+        "latest_completed_at": 11944.0,
+        "latest_observed_at": 11944.0,
+        "latest_age_seconds": 60.0,
+        "latest_sources": [
+          {
+            "line_id": "7X",
+            "trip_id": "7X_30",
+            "start_sequence": 7999,
+            "end_sequence": 8074,
+            "started_at": 11837.0,
+            "completed_at": 11944.0,
+            "observed_at": 11944.0,
+            "start_event_clock": 11836.0,
+            "end_event_clock": 11943.0,
+            "commanded_hold_seconds": 3.3761394023895264,
+            "ready_interval_seconds": 107.0,
+            "nonholding_ready_seconds": 103.62386059761047,
+            "baseline_nonholding_seconds": 73.79879426956177,
+            "normalized_slowdown": 0.49708443880081177
+          }
+        ],
+        "semantics": "Decision-ready issue interval minus the already-executed origin holding command; includes next-stop service and native/issue discretization, not pure departure-to-arrival runtime"
+      },
+      "predictions": {
+        "line3": -0.44781299896375104,
+        "service5": -0.43944922892045707,
+        "service_history6": 0.11135403390645554
+      },
+      "training_support": {
+        "q": 0.49708443880081177,
+        "training_range": [
+          0.007957623402277628,
+          0.4666777531305949
+        ],
+        "in_training_range": false,
+        "extrapolation": true,
+        "status": "outside_training_range"
+      },
+      "prediction_recorded_at": 12004.0,
+      "before_suffixes": true,
+      "sim_step_seconds": 1.0,
+      "action_step_seconds": 1.0,
+      "at_stop": true,
+      "reference_hold_seconds": 3.6890816688537598,
+      "candidate_hold_seconds": 7.5,
+      "observation_checks": {
+        "clock_unchanged": true,
+        "ledger_unchanged": true,
+        "rng_unchanged": true,
+        "issue_clock_exact": true,
+        "event_clock_exact": true,
+        "context_before_action": true
+      },
+      "overlap_seconds": 275.8113102912903,
+      "remaining": {
+        "reference": {
+          "dt": 11996.0,
+          "wait": 6056722.0,
+          "ride": 9448910.0,
+          "cost": 21562354.0,
+          "observed_at": 24000,
+          "available_at": 24030
+        },
+        "candidate": {
+          "dt": 11996.0,
+          "wait": 6055366.0,
+          "ride": 9460696.0,
+          "cost": 21571428.0,
+          "observed_at": 24000,
+          "available_at": 24030
+        }
+      },
+      "delta": {
+        "wait": -1356.0,
+        "ride": 11786.0,
+        "cost": 9074.0
+      },
+      "physical": {
+        "reference": {
+          "departure_clock": 12008.0,
+          "next_arrival_clock": 12093.0,
+          "missing": {}
+        },
+        "candidate": {
+          "departure_clock": 12012.0,
+          "next_arrival_clock": 12095.0,
+          "missing": {}
+        }
+      },
+      "reference_full_endpoint": {
+        "wait": 8460905.0,
+        "ride": 16460494.0,
+        "cost": 33382304.0
+      }
+    },
+    {
+      "status": "complete",
+      "all_pass": true,
+      "checks": {
+        "same_complete_root": true,
+        "same_fixed_reference": true,
+        "same_external_seed": true,
+        "original_actor_root_exact": true,
+        "predeclared_candidate_exact": true,
+        "command_support": true,
+        "actual_departures_observed": true,
+        "physical_departure_separation": true,
+        "actual_next_arrivals": true,
+        "both_real_terminal": true,
+        "nonzero_duration": true,
+        "label_maturity": true,
+        "zero_suffix_training": true,
+        "zero_truth_feedback": true,
+        "native_fork": true,
+        "actual_parallel": true,
+        "parent_actor_frozen": true,
+        "service_context_before_action": true,
+        "same_issue_context": true,
+        "same_historical_condition": true,
+        "history_strictly_before_issue": true,
+        "no_replacement_root": true
+      },
+      "line_id": "705X",
+      "physical_noop": false,
+      "scenario": "local_speed_drop",
+      "external_seed": 309177151,
+      "root": {
+        "started_at": 12009.0,
+        "sequence": 8128,
+        "trip_id": "705X_10",
+        "station_id": "102X22_705X23"
+      },
+      "context": {
+        "observed": true,
+        "z": -0.02,
+        "reasons": [],
+        "clocks": {
+          "issue": 12009.0,
+          "event": 12008.0,
+          "obs_start": 12009.0,
+          "obs_end": 12009.0,
+          "atomic_at_issue": true
+        },
+        "next_stop": "7X10_102X23_705X24",
+        "capacity": 50.0,
+        "actual_line": "705X",
+        "counts": {
+          "onboard": 49,
+          "next_queue": 2,
+          "release_next": 2,
+          "compatible_next_queue": 2,
+          "seats_after_release": 3.0
+        },
+        "stage_counts": {
+          "onboard": {
+            "read": 49,
+            "driving": 49,
+            "missing": 0,
+            "unsupported": 0
+          },
+          "queue": {
+            "read": 2,
+            "driving": 2,
+            "missing": 0,
+            "unsupported": 0
+          }
+        }
+      },
+      "service": {
+        "observed": true,
+        "reason": null,
+        "reasons": [],
+        "atomic_at_issue": true,
+        "issue_clock": 12009.0,
+        "event_clock": 12008.0,
+        "capacity": 50.0,
+        "counts": {
+          "onboard": 49,
+          "next_queue": 2,
+          "release_next": 2,
+          "compatible_next_queue": 2,
+          "seats_after_release": 3.0
+        },
+        "features": [
+          0.98,
+          -0.02
+        ],
+        "load_bin": "high"
+      },
+      "condition": {
+        "status": "supported",
+        "reason": null,
+        "value": 0.49708443880081177,
+        "historical_only": true,
+        "issue_clock": 12009.0,
+        "baseline_before": 9000.0,
+        "baseline_counts": {
+          "7X": 21,
+          "102X": 9,
+          "705X": 6
+        },
+        "baseline_medians_seconds": {
+          "7X": 73.79879426956177,
+          "102X": 73.41563534736633,
+          "705X": 76.5979853272438
+        },
+        "baseline_latest_completed_at": {
+          "7X": 8856.0,
+          "102X": 8486.0,
+          "705X": 8871.0
+        },
+        "baseline_latest_observed_at": {
+          "7X": 8856.0,
+          "102X": 8486.0,
+          "705X": 8871.0
+        },
+        "latest_completed_at": 11944.0,
+        "latest_observed_at": 11944.0,
+        "latest_age_seconds": 65.0,
+        "latest_sources": [
+          {
+            "line_id": "7X",
+            "trip_id": "7X_30",
+            "start_sequence": 7999,
+            "end_sequence": 8074,
+            "started_at": 11837.0,
+            "completed_at": 11944.0,
+            "observed_at": 11944.0,
+            "start_event_clock": 11836.0,
+            "end_event_clock": 11943.0,
+            "commanded_hold_seconds": 3.3761394023895264,
+            "ready_interval_seconds": 107.0,
+            "nonholding_ready_seconds": 103.62386059761047,
+            "baseline_nonholding_seconds": 73.79879426956177,
+            "normalized_slowdown": 0.49708443880081177
+          }
+        ],
+        "semantics": "Decision-ready issue interval minus the already-executed origin holding command; includes next-stop service and native/issue discretization, not pure departure-to-arrival runtime"
+      },
+      "predictions": {
+        "line3": -0.406578480885362,
+        "service5": -0.4584447766018776,
+        "service_history6": 0.06498151338238373
+      },
+      "training_support": {
+        "q": 0.49708443880081177,
+        "training_range": [
+          0.007957623402277628,
+          0.4999144673347473
+        ],
+        "in_training_range": true,
+        "extrapolation": false,
+        "status": "within_training_range"
+      },
+      "prediction_recorded_at": 12009.0,
+      "before_suffixes": true,
+      "sim_step_seconds": 1.0,
+      "action_step_seconds": 1.0,
+      "at_stop": true,
+      "reference_hold_seconds": 3.701266050338745,
+      "candidate_hold_seconds": 7.5,
+      "observation_checks": {
+        "clock_unchanged": true,
+        "ledger_unchanged": true,
+        "rng_unchanged": true,
+        "issue_clock_exact": true,
+        "event_clock_exact": true,
+        "context_before_action": true
+      },
+      "overlap_seconds": 270.0591642856598,
+      "remaining": {
+        "reference": {
+          "dt": 11991.0,
+          "wait": 6054653.0,
+          "ride": 9442278.0,
+          "cost": 21551584.0,
+          "observed_at": 24000,
+          "available_at": 24030
+        },
+        "candidate": {
+          "dt": 11991.0,
+          "wait": 6056915.0,
+          "ride": 9435651.0,
+          "cost": 21549481.0,
+          "observed_at": 24000,
+          "available_at": 24030
+        }
+      },
+      "delta": {
+        "wait": 2262.0,
+        "ride": -6627.0,
+        "cost": -2103.0
+      },
+      "physical": {
+        "reference": {
+          "departure_clock": 12014.0,
+          "next_arrival_clock": 12089.0,
+          "missing": {}
+        },
+        "candidate": {
+          "departure_clock": 12017.0,
+          "next_arrival_clock": 12092.0,
+          "missing": {}
+        }
+      },
+      "reference_full_endpoint": {
+        "wait": 8460905.0,
+        "ride": 16460494.0,
+        "cost": 33382304.0
+      }
+    }
+  ],
+  "training_started": false,
+  "models_fitted": false,
+  "predictions_used_for_selection": false,
+  "labels_used_for_selection": false,
+  "collection_halted_on_unsupported": false,
+  "first_pair_gate": {
+    "status": "passed",
+    "all_pass": true,
+    "checks": {
+      "same_complete_root": true,
+      "same_fixed_reference": true,
+      "same_external_seed": true,
+      "original_actor_root_exact": true,
+      "predeclared_candidate_exact": true,
+      "command_support": true,
+      "actual_departures_observed": true,
+      "physical_departure_separation": true,
+      "actual_next_arrivals": true,
+      "both_real_terminal": true,
+      "nonzero_duration": true,
+      "label_maturity": true,
+      "zero_suffix_training": true,
+      "zero_truth_feedback": true,
+      "native_fork": true,
+      "actual_parallel": true,
+      "parent_actor_frozen": true,
+      "service_context_before_action": true,
+      "same_issue_context": true,
+      "same_historical_condition": true,
+      "history_strictly_before_issue": true,
+      "no_replacement_root": true
+    },
+    "external_seed": 309177151,
+    "scenario": "stable",
+    "line_id": "102X",
+    "root": {
+      "started_at": 12002.0,
+      "sequence": 8111,
+      "trip_id": "102X_17",
+      "station_id": "7X08_102X21"
+    },
+    "reason": null,
+    "new_pair_in_formal_cohort": true,
+    "labels_used_for_gate": false,
+    "cost_sign_used_for_gate": false,
+    "first_pair_reused": true
+  },
+  "local_first_pair_gate": {
+    "status": "passed",
+    "all_pass": true,
+    "checks": {
+      "same_complete_root": true,
+      "same_fixed_reference": true,
+      "same_external_seed": true,
+      "original_actor_root_exact": true,
+      "predeclared_candidate_exact": true,
+      "command_support": true,
+      "actual_departures_observed": true,
+      "physical_departure_separation": true,
+      "actual_next_arrivals": true,
+      "both_real_terminal": true,
+      "nonzero_duration": true,
+      "label_maturity": true,
+      "zero_suffix_training": true,
+      "zero_truth_feedback": true,
+      "native_fork": true,
+      "actual_parallel": true,
+      "parent_actor_frozen": true,
+      "service_context_before_action": true,
+      "same_issue_context": true,
+      "same_historical_condition": true,
+      "history_strictly_before_issue": true,
+      "no_replacement_root": true
+    },
+    "external_seed": 309177151,
+    "scenario": "local_speed_drop",
+    "line_id": "7X",
+    "root": {
+      "started_at": 12002.0,
+      "sequence": 8119,
+      "trip_id": "7X_29",
+      "station_id": "7X21_102X34"
+    },
+    "reason": null,
+    "new_pair_in_formal_cohort": true,
+    "labels_used_for_gate": false,
+    "cost_sign_used_for_gate": false,
+    "first_pair_reused": true
+  },
+  "history_summary": {
+    "corridor": {
+      "upstream": "7X13_102X26_705X27",
+      "downstream": "7X14_102X27_705X28"
+    },
+    "counts": {
+      "observed_issues": 8570,
+      "corridor_intervals": 58
+    },
+    "intervals_by_line": {
+      "7X": 31,
+      "102X": 17,
+      "705X": 10
+    },
+    "baseline_intervals_by_line": {
+      "7X": 21,
+      "102X": 9,
+      "705X": 6
+    },
+    "minimum_baseline_intervals": 3,
+    "maximum_latest_age_seconds": 900.0,
+    "normalization_seconds": 60.0,
+    "semantics": "Decision-ready issue interval minus the already-executed origin holding command; includes next-stop service and native/issue discretization, not pure departure-to-arrival runtime"
+  },
+  "error": null,
+  "prefix_reproduction": {
+    "all_pass": true,
+    "checks": {
+      "all_issues_logged": true
+    },
+    "reference_trace_path": null,
+    "observed_issues": 8570,
+    "matched_issues": 0
+  }
+}

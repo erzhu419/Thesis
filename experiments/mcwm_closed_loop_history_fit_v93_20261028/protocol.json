@@ -1,0 +1,123 @@
+{
+  "name": "mcwm_closed_loop_history_fit_v93_20261028",
+  "version": 93,
+  "stage": "Fixed three response fits and training-only readout",
+  "priority": "high",
+  "source_summary": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_completion_v92_20261028/summary.json",
+  "frozen_protocol": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_completion_v92_20261028/source_protocol.json",
+  "source_reference_audit": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_completion_v92_20261028/freeze_audit.json",
+  "models": [
+    "line3",
+    "service5",
+    "service_history6"
+  ],
+  "denominator": 15079.0,
+  "hold_scale": 7.5,
+  "ridge": 1.0,
+  "precision": "float64",
+  "normal_equation_tolerance": 1e-12,
+  "line_coefficient_tolerance": 1e-12,
+  "budget": {
+    "model_solves": 3,
+    "new_native_seconds": 0,
+    "new_branches": 0,
+    "new_labels": 0,
+    "initializer_updates": 0,
+    "optimizer_updates": 0,
+    "world_updates": 0,
+    "trust_updates": 0,
+    "v87_truth_used": 0,
+    "training_pairs": 12,
+    "training_physical_labels": 24,
+    "historical_native_seconds": 349310
+  },
+  "fitting": {
+    "status": "not_started; requires complete collection review and separate fit authorization",
+    "data": "The same12 valid paired roots/24 mature outcome labels only; do not shrink to11 or admit v87",
+    "label": "[2*(Wcandidate-Wreference)+(Rcandidate-Rreference)]/15079 from issue to actual24000",
+    "a": "(7.5-h_reference)/7.5",
+    "models": {
+      "line3": "a*beta_line",
+      "service5": "a*[beta_line+gamma_L*(L/C-mu_line,L)+gamma_M*(margin-mu_line,M)]",
+      "service_history6": "service5+a*gamma_q*(q-mu_line,q)"
+    },
+    "centers": "For each feature and line, mu=sum(a^2*x)/sum(a^2) over complete training cohort only; diagnostic11-row centers are not model centers",
+    "objective": "sum_squared_error + 1*sum_squared_coefficients for all coefficients",
+    "ridge": 1.0,
+    "closed_form_solves": 3,
+    "neural_updates": 0,
+    "initialization_steps": 0,
+    "gate": [
+      "all12 unique root slots valid and mature, including original native load strata",
+      "q strictly historical and supported for all roots; at least two distinct q values on each line",
+      "line3/service5/service_history6 covariate ranks3/5/6",
+      "centering orthogonal to line columns; original line coefficients preserved across readouts"
+    ],
+    "no_label_sign_gate": true,
+    "no_tuning": "One declared scalar, one ridge, three fixed readouts; no feature/window/ridge selection by later outcomes",
+    "data_availability_clock": 24030
+  },
+  "condition": {
+    "name": "completed_shared_corridor_service_interval_change",
+    "inputs": "Prior factual original-reference issue stream, line/trip/station/issue clocks and executed origin hold only",
+    "corridor": [
+      "7X13_102X26_705X27",
+      "7X14_102X27_705X28"
+    ],
+    "interval": "d=downstream_issue-upstream_issue-60*(executed_origin_action+1)/2",
+    "matching": "Same trip, consecutive station indices, exact directed corridor",
+    "baseline": "Per-line median of intervals completed and observed strictly before9000; at least3 per line",
+    "q": "Mean over intervals tied at the latest completed clock strictly before current issue, of (d-line_baseline)/60",
+    "maximum_age_seconds": 900,
+    "strict_availability": "completed_at<issue AND observed_at<issue; same-clock completion excluded regardless of ingestion order",
+    "missing": "None/unsupported, never zero filled",
+    "semantics": "Nonholding decision-ready service interval proxy, includes downstream service and discretization; not pure vehicle runtime",
+    "no_scenario_or_future_input": true
+  },
+  "reference": {
+    "initializer_seed": 6207,
+    "training_external_seed": 716207,
+    "scenarios": [
+      "stable",
+      "local_speed_drop"
+    ],
+    "actors": "Unchanged scene-specific v84 saved packet37 actors used in v90; never substitute a new final actor",
+    "F": "Original ExecutionAction, applied once to proposals; recorded executed actions are never mapped twice",
+    "actor_and_value_observations": 229,
+    "world_and_trust": "unchanged",
+    "continuation": "Substitute one root action; then permanently the matching scene-specific original reference actor/F on actual states",
+    "scope": "Conditional response under these fixed references; environment and reference-policy effects are not separately identified"
+  },
+  "future_validation": {
+    "status": "reserved only, no simulation or labels now",
+    "models": [
+      "line3",
+      "service5",
+      "service_history6",
+      "original_reference"
+    ],
+    "opportunities": "Unchanged first original-domain physically eligible issue per line in12000-12600 on each factual scene path; all readouts use the same q/context/action support",
+    "common_support": "Missing/stale q or missing native context means unsupported for every readout. Flag q outside per-line training range; use reference for every readout there",
+    "decision": "Fixed zero threshold, first strictly negative supported prediction at most once, then permanently reference",
+    "metric": "Actual full-day native (2W+R)/15079; use only selected-root delta plus common reference endpoint, never sum query gains",
+    "advance_gate": [
+      "history6 realized mean cost beats line3, service5 and original reference",
+      "each stable/shock cost and worst cell no worse than those comparators",
+      "history6 actually intervenes in at least one supported native state"
+    ],
+    "report": "Full-day waiting/ride decomposition, both scenes, worst cell, opportunity/unsupported/extrapolation counts, actual dose, and tail costs; no heldout fitting"
+  },
+  "reserved_validation_budget": {
+    "not_started": true,
+    "external_seed": 816207,
+    "scenarios": 2,
+    "max_prefix_seconds": 25200,
+    "new_pairs": 6,
+    "new_suffixes": 12,
+    "new_outcome_labels": 12,
+    "max_new_native_seconds": 169200,
+    "separate_authorization": true
+  },
+  "stop": "After the three fits and saved training-only readout. No extra solves, feature/ridge/window changes, new labels, native control or v87/816207 truth use.",
+  "old_paths_written": []
+}

@@ -1,0 +1,108 @@
+{
+  "name": "thesis-mcwm-delayed-actor-v67-20261026",
+  "candidate": "delayed_actor",
+  "development_seeds": [
+    6201,
+    6203
+  ],
+  "confirmation_seeds": [
+    6202,
+    6204,
+    6205
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "arms": [
+    "fresh",
+    "no_fresh"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "feedback_slots": 285,
+  "policy_updates": 57,
+  "external_seed_offset": 100000,
+  "candidate_change": "Only online update timing/count relative to original unpenalized v65: each paid packet performs8 native critic/value updates, then a single SAC actor/temperature update after the8th critic. Native scheduler interval8,latest batch,critic-before-actor. No KL loss.",
+  "motivation": "User authorized Astra second-priority candidate after fixed beta1 actor-KL candidate failed actual cost gates. Test settled critic/value estimation before one actor update per feedback packet.",
+  "fixed_training": "Exact original per-seed50000 initializer and all Adam loaded under original config first. Then only online_actor_update_interval=8,online_actor_batch_mode=latest,online_update_order=critic-before-actor are set. Original285 feedback slots,57packets,456critic/V,57actor/alpha,full24000seconds. Original fresh-V target,source/history target,sampler,F,trust retained. No CQL,trace or feature changes.",
+  "primary_metric": "Full-day(2W+R)/all departed passengers including accrued unfinished-trip time. Negative fresh-minus-no_fresh is better.",
+  "cost_gate": "Complete all fixed cells and audits. Fresh must beat matched delayed no_fresh and immutable original no_fresh: each overall mean<0,stable<=0,shock<0. Also require fresh-vs-old-fresh full-day mean<=0,9000-12000 mean<0,worst full-day cell relative to old no_fresh no larger than before,and stable18300-24000 mean relative to old no_fresh<=0. No KL or holding metric substitutes for passenger cost. Baseline shift is reported explicitly; improvement versus both baselines rules out a purely degraded matched control. All conditions predeclared before new costs.",
+  "baseline_exactness": "New no_fresh uses the same delayed schedule, so it need not reproduce old original456-actor costs. Read old fresh and no_fresh only as absolute references; never substitute either for new paired arms.",
+  "development_days": 8,
+  "confirmation_days": 0,
+  "branch_queries": 0,
+  "ordinary_single_trajectory_dripping": true,
+  "priority": "high",
+  "summary_max_bytes": 48000,
+  "old_code_and_results_read_only": true,
+  "downloads": "Necessary small JSON/log tails only. Prefix/metric comparison server-side; no CSV, trajectory or checkpoint downloads.",
+  "technical_failure": "Record failure and consumed work. Reuse the first full-day native pair for preflight; no duplicate preflight days. Do not retry unknown native submission. Transient read failures retain existing handles.",
+  "scientific_failure": "Close the fixed delayed-actor candidate if the unchanged actual-cost conditions fail. No post-result schedule,seed,target or sampler tuning, and no combination with the failed KL candidate.",
+  "goal_completion": "Fixed8-native-day development batch only. A pass is evidence for deciding independent confirmation,not automatic expansion or global completion.",
+  "original_reference_by_seed": {
+    "6201": {
+      "directory": "mcwm_closed_loop_fresh_value_v64_20261025",
+      "relative": "runs/fresh_value/development/seed{seed}/{scenario}"
+    },
+    "6203": {
+      "directory": "mcwm_closed_loop_fresh_value_confirmation_v65_20261025",
+      "relative": "runs/fresh_value/confirmation/seed{seed}/{scenario}"
+    }
+  },
+  "primary_gate": "Complete all fixed cells and audits. Fresh must beat matched delayed no_fresh and immutable original no_fresh: each overall mean<0,stable<=0,shock<0. Also require fresh-vs-old-fresh full-day mean<=0,9000-12000 mean<0,worst full-day cell relative to old no_fresh no larger than before,and stable18300-24000 mean relative to old no_fresh<=0. No KL or holding metric substitutes for passenger cost. Baseline shift is reported explicitly; improvement versus both baselines rules out a purely degraded matched control. All conditions predeclared before new costs.",
+  "new_native_days": 8,
+  "reused_development_days": 0,
+  "native_preflight": {
+    "seed": 6201,
+    "scenario": "stable",
+    "reuse_full_day": true,
+    "feedback_slots": 5,
+    "policy_updates": 1,
+    "critic_updates": 8,
+    "value_updates": 8,
+    "actor_updates": 1,
+    "alpha_updates": 1,
+    "packet_schedule": [
+      8,
+      8,
+      1,
+      1
+    ]
+  },
+  "diagnostic_policy_probe": "Passive entry snapshot only, not an optimization reference. Same5 newly paid states per packet and same F before/after the one actor step. All12-line coverage retained. No extra labels/random draws.",
+  "authorization": "User explicitly requested continuing Astra second item. New isolated v67 only; all existing code and results read-only.",
+  "early_window_seconds": [
+    9000,
+    12000
+  ],
+  "post_budget_window_seconds": [
+    18300,
+    24000
+  ],
+  "seed_scope": "6201 previously benefited and6203 contains two known v65 losses. This is prespecified remedial development, not an independent test;6205 bad shock is not used for development selection. No new-cost-based seed or beta choice.",
+  "follow_up": "No automatic confirmation or second algorithm. Retain all four development cells. Future confirmation seeds are predeclared only, not authorized by a success flag.",
+  "reference_report": "experiments/mcwm_closed_loop_actor_constraint_v66r1_20261026/RESULTS.md",
+  "critic_updates": 456,
+  "value_updates": 456,
+  "actor_updates": 57,
+  "alpha_updates": 57,
+  "actor_schedule": {
+    "online_actor_update_interval": 8,
+    "online_actor_batch_mode": "latest",
+    "online_update_order": "critic-before-actor",
+    "critic_steps_per_packet": 8,
+    "value_steps_per_packet": 8,
+    "actor_steps_per_packet": 1,
+    "alpha_steps_per_packet": 1,
+    "kl_penalty": false
+  },
+  "scientific_scope": "This is development on fixed6201/6203,not independent confirmation. Actor/temperature budget is deliberately57,not456; critic/value456 and feedback285 are fixed. Matched no_fresh uses the same schedule and old no_fresh/fresh remain absolute references.",
+  "source_candidate": "mcwm_closed_loop_fresh_value_v64_20261025",
+  "rng_scope": "Original four replay draws and each critic step full mixed-target draw path retained. Seven actor draws per packet are intentionally absent; whole-stream RNG is not claimed identical to old456-actor training. Diagnostic snapshots/probes consume no RNG.",
+  "summary_outputs": [
+    "results/development.json",
+    "results/policy_drift.json"
+  ],
+  "runtime_optimizer_schedule": "native critic-before-actor: each packet [value,critic]*8 then [actor,alpha]; original initializer and all Adam retained"
+}

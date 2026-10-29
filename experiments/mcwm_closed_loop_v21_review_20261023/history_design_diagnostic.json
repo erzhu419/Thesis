@@ -1,0 +1,131 @@
+{
+  "status": "complete",
+  "saved_predictions": {
+    "max_abs_error": 8.881784197001252e-16,
+    "finite_compared": 144,
+    "unsupported_nones_matched": 36,
+    "acquisitions": 15
+  },
+  "design": {
+    "rows": 9,
+    "rank_x4": 4,
+    "rank_x5": 5,
+    "history_energy": 0.018968879134158696,
+    "history_ols_residual_energy": 0.010462109516338821,
+    "history_schur_energy": 0.01230738846240196,
+    "ridge": 1.0,
+    "schur_fraction": 0.012157758209288293,
+    "raw_condition_x4": 6.097437328439509,
+    "raw_condition_x5": 20.661802853037244,
+    "ridge_condition_x4": 4.866102244717643,
+    "ridge_condition_x5": 5.396973960388719
+  },
+  "coefficients": {
+    "seconds_per_normalized_history": [
+      0.05118481010158356,
+      0.08704717629964523,
+      -0.35592025928050564,
+      0.10575560861856238,
+      -0.1005729939582496,
+      -0.3921046650438645
+    ],
+    "seconds_per_raw_history_second": [
+      0.000853080168359726,
+      0.001450786271660754,
+      -0.005932004321341761,
+      0.0017625934769760396,
+      -0.0016762165659708267,
+      -0.006535077750731075
+    ]
+  },
+  "heldout_corrections": [
+    {
+      "id": "heldout/7X/heldout1",
+      "direct_abs_mean": 0.007162139532039647,
+      "refit_abs_mean": 0.001102362293191966,
+      "total_abs_mean": 0.006059777238847681,
+      "total_abs_max": 0.01304831646887018
+    },
+    {
+      "id": "heldout/102X/heldout1",
+      "direct_abs_mean": 0.010197099291213011,
+      "refit_abs_mean": 0.007315023947645441,
+      "total_abs_mean": 0.01751212323885845,
+      "total_abs_max": 0.03770827161724726
+    },
+    {
+      "id": "heldout/705X/heldout1",
+      "direct_abs_mean": 0.0029543929985382314,
+      "refit_abs_mean": 0.003725439848476698,
+      "total_abs_mean": 0.0007710468499384661,
+      "total_abs_max": 0.0016602694973381193
+    },
+    {
+      "id": "heldout/7X/heldout2",
+      "direct_abs_mean": 8.056676063513168e-05,
+      "refit_abs_mean": 0.002693779959864749,
+      "total_abs_mean": 0.0026132131992296173,
+      "total_abs_max": 0.005626944932163957
+    },
+    {
+      "id": "heldout/705X/heldout2",
+      "direct_abs_mean": 0.008012659263827172,
+      "refit_abs_mean": 0.003933119684211172,
+      "total_abs_mean": 0.004079539579616,
+      "total_abs_max": 0.008784336681695168
+    },
+    {
+      "id": "heldout/102X/heldout2",
+      "direct_abs_mean": 0.008012659263827172,
+      "refit_abs_mean": 0.006995167438123001,
+      "total_abs_mean": 0.0010174918257041697,
+      "total_abs_max": 0.0021909312542322066
+    }
+  ],
+  "seven_x_third_stop": [
+    {
+      "id": "heldout/7X/heldout1",
+      "arrival3": [
+        0.013998815808247743,
+        -0.002154630837240479,
+        0.011844184971007263
+      ],
+      "departure3": [
+        0.015421996473591515,
+        -0.0023736800047213366,
+        0.01304831646887018
+      ]
+    },
+    {
+      "id": "heldout/7X/heldout2",
+      "arrival3": [
+        0.00015747239178363301,
+        -0.005265148677626538,
+        -0.005107676285842905
+      ],
+      "departure3": [
+        0.0001734817218856739,
+        -0.005800426654049631,
+        -0.005626944932163957
+      ]
+    }
+  ],
+  "schema": {
+    "endpoint_order": [
+      "arrival1",
+      "arrival2",
+      "arrival3",
+      "departure1",
+      "departure2",
+      "departure3"
+    ],
+    "example_fields": [
+      "direct_history_seconds",
+      "original_four_column_refit_seconds",
+      "total_seconds"
+    ],
+    "fit": "Only original nine admitted v21 training pairs, original order, ridge1 and scale60. Reproduce each issue using its saved admitted-pair count; no heldout fitting.",
+    "schur": "zTz-zTX(XTX+I)^-1XTz; fraction=Schur/(1+Schur). OLS residual energy is design-only.",
+    "correction": "history5-shared4 = direct added column + refit of original four columns. No new simulation, labels, parameter sweep, saved-model mutation or gate change."
+  }
+}

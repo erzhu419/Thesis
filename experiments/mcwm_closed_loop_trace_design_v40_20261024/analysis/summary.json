@@ -1,0 +1,1309 @@
+{
+  "status": "complete",
+  "priority": "high",
+  "integrity": {
+    "all_pass": true
+  },
+  "schema": {
+    "columns": [
+      "slot",
+      "arm",
+      "events",
+      "first_reward_index0",
+      "reward_within_fixed45",
+      "reward_mathematically_supported",
+      "reward_weight",
+      "reward_log10_weight",
+      "ideal_same_input_same_snapshot_reward_weight",
+      "old_dirac_reward_weight"
+    ],
+    "reward_weight": "OLD trajectory coefficient under a proposed new measure; no new policy rollout or training"
+  },
+  "prospective_budget": {
+    "all_pass": true,
+    "financing": {
+      "old_ordinary": 267,
+      "ordinary_retained": 15,
+      "ordinary_replaced": 252,
+      "old_paired_roots": 18,
+      "paired_root_entitlements_retained": 6,
+      "paired_root_entitlements_cancelled": 12,
+      "continuation_slots": 264
+    },
+    "pairs": [
+      {
+        "id": "train/7X/fixed",
+        "line_id": "7X",
+        "issue_window": [
+          1200.0,
+          1500.0
+        ],
+        "selection": "first_issue_visible_jointly_executable_state_in_window",
+        "root_holds_seconds": {
+          "low": 0.0,
+          "high": 1.875
+        },
+        "events_per_arm": 45,
+        "branch_cap_seconds": 300.0,
+        "first_packet": 4,
+        "final_packet": 21,
+        "first_deadline": 2100.0,
+        "final_deadline": 7200.0,
+        "final_packet_label_age_upper_bound_seconds": 6000.0,
+        "release_upper_bound_exclusive": 1830.0,
+        "release_margin_seconds": 270.0
+      },
+      {
+        "id": "train/102X/fixed",
+        "line_id": "102X",
+        "issue_window": [
+          6600.0,
+          6900.0
+        ],
+        "selection": "first_issue_visible_jointly_executable_state_in_window",
+        "root_holds_seconds": {
+          "low": 0.0,
+          "high": 1.875
+        },
+        "events_per_arm": 45,
+        "branch_cap_seconds": 300.0,
+        "first_packet": 22,
+        "final_packet": 39,
+        "first_deadline": 7500.0,
+        "final_deadline": 12600.0,
+        "final_packet_label_age_upper_bound_seconds": 6000.0,
+        "release_upper_bound_exclusive": 7230.0,
+        "release_margin_seconds": 270.0
+      },
+      {
+        "id": "train/705X/fixed",
+        "line_id": "705X",
+        "issue_window": [
+          12000.0,
+          12300.0
+        ],
+        "selection": "first_issue_visible_jointly_executable_state_in_window",
+        "root_holds_seconds": {
+          "low": 0.0,
+          "high": 1.875
+        },
+        "events_per_arm": 45,
+        "branch_cap_seconds": 300.0,
+        "first_packet": 40,
+        "final_packet": 57,
+        "first_deadline": 12900.0,
+        "final_deadline": 18000.0,
+        "final_packet_label_age_upper_bound_seconds": 6000.0,
+        "release_upper_bound_exclusive": 12630.0,
+        "release_margin_seconds": 270.0
+      }
+    ],
+    "feedback_packets": 57,
+    "planned_updates": 456,
+    "ideal_same_input_same_snapshot_c": 1,
+    "ideal_same_input_same_snapshot_last45_reward_weight": 0.009697737297875247,
+    "physical_availability_is_not_admission": true
+  },
+  "cases": {
+    "stable": {
+      "status": "complete",
+      "integrity": {
+        "all_pass": true,
+        "checks": {
+          "frozen_initializer": true,
+          "identity_all_exact": true,
+          "fixed_budget_arithmetic": true,
+          "all_real45_closed": true,
+          "lambda_zero_all_exact": true,
+          "all_expected_old_logs": true
+        }
+      },
+      "identities": {
+        "checked": 528,
+        "exact_unit": 528,
+        "reconstructed_inputs": 1
+      },
+      "models": {
+        "zero_memory": {
+          "aggregate": {
+            "chains": 12,
+            "fixed45_physical_pass": 12,
+            "reward_in45": 12,
+            "mathematical_reward_reach": 12,
+            "numerical_reward_reach": 12,
+            "minimum_weight": 5.051455131655765e-16,
+            "maximum_weight": 0.010012648674847122,
+            "minimum_log10_weight": -15.296583074516516,
+            "maximum_log10_weight": -1.9994508571831964,
+            "global_map_certificates": 528,
+            "different_execution_maps": 0,
+            "successor_links": 528,
+            "support_failures": 0,
+            "float32_link_zeros": 0,
+            "atom_mass_underflow": 0,
+            "zero_dt": 163
+          },
+          "routes": {
+            "7X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 1.8371044670655993e-15
+            },
+            "102X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 9.47426656015617e-15
+            },
+            "705X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 5.051455131655765e-16
+            }
+          },
+          "rows": [
+            [
+              "102X/early",
+              "low",
+              45,
+              34,
+              true,
+              true,
+              9.47426656015617e-15,
+              -14.023453959197731,
+              0.027812838944369374,
+              0.0
+            ],
+            [
+              "102X/early",
+              "high",
+              45,
+              34,
+              true,
+              true,
+              9.512327292525653e-15,
+              -14.021712762919789,
+              0.027812838944369374,
+              0.0
+            ],
+            [
+              "7X/early",
+              "low",
+              45,
+              36,
+              true,
+              true,
+              1.8392982698045917e-15,
+              -14.735347396108118,
+              0.022528399544939195,
+              0.0
+            ],
+            [
+              "7X/early",
+              "high",
+              45,
+              36,
+              true,
+              true,
+              1.8371044670655993e-15,
+              -14.735865626088454,
+              0.022528399544939195,
+              0.0
+            ],
+            [
+              "705X/early",
+              "low",
+              45,
+              36,
+              true,
+              true,
+              5.051455131655765e-16,
+              -15.296583074516516,
+              0.022528399544939195,
+              0.0
+            ],
+            [
+              "705X/early",
+              "high",
+              45,
+              36,
+              true,
+              true,
+              5.053535404136028e-16,
+              -15.29640416595302,
+              0.022528399544939195,
+              0.0
+            ],
+            [
+              "7X/late",
+              "low",
+              45,
+              11,
+              true,
+              true,
+              3.424033769793227e-05,
+              -4.46546176042494,
+              0.31381059609000006,
+              0.0
+            ],
+            [
+              "7X/late",
+              "high",
+              45,
+              11,
+              true,
+              true,
+              3.424033769793227e-05,
+              -4.46546176042494,
+              0.31381059609000006,
+              0.0
+            ],
+            [
+              "102X/late",
+              "low",
+              45,
+              5,
+              true,
+              true,
+              0.010012648674847122,
+              -1.9994508571831964,
+              0.5904900000000001,
+              0.0
+            ],
+            [
+              "102X/late",
+              "high",
+              45,
+              5,
+              true,
+              true,
+              0.010012524940053598,
+              -1.9994562406934746,
+              0.5904900000000001,
+              0.0
+            ],
+            [
+              "705X/late",
+              "low",
+              45,
+              23,
+              true,
+              true,
+              1.4286994458308435e-09,
+              -8.845058942154893,
+              0.08862938119652507,
+              0.0
+            ],
+            [
+              "705X/late",
+              "high",
+              45,
+              23,
+              true,
+              true,
+              1.4300920427314e-09,
+              -8.84463583980266,
+              0.08862938119652507,
+              0.0
+            ]
+          ],
+          "physical_failures": []
+        },
+        "per_head_level": {
+          "aggregate": {
+            "chains": 12,
+            "fixed45_physical_pass": 12,
+            "reward_in45": 12,
+            "mathematical_reward_reach": 12,
+            "numerical_reward_reach": 12,
+            "minimum_weight": 5.172158487698843e-16,
+            "maximum_weight": 0.010054507331151367,
+            "minimum_log10_weight": -15.28632779770392,
+            "maximum_log10_weight": -1.9976391911592866,
+            "global_map_certificates": 528,
+            "different_execution_maps": 0,
+            "successor_links": 528,
+            "support_failures": 0,
+            "float32_link_zeros": 0,
+            "atom_mass_underflow": 0,
+            "zero_dt": 163
+          },
+          "routes": {
+            "7X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 1.8863860910392834e-15
+            },
+            "102X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 9.687947996993685e-15
+            },
+            "705X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 5.172158487698843e-16
+            }
+          },
+          "rows": [
+            [
+              "102X/early",
+              "low",
+              45,
+              34,
+              true,
+              true,
+              9.687947996993685e-15,
+              -14.013767822795986,
+              0.027812838944369374,
+              0.0
+            ],
+            [
+              "102X/early",
+              "high",
+              45,
+              34,
+              true,
+              true,
+              9.726980735204438e-15,
+              -14.012021508444217,
+              0.027812838944369374,
+              0.0
+            ],
+            [
+              "7X/early",
+              "low",
+              45,
+              36,
+              true,
+              true,
+              1.888678621619489e-15,
+              -14.723841637797541,
+              0.022528399544939195,
+              0.0
+            ],
+            [
+              "7X/early",
+              "high",
+              45,
+              36,
+              true,
+              true,
+              1.8863860910392834e-15,
+              -14.724369185842116,
+              0.022528399544939195,
+              0.0
+            ],
+            [
+              "705X/early",
+              "low",
+              45,
+              36,
+              true,
+              true,
+              5.172158487698843e-16,
+              -15.28632779770392,
+              0.022528399544939195,
+              0.0
+            ],
+            [
+              "705X/early",
+              "high",
+              45,
+              36,
+              true,
+              true,
+              5.174508760077429e-16,
+              -15.286130579486144,
+              0.022528399544939195,
+              0.0
+            ],
+            [
+              "7X/late",
+              "low",
+              45,
+              11,
+              true,
+              true,
+              3.437030508006573e-05,
+              -4.463816478962046,
+              0.31381059609000006,
+              0.0
+            ],
+            [
+              "7X/late",
+              "high",
+              45,
+              11,
+              true,
+              true,
+              3.437030508006573e-05,
+              -4.463816478962046,
+              0.31381059609000006,
+              0.0
+            ],
+            [
+              "102X/late",
+              "low",
+              45,
+              5,
+              true,
+              true,
+              0.010054507331151367,
+              -1.9976391911592866,
+              0.5904900000000001,
+              0.0
+            ],
+            [
+              "102X/late",
+              "high",
+              45,
+              5,
+              true,
+              true,
+              0.010054318821967194,
+              -1.9976473587277166,
+              0.5904900000000001,
+              0.0
+            ],
+            [
+              "705X/late",
+              "low",
+              45,
+              23,
+              true,
+              true,
+              1.471868890454626e-09,
+              -8.832130589170779,
+              0.08862938119652507,
+              0.0
+            ],
+            [
+              "705X/late",
+              "high",
+              45,
+              23,
+              true,
+              true,
+              1.4732533717118337e-09,
+              -8.831722261527027,
+              0.08862938119652507,
+              0.0
+            ]
+          ],
+          "physical_failures": []
+        },
+        "shared_level": {
+          "aggregate": {
+            "chains": 12,
+            "fixed45_physical_pass": 12,
+            "reward_in45": 12,
+            "mathematical_reward_reach": 12,
+            "numerical_reward_reach": 12,
+            "minimum_weight": 5.448461677959213e-16,
+            "maximum_weight": 0.010092745365376894,
+            "minimum_log10_weight": -15.263725871669376,
+            "maximum_log10_weight": -1.995990550165323,
+            "global_map_certificates": 528,
+            "different_execution_maps": 0,
+            "successor_links": 528,
+            "support_failures": 0,
+            "float32_link_zeros": 0,
+            "atom_mass_underflow": 0,
+            "zero_dt": 163
+          },
+          "routes": {
+            "7X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 1.981685888836137e-15
+            },
+            "102X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 1.0234570453955237e-14
+            },
+            "705X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 5.448461677959213e-16
+            }
+          },
+          "rows": [
+            [
+              "102X/early",
+              "low",
+              45,
+              34,
+              true,
+              true,
+              1.0234570453955237e-14,
+              -13.989930084121651,
+              0.027812838944369374,
+              0.0
+            ],
+            [
+              "102X/early",
+              "high",
+              45,
+              34,
+              true,
+              true,
+              1.0275684710835556e-14,
+              -13.988188966904046,
+              0.027812838944369374,
+              0.0
+            ],
+            [
+              "7X/early",
+              "low",
+              45,
+              36,
+              true,
+              true,
+              1.9857260417292063e-15,
+              -14.70208043435487,
+              0.022528399544939195,
+              0.0
+            ],
+            [
+              "7X/early",
+              "high",
+              45,
+              36,
+              true,
+              true,
+              1.981685888836137e-15,
+              -14.702964990798845,
+              0.022528399544939195,
+              0.0
+            ],
+            [
+              "705X/early",
+              "low",
+              45,
+              36,
+              true,
+              true,
+              5.448461677959213e-16,
+              -15.263725871669376,
+              0.022528399544939195,
+              0.0
+            ],
+            [
+              "705X/early",
+              "high",
+              45,
+              36,
+              true,
+              true,
+              5.450639003429021e-16,
+              -15.263552383027305,
+              0.022528399544939195,
+              0.0
+            ],
+            [
+              "7X/late",
+              "low",
+              45,
+              11,
+              true,
+              true,
+              3.4754145549693066e-05,
+              -4.458993210107205,
+              0.31381059609000006,
+              0.0
+            ],
+            [
+              "7X/late",
+              "high",
+              45,
+              11,
+              true,
+              true,
+              3.4754145549693066e-05,
+              -4.458993210107205,
+              0.31381059609000006,
+              0.0
+            ],
+            [
+              "102X/late",
+              "low",
+              45,
+              5,
+              true,
+              true,
+              0.010092745365376894,
+              -1.995990550165323,
+              0.5904900000000001,
+              0.0
+            ],
+            [
+              "102X/late",
+              "high",
+              45,
+              5,
+              true,
+              true,
+              0.01009254304164315,
+              -1.9959993135544507,
+              0.5904900000000001,
+              0.0
+            ],
+            [
+              "705X/late",
+              "low",
+              45,
+              23,
+              true,
+              true,
+              1.520905301392951e-09,
+              -8.817897529248107,
+              0.08862938119652507,
+              0.0
+            ],
+            [
+              "705X/late",
+              "high",
+              45,
+              23,
+              true,
+              true,
+              1.5222344117294157e-09,
+              -8.817518192186412,
+              0.08862938119652507,
+              0.0
+            ]
+          ],
+          "physical_failures": []
+        }
+      },
+      "elapsed_seconds": 6.357781171798706,
+      "final_model_checkpoints_loaded": 0
+    },
+    "local_speed_drop": {
+      "status": "complete",
+      "integrity": {
+        "all_pass": true,
+        "checks": {
+          "frozen_initializer": true,
+          "identity_all_exact": true,
+          "fixed_budget_arithmetic": true,
+          "all_real45_closed": true,
+          "lambda_zero_all_exact": true,
+          "all_expected_old_logs": true
+        }
+      },
+      "identities": {
+        "checked": 528,
+        "exact_unit": 528,
+        "reconstructed_inputs": 1
+      },
+      "models": {
+        "zero_memory": {
+          "aggregate": {
+            "chains": 12,
+            "fixed45_physical_pass": 12,
+            "reward_in45": 12,
+            "mathematical_reward_reach": 12,
+            "numerical_reward_reach": 12,
+            "minimum_weight": 1.5672232556185912e-16,
+            "maximum_weight": 2.931078910517729e-05,
+            "minimum_log10_weight": -15.804868722679538,
+            "maximum_log10_weight": -4.532972328556044,
+            "global_map_certificates": 528,
+            "different_execution_maps": 0,
+            "successor_links": 528,
+            "support_failures": 0,
+            "float32_link_zeros": 0,
+            "atom_mass_underflow": 0,
+            "zero_dt": 157
+          },
+          "routes": {
+            "7X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 1.5672232556185912e-16
+            },
+            "102X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 1.69666050004379e-07
+            },
+            "705X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 2.1569053075513563e-11
+            }
+          },
+          "rows": [
+            [
+              "705X/early",
+              "low",
+              45,
+              26,
+              true,
+              true,
+              2.1569053075513563e-11,
+              -10.666168757575779,
+              0.06461081889226677,
+              0.0
+            ],
+            [
+              "705X/early",
+              "high",
+              45,
+              26,
+              true,
+              true,
+              2.1635325496623102e-11,
+              -10.664836394999025,
+              0.06461081889226677,
+              0.0
+            ],
+            [
+              "102X/early",
+              "low",
+              45,
+              16,
+              true,
+              true,
+              1.69666050004379e-07,
+              -6.770405017739587,
+              0.18530201888518416,
+              0.0
+            ],
+            [
+              "102X/early",
+              "high",
+              45,
+              16,
+              true,
+              true,
+              1.697049160530769e-07,
+              -6.770305536633682,
+              0.18530201888518416,
+              0.0
+            ],
+            [
+              "7X/early",
+              "low",
+              45,
+              20,
+              true,
+              true,
+              4.210975639531172e-09,
+              -8.37561713526161,
+              0.12157665459056935,
+              0.0
+            ],
+            [
+              "7X/early",
+              "high",
+              45,
+              20,
+              true,
+              true,
+              4.211112466941633e-09,
+              -8.375602914280885,
+              0.12157665459056935,
+              0.0
+            ],
+            [
+              "705X/late",
+              "low",
+              45,
+              12,
+              true,
+              true,
+              2.121438624404795e-05,
+              -4.673369399168754,
+              0.2824295364810001,
+              0.0
+            ],
+            [
+              "705X/late",
+              "high",
+              45,
+              12,
+              true,
+              true,
+              2.121438624404795e-05,
+              -4.673369399168754,
+              0.2824295364810001,
+              0.0
+            ],
+            [
+              "7X/late",
+              "low",
+              45,
+              40,
+              true,
+              true,
+              1.5675738668469607e-16,
+              -15.804771511866159,
+              0.014780882941434608,
+              0.0
+            ],
+            [
+              "7X/late",
+              "high",
+              45,
+              40,
+              true,
+              true,
+              1.5672232556185912e-16,
+              -15.804868722679538,
+              0.014780882941434608,
+              0.0
+            ],
+            [
+              "102X/late",
+              "low",
+              45,
+              11,
+              true,
+              true,
+              2.9309449680936635e-05,
+              -4.53299217464289,
+              0.31381059609000006,
+              2.577417140958414e-06
+            ],
+            [
+              "102X/late",
+              "high",
+              45,
+              11,
+              true,
+              true,
+              2.931078910517729e-05,
+              -4.532972328556044,
+              0.31381059609000006,
+              2.57754043019949e-06
+            ]
+          ],
+          "physical_failures": []
+        },
+        "per_head_level": {
+          "aggregate": {
+            "chains": 12,
+            "fixed45_physical_pass": 12,
+            "reward_in45": 12,
+            "mathematical_reward_reach": 12,
+            "numerical_reward_reach": 12,
+            "minimum_weight": 1.5245147868734063e-16,
+            "maximum_weight": 2.9089919190398898e-05,
+            "minimum_log10_weight": -15.816867845811577,
+            "maximum_log10_weight": -4.536257433632199,
+            "global_map_certificates": 528,
+            "different_execution_maps": 0,
+            "successor_links": 528,
+            "support_failures": 0,
+            "float32_link_zeros": 0,
+            "atom_mass_underflow": 0,
+            "zero_dt": 157
+          },
+          "routes": {
+            "7X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 1.5245147868734063e-16
+            },
+            "102X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 1.684408481183065e-07
+            },
+            "705X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 2.1462394883913194e-11
+            }
+          },
+          "rows": [
+            [
+              "705X/early",
+              "low",
+              45,
+              26,
+              true,
+              true,
+              2.1462394883913194e-11,
+              -10.668321605383435,
+              0.06461081889226677,
+              0.0
+            ],
+            [
+              "705X/early",
+              "high",
+              45,
+              26,
+              true,
+              true,
+              2.152766757945342e-11,
+              -10.667002762070702,
+              0.06461081889226677,
+              0.0
+            ],
+            [
+              "102X/early",
+              "low",
+              45,
+              16,
+              true,
+              true,
+              1.684408481183065e-07,
+              -6.773552416260702,
+              0.18530201888518416,
+              0.0
+            ],
+            [
+              "102X/early",
+              "high",
+              45,
+              16,
+              true,
+              true,
+              1.6848004737334083e-07,
+              -6.773451402167565,
+              0.18530201888518416,
+              0.0
+            ],
+            [
+              "7X/early",
+              "low",
+              45,
+              20,
+              true,
+              true,
+              4.175164046205963e-09,
+              -8.379326212381605,
+              0.12157665459056935,
+              0.0
+            ],
+            [
+              "7X/early",
+              "high",
+              45,
+              20,
+              true,
+              true,
+              4.175290724218534e-09,
+              -8.37931305887199,
+              0.12157665459056935,
+              0.0
+            ],
+            [
+              "705X/late",
+              "low",
+              45,
+              12,
+              true,
+              true,
+              2.113544771649333e-05,
+              -4.674988418343777,
+              0.2824295364810001,
+              0.0
+            ],
+            [
+              "705X/late",
+              "high",
+              45,
+              12,
+              true,
+              true,
+              2.113544771649333e-05,
+              -4.674988418343777,
+              0.2824295364810001,
+              0.0
+            ],
+            [
+              "7X/late",
+              "low",
+              45,
+              40,
+              true,
+              true,
+              1.5248653273677835e-16,
+              -15.8167680135863,
+              0.014780882941434608,
+              0.0
+            ],
+            [
+              "7X/late",
+              "high",
+              45,
+              40,
+              true,
+              true,
+              1.5245147868734063e-16,
+              -15.816867845811577,
+              0.014780882941434608,
+              0.0
+            ],
+            [
+              "102X/late",
+              "low",
+              45,
+              11,
+              true,
+              true,
+              2.9088805653917542e-05,
+              -4.5362740468990195,
+              0.31381059609000006,
+              2.558013397993632e-06
+            ],
+            [
+              "102X/late",
+              "high",
+              45,
+              11,
+              true,
+              true,
+              2.9089919190398898e-05,
+              -4.536257433632199,
+              0.31381059609000006,
+              2.5581168678251105e-06
+            ]
+          ],
+          "physical_failures": []
+        },
+        "shared_level": {
+          "aggregate": {
+            "chains": 12,
+            "fixed45_physical_pass": 12,
+            "reward_in45": 12,
+            "mathematical_reward_reach": 12,
+            "numerical_reward_reach": 12,
+            "minimum_weight": 1.6086733480152982e-16,
+            "maximum_weight": 2.9639602627917828e-05,
+            "minimum_log10_weight": -15.79353165452349,
+            "maximum_log10_weight": -4.528127491443066,
+            "global_map_certificates": 528,
+            "different_execution_maps": 0,
+            "successor_links": 528,
+            "support_failures": 0,
+            "float32_link_zeros": 0,
+            "atom_mass_underflow": 0,
+            "zero_dt": 157
+          },
+          "routes": {
+            "7X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 1.6086733480152982e-16
+            },
+            "102X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 1.708010978133008e-07
+            },
+            "705X": {
+              "chains": 4,
+              "math_reach": 4,
+              "numeric_reach": 4,
+              "min_weight": 2.1842667272936632e-11
+            }
+          },
+          "rows": [
+            [
+              "705X/early",
+              "low",
+              45,
+              26,
+              true,
+              true,
+              2.1842667272936632e-11,
+              -10.660693990106383,
+              0.06461081889226677,
+              0.0
+            ],
+            [
+              "705X/early",
+              "high",
+              45,
+              26,
+              true,
+              true,
+              2.191042108240854e-11,
+              -10.659348956244452,
+              0.06461081889226677,
+              0.0
+            ],
+            [
+              "102X/early",
+              "low",
+              45,
+              16,
+              true,
+              true,
+              1.708010978133008e-07,
+              -6.767509118988844,
+              0.18530201888518416,
+              0.0
+            ],
+            [
+              "102X/early",
+              "high",
+              45,
+              16,
+              true,
+              true,
+              1.7084034089286341e-07,
+              -6.767409342802396,
+              0.18530201888518416,
+              0.0
+            ],
+            [
+              "7X/early",
+              "low",
+              45,
+              20,
+              true,
+              true,
+              4.255319249542547e-09,
+              -8.371067584392584,
+              0.12157665459056935,
+              0.0
+            ],
+            [
+              "7X/early",
+              "high",
+              45,
+              20,
+              true,
+              true,
+              4.255455172804794e-09,
+              -8.371053759511037,
+              0.12157665459056935,
+              0.0
+            ],
+            [
+              "705X/late",
+              "low",
+              45,
+              12,
+              true,
+              true,
+              2.1429791557135282e-05,
+              -4.668981838153979,
+              0.2824295364810001,
+              0.0
+            ],
+            [
+              "705X/late",
+              "high",
+              45,
+              12,
+              true,
+              true,
+              2.1429791557135282e-05,
+              -4.668981838153979,
+              0.2824295364810001,
+              0.0
+            ],
+            [
+              "7X/late",
+              "low",
+              45,
+              40,
+              true,
+              true,
+              1.6090386294277343e-16,
+              -15.79343308217868,
+              0.014780882941434608,
+              0.0
+            ],
+            [
+              "7X/late",
+              "high",
+              45,
+              40,
+              true,
+              true,
+              1.6086733480152982e-16,
+              -15.79353165452349,
+              0.014780882941434608,
+              0.0
+            ],
+            [
+              "102X/late",
+              "low",
+              45,
+              11,
+              true,
+              true,
+              2.9638052406633954e-05,
+              -4.5281502301878245,
+              0.31381059609000006,
+              2.6063136547384295e-06
+            ],
+            [
+              "102X/late",
+              "high",
+              45,
+              11,
+              true,
+              true,
+              2.9639602627917828e-05,
+              -4.528127491443066,
+              0.31381059609000006,
+              2.606455584224041e-06
+            ]
+          ],
+          "physical_failures": []
+        }
+      },
+      "elapsed_seconds": 6.247480154037476,
+      "final_model_checkpoints_loaded": 0
+    }
+  },
+  "gates": {
+    "design_and_old_evidence_integrity": true,
+    "exact285_slot_calendar": true,
+    "proposed_measure_reaches_old_reward_witnesses": true,
+    "numeric_old_reward_reach": true,
+    "actual_new_stochastic_prefix_validated": false,
+    "actual_new_budgeted_response_chains_validated": false
+  },
+  "decision": {
+    "design_precheck_pass": true,
+    "collection_launched": false,
+    "training_ready": false,
+    "training_launched": false,
+    "next_gate": "Review fixed-budget age/line-window compromise and old-log RN attenuation before authorizing any new common-prefix collection; require actual causal behavior logging, physical actions, chain admission and zero suffix training before any learning."
+  },
+  "compute_budget": {
+    "new_native_prefixes": 0,
+    "new_native_branches": 0,
+    "new_native_seconds": 0,
+    "new_training_labels": 0,
+    "new_optimizer_updates": 0,
+    "heldout_feedback_admitted": 0,
+    "checkpoints_downloaded": 0
+  },
+  "limitations": [
+    "old deterministic logs retain their original generating behavior",
+    "new stochastic-policy reward timing and reach remain unobserved",
+    "one staged issue window per line confounds line and window; no stable-control benefit measured",
+    "queue age up to6000s; only already admitted contiguous prefixes may enter any future trace",
+    "same-snapshot unit ratios do not certify ratios after future updates",
+    "mixed V/SAC candidate is not a proved pure-policy Retrace operator"
+  ]
+}

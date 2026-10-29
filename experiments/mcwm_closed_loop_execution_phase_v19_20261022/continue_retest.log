@@ -1,0 +1,12 @@
+{"at": "2026-10-22T08:11:24.929381+00:00", "stage": "continuation_started", "new_branches": 6, "first_branch_reused": true, "new_suffix_seconds": 1800, "new_training_labels": 0, "priority": "high", "independent_confirmation": "not_submitted"}
+{"at": "2026-10-22T08:11:26.658497+00:00", "stage": "waiting_exact_prefix_preflight", "first": {"status": "pending", "all_pass": null}, "branches_terminal": 0, "bad": [], "preflight_gate": false, "result_exists": false, "failures": []}
+{"at": "2026-10-22T08:24:05.896341+00:00", "stage": "waiting_exact_prefix_preflight", "first": {"status": "integrity_failed", "all_pass": false}, "branches_terminal": 1, "bad": [0], "preflight_gate": false, "result_exists": false, "failures": []}
+{"at": "2026-10-22T08:24:05.897148+00:00", "stage": "stopped", "error_type": "RuntimeError", "error": "Preserve and review native execution-phase failure: {'first': {'status': 'integrity_failed', 'all_pass': False}, 'branches_terminal': 1, 'bad': [0], 'preflight_gate': False, 'result_exists': False, 'failures': []}"}
+Traceback (most recent call last):
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_execution_phase_v19_20261022/continue_batch.py", line 80, in <module>
+    try:main()
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_execution_phase_v19_20261022/continue_batch.py", line 66, in main
+    wait_until('waiting_exact_prefix_preflight',lambda v:v['first']['status']=='complete')
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_execution_phase_v19_20261022/continue_batch.py", line 49, in wait_until
+    raise RuntimeError('Preserve and review native execution-phase failure: '+str(value))
+RuntimeError: Preserve and review native execution-phase failure: {'first': {'status': 'integrity_failed', 'all_pass': False}, 'branches_terminal': 1, 'bad': [0], 'preflight_gate': False, 'result_exists': False, 'failures': []}

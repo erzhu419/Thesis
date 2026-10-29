@@ -1,0 +1,2027 @@
+[
+  {
+    "index": 0,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 1,
+    "kind": "p",
+    "style": "Title",
+    "text": "第二章及研究章替换正文",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 2,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "适用稿：《排版完成_研究展望替换_20261012.docx》修订日期：2026年10月12日",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 3,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "本文件替代《第二章重构方案_方法归并与章节迁移_20261011》中关于章节分工的安排。第二章仅保留传统公交控制、经典强化学习、鲁棒评价与环境适应、迁移学习和世界模型的理论与方法基础；本文具体的运行状态、奖励函数、价值更新结构、仿真标定和实验条件，在使用它们的研究章中说明。图3-1及奖励分析保留在第三章，第五章的人均成本公式也不因跨章重复而删除。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 4,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "替换顺序：先把“第二章完整替换正文”替换到原第二章标题与第三章标题之间，再按3A—6E把配套文字放入相应研究章，最后执行图表迁移与短句替换。原第二章中的实验图表须先转移或另存，不能随整章替换丢失。没有指定替换的算法定义、实验结果和证明保留；本文件不改变实验数值，也不把相同数据的复用写成新增实验。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 5,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "第二章的通用MDP、贝尔曼关系和SAC公式用于解释经典方法，不是本文公交控制的统一架构。第3—6章仍保留理解各章所必需的任务定义与实际更新公式，即使存在适量重复，也不改成要求读者翻回前文的省略说明。完整理论推导和补充实验可继续放在附录，但各章的模型、方法与主要实验条件须在章内说明。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 6,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "第二章正文只设六个节标题，不再逐算法设置小节。文献[1]—[214]沿用原稿；新增文献[215]—[217]列于文件末尾。新第二章公式已顺序编号；配套插入公式合入相应研究章后再统一编号。由于原稿重新分页与页脚显示不稳定，所有操作均以节标题和原文首尾定位。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 7,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "第二章目录",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 8,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "2.1 传统公交在途控制2.2 强化学习的基本原理2.3 鲁棒强化学习与环境适应2.4 迁移强化学习2.5 世界模型与模型辅助学习2.6 本章小结",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 9,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "以下进入可直接替换的正文。操作说明、定位编号和末尾的修改登记不属于论文正文。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 10,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 11,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 12,
+    "kind": "p",
+    "style": "Heading1",
+    "text": "第2章 公交控制与强化学习基础",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 13,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "公交在途控制通过调整车辆运行或服务过程缓解运行偏差，其求解方法既包括依据时刻表和车头时距制定的反馈规则，也包括利用预测模型或运行经验优化决策的方法。本章先介绍传统公交控制的基本思想，再说明强化学习的价值估计与策略优化原理，继而讨论不确定条件下的鲁棒评价和环境适应、不同数据条件下的迁移学习，以及世界模型支持的规划与策略训练。通过比较这些方法的求解对象、信息需求和适用条件，明确公交学习控制所涉及的理论基础。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 14,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 15,
+    "kind": "p",
+    "style": "Heading2",
+    "text": "2.1 传统公交在途控制",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 16,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "公交运行偏差受到道路行驶时间和乘客上下客过程的共同影响。当一辆车发生延误时，它与前车之间的服务间隔增大，沿途积累的候车乘客增多，新增服务时间又可能扩大延误；其后车辆面对的候车需求减少，因而逐渐接近前车。公交控制需要阻断这一偏差传播过程，同时考虑干预本身带来的时间代价。传统在途控制包括驻站、车速调节、跳站、限制上客和信号优先等措施，分别作用于离站时刻、路段行驶、站点服务和交叉口通行。不同措施需要不同的控制权限，其中驻站利用车辆停靠过程调节离站时刻，不必同时改变道路信号或线路安排[1,3,20]。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 17,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "基于时刻表的驻站以计划离站时刻为参照。设车辆完成必要服务的时刻为tsvc，计划离站时刻为tplan，允许的附加驻站上限为umax，则一种基本规则为",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 18,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "usch=min{umax,max0,tplan−tsvc}.  2−1",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 19,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "该规则使提前完成服务的车辆适当等待，避免继续提前运行；车辆已经晚点时，则不再主动增加驻站。它能够直接表达计划执行要求，但不能依靠非负驻站消除已经发生的延误。Xuan等将相对于虚拟时刻表的偏差用于动态驻站，在反馈中同时保留计划参照与车辆之间的相对关系，使时刻表执行和间隔规律性能够共同得到考虑[2]。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 20,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "基于车头时距的控制不只关注单车是否提前或晚点，而是依据相邻车辆的相对位置调整服务间隔。Daganzo通过实时车头时距确定控制点驻站时长，并分析反馈调节与线路稳定性的关系[1]。为说明前后车信息的作用，记当前车辆的前向间隔为hf，后向间隔估计为hb，相应参考间隔为Hf和Hb。包含两侧信息的比例反馈可概括为",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 21,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "uhw=min{umax,max0,kfHf−hf+kbhb−Hb}.  2−2",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 22,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "其中，kf和kb为非负反馈增益。前向间隔偏小，说明本车接近前车；后向间隔偏大，说明后车距离本车较远，这两种情况均可能支持增加驻站。式(2-2)用于概括双向反馈的作用方向，不代表所有车头时距控制方法均采用同一表达式。不同方法在参考间隔、信息范围及反馈系数上存在区别。尤其是后车尚未到站时，后向间隔需要估计，不能把事后获得的实际到站时刻作为实时控制输入。时刻表和车头时距反馈也有不同目标：间隔均匀不意味着车辆按计划运行，而单车准点也不必然意味着相邻车辆间隔稳定[1,2,16]。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 23,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "基于优化的驻站进一步利用车辆到达和乘客服务预测，比较不同驻站时长的后续影响。Hickman将随机行驶与上下客过程纳入解析模型，在相应假设下把单车驻站表述为单变量凸二次规划[12]。滚动时域方法则预测若干车辆和站点的运行，求解一组控制动作，只实施当前需要执行的部分；获得新观测后重新预测和优化。Delgado等在此框架中考虑车辆容量及乘客延误，并比较单独驻站与驻站、限制上客联合控制[3]。这类方法能够显式表达服务约束和乘客成本，但其效果依赖预测关系及实时求解条件。直接反馈、滚动优化与强化学习的区别，由此体现在决策关系的获得方式：反馈规则预先给定关系，滚动优化依据模型在线求解，而强化学习通过运行经验改进价值估计和策略[1,3,12]。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 24,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 25,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 26,
+    "kind": "p",
+    "style": "Heading2",
+    "text": "2.2 强化学习的基本原理",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 27,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "强化学习研究智能体如何通过与环境交互获得奖励，并据此改进连续决策。在完全可观测且满足马尔可夫性时，决策问题可表示为马尔可夫决策过程（Markov Decision Process，MDP），记为M=S,A,P,R,γ,p0。其中，S和A分别为状态空间与动作空间，Ps′∣s,a为条件状态转移分布，Rs,a为期望即时奖励，p0为初始状态分布，γ为折扣因子。策略πa∣s规定给定状态时的动作分布；实际转移奖励记为rt，满足Ert∣st=s,at=a=Rs,a。对于奖励有界、0≤γ<1的无限时域问题，基本目标是最大化期望折扣回报[217]：",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 28,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "Jπ=Ep0,P,π​t=0∞γtrt.  2−3",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 29,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "即时奖励只评价当前转移，而一次动作还会改变之后能够到达的状态，因此需要用价值函数表示长期影响。状态价值Vπs是在状态s开始、随后始终按照策略π行动的期望回报；动作价值Qπs,a是在该状态先执行动作a，之后继续按照π行动的期望回报。二者满足贝尔曼关系[217]：",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 30,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "Qπs,a=Rs,a+γ Es′∼P⋅∣s,aVπs′,Vπs=Ea∼π⋅∣sQπs,a.  2−4",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 31,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "在有限状态和动作空间中，最优价值可以通过贝尔曼最优算子逐次计算，即TVs=maxa{Rs,a+γEVs′}。概率平均和最大值均不放大最大范数下的函数差，因而∥TV1−TV2∥∞≤γ∥V1−V2∥∞，从而得到唯一价值固定点及精确价值迭代的收敛性质。有限时域问题可以从终端价值开始逆序求解，不必依赖无限时域的严格折扣条件。若决策之间的持续时间不等，半马尔可夫决策过程还需表示状态转移与持续时间的联合分布，并按照所采用的时间尺度定义奖励与折扣。上述性质属于相应决策模型和精确算子，不能直接替代神经网络近似及联合优化的收敛分析[30,134,217]。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 32,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "环境模型未知时，可以利用采样转移构造学习目标。Q学习用当前奖励和后继状态的最大估计价值更新当前动作价值；深度Q网络（Deep Q-Network，DQN）以神经网络近似这一函数，并使用经验回放和目标网络组织训练[31]。经验回放重复利用已经获得的转移，目标网络则使回归目标的变化慢于当前网络。对离散动作，可以逐一比较动作价值；连续动作空间难以直接枚举，因此常采用参数化策略产生动作。深度确定性策略梯度（Deep Deterministic Policy Gradient，DDPG）通过价值函数对动作的导数更新确定性策略，双延迟深度确定性策略梯度（Twin Delayed Deep Deterministic Policy Gradient，TD3）进一步结合双价值估计、延迟策略更新和目标策略平滑处理近似误差[32,54]。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 33,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "策略梯度方法直接以策略参数为优化变量，通过动作概率与回报之间的关系改进策略。演员评论家方法将策略与价值估计结合，策略网络负责动作选择，价值网络为更新提供评价。信赖域策略优化（Trust Region Policy Optimization，TRPO）限制新旧策略之间的变化，近端策略优化（Proximal Policy Optimization，PPO）以截断的概率比率目标近似控制更新幅度[33,34]。这类更新约束主要处理优化稳定性；它们与针对环境模型不确定性定义的鲁棒目标不是同一概念。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 34,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "软演员评论家方法（Soft Actor-Critic，SAC）在期望回报之外加入策略熵，使策略兼顾收益和探索[28,135]。设α>0为熵温度，Hπ⋅∣s=−Ea∼πlogπa∣s，则最大熵目标为",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 35,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "Jentπ=E​t=0∞γt{rt+αHπ⋅∣st}.  2−5",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 36,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "SAC通过策略网络生成随机动作，并使用异策略经验更新价值函数。以常用的双价值网络形式为例，设当前网络为Qϕ1和Qϕ2，目标网络参数为ϕ1和ϕ2，终止标记为d，后继动作为a′∼πθ⋅∣s′。软价值回归目标及价值损失为",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 37,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "y=r+γ1−dminj=1,2Qϕjs′,a′−αlogπθa′∣s′,LQϕj=Es,a,r,s′,d∼DQϕjs,a−y2.  2−6",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 38,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "其中，D为经验回放数据，更新价值网络时将y视为固定目标。策略损失为",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 39,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "Lπθ=Es∼D, a∼πθαlogπθa∣s−minj=1,2Qϕjs,a.  2−7",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 40,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "最小化式(2-7)使策略倾向于选择软价值较高的动作，同时保留由熵温度控制的动作随机性。连续动作可通过重参数化获得梯度，目标网络通过缓慢更新跟随当前网络，熵温度也可以依据目标熵调节[135]。这里的熵项是学习目标中的探索项，不等于环境原本给出的奖励。异策略学习允许使用其他策略采集的数据，但当数据集完全固定、当前策略无法继续获得新动作反馈时，仍可能出现分布外动作的价值高估，需要另行处理数据覆盖不足。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 41,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 42,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 43,
+    "kind": "p",
+    "style": "Heading2",
+    "text": "2.3 鲁棒强化学习与环境适应",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 44,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "不确定性可以来自环境本身的随机性，也可以来自有限经验下的估计不足。前者表示即使模型参数已知，同一动作仍可能产生不同结果；后者表示控制器对模型或价值函数缺少足够知识。运行规律是否平稳则是另一问题：平稳环境仍然可以具有较大随机波动，非平稳环境则允许奖励或转移规律随时间发生改变。因此，抑制估计误差、关注不利结果和适应环境变化虽然相关，却具有不同的优化对象[50,56,57,72,73]。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 45,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "鲁棒强化学习以一个允许的模型集合表示环境不确定性，评价策略在集合内不利条件下的表现。设P为转移核集合，奖励函数固定，则鲁棒策略目标可写为maxπinfP∈PJPπ。在有限状态、有限动作和状态动作矩形性条件下，集合可以写为P=s,a​Ps,a，相应鲁棒贝尔曼更新为[30]",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 46,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "TrobVs=maxaRs,a+γinfp∈Ps,aEs′∼pVs′.  2−8",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 47,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "其计算过程是在每个状态动作对的允许集合内寻找不利后继分布，再选择这种条件下价值最高的动作。当集合非空紧、奖励有界且γ<1时，可以在最大范数下分析收缩性。矩形性使逐状态动作选择不利转移与鲁棒动态规划相对应；若多个状态的转移由同一未知参数共同决定，则不能不加说明地将它们拆成彼此独立的变化。另一方面，域随机化通常在给定参数分布下训练平均表现，而非直接求集合中的最坏表现。鲁棒对抗强化学习（Robust Adversarial Reinforcement Learning，RARL）则引入施加受限干扰的对手，与控制策略交替训练，用对抗过程近似寻找不利运行条件[8,216]。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 48,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "显式求解最坏转移可能增加计算负担，正则化提供了表达某些不利扰动的另一种途径。设扰动δ线性作用于向量x，∥⋅∥*为∥⋅∥的对偶范数，则",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 49,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "inf∥δ∥≤εδTx=−ε∥x∥*.  2−9",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 50,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "更一般地，设p∘∈U为名义后继分布，σUv=supp∈U⟨p,v⟩为集合的支持函数，则最不利期望可以表示为",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 51,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "infp∈U⟨p,V⟩=⟨p∘,V⟩−ΩUV,ΩUV=⟨p∘,V⟩+σU−V.  2−10",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 52,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "式(2-10)中的正则项由指定集合决定。Derman等据此研究奖励、转移不确定性与策略、价值正则化之间的联系，将相应鲁棒求解转换为正则化决策过程[65,66]。这一关系提供了分析依据，但不意味着任意权重衰减或神经网络惩罚都与某个实际环境不确定集合精确对应。应用时必须明确扰动对象、集合及近似条件。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 53,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "风险敏感学习直接改变对随机结果的偏好。以累计成本C为例，设所关注的不利尾部概率质量为β，且0<β≤1，条件风险价值（Conditional Value-at-Risk，CVaR）可写为[68,69]",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 54,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "CVaRβC=infη∈Rη+1βEC−η+.  2−11",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 55,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "其中，x+=maxx,0。较小的β使评价集中于概率较低但成本较高的结果。它也可解释为在0≤ζ≤1/β、Eζ=1的概率重加权约束下求最坏期望。回报分布学习、CVaR优化与价值集成应当区分：分布方法描述回报的概率分布，CVaR选择特定尾部风险目标，集成方法则利用多个价值估计及其差异。TD3采用双目标估计的较小值，REDQ采用价值集成和随机子集最小值，TQC在分位数表示上进行截断；这些设计分别改变估计或聚合方式，不自动构成对指定尾部风险的精确优化[54,55,63]。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 56,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "当环境规律发生变化时，仅按一个固定集合保守评价可能不足，还需要依据新观测判断当前环境。设隐藏模式为zt，其演化规律为Kz′∣z，在模式z下的运行转移为Pzs′∣s,a。若模式在本次状态转移完成后变化，且运行状态可观测，则模式信念btz可以按“先解释观测、再预测模式”的次序更新：",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 57,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "bt+1z′=z​Kz′∣zPzst+1∣st,atbtzz​Pzst+1∣st,atbtz.  2−12",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 58,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "该式要求分母为正，并以给定的模式转移和观测似然为前提。若奖励也提供环境信息，可以将状态与奖励的联合似然纳入更新。部分可观测决策过程说明当前状态中缺少哪些信息，历史编码则尝试从已有转移中补充这些信息。较长历史可能提高判断稳定性，也可能保留已经失效的运行信息；环境变化快于识别速度时，策略响应还会受到检测延迟影响[70,75,76]。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 59,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "元强化学习进一步从多个训练任务中学习如何适应，而不只是为一个固定任务训练策略。PEARL利用概率上下文变量区分任务推断与控制，以少量新经验更新任务表示，再由条件策略选择动作；VariBAD通过跨任务训练近似任务信念，并将任务不确定性用于决策[77,78]。面向突变环境，环境敏感上下文策略学习（Environment Sensitive Contextual Policy Learning，ESCP）通过方差最小化稳定同一环境的编码，通过关系矩阵行列式最大化避免不同环境的编码退化为相同表示，并利用历史截断循环网络减弱旧记忆干扰[215]。这些方法的共同过程是从历史生成环境表示，再根据当前观测与环境表示决策；其适应能力来自相应训练任务和推断机制。跨任务元训练、执行时更新环境判断，以及依据近期奖励调节一次训练中的优化强度，是三种不同操作，不能仅因都使用历史信息而视为同一方法。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 60,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 61,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 62,
+    "kind": "p",
+    "style": "Heading2",
+    "text": "2.4 迁移强化学习",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 63,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "迁移强化学习研究如何把源任务中获得的数据、表示、模型或策略用于目标任务。源域和目标域描述知识来源与使用对象，不必分别等同于仿真和现实。为集中讨论运行规律差异，可以先考虑状态和动作含义已经对齐的情况。设ι∈{src,tgt}分别表示源域和目标域，dιs,a为采样形成的状态动作分布，则转移记录的联合分布为",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 64,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "pιs,a,s′=dιs,aPιs′∣s,a.  2−13",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 65,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "两类记录不同，既可能是因为采集策略访问了不同的状态动作，也可能是因为给定同一状态动作后的环境转移不同。前者属于访问分布差异，后者属于动力学差异。直接混合数据并不能自动区分或消除二者。域随机化通过扩展源环境条件提高策略对变化的覆盖，域适应则利用目标域信息调整表示、学习目标或模型；这些路线对目标数据是否可用具有不同要求[8,85,87,105]。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 66,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "重要性采样通过概率比率调整样本对期望估计的贡献。若目标分布p相对于采样分布q绝对连续，即px>0的位置均有qx>0，对可积函数f有",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 67,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "Ex∼pfx=Ex∼q​pxqxfx.  2−14",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 68,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "这项恒等式既可用于不同策略的数据利用，也可用于不同环境的转移修正，但所需比率取决于估计对象。给定状态动作时，动力学修正使用Ptgts′∣s,a/Psrcs′∣s,a，而非未经分解的联合记录比率。加权不能补出采样分布从未覆盖的目标事件，大权重还可能使少量记录主导估计；截断和归一化虽可改善数值稳定性，却也会改变估计偏差[85,105]。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 69,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "条件转移比率可以通过域分类器估计。设DJs,a,s′和DMs,a分别根据联合转移和状态动作，估计样本来自目标域的概率。两个分类器采用相同类别先验且概率估计准确时，对数几率之差满足",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 70,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "logitDJs,a,s′−logitDMs,a=logPtgts′∣s,aPsrcs′∣s,a,  2−15",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 71,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "其中，logitv=logv/1−v。联合分类器的对数几率同时包含访问分布和转移规律差异，减去状态动作分类器的对数几率后，访问分布比率被抵消。DARC据此把动力学差异转化为奖励修正，降低策略利用源环境中特有而目标环境中难以出现的转移的倾向[105]。该修正进入奖励，与把比率乘在价值回归损失上的做法不同；分类准确率也不等于比率估计精度，尤其需要注意概率接近0或1时的误差。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 72,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "数据获取条件决定了另一组基本区别。纯离线学习只能使用预先采集的固定记录，不能通过新交互纠正未覆盖动作的估计。行为克隆直接拟合记录中的动作；CQL通过保守价值正则抑制分布外动作高估；IQL则在数据内动作上拟合价值，并通过优势加权行为回归提取策略[88,89]。以IQL为例，记Qϕ为目标动作价值网络，Vν为状态价值网络，e=Qϕs,a−Vνs，其状态价值损失为",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 73,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "LVν=Es,a∼Dτ−1{e<0}e2,  12<τ<1.  2−16",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 74,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "正残差获得较大权重，使状态价值倾向于数据支持的较好动作价值；动作价值再由r+γ1−dVνs′构造回归目标。策略学习采用",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 75,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "Lπ=−Es,a∼D​ws,alogπθa∣s,ws,a=min{expβAQϕs,a−Vνs,wmax}.  2−17",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 76,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "其中，βA>0控制优势权重的集中程度，wmax限制大权重。IQL的关键是价值更新和策略拟合均围绕记录中的动作进行，而不是在固定数据之外反复查询缺少支持的动作价值[89]。它仍受数据覆盖和函数近似能力影响，不能仅靠反复更新恢复缺失的动作后果。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 77,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "允许新增目标交互时，离线策略可以继续微调。RLPD在在线学习期间持续混合离线记录与新采集经验；WSRL通过目标环境中的预热采样调整价值估计，使后续微调不必持续保留离线数据[99,100]。如果目标环境难以持续提供交互，而源仿真可以低成本采样，则形成另一种数据条件：固定目标离线记录与新增源经验共同用于学习。H2O通过动力学感知的混合学习处理两类数据差异，H2O+进一步提供连接不同离线、在线学习方法的框架[9,10]。这一过程可以概括为目标数据初始化、源环境采样与混合更新；目标记录保留已有动作在目标环境中的结果，源交互提供当前策略新动作的反馈。是否进行比率修正、修正作用于哪一项损失，以及离线和在线价值目标怎样组合，均属于所采用方法的具体定义。持续回放目标记录、追加目标交互和追加源交互不能仅以“离线到在线”统称而省略数据来源。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 78,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 79,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 80,
+    "kind": "p",
+    "style": "Heading2",
+    "text": "2.5 世界模型与模型辅助学习",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 81,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "世界模型学习动作执行后的环境变化，为规划或策略训练提供预测。设模型参数为ψ，以Pψs′∣s,a预测后继状态分布，以Rψs,a预测期望奖励，则一种基本拟合目标为",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 82,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "LMψ=Es,a,r,s′∼D​−logPψs′∣s,a+λRRψs,a−r2.  2−18",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 83,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "其中，λR≥0用于平衡奖励预测项；该式表示状态与奖励建模的一种常见组合，并非所有世界模型都采用相同损失。确定性模型可以预测状态增量或条件均值，概率模型还表示随机性。高维观测下，模型也可以先把观测压缩为潜在表示，再学习潜在状态之间的转移；Ha和Schmidhuber的World Models以及PlaNet分别展示了压缩表示和潜在动力学在控制中的使用[113,116,117]。环境模型描述动作后果，策略描述如何选择动作，二者不能混为同一个网络功能。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 84,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "预测用于控制主要有在线规划和模型辅助训练两条路线。PETS用概率动力学集成表示预测不确定性，通过轨迹采样评价候选动作序列，并在获得新观测后重新规划[113]。Dreamer在学习得到的潜在模型中生成轨迹，通过这些轨迹优化价值函数和策略[115]。MBPO则从已有环境状态出发进行较短的模型展开，把生成转移加入训练数据，再使用无模型学习器更新策略[114]。三者的差别不仅在模型结构，还在预测作用于决策的哪一步：PETS在动作选择时搜索，Dreamer利用潜在想象学习行为，MBPO主要把模型作为训练样本的来源。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 85,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "模型展开将预测奖励与末端价值连接起来。以H步展开为例，不含熵项的模型价值扩展可以写为",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 86,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "VHs=EP,π​j=0H−1γjrj+γHVsH  s0=s.  2−19",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 87,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "增加H能够减少对较近末端价值估计的依赖，也会使模型误差沿预测轨迹累积。MVE通过有限展开改进价值估计，STEVE依据不确定性组合不同展开长度的结果，MBPO则通过从真实记录分支的短展开限制累计模型偏差[114,122,123]。这些方法并非认为展开越短或越长必然越好，而是处理模型预测与价值近似之间的误差权衡。已有状态上的一步误差较小，也不能单独保证在策略改变后的访问区域中保持准确。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 88,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "模型误差对价值的影响可以在固定策略和折扣条件下分析。设真实模型与近似模型的奖励绝对值均不超过Rmax，一致奖励误差不超过εR，转移核总变差误差不超过εP，其中TVP,P=12s′​Ps′−Ps′。若这些界在对两模型后继转移封闭的状态范围内成立，利用贝尔曼关系可得",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 89,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "∥Vπ−Vπ∥∞≤εR1−γ+2γRmax1−γ2εP.  2−20",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 90,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "该式说明，奖励和转移误差都可能影响长期评价，而且严格折扣接近1时，误差影响的上界增大。它基于统一误差和固定策略等条件，与有限样本上的平均预测误差不是同一量，也不构成策略、价值和模型共同更新的收敛保证[29,114]。离线模型学习还需防止策略利用数据未覆盖区域中的乐观预测。MOPO在预测奖励中加入模型不确定性惩罚，COMBO则在模型生成的数据分布上进行保守价值学习，两者分别从奖励和价值更新限制模型误差的影响[124,126]。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 91,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "源域已有环境预测模型时，可以进一步考虑保留源关系并学习目标域修正。若fsrcx与ftgtx分别表示相同输入x下的源域和目标域预测关系，一种残差表示为",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 92,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "ftgtx=fsrcx+Δψx.  2−21",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 93,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "其中，源模型先由源域数据拟合，Δψ再利用目标观测与源预测的差异训练。这里的源模型是可学习的环境预测器，不是输出动作的策略，也不是提供交互的仿真程序。潜在状态动力学残差研究将类似思路用于已有世界模型的适应[129]。残差复用的前提是源预测保留了对目标任务有用的关系；当源模型与目标环境差异较大时，修正项可能需要先抵消不合适的源预测，直接目标建模因而也是需要考虑的选择。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 94,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "残差和动力学关系还可采用稀疏函数表示。非线性动力系统稀疏辨识（Sparse Identification of Nonlinear Dynamics，SINDy）先建立候选函数库，再通过稀疏回归选择少量有效项[82]。在连续时间系统中可拟合状态导数，在离散时间应用中也可按预测对象构建回归关系。若Y为待拟合的导数或变化量，ΘX为相应输入上的候选函数矩阵，系数矩阵为Ξ，可用",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 95,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "minΞ ∥Y−ΘXΞ∥F2+λΞ∥Ξ∥1  2−22",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 96,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "表示稀疏拟合的一种形式。其中，∥⋅∥F为Frobenius范数，∥Ξ∥1为各系数绝对值之和，λΞ控制稀疏强度；序贯阈值最小二乘是另一种常用求解方式。候选库限定了能够发现的关系，噪声和数据覆盖影响系数及所选结构。把该方法用于残差时，拟合对象改为目标观测减去源预测后的差值，而不必重新表示完整动力学。稀疏形式有助于分析预测组成，但只有在数据和建模条件支持时才能赋予物理解释，不能仅凭表达式简短就认定恢复了真实因果规律。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 97,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 98,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 99,
+    "kind": "p",
+    "style": "Heading2",
+    "text": "2.6 本章小结",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 100,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "本章介绍了传统公交在途控制与强化学习的基础理论。时刻表反馈、车头时距反馈和滚动优化分别体现计划跟踪、间隔调节和预测求解；强化学习通过价值估计和策略更新利用交互经验；鲁棒评价、风险敏感学习和环境适应分别处理不利模型、随机尾部结果与运行规律变化；迁移学习依据源目标差异及数据获取条件组织训练，世界模型则为规划和策略学习提供运行预测。上述方法的区别主要在于评价对象、信息来源和求解方式，为分析不同公交控制方法提供理论依据。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 101,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 102,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 103,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 104,
+    "kind": "p",
+    "style": "Heading1",
+    "text": "第3—6章配套替换正文",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 105,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "本部分按当前稿的节标题和原文首尾定位，不依据Word重新分页后的页码。标为“替换”的文字覆盖所指原段；标为“插入”的文字接在指定位置之后。没有列出的算法定义、实验结果和图表数据保留。新增公式在本替换文件中不编章内序号，合入正文时与所在章公式顺序统一编号；公式和变量本身均已给出。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 106,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 107,
+    "kind": "p",
+    "style": "Heading2",
+    "text": "第3章：补齐运行过程与乘客评价，保留奖励分析",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 108,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "3A｜替换第3.2.1节第一段，从“本章沿用第2章的公交事件决策方式”至“所形成的经验共同用于网络更新”。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 109,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "本章保持线路、车辆供给和发车计划不变，在车辆完成必要上下客后决定是否继续驻站以及驻站时长。记第k次决策时的观测为sk，策略为πθ，附加驻站时长为uk∈0,60秒。uk=0表示不再主动延后离站，但车辆仍需满足实际驶离条件。策略不调节道路信号或车速，车辆完成班次后按既定周转安排承担后续服务。各车在获得决策机会时调用同一策略，仿真交互形成的转移进入共享经验回放；本章不预先使用目标环境的离线转移训练策略。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 110,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "运行状态包括车辆身份和服务位置，以及当前车头时距与相应运行观测。训练时的平稳性指给定线路、位置、方向和时段后，乘客到达及道路运行的生成规律保持不变，并不要求各时段需求相同，也不要求重复运行产生相同结果。当前观测不能完整表示全部交通条件时，所构造状态仅近似满足马尔可夫性。以下明确类别与连续观测的组成，并按同一车辆的相邻决策组织动作反馈。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 111,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "3B｜替换第3.2.2节第一段，从“车辆完成必要上下客后”至“不额外驻站的含义沿用第2章的定义”。随后保留同车经验组织及式(3-5)—(3-6)。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 112,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "车辆执行一次班次时，依次经历道路行驶、到站、必要上下客、附加驻站和离站。设班次j在站点i的到站和离站时刻分别为tj,iarr与tj,idep，必要服务、驶离等待和驶向下一站的时间分别为dj,isvc、dj,iexit与dj,irun，则",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 113,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "tj,idep=tj,iarr+dj,isvc+uj,i+dj,iexit,  tj,i+1arr=tj,idep+dj,irun.",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 114,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "附加驻站uj,i由策略选择，其余时间随乘客服务和道路运行产生，分别记录以避免重复计算。对同一线路方向的相邻班次，实际前向到站间隔为tj,iarr−tj−1,iarr，实际后向到站间隔为tj+1,iarr−tj,iarr。后车尚未到站时，实际后向间隔只能在运行结束后获得，策略使用的后向信息则由决策时已经保存的观测形成。车辆完成必要服务后只选择一次附加驻站，时长为0时不再增加控制性停留。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 115,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "3C｜在第3.2.3节末尾、进入第3.2.4节之前插入。原式(3-7)—(3-14)、图3-1及其曲面和局部动作分析均保留在第三章，不移至第二章。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 116,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "乘客时间目标用于检查间隔调节是否转化为服务收益。记时刻τ的系统候车人数和车内人数分别为Nwτ与Nvτ，评价终点为Thor，截至该终点已出发和已完成行程的乘客数分别为Ndep与Ncmp。评价时独立累计全系统人数与时间积分，定义",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 117,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "G=20ThorNwτ dτ+0ThorNvτ dτNdep,  Rcmp=NcmpNdep.",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 118,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "其中，G为以秒计的人均广义时间成本，候车和车内时间的权重分别为2与1；未完成行程者在评价终点前已经发生的时间同样计入，完成情况由Rcmp另行反映。乘客时间策略按同车相邻决策区间的成本增量构造训练反馈，不同车辆对应的区间可能重叠，因而不能将各车训练奖励简单相加作为全系统成本。各组在自身一致的评价时域和乘客集合下比较，不用缩放后的训练回报代替上述物理时间指标。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 119,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "3D｜在第3.4.6节“多线路试验直接比较RE-SAC与SAC”之前插入。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 120,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "多线路验证采用长沙7、102、122、311、406和705路六条双向线路的道路、站点、需求及时刻表资料，资料来源及处理见刘鹏杰的研究[25]。本组以相应多线路运行场景比较驻站策略，基础运营资料用于规定供给与交通需求，不作为预先采集的目标域策略训练样本。车辆完成必要服务后选择0至60秒附加驻站，运行评价时域为18000秒。各方法在同一需求和交通随机条件下比较，训练与测试的具体重复数及奖励目标如下。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 121,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 122,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 123,
+    "kind": "p",
+    "style": "Heading2",
+    "text": "第4章：在本章定义观测、动作、奖励和评价",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 124,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "4A｜替换第4.2.1节第一段，即“沿用第2章的事件决策记号”开始、式(4-1)之前的段落；原式(4-1)及其后的模式分析保留。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 125,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "本章研究运行规律变化时的公交驻站控制。主要公交试验采用六条双向线路的多线路事件仿真，以车辆完成必要上下客的时刻tk作为决策时刻，观测状态sk由15维运行信息构成，包括线路、站点、时段及车头时距、乘客服务等连续量。动作ak对应0至60秒附加驻站，线路、班次与车辆供给保持固定，训练经验由车辆运行交互获得。样本连接同一车辆的相邻观测，其他车辆触发的下一次系统事件不直接作为该车的后继状态。记zk为第k次决策所处的隐藏运行模式，用于概括道路速度分布、客流强度及局部交通限制；给定模式后的状态转移和期望奖励为",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 126,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "4B｜在第4.2.1节末尾、进入第4.2.2节之前插入。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 127,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "本章分别采用车头时距目标和乘客时间目标训练驻站策略。采用计划间隔奖励时，记前后车头时距为hf、hb，计划目标间隔为h0，令ef=hf−h0、eb=hb−h0，则",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 128,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "ωh=efef+eb+εh,  εh>0,rh=−ωhef−1−ωheb−0.5hf−hb −201{ef>180 或 eb>180}.",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 129,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "奖励同时评价计划偏差、两侧不均衡与大偏差，h0按该运行任务的计划间隔给定，间隔均以秒计；只有单侧邻车信息时，使用相应单侧偏差反馈。训练稳定化中的奖励缩放另由训练设置规定，不改变奖励各项的定义。乘客时间目标则将候车与车内时间按2和1加权，依据同车相邻决策区间已经发生的成本增量提供负奖励。由于不同车辆的决策区间可能重叠，乘客服务评价独立按系统时钟累计，而不是把所有车辆的训练回报相加。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 130,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "设评价终点为Thor，Nwτ与Nvτ分别为候车和车内人数，Ndep与Ncmp分别为已出发和已完成行程人数，则",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 131,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "G=20ThorNwτ dτ+0ThorNvτ dτNdep,  Rcmp=NcmpNdep.",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 132,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "G为以秒计的人均广义时间成本，未完成行程者已经发生的时间计入成本；Rcmp说明规定时域内的行程完成情况。车头时距的计划偏差与前后不均衡度单独报告，不以平均奖励代替。近期反馈用于调节训练中的保守程度；公交评价时固定策略参数，不进行部署期间的梯度更新，也不把该反馈称为通过跨任务元训练得到的交通模式后验。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 133,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "4C｜替换第4.4.1节第一段。从“主要公交试验采用依据SUMO场景校准的多线路事件仿真”至“线路、发车计划、车辆供给和驻站上限保持固定”。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 134,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "主要公交试验采用依据SUMO场景校准的多线路事件仿真，基础资料覆盖长沙7、102、122、311、406和705路六条双向线路[25]，形成十二个线路—方向组合。单回合运行18000秒，乘客按各线路相应强度的泊松过程到达。控制观测为15维，动作是0至60秒附加驻站。各组保持线路、发车计划、车辆供给和驻站上限不变，通过需求倍率与持续时间设置正常运行、单次冲击、重复冲击和持续高需求；改变需求不等于同时增加运力。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 135,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 136,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 137,
+    "kind": "p",
+    "style": "Heading2",
+    "text": "第5章：直接补入完整事件状态与成本定义",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 138,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "5A｜以以下正文整体替换第5.2.2节“状态与目标”，直至第5.2.3节标题之前。第5.2.3节的混合动作分布、式(5-6)—(5-9)和端点处理继续保留。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 139,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 140,
+    "kind": "p",
+    "style": "Heading3",
+    "text": "5.2.2 状态与目标",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 141,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "本章分别设置多线路离线学习任务和跨保真混合训练任务。多线路离线任务包含12个线路—方向组合、389个计划班次、353个物理站点和459组线路与站点对应关系。输入由15项观测与上一附加驻站动作组成，包括线路、车辆、站点位置、时段、方向，以及车头时距、候车人数、计划间隔、停站信息和道路运行量。站点位置采用47个类别，表示线路内服务次序，不等于物理站点总数。策略输出换算为0至60秒附加驻站，不直接调节车速。该任务在18000秒时域内使用车头时距塑形奖励，乘客时间依据已完成乘车段记录统计，与下述跨保真任务分别评价。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 142,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "跨保真任务以快速公交仿真为源环境、SUMO为目标环境。两环境采用相同含义的运行观测和驻站动作，但分别通过事件运行关系和微观交通过程产生后继状态。设第k个系统决策发生于tk，状态和动作为sk、ak，下一事件间隔为Δtk=tk+1−tk，转移表示为sk,ak,rk,sk+1,Δtk,dk，其中dk为终止标记。多个车辆同时完成必要服务时，按既定线路服务和车辆标识形成决策次序，依次选择各车动作，收齐后才推进仿真时钟。批内中间转移只更新已选动作及决策进度，不经过物理时间，奖励为0；最后一个转移记录时钟推进后发生的时间与系统成本。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 143,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "状态同时描述当前车辆、其他待决策车辆及本批已经选择的动作。最多设置16个车辆记录位置，每个位置包含12项局部特征、有效车辆标记及本批已选动作，共14维；另外记录当前物理时刻、待决策车辆数、当前决策序号、系统候车人数和车内人数五个全局量，形成16×14+5=229维输入。乘客人数和需求量按容量归一化，空位置由有效标记排除，超过16辆待决策车辆时终止该次运行而不是忽略多出的车辆。策略、动作价值和状态价值网络分别使用独立编码器，每个编码器对有效车辆共享局部编码参数，并汇总当前车辆、全部车辆以及已选和未选动作车辆的信息，将当前车辆特征、全部有效车辆特征的均值与最大值、已选动作车辆特征的均值及尚未决策车辆特征的均值，与全局量合并，形成256维网络表示。后续车辆可以读取本批已选动作，但不能读取动作尚未产生的乘客和交通结果。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 144,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "前向输入使用本车与前车在同站的有效服务完成时刻之差；它不同于事后按到站时刻计算的实际到站间隔。后车已上线但尚未完成本站服务时，设本车和后车在线路坐标下的位置为xjtk与xj+1tk，有效速度为vk，后向计划间隔为hkb,*，则",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 145,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "hkb=minmax2400 s,3hkb,*,xjtk−xj+1tk+maxvk,1 m/s.",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 146,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "SUMO的有效速度取最近仿真步的车道平均速度，无有效读数时取10米/秒；源仿真则按需求条件和时刻采用已有标定记录中的邻近站点速度样本，不读取测试日未来速度。该估计不逐项预测后车之后的信号、上下客与驻站，只表示其接近程度。缺少相邻车辆时，以计划间隔补齐数值并另设车辆存在标记。需求输入使用场景给定的分时平均到达率：设λod,q为时段q内OD对o,d的需求率，Lod为可选线路集合，Hℓ为线路计划间隔，则SUMO按发车频率分配需求，",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 147,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "λoℓ,q=d:ℓ∈Lod​λod,qHℓ−1m∈Lod​Hm−1.",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 148,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "源仿真对已分配到线路的分时需求求和并换算为每秒到达率。这是给定场景的需求信息，不是由近期上客人数在线辨识的客流预测。系统候车与车内人数由决策时的乘客状态汇总，必要上下客时间在服务完成后已知；完整运行时段的乘客时间只能用于事后评价。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 149,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "跨保真训练主要以乘客时间为目标。设Nwτ与Nvτ分别为时刻τ的系统候车与车内人数，相邻系统事件之间的乘客广义时间总成本和奖励为",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 150,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "Ck=2tktk+1Nwτ dτ+tktk+1Nvτ dτ,  rk=−Ck.",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 151,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "成本以实际经过时间累计，单位为加权后的乘客秒。按不重叠系统事件区间求和，与逐人累计两倍候车时间及车内时间得到同一总量。同批中间转移成本为0，不会重复计算乘客时间。任务运行至Thor=24000秒，以有限时域无折扣回报训练，非终止转移的延续因子为1，终止转移为0。只累计环境奖励时，动作价值满足Qπs,a=Er+1−dVπs′，Vπs=Ea∼πQπs,a；实际训练采用的软价值及其与离线状态价值的组合在混合学习中明确。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 152,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "评价采用全部已出发乘客为统计对象。记其人数为Ndep，其中已经完成行程的人数为Ncmp，则",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 153,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "G=20ThorNwτ dτ+0ThorNvτ dτNdep,  Rcmp=NcmpNdep.",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 154,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "G为以秒计的人均广义时间成本，未完成行程者截至评价终点已经发生的时间仍计入，不估计终点后的剩余行程。评价从运行起点累计，因而包括首次可控事件之前的乘客时间；训练回报从首个可控事件开始，两者不能直接按数值相等处理。行程完成率与车头时距指标分别报告，“完整回合”表示运行到规定终点，不表示所有乘客已经完成行程。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 155,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "5B｜在第5.4节标题之后插入以下场景与标定正文，随后接现有“实验分别对应本章的两项任务”及各实验小节。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 156,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "本章多线路场景采用刘鹏杰提供的长沙7、102、122、311、406和705路六条双向线路资料[25]，包括道路与站点、信号配时、班次时刻表、车辆参数及乘客OD需求。原研究利用2020年9月21日至25日的公交定位和刷卡记录估计相应客流，并结合道路流量建立社会交通需求。本文沿用处理后的资料，构建驻站控制、采集转移记录及标定快速公交源仿真，不把原始数据清洗与OD反推作为新增工作。基础资料来自运营观测，而用于学习的状态转移由仿真生成。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 157,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "快速仿真按道路运行时间与车辆服务事件推进，SUMO进一步模拟道路、信号及车辆间的微观交互。两环境保持线路、站点序列、时刻表、容量、乘客行程与驻站含义一致，并分别记录必要上下客、附加驻站、驶离等待和道路运行时间。一次服务结束后的附加驻站不会再次计入已经完成的必要服务；换乘乘客在上一乘车段实际结束后进入下一段服务。统一输入和动作只能保证变量含义一致，不能据此认定两环境具有相同转移分布。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 158,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "标定使用五个基础随机场景组与0.75、1.00、1.25三档需求组成的15个SUMO场景，另五个场景组用于未参与拟合的检验。场景组由客流与交通随机种子共同确定，同组可比较不同需求或控制方法。道路运行时间从车辆实际驶离当前站点后起算，到达下一站时结束；速度记录按位置和时段整理，用于源仿真的速度估计。自然运行检验不施加额外驻站，每档需求分别运行10次源仿真，并与5个未参与标定的SUMO场景比较。人均广义时间成本的相对差依次为1.21%、0.25%和−1.85%；候车、车内、车辆行程时间及完成率同时检查，各95%区间均位于本组预设容差内。该容差用于检验所设仿真，不作为一般公交运营标准。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 159,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "控制响应检验比较七种允许驻站的策略与不额外驻站基线，三档需求和十个场景组在每种环境形成240个完整回合。设Mιπ为策略π在环境ι的指标均值，π0为不额外驻站基线，sim表示快速源仿真，tgt表示SUMO目标环境，则",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 160,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "ΔMιπ=Mιπ−Mιπ0,  eMπ=ΔMsimπ−ΔMtgtπMtgtπ0.",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 161,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "时间指标用目标基线均值归一化，完成率则比较响应的百分点差。七种策略与三档需求构成的21个组合中，人均广义时间成本和完成率响应差的95%区间端点绝对值分别不超过3.90%和0.574个百分点。另以0、20和60秒固定驻站检查载客率不高于25%、无在途后随车辆和晚时段等状态组，两环境共完成54个回合；正常需求、低载客率且无后随车辆时，20秒驻站使同车相邻决策间隔分别增加19.52秒和21.80秒。上述检验支持所测平均响应较为接近，不表示所有状态动作上的转移均一致，也不替代学习策略的服务评价。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 162,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "离线学习任务采用3374285条固定SUMO转移，跨保真任务采用另一套3284718条记录，两者不合并使用。后者来自八种行为策略、十个场景组及三档需求组成的240个完整回合，保留状态、实际动作、奖励、后继状态、持续时间和终止标记。训练种子与评价场景分别统计：相同策略重复运行只增加评价样本，不增加独立训练次数。各实验分别给出训练量、控制器选择方式、执行规则和配对统计单位，仿真标定、策略开发与最终测试的回合不重复计入。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 163,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 164,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 165,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 166,
+    "kind": "p",
+    "style": "Heading2",
+    "text": "第6章：补齐公交模型输入输出、基础更新和执行规则",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 167,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "6A｜替换第6.2.1节最后一段，从“公交任务采用第2章的有限时域事件模型”至“数据使用方式与第5章的公交混合训练一致”。受控连续任务的式(6-1)—(6-2)及其数据条件保留。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 168,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "公交任务使用固定的SUMO目标域离线记录Doff，新增训练交互仅来自快速公交源仿真。线路、站点、时刻表和需求资料覆盖长沙六条双向线路，场景资料来自刘鹏杰的研究[25]。决策在车辆完成必要上下客后触发，动作是0至60秒附加驻站，策略不直接调节车速或改变班次供给。记系统事件转移为sk,ak,rk,sk+1,Δtk,dk，其中Δtk为实际事件间隔，dk为终止标记。相同物理时刻的车辆依次选择动作、收齐后推进运行；批内中间转移的时间和成本为0，跨时刻转移记录真实经过的时间。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 169,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "本章公交状态采用229维批次表示：16个车辆位置分别保留12项局部特征、有效标记和同批已选动作，另加当前物理时刻、待决策车辆数、当前决策序号、系统候车人数与车内人数五项全局信息。局部观测包含车辆服务位置、前后间隔及邻车存在信息，以及按容量归一化的需求和载客量。有效标记排除空位置，同批已选动作只表示已经作出的决策。编码器分别汇总当前车辆、全部车辆以及已选和未选动作车辆的信息，供策略、动作价值及状态价值网络使用；三类网络的编码器参数相互独立。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 170,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "前向输入由本车和前车在同站的有效服务完成时刻形成，后向输入依据同线路位置差与当前有效速度估计，速度下限为1米/秒，间隔上限为2400秒和三倍后向计划间隔的较大值。SUMO使用最近仿真步车道均速，无有效值时取10米/秒；源仿真使用对应需求与时段的标定速度样本。缺少邻车时用计划间隔补值并设置存在标记。需求率由给定分时OD及线路分配形成，系统人数由当前乘客状态汇总。这些输入均不使用动作执行后尚未产生的信息。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 171,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "设时刻τ的候车和车内人数为Nwτ与Nvτ，相邻系统事件之间的成本及主要训练奖励为",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 172,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "Ck=2tktk+1Nwτ dτ+tktk+1Nvτ dτ,  rk=−Ck.",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 173,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "公交训练采用24000秒有限时域内的无折扣成本累计，非终止转移延续因子为1，终止时为0，不直接采用式(6-2)的无限时域折扣目标。评价从运行起点累计全部已出发乘客的时间，设其人数为Ndep，已完成行程人数为Ncmp，则",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 174,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "G=2024000Nwτ dτ+024000Nvτ dτNdep,  Rcmp=NcmpNdep.",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 175,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "G为以秒计的人均广义时间成本，包含未完成行程者已经发生的时间，不推算评价终点后的剩余行程。车头时距目标的补充试验单独训练，其奖励不与乘客时间奖励混合为同一目标；对应奖励与模型损失系数在该组实验中说明。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 176,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "6B｜在第6.3.3节开头、原第一段之前插入；原模型拟合、置信度和式(6-17)—(6-22)保留。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 177,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "公交模型辅助学习以固定目标数据和新增源经验的混合训练为基础。固定目标记录先用于IQL初始化，继续训练时等量抽取目标离线样本与源转移，策略采用熵正则化更新。记Qmin−为两个目标动作价值网络中的较小估计，Vν为离线学习得到并按相应配置使用的状态价值，αent为熵温度，以下给出所采用公交H2O+基线的后继价值：",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 178,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "BSACs′=Ea′∼πθQmin−s′,a′−αentlogπθa′∣s′,Bmixs′=0.1Vνs′+0.9BSACs′,  ymix=r+1−dBmixs′.",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 179,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "0.1与0.9是两种后继价值的组合系数，不是目标和源样本的回放比例。模型辅助在相应基线更新中加入预测转移，用预测奖励和后继状态构造模型价值目标，并由样本置信度调节其损失贡献。仅混合经验的损失记为Lmix；模型样本的损失、逐样本权重与整体模型系数分别定义，不能相互替代。各对照保留自身明确的训练安排，主要归一化比较不追加SUMO训练交互。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 180,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "6C｜在第6.3.3节末尾、进入第6.3.4节之前插入，说明本章实际采用的驻站执行方式。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 181,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "公交策略同时表示不额外驻站的概率和正驻站时长的条件分布。确定性评价中，额外驻站概率不低于0.5时将连续分支的高斯潜变量取均值，经既定动作变换形成建议uθs∈0,60秒，否则建议为0。采用完成保障的配置先调整建议幅度，再依据服务条件设置最低时长。记ξ=t/24000，If与Ib分别为前车和在途后随车辆的存在标记，hf,*与hb,*为计划间隔，clip60x=min60,max0,x，则",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 182,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "uhb=clip60​Ibhb−hb,*−Ifhf−hf,*2,",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 183,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "uscaled=min{uθ,max0.125uθ,uhb},ξ<0.75, uθ>0,0.125uθ,其他情况.",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 184,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "在0.15≤ξ<0.75期间，当前存在前车、没有在途后随车辆、载客率不高于25%、车辆容量为正且仍有本车可服务的新增需求时，将实际附加驻站设置为60秒；其他情况采用uscaled。无后随车辆只表示当前观测中的车辆状态，不等于当天末班车。一次拟合的相应比较组还在上述幅度调整之前把建议额外乘以0.25，分阶段拟合与归一化主要比较不叠加该缩放。车头时距奖励的补充试验分别报告直接执行与采用完成保障的结果，不将两种执行方式的收益合并。每组比较在自身相同的执行条件下开展，执行规则不改变世界模型输出或已经训练的策略参数。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 185,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "6D｜在第6.4.3节标题之后、原第一段之前插入；与原段中重复的概括句合并，不重复报告同一结果。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 186,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "公交实验使用3284718条固定目标域离线转移，其运行场景包含六条双向线路和389个计划班次，每回合24000秒。目标数据来自八类行为策略在十个场景组与三档需求下形成的240个完整SUMO回合；新增学习仅在快速源仿真中交互。已标定源仿真在未参与拟合场景中的自然运行与驻站响应经过检验：0.75、1.00和1.25倍需求下，人均广义时间成本相对SUMO的差异分别为1.21%、0.25%和−1.85%；七种驻站策略与三档需求的控制响应比较中，该成本的归一化响应差95%区间端点绝对值不超过3.90%。这些结果用作标定条件的依据，不在本章重复计为新增控制试验。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 187,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "本章进一步只改变训练源仿真的道路速度、OD强度、信号路口延误和必要服务时间，目标SUMO路网及测试需求保持不变，检验模型辅助能否缓解源标定偏差。一次拟合、分阶段拟合和归一化置信度配置分别比较，不将不同训练批次混为同一方案。各训练种子先在共同测试日内汇总，再计算训练间差异；固定策略的多个测试日不作为新的独立初始化。公交评价固定策略参数，模型预测的新增转移也不作为新增目标环境观测。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 188,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "6E｜在第6.4.5节中“最后，采用车头时距奖励补充比较训练目标与执行方式的影响”之后插入。原两个初始化、系数和表6-16的结果保留。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 189,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "该补充比较重新以计划间隔奖励训练策略。设本次前后间隔为hf和hb，该事件对应的计划目标间隔为h0，令ef=hf−h0、eb=hb−h0，则",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 190,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "ωh=efef+eb+εh,  εh>0,rh=−ωhef−1−ωheb−0.5hf−hb −201{ef>180 或 eb>180}.",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 191,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "该奖励同时评价计划偏差、前后不均衡与大偏差，间隔以秒计，计划目标按本组任务设置给定。乘客服务评价仍采用本章定义的人均广义时间成本和行程完成率，并单独报告以秒计的物理时距偏差。上述奖励是重新训练的目标，不是在乘客时间策略完成训练后更换评价名称；平均奖励提高也不等于每一项运营指标均改善。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 192,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 193,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 194,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 195,
+    "kind": "p",
+    "style": "Heading1",
+    "text": "其余短句替换与原图表去向",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 196,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 197,
+    "kind": "p",
+    "style": "Heading2",
+    "text": "章节介绍与残留引用",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 198,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "第1.5节：将介绍第二章的整段，从“第2章介绍公交在途控制建模的基础理论与方法”至“以及仿真平台、参数标定和实验设置”，替换为：",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 199,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "第2章介绍公交控制与强化学习基础，说明传统公交在途控制、价值估计与策略优化的基本原理，讨论鲁棒评价、环境适应、迁移强化学习和世界模型的方法及适用条件。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 200,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "第三章：第3.1节“本章的平稳性假设沿用第2章的定义，约束给定条件下的转移与奖励规律”改为“本章的平稳性假设是：给定线路、位置、方向和时段后，状态转移与奖励的生成规律保持不变”。第3.2.3节末“完整策略仍需依据第2章的运行关系评价其对后续站点、车辆周转和乘客服务的影响”改为“完整策略的评价仍需考虑后续站点、车辆周转和乘客服务，不能仅依据上述局部关系判断”。第3.2.4节开头末句“风险敏感与鲁棒评价的基本定义已见第2.2.4节，以下直接讨论其与本章目标的联系”改为“以下分别从最不利动作评价和局部乘客成本出发，说明本章学习目标的依据”。第3.3.1节中“沿用第2章的记号”删除，直接从已经给出的折扣因子、熵温度和策略熵定义开始。原式(3-15)及其与RE-SAC的联系可保留，用于章内解释保守评价；不要仅因新第二章介绍同一基础而删除该章方法所需的关系。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 201,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "第四章：第4.1节“控制效果沿用前两章的评价方式，分别报告车头时距与人均广义时间成本”改为“本章分别报告计划时距偏差、前后车头时距不均衡度、人均广义时间成本和行程完成率”。第4.3节开头“本节在第3章的共享策略与集成价值评价基础上，说明CS-BAPR的训练调节及策略表示”改为“本节采用车队共享策略与价值集成，说明CS-BAPR的训练调节、动作表示及符号响应约束”。第4.4.1节“采用第3.2.3节的计划间隔奖励训练策略”改为“采用本章第4.2.1节给出的计划间隔奖励训练策略”。第4.4.5节“惩罚值取第3.2.3节负奖励的绝对值”改为“惩罚值取本章计划间隔奖励的负值”。第4.4.3节“需求变化对控制的影响可与第2章的服务时间关系对应”改为“需求变化通过上客人数和服务时间影响后续车头时距”，后面的到达强度、服务时间公式及假设保留。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 202,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "第五章：第5.2节标题下原引导段替换为：“本节分别定义多线路离线学习和跨保真混合训练的数据条件、观测状态、驻站动作与学习目标，说明同时到站车辆的决策组织及乘客成本的计算方式。两项任务的运行时域与乘客统计对象分别保留。”第5.2.1节中“沿用第2.3.1节的分布分解”删除，直接由本段已有的状态动作分布定义引出式(5-2)；从“第2.4节已经给出源仿真的运行与控制响应检验”至“不是从完全相同微观状态逐条启动得到的转移核距离”的一整段删除，相关内容已移到本章第5.4节的5B文字中，不在建模部分重复列结果。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 203,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "第5.3.1节中介绍行为克隆项的句子“沿用式(4-6)的未加权动作平方误差”改为下文，原行为克隆系数及式(5-10)保留：",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 204,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "行为克隆项采用未加权动作平方误差。记经验动作为a，当前策略通过重参数化采样得到的动作为aθs,ξ，则LBC=Es,a∼D,ξ∥aθs,ξ−a∥22。每个状态采样一次，再对小批量求平均，并以βBC计入策略损失。",
+    "equation": true,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 205,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "第5.3.3节中“第2.3.1节已说明联合转移分类器与状态动作分类器的关系，DARC及H2O据此处理两类环境的动力学差异”改为“联合转移分类器和状态动作分类器分别估计两类记录的域概率，其对数几率之差用于估计条件转移比率；DARC及H2O采用相关思想处理动力学差异”。该段事件间隔输入、式(5-18)及源权重是否启用的说明保留。其余“第2章的30回合自然运行检验和210回合驻站响应检验”“源仿真的自然运行与驻站响应已按第2章完成检验”“第2章的独立标定检验”分别改为“本章用于标定的30回合自然运行与210回合驻站响应记录”“本章已检验源仿真的自然运行与驻站响应”“本章的独立标定检验”。第5.4.3节“逐人时间累计之和与第2.2.2节的系统人数积分一致”改为“逐人时间累计之和与本章第5.2.2节定义的系统人数积分一致”。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 206,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "第六章：第6.1节“第5章已经区分状态动作分布差异、条件转移差异和采样误差，本章重点研究如何利用目标记录修正运行预测，减少不合适的源预测对动作评价的影响”改为“源目标经验的差异既可能来自访问状态与动作的频率，也可能来自条件转移规律及有限采样；本章利用目标记录修正运行预测，减少不合适的源预测对动作评价的影响”。该节末“本章公交实验延续第5章的数据条件”改为“本章公交实验使用固定目标域离线数据”。第6.2节末“以下在前文共同模型的基础上，说明两类任务的数据条件与预测对象”改为“以下分别定义受控连续任务和公交事件任务的数据条件、决策过程与预测对象”。第6.2.2节“公交模型沿用第5章的状态、动作和成本定义”改为“公交模型采用本章第6.2.1节给出的事件状态、驻站动作和乘客成本”。第6.3.3节原首句“公交MC-WM在第5章混合学习的基础上加入事件预测”改为“公交MC-WM在固定目标记录与新增源经验的混合更新中加入事件预测”。第6.4.3节“一次拟合比较采用表2-7中更新次数匹配的设置”改为“一次拟合比较使各组分别完成相同的策略网络与动作价值网络更新次数”，后续16144次、17680次及各组实际设置保留。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 207,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "以上涉及本章已有公式的引用仍可使用章内引用，但不再用“沿用前章”代替状态、奖励或执行规则的定义。与其他章节比较成果来源、说明数据复用关系的引用保留，不把相同实验写成彼此独立的新实验。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 208,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 209,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 210,
+    "kind": "p",
+    "style": "Heading2",
+    "text": "原第二章图表与实验材料的迁移",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 211,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "原第二章整体替换前，按下表保留已有图表。原图、图题、表格数值和解释一起处理，不改图中数据，不重新生成实验曲线。第3—6章需要的关键条件已由3A—6E直接补入，图表移动不作为这些文字的替代。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 212,
+    "kind": "tbl",
+    "style": null,
+    "text": "原材料新位置与处理图2-1：事件触发的公交控制闭环放在第3.2.2节运行过程说明后。图3-1及奖励曲面说明继续位于第三章的奖励定义与目标分析附近；按最终图序统一编号。表2-1：输入信息来源相关信息已经写入5A与6A。原表可移至第5.2.2节状态说明之后；不再留在第二章，也不据此认定第三、四章使用同一输入。图2-2、表2-3：线路图与源目标平台对应移至第5.4节5B的场景、平台说明之后。第三、四、六章用已补入的场景文字说明自身条件，不把平台资料重复当作新建设成果。图2-3：跨保真训练与真实运营应用的数据分工移至第5.2.1节数据条件说明后。图中真实运营部分保留“应用设想”的含义，不写成已经开展。图2-4—图2-7、表2-4：运行时间、自然运行和驻站响应检验依次放入第5.4节5B的标定与响应说明。原完整图例、容差、分组和统计单位保留；本文件新增段落取代重复的概括文字，不删除原数值证据。表2-2、表2-5、表2-6：场景、数据权限及统计对象总表不再保留跨章总表。单线路条件归第3.4.1节，多线路条件归第3.4.6节、第4.4.1节及第5章；世界模型的数据权限与评价对象归第6.2.1节、第6.4节。5A、5B、6A和6D已给出主要替换文字。表2-7：四类训练安排按列拆开。正式控制器、初步因素、更新次数匹配三列归第5.4节各对应实验；完整模型辅助列归第6.4.3—6.4.5节。原表全部配置值及额外0.25缩放、权重启停、更新次数和初始化复用说明保留，不因表格拆分省略。原附录F.4的完整批次记录继续作为补充。表2-8：理论与实验对应总表从第二章移除。一般理论已经写入新第二章，针对RE-SAC、CS-BAPR、MC-WM的成立条件与实现差别，保留在各章理论分析及对应附录，不另加一张跨章导航表。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 213,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "编号处理：新第二章公式从(2-1)顺序编号。旧第二章图表移入第三、五章后，与目的章原有图表统一重新编号；相应图表目录、正文交叉引用及章名同步更新。第5.2.2节的G公式保留为本章局部定义，不执行旧方案“删除式(5-5)、改引第二章”的操作。第三章指数奖励的实验式(3-41)与式(3-13)内容相同时，可在第三章内合并引用，但其实际实验尺度与权重必须保留。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 214,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 215,
+    "kind": "bookmarkStart",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 216,
+    "kind": "p",
+    "style": "Heading2",
+    "text": "新增参考文献",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 217,
+    "kind": "p",
+    "style": "FirstParagraph",
+    "text": "以下三项追加至原参考文献[214]之后；正式按引用次序统一编号时，正文与参考文献同步调整。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 218,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "[215] LUO F M, JIANG S, YU Y, et al. Adapt to environment sudden changes by learning a context sensitive policy[C]//Proceedings of the AAAI Conference on Artificial Intelligence. 2022, 36(7): 7637–7646. DOI:10.1609/aaai.v36i7.20730.",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 219,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "[216] PINTO L, DAVIDSON J, SUKTHANKAR R, et al. Robust adversarial reinforcement learning[C]//Proceedings of the 34th International Conference on Machine Learning. PMLR, 2017, 70: 2817–2826.",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 220,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "[217] SUTTON R S, BARTO A G. Reinforcement learning: An introduction[M]. 2nd ed. Cambridge, MA: MIT Press, 2018.",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 221,
+    "kind": "p",
+    "style": "BodyText",
+    "text": "核对说明（不并入正文）：本文件补写的是理论与文字表达，实验参数取自上传稿。车头时距奖励补充试验中，“直接执行”是否仍含时长缩放，原文没有单独交代，因此本文件未替该批实验新增这一实施约定；应以该批原始配置为准，不能根据另一组实验推定。",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 222,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 223,
+    "kind": "bookmarkEnd",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  },
+  {
+    "index": 224,
+    "kind": "sectPr",
+    "style": null,
+    "text": "",
+    "equation": false,
+    "drawing": false,
+    "section": false
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "all_pass": true,
+  "checks": {
+    "slots285": true,
+    "policy456": true,
+    "critic456": true,
+    "value456": true,
+    "actor456": true,
+    "alpha456": true,
+    "target24000": true,
+    "cql_point2": true,
+    "covariates285": true,
+    "outcomes30": true,
+    "original_schedule": true,
+    "runtime_schedule": true,
+    "unified_F": true,
+    "optimizer_hooks": true,
+    "trainer_interface": true,
+    "analysis_export": true
+  },
+  "runtime_contract": {
+    "action_transform": "ExecutionAction",
+    "real_td_coefficient": 1,
+    "world_enabled": false,
+    "ratio_correction": false,
+    "temperature_states": "current",
+    "actor_value_covariates": "fresh_current_s_a",
+    "proposal_entropy": "unchanged latent proposal entropy",
+    "optimizer_schedule": "resident actor-before-critic including IQL V and Adam state"
+  },
+  "schedule": {
+    "online_actor_update_interval": 1,
+    "online_actor_batch_mode": "latest",
+    "online_update_order": "actor-before-critic"
+  },
+  "torch": "2.5.1+cu121"
+}

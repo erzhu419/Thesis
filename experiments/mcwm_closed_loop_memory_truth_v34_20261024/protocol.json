@@ -1,0 +1,66 @@
+{
+  "name": "thesis-mcwm-memory-truth-v34-20261024",
+  "training_seeds": [
+    6202
+  ],
+  "native_external_seed": 106203,
+  "training_external_seed": 106202,
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "focus_lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "horizon_seconds": 24000,
+  "windows": {
+    "early": [
+      9300,
+      9900
+    ],
+    "tail": [
+      18300,
+      18900
+    ]
+  },
+  "proposal_hold_seconds": [
+    0.0,
+    15.0
+  ],
+  "minimum_gap_steps": 1.5,
+  "initializer_updates": 50000,
+  "target_record_budget": 285,
+  "policy_update_budget": 456,
+  "feedback_delay_seconds": 30,
+  "suffix_seconds": 300,
+  "shock_at_seconds": 9000,
+  "speed_factor": 0.65,
+  "metric_interval_seconds": 300,
+  "summary_max_bytes": 20000,
+  "scheduler_priority": "high",
+  "selection": "Before any newprefix outcomes: firstnative-stop eligibleissue per focusline/window, ledgerclock inwindow, commonF0/15-proposal actualholdgap>=1.5max(native simulationstep,actionStepLength). No model-disagreement/score/truth selection, no outcome-driven replacement. Missing slots staymissing.",
+  "models": "Reconstruct exact finalv33 scenario-specific memory/zero models from old285 facts/456updates, including57packet and final14prediction parity, then freeze. NewSUMO seed106203 differs fromold106202; source initializer/trainingseed6202 and fixedOD/XML unchanged.",
+  "prefix_and_continuation": "One full24000 nativeprefix per scenario, controlled fromstart by its frozenzero_memory actor underunchangedF. Allpairedsuffixes use the samefrozenzero_memory continuation; only selectedfirstactualaction differs. Both frozencritics score the two commonactualactions with causalissuecontext.",
+  "memory": "Existing all-vehicle300s ExecutionMemory; snapshot atissue beforecurrentapply, never backfilloldtails. Newprefix/suffixstateobservations never train.",
+  "inference": "Compare strictsign(Qhigh-Qlow) withlow300cost minus high300cost, and realizedtwo-action choice regret. Retain floating precision scale andties. Reportnext-event and300s waiting/riding/C=2W+R, realdepart/nextarrival gaps, alias/missing/unsupported separately.",
+  "scope": "Single newSUMO runseed and12developmentheldoutstates atmost, not independent policy confirmation. Critic ownactor/V long-term backup differs from the commonzero continuation300s diagnostic; signdisagreement alone doesnotidentifyBellman bugs.",
+  "compute_budget": {
+    "frozen_model_reconstruction_updates_total": 1824,
+    "old_feedback_slots_per_model": 285,
+    "old_updates_per_model": 456,
+    "new_native_prefixes": 2,
+    "prefix_native_seconds": 48000,
+    "maximum_heldout_states": 12,
+    "maximum_native_suffixes": 24,
+    "maximum_suffix_native_seconds": 7200,
+    "new_training_labels": 0,
+    "new_prefix_optimizer_updates": 0,
+    "suffix_optimizer_updates": 0
+  },
+  "stages": {
+    "days": "BothscenarioCPU2jobs high; rebuildoldmodels with exactgates before newnativeprefix; two suffixchildren actuallyparallel at eachpredeclaredfirsteligibleissue.",
+    "finalize": "Residentmatchedprefix/seed/actions/zero-training gates thencompactperline/scenario/windowbenefit-direction/regret; export<=20000bytes, alltrace/checkpointsstayserver."
+  }
+}

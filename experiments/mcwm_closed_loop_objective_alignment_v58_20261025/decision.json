@@ -1,0 +1,82 @@
+{
+  "version": "v58",
+  "status": "complete",
+  "integrity_all_pass": true,
+  "tasks": [
+    "t211626",
+    "t211627",
+    "t211629"
+  ],
+  "priority": "high",
+  "reward_contract": {
+    "raw_reward": "-(2deltaW+deltaR)",
+    "reward_scale": 0.0001,
+    "gamma": 1.0,
+    "passenger_cost_units": "global weighted passenger-seconds, not seconds per passenger"
+  },
+  "current_v55": {
+    "root_action_pairs": 8,
+    "physical300_cost_difference_supported": true,
+    "full_successor_chains": 0,
+    "first_TD_rows_without_serialized_dynamic_memory": 16,
+    "root_issue_memory_preserved": true,
+    "reward_entropy_terminal_Q_attribution_identified": false
+  },
+  "old_v38": {
+    "physical_action_pairs": 12,
+    "full_branches": 24,
+    "cached_models": 3,
+    "algebraic_model_pair_decompositions": 36,
+    "both_actual_control_states_at300_pairs": 0,
+    "individual_actual300_endpoint_branches": 5,
+    "maximum_bridge_absolute_error": 1.3533618670180658e-13,
+    "cohort_transfer_to_v55": false
+  },
+  "other_support": {
+    "v43_pairs": 6,
+    "v43_span_seconds": [
+      48,
+      52
+    ],
+    "v53_chains": 2,
+    "v53_counterfactual_alternative": false
+  },
+  "single_target_change": {
+    "name": "separate fixed300 cost-only paired response target",
+    "status": "specified_only_not_installed",
+    "formula": "DeltaG300(s;mu14)=1e-4*(J300(root_action0;mu14)-J300(root_action7.5;mu14))",
+    "cost": "J300=2*waiting_person_seconds+in_vehicle_person_seconds",
+    "continuation": "Predeclared identical frozen continuation for both root actions, actual same root and exogenous seed; mu14 for the current protocol.",
+    "scope": "Independent finite-horizon physical response readout; not a Bellman target for the long soft Q.",
+    "root_M8_unchanged": true,
+    "entropy_term": false,
+    "terminal_bootstrap": false,
+    "synthetic_terminal_or_successor": false,
+    "architecture_added_in_v58": false,
+    "old_v55_v38_truth_used_for_training": false,
+    "future_data_gate": "Any future fit uses new budgeted pairs and new heldouts; each pair consumes two feedback slots replacing ordinary slots within285, never silently reusing old diagnostic labels.",
+    "future_evaluation_gate": "Evaluate the300s response against matched physical truth and line-constant/fixed0 comparators. Assess long softQ on its own objective. Do not infer full-day control benefit from either algebra or fitted cost labels.",
+    "previous_work": "Cost-response readouts were already attempted before v58; this fixes the target interpretation and does not establish a new effective algorithm."
+  },
+  "advance_to_training": false,
+  "advance_to_native": false,
+  "advance_to_control": false,
+  "preserved_contract": {
+    "initializer_updates": 50000,
+    "feedback_slots": 285,
+    "optimizer_updates": 456,
+    "horizon_seconds": 24000,
+    "F_unchanged": true,
+    "trust_unchanged": true
+  },
+  "new_budget": {
+    "new_optimizer_updates": 0,
+    "new_native_branches": 0,
+    "new_training_labels": 0,
+    "truth_admitted": 0,
+    "checkpoints_loaded": 0,
+    "checkpoints_downloaded": 0
+  },
+  "downloaded_final_summary_bytes": 26665,
+  "conclusion": "Finite300 cost labels remain valid, but disagreement with long mixed soft Q is not by itself a Bellman error. Current model future-credit attribution remains unidentified. Old-chain additive closure does not establish causal training effects."
+}

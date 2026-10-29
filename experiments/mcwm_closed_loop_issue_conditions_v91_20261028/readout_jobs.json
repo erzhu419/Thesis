@@ -1,0 +1,42 @@
+[
+  {
+    "project": "Thesis",
+    "description": "mcwm_closed_loop_issue_conditions_v91_20261028 existing factual logs only",
+    "signature": "mcwm_closed_loop_issue_conditions_v91_20261028/readout",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_issue_conditions_v91_20261028",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u /home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_issue_conditions_v91_20261028/read_logs.py --out /home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_issue_conditions_v91_20261028/resident_summary.json",
+    "priority": "high",
+    "allowed_nodes": [
+      "node004",
+      "node001",
+      "node002",
+      "node003",
+      "node005",
+      "node006"
+    ],
+    "cpu": 1,
+    "ram_mb": 2000,
+    "vram": 0,
+    "env": {
+      "THESIS_H2O_ROOT": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/runtime/H2Oplus",
+      "THESIS_MCWM_ROOT": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/MC-WM",
+      "THESIS_SOURCE_ENV": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/source_env",
+      "THESIS_DATASET": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/dataset.h5",
+      "THESIS_SUMO_ROOT": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/assets/SUMO_ruiguang",
+      "SUMO_HOME": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/sumo_eval/assets/SUMO_ruiguang",
+      "PYTHONPATH": "/home/zhengliang01/scheduleurm_work/runtimes/h2oplus-eval-v7-sumo125-overlay-v1/site-packages",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "SDL_VIDEODRIVER": "dummy",
+      "MPLBACKEND": "Agg",
+      "LIBSUMO_AS_TRACI": "quiet"
+    },
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Read existing factual prefix/reference issue logs and pre-action roots only; no actor weights, simulator, branch, label, optimizer or fit is opened. Recompute original F support and strictly pre-issue historical service covariates.",
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "skip_launch_staging": true,
+    "no_auto_requeue": true
+  }
+]

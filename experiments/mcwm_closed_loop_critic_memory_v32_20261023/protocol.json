@@ -1,0 +1,158 @@
+{
+  "name": "thesis-mcwm-critic-memory-v32-20261023",
+  "training_seeds": [
+    6202
+  ],
+  "target_seed_offset": 100000,
+  "arms": [
+    "fresh"
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "history_seed": 72021,
+  "history_rows": 32768,
+  "history_blocks": [
+    1201,
+    1202,
+    1203,
+    1204,
+    1205,
+    1206,
+    1207,
+    1208,
+    1209,
+    1210
+  ],
+  "recent_window": 285,
+  "source_rows": 4096,
+  "model_init_updates": 0,
+  "model_refit_updates": 0,
+  "policy_updates_per_packet": 8,
+  "feedback_first_deadline": 1200,
+  "feedback_last_deadline": 18000,
+  "feedback_interval_seconds": 300,
+  "feedback_records_per_packet": 5,
+  "feedback_delay_seconds": 30,
+  "target_record_budget": 285,
+  "policy_update_budget": 456,
+  "shock_at_seconds": 9000,
+  "speed_factor": 0.65,
+  "metric_interval_seconds": 300,
+  "model_td_fraction": 0.0,
+  "selection": "All existing budget-selected285 ordinary factual rows, no extra labels or future-outcome reselection; all-line execution history is recorded at runtime.",
+  "data_rights": "Ordinary existing285 feedback slots only. No v29-v31 truth, branch traces or outcomes loaded. No new critic or shadow training in this stage.",
+  "source_budget": "Same resident4096 archived source rows; same32768 historical target rows. Their unavailable execution memory is defined aszero, not reconstructed or joined from current target states.",
+  "interpretation": "Two development replays with the same6202 factual trajectories. Passing proves causal availability and zero-init compatibility only, not learned action value or control improvement.",
+  "scheduler_priority": "high",
+  "preflight_seed": 6202,
+  "estimation_target": "Check causal runtime memory coverage on original285 factual rows and exact zero-initialized full/subset critic predictions; not a policy comparison.",
+  "runtime_contract": {
+    "action_transform": "ExecutionAction",
+    "real_td_coefficient": 1,
+    "world_enabled": false,
+    "ratio_correction": false,
+    "temperature_states": "current",
+    "actor_value_covariates": "fresh_current_s_a",
+    "proposal_entropy": "unchanged latent proposal entropy",
+    "optimizer_schedule": "resident actor-before-critic including IQL V and Adam state"
+  },
+  "diagnostic_station_id": "7X13_102X26_705X27",
+  "primary_endpoint": "Causal s/ns execution-memory coverage on all original285 admitted rows and zero-init exact native full/subset critic predictions.",
+  "secondary_endpoints": [
+    "Complete factual prefix/main update/receipt/cost/metric replay, unchanged285slots456updates andzero post-budgettraining.",
+    "Per-line/time-window physical-service coverage andcontext variation, commands excluded fromcandidateinputs.",
+    "Both ordinary days actually overlap; no suffix queries or v29-v31 training truth."
+  ],
+  "recovery": {
+    "tolerance_fraction": 0.1,
+    "early_seconds": 3000,
+    "consecutive_bins": 3,
+    "when_untriggered": "no_detectable_early_degradation; onset and confirmed remain null"
+  },
+  "stages": {
+    "days": "Both stable/shock full ordinary replays submitted together high, one CPU each, no nativeforks or repeated cumulative v28 shadows.",
+    "finalize": "Resident compact summary only; all traces and285 context rows stay on server."
+  },
+  "compute_budget": {
+    "full_native_days": 2,
+    "native_sim_seconds": 48000,
+    "ordinary_feedback_slots": 570,
+    "main_updates": 912,
+    "new_training_labels": 0,
+    "new_critic_updates": 0,
+    "native_suffix_branches": 0,
+    "truth_feedback": 0
+  },
+  "diagnostic_windows": {
+    "7X": [
+      {
+        "name": "bootstrap",
+        "start": 1200,
+        "end": 2700
+      },
+      {
+        "name": "response",
+        "start": 3000,
+        "end": 6600
+      },
+      {
+        "name": "late",
+        "start": 15000,
+        "end": 17670
+      }
+    ],
+    "102X": [
+      {
+        "name": "bootstrap",
+        "start": 3600,
+        "end": 6600
+      },
+      {
+        "name": "response",
+        "start": 7200,
+        "end": 11700
+      },
+      {
+        "name": "late",
+        "start": 15000,
+        "end": 17670
+      }
+    ],
+    "705X": [
+      {
+        "name": "bootstrap",
+        "start": 3600,
+        "end": 6600
+      },
+      {
+        "name": "response",
+        "start": 7200,
+        "end": 11700
+      },
+      {
+        "name": "late",
+        "start": 15000,
+        "end": 17670
+      }
+    ]
+  },
+  "native_algorithm": "Unchangedv25 ordinarylearner andnativeEventStream withread-only runtimecontextmetadata hooks; candidatemoduleevaluatedonly, nooptimizer oractionselectionconnection.",
+  "new_native_days": 2,
+  "reused_native_days": 0,
+  "stage": "ordinary_factual_context_precheck",
+  "reference_roots": {
+    "6202": {
+      "stable": "experiments/mcwm_closed_loop_cumulative_shadow_v28_20261023/runs/seed6202/stable",
+      "local_speed_drop": "experiments/mcwm_closed_loop_cumulative_shadow_v28_20261023/runs/seed6202/local_speed_drop"
+    }
+  },
+  "summary_max_bytes": 20000,
+  "memory_window_seconds": 300,
+  "critic_change": "One candidate only: Q_native(s,a)+w_level*m+((a+1)/2)*w_action*m, per-head zero initialization; actor/V observations, F, sampler and trust unchanged.",
+  "memory": "All ordinary native applications and already observed service phases in a300s window, aggregated by fixed network line order. Holding commands remain audit metadata and are excluded from critic memory vector.",
+  "next_gate": "Both complete main replays exact, causal s/ns available for all285 rows and variation represented on7X/102X/705X; native whole/subset zero-init predictions exact. Inspect coverage before any budget-matched cumulative shadow learning. No automatic real-control trial."
+}

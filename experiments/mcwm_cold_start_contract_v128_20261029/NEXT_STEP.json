@@ -1,0 +1,43 @@
+{
+  "status": "PROPOSED_NOT_LAUNCHED",
+  "name": "v129_fixed_cold_start_factual_comparison",
+  "purpose": "Implement the frozen v128 Newton solver and chronological runner, then run one fixed offline factual prediction comparison on resident v127 records.",
+  "source": "v127/runs/{stable,local_speed_drop}/derived_records.jsonl, original immutable v121 selection and v127 successful reproduction/common-prefix receipts. Do not download raw records.",
+  "implementation": "Use v128 model.py objective and timing.py schedule unchanged. Verify solver on small synthetic known optima and prevent future-label changes from altering earlier predictions before the single real-data run. No prior, penalty, cutpoint or feature search.",
+  "initialization": "Verify common135 rows match except scenario source identity. Fit full and h-only once each, clone states for the two suffixes, freeze a separate full-model copy. Report original single-class/n=0 support rather than treating the prior as observed evidence.",
+  "panel": "Exactly150 factual suffix predictions per scenario,300 total; initialization roots are not scored. No control actions are generated.",
+  "updates": "Each own-scene original nonempty packet strictly before an issue triggers one cumulative refit per updating model, including all-negative packets. Do not fit18000 terminal packets. Freeze each prediction before reading its label for scoring.",
+  "comparators": [
+    "frozen same full estimator",
+    "synchronously updated h-only with same intercept prior",
+    "Beta(1,1) past prevalence",
+    "zero overrun risk"
+  ],
+  "gate": "Complete declared coverage, exact shared initialization, valid causal chronology, finite converged fits, and unchanged compute accounting. Fresh Brier <= frozen, hold_only, past_prevalence and clock_zero_risk separately in both scenarios; strictly < frozen in at least one scenario AND strictly < hold_only in at least one scenario. Direct arithmetic signs without performance tolerance. Failure closes this fixed estimator; no window, prior, penalty, feature or threshold sweep.",
+  "numerical_solver": {
+    "method": "Deterministic damped Newton using the analytic gradient and Hessian, starting every fit at zero coefficients; solve the positive-definite linear system without a fallback estimator.",
+    "maximum_newton_steps_per_fit": 100,
+    "convergence": "max(abs(gradient))<=1e-8, tested before any step and after the last permitted step",
+    "line_search": "Full Newton step first; Armijo c=0.25 and step halving, at most40 candidate steps per iteration. No post-fit calibration or probability clipping.",
+    "numerical_failure": "HOLD, preserve partial prediction trace, no alternate solver/prior or restart with modified settings."
+  },
+  "limits": {
+    "new_native_seconds": 0,
+    "new_collection": 0,
+    "maximum_predictor_fits": 118,
+    "maximum_newton_steps": 11800,
+    "actor_critic_optimizer_updates": 0,
+    "world_refits": 0,
+    "new_control_actions": 0,
+    "hyperparameter_sweeps": 0
+  },
+  "compute_accounting": "Record actual initialization/refit counts, Newton steps, line-search evaluations and wall time separately. Never report predictor fitting as zero merely because no controller is trained.",
+  "output": "Keep complete predictions, causal release traces, coefficients and numerical diagnostics on server; return one compact summary at most16000 bytes.",
+  "F": "unchanged",
+  "decision_timing": "unchanged",
+  "service_constants": "unchanged",
+  "cost_gate": "Complete four days and technical checks. fresh-minus-matched-no_fresh mean<0,stable<=0,shock<0; additionally fresh-minus-same-actor-frozen<=0 in each scenario and at least one<0. Report no_fresh-minus-frozen to distinguish baseline drift. Early and tail windows are descriptive, not new gates.",
+  "decision": "On technical/numerical failure retain partial evidence and HOLD. If the fixed Brier gate fails, close this estimator without tuning or resampling. A pass only permits deciding the next research step; no automatic control experiment or independent-confirmation claim.",
+  "automatic_launch": false,
+  "old_code_and_results": "read-only"
+}

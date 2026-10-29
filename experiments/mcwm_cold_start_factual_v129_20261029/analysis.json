@@ -1,0 +1,97 @@
+{
+  "status": "FIXED_ESTIMATOR_CLOSED_WITH_NUMERICAL_HOLD_RETAINED",
+  "execution_status": "technical_hold",
+  "formal_prediction_counts": {
+    "stable": 150,
+    "local_speed_drop": 25,
+    "planned_total": 300,
+    "observed_total": 175
+  },
+  "decision": "The completed stable panel already violates necessary noninferiority conditions against frozen and h-only. Completing shock cannot make the frozen two-scene gate pass. Preserve incomplete shock and close this candidate without further fitting.",
+  "stable_brier": {
+    "fresh": 0.0450843349188111,
+    "frozen": 0.044986130914845636,
+    "hold_only": 0.04501906593212236,
+    "past_prevalence": 0.0454305698597921,
+    "clock_zero_risk": 0.04666666666666667
+  },
+  "stable_fresh_minus": {
+    "frozen": 9.820400396546441e-05,
+    "hold_only": 6.526898668873793e-05,
+    "past_prevalence": -0.00034623494098100227,
+    "clock_zero_risk": -0.0015823317478555685
+  },
+  "decomposition": {
+    "vs_frozen_weighted_label_contributions": {
+      "0": 0.00047243017644439726,
+      "1": -0.00037422617247893236
+    },
+    "vs_hold_only_weighted_n_contributions": {
+      "n=0": 5.895025792828264e-06,
+      "n>0": 5.9373960895909664e-05
+    },
+    "share_of_extra_error_vs_hold_only_on_nonzero_n": 0.9096810584643956
+  },
+  "observed_mechanism": "After the n=2 positive root at11910 is released at12000, the n coefficient moves from about-0.018 to0.969. At12198, a n=1 negative root receives fresh probability0.056889 versus h-only0.030268; the other later n>0 roots are also negative. This is descriptive sparse-feedback generalization loss, not a new causal control experiment or permission to tune a count threshold.",
+  "numerical": {
+    "failed_fit": {
+      "scene": "local_speed_drop",
+      "phase": "refit",
+      "model": "full",
+      "packet_deadline": 10500,
+      "added_sequences": [
+        6814,
+        6847,
+        6848,
+        6849,
+        6850
+      ],
+      "samples": 160,
+      "positives": 0,
+      "wall_seconds": 1.1295358361676335,
+      "converged": false,
+      "beta": [
+        -3.675876601544843,
+        0.0,
+        -0.48432515307944957
+      ],
+      "loss": 10.592875999991318,
+      "gradient_max": 2.1461521622356816e-08,
+      "newton_steps": 100,
+      "line_search_evaluations": 2456,
+      "objective_evaluations": 2457,
+      "reason": "maximum_newton_steps"
+    },
+    "threshold": 1e-08,
+    "loss_ulp": 1.7763568394002505e-15,
+    "conditional_strong_convexity_gap_bound": 6.908953655203337e-16,
+    "interpretation": "The final gradient misses the fixed tolerance. If that computed gradient is accurate, the strong-convexity objective-gap bound is below one loss ULP; this describes numerical scale, not proof of a specific line-search failure mechanism or grounds to change convergence status."
+  },
+  "compute": {
+    "formal": {
+      "predictor_fits": 69,
+      "converged_fits": 68,
+      "initialization_fits": 2,
+      "refits": 67,
+      "newton_steps": 514,
+      "line_search_evaluations": 2870,
+      "objective_evaluations": 2939,
+      "max_final_gradient": 2.1461521622356816e-08,
+      "max_newton_steps_per_fit": 100,
+      "elapsed_seconds": 1.5023960312828422
+    },
+    "synthetic_preflight": {
+      "fits": 12,
+      "converged": 12,
+      "newton_steps": 33,
+      "line_search_evaluations": 33,
+      "objective_evaluations": 45
+    },
+    "all_predictor_fits": 81,
+    "all_newton_steps": 547,
+    "summary_stdout_bytes": 6134,
+    "new_native_seconds": 0,
+    "new_control_actions": 0
+  },
+  "limits": "No complete two-scene score, no independent confirmation and no passenger-cost benefit measurement. Earlier v126 HOLD and v128 design records remain unchanged."
+}

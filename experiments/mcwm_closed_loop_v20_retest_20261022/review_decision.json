@@ -1,0 +1,186 @@
+{
+  "status": "review_complete",
+  "evidence": [
+    "service_summary.json",
+    "service_mechanism.json",
+    "ride_accounting.json",
+    "failed_attempt_audit.json"
+  ],
+  "priority": "high",
+  "comparator": "Identical native frozen continuation, executed first holding0 versus7.5 seconds; low-minus-high, cost=2*wait+ride.",
+  "scope": "Three predeclared stable seed6201 late training states; diagnostic labels never fitted.",
+  "results": [
+    {
+      "line": "7X",
+      "gain": {
+        "dt": 0.0,
+        "wait": 69.0,
+        "ride": -28.0,
+        "cost": 110.0
+      },
+      "cost_gain_by_75_second_stage": [
+        4.0,
+        -12.0,
+        66.0,
+        52.0
+      ],
+      "ride_gain_by_vehicle_group": {
+        "other_lines": -45.0,
+        "other_target_line": 3.0,
+        "controlled_trip": 14.0
+      },
+      "predicted_cost_gain": {
+        "route": -254.33333,
+        "shared": -242.91127,
+        "candidate": -254.56051
+      },
+      "selected_action_regret": {
+        "zero": 110.0,
+        "route": 110.0,
+        "shared": 110.0,
+        "candidate": 110.0
+      }
+    },
+    {
+      "line": "102X",
+      "gain": {
+        "dt": 0.0,
+        "wait": 7.0,
+        "ride": -117.0,
+        "cost": -103.0
+      },
+      "cost_gain_by_75_second_stage": [
+        -11.0,
+        13.0,
+        -134.0,
+        29.0
+      ],
+      "ride_gain_by_vehicle_group": {
+        "other_lines": -22.0,
+        "other_target_line": -63.0,
+        "controlled_trip": -32.0
+      },
+      "predicted_cost_gain": {
+        "route": -84.333333,
+        "shared": -71.676145,
+        "candidate": -81.837971
+      },
+      "selected_action_regret": {
+        "zero": 0.0,
+        "route": 0.0,
+        "shared": 0.0,
+        "candidate": 0.0
+      }
+    },
+    {
+      "line": "705X",
+      "gain": {
+        "dt": 0.0,
+        "wait": -76.0,
+        "ride": 84.0,
+        "cost": -68.0
+      },
+      "cost_gain_by_75_second_stage": [
+        -7.0,
+        -46.0,
+        -174.0,
+        159.0
+      ],
+      "ride_gain_by_vehicle_group": {
+        "other_lines": 71.0,
+        "other_target_line": -8.0,
+        "controlled_trip": 21.0
+      },
+      "predicted_cost_gain": {
+        "route": -204.33333,
+        "shared": -224.37758,
+        "candidate": -290.98062
+      },
+      "selected_action_regret": {
+        "zero": 0.0,
+        "route": 0.0,
+        "shared": 0.0,
+        "candidate": 0.0
+      }
+    }
+  ],
+  "decision": {
+    "independent_confirmation": "not_advanced",
+    "model_candidate": "Recent completed same-link runtime residual conditioned service-delay response",
+    "single_change": "Condition the action-delay propagation representation on issue-visible recent completed same-link runtime residuals against the unchanged physical baseline; first assess subsequent same-vehicle arrival/departure differences, then fixed300 wait/ride gains.",
+    "inputs": "Only histories completed before the issue. Upcoming actual service clocks, holding, queues and all v20 diagnostic truth are excluded from fitting inputs and labels.",
+    "unchanged": [
+      "initializer",
+      "285 total training labels per day",
+      "2 slots per pair",
+      "24000-second target horizon",
+      "physical baseline",
+      "trust",
+      "fixed300 clock",
+      "cost=2*wait+ride"
+    ],
+    "comparators": [
+      "existing low-dimensional shared",
+      "route constant",
+      "fixed0"
+    ],
+    "first_gate": "A fresh common-prefix native preflight must establish availability/coverage of the causal history and whether it predicts delay absorption, persistence or reversal. If that fails, do not add dimensions or expand training.",
+    "second_gate": "Only after the history gate, use budget-admitted new pairs and new held-out states to compare300-second direction, regret and stable-scene degradation by line. Additional diagnostic branch compute stays separate."
+  },
+  "missing": {
+    "selection": 0,
+    "ungated_pairs": 0,
+    "branch_outcomes": 0,
+    "endpoints": {
+      "global_next": 0,
+      "same_vehicle_next": 0,
+      "fixed300": 0
+    }
+  },
+  "unsupported": {
+    "zero": 0,
+    "route": 0,
+    "shared": 0,
+    "candidate": 0
+  },
+  "special_cases": {
+    "zero_duration": "705X global_next only; all fixed300 outcomes are complete and have300-second duration.",
+    "window_censoring": "705X last controlled-trip stop: low arrived271/departed280 seconds; high had no observed arrival by300. Preserve absent within-window service, do not impute a zero time or call it sample loss.",
+    "failed_attempt": "t211062 lacks final counters and cutoff supplementation; preserved separately and excluded from six valid outcomes."
+  },
+  "budget": {
+    "planned_new_branch_outcomes": 6,
+    "completed_new_branch_outcomes": 6,
+    "new_main_days": 0,
+    "new_training_labels": 0,
+    "new_training_pairs": 0,
+    "suffix_seconds_planned": 1800,
+    "suffix_seconds_observed": 1800,
+    "prefix_replay_seconds": 101600.0,
+    "replayed_target_labels": 1590,
+    "replayed_policy_updates": 2544,
+    "truth_labels_enter_training": 0,
+    "failed_previous_attempt": {
+      "task": "t211062",
+      "prefix_sim_seconds": 16865,
+      "suffix_sim_seconds": 300,
+      "replay_target_labels": 265,
+      "replay_policy_updates": 424,
+      "diagnostic_action_outcomes": 1,
+      "evidence": "failed_attempt_audit.json",
+      "missing": "No finalized summary, cutoff person-set sample, or final counter aggregate was saved."
+    },
+    "total_v20_attempted_branch_outcomes": 7,
+    "total_suffix_seconds": 2100,
+    "total_prefix_replay_seconds": 118465.0,
+    "total_replayed_target_labels": 1855,
+    "total_replayed_policy_updates": 2968,
+    "preflight_is_first_of_six": true
+  },
+  "limitations": [
+    "No shock-day or independent confirmation evidence in this three-state service diagnostic.",
+    "Runtime interval changes are observed; signal phase, traffic queues and other actors are not uniquely identified causes.",
+    "Ride groups are exact vehicle-group accounting; waiting benefits are not fully allocated to passengers.",
+    "Future service observations identify a mechanism candidate, not the predictive sufficiency of issue-time history."
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "name": "thesis-mcwm-response-residual-v11-20261021",
+  "scheduler_priority": "high",
+  "preflight_directory": "preflight2",
+  "training_seeds": [
+    6201,
+    6202
+  ],
+  "target_seed_offset": 77000,
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "target_lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "history_rows": 32768,
+  "source_rows": 4096,
+  "recent_window": 285,
+  "model_init_updates": 400,
+  "model_refit_updates": 10,
+  "policy_updates_per_packet": 8,
+  "feedback_first_deadline": 1200,
+  "feedback_last_deadline": 18000,
+  "feedback_interval_seconds": 300,
+  "feedback_records_per_packet": 5,
+  "feedback_delay_seconds": 30,
+  "target_record_budget": 285,
+  "policy_update_budget": 456,
+  "shock_at_seconds": 9000,
+  "speed_factor": 0.65,
+  "metric_interval_seconds": 300,
+  "model_td_fraction": 0.25,
+  "response_endpoint_seconds": 300,
+  "response_ridge": 1.0,
+  "calibration_seed_offset": 410000,
+  "calibration_first_issue_seconds": 570,
+  "calibration_heldout_first_issue_seconds": 18000,
+  "source_intervals_per_line_minimum": 5,
+  "source_intervals_per_line_limit": 64,
+  "reference_source_intervals": "../mcwm_closed_loop_diagnostic_v2_20261020/inputs/source_intervals.json",
+  "reference_inputs": "../mcwm_closed_loop_formal_20261020/inputs",
+  "trust": "Unchanged original action_model trust and eight-update rule; endpoint and 58-column candidates are passive on the same new common trajectory.",
+  "selection": "Training uses unchanged v10 windows and seed-fixed commands. After the final packet is actually processed, select the first two jointly executable diagnostic issues independently per line, with a separate seed-fixed balanced low/high order.",
+  "budget": "57 packets x5 distinct issue slots=285; at most one calibration bundle replaces an ordinary global slot per packet. Several endpoint fields do not create extra supervised issue rows. Zero-duration global slots never enter learned global fitting. Retain456policy updates and24000native seconds per day.",
+  "physical_covariate": "Reuse fixed102source physical intervals. No extra unbudgeted target physical labels. The new endpoint models use only selected controlled bundles.",
+  "endpoint_clock": "Action issue and next-stop event delivery use actual native ledger clocks. Native bridge detects an event before finishing its tick, then delivers it one tick later; detection and delivery clocks are recorded separately. Fixed300 is sampled after the exact native tick.",
+  "common_prefix": "Each low/high branch reproduces the new v11 day initializer, external seed, complete selected state, ledger, training receipts and saved predictions. No old truth is used. Every pre-fork issued control compares full raw/canonical state, proposal, executed nominal action and global passenger ledger sequentially against a resident JSONL trace; only counts and pass/fail are collected.",
+  "evaluation": "Record the actual last-update clock; all parameters freeze after the final deadline packet is processed. Heldout labels never enter fitting. The first heldout state per line/scenario in seed6201 is replayed for native low/high paired truth.",
+  "scope": "Four common-flow development days, then six heldout states and twelve exact300-native-second branches. Passive readouts do not change deployed policy or trust. Independent confirmation requires review.",
+  "preflight": {
+    "seed": 6201,
+    "scenario": "stable",
+    "model_init_updates": 2,
+    "model_refit_updates": 1,
+    "feedback_last_deadline": 3900,
+    "target_record_budget": 50,
+    "policy_update_budget": 80,
+    "calibration_heldout_first_issue_seconds": 3900,
+    "preflight_stop_seconds": 5000,
+    "target_line": "7X"
+  },
+  "independent_confirmation": {
+    "status": "not_submitted",
+    "gate": "Review complete paired-prefix equality, actual0/7.5 execution and zero suffix training; per-line post-freeze support; matched endpoint prediction and realized action-gain errors by scenario. Retain zero and missing endpoints separately. No automatic independent confirmation."
+  },
+  "paired_seed": 6201,
+  "heldout_issues_per_line": 2,
+  "paired_suffix_seconds": 300,
+  "paired_budget": {
+    "states": 6,
+    "branches": 12,
+    "native_suffix_seconds": 3600,
+    "prefix_replays": "Repeated full prefixes and replayed training issue slots are separately counted, never pooled as fresh labels.",
+    "training_suffix": 0
+  },
+  "residual_baselines": {
+    "fixed300": "Exactly300 seconds; learn wait/ride residuals only.",
+    "same_vehicle_next": "Fixed source physical nonholding plus actual holding; global issue-time waiting/onboard rates.",
+    "global_next": "Unchanged decoded base world duration plus global issue-time waiting/onboard rates; exact batch-zero override retained."
+  },
+  "preflight_attempts": {
+    "preflight": "Initial native day integration before full sequential prefix trace was added; retained separately.",
+    "preflight2": "Native day and paired gate with complete sequential prefix comparison."
+  }
+}

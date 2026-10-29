@@ -1,0 +1,40 @@
+{
+  "all_pass": true,
+  "checks": {
+    "original_F_fixed_doses": true,
+    "observer_detach_and_prefix_comparison": true,
+    "post_Adam_live_fork_original_server_environment": true,
+    "analysis_fixtures_five_pass": true,
+    "control_infra_collector_syntax": true
+  },
+  "server_test": {
+    "node": "node001",
+    "python": "3.10.14",
+    "torch": "2.5.1+cu121",
+    "visible_cuda_devices": 0,
+    "CUDA_VISIBLE_DEVICES": null,
+    "environment_changed": false,
+    "synthetic_optimizer_calls": 4,
+    "exact_fields": [
+      "parameters",
+      "Adam state",
+      "global Torch RNG",
+      "private NumPy RNG"
+    ],
+    "parent_unchanged": true
+  },
+  "synthetic_work": {
+    "total_Adam_steps": 10,
+    "failed_local_visible_GPU_attempts": 2,
+    "successful_local_CPU_only": 4,
+    "successful_original_server_environment": 4,
+    "native_seconds": 0,
+    "real_data_updates": 0
+  },
+  "review": {
+    "policy_hook": "One root proposal return changed; original EventStream applies F and binds the same executed action into pending feedback and command",
+    "io": "Observer cumulative state retained; child logs and route parser descriptors separated",
+    "offline_data": "HDF5 closed after eager in-memory read; no active HDF5 seek offset to share"
+  },
+  "remaining_native_gate": "Both high continuations must exactly reproduce resident v113 whole-day evidence; synthetic checks are not native outcome evidence"
+}

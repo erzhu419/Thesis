@@ -1,0 +1,34 @@
+[
+  {
+    "project": "Thesis",
+    "description": "mcwm_endpoint_restore_v106_20261029 saved endpoint restore and next update",
+    "signature": "mcwm_endpoint_restore_v106_20261029/seed6201",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_endpoint_restore_v106_20261029",
+    "cmd": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -B -u /home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_endpoint_restore_v106_20261029/run.py --thesis-root /home/zhengliang01/scheduleurm_work/Thesis --out /home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_endpoint_restore_v106_20261029/run/seed6201",
+    "priority": "high",
+    "require_node": "node005",
+    "cpu": 1,
+    "ram_mb": 16000,
+    "vram": 0,
+    "env": {
+      "THESIS_H2O_ROOT": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/H2Oplus",
+      "THESIS_MCWM_ROOT": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/MC-WM",
+      "THESIS_DATASET": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/dataset.h5",
+      "THESIS_SOURCE_ENV": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/source_env",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MPLBACKEND": "Agg",
+      "SDL_VIDEODRIVER": "dummy",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "resource_family": "mcwm_endpoint_restore_v106_20261029/verification",
+    "ram_resource_family": "mcwm_endpoint_restore_v106_20261029/verification",
+    "skip_launch_staging": true,
+    "no_auto_requeue": true,
+    "allow_no_resume": true,
+    "allow_no_ckpt": true,
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Only two throwaway next-update checks from the saved v105 70000 endpoint using the original CPU runtime. No environment collection, source retraining, fresh labels, or model refitting. Saved endpoint stays70000."
+  }
+]

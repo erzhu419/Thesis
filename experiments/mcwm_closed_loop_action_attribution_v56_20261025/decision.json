@@ -1,0 +1,73 @@
+{
+  "version": "v56",
+  "status": "complete",
+  "integrity_all_pass": true,
+  "tasks": {
+    "frozen_stable": "t211610",
+    "frozen_shock": "t211611",
+    "small_summary": "t211612"
+  },
+  "priority": "high",
+  "old_v55_full_predictions_exact": 8,
+  "original_feedback_slots_per_model": 285,
+  "original_updates_per_model": 456,
+  "new_training_updates": 0,
+  "new_feedback_slots": 0,
+  "new_native_branches": 0,
+  "truth_admitted": 0,
+  "checkpoints_downloaded": 0,
+  "final_summary_download_bytes": 43068,
+  "trace_both_heads_positive_states": 8,
+  "trace_base_only_positive_states": 8,
+  "direct_shared_level_effect_max_abs": 3.814697265625e-06,
+  "target_credit_endpoint_components": {
+    "stable": {
+      "future_reward": -0.6803527986192537,
+      "bootstrap_minus_q": 1.9709638752192682,
+      "total": 1.290611076600015,
+      "future_entropy": 1.9877550491785607,
+      "nonentropy_bootstrap_minus_q": -0.016791173959292527,
+      "total_without_future_entropy": -0.6971439725785458,
+      "shared_level_net": -0.5519547881969098
+    },
+    "local_speed_drop": {
+      "future_reward": -0.6625838394601333,
+      "bootstrap_minus_q": 2.0061750091525017,
+      "total": 1.3435911696923686,
+      "future_entropy": 2.0296786527912314,
+      "nonentropy_bootstrap_minus_q": -0.0235036436387297,
+      "total_without_future_entropy": -0.6860874830988628,
+      "shared_level_net": -0.5778459174778376
+    }
+  },
+  "historical_training_causality_identified": false,
+  "advance_to_shadow_training": false,
+  "advance_to_control_experiment": false,
+  "single_next_target_candidate": {
+    "name": "future-entropy-neutral bounded credit shaping",
+    "status": "specified_for_frozen_precheck_only",
+    "applied": false,
+    "beta_comparison": [
+      0,
+      1
+    ],
+    "formula": "delta_beta[k]=r[k]+B[k]-Q_target(s[k],a[k])-beta*e[k]; Y_beta[i]=Y_syncM8[i]+lambda*eta*sum_{k>i}w[i,k]*delta_beta[k]",
+    "e": "Original native SAC entropy contribution 0.9*d[k]*alpha*(-E_mu14_log_pi), with the original hurdle M8 estimator; not a newly defined executed-F density.",
+    "unchanged": [
+      "live root syncM8 mixed backup",
+      "original root entropy and temperature updates",
+      "actual271-event chain and coefficient support",
+      "eta=9/270 and physical300s weighting",
+      "F",
+      "trust",
+      "285slots456updates",
+      "initializer",
+      "24000s horizon"
+    ],
+    "lambda_zero": "Return original root target tensor without computing or blending future correction.",
+    "scientific_gate": "A lower or negative mean correction is algebraic, not success. Frozen precheck must separate common level shift from state/line-dependent target responses using actual supported chains; no artificial v55 action-specific targets. If only a common shift or no supported action distinction, do not train.",
+    "operator_limit": "Changes lambda>0 fixed point and entropy objective; not an unbiased Bellman repair or a pure passenger-cost Q.",
+    "new_training_authorized_in_v56": false,
+    "new_native_branches_authorized_in_v56": false
+  }
+}

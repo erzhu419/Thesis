@@ -1,0 +1,76 @@
+{
+  "scope": "Training-query subset retrospective application: take each line earliest collected valid root in the original window, then its first negative prediction, at most one existing query. This is not a new full native policy replay or an independent evaluation.",
+  "scenarios": {
+    "stable": {
+      "opportunities": [
+        {
+          "id": "stable/7X/heavier",
+          "started_at": 12001.0
+        },
+        {
+          "id": "stable/102X/heavier",
+          "started_at": 12003.0
+        },
+        {
+          "id": "stable/705X/heavier",
+          "started_at": 12017.0
+        }
+      ],
+      "models": {
+        "line3": {
+          "selected_root": "stable/7X/heavier",
+          "delta_cost_per_passenger": -2.4312620200278534,
+          "prediction": -0.22675757969050592
+        },
+        "service5": {
+          "selected_root": "stable/7X/heavier",
+          "delta_cost_per_passenger": -2.4312620200278534,
+          "prediction": -0.2391574675952676
+        },
+        "service_history6": {
+          "selected_root": "stable/7X/heavier",
+          "delta_cost_per_passenger": -2.4312620200278534,
+          "prediction": -0.6857540621534781
+        }
+      }
+    },
+    "local_speed_drop": {
+      "opportunities": [
+        {
+          "id": "local_speed_drop/102X/lighter",
+          "started_at": 12002.0
+        },
+        {
+          "id": "local_speed_drop/7X/heavier",
+          "started_at": 12004.0
+        },
+        {
+          "id": "local_speed_drop/705X/heavier",
+          "started_at": 12018.0
+        }
+      ],
+      "models": {
+        "line3": {
+          "selected_root": "local_speed_drop/102X/lighter",
+          "delta_cost_per_passenger": 1.2917302208369255,
+          "prediction": -0.463426842743369
+        },
+        "service5": {
+          "selected_root": "local_speed_drop/102X/lighter",
+          "delta_cost_per_passenger": 1.2917302208369255,
+          "prediction": -0.4527851603108282
+        },
+        "service_history6": {
+          "selected_root": "local_speed_drop/705X/heavier",
+          "delta_cost_per_passenger": 3.0490085549439616,
+          "prediction": -0.008943687828082691
+        }
+      }
+    }
+  },
+  "new_model_solves": 0,
+  "new_native_seconds": 0,
+  "new_labels": 0,
+  "independent_holdout": false,
+  "full_factual_opportunity_search_rerun": false
+}

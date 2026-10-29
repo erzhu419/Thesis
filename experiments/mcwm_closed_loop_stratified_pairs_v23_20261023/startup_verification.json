@@ -1,0 +1,49 @@
+{
+  "checked_at_utc": "2026-10-22T23:35:03.313252+00:00",
+  "task": {
+    "id": "t211214",
+    "scheduler_status": "running",
+    "node": "node004",
+    "priority": "high",
+    "scheduler_remote_pid": 238970,
+    "native_main_pid": 238985,
+    "cpu": 2,
+    "ram_mb": 24000,
+    "retry_count": 0
+  },
+  "native_start_verified": true,
+  "first_pair_id": "train/7X/bootstrap",
+  "first_pair_issue_seconds": 1559,
+  "remote_snapshot": {
+    "remote_observed_wall": 1792712090.8729885,
+    "main_pid_present": true,
+    "main_latest_progress": [
+      "SCHEDULEURM_PROGRESS {\"phase\": \"acquire_training_pair\", \"current\": 1559.0, \"total\": 24000, \"unit\": \"sim_seconds\", \"elapsed_seconds\": 99.18932874966413, \"pair_id\": \"train/7X/bootstrap\"}",
+      "SCHEDULEURM_PROGRESS {\"phase\": \"acquire_training_pair\", \"pair_id\": \"train/7X/bootstrap\", \"branch\": \"low\", \"current\": 1559.0, \"unit\": \"sim_seconds\", \"child_pid\": 239954}",
+      "SCHEDULEURM_PROGRESS {\"phase\": \"acquire_training_pair\", \"pair_id\": \"train/7X/bootstrap\", \"branch\": \"high\", \"current\": 1559.0, \"unit\": \"sim_seconds\", \"child_pid\": 239955}"
+    ],
+    "children": [
+      {
+        "arm": "low",
+        "pid": 239954,
+        "process_present": true,
+        "latest_progress": "SCHEDULEURM_PROGRESS {\"phase\": \"initial_world_fit\", \"current\": 0.0, \"total\": 24000, \"unit\": \"sim_seconds\", \"elapsed_seconds\": 2.0640663597732782}"
+      },
+      {
+        "arm": "high",
+        "pid": 239955,
+        "process_present": true,
+        "latest_progress": "SCHEDULEURM_PROGRESS {\"phase\": \"initial_world_fit\", \"current\": 0.0, \"total\": 24000, \"unit\": \"sim_seconds\", \"elapsed_seconds\": 2.424332370981574}"
+      }
+    ],
+    "first_pair_receipt": null,
+    "main_failure": false
+  },
+  "same_pair_child_processes_observed_together": true,
+  "completed_native_overlap_verified": false,
+  "parent_clock_unchanged_verified": false,
+  "native_overlap_status": "pending_first_pair_completion",
+  "continuation_local_pid": 5560,
+  "actions_taken": "read_only_startup_check; no submissions, restarts or scheduler intervention",
+  "pulled": "compact progress and process snapshot only; no trace/csv/checkpoint"
+}

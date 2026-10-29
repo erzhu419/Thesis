@@ -1,0 +1,36 @@
+{
+  "name": "thesis-mcwm-frozen-service-segments-v74-20261027",
+  "priority": "high",
+  "native_runs": 0,
+  "training_updates": 0,
+  "model_changes": 0,
+  "new_counterfactual_queries": 0,
+  "seeds": [
+    6201,
+    6203
+  ],
+  "scenario": "stable",
+  "source_model": "frozen_v73",
+  "reference": "v70 CQL no_fresh exact resident paths",
+  "baseline_sources": {
+    "6201": "v73 full no_fresh regression",
+    "6203": "v71 no_fresh original diagonal parent+high suffix"
+  },
+  "boundary_seconds": 18300,
+  "horizon_seconds": 24000,
+  "service_inventory_detail_baseline6203_from": 16200,
+  "main_pairing": "same vehicle,line,ordered station visit; adjacent legal arrival/departure physical intervals",
+  "membership_clock": "Only observed_at==clock_seconds inventories are scored as physical endpoints; missing remains missing.",
+  "reports": [
+    "full interval duration difference",
+    "physical tail overlap difference",
+    "same-service observed onboard set changes",
+    "executed holding command versus physical interval timing",
+    "full-with-compatible-queue and stranded event sums"
+  ],
+  "export_max_bytes": 48000,
+  "raw_logs_csv_weights_downloaded": false,
+  "no_automatic_method_change_or_native_validation": true,
+  "old_v73_gate_status": "closed; stable tails failed",
+  "new_validation": "Draft only; independent research protocol, does not reopen old gate"
+}

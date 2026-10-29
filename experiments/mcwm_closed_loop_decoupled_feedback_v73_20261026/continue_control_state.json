@@ -1,0 +1,97 @@
+{
+  "last_poll_started_unix": 1793032875.9864004,
+  "last_poll_finished_unix": 1793033003.096917,
+  "last_poll_elapsed_seconds": 129.9722980010556,
+  "completed": 5,
+  "failures": [],
+  "pending": [],
+  "all_terminal": true,
+  "stage": "development_candidate_closed",
+  "done": true,
+  "goal_achieved": false,
+  "candidate_passed": false,
+  "summary_outputs": [
+    "results/development.json",
+    "results/policy_drift.json",
+    "results/recency.json",
+    "results/reference_summary.json"
+  ],
+  "preflight": {
+    "all_pass": true,
+    "failed_checks": [],
+    "common_prefix": {
+      "all_pass": true,
+      "checks": {
+        "same_rows": true,
+        "same_clock": true,
+        "same_initial_updates": true,
+        "full_pre_update_prefix_exact": true
+      },
+      "rows_compared": 45,
+      "cut_clock": 1205.0,
+      "difference": null
+    }
+  },
+  "regression": {
+    "status": "complete",
+    "all_pass": true,
+    "integrity": {
+      "all_pass": true,
+      "checked_conditions": 90,
+      "failed_checks": []
+    },
+    "seed": 6201,
+    "scenario": "stable",
+    "exact": {
+      "ledger": true,
+      "metrics": true,
+      "full_trace": true,
+      "covariate_receipts": true,
+      "initializer": true,
+      "F_and_runtime": true,
+      "optimizer_schedule": true,
+      "target_path": true,
+      "logged_update_values": true,
+      "main_stream_CQL_audit": true,
+      "policy_config": true
+    },
+    "full_trace": {
+      "all_pass": true,
+      "compared_rows": 13689,
+      "differing_rows": 0,
+      "first_difference_index": null,
+      "scope": "complete issued trace; no cutoff"
+    },
+    "update_log": {
+      "all_pass": true,
+      "compared_rows": 114,
+      "expected_rows": 114,
+      "schedule_exact": true,
+      "differing_rows": 0,
+      "first_differences": [],
+      "ignored_profiler_fields": [
+        "regularizer_wall_seconds"
+      ],
+      "scope": "First and eighth update of every57packets; every logged non-profiler field remains exact."
+    },
+    "RNG_scope": {
+      "common_logged_state_fields": [],
+      "CQL_main_rng_preserved": true,
+      "full_rng_states_logged": false
+    },
+    "no_new_baseline_cost_cell": true
+  },
+  "decision": {
+    "scientific_gate_pass": false,
+    "eligible_for_root_review": false,
+    "advance_to_confirmation": false,
+    "automatic_confirmation": false,
+    "ordinary_dripping_goal_achieved": false,
+    "reason": "candidate_closed_cost_gate_failed"
+  },
+  "attention": null,
+  "requires_agent_review": true,
+  "campaign_done": true,
+  "next_poll_seconds": 0,
+  "updated_unix": 1793033003.0971658
+}

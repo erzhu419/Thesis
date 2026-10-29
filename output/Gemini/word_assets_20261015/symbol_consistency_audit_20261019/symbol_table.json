@@ -1,0 +1,798 @@
+[
+  {
+    "row": 1,
+    "symbol": "$\\mathcal{L,l}$",
+    "definition": "方向性线路服务集合及其元素",
+    "math_ids": [
+      3
+    ]
+  },
+  {
+    "row": 2,
+    "symbol": "$b,j_{tr},i$",
+    "definition": "车辆、班次和线路内站点位置索引",
+    "math_ids": [
+      4
+    ]
+  },
+  {
+    "row": 3,
+    "symbol": "$t,t_{k},\\Delta t_{k}$",
+    "definition": "物理时刻、第$k$次决策时刻和相邻决策持续时间",
+    "math_ids": [
+      5
+    ]
+  },
+  {
+    "row": 4,
+    "symbol": "$T_{hor},K_{evt}$",
+    "definition": "控制时域终点和回合内事件数",
+    "math_ids": [
+      7
+    ]
+  },
+  {
+    "row": 5,
+    "symbol": "$t_{j_{tr}}^{plan},t_{j_{tr}}^{act}$",
+    "definition": "班次计划与实际发车时刻",
+    "math_ids": [
+      8
+    ]
+  },
+  {
+    "row": 6,
+    "symbol": "$h^{f},h^{b}$；$h_{f},h_{b},{\\widehat{h}}_{b}$",
+    "definition": "前向与后向车头时距",
+    "math_ids": [
+      9,
+      10
+    ]
+  },
+  {
+    "row": 7,
+    "symbol": "$h^{f,*},h^{b,*}$；$h_{f}^{*},h_{b}^{*}$",
+    "definition": "前向与后向计划间隔",
+    "math_ids": [
+      11,
+      12
+    ]
+  },
+  {
+    "row": 8,
+    "symbol": "$u,u_{\\max}$",
+    "definition": "以秒计的驻站时长及其上限",
+    "math_ids": [
+      13
+    ]
+  },
+  {
+    "row": 9,
+    "symbol": "$a,a^{n}$",
+    "definition": "决策模型动作变量及归一化附加驻站动作编码",
+    "math_ids": [
+      14
+    ]
+  },
+  {
+    "row": 10,
+    "symbol": "$d^{svc},d^{run},d^{exit}$",
+    "definition": "必要上下客、道路行驶及驶离等待的持续时间",
+    "math_ids": [
+      15
+    ]
+  },
+  {
+    "row": 11,
+    "symbol": "$\\lambda_{i},\\eta_{i}^{board}$",
+    "definition": "站点客流到达率及单位乘客上车服务时间",
+    "math_ids": [
+      16
+    ]
+  },
+  {
+    "row": 12,
+    "symbol": "$N_{w}(t),N_{v}(t)$",
+    "definition": "时刻$t$的候车与车内人数",
+    "math_ids": [
+      17
+    ]
+  },
+  {
+    "row": 13,
+    "symbol": "$C_{veh},n_{on}$",
+    "definition": "车辆容量与当前载客人数",
+    "math_ids": [
+      19
+    ]
+  },
+  {
+    "row": 14,
+    "symbol": "$W,T^{ride},T^{trip}$",
+    "definition": "候车时间、车内时间与总出行时间；单位随对应统计协议给出",
+    "math_ids": [
+      20
+    ]
+  },
+  {
+    "row": 15,
+    "symbol": "$C_{k},G$",
+    "definition": "事件区间乘客成本和人均广义时间成本",
+    "math_ids": [
+      21
+    ]
+  },
+  {
+    "row": 16,
+    "symbol": "$N_{dep},N_{cmp}$",
+    "definition": "已出发及已完成行程的乘客数",
+    "math_ids": [
+      22
+    ]
+  },
+  {
+    "row": 17,
+    "symbol": "${CV}_{H}$",
+    "definition": "车头时距的变异系数（Coefficient of Variation，CV）",
+    "math_ids": [
+      23
+    ]
+  },
+  {
+    "row": 18,
+    "symbol": "$\\mathcal{S,A,}s,a$",
+    "definition": "状态空间、动作空间及其元素",
+    "math_ids": [
+      24
+    ]
+  },
+  {
+    "row": 19,
+    "symbol": "$P,R,r$",
+    "definition": "环境转移核、期望即时奖励函数与实际转移奖励",
+    "math_ids": [
+      25
+    ]
+  },
+  {
+    "row": 20,
+    "symbol": "$\\iota$",
+    "definition": "源仿真或目标环境的索引，取$sim$或$tgt$",
+    "math_ids": [
+      26
+    ]
+  },
+  {
+    "row": 21,
+    "symbol": "$\\pi_{\\theta},Q_{\\phi},V_{\\nu}$",
+    "definition": "参数化策略、动作价值函数与状态价值函数",
+    "math_ids": [
+      29
+    ]
+  },
+  {
+    "row": 22,
+    "symbol": "$Q_{\\min},Q_{\\min}^{-}$",
+    "definition": "当前两个动作价值网络与两个目标动作价值网络各自的较小估计",
+    "math_ids": [
+      30
+    ]
+  },
+  {
+    "row": 23,
+    "symbol": "$\\xi_{\\pi}$",
+    "definition": "驻站时长大于0的连续分支重参数化所用的标准高斯噪声",
+    "math_ids": [
+      31
+    ]
+  },
+  {
+    "row": 24,
+    "symbol": "$\\varepsilon_{fp}$",
+    "definition": "混合动作数值变换采用的浮点机器精度",
+    "math_ids": [
+      32
+    ]
+  },
+  {
+    "row": 25,
+    "symbol": "$\\theta,\\phi,\\nu$",
+    "definition": "策略、动作价值网络和状态价值网络的参数",
+    "math_ids": [
+      33
+    ]
+  },
+  {
+    "row": 26,
+    "symbol": "$\\gamma,\\Gamma_{k},d_{k}^{term}$",
+    "definition": "折扣因子、事件延续因子和终止标记",
+    "math_ids": [
+      34
+    ]
+  },
+  {
+    "row": 27,
+    "symbol": "$\\alpha_{ent}$；$\\alpha$",
+    "definition": "熵温度",
+    "math_ids": [
+      35,
+      36
+    ]
+  },
+  {
+    "row": 28,
+    "symbol": "$p^{\\circ},\\mathcal{U}_{s,a}$",
+    "definition": "固定状态动作对上的名义后继分布与允许的分布集合",
+    "math_ids": [
+      37
+    ]
+  },
+  {
+    "row": 29,
+    "symbol": "$\\sigma_{\\mathcal{U}}(f),\\Omega_{\\mathcal{U}}(V)$",
+    "definition": "分布集合的支持函数与其对应的价值正则项",
+    "math_ids": [
+      38
+    ]
+  },
+  {
+    "row": 30,
+    "symbol": "$W_{1},d_{\\mathcal{S}},L_{V},\\varepsilon_{ipm}$",
+    "definition": "一阶Wasserstein距离、状态距离、状态价值的Lipschitz上界与分布距离半径",
+    "math_ids": [
+      39
+    ]
+  },
+  {
+    "row": 31,
+    "symbol": "$C_{traj},\\mathbb{P}_{0}$",
+    "definition": "轨迹累计成本与固定策略下的名义轨迹分布",
+    "math_ids": [
+      40
+    ]
+  },
+  {
+    "row": 32,
+    "symbol": "$\\beta_{tail},\\eta_{risk},\\zeta_{risk},\\mathcal{Z}_{\\beta_{tail}}$",
+    "definition": "条件风险价值（Conditional Value-at-Risk，CVaR）尾部概率质量、成本阈值、轨迹重加权密度及其风险包络",
+    "math_ids": [
+      41
+    ]
+  },
+  {
+    "row": 33,
+    "symbol": "$\\mathcal{D}_{off},\\mathcal{D}_{sim}$",
+    "definition": "固定目标离线数据与源仿真交互数据",
+    "math_ids": [
+      42
+    ]
+  },
+  {
+    "row": 34,
+    "symbol": "$z^{emb},e_{i},E_{i}$",
+    "definition": "拼接后的网络输入、类别编码映射与嵌入矩阵",
+    "math_ids": [
+      43
+    ]
+  },
+  {
+    "row": 35,
+    "symbol": "$\\overline{Q},\\sigma_{Q},\\Gamma_{epi}$",
+    "definition": "在线价值集成均值、在线集成标准差与目标集成方差",
+    "math_ids": [
+      44
+    ]
+  },
+  {
+    "row": 36,
+    "symbol": "$\\beta_{BC},\\beta_{ood},\\beta_{lcb}$；$\\beta_{bc}$",
+    "definition": "行为克隆（Behavior Cloning，BC）、价值网络分歧惩罚及策略保守评价项的系数",
+    "math_ids": [
+      45,
+      46
+    ]
+  },
+  {
+    "row": 37,
+    "symbol": "$\\mathcal{L}_{BC},\\widetilde{a}$；$\\mathcal{L}_{bc}$",
+    "definition": "未加权的动作平方误差及其中当前策略的采样动作",
+    "math_ids": [
+      47,
+      48
+    ]
+  },
+  {
+    "row": 38,
+    "symbol": "$z,\\rho(z),G_{z}$",
+    "definition": "隐含运行模式、模式置信（模式后验概率）及模式条件执行增益",
+    "math_ids": [
+      49
+    ]
+  },
+  {
+    "row": 39,
+    "symbol": "$\\mathsf{H}_{k},K_{z}(z' \\mid z)$",
+    "definition": "模式推断使用的状态动作历史与隐模式转移概率",
+    "math_ids": [
+      50
+    ]
+  },
+  {
+    "row": 40,
+    "symbol": "$\\Omega_{prior},O_{belief,n}$",
+    "definition": "初始旧模式对新模式的概率比，以及第$n$步新模式对旧模式的概率比",
+    "math_ids": [
+      51
+    ]
+  },
+  {
+    "row": 41,
+    "symbol": "$\\mathcal{T,B,}V_{Q}$",
+    "definition": "贝尔曼更新映射、其统一表示和动作价值聚合",
+    "math_ids": [
+      53
+    ]
+  },
+  {
+    "row": 42,
+    "symbol": "$c_{pen}，c_{j}^{\\pi},\\mathcal{V}_{\\pi}Q$",
+    "definition": "固定惩罚、固定策略下第$j$个成员的有效惩罚与含熵动作价值平均",
+    "math_ids": [
+      54
+    ]
+  },
+  {
+    "row": 43,
+    "symbol": "${\\widehat{M}}_{R},{\\widehat{M}}_{D}$",
+    "definition": "残差世界模型与直接目标世界模型",
+    "math_ids": [
+      56
+    ]
+  },
+  {
+    "row": 44,
+    "symbol": "$\\mathcal{R}_{m},m^{*}$",
+    "definition": "模型$m$的留出预测误差及选定模型类别",
+    "math_ids": [
+      57
+    ]
+  },
+  {
+    "row": 45,
+    "symbol": "${\\widehat{\\Delta}}_{s},{\\widehat{\\Delta}}_{r},\\psi_{s},\\psi_{r}$",
+    "definition": "状态、奖励残差预测及两类神经修正参数",
+    "math_ids": [
+      59
+    ]
+  },
+  {
+    "row": 46,
+    "symbol": "$\\tau_{e},c_{i},Q^{\\Delta},w_{i},e_{mdl,i}$",
+    "definition": "误差尺度、局部预测可靠性评分、对数置信评价、模型样本权重和对应预测误差",
+    "math_ids": [
+      60
+    ]
+  },
+  {
+    "row": 47,
+    "symbol": "$\\gamma_{\\Delta}$",
+    "definition": "对数置信度递推的折扣系数，区别于策略回报的折扣因子",
+    "math_ids": [
+      61
+    ]
+  },
+  {
+    "row": 48,
+    "symbol": "$c_{const}$",
+    "definition": "置信尺度分析中假设恒定的局部预测可靠性评分",
+    "math_ids": [
+      62
+    ]
+  },
+  {
+    "row": 49,
+    "symbol": "${\\widetilde{Q}}^{\\Delta},{\\widetilde{y}}^{\\Delta},\\widetilde{w}$",
+    "definition": "公交归一化对数置信评价、相应递推目标及模型样本权重",
+    "math_ids": [
+      63
+    ]
+  },
+  {
+    "row": 50,
+    "symbol": "$T_{\\Delta}^{\\pi},{\\widetilde{T}}_{\\Delta}^{\\pi},K_{\\Delta}^{\\pi}$",
+    "definition": "固定策略下原置信算子、归一化置信算子及含终止条件的传播核",
+    "math_ids": [
+      64
+    ]
+  },
+  {
+    "row": 51,
+    "symbol": "$c_{\\min}^{\\Delta}$",
+    "definition": "置信尺度证明中局部置信的正下界",
+    "math_ids": [
+      65
+    ]
+  },
+  {
+    "row": 52,
+    "symbol": "$y_{i}^{Q,sim},y_{i}^{Q,mdl},y_{i}^{Q,corr}$",
+    "definition": "源转移、目标模型预测及源目标修正对应的标量贝尔曼目标",
+    "math_ids": [
+      66
+    ]
+  },
+  {
+    "row": 53,
+    "symbol": "$\\varepsilon_{P},\\varepsilon_{r},\\varepsilon_{V}$",
+    "definition": "转移核、奖励和价值误差的相应界",
+    "math_ids": [
+      67
+    ]
+  },
+  {
+    "row": 54,
+    "symbol": "$\\mathcal{l}_{Hub},\\tau_{IQL}$",
+    "definition": "Huber损失与隐式Q学习（Implicit Q-Learning，IQL）的期望分位水平",
+    "math_ids": [
+      68
+    ]
+  },
+  {
+    "row": 55,
+    "symbol": "$\\parallel \\cdot \\parallel_{\\infty}, \\parallel \\cdot \\parallel_{2}$",
+    "definition": "最大范数与欧氏范数",
+    "math_ids": [
+      69
+    ]
+  },
+  {
+    "row": 56,
+    "symbol": "$r_{k}$，$R_{\\iota}$",
+    "definition": "一次实际奖励与环境条件下的期望单步奖励；二者通过条件期望联系",
+    "math_ids": [
+      70,
+      71
+    ]
+  },
+  {
+    "row": 57,
+    "symbol": "$\\tau$，$n_{int}$，$N_{on}$，$n_{val}$",
+    "definition": "乘客时间积分中的物理时刻、累计在线交互次数及总在线交互预算；验证时点序号",
+    "math_ids": [
+      72,
+      73,
+      74,
+      75
+    ]
+  },
+  {
+    "row": 58,
+    "symbol": "$c_{fb}$，$c_{symfb}$",
+    "definition": "置信价值反馈与符号反馈反例中的距离因子，不表示决策序号",
+    "math_ids": [
+      76,
+      77
+    ]
+  },
+  {
+    "row": 59,
+    "symbol": "$f_{sh}$，$f_{c_{coef}}$，$\\varepsilon_{sh}$",
+    "definition": "共享真实映射、拟合符号模型及二者的导数误差上界",
+    "math_ids": [
+      78,
+      79,
+      80
+    ]
+  },
+  {
+    "row": 60,
+    "symbol": "$\\mathbf{1}\\{ \\cdot \\},clip, \\odot$",
+    "definition": "条件指示函数、区间截断和逐元素乘积",
+    "math_ids": [
+      81
+    ]
+  },
+  {
+    "row": 61,
+    "symbol": "$\\phi_{j},\\phi_{j}^{-},Q_{\\phi_{j}^{-}}$",
+    "definition": "第$j$个当前动作价值网络参数、目标网络参数及相应目标动作价值函数",
+    "math_ids": [
+      82
+    ]
+  },
+  {
+    "row": 62,
+    "symbol": "$b_{env},m_{dem},H_{roll}$",
+    "definition": "基础随机场景组索引、需求倍率及模型展开的事件步数",
+    "math_ids": [
+      84
+    ]
+  },
+  {
+    "row": 63,
+    "symbol": "$m_{cat},m_{batch},m_{act}$",
+    "definition": "类别变量个数、同一物理时刻待收集动作数及同一状态候选动作数",
+    "math_ids": [
+      85
+    ]
+  },
+  {
+    "row": 64,
+    "symbol": "$c_{cat,j},n_{cat},p_{hid},d_{emb}$",
+    "definition": "类别变量取值、类别取值数、隐藏层宽度及嵌入维数",
+    "math_ids": [
+      86
+    ]
+  },
+  {
+    "row": 65,
+    "symbol": "$N_{off},N_{buf},N_{buf,b}$",
+    "definition": "固定目标离线转移数、共享经验回放中的转移总数及车辆$b$贡献的转移数",
+    "math_ids": [
+      87
+    ]
+  },
+  {
+    "row": 66,
+    "symbol": "$H_{obs},h_{obs},P_{obs,1},P_{obs,2}$",
+    "definition": "观测历史随机变量、已获得的一组历史观测及两个模式假设下的条件观测核",
+    "math_ids": [
+      89
+    ]
+  },
+  {
+    "row": 67,
+    "symbol": "$\\delta_{dual},\\rho_{dual},f_{dual}$",
+    "definition": "线性特征扰动、该扰动的范数约束半径及特征向量",
+    "math_ids": [
+      90
+    ]
+  },
+  {
+    "row": 68,
+    "symbol": "$\\delta_{h},\\delta_{\\det},\\delta_{post}$",
+    "definition": "前后车头时距之差、模式检测时延及后验概率容差",
+    "math_ids": [
+      91
+    ]
+  },
+  {
+    "row": 69,
+    "symbol": "$\\mu_{\\det},\\mu_{\\det,\\theta},f_{ref}$",
+    "definition": "确定性动作映射、其参数化形式及参考控制映射",
+    "math_ids": [
+      92
+    ]
+  },
+  {
+    "row": 70,
+    "symbol": "$\\varepsilon_{val},\\varepsilon_{der},L_{D\\mu},L_{Df}$",
+    "definition": "函数值误差、导数误差及两种映射导数的Lipschitz上界",
+    "math_ids": [
+      93
+    ]
+  },
+  {
+    "row": 71,
+    "symbol": "$\\varepsilon_{dist},\\varepsilon_{iter},\\varepsilon_{Q,act},\\varepsilon_{path}$",
+    "definition": "最大范数距离、逐次逼近误差的统一上界、动作相关剩余误差上界及误差路径导数界的常数项",
+    "math_ids": [
+      94
+    ]
+  },
+  {
+    "row": 72,
+    "symbol": "$X_{eval},X_{in},X_{out}$",
+    "definition": "误差分析域及微分分析的输入、输出赋范空间",
+    "math_ids": [
+      95
+    ]
+  },
+  {
+    "row": 73,
+    "symbol": "$f_{c_{coef}},c_{coef},c_{coef,i}$",
+    "definition": "拟合符号模型、其系数向量及第i个系数分量",
+    "math_ids": [
+      96
+    ]
+  },
+  {
+    "row": 74,
+    "symbol": "$u_{exec},v_{nom},\\mu_{ref},\\pi_{beh}$",
+    "definition": "执行器实际信号、名义信号、确定性参考策略及两个模式假设下共用且仅使用已有信息的行为规则",
+    "math_ids": [
+      97
+    ]
+  },
+  {
+    "row": 75,
+    "symbol": "$V^{O,path},Q^{O,path},\\Delta J,\\Delta V$",
+    "definition": "固定外生序列下的参照路径价值及动作价值、路径回报差及期望价值差",
+    "math_ids": [
+      98
+    ]
+  },
+  {
+    "row": 76,
+    "symbol": "$\\kappa_{fix},L_{Q,act},\\mu_{fb},C_{pen}$",
+    "definition": "固定标量惩罚、动作价值敏感性、非负反馈斜率及固定惩罚截距",
+    "math_ids": [
+      99
+    ]
+  },
+  {
+    "row": 77,
+    "symbol": "$\\mathcal{A}_{learn},\\mathcal{A}_{off},\\mathcal{A}_{ft},\\mathcal{A}_{cf}$",
+    "definition": "学习映射统称及仅用固定离线数据、追加目标交互、追加源交互条件下的对应学习映射",
+    "math_ids": [
+      100
+    ]
+  },
+  {
+    "row": 78,
+    "symbol": "$g_{gate,\\theta},\\mu_{\\theta},\\sigma_{\\theta},p_{\\theta}^{+}$",
+    "definition": "额外驻站选择的对数几率、连续分支高斯潜变量的均值和标准差，以及选择额外驻站的概率",
+    "math_ids": [
+      101
+    ]
+  },
+  {
+    "row": 79,
+    "symbol": "$p_{sig},N_{win}$",
+    "definition": "单侧符号检验p值及满足相应改善判据的场景组数",
+    "math_ids": [
+      102
+    ]
+  },
+  {
+    "row": 80,
+    "symbol": "$j_{\\dim},\\varsigma_{j_{\\dim}},p_{\\Theta}$",
+    "definition": "联合预测输出的维度索引、该维度在拟合集上的标准差及模型实际采用的特征数",
+    "math_ids": [
+      103
+    ]
+  },
+  {
+    "row": 81,
+    "symbol": "$\\psi_{J},\\psi_{M}$",
+    "definition": "条件转移比率的联合分类器参数及边缘分类器参数",
+    "math_ids": [
+      104
+    ]
+  },
+  {
+    "row": 82,
+    "symbol": "$\\hat{\\mathcal{D}},{\\hat{y}}^{Q}$",
+    "definition": "模型生成的一步转移样本集及本组后继价值规则下的模型目标",
+    "math_ids": [
+      105
+    ]
+  },
+  {
+    "row": 83,
+    "symbol": "$\\mathcal{X}_{\\delta},L_{adj},L_{occ}$",
+    "definition": "由各状态动作对及其后继状态对应的概率残差组成的实向量空间；策略调整敏感性及访问分布敏感性上界",
+    "math_ids": [
+      106
+    ]
+  },
+  {
+    "row": 84,
+    "symbol": "$\\varphi_{cls},Q^{\\Delta, -},{\\widetilde{Q}}^{\\Delta, -},v_{trf}$",
+    "definition": "静态分类信号、原及归一化置信目标网络、持续时间或成本变换的标量实参",
+    "math_ids": [
+      107
+    ]
+  },
+  {
+    "row": 85,
+    "symbol": "$\\lambda_{ale},\\lambda_{epi},\\kappa_{j}$",
+    "definition": "目标网络权重范数项系数、目标集成方差项系数及第j个目标网络的未加权权重范数",
+    "math_ids": [
+      108
+    ]
+  },
+  {
+    "row": 86,
+    "symbol": "$B_{batch},K_{\\max},n_{rem}$",
+    "definition": "训练小批量大小、有限时域分析的决策事件数上界及剩余事件数",
+    "math_ids": [
+      109
+    ]
+  },
+  {
+    "row": 87,
+    "symbol": "$w_{IS,i},c_{NAU,i},c_{bel}$",
+    "definition": "条件转移比率权重、NAU线性权重及置信反馈调节量",
+    "math_ids": [
+      110
+    ]
+  },
+  {
+    "row": 88,
+    "symbol": "$G_{act},a_{inv},I_{n_{a}}$",
+    "definition": "一般对角执行器增益矩阵、逆变换命令及动作维数对应的单位矩阵",
+    "math_ids": [
+      111
+    ]
+  },
+  {
+    "row": 89,
+    "symbol": "$x_{phys},x_{aug},F_{phys},F_{aug}$",
+    "definition": "执行器物理状态、包含命令历史的增广状态、物理状态转移及以名义执行信号为动作输入的增广状态转移",
+    "math_ids": [
+      112
+    ]
+  },
+  {
+    "row": 90,
+    "symbol": "$e_{map},e_{path}$",
+    "definition": "策略与参考的输入误差映射，以及沿指定路径形成的误差函数",
+    "math_ids": [
+      113
+    ]
+  },
+  {
+    "row": 91,
+    "symbol": "$\\varepsilon_{sym},\\varepsilon_{pol},\\varepsilon_{IRM}$",
+    "definition": "符号模型误差、策略拟合误差及跨环境统一导数误差的上界",
+    "math_ids": [
+      114
+    ]
+  },
+  {
+    "row": 92,
+    "symbol": "$\\varepsilon_{emp},\\Delta_{gen}$",
+    "definition": "给定的经验导数误差界及其推广误差界",
+    "math_ids": [
+      115
+    ]
+  },
+  {
+    "row": 93,
+    "symbol": "$x_{obs,k},c_{obs}$",
+    "definition": "归一化前的公交观测与各坐标的固定归一化尺度",
+    "math_ids": [
+      116
+    ]
+  },
+  {
+    "row": 94,
+    "symbol": "$B_{SAC},B_{mix},B_{SAC,i}^{-}$",
+    "definition": "后继软价值、与离线状态价值组合后的后继价值及第i条样本的目标软价值",
+    "math_ids": [
+      117
+    ]
+  },
+  {
+    "row": 95,
+    "symbol": "$e_{IQL},w_{IQL}$",
+    "definition": "IQL期望分位回归残差及数据内动作的优势权重",
+    "math_ids": [
+      118
+    ]
+  },
+  {
+    "row": 96,
+    "symbol": "$\\xi_{time},I_{f},I_{b}$",
+    "definition": "运营进度与前后邻车存在标记",
+    "math_ids": [
+      119
+    ]
+  },
+  {
+    "row": 97,
+    "symbol": "$\\mathcal{l}_{sym},{\\bar{\\mathcal{l}}}_{sym}^{+}$",
+    "definition": "策略与符号参考的归一化导数误差及一批后继状态上的均值",
+    "math_ids": [
+      120
+    ]
+  },
+  {
+    "row": 98,
+    "symbol": "$\\zeta$",
+    "definition": "混合驻站策略连续分支的高斯潜变量，与运行模式z区分",
+    "math_ids": [
+      121
+    ]
+  }
+]

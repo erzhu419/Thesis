@@ -1,0 +1,187 @@
+{
+  "status": "complete",
+  "scenes": {
+    "stable": {
+      "counts": {
+        "all": {
+          "roots": 13686,
+          "currentcohortpositive": 8154,
+          "immediatecohortpositive": 562,
+          "same_lane_immediatepositive": 147,
+          "observedcohortboardpositive": 18,
+          "maturecohortboardpositive": 18,
+          "mature_departure": 13671,
+          "incomplete_cohort": 0,
+          "window_truncated_at_horizon": 0
+        },
+        "eligible": {
+          "roots": 12468,
+          "currentcohortpositive": 7416,
+          "immediatecohortpositive": 512,
+          "same_lane_immediatepositive": 128,
+          "observedcohortboardpositive": 16,
+          "maturecohortboardpositive": 16,
+          "mature_departure": 12453,
+          "incomplete_cohort": 0,
+          "window_truncated_at_horizon": 0
+        },
+        "outside_budget": {
+          "roots": 1218,
+          "currentcohortpositive": 738,
+          "immediatecohortpositive": 50,
+          "same_lane_immediatepositive": 19,
+          "observedcohortboardpositive": 2,
+          "maturecohortboardpositive": 2,
+          "mature_departure": 1218,
+          "incomplete_cohort": 0,
+          "window_truncated_at_horizon": 0
+        },
+        "selected": {
+          "roots": 285,
+          "currentcohortpositive": 153,
+          "immediatecohortpositive": 14,
+          "same_lane_immediatepositive": 2,
+          "observedcohortboardpositive": 0,
+          "maturecohortboardpositive": 0,
+          "mature_departure": 284,
+          "incomplete_cohort": 0,
+          "window_truncated_at_horizon": 0
+        }
+      },
+      "first_eligible_observed_positive": [
+        {
+          "sequence": 4166,
+          "clock": 7367.0,
+          "packet_deadline": 7500,
+          "selected": false,
+          "how_many_more_recent_eligible_in_same_packet": 43,
+          "observed_cohort_boarded": 1,
+          "receiver_departure_mature": true
+        },
+        {
+          "sequence": 4201,
+          "clock": 7405.0,
+          "packet_deadline": 7500,
+          "selected": false,
+          "how_many_more_recent_eligible_in_same_packet": 8,
+          "observed_cohort_boarded": 1,
+          "receiver_departure_mature": true
+        },
+        {
+          "sequence": 4226,
+          "clock": 7422.0,
+          "packet_deadline": 7800,
+          "selected": false,
+          "how_many_more_recent_eligible_in_same_packet": 283,
+          "observed_cohort_boarded": 1,
+          "receiver_departure_mature": true
+        }
+      ],
+      "fixed_selection_reconciliation": {
+        "all_pass": true,
+        "rows_compared": 285,
+        "mismatched_rows": 0,
+        "first_mismatched_sequences": []
+      },
+      "no_alternative_selection_written": true
+    },
+    "local_speed_drop": {
+      "counts": {
+        "all": {
+          "roots": 13686,
+          "currentcohortpositive": 8169,
+          "immediatecohortpositive": 604,
+          "same_lane_immediatepositive": 173,
+          "observedcohortboardpositive": 11,
+          "maturecohortboardpositive": 11,
+          "mature_departure": 13672,
+          "incomplete_cohort": 0,
+          "window_truncated_at_horizon": 0
+        },
+        "eligible": {
+          "roots": 12456,
+          "currentcohortpositive": 7413,
+          "immediatecohortpositive": 552,
+          "same_lane_immediatepositive": 156,
+          "observedcohortboardpositive": 10,
+          "maturecohortboardpositive": 10,
+          "mature_departure": 12442,
+          "incomplete_cohort": 0,
+          "window_truncated_at_horizon": 0
+        },
+        "outside_budget": {
+          "roots": 1230,
+          "currentcohortpositive": 756,
+          "immediatecohortpositive": 52,
+          "same_lane_immediatepositive": 17,
+          "observedcohortboardpositive": 1,
+          "maturecohortboardpositive": 1,
+          "mature_departure": 1230,
+          "incomplete_cohort": 0,
+          "window_truncated_at_horizon": 0
+        },
+        "selected": {
+          "roots": 285,
+          "currentcohortpositive": 149,
+          "immediatecohortpositive": 14,
+          "same_lane_immediatepositive": 2,
+          "observedcohortboardpositive": 0,
+          "maturecohortboardpositive": 0,
+          "mature_departure": 285,
+          "incomplete_cohort": 0,
+          "window_truncated_at_horizon": 0
+        }
+      },
+      "first_eligible_observed_positive": [
+        {
+          "sequence": 4166,
+          "clock": 7367.0,
+          "packet_deadline": 7500,
+          "selected": false,
+          "how_many_more_recent_eligible_in_same_packet": 43,
+          "observed_cohort_boarded": 1,
+          "receiver_departure_mature": true
+        },
+        {
+          "sequence": 4201,
+          "clock": 7405.0,
+          "packet_deadline": 7500,
+          "selected": false,
+          "how_many_more_recent_eligible_in_same_packet": 8,
+          "observed_cohort_boarded": 1,
+          "receiver_departure_mature": true
+        },
+        {
+          "sequence": 4226,
+          "clock": 7422.0,
+          "packet_deadline": 7800,
+          "selected": false,
+          "how_many_more_recent_eligible_in_same_packet": 283,
+          "observed_cohort_boarded": 1,
+          "receiver_departure_mature": true
+        }
+      ],
+      "fixed_selection_reconciliation": {
+        "all_pass": true,
+        "rows_compared": 285,
+        "mismatched_rows": 0,
+        "first_mismatched_sequences": []
+      },
+      "no_alternative_selection_written": true
+    }
+  },
+  "definitions": {
+    "eligible": "issue+60+30<=18000 with complete fixed window inside horizon",
+    "observedcohortboardpositive": "A recorded root-cohort ID boards this receiver at this station after issue, within60s, and no later than its first observed departure",
+    "maturecohortboardpositive": "Observed cohort boarding positive and receiver departure observed within the window",
+    "same_lane_immediatepositive": "A next-stop-matching feeder has a recorded root-cohort member, same_lane=true and a nonmissing lane gap",
+    "incomplete_cohort": "Recorded cohort may be a known subset; missing coverage is not treated as known zero",
+    "rank": "Count eligible roots with a larger (window_end+delay,sequence) in the same original packet window; no outcome filtering"
+  },
+  "interpretation": "Coverage is descriptive and outcome-conditioned examples are not newly selected training samples. The two scenarios share a pre-shock prefix and must not be summed as independent roots. Count zero is no observed cohort boarding in this fixed window, not proof that every longer hold is useless.",
+  "budget": {
+    "new_native_seconds": 0,
+    "optimizer_updates": 0,
+    "new_selected_records": 0
+  }
+}

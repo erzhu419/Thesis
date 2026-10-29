@@ -1,0 +1,53 @@
+{
+  "status": "PROPOSED_NOT_LAUNCHED",
+  "name": "v127_full_fixed_receiver_observation",
+  "purpose": "Passively populate receiver current-leg destination count for the entire immutable v121 selection in a NEW dataset view.",
+  "cases": [
+    {
+      "scenario": "stable",
+      "roots": 285,
+      "packets": 57,
+      "end_before_applying_root": {
+        "receiver": "311X_25",
+        "station": "311X11",
+        "sequence": 12467,
+        "observed_at": 17910.0,
+        "source_group": "v113/no_fresh/stable"
+      },
+      "native_seconds": 17910.0
+    },
+    {
+      "scenario": "local_speed_drop",
+      "roots": 285,
+      "packets": 57,
+      "end_before_applying_root": {
+        "receiver": "7X_46",
+        "station": "7X16_102X29_705X30",
+        "sequence": 12455,
+        "observed_at": 17910.0,
+        "source_group": "v113/no_fresh/local_speed_drop"
+      },
+      "native_seconds": 17910.0
+    }
+  ],
+  "limits": {
+    "native_seconds": 35820.0,
+    "native_prefixes": 2,
+    "observation_slots": 570,
+    "new_predictor_fits": 0,
+    "optimizer_updates": 0,
+    "new_policy_actions": 0,
+    "additional_label_windows": 0,
+    "hyperparameter_sweeps": 0
+  },
+  "mechanism": "Reuse qualified v120 native replay, v125 recorded-command/prefix agreement and v124 passive pre-action receiver observer in an isolated new directory. Replay original commands; stop immediately after capturing the final selected root, before applying it. Do not add policy inference or alter holding.",
+  "source": "Server-resident v126 selected_roots_metadata.json, v121 frozen selected records and v120 qualified native logs. Original files remain read-only.",
+  "outputs": "New observation sidecar for all fixed roots and exact source binding. Keep complete traces and identities on server; download only one summary bounded at16000 bytes.",
+  "gate": "First require qualified replay and action agreement. Report complete/missing receiver fields across all570 slots and shared135 prefix equality; derive binary targets from original60-second evidence using v126 interface, report prefix class support and suffix class counts separately. Do not fit, impute, replace roots, or recover targets from full-day future departures.",
+  "after": "If complete and both prefix classes exist, report readiness for a separate fixed chronological factual prediction study under v126. If coverage or class support fails, report HOLD and the precise cause. No automatic fitting or extension.",
+  "F": "unchanged",
+  "decision_timing": "unchanged",
+  "service_constants": "unchanged",
+  "cost_gate": "Complete four days and technical checks. fresh-minus-matched-no_fresh mean<0,stable<=0,shock<0; additionally fresh-minus-same-actor-frozen<=0 in each scenario and at least one<0. Report no_fresh-minus-frozen to distinguish baseline drift. Early and tail windows are descriptive, not new gates.",
+  "automatic_launch": false
+}

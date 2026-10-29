@@ -1,0 +1,14 @@
+{"stage": "waiting_collection_or_learning", "cases": {"stable": {"collection": {"id": "t211637", "scheduler_status": "running", "node": "node001", "state": "pending", "output": null}, "learning": {}}, "local_speed_drop": {"collection": {"id": "t211638", "scheduler_status": "running", "node": "node001", "state": "pending", "output": null}, "learning": {}}}, "all_terminal": false, "submitted_ids": [], "done": false}
+{"status": "failed", "type": "RuntimeError", "message": "timed out after 30.0s waiting for scheduler state lock (status:readonly); try `status --readonly` or wait for dispatch/cancel to finish", "automatic_retries": 0}
+Traceback (most recent call last):
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_matched_response_v59_20261025/continue_batch.py", line 184, in <module>
+    main(args.watch, args.interval)
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_matched_response_v59_20261025/continue_batch.py", line 158, in main
+    current = step()
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_matched_response_v59_20261025/continue_batch.py", line 83, in step
+    statuses, found = snapshot(receipts, paths)
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_matched_response_v59_20261025/continue_batch.py", line 49, in snapshot
+    statuses = {row['id']: row for row in infra.status(ids)}
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_matched_response_v59_20261025/infra.py", line 92, in status
+    raise RuntimeError(result.stderr.strip() or result.stdout.strip())
+RuntimeError: timed out after 30.0s waiting for scheduler state lock (status:readonly); try `status --readonly` or wait for dispatch/cancel to finish

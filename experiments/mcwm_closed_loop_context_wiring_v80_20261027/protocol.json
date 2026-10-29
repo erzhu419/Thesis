@@ -1,0 +1,52 @@
+{
+  "name": "thesis-mcwm-context-wiring-v80-20261027",
+  "stage": "collector contract and frozen resident integration precheck",
+  "seeds": [6208, 6207],
+  "arms": ["fresh", "no_fresh"],
+  "initializer_updates": 50000,
+  "horizon_seconds": 24000,
+  "source_method": "frozen v73/v75 split-pool recipe",
+  "candidate_change": "Critic-only downstream capacity interaction: Q_k=Q_original,k+theta_k*mask*z*(a_executed+1)/2. Per-head theta starts at zero; no level term.",
+  "z": "(current next-stop compatible queue - max(0,capacity-current onboard+current-leg planned releases at next stop))/capacity",
+  "timing": "Read current native memberships and stage0 after proposal but before commands apply; preserve event time separately from native issue time. No future actual arrival, release, queue or final-state backfill.",
+  "endpoints": "ctx_s belongs to issued original action; ctx_ns belongs to the actual next chronological control issue, including cross-bus zero-duration endpoints. Terminal successor context is missing/absorbing, never a fabricated issue. Preserve all native transition fields, delay, thinning and batch action order.",
+  "sampling": "Original latest5 covariates and fixed capacity-risk complete-outcome selection; original four native sampler draws plus private outcome draw unchanged. Complete factual records stay intact. History/source missing context uses NaN/mask0.",
+  "information_contract_if_later_collected": {
+    "covariates_per_day": 285,
+    "complete_outcomes_per_fresh_day": 285,
+    "complete_outcomes_per_no_fresh_day": 0,
+    "maximum_unique_records_fresh": 342,
+    "covariate_context": "issue-visible ctx_s only; actor/V/F inputs remain canonical229; Q evaluations in actor/V/CQL receive critic context",
+    "outcome_context": "same-record ctx_s and genuine chronological ctx_ns for fresh critic TD; no_fresh never reads target r/ns/ctx_ns",
+    "new_information": "Current native downstream capacity context, separately declared as an expansion of the v73 observation information. Diagnostic v79 traces excluded."
+  },
+  "unchanged_if_later_collected": {
+    "updates_per_family": 456,
+    "packets": 57,
+    "updates_per_packet": 8,
+    "actor_value_observation_dimension": 229,
+    "feedback_delay_seconds": 30,
+    "fresh_outcome_window": 30,
+    "covariate_pool": 285,
+    "cql_coefficient": 0.2,
+    "backup": "original 0.1V+0.9SAC",
+    "F": "original real-clock execution mapping",
+    "trust": "unchanged"
+  },
+  "precheck": "Use temporary copies of existing resident archive rows to verify replay shapes, record-index sidecars, original target/loss/base gradients, Adam/RNG and synthetic nonzero connectivity. No optimizer.step or continue_step. Synthetic context is wiring evidence only.",
+  "budget_this_stage": {
+    "new_simulated_seconds": 0,
+    "new_initialization_updates": 0,
+    "new_response_optimizer_updates": 0,
+    "new_covariates": 0,
+    "new_complete_outcomes": 0,
+    "new_native_branches": 0
+  },
+  "priority": "high",
+  "parallelism": "One bounded frozen integration task; no native/training arms in this phase. Any later actual-control fresh/no_fresh pair must run concurrently.",
+  "advance": "Only after frozen precheck passes may a separately declared budget-matched collection/training batch be prepared. Its first paid packet must audit all8 actual updates, Adam continuity and RNG inside the456-update budget. This zero-update phase does not establish8-step optimizer-trajectory parity. No automatic collection or training in v80.",
+  "primary_endpoint_if_later_tested": "actual full-day (2W+R)/departing passengers against matched no_fresh and immutable v75 references; report early/stable-tail costs and worst cell",
+  "max_summary_bytes": 48000,
+  "downloads": "Small JSON and necessary short logs only; arrays and initializers stay resident",
+  "old_code_results_and_gates_read_only": true
+}

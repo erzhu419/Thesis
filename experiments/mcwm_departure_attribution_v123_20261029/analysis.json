@@ -1,0 +1,202 @@
+{
+  "status": "COMPLETE_SERVICE_READY_SEMANTICS_GAP_CONFIRMED",
+  "all_native_timeline_checks_passed": true,
+  "categories": {
+    "post_issue_alighting_observed": {
+      "mature_roots": 4,
+      "mature_error_seconds": 16.0
+    },
+    "post_issue_boarding_only": {
+      "mature_roots": 7,
+      "mature_error_seconds": 18.0
+    }
+  },
+  "roots": [
+    {
+      "scene": "stable",
+      "sequence": 5824,
+      "issue": 9153.0,
+      "censored": false,
+      "extra_seconds": 5.0,
+      "post_issue_boarded": 2,
+      "post_issue_alighted": 0,
+      "last_exchange": 9159.0,
+      "actual_departure": 9162.0,
+      "category": "post_issue_boarding_only"
+    },
+    {
+      "scene": "stable",
+      "sequence": 8038,
+      "issue": 11910.0,
+      "censored": false,
+      "extra_seconds": 5.0,
+      "post_issue_boarded": 1,
+      "post_issue_alighted": 2,
+      "last_exchange": 11916.0,
+      "actual_departure": 11920.0,
+      "category": "post_issue_alighting_observed"
+    },
+    {
+      "scene": "stable",
+      "sequence": 8489,
+      "issue": 12509.0,
+      "censored": false,
+      "extra_seconds": 2.0,
+      "post_issue_boarded": 1,
+      "post_issue_alighted": 0,
+      "last_exchange": 12543.0,
+      "actual_departure": 12546.0,
+      "category": "post_issue_boarding_only"
+    },
+    {
+      "scene": "stable",
+      "sequence": 9194,
+      "issue": 13409.0,
+      "censored": false,
+      "extra_seconds": 2.0,
+      "post_issue_boarded": 1,
+      "post_issue_alighted": 0,
+      "last_exchange": 13413.0,
+      "actual_departure": 13416.0,
+      "category": "post_issue_boarding_only"
+    },
+    {
+      "scene": "stable",
+      "sequence": 9419,
+      "issue": 13707.0,
+      "censored": true,
+      "extra_seconds": 2.0,
+      "post_issue_boarded": 1,
+      "post_issue_alighted": 0,
+      "last_exchange": 13766.0,
+      "actual_departure": 13769.0,
+      "category": "post_issue_boarding_only"
+    },
+    {
+      "scene": "stable",
+      "sequence": 10540,
+      "issue": 15209.0,
+      "censored": false,
+      "extra_seconds": 3.0,
+      "post_issue_boarded": 1,
+      "post_issue_alighted": 0,
+      "last_exchange": 15214.0,
+      "actual_departure": 15217.0,
+      "category": "post_issue_boarding_only"
+    },
+    {
+      "scene": "stable",
+      "sequence": 11627,
+      "issue": 16705.0,
+      "censored": false,
+      "extra_seconds": 1.0,
+      "post_issue_boarded": 1,
+      "post_issue_alighted": 0,
+      "last_exchange": 16709.0,
+      "actual_departure": 16712.0,
+      "category": "post_issue_boarding_only"
+    },
+    {
+      "scene": "local_speed_drop",
+      "sequence": 8490,
+      "issue": 12510.0,
+      "censored": false,
+      "extra_seconds": 3.0,
+      "post_issue_boarded": 1,
+      "post_issue_alighted": 0,
+      "last_exchange": 12543.0,
+      "actual_departure": 12546.0,
+      "category": "post_issue_boarding_only"
+    },
+    {
+      "scene": "local_speed_drop",
+      "sequence": 11612,
+      "issue": 16704.0,
+      "censored": false,
+      "extra_seconds": 2.0,
+      "post_issue_boarded": 1,
+      "post_issue_alighted": 0,
+      "last_exchange": 16709.0,
+      "actual_departure": 16712.0,
+      "category": "post_issue_boarding_only"
+    },
+    {
+      "scene": "local_speed_drop",
+      "sequence": 11822,
+      "issue": 17005.0,
+      "censored": false,
+      "extra_seconds": 1.0,
+      "post_issue_boarded": 0,
+      "post_issue_alighted": 2,
+      "last_exchange": 17009.0,
+      "actual_departure": 17012.0,
+      "category": "post_issue_alighting_observed"
+    },
+    {
+      "scene": "local_speed_drop",
+      "sequence": 12251,
+      "issue": 17604.0,
+      "censored": false,
+      "extra_seconds": 1.0,
+      "post_issue_boarded": 0,
+      "post_issue_alighted": 2,
+      "last_exchange": 17607.0,
+      "actual_departure": 17611.0,
+      "category": "post_issue_alighting_observed"
+    },
+    {
+      "scene": "local_speed_drop",
+      "sequence": 12452,
+      "issue": 17908.0,
+      "censored": false,
+      "extra_seconds": 9.0,
+      "post_issue_boarded": 0,
+      "post_issue_alighted": 5,
+      "last_exchange": 17920.0,
+      "actual_departure": 17923.0,
+      "category": "post_issue_alighting_observed"
+    }
+  ],
+  "confirmed_findings": [
+    "All12 visits have one accepted command; no repeated control command accounts for the overrun.",
+    "All34 mature error seconds occur while the receiver is physically at its stop with zero speed.",
+    "service_ready is an arrival-time estimate, not a measurement that all native exchanges have completed.",
+    "Four mature roots have alighting after issue; three of these have no post-issue boarding.",
+    "The original receiver context omits its current-stage destination counts; later alighting cannot be used to reconstruct an as-of-time input."
+  ],
+  "limitations": [
+    "Counts categorize observed event histories; they do not prove every extra second is exclusively passenger service.",
+    "Native internal service timer values were not logged.",
+    "The12 roots were selected for diagnosis, not independent forecast validation.",
+    "Historical fresh-control degradation is not fully attributed by these12 cases."
+  ],
+  "decision": "CLOSE_THIS_LOG_ATTRIBUTION; design receiver current-leg observation before fitting another service-response model",
+  "automatic_launch": false,
+  "budget": {
+    "new_native_seconds": 0,
+    "optimizer_updates": 0,
+    "new_collection": 0,
+    "new_predictor_fits": 0,
+    "control_changes": 0
+  },
+  "native_source_version": "SUMO v1_25_0",
+  "native_service_semantics": {
+    "alighting": "Uses vehicle boardingDuration times passenger boardingFactor.",
+    "shared_timer": "Boarding and alighting use stop.timeToBoardNextPerson; both can extend stop.duration.",
+    "bridge_estimate": "arrival + max(1.5*estimated_alighting,2.5*estimated_boarding) +4 is not equivalent to native shared-timer service completion."
+  },
+  "official_sources": [
+    {
+      "url": "https://github.com/eclipse-sumo/sumo/blob/v1_25_0/src/microsim/devices/MSDevice_Transportable.cpp#L174-L208",
+      "supports": "Alighting duration and advancement of the shared service timer."
+    },
+    {
+      "url": "https://github.com/eclipse-sumo/sumo/blob/v1_25_0/src/microsim/transportables/MSTransportableControl.cpp#L298-L332",
+      "supports": "Boarding gates on the service timer and extends stop.duration."
+    },
+    {
+      "url": "https://github.com/eclipse-sumo/sumo/blob/v1_25_0/src/microsim/MSVehicle.cpp#L1592-L1598",
+      "supports": "Positive remaining stop duration prevents stop completion."
+    }
+  ]
+}

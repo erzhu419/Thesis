@@ -1,0 +1,52 @@
+{
+  "name": "thesis-mcwm-tail-policy-exchange-v71-20261026",
+  "seeds": [
+    6201,
+    6203
+  ],
+  "scenario": "stable",
+  "entry_arms": [
+    "fresh",
+    "no_fresh"
+  ],
+  "policy_arms": {
+    "low": "fresh",
+    "high": "no_fresh"
+  },
+  "cutpoint": 18300,
+  "horizon_seconds": 24000,
+  "post_window": 20100,
+  "feedback_slots": 285,
+  "critic_updates": 456,
+  "value_updates": 456,
+  "actor_updates": 456,
+  "alpha_updates": 456,
+  "initializer_updates": 50000,
+  "external_seed_offset": 100000,
+  "priority": "high",
+  "prefixes": 4,
+  "suffixes": 8,
+  "maximum_simulated_seconds": 118800,
+  "new_initializer_training": 0,
+  "new_response_training": 0,
+  "diagnostic_labels_fed_back": 0,
+  "old_code_and_results_read_only": true,
+  "summary_max_bytes": 48000,
+  "source_directory": "mcwm_closed_loop_recent30_mixed_cql_v70_20261026",
+  "plan": "experiments/mcwm_closed_loop_v70_next_plan_20261026/PLAN.md",
+  "decision": "Require exact original diagonals before interpreting paired policies. Consistent rescue at both entrances and seeds supports considering late feedback. No rescue prioritizes earlier service state. Mixed signs stop with interaction. No automatic new feedback recipe or seed expansion.",
+  "native_preflight": {
+    "seed": 6201,
+    "scenario": "stable",
+    "reuse_full_day": true,
+    "feedback_slots": 5,
+    "policy_updates": 8,
+    "critic_updates": 8,
+    "value_updates": 8,
+    "actor_updates": 8,
+    "alpha_updates": 8
+  },
+  "resource_plan": "One scheduler task per seed reserves2CPU/24GB and starts both prefix processes. Both wait at the >=18300 entry barrier, then entries take turns holding a tail slot; within each entry two frozen-policy suffixes actually run in parallel. Paused parents do not advance native clocks or RNG. At most2active processes per task. No extra simulation or learning.",
+  "feedback_redistribution_authorized": false,
+  "downloads": "Only two necessary JSON summaries each<=48KB and small technical receipts. All native traces,actor weights,passengerIDs andservice detail stay resident."
+}

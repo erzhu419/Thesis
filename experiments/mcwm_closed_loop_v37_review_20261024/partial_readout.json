@@ -1,0 +1,1133 @@
+{
+  "status": "partial_exploratory_only",
+  "long_Q_updates_executed": 0,
+  "new_SGD_updates": 0,
+  "missing_heldout": 4,
+  "cases": {
+    "stable": {
+      "fits": {
+        "line": {
+          "model": "passive_finite300_wait_ride_difference",
+          "line_only": true,
+          "ridge": 1.0,
+          "target_scale": 1000.0,
+          "feature_names": [
+            "7X_intercept",
+            "102X_intercept",
+            "705X_intercept"
+          ],
+          "pairs": 9,
+          "outcome_slots": 18,
+          "pair_ids": [
+            "train/7X/w1",
+            "train/102X/w1",
+            "train/705X/w1",
+            "train/705X/w2",
+            "train/7X/w2",
+            "train/102X/w2",
+            "train/7X/w3",
+            "train/705X/w3",
+            "train/102X/w3"
+          ],
+          "by_line": {
+            "7X": 3,
+            "102X": 3,
+            "705X": 3
+          },
+          "design": {
+            "rows": 9,
+            "columns": 3,
+            "rank": 3
+          },
+          "coefficients": {
+            "7X_intercept": {
+              "wait": 27.25,
+              "ride": 19.750000000000004,
+              "cost": 74.25
+            },
+            "102X_intercept": {
+              "wait": 89.25,
+              "ride": -20.000000000000004,
+              "cost": 158.5
+            },
+            "705X_intercept": {
+              "wait": -52.49999999999999,
+              "ride": 129.5,
+              "cost": 24.500000000000014
+            }
+          },
+          "training_error": {
+            "wait_mae": 305.1111111111111,
+            "ride_mae": 200.52777777777777,
+            "cost_mae": 441.5833333333333
+          },
+          "refits": 9,
+          "target": "C_low-C_high=2*(W_low-W_high)+(R_low-R_high), both clocks300",
+          "optimizer_updates": 0,
+          "controls_native_policy": false,
+          "modifies_bellman_target": false
+        },
+        "lowdim": {
+          "model": "passive_finite300_wait_ride_difference",
+          "line_only": false,
+          "ridge": 1.0,
+          "target_scale": 1000.0,
+          "feature_names": [
+            "7X_intercept",
+            "102X_intercept",
+            "705X_intercept",
+            "forward_minus_backward_headway_deviation"
+          ],
+          "pairs": 9,
+          "outcome_slots": 18,
+          "pair_ids": [
+            "train/7X/w1",
+            "train/102X/w1",
+            "train/705X/w1",
+            "train/705X/w2",
+            "train/7X/w2",
+            "train/102X/w2",
+            "train/7X/w3",
+            "train/705X/w3",
+            "train/102X/w3"
+          ],
+          "by_line": {
+            "7X": 3,
+            "102X": 3,
+            "705X": 3
+          },
+          "design": {
+            "rows": 9,
+            "columns": 4,
+            "rank": 4
+          },
+          "coefficients": {
+            "7X_intercept": {
+              "wait": -18.78498949399576,
+              "ride": 29.87898459854791,
+              "cost": -7.69099438944361
+            },
+            "102X_intercept": {
+              "wait": 55.10055031264059,
+              "ride": -12.486166419625995,
+              "cost": 97.7149342056552
+            },
+            "705X_intercept": {
+              "wait": -106.19715660619154,
+              "ride": 141.3148755594018,
+              "cost": -71.07943765298128
+            },
+            "forward_minus_backward_headway_deviation": {
+              "wait": 124.85915528242498,
+              "ride": -27.472504604532073,
+              "cost": 222.24580596031788
+            }
+          },
+          "training_error": {
+            "wait_mae": 300.8571565967103,
+            "ride_mae": 198.41409514694016,
+            "cost_mae": 434.0114132171589
+          },
+          "refits": 9,
+          "target": "C_low-C_high=2*(W_low-W_high)+(R_low-R_high), both clocks300",
+          "optimizer_updates": 0,
+          "controls_native_policy": false,
+          "modifies_bellman_target": false
+        }
+      },
+      "heldout": [
+        {
+          "id": "heldout/102X/early",
+          "issue": 18303.0,
+          "features": [
+            0.0,
+            1.0,
+            0.0,
+            0.8017728614807128
+          ],
+          "gain": {
+            "wait": 169.0,
+            "ride": 31.0,
+            "cost": 369.0
+          },
+          "predictions": {
+            "line": [
+              158.5,
+              1,
+              true,
+              0.0
+            ],
+            "lowdim": [
+              275.9055900025465,
+              1,
+              true,
+              0.0
+            ],
+            "fixed0": [
+              0.0,
+              0,
+              false,
+              369.0
+            ],
+            "fixedhigh": [
+              1.0,
+              1,
+              true,
+              0.0
+            ]
+          },
+          "training_headway_range": [
+            0.09061114686908145,
+            0.5553777422223772
+          ],
+          "headway_extrapolation": true,
+          "train_label_age": [
+            8698.0,
+            5688.0,
+            2389.0
+          ]
+        },
+        {
+          "id": "heldout/7X/early",
+          "issue": 18311.0,
+          "features": [
+            1.0,
+            0.0,
+            0.0,
+            0.36058845520019533
+          ],
+          "gain": {
+            "wait": 26.0,
+            "ride": 8.0,
+            "cost": 60.0
+          },
+          "predictions": {
+            "line": [
+              74.25,
+              1,
+              true,
+              0.0
+            ],
+            "lowdim": [
+              72.44827745650977,
+              1,
+              true,
+              0.0
+            ],
+            "fixed0": [
+              0.0,
+              0,
+              false,
+              60.0
+            ],
+            "fixedhigh": [
+              1.0,
+              1,
+              true,
+              0.0
+            ]
+          },
+          "training_headway_range": [
+            0.32223620944552944,
+            0.5846002366807725
+          ],
+          "headway_extrapolation": false,
+          "train_label_age": [
+            8711.0,
+            5700.0,
+            2408.0
+          ]
+        },
+        {
+          "id": "heldout/705X/early",
+          "issue": 18316.0,
+          "features": [
+            0.0,
+            0.0,
+            1.0,
+            0.23478047688802073
+          ],
+          "gain": {
+            "wait": -15.0,
+            "ride": 36.0,
+            "cost": 6.0
+          },
+          "predictions": {
+            "line": [
+              24.500000000000014,
+              1,
+              true,
+              0.0
+            ],
+            "lowdim": [
+              -18.90046134325533,
+              0,
+              false,
+              6.0
+            ],
+            "fixed0": [
+              0.0,
+              0,
+              false,
+              6.0
+            ],
+            "fixedhigh": [
+              1.0,
+              1,
+              true,
+              0.0
+            ]
+          },
+          "training_headway_range": [
+            0.44844579908582904,
+            0.6500729647549717
+          ],
+          "headway_extrapolation": true,
+          "train_label_age": [
+            8691.0,
+            5716.0,
+            2410.0
+          ]
+        },
+        {
+          "id": "heldout/705X/tail",
+          "issue": 21065.0,
+          "features": [
+            0.0,
+            0.0,
+            1.0,
+            -0.09250000000000003
+          ],
+          "gain": {
+            "wait": 0.0,
+            "ride": 0.0,
+            "cost": 0.0
+          },
+          "predictions": {
+            "line": [
+              24.500000000000014,
+              1,
+              null,
+              -0.0
+            ],
+            "lowdim": [
+              -91.6371747043107,
+              0,
+              null,
+              0.0
+            ],
+            "fixed0": [
+              0.0,
+              0,
+              null,
+              0.0
+            ],
+            "fixedhigh": [
+              1.0,
+              1,
+              null,
+              -0.0
+            ]
+          },
+          "training_headway_range": [
+            0.44844579908582904,
+            0.6500729647549717
+          ],
+          "headway_extrapolation": true,
+          "train_label_age": [
+            11440.0,
+            8465.0,
+            5159.0
+          ]
+        }
+      ],
+      "pair_inputs": [
+        {
+          "id": "train/7X/w1",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.1428571428571429,
+          "next_memory_changed_columns": [
+            80,
+            81,
+            83
+          ],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "train/102X/w1",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.0006666666666666626,
+          "next_memory_changed_columns": [
+            13
+          ],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "train/705X/w1",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.0,
+          "next_memory_changed_columns": [],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "train/705X/w2",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.0006666666666666488,
+          "next_memory_changed_columns": [
+            69
+          ],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "train/7X/w2",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.0006666666666666488,
+          "next_memory_changed_columns": [
+            83
+          ],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "train/102X/w2",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [
+            18
+          ],
+          "next_state_delta_max": 0.0625,
+          "next_memory_delta_max": 0.0,
+          "next_memory_changed_columns": [],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "train/7X/w3",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.16666666666666674,
+          "next_memory_changed_columns": [
+            80,
+            81,
+            83
+          ],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "train/705X/w3",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.20000000000000007,
+          "next_memory_changed_columns": [
+            66,
+            67,
+            69
+          ],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "train/102X/w3",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.0,
+          "next_memory_changed_columns": [],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "heldout/102X/early",
+          "role": "heldout",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.0,
+          "next_memory_changed_columns": [],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "heldout/7X/early",
+          "role": "heldout",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [
+            18
+          ],
+          "next_state_delta_max": 0.0625,
+          "next_memory_delta_max": 0.0,
+          "next_memory_changed_columns": [],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "heldout/705X/early",
+          "role": "heldout",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.0,
+          "next_memory_changed_columns": [],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "heldout/705X/tail",
+          "role": "heldout",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.003333333333333327,
+          "next_memory_changed_columns": [
+            69
+          ],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        }
+      ],
+      "all_285_slots_unique": true,
+      "actual_ordinary_paired": [
+        267,
+        18
+      ],
+      "pair_source_factual_excluded": true,
+      "all_feedback_available_before_admit": true,
+      "coverage_by_line": {
+        "7X": {
+          "train": 3,
+          "heldout": 1
+        },
+        "102X": {
+          "train": 3,
+          "heldout": 1
+        },
+        "705X": {
+          "train": 3,
+          "heldout": 2
+        }
+      }
+    },
+    "local_speed_drop": {
+      "fits": {
+        "line": {
+          "model": "passive_finite300_wait_ride_difference",
+          "line_only": true,
+          "ridge": 1.0,
+          "target_scale": 1000.0,
+          "feature_names": [
+            "7X_intercept",
+            "102X_intercept",
+            "705X_intercept"
+          ],
+          "pairs": 9,
+          "outcome_slots": 18,
+          "pair_ids": [
+            "train/102X/w1",
+            "train/7X/w1",
+            "train/705X/w1",
+            "train/7X/w2",
+            "train/102X/w2",
+            "train/705X/w2",
+            "train/705X/w3",
+            "train/7X/w3",
+            "train/102X/w3"
+          ],
+          "by_line": {
+            "7X": 3,
+            "102X": 3,
+            "705X": 3
+          },
+          "design": {
+            "rows": 9,
+            "columns": 3,
+            "rank": 3
+          },
+          "coefficients": {
+            "7X_intercept": {
+              "wait": -74.0,
+              "ride": -90.5,
+              "cost": -238.5
+            },
+            "102X_intercept": {
+              "wait": 2.749999999999999,
+              "ride": 22.499999999999996,
+              "cost": 27.999999999999993
+            },
+            "705X_intercept": {
+              "wait": -72.5,
+              "ride": 144.50000000000003,
+              "cost": -0.4999999999999716
+            }
+          },
+          "training_error": {
+            "wait_mae": 58.02777777777778,
+            "ride_mae": 208.61111111111111,
+            "cost_mae": 232.0
+          },
+          "refits": 9,
+          "target": "C_low-C_high=2*(W_low-W_high)+(R_low-R_high), both clocks300",
+          "optimizer_updates": 0,
+          "controls_native_policy": false,
+          "modifies_bellman_target": false
+        },
+        "lowdim": {
+          "model": "passive_finite300_wait_ride_difference",
+          "line_only": false,
+          "ridge": 1.0,
+          "target_scale": 1000.0,
+          "feature_names": [
+            "7X_intercept",
+            "102X_intercept",
+            "705X_intercept",
+            "forward_minus_backward_headway_deviation"
+          ],
+          "pairs": 9,
+          "outcome_slots": 18,
+          "pair_ids": [
+            "train/102X/w1",
+            "train/7X/w1",
+            "train/705X/w1",
+            "train/7X/w2",
+            "train/102X/w2",
+            "train/705X/w2",
+            "train/705X/w3",
+            "train/7X/w3",
+            "train/102X/w3"
+          ],
+          "by_line": {
+            "7X": 3,
+            "102X": 3,
+            "705X": 3
+          },
+          "design": {
+            "rows": 9,
+            "columns": 4,
+            "rank": 4
+          },
+          "coefficients": {
+            "7X_intercept": {
+              "wait": -68.92866071703047,
+              "ride": -111.65277534644261,
+              "cost": -249.51009678050355
+            },
+            "102X_intercept": {
+              "wait": 5.207582361713271,
+              "ride": 12.249317745851737,
+              "cost": 22.66448246927828
+            },
+            "705X_intercept": {
+              "wait": -68.67667226583708,
+              "ride": 128.55273476610785,
+              "cost": -8.800609765566321
+            },
+            "forward_minus_backward_headway_deviation": {
+              "wait": -10.176573092357325,
+              "ride": 42.44692622759009,
+              "cost": 22.09378004287544
+            }
+          },
+          "training_error": {
+            "wait_mae": 58.46203766251089,
+            "ride_mae": 203.45198540478978,
+            "cost_mae": 229.9973300585232
+          },
+          "refits": 9,
+          "target": "C_low-C_high=2*(W_low-W_high)+(R_low-R_high), both clocks300",
+          "optimizer_updates": 0,
+          "controls_native_policy": false,
+          "modifies_bellman_target": false
+        }
+      },
+      "heldout": [
+        {
+          "id": "heldout/705X/early",
+          "issue": 18306.0,
+          "features": [
+            0.0,
+            0.0,
+            1.0,
+            0.5747268761528862
+          ],
+          "gain": {
+            "wait": 54.0,
+            "ride": -848.0,
+            "cost": -740.0
+          },
+          "predictions": {
+            "line": [
+              -0.4999999999999716,
+              0,
+              true,
+              0.0
+            ],
+            "lowdim": [
+              3.897279420884473,
+              1,
+              false,
+              740.0
+            ],
+            "fixed0": [
+              0.0,
+              0,
+              false,
+              0.0
+            ],
+            "fixedhigh": [
+              1.0,
+              1,
+              false,
+              740.0
+            ]
+          },
+          "training_headway_range": [
+            0.25597674899631073,
+            0.7765223750361689
+          ],
+          "headway_extrapolation": false,
+          "train_label_age": [
+            8675.0,
+            5665.0,
+            2399.0
+          ]
+        },
+        {
+          "id": "heldout/102X/early",
+          "issue": 18309.0,
+          "features": [
+            0.0,
+            1.0,
+            0.0,
+            0.17314814814814805
+          ],
+          "gain": {
+            "wait": -2.0,
+            "ride": -30.0,
+            "cost": -34.0
+          },
+          "predictions": {
+            "line": [
+              27.999999999999993,
+              1,
+              false,
+              34.0
+            ],
+            "lowdim": [
+              26.489979569294675,
+              1,
+              false,
+              34.0
+            ],
+            "fixed0": [
+              0.0,
+              0,
+              false,
+              0.0
+            ],
+            "fixedhigh": [
+              1.0,
+              1,
+              false,
+              34.0
+            ]
+          },
+          "training_headway_range": [
+            0.08711785981149389,
+            0.5625194295247397
+          ],
+          "headway_extrapolation": false,
+          "train_label_age": [
+            8704.0,
+            5694.0,
+            2393.0
+          ]
+        },
+        {
+          "id": "heldout/7X/early",
+          "issue": 18310.0,
+          "features": [
+            1.0,
+            0.0,
+            0.0,
+            0.5700007968478733
+          ],
+          "gain": {
+            "wait": 54.0,
+            "ride": -775.0,
+            "cost": -667.0
+          },
+          "predictions": {
+            "line": [
+              -238.5,
+              0,
+              true,
+              0.0
+            ],
+            "lowdim": [
+              -236.9166245506829,
+              0,
+              true,
+              0.0
+            ],
+            "fixed0": [
+              0.0,
+              0,
+              false,
+              0.0
+            ],
+            "fixedhigh": [
+              1.0,
+              1,
+              false,
+              667.0
+            ]
+          },
+          "training_headway_range": [
+            0.33971243964301223,
+            1.0657021658761159
+          ],
+          "headway_extrapolation": false,
+          "train_label_age": [
+            8690.0,
+            5698.0,
+            2399.0
+          ]
+        },
+        {
+          "id": "heldout/705X/tail",
+          "issue": 21062.0,
+          "features": [
+            0.0,
+            0.0,
+            1.0,
+            -0.25083333333333335
+          ],
+          "gain": {
+            "wait": 0.0,
+            "ride": -22.0,
+            "cost": -22.0
+          },
+          "predictions": {
+            "line": [
+              -0.4999999999999716,
+              0,
+              true,
+              0.0
+            ],
+            "lowdim": [
+              -14.342466259654245,
+              0,
+              true,
+              0.0
+            ],
+            "fixed0": [
+              0.0,
+              0,
+              false,
+              0.0
+            ],
+            "fixedhigh": [
+              1.0,
+              1,
+              false,
+              22.0
+            ]
+          },
+          "training_headway_range": [
+            0.25597674899631073,
+            0.7765223750361689
+          ],
+          "headway_extrapolation": true,
+          "train_label_age": [
+            11431.0,
+            8421.0,
+            5155.0
+          ]
+        }
+      ],
+      "pair_inputs": [
+        {
+          "id": "train/102X/w1",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.16666666666666674,
+          "next_memory_changed_columns": [
+            10,
+            11,
+            13
+          ],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "train/7X/w1",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.0,
+          "next_memory_changed_columns": [],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "train/705X/w1",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.0011111111111111183,
+          "next_memory_changed_columns": [
+            69
+          ],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "train/7X/w2",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.0,
+          "next_memory_changed_columns": [],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "train/102X/w2",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [
+            18
+          ],
+          "next_state_delta_max": 0.0625,
+          "next_memory_delta_max": 0.0,
+          "next_memory_changed_columns": [],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "train/705X/w2",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.0,
+          "next_memory_changed_columns": [],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "train/705X/w3",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [
+            46
+          ],
+          "next_state_delta_max": 0.0625,
+          "next_memory_delta_max": 0.0,
+          "next_memory_changed_columns": [],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "train/7X/w3",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.16666666666666674,
+          "next_memory_changed_columns": [
+            80,
+            81,
+            83
+          ],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "train/102X/w3",
+          "role": "train",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.0,
+          "next_memory_changed_columns": [],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "heldout/705X/early",
+          "role": "heldout",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [
+            32
+          ],
+          "next_state_delta_max": 0.0625,
+          "next_memory_delta_max": 0.0,
+          "next_memory_changed_columns": [],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "heldout/102X/early",
+          "role": "heldout",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.0,
+          "next_memory_changed_columns": [],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "heldout/7X/early",
+          "role": "heldout",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [
+            37
+          ],
+          "next_state_delta_max": 1.9073486328125e-06,
+          "next_memory_delta_max": 0.0005555555555555591,
+          "next_memory_changed_columns": [
+            83
+          ],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        },
+        {
+          "id": "heldout/705X/tail",
+          "role": "heldout",
+          "reward_high_minus_low": 0.0,
+          "dt_high_minus_low": 0.0,
+          "next_state_changed_columns": [],
+          "next_state_delta_max": 0.0,
+          "next_memory_delta_max": 0.003333333333333327,
+          "next_memory_changed_columns": [
+            69
+          ],
+          "memory_current_identical": true,
+          "actual_actions_match": true,
+          "feedback_pairs_causal": true
+        }
+      ],
+      "all_285_slots_unique": true,
+      "actual_ordinary_paired": [
+        267,
+        18
+      ],
+      "pair_source_factual_excluded": true,
+      "all_feedback_available_before_admit": true,
+      "coverage_by_line": {
+        "7X": {
+          "train": 3,
+          "heldout": 1
+        },
+        "102X": {
+          "train": 3,
+          "heldout": 1
+        },
+        "705X": {
+          "train": 3,
+          "heldout": 2
+        }
+      }
+    }
+  },
+  "columns": {
+    "prediction": [
+      "benefit",
+      "high",
+      "direction_correct",
+      "regret"
+    ],
+    "costs": [
+      "wait",
+      "ride",
+      "cost"
+    ],
+    "features": [
+      "7X",
+      "102X",
+      "705X",
+      "headway_imbalance"
+    ]
+  }
+}

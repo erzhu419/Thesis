@@ -1,0 +1,70 @@
+{
+  "name": "mcwm_closed_loop_issue_conditions_v91_20261028",
+  "priority": "high",
+  "stage": "existing_logs_only",
+  "sources": [
+    "v90 original parent traces",
+    "v90 unchanged low/reference-arm traces",
+    "v90 before_suffixes root declarations"
+  ],
+  "forbidden_sources": [
+    "v87 truth",
+    "candidate-arm outcomes",
+    "final SUMO state",
+    "actor weights"
+  ],
+  "scope": "Recompute mathematical F support and event-clock load proxies; derive one pre-issue completed-corridor service-slowdown condition, without fitting or native execution",
+  "windows": [
+    [
+      12000,
+      12600
+    ],
+    [
+      12600,
+      15000
+    ],
+    [
+      15000,
+      18000
+    ]
+  ],
+  "original_issue_native_thresholds": {
+    "7X": 0.13,
+    "102X": 0.5,
+    "705X": 0.5
+  },
+  "candidate_sampling_contract": {
+    "load_source": "Issue-visible event snapshot proxy only, explicitly distinct from native issue counts",
+    "thresholds": {
+      "7X": 0.13,
+      "102X": 0.5,
+      "705X": 0.5
+    },
+    "window": [
+      12000,
+      15000
+    ],
+    "selector": "First original-domain, condition-supported issue for each line/lighter-heavier slot on the unchanged factual path; no outcomes used"
+  },
+  "condition": {
+    "name": "completed_shared_corridor_nonholding_ready_interval_change",
+    "upstream": "7X13_102X26_705X27",
+    "downstream": "7X14_102X27_705X28",
+    "completed_history": "Consecutive same-trip decisions on the exact corridor only, both observed before issue",
+    "duration": "downstream issue clock - upstream issue clock - upstream executed hold seconds",
+    "baseline": "Per-line median of such intervals completed and observed strictly before9000; require3 per line",
+    "value": "Latest completed clock before current issue; tied records averaged after subtracting their own line baseline; divide by60",
+    "maximum_age_seconds": 900,
+    "no_future_or_scenario_input": true
+  },
+  "budget": {
+    "native_seconds": 0,
+    "new_branches": 0,
+    "labels": 0,
+    "initialization_steps": 0,
+    "neural_updates": 0,
+    "fits": 0,
+    "v87_truth_used": 0
+  },
+  "old_paths_written": []
+}

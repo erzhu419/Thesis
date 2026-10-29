@@ -1,0 +1,369 @@
+{
+  "name": "mcwm_closed_loop_issue_conditions_v91_20261028",
+  "stage": "Frozen next-stage design; current v91 is logs only",
+  "priority": "high",
+  "current_execution": {
+    "native_seconds": 0,
+    "new_branches": 0,
+    "new_labels": 0,
+    "initialization_steps": 0,
+    "neural_updates": 0,
+    "response_fits": 0,
+    "v87_truth_used": 0,
+    "readout_tasks": [
+      "t212069",
+      "t212071"
+    ],
+    "compact_pull_bytes": 45669
+  },
+  "reference": {
+    "initializer_seed": 6207,
+    "training_external_seed": 716207,
+    "scenarios": [
+      "stable",
+      "local_speed_drop"
+    ],
+    "actors": "Unchanged scene-specific v84 saved packet37 actors used in v90; never substitute a new final actor",
+    "F": "Original ExecutionAction, applied once to proposals; recorded executed actions are never mapped twice",
+    "actor_and_value_observations": 229,
+    "world_and_trust": "unchanged",
+    "continuation": "Substitute one root action; then permanently the matching scene-specific original reference actor/F on actual states",
+    "scope": "Conditional response under these fixed references; environment and reference-policy effects are not separately identified"
+  },
+  "condition": {
+    "name": "completed_shared_corridor_service_interval_change",
+    "inputs": "Prior factual original-reference issue stream, line/trip/station/issue clocks and executed origin hold only",
+    "corridor": [
+      "7X13_102X26_705X27",
+      "7X14_102X27_705X28"
+    ],
+    "interval": "d=downstream_issue-upstream_issue-60*(executed_origin_action+1)/2",
+    "matching": "Same trip, consecutive station indices, exact directed corridor",
+    "baseline": "Per-line median of intervals completed and observed strictly before9000; at least3 per line",
+    "q": "Mean over intervals tied at the latest completed clock strictly before current issue, of (d-line_baseline)/60",
+    "maximum_age_seconds": 900,
+    "strict_availability": "completed_at<issue AND observed_at<issue; same-clock completion excluded regardless of ingestion order",
+    "missing": "None/unsupported, never zero filled",
+    "semantics": "Nonholding decision-ready service interval proxy, includes downstream service and discretization; not pure vehicle runtime",
+    "no_scenario_or_future_input": true
+  },
+  "collection": {
+    "status": "not_started; requires subsequent collection authorization",
+    "scenarios": [
+      "stable",
+      "local_speed_drop"
+    ],
+    "external_seed": 716207,
+    "logical_pairs": 12,
+    "logical_physical_outcome_labels": 24,
+    "issue_window": [
+      12000,
+      12900
+    ],
+    "native_load_thresholds": {
+      "7X": 0.13,
+      "102X": 0.5,
+      "705X": 0.5
+    },
+    "stratum_source": "Issue-native onboard IDs divided by actual native capacity, preserving v90 definitions",
+    "event_snapshot_proxy": "Reachability evidence only; it cannot replace or backfill issue-native counts",
+    "selector": "Chronological first native-context-observed, q-supported and original action-domain-supported issue in each line/stratum",
+    "original_action_domain": {
+      "reference_min": 3.0,
+      "reference_max_exclusive": 3.75,
+      "candidate_seconds": 7.5,
+      "tolerance": 1e-05,
+      "minimum_gap_native_steps": 2
+    },
+    "planned_reused_pairs": 11,
+    "reused_roots": [
+      {
+        "scenario": "stable",
+        "line_id": "7X",
+        "stratum": "heavier",
+        "root": {
+          "sequence": 8110,
+          "started_at": 12001.0,
+          "trip_id": "7X_31",
+          "station_id": "7X10_102X23_705X24"
+        },
+        "source": "mcwm_closed_loop_stratified_collection_v90_20261028/runs/stable/pairs/heavier/7X",
+        "q": 0.05221744179725647
+      },
+      {
+        "scenario": "stable",
+        "line_id": "102X",
+        "stratum": "heavier",
+        "root": {
+          "sequence": 8113,
+          "started_at": 12003.0,
+          "trip_id": "102X_16",
+          "station_id": "7X14_102X27_705X28"
+        },
+        "source": "mcwm_closed_loop_stratified_collection_v90_20261028/runs/stable/pairs/heavier/102X",
+        "q": 0.05221744179725647
+      },
+      {
+        "scenario": "stable",
+        "line_id": "7X",
+        "stratum": "lighter",
+        "root": {
+          "sequence": 8120,
+          "started_at": 12007.0,
+          "trip_id": "7X_32",
+          "station_id": "7X05_102X18"
+        },
+        "source": "mcwm_closed_loop_stratified_collection_v90_20261028/runs/stable/pairs/lighter/7X",
+        "q": 0.007957623402277628
+      },
+      {
+        "scenario": "stable",
+        "line_id": "102X",
+        "stratum": "lighter",
+        "root": {
+          "sequence": 8124,
+          "started_at": 12013.0,
+          "trip_id": "102X_18",
+          "station_id": "102X15"
+        },
+        "source": "mcwm_closed_loop_stratified_collection_v90_20261028/runs/stable/pairs/lighter/102X",
+        "q": 0.007957623402277628
+      },
+      {
+        "scenario": "stable",
+        "line_id": "705X",
+        "stratum": "heavier",
+        "root": {
+          "sequence": 8130,
+          "started_at": 12017.0,
+          "trip_id": "705X_11",
+          "station_id": "705X15"
+        },
+        "source": "mcwm_closed_loop_stratified_collection_v90_20261028/runs/stable/pairs/heavier/705X",
+        "q": 0.007957623402277628
+      },
+      {
+        "scenario": "stable",
+        "line_id": "705X",
+        "stratum": "lighter",
+        "root": {
+          "sequence": 8164,
+          "started_at": 12062.0,
+          "trip_id": "705X_8",
+          "station_id": "705X46"
+        },
+        "source": "mcwm_closed_loop_stratified_collection_v90_20261028/runs/stable/pairs/lighter/705X",
+        "q": 0.007957623402277628
+      },
+      {
+        "scenario": "local_speed_drop",
+        "line_id": "102X",
+        "stratum": "lighter",
+        "root": {
+          "sequence": 8116,
+          "started_at": 12002.0,
+          "trip_id": "102X_18",
+          "station_id": "102X15"
+        },
+        "source": "mcwm_closed_loop_stratified_collection_v90_20261028/runs/local_speed_drop/pairs/lighter/102X",
+        "q": 0.4666777531305949
+      },
+      {
+        "scenario": "local_speed_drop",
+        "line_id": "7X",
+        "stratum": "heavier",
+        "root": {
+          "sequence": 8120,
+          "started_at": 12004.0,
+          "trip_id": "7X_29",
+          "station_id": "7X21_102X34"
+        },
+        "source": "mcwm_closed_loop_stratified_collection_v90_20261028/runs/local_speed_drop/pairs/heavier/7X",
+        "q": 0.4666777531305949
+      },
+      {
+        "scenario": "local_speed_drop",
+        "line_id": "7X",
+        "stratum": "lighter",
+        "root": {
+          "sequence": 8125,
+          "started_at": 12007.0,
+          "trip_id": "7X_32",
+          "station_id": "7X05_102X18"
+        },
+        "source": "mcwm_closed_loop_stratified_collection_v90_20261028/runs/local_speed_drop/pairs/lighter/7X",
+        "q": 0.4666777531305949
+      },
+      {
+        "scenario": "local_speed_drop",
+        "line_id": "705X",
+        "stratum": "heavier",
+        "root": {
+          "sequence": 8136,
+          "started_at": 12018.0,
+          "trip_id": "705X_11",
+          "station_id": "705X15"
+        },
+        "source": "mcwm_closed_loop_stratified_collection_v90_20261028/runs/local_speed_drop/pairs/heavier/705X",
+        "q": 0.4666777531305949
+      },
+      {
+        "scenario": "local_speed_drop",
+        "line_id": "102X",
+        "stratum": "heavier",
+        "root": {
+          "sequence": 8138,
+          "started_at": 12021.0,
+          "trip_id": "102X_16",
+          "station_id": "7X14_102X27_705X28"
+        },
+        "source": "mcwm_closed_loop_stratified_collection_v90_20261028/runs/local_speed_drop/pairs/heavier/102X",
+        "q": 0.4666777531305949
+      }
+    ],
+    "new_slot": {
+      "scenario": "local_speed_drop",
+      "line_id": "705X",
+      "stratum": "lighter"
+    },
+    "witness": {
+      "sequence": 8760,
+      "issue_clock": 12840.0,
+      "trip_id": "705X_9",
+      "station_id": "705X42",
+      "event_clock": 12839.0,
+      "event_load_proxy": 0.44,
+      "reference_hold": 3.5191816091537476,
+      "candidate_hold": 7.5,
+      "q": 0.4999144673347473,
+      "native_issue_counts": "not logged, must be observed in the future native prefix",
+      "not_a_guaranteed_selected_root": true
+    },
+    "resume": "Only shock needs a new reference prefix; stable six old pairs and shock five old pairs remain resident and are reused without querying labels",
+    "reuse_gate": "Prior pair/root/complete native context/reference/actions/seed/fork integrity valid; exact historical q reconstructed from earlier factual trace. Replayed shock issues must exactly match old parent and reference-arm continuation",
+    "first_new_pair": "The same single new formal pair doubles as physical preflight; no second query on success or replacement on failure",
+    "physical_gate": [
+      "native at stop and actual step lengths available",
+      "atomic issue context and unchanged clock/ledger/RNG",
+      "same complete native prefix, exogenous RNG and scene reference",
+      "both actual commands once, departure separation at least native step, next same-car arrival observed",
+      "two child suffixes actually overlap; frozen reference on own subsequent states",
+      "real terminal24000, labels available24030, suffix zero training/admission"
+    ],
+    "terminal": 24000,
+    "label_available_at": 24030,
+    "parallel": "Both arms of the one new pair actually concurrent",
+    "stop": "If no native eligible missing-slot root by12900, any replay/reuse differs, or the queried new pair fails the physical gate: retain the failure and HOLD. Before query use fixed issue-visible eligibility only; after query never replace the root. Do not change cuts, window, seed or action domain.",
+    "old_slots": "Keep all eleven declared historical roots fixed. Do not reselect them when extending the clock window; each old source pair remains the same factual query.",
+    "probe_contract_note": "readout_protocol.json records the exploratory event-proxy/15000 probe. This final protocol preserves native issue counts and freezes12900; the probe is not the sampler.",
+    "timing_scope": "The later new root may be at a different service location; this is an explicit training coverage change, not a matched timing-only treatment."
+  },
+  "fitting": {
+    "status": "not_started; requires complete collection review and separate fit authorization",
+    "data": "The same12 valid paired roots/24 mature outcome labels only; do not shrink to11 or admit v87",
+    "label": "[2*(Wcandidate-Wreference)+(Rcandidate-Rreference)]/15079 from issue to actual24000",
+    "a": "(7.5-h_reference)/7.5",
+    "models": {
+      "line3": "a*beta_line",
+      "service5": "a*[beta_line+gamma_L*(L/C-mu_line,L)+gamma_M*(margin-mu_line,M)]",
+      "service_history6": "service5+a*gamma_q*(q-mu_line,q)"
+    },
+    "centers": "For each feature and line, mu=sum(a^2*x)/sum(a^2) over complete training cohort only; diagnostic11-row centers are not model centers",
+    "objective": "sum_squared_error + 1*sum_squared_coefficients for all coefficients",
+    "ridge": 1.0,
+    "closed_form_solves": 3,
+    "neural_updates": 0,
+    "initialization_steps": 0,
+    "gate": [
+      "all12 unique root slots valid and mature, including original native load strata",
+      "q strictly historical and supported for all roots; at least two distinct q values on each line",
+      "line3/service5/service_history6 covariate ranks3/5/6",
+      "centering orthogonal to line columns; original line coefficients preserved across readouts"
+    ],
+    "no_label_sign_gate": true,
+    "no_tuning": "One declared scalar, one ridge, three fixed readouts; no feature/window/ridge selection by later outcomes",
+    "data_availability_clock": 24030
+  },
+  "information_budget": {
+    "extra_covariates": "All previously observed same-corridor factual intervals needed for q; operational information beyond the12 labeled root snapshots, separately report interval counts and ages",
+    "current_baseline_counts": {
+      "stable": {
+        "7X": 21,
+        "102X": 10,
+        "705X": 6
+      },
+      "local_speed_drop": {
+        "7X": 21,
+        "102X": 10,
+        "705X": 5
+      }
+    },
+    "validation_baselines": "Apply same pre9000 observer rule in new episode; model coefficients and training centering remain frozen",
+    "world_training": "No new world or actor/critic response update in this protocol"
+  },
+  "budgets": {
+    "current_v91_native_seconds": 0,
+    "historical_native_seconds_through_v90": 314090,
+    "next_collection": {
+      "new_prefixes": 1,
+      "max_prefix_seconds": 12900,
+      "new_pairs": 1,
+      "new_suffixes": 2,
+      "new_outcome_labels": 2,
+      "reused_pairs": 11,
+      "reused_labels": 22,
+      "max_new_native_seconds": 36900,
+      "calculation": "12900 + 2*(24000-12000)",
+      "witness_exact_spend_if_selected": 35220,
+      "cumulative_cap_after_collection": 350990,
+      "fits": 0
+    },
+    "future_fits": {
+      "closed_form_solves": 3,
+      "SGD": 0,
+      "simulated_seconds": 0
+    },
+    "reserved_validation": {
+      "not_started": true,
+      "external_seed": 816207,
+      "scenarios": 2,
+      "max_prefix_seconds": 25200,
+      "new_pairs": 6,
+      "new_suffixes": 12,
+      "new_outcome_labels": 12,
+      "max_new_native_seconds": 169200,
+      "separate_authorization": true
+    }
+  },
+  "validation": {
+    "status": "reserved only, no simulation or labels now",
+    "models": [
+      "line3",
+      "service5",
+      "service_history6",
+      "original_reference"
+    ],
+    "opportunities": "Unchanged first original-domain physically eligible issue per line in12000-12600 on each factual scene path; all readouts use the same q/context/action support",
+    "common_support": "Missing/stale q or missing native context means unsupported for every readout. Flag q outside per-line training range; use reference for every readout there",
+    "decision": "Fixed zero threshold, first strictly negative supported prediction at most once, then permanently reference",
+    "metric": "Actual full-day native (2W+R)/15079; use only selected-root delta plus common reference endpoint, never sum query gains",
+    "advance_gate": [
+      "history6 realized mean cost beats line3, service5 and original reference",
+      "each stable/shock cost and worst cell no worse than those comparators",
+      "history6 actually intervenes in at least one supported native state"
+    ],
+    "report": "Full-day waiting/ride decomposition, both scenes, worst cell, opportunity/unsupported/extrapolation counts, actual dose, and tail costs; no heldout fitting"
+  },
+  "evidence": {
+    "v90_gate": "HOLD remains unchanged; original12-slot collection was incomplete",
+    "v91_covariate_ranks": {
+      "line3": 3,
+      "service5": 5,
+      "service_history6": 6
+    },
+    "q_separates_two_old_local_feature_aliases": true,
+    "claim": "Issue-visible distinction and design support only; no fitted prediction or improved control claim",
+    "v87_truth": "sealed; no read or feedback"
+  },
+  "old_paths_written": []
+}

@@ -1,0 +1,143 @@
+{
+  "name": "mcwm_same_state_holding_v114_20261029",
+  "stage": "One holding intervention from each of two complete live fresh states",
+  "authorization": "User explicitly authorized same-complete-state holding contrasts through full day, original F and dual cost gates unchanged, isolated logs server-side and small readouts.",
+  "training_seed": 6201,
+  "external_seed": 106206,
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "arms": [
+    "fresh"
+  ],
+  "input_checkpoint": "experiments/mcwm_full_state_recovery_v105_20261029/run/seed6201/full_state.pt",
+  "v105_protocol": "experiments/mcwm_full_state_recovery_v105_20261029/protocol.json",
+  "v106_protocol": "experiments/mcwm_endpoint_restore_v106_20261029/protocol.json",
+  "v106_summary": "experiments/mcwm_endpoint_restore_v106_20261029/run/seed6201/summary.json",
+  "frozen_reference_root": "experiments/mcwm_closed_loop_historical_comparison_v104_20261028/runs_runtime_fix/6201/106206",
+  "edge_xml": "experiments/sumo_eval/runtime/H2Oplus/bus_h2o/network_data/a_sorted_busline_edge.xml",
+  "horizon_seconds": 24000,
+  "shock_at_seconds": 9000,
+  "speed_factor": 0.65,
+  "metric_interval_seconds": 300,
+  "full_day_departed_passengers": 15079,
+  "periods": {
+    "full_day": [
+      0,
+      24000
+    ],
+    "early": [
+      9000,
+      12000
+    ],
+    "post_budget": [
+      18300,
+      24000
+    ]
+  },
+  "feedback_first_deadline": 1200,
+  "feedback_last_deadline": 18000,
+  "feedback_interval_seconds": 300,
+  "feedback_records_per_packet": 5,
+  "feedback_delay_seconds": 30,
+  "target_record_budget": 285,
+  "policy_updates_per_packet": 8,
+  "policy_update_budget": 456,
+  "fresh_pool_capacity": 285,
+  "fresh_rows": 64,
+  "private_seed": 606201,
+  "selection": "Latest five eligible complete positive-time nonterminal rows per original release window. Retain all admitted rows up to285. No risk selection or recent30 truncation.",
+  "learning_change": "In fresh, original historical128 contributes0.1875, fresh64 contributes0.1875, source128 contributes0.375, model128 contributes0.25. Keep v109 original auxiliary batches. Main256 target unchanged; recompute original full256 target inside a Torch RNG fork restored to the pre-main-target state, use its missing historical64 suffix, and add64 critic predictions. No new replay draw or optimizer step.",
+  "scientific_estimand": "J_low minus J_high from one complete fresh state, one root action changed before original F, then original continuous learning and control to24000. Low dose is frozen old no_fresh physical holding, not no_fresh policy evaluated at the fresh state.",
+  "preserved": "70000 endpoint with full offline and the complete saved source replay from24999 collected events; original MappingTrainer, .75real+.25model TD,128 model batch,original .1V+.9SAC bootstrap,world banks,trust rule,Adam state,tapered learning rates and raw completion-safety F. No CQL addition.",
+  "model_refits": 0,
+  "source_collection_events": 0,
+  "offline_training_updates": 0,
+  "trust_updates_per_arm": 114,
+  "new_native_seconds": 64218.0,
+  "total_new_target_training_labels": 645,
+  "total_policy_updates": 1032,
+  "preflight": "Reuse each prefix. Original raw F must attain predeclared low physical holding. Compare full prefix action records before fork; high child must exactly reproduce original fresh full-day evidence before causal readout. No extra preflight native episode.",
+  "primary_metric": "(2W+R)/15079 over the full24000-second day, including accrued unfinished passenger time; negative fresh-minus-comparator is better.",
+  "cost_gate": "Complete both scene contrasts and technical checks. Low intervention minus matched no_fresh mean<0,stable<=0,shock<0; additionally low intervention minus same-actor frozen<=0 in each scenario and at least one<0. Report no_fresh-minus-frozen separately. Early and tail windows remain descriptive.",
+  "inference_scope": "Two deliberately selected previously exposed roots, one training seed and external seed; diagnostic interventions, not independent policy confirmation.",
+  "failure": "Hold if prefix/F/root/fork/reproduction or budget checks fail; retain all actual costs. No automatic retries, new roots, dose or sampling changes.",
+  "success": "Analyze both fixed contrasts; retain original five cost conditions. Constraint development requires causal evidence and separate declared candidate; no automatic implementation or expansion.",
+  "runtime": {
+    "device": "cpu",
+    "threads": 1,
+    "ram_mb": 32000,
+    "allowed_nodes": [
+      "node001"
+    ],
+    "parent_cpu_reservation": 2,
+    "child_threads": 1,
+    "require_node": "node001",
+    "placement_reason": "Original server environment passed post-Adam live-fork continuation on node001; two CPU1 children per parent."
+  },
+  "priority": "high",
+  "old_code_and_results_read_only": true,
+  "downloads": "Small summaries/logs only. Prefix comparisons run on server. No CSV,trajectory,dataset or checkpoint downloads.",
+  "summary_max_bytes": 64000,
+  "v107_root": "experiments/mcwm_full_mcwm_dripping_pilot_v107_20261029",
+  "mechanism_gate": "Original v111 auxiliary batches and historical128 coverage preserved; coefficient identities, main Torch RNG preservation and common target rows exact. Original high continuation must reproduce complete v113 fresh actions, updates and outcomes. Reuse existing matched no_fresh and frozen references.",
+  "synthetic_verification": "Only small synthetic batch-routing/update fixtures before native launch; any synthetic optimizer calls are separately recorded. No extra real-data training or native preflight day.",
+  "v109_root": "experiments/mcwm_critic_only_fresh_v109_20261029",
+  "added_compute": {
+    "per_fresh_update": {
+      "critic_supervised_rows": 64,
+      "bootstrap_forward_calls": 1,
+      "bootstrap_forward_rows": 256
+    },
+    "per_fresh_day": {
+      "critic_supervised_rows": 29184,
+      "bootstrap_forward_calls": 456,
+      "bootstrap_forward_rows": 116736
+    },
+    "both_fresh_days": {
+      "critic_supervised_rows": 58368,
+      "bootstrap_forward_calls": 912,
+      "bootstrap_forward_rows": 233472
+    },
+    "no_fresh_added": 0,
+    "description": "Original per-day overhead retained; actual_new_work counts shared prefix once plus two suffix increments. No initialization, source collection or world refit.",
+    "actual_new_work": {
+      "critic_supervised_rows": 66048,
+      "bootstrap_forward_calls": 1032,
+      "bootstrap_forward_rows": 264192
+    }
+  },
+  "v111_root": "experiments/mcwm_historical_coverage_v111_20261029",
+  "diagnostic_only": true,
+  "v113_root": "experiments/mcwm_behavior_replay_v113_20261029",
+  "anchors": {
+    "stable": {
+      "trip_id": "705X_17",
+      "station_id": "7X13_102X26_705X27",
+      "sequence": 11986,
+      "clock": 17235.0,
+      "high_hold_seconds": 44.35765075683594,
+      "low_hold_seconds": 5.896355628967285
+    },
+    "local_speed_drop": {
+      "trip_id": "311X_19",
+      "station_id": "122X22_311X22_406S29",
+      "sequence": 10045,
+      "clock": 14547.0,
+      "high_hold_seconds": 41.55565643310547,
+      "low_hold_seconds": 4.384698390960693
+    }
+  },
+  "branch_names": [
+    "low",
+    "high"
+  ],
+  "source_arm": "fresh",
+  "full_state": "Linux live-memory fork of CPU1 per child and libsumo, including C++ native RNG, world/learner/Adam/trust/replay/budget/pending/event context; existing route parser descriptor detach and Python/NumPy/Torch RNG restoration.",
+  "budget_accounting": "Prefix simulated/trained once per scene, plus both suffix increments. Child full-day counters include inherited prefix; do not sum them as new work.",
+  "native_limits": {
+    "child_timeout_seconds": 1200
+  },
+  "logical_full_day_continuations": 4
+}

@@ -1,0 +1,139 @@
+{
+  "name": "thesis-mcwm-paired-coverage-v37-20261024",
+  "training_seeds": [
+    6202
+  ],
+  "native_external_seed": 106237,
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "arms": [
+    "zero_memory",
+    "per_head_level",
+    "shared_level"
+  ],
+  "focus_lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "target_lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "history_rows": 32768,
+  "source_rows": 4096,
+  "memory_dim": 84,
+  "memory_window_seconds": 300,
+  "window_edges": [
+    9000,
+    12000,
+    18000
+  ],
+  "fixed_proposal_hold_seconds": [
+    0.0,
+    7.5,
+    15.0
+  ],
+  "diagnostic_seed": 336202,
+  "feedback_first_deadline": 1200,
+  "feedback_last_deadline": 18000,
+  "feedback_interval_seconds": 300,
+  "feedback_records_per_packet": 5,
+  "feedback_delay_seconds": 30,
+  "target_record_budget": 285,
+  "policy_update_budget": 456,
+  "policy_updates_per_packet": 8,
+  "train_windows": {
+    "w1": [
+      9600,
+      10200
+    ],
+    "w2": [
+      12600,
+      13200
+    ],
+    "w3": [
+      15900,
+      16500
+    ]
+  },
+  "heldout_windows": {
+    "early": [
+      18300,
+      19200
+    ],
+    "tail": [
+      21000,
+      21900
+    ]
+  },
+  "training_pairs_per_day_maximum": 9,
+  "training_outcome_slots_per_pair": 2,
+  "training_pair_slots_per_day_maximum": 18,
+  "ordinary_slots_when_complete": 267,
+  "feedback_pair_limit_per_packet": 1,
+  "paired_holds_seconds": [
+    0.0,
+    1.875
+  ],
+  "minimum_gap_steps": 1.5,
+  "paired_suffix_seconds": 300,
+  "paired_endpoint_seconds": 300,
+  "difference_ridge": 1.0,
+  "difference_target_scale": 1000.0,
+  "difference_features": [
+    "7X_intercept",
+    "102X_intercept",
+    "705X_intercept",
+    "forward_minus_backward_headway_deviation"
+  ],
+  "selection": "First jointly executable issue per line per fixed window, using issue-visible feasibility only. Require action gap >=1.5*max(native actionStepLength); no future-cost selection or replacement after an observed physical alias. Missing declared slots remain missing and fail full coverage.",
+  "collection_policy": "Both new 24000s factual prefixes use the fixed original50000 initializer zero-memory actor with the unchanged native F. Three learners only replay this common factual stream in shadow. Both paired suffix arms share the issue prefix, exogenous seed and frozen zero-actor continuation, with zero training.",
+  "budget": "Exactly57x5=285 admitted slots per scenario, including267 ordinary and18 paired next-event rows from9pairs. Each low/high outcome occupies one distinct slot; exclude its source factual issue from the ordinary pool. Missing pairs cannot be replaced by ordinary rows to pass the267+18 contract. Reusing matched data in three learners creates no new labels.",
+  "feedback_release": "A pair cannot be admitted before max(issue+300, both real next-event endpoint clocks)+30 native seconds. Branch wall time never advances the main clock. At most one pair replaces two ordinary slots in a packet; dt=0 paired next-event records remain legal and consume their slots.",
+  "native_bellman": {
+    "raw_reward": "-(2*delta_waiting_passenger_seconds+delta_riding_passenger_seconds)",
+    "discount_gamma_per_minute": 1.0,
+    "batch_discounts": 1.0,
+    "reward_scale": 0.0001,
+    "mixed_backup_lambda": 0.1,
+    "lambda_weights": "V",
+    "target": "reward_scale*r_raw+(1-terminal)*[lambda*V(ns)+(1-lambda)*SAC_alpha(ns)]",
+    "paired_records": "Use each branch's actual native next-event s,a,r,ns,terminal and causal current/next memory. No synthetic state at300s, no finite300 cost overwrite, no added paired-difference loss. Keep original sampler, actor/V inputs, F, trust and learning schedules."
+  },
+  "finite300_readout": "Separate passive ridge readouts: route3 constants vs route3+one issue-visible headway-imbalance feature, two waiting/riding outputs. Fit only admitted training pairs; target is low-minus-high physical cost at exactly300s under common frozen zero continuation. No gradient or action path to critic/actor/V and no additional SGD. Fixed1000 target normalization is undone on output.",
+  "state_rights": "No v34 twelve-state truth or other old diagnostic truth enters collection, training, model selection or the readout. Heldout issue inputs are read only after all456updates and freeze; heldout truth is joined by final analysis only. All native suffixes and all post18000 periods have zero training.",
+  "interpretation": "The300s common-continuation cost contrast and the long-horizon mixed entropy Bellman Q contrast are different estimands. Compare their signs descriptively; disagreement alone is not a Bellman implementation failure. This round identifies matched model responses to new paired action coverage, not a realized three-policy control comparison or the causal contribution of pairing relative to an unpaired-data control.",
+  "gate": "Native preflight first; then complete three-line x three-window training coverage, two heldout windows, exact prefixes and executed actions, causal memory,285/456, no leakage and zero suffix training. Inspect paired immediate-reward/bootstrap/next-context separation before interpreting any lack of300s response.",
+  "concurrency": "Collect both suffix arms as real parallel native workers. Each matched shadow scenario launches three independent retained-Adam learners and measures actual optimizer interval overlap; compare identical sampling and RNG schedules.",
+  "compute_budget": {
+    "new_prefixes": 2,
+    "prefix_native_seconds": 48000,
+    "training_pairs": 18,
+    "training_suffixes": 36,
+    "training_suffix_native_seconds": 10800,
+    "heldout_pairs": 12,
+    "heldout_suffixes": 24,
+    "heldout_suffix_native_seconds": 7200,
+    "all_suffixes": 60,
+    "all_suffix_native_seconds": 18000,
+    "training_slots_per_scenario": 285,
+    "new_training_slots_total": 570,
+    "paired_training_outcome_slots_total": 36,
+    "heldout_outcomes_never_trained": 24,
+    "shadow_optimizer_updates_total": 2736,
+    "readout_sgd_updates": 0,
+    "preflight_and_failed_prefix_cost": "Report actual additional prefixes, suffixes, native seconds and optimizer updates separately; never fold them into285 slots."
+  },
+  "scheduler_priority": "high",
+  "summary_max_bytes": 24000,
+  "v36_directory": "mcwm_closed_loop_shared_level_v36_20261024",
+  "shock_at_seconds": 9000,
+  "speed_factor": 0.65,
+  "metric_interval_seconds": 300
+}

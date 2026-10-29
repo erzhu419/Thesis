@@ -1,0 +1,426 @@
+                                                                                                                                            1
+
+
+
+
+        Separating State and Outcome Replay for Bus
+           Holding with Sparse Online Feedback
+                                                Author information to be confirmed
+
+
+
+   Abstract—Bus-holding controllers must adapt to changing                  complete systems trained with different budgets. Without a
+operating conditions while using limited operational feedback. A            matched outcome-replacement control, an observed gain can
+fresh observation can improve the evaluation of an executed action          combine additional optimization, access to current states, and
+without ensuring that the resulting policy improves passenger
+service. We study a replay design that separates the selection of           the information in new rewards and successor states. We
+current states and actions for policy learning from the selection           therefore separate these comparisons explicitly.
+of complete factual outcomes for critic supervision. Current                   The methodological focus is replay selection. A record
+covariates follow a fixed recency rule, whereas the outcome                 chosen because its outcome is informative need not be the
+stream supplements recent records with a limited capacity-                  state that should receive extra weight in every actor, value,
+risk replacement. Both streams preserve the original execution
+mapping. After development, the method was frozen and evaluated             temperature, and regularization update. In the evaluated design,
+with three new training initializations in stable and local speed-          state/action covariates and complete outcomes follow separate
+reduction scenarios. Against a matched controller with the                  selection rules. The covariate rule is retained from a fixed
+same initialization and update counts but historical outcome                working baseline; the critic receives recent factual outcomes
+replacement, passenger cost decreased in four of six full-day               with a restricted capacity-risk replacement. This retains ordinary
+conditions, by an average of 5.946 weighted seconds per passenger,
+or 0.269%. Two conditions degraded, with a worst increase of                single-trajectory feedback and introduces no counterfactual
+4.656 seconds. A separate same-environment comparison with five             outcome queries.
+archived final world-model controllers yielded lower costs in 20 of            The study makes three bounded contributions. First, it
+30 comparisons and a 0.325% improvement over their mean, but                specifies a deployable sparse-feedback update protocol with
+did not surpass the best archived controller. These results support         separate state and outcome replay and consistent executed-
+a limited average benefit from sparse factual feedback. A causal
+perspective distinguishes possible failures of value transportability       action evaluation. Second, it reports a frozen-method compari-
+from the measured feedback effect; it does not establish hidden             son on three new initializations, retaining all six stable/shock
+confounding as the cause of degradation.                                    conditions and both adverse cases. Third, it reconciles the
+   Index Terms—Public transportation, optimization and control, matched feedback comparison with a separate evaluation
+reinforcement learning, online feedback, bus holding.                       of five archived final Model-Corrected World Model (MC-
+                                                                            WM) controllers. A causal interpretation clarifies what these
+                                                                            experiments identify and what they leave unresolved.
+                           I. I NTRODUCTION                                    The strongest result is an average cost reduction with a
+       US holding changes the timing of boarding, capacity majority of favorable conditions, rather than uniform improve-
+B      allocation, and downstream service. A longer hold can ment. The study does not propose a new causal-identification
+help waiting passengers reach a service while delaying passen- algorithm, and the evaluated day-level adaptation uses factual
+gers already aboard or changing later transfer opportunities. temporal-difference supervision without online world-model
+Headway-based control provides an established operational or trust updates.
+approach to this problem [1]. Learning-based control adds the
+possibility of adapting decisions to richer operating states, but                  II. R ELATED W ORK AND E VALUATION TARGET
+its practical value depends on passenger outcomes rather than                  Headway control determines holding from service spacing
+value-function fit alone.                                                   and is directly connected to passenger delay [1]. Its operational
+   Historical experience and imperfect simulation offer sub- structure also motivates the execution constraints used here. The
+stantial training data before deployment. Hybrid offline-and- present evaluation concerns a learned residual choice within a
+online reinforcement learning studies how such sources can be common execution rule, rather than removing that operational
+combined when their dynamics differ [2]. During operation, a layer.
+smaller stream of current factual transitions becomes available.               Soft actor-critic (SAC) provides an off-policy, entropy-
+The question addressed here is narrow: once a controller already regularized learning framework [3]. Implicit Q-learning (IQL)
+continues learning from historical experience and current state uses fixed offline data for initialization [4], while conservative
+information, do newly observed outcomes provide an additional Q-learning (CQL) regularizes action values in settings with
+service benefit under a fixed update budget?                                limited action support [5]. We reuse these ingredients. Our
+   This question differs from comparing continued learning finite executed-action regularizer is described explicitly below;
+with a frozen policy. It also differs from comparing two the theoretical guarantees of the original CQL algorithm are
+                                                                            not transferred to this modified implementation.
+   Working manuscript, 29 October 2026. The empirical scope and source
+results are preserved; author details and submission materials remain to be    Hybrid learning with dynamics gaps [2] and causal rein-
+finalized.                                                                  forcement learning [6] both motivate careful treatment of
+                                                                                                                                   2
+
+
+
+heterogeneous data, but address different questions. Causal paths. It stores 285 admitted rows over the day. For outcomes,
+transportability concerns whether information about responses selection starts with the latest five records. If those contain
+can be carried between environments using appropriate in- no record with a full vehicle and a compatible waiting queue,
+variances. Off-policy data collected by different policies are but such a record exists in the same eligible feedback window,
+not automatically confounded: with sufficient states, invariant the latest risk record replaces the oldest of the five. Otherwise
+response mechanisms, and adequate support, different behavior the selection is unchanged. The rule uses issue-visible state
+distributions can still support valid off-policy learning. Our variables, not future reward, selected passenger identities, or
+results measure a feedback-channel effect and motivate, rather final-day outcomes.
+than resolve, a transportability question.                             The fresh critic samples its recent-outcome share from the
+   The term “historical MC-WM” below denotes the archived           last thirty admitted complete records. Actor, value, temperature,
+complete controller, including its original model-assisted          and  executed-action CQL use the covariate rule rather than the
+training. The proposed feedback recipe was developed from risk-selected state distribution merely because those outcomes
+the same bus-control research pipeline but uses a different were admitted. Every complete transition retains its own state,
+continuation procedure. Comparing these complete systems is action, reward, and successor; fields are not stitched across
+useful for operational context; it cannot isolate the effect of records.
+adding feedback to an otherwise unchanged historical MC-WM             The information contract is 285 covariate selections plus 285
+learner.                                                            complete-outcome selections per fresh day. The pools overlap
+                                                                    but need not coincide: their actual unions were 306–310 distinct
+        III. P ROBLEM AND I NFORMATION C ONTRACT                    records in the frozen validation. This is not a 285-total-record
+                                                                    method, nor are the 570 selections all distinct. The matched
+A. Event-Driven Holding and Passenger Cost
+                                                                    arm receives the same covariate selection rule and no current
+   Let Xt denote the full physical system and st = ϕ(Xt ) complete outcomes for training. Each arm collects from its
+the recorded controller observation. The 229-dimensional own evolving trajectory.
+observation contains five global entries and sixteen event slots
+with fourteen entries per slot. This representation is fixed across            IV. L EARNING AND E XECUTED ACTIONS
+the matched arms. We do not assume that it exposes every A. Matched Critic Supervision
+future service or transfer consequence.                                The batch size is 256. Each update samples 128 fixed
+   The actor produces a latent proposal u ∈ [−1, 1]. Its source transitions, 64 historical target transitions, and 64 recent
+proposed holding in seconds is p(u) = 30(u + 1). The fixed complete outcomes. In the matched no_fresh arm, the last
+execution mapping returns the normalized executed action share is replaced by complete historical target transitions.
+a = F (s, u) ∈ [−1, 1], corresponding to physical holding Source and historical archives are fixed; no additional source
+h = 30(a+1) seconds. Learning and deployment both evaluate interaction is collected during these days. Source sample count
+policy-dependent action values at the normalized F (s, u). is 4096 and the historical target pool contains 32768 rows; the
+Observed factual actions are already executed encodings and much larger offline initialization dataset is separate.
+are never transformed a second time.                                   Both arms use the same target form, written schematically
+   For horizon T = 24000 seconds, let W (T ) and R(T ) be as
+accumulated waiting and in-vehicle person-seconds. The main
+                                                                            y = rscaled + (1 − d){0.1V (s′ ) + 0.9Bsoft (s′ )}.   (2)
+metric is
+                 2W (T ) + R(T )                                    Here Bsoft is the implemented hurdle-policy expectation of
+       J(T ) =                    , Ndeparted = 15079.          (1) target-critic values and latent-proposal entropy, with policy
+                    Ndeparted
+                                                                    actions passed through F . The experiment uses unit interval
+Accrued costs of unfinished journeys remain included. A discounts and reward scale 10−4 ; elapsed time is recorded
+smaller value is better. A window contribution uses differences but does not introduce a separate exponential discount in this
+of the cumulative ledgers over that window with the same full- target. The two-critic architecture, target-head selection, and
+day denominator. It is not a mean journey time of passengers initial optimizer state are retained from the fixed configuration.
+departing only in that window.                                      The coefficient 0.1/0.9 mixes bootstrap values, not real and
+                                                                    world-model temporal-difference losses.
+B. Feedback Timing and Two Replay Streams                              With Qθ the critic and B the factual batch, its loss includes
+   A factual record is z = (s, a, r, s′ , ∆t, d), where a is                LQ = EB [Huber1 (Qθ (s, a) − y)] + 0.2Lexec .        (3)
+executed, r is the recorded interval reward, and d is terminal
+                                                                   The factual loss is the archived Huber loss with threshold one.
+status. Its feedback becomes eligible thirty seconds after the
+                                                                   For each regularization state, 22 proposals comprise one zero-
+factual interval ends. Fifty-seven packet deadlines run from
+                                                                   holding proposal, ten uniform latent proposals, ten positive actor
+1200 to 18000 seconds at 300-second intervals. Each packet
+                                                                   proposals, and one deterministic positive proposal. Mapping
+admits five covariates and, in the fresh arm, five complete
+                                                                   these through F and removing exact executed aliases gives
+outcomes.
+                                                                   As . The finite candidate regularizer is
+   Denote the covariate pool by Ck and the complete-outcome                        "                       !               #
+                                                                                                    Q(s,a)
+                                                                                          P
+pool by Ok . The covariate rule selects the five latest eligible                             a∈As e
+                                                                       Lexec = Es log                        − Q(s, afact ) , (4)
+factual records and retains only (s, a) for the relevant update                                 |As |
+                                                                                                                                  3
+
+
+
+averaged over the critic heads. It uses covariates only. Candidate     Even a correct factual residual need not improve every
+sampling uses an isolated random stream, preserving the main         unexecuted action estimate. A gradient step on loss ℓ(s, a)
+stream. Equation (4) is a finite-candidate regularizer, not an       changes another value approximately by
+executed-action density estimator.
+   The actor optimizes its hurdle-policy expectation of                        ∆Q(s, a′ ) ≃ −η∇θ Q(s, a′ )⊤ ∇θ ℓ(s, a).         (7)
+α log π(u|s)−Q(s, F (s, u)). The zero and positive components        Its direction is not constrained by the correctness of the
+are evaluated separately. Entropy is defined in proposal space       observed outcome alone. Finite feedback, bootstrap approxi-
+because the execution map can contain flat regions and atoms.        mation, and shared parameters can therefore produce heteroge-
+Value and CQL updates use 64 historical plus 64 current              neous policy effects without establishing hidden confounding.
+covariates; actor and temperature states additionally include        Separating replay streams addresses one coupling in the update
+the 128 fixed source states. Each packet completes eight updates     distribution; it does not solve causal identification.
+of value, actor, temperature, and critic, in that order for each
+step. Thus each family performs 456 updates per day. No
+                                                                                   V. E XPERIMENTAL P ROTOCOL
+world-model fit, confidence-weight update, or counterfactual
+query is performed by this feedback method.                          A. Development and Frozen Validation
+                                                                      Native target evaluation uses an all-lines SUMO [7] bus net-
+B. Common Execution Mapping                                        work with twelve directional lines. Three co-running directions,
+   For reproducibility, the execution layer is part of the 7X, 102X, and 705X, share the perturbed corridor; they are
+experiment. From the canonical observation, let ef , eb be not the entire evaluated network. Passenger demand is fixed
+forward/backward headway errors in seconds, with availability by the archived input. The shock scene multiplies the native
+indicators If , Ib . Define                                        speed caps on four lanes of a shared 723.30-m road edge by
+                                                                   0.65 at 9000 seconds. The change occurs at the native clock
+                rs = clip[0,60] {(Ib eb − If ef )/2}.          (5) and has no explicit shock-indicator input to the policy. The
+                                                                   other scene retains stable operating conditions.
+Before 18000 seconds and for positive proposal p, the prelimi-
+                                                                      Development used initializations 6201 and 6203 in both
+nary holding in seconds is min{p, max(p/8, rs )}; otherwise it
+                                                                   scenes. After the replay recipe was fixed, validation used
+is p/8. Between 3600 and 18000 seconds, a completion floor
+                                                                   three new initializations, 6206–6208, trained for 50000 offline
+sets at least sixty seconds when a forward vehicle is present, a
+                                                                   IQL steps each on the archived 3284718-row training dataset.
+backward vehicle is absent, demand is positive, and load is at
+                                                                   Their offline training cost was 150000 updates and is reported
+most one quarter. The final holding h is clipped to [0, 60], then
+                                                                   separately. Environment seeds were 106206–106208 under
+encoded as F (s, u) = 2h/60 − 1. Canonical clipped headway
+                                                                   a fixed mapping. Initialization and environment randomness
+features, rather than a different raw-state rule, are used in both
+                                                                   therefore vary together across the three validation units; their
+training and execution. Deterministic deployment chooses the
+                                                                   effects are not disentangled.
+positive component when its holding probability is at least
+                                                                      For each initialization/scene, fresh and no_fresh began
+0.5 and otherwise chooses zero; the common F is unchanged
+                                                                   from the same learning state and shared their complete prefix
+across matched arms.
+                                                                   before feedback updates. Both continued learning, received
+   This execution rule substantially restricts the effect of the
+                                                                   285 covariates, and used the same execution rule and optimizer
+actor in some states. Consequently, small parameter or proposal
+                                                                   schedule. The fresh arm additionally admitted 285 complete
+changes need not imply a physical intervention, and a good
+                                                                   factual outcomes. Paired complete days overlapped in actual
+value prediction does not itself establish a service gain. The
+                                                                   execution. The first technical preflight was reused as a formal
+full-day passenger ledger remains the primary endpoint.
+                                                                   day, without an extra selected preflight run.
+                                                                      The batch comprises twelve full-day runs, or 288000 native
+C. What Freshness Can and Cannot Guarantee                         simulation seconds, 3420 covariate selections, and 1710 fresh
+   For a fixed future value function V and a recorded outcome labels. Each optimizer family performed 5472 updates
+state/action, let TD V be the conditional reward-plus- across the twelve runs. All 1123 archived implementation
+continuation operator in data domain D. A mixture at that checks passed. The final packet completed around 18000–18005
+state/action satisfies                                             seconds; no training continued afterward. We report full-day
+                            X                                      cost, the 9000–12000 early response window, and the 18300–
+        Tmix V − Tcur V =        λD (s, a)(TD V − Tcur V ),    (6)
+                                                                   24000 post-update window.
+                             D
+                         P
+where λD (s, a) ≥ 0, D λD (s, a) = 1, and the conditional
+operators are defined on the relevant support. These weights B. Analysis Units and Two Comparators
+                                                                                                                 fresh      no_fresh
+need not equal the global replay quotas. Under invariant              For the main comparison, let ∆ic = Jic           − Jic
+conditional reward and transition mechanisms, the differences for initialization i and scene c. We report the six condition
+vanish. If operating mechanisms or omitted-state composition values and their equal-weight mean. For independent training
+differ, they need not vanish. Equation (6) is an identity replication, the unit is ∆         ¯ i = (∆i,stable + ∆i,shock )/2, giving
+describing a possible mismatch, not evidence that such a three units. A cell win fraction describes these observed cells;
+mismatch caused a particular adverse run.                          it is not a precise estimate of a future success probability.
+                                                                                                                                    4
+
+
+
+   The second comparison evaluates five archived final MC-WM         Stable post-update costs improved in two of three conditions,
+actors, trained with seeds 6201–6205, in the same six target with a mean change of −1.011 seconds. The shock post-update
+environments. These require thirty additional frozen-policy eval- mean was −0.505 seconds, but two conditions had positive
+uation days, 720000 native seconds and zero training. The six changes. The overall post-update count was three favorable
+existing fresh days are reused for the thirty actor/environment and three adverse. The stable 6208 condition had already
+comparisons. These comparisons are dependent and do not accumulated a positive cost difference before the final window,
+supply thirty new independent fresh-policy training replicates. so an episode-end-only explanation is insufficient. We retain
+   The archived method used 50000 initialization updates its +3.273-second stable post-update loss in the main table.
+followed by 20000 continuation updates with 0.75 factual
+and 0.25 confidence-weighted world-model temporal-difference
+                                                                  C. Development Evidence for Replay Separation
+loss. The present method uses new 50000-step initializations
+and 456 factual day-level updates. Training budgets and method       The fixed-baseline development comparison favored separate
+components differ; the historical panel is a descriptive system selection in all four cells, although its two stable tails remained
+bridge. Only the matched no_fresh experiment isolates the adverse. The coupled-risk scheme’s own matched baseline
+specified current-outcome feedback channel under its fixed was 0.878 seconds worse than the fixed baseline. Its apparent
+learning recipe.                                                  −2.416-second fresh-minus-own-baseline difference therefore
+   The study retains the original development gate history: overstates the gain relative to the working fixed reference; the
+both stable development tails had a cost increase, so the latter was −1.538 seconds. This illustrates why reference drift
+earlier requirement of per-cell tail nondegradation was not is reported separately.
+met. Frozen validation used prespecified aggregate full-day          These conditions were used in development and are not
+conditions, which passed. The present main-result interpretation pooled with the new-initialization validation to claim ten
+emphasizes mean benefit and a majority of favorable conditions, independent successes. Separating pools also expands the union
+without changing the archived strict-gate decisions.              of accessed target records. The table evaluates the complete
+                                                                  replay designs, not a record-count-matched isolated causal
+                         VI. R ESULTS                             effect of the separation module. Independent validation of this
+                                                                  module comparison remains a needed extension.
+A. Matched Fresh-Outcome Benefit
+   Fresh outcome supervision lowered full-day cost in four of
+six conditions (66.7%), with an average reduction of 5.946 D. Same-Environment Historical Controller Bridge
+seconds, or 0.269% relative to the matched mean. The favorable          The fresh system had lower costs in 20 of 30 ac-
+conditions improved by 10.217 seconds on average, whereas tor/environment comparisons, averaging 7.199 seconds or
+the two adverse conditions degraded by 2.595 seconds. The 0.325% below the five-actor mean. The favorable comparisons
+best and worst differences were −21.528 and +4.656 seconds, improved by 13.809 seconds on average; the ten adverse
+respectively. Stable and shock conditions each contained two comparisons degraded by 6.021 seconds. Fresh beat three of the
+wins and one loss; their mean differences were −4.559 and five actors in six-environment mean cost, but the best historical
+−7.333 seconds.                                                      actor, 6202, was better in all six environments. Actor 6204
+   The independent initialization-level differences were also had a slightly lower six-environment mean despite losing
+−14.110, −6.324, and +2.595 seconds. Their sample standard four individual comparisons.
+deviation was 8.359 seconds, with two of three units favorable.         Fresh was below the historical five-actor arithmetic mean in
+Initialization 6206 contributed 79.1% of the net mean gain. As every environment. That mean is a statistical reference, not an
+a descriptive sensitivity calculation, the other two initializations executed ensemble policy. The descriptive mean decomposition
+still averaged −1.864 seconds when 6206 was omitted. No is
+initialization was removed from the primary estimate, and we
+do not claim statistical significance from three units.               Jfresh − J¯hist = (Jno_fresh − J¯hist ) + (Jfresh − Jno_fresh )
+   On average, both waiting and riding decreased against the                          = −1.253 − 5.946 = −7.199.                  (8)
+matched control (Table II). Their signs differ in the historical
+comparison, where lower waiting outweighed higher riding. This separates the matched outcome increment from the
+These distinct decompositions must not be used interchangeably complete system difference. It is not a causal allocation of all
+to explain the feedback benefit.                                     historical changes, because training, initializations, and model
+                                                                     involvement differ.
+B. Adverse Cases and Post-Update Costs
+  The 6208 stable condition increased waiting by 3.996             E. Supplementary Complete-Learner Continuation Pilot
+seconds per passenger while reducing riding by 3.336 seconds,         An additional archived pilot reconstructed the complete
+giving 2(3.996) − 3.336 = 4.656 seconds of net loss. In its        learning endpoint for historical initialization 6201 and checked
+shock condition, the corresponding changes were +0.953 and         actor identity, restoration of saved fields, and save/load one-step
+−1.372, giving a 0.533-second loss. Thus neither adverse case      equivalence before continuation. This resolves the practical
+can be described simply as an increase in both components or       absence of a saved continuation state for that one reconstruction;
+as uniformly excessive holding.                                    it does not provide historical hidden-state ground truth for every
+                                                                                                                                                   5
+
+
+
+                                                                 TABLE I
+  F ROZEN VALIDATION : ALL SIX CONDITION PAIRS . N EGATIVE DIFFERENCES FAVOR FRESH OUTCOMES . U NITS : WEIGHTED SECONDS PER FULL - DAY
+                                                           DEPARTED PASSENGER .
+
+
+                             Initialization    Scene    Jno_fresh       Jfresh    Full-day ∆J   Early ∆J     Post-update ∆J
+                             6206              Stable    2215.126     2208.435        −6.692      −7.681              −2.041
+                             6206              Shock     2232.584     2211.056       −21.528     −15.882              +0.025
+                             6207              Stable    2211.519     2199.877       −11.642      −2.516              −4.267
+                             6207              Shock     2214.271     2213.266        −1.005      +3.088              −1.818
+                             6208              Stable    2200.381     2205.037        +4.656      −4.100              +3.273
+                             6208              Shock     2209.405     2209.938        +0.533      −3.046              +0.278
+                             Equal-weight mean           2213.881     2207.935       −5.946       −5.023              −0.758
+
+
+
+                             TABLE II                                                                       TABLE IV
+WAITING AND RIDING DECOMPOSITION . ∆W AND ∆R ARE SECONDS PER                       F IVE ARCHIVED MC-WM ACTORS EVALUATED ON THE COMMON SIX
+    FULL - DAY PASSENGER ; THE WEIGHTED TOTAL IS 2∆W + ∆R.                        ENVIRONMENTS . T HE LAST COLUMN COUNTS FRESH WINS OVER THAT
+                                                                                                              ACTOR .
+          Comparison/scene           ∆W           ∆R           ∆J
+                                                                                        Archived actor     Mean J     Fresh minus actor   Wins
+          Matched, stable         −1.399       −1.760    −4.559
+          Matched, shock          −2.141       −3.051    −7.333                         6201               2222.015            −14.080      6/6
+          Matched, overall        −1.770       −2.406    −5.946                         6202               2200.511             +7.424      0/6
+          Historical mean         −7.169       +7.139    −7.199                         6203               2213.668             −5.733      4/6
+                                                                                        6204               2207.278             +0.656      4/6
+                                                                                        6205               2232.199            −24.264      6/6
+                               TABLE III                                                Five-actor mean    2215.134            −7.199     20/30
+E XPOSED DEVELOPMENT CONDITIONS ONLY: INITIALIZATIONS 6201/6203,
+STABLE / SHOCK . A LL FRESH COSTS ARE COMPARED WITH THE SAME FIXED
+                             CQL BASELINE .
+                                                                                 specified recipe. Its estimand is the closed-loop difference
+  Replay recipe                           Mean ∆J       Wins    Stable tail      in full-day cost between the two learning procedures. Policy-
+  Ordinary recent outcomes                    −0.631     3/4        +5.491       induced differences in later service states are part of that total
+  Coupled risk selection                      −1.538     3/4        +2.792       effect. They should not be retrospectively conditioned away as
+  Separate state/outcome selection            −3.773     4/4        +0.597
+                                                                                 though the experiment required identical states throughout.
+                                                                                    A distinct causal quantity concerns holding at the same issue
+archived learner. The pilot then compared fresh and outcome-                     state, followed by a fixed continuation policy π:
+replacement continuation in stable/shock environment 106206                             τD (s; a1 , a0 , π) = ED [Ga1 ,π − Ga0 ,π | S = s].       (9)
+while retaining the 0.75 factual/0.25 model loss, trust pathway,
+and common execution rule.                                                       Fresh factual feedback observes one executed action. It does
+   The full-day fresh-minus-matched differences were +2.122                      not directly identify this difference for all alternatives, and the
+seconds in stable conditions and −4.121 seconds under the                        main experiment did not collect paired action interventions.
+shock, averaging −0.999 seconds. Against the same frozen                         Neither the observed win fraction nor the historical-controller
+historical actor, the differences were +1.242 and −8.178                         panel establishes that the critic recovered these action effects.
+seconds. The post-update matched mean was adverse by 1.148
+seconds. The pilot consumed 96000 native seconds, admitted
+                                                                                 B. A Testable Transportability Explanation
+285 complete labels per fresh day, performed 456 policy
+updates and 114 trust updates per arm, and did not refit the                        Historical and current records can differ in behavior distribu-
+world model. It retained its fixed-pilot closure decision. This                  tion, state composition, operating mechanisms, and continuation
+pilot used cumulative latest-five feedback without the main                      policies. If the recorded state is insufficient, a similar (s, a)
+method’s risk/outcome separation, recent-thirty replay, or finite-               can summarize different capacity and future-service situations.
+CQL addition. One favorable scene out of two does not satisfy                    Learned conditional values may then transfer imperfectly. This
+a strict-majority condition, and these exploratory results are                   is a useful causal perspective on the adverse cases [6], but
+not pooled with the three-initialization validation. Moreover,                   several explanations remain compatible with the data: sparse
+its modified complete batches also affect value and actor paths;                 action coverage, bootstrap error, parameter sharing, and a
+it is not the same critic-outcome-only estimand as the main                      changed waiting/riding trade-off.
+replay comparison.                                                                  In particular, different behavior policies alone do not imply
+                                                                                 hidden confounding. The deployed actor and execution rule use
+    VII. C AUSAL I NTERPRETATION AND L IMITATIONS                                recorded state features; this study has not established an omitted
+                                                                                 variable that independently influenced action assignment after
+A. Feedback Effect Versus Action Effect                                          conditioning on those inputs. Claims that causal misalignment
+  The controlled treatment in the main experiment is whether                     caused the 6208 losses, or that replay separation constitutes a
+current complete outcomes supervise the critic under the                         back-door adjustment, would exceed the evidence.
+                                                                                                                                                   6
+
+
+
+   Additional archived action diagnostics demonstrate why                                        A PPENDIX A
+service conditions matter. In experiment v114, shortening                      R EPRODUCIBILITY AND A RTIFACT ROLES
+one hold at each of two fixed full-state roots increased full-         The implementation archive separates the selected replay
+day costs by 0.915 and 0.230 seconds per passenger, despite recipe (v73), its fixed new-initialization validation (v75), and
+reducing local holding. Feedback and learning continued in the same-environment historical evaluation (v104). The main
+those branches, so these are root-action closed-loop total effects. result tables are reconstructed from their compact validation,
+In experiment v118, at another exposed transfer state on training, information-pool, and historical-comparison sum-
+the already-shortened v114 branch, extending 4.973 seconds maries. Raw trajectories and actor weights remain in the
+to 7.5 seconds reduced full-day cost by 0.576 seconds per original experiment archive. This manuscript revision did not
+passenger and avoided a missed connection. The resulting retrain, select a replacement checkpoint, query an alternative-
+day still cost 2.800 seconds more than the cached no-fresh action simulator branch, or change those results.
+reference of the underlying full-learner study. That diagnostic        The        observation-to-action           code         path        is
+instead continued recorded proposals through each branch’s action_local_v3/action_contract.py;                                         split
+own execution map. These distinct continuation contracts and replay is decoupled_feedback_v73/learning.py,
+exposed roots are not pooled, and they do not identify the whose fixed target and finite-CQL implementations reuse
+cause of the main validation’s adverse 6208 conditions. They the v70 and v68 modules. The actual directories include
+support state-dependent service consequences, not a general dated experiment identifiers in the source inventory supplied
+preference for longer holding.                                      with this draft. Exact configuration and metadata files, rather
+   Existing logs can support a limited next test: compare than algorithm names alone, define the archived initializer
+historical/current pre-action state and executed-action coverage, and runtime. Author affiliations, an accessible reproduction
+feedback ages, and update exposure by fixed line and time package, and demand-asset release permissions must be
+strata. Such distributional evidence can weaken or motivate finalized before submission.
+a transportability hypothesis, but cannot by itself identify a
+missing same-state long-term counterfactual. A causal-method                                     R EFERENCES
+claim would require a separate identification strategy and
+                                                                    [1] C. F. Daganzo, “A headway-based approach to eliminate bus bunching:
+independent validation of its effect on control.                        Systematic analysis and comparisons,” Transportation Research Part B:
+                                                                           Methodological, vol. 43, no. 10, pp. 913–921, 2009.
+                                                                       [2] H. Niu, T. Ji, B. Liu, H. Zhao, X. Zhu, J. Zheng, P. Huang, G. Zhou,
+C. Scope of the Empirical Claim                                            J. Hu, and X. Zhan, “H2O+: An improved framework for hybrid
+   The results use three independent training initializations, two         offline-and-online RL with dynamics gaps,” 2025, arXiv:2309.12716v2;
+                                                                           ICRA 2025. [Online]. Available: https://arxiv.org/abs/2309.12716
+scenarios, and a fixed demand file on one network. The effect          [3] T. Haarnoja, A. Zhou, P. Abbeel, and S. Levine, “Soft actor-
+is small relative to the full-day baseline and heterogeneous.              critic: Off-policy maximum entropy deep reinforcement learning
+Training and environment seeds vary together. Larger demand                with a stochastic actor,” in Proceedings of the 35th International
+                                                                           Conference on Machine Learning, ser. Proceedings of Machine
+and disturbance coverage, matched strong control baselines,                Learning Research, vol. 80, 2018, pp. 1861–1870. [Online]. Available:
+and independent component ablations remain important for                   https://proceedings.mlr.press/v80/haarnoja18b.html
+generalization.                                                        [4] I. Kostrikov, A. Nair, and S. Levine, “Offline reinforcement learning
+                                                                           with implicit q-learning,” in International Conference on Learning
+   The information contract permits more distinct target records           Representations, 2022. [Online]. Available: https://arxiv.org/abs/2110.
+in the fresh arm, and no counterfactual queries. The historical            06169
+panel uses a different training recipe and cannot be reported          [5] A. Kumar, A. Zhou, G. Tucker, and S. Levine, “Conservative
+                                                                           q-learning for offline reinforcement learning,” in Advances in Neural
+as adding feedback to an otherwise unchanged final MC-WM                   Information Processing Systems, vol. 33, 2020. [Online]. Available:
+learner. The method has not surpassed the strongest archived               https://arxiv.org/abs/2006.04779
+actor, established a per-condition improvement guarantee, or           [6] E. Bareinboim, “Towards causal reinforcement learning,” ICML tutorial
+                                                                           slides, 2020, tutorial material; not an original journal research article.
+demonstrated a causal explanation of degradation. These limits             [Online]. Available: https://crl.causalai.net/
+are retained alongside the positive mean and majority results.         [7] P. A. Lopez, M. Behrisch, L. Bieker-Walz, J. Erdmann, Y.-P. Flotterod,
+                                                                           R. Hilbrich, L. Lucken, J. Rummel, P. Wagner, and E. Wiessner,
+                                                                           “Microscopic traffic simulation using SUMO,” in 2018 21st International
+                      VIII. C ONCLUSION                                    Conference on Intelligent Transportation Systems, 2018, pp. 2575–2582.
+   Separating current-state replay from factual-outcome se-
+lection produced an average full-day passenger-cost benefit
+over a matched continued-learning controller in the frozen
+three-initialization evaluation. Four of six conditions improved,
+while two adverse conditions remained. A same-environment
+historical bridge favored the fresh system over the average of
+five archived MC-WM controllers, with substantial variation
+across those controllers. The evidence supports continuing
+this fixed replay recipe under a mean-benefit and majority-
+improvement criterion. It does not justify uniform no-harm,
+superiority to the best archived controller, or an identified
+causal-alignment claim.
+

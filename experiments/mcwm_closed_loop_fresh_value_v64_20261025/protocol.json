@@ -1,0 +1,45 @@
+{
+  "name": "thesis-mcwm-fresh-value-v64-20261025",
+  "candidate": "fresh_value",
+  "development_seeds": [
+    6201,
+    6202
+  ],
+  "confirmation_seeds": [
+    6203,
+    6204,
+    6205
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "arms": [
+    "fresh",
+    "no_fresh"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "feedback_slots": 285,
+  "policy_updates": 456,
+  "external_seed_offset": 100000,
+  "candidate_change": "Only fresh TD rows64:128 use r+discount*(1-terminal)*V(next_s). Parent original full256 mixed .1V+.9SAC target is still evaluated first, retaining every actor/head RNG draw. Historical/source target formulas and no_fresh path unchanged. Original285 replay and original four sampler draws; no recent30 or line-cover sampling.",
+  "motivation": "v62 improved current-state coverage but fresh outcome supervision lost all four matched actual-cost cells. Test one concrete reduction of off-action bootstrapping for the sparse fresh quarter, directly on full-day control costs; no promise of benefit.",
+  "fixed_training": "Same real50000-step initializer per seed, original285 feedback slots in57 packets and456updates; same actor/V/temperature update ordering, discount/dt/reward scaling, source/history, F/trust/world and24000s native runtime. Fresh-quarter mixed SAC continuation, including its entropy term, is replaced by existing V; all other rows retain the original mixed backup. No separate entropy-coefficient, trace, memory, M8 or counterfactual-query changes.",
+  "primary_metric": "Full-day(2W+R)/all departed passengers including accrued unfinished-trip time. Negative fresh-minus-no_fresh is better.",
+  "cost_gate": "All fixed cells retained: require complete native audits, aggregate mean full-day difference<0, stable mean<=0 and shock mean<0. Development passing advances the unchanged algorithm once to fixed6203/6204/6205. Confirmation and retained all-five-seed results must each pass the same gate. No seed/window omission or additional seeds to rescue failure.",
+  "original_baseline_directory": "mcwm_closed_loop_ordinary_control_v61_20261025",
+  "original_baseline_relative": "runs/recent30/development/seed{seed}/{scenario}/no_fresh",
+  "baseline_exactness": "Four development no_fresh native ledgers must exactly reproduce the previously audited original no_fresh W/R/J/N/C. New no_fresh native days are paired in parallel, not substituted with reused controls.",
+  "development_days": 8,
+  "confirmation_days": 12,
+  "branch_queries": 0,
+  "ordinary_single_trajectory_dripping": true,
+  "priority": "high",
+  "summary_max_bytes": 48000,
+  "old_code_and_results_read_only": true,
+  "downloads": "Necessary small JSON/log tails only. Prefix/metric comparison server-side; no CSV, trajectory or checkpoint downloads.",
+  "technical_failure": "Retain failures, missing states and incurred work; no automatic native retry or unknown-submission retry. Read-only timeouts preserve monitoring and existing task handles.",
+  "scientific_failure": "Close this fixed candidate if its actual-cost gate fails; do not tune its bootstrap coefficient or add target features after results. Main goal remains active.",
+  "goal_completion": "Confirmation is root-review evidence only; no program flag completes the ordinary-dripping goal."
+}

@@ -1,0 +1,92 @@
+{
+  "status": "complete",
+  "version": "v22",
+  "protocol": "protocol.json",
+  "priority": "high",
+  "evidence": "training_diagnostic.json",
+  "tests": {
+    "passed": 3,
+    "purpose": [
+      "future/unadmitted labels excluded",
+      "cold start and censored endpoints retained",
+      "endpoint-local input excludes other segments"
+    ]
+  },
+  "macro_mae_seconds": {
+    "shared": 1.840162322718978,
+    "mean": 1.8403994711972256,
+    "local": 1.8346265649445723
+  },
+  "local_minus_mean_ms": -5.772906252653254,
+  "by_line": {
+    "7X": {
+      "shared_seconds": 1.5150243816412166,
+      "mean_seconds": 1.5199257569831606,
+      "local_seconds": 1.5324875013351407,
+      "local_minus_mean_ms": 12.561744351980098
+    },
+    "102X": {
+      "shared_seconds": 2.2189376324391765,
+      "mean_seconds": 2.217311629842261,
+      "local_seconds": 2.2029870573758554,
+      "local_minus_mean_ms": -14.324572466405616
+    },
+    "705X": {
+      "shared_seconds": 1.7865249540765409,
+      "mean_seconds": 1.7839610267662545,
+      "local_seconds": 1.7684051361227207,
+      "local_minus_mean_ms": -15.555890643533798
+    }
+  },
+  "seven_x_late_third_stop": {
+    "arrival3": {
+      "truth_seconds": 2.0,
+      "mean_seconds": 2.7032822280385798,
+      "local_seconds": 2.7763662144300003,
+      "fixed_input_change_seconds": 0.034977875177465124,
+      "refit_seconds": 0.038106111213955095
+    },
+    "departure3": {
+      "truth_seconds": 2.0,
+      "mean_seconds": 2.8068915092632523,
+      "local_seconds": 2.8919258026824366,
+      "fixed_input_change_seconds": 0.03910027903211719,
+      "refit_seconds": 0.04593401438706667
+    }
+  },
+  "coverage": {
+    "training_states": 9,
+    "scored_states": 6,
+    "cold_start": [
+      "train/7X/early",
+      "train/102X/early",
+      "train/705X/early"
+    ],
+    "censored_truth_endpoints": 0,
+    "training_negative_endpoints": 2,
+    "scored_negative_endpoints": 0,
+    "extrapolated_local_segments": 16,
+    "scored_local_segments": 18
+  },
+  "coverage_interpretation": "16/18 incoming-segment values lie outside the prior same-line empirical range. In post1 each line has only one prior pair, so the reference is a point; this describes sparse support, not a calibrated OOD probability.",
+  "interpretation": "The three-link mean cancels opposing local residuals. Replacing it with the matching incoming residual increases feature energy, but does not satisfy the predeclared no-line-regression condition. Both direct input replacement and refit worsen7X late third-stop error. These results do not establish that scale adjustment alone, or local alignment alone, solves reversal prediction.",
+  "decision": {
+    "macro_improved": true,
+    "no_line_regression": false,
+    "fresh_service_preflight_eligible": false,
+    "reversal_assessment": "unassessable",
+    "stage_b": "closed",
+    "independent_confirmation": "not_submitted"
+  },
+  "next": "Do not submit new prefixes, B or independent confirmation for this candidate. Before another model change, design budget-neutral paired sampling using issue-visible state strata to reduce support sparsity and provide chronologically scorable response variation. Retain9 pairs/285 labels; do not choose states using future truth or prior heldout outcomes. Reversal success remains unassessable until later scored states actually contain it.",
+  "compute": {
+    "new_training_labels": 0,
+    "new_native_prefix_seconds": 0,
+    "new_native_suffix_seconds": 0
+  },
+  "development": {
+    "algebra_attempts_stopped_before_output": 2,
+    "correction": "Original pair_cache is written before admission. Reconstruct selected_for_training from completed-day actual admitted IDs and training_pairs admission clocks, then reproduce saved forecasts exactly. No source mutation or native rerun."
+  },
+  "limitations": "One stable day, nine training states, six supported chronological states. Same-state endpoints correlated. Scale/ridge unchanged; local versus mean differences may reflect both alignment and feature amplitude. No300-second control assessment."
+}

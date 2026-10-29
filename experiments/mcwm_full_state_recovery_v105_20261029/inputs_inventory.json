@@ -1,0 +1,396 @@
+{
+  "recorded_on": "2026-10-29",
+  "scope": "seed6201 only; read-only metadata audit and proposed one-attempt reconstruction; no training or native execution started by this inventory",
+  "provenance": {
+    "existing_v104_evidence": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_historical_comparison_v104_20261028/attribution_inputs.json",
+    "remote_operation": "Bounded JSON metadata reads and nonrecursive path stat on node001; checkpoint/dataset/NPZ payloads were not loaded or downloaded. Current source_env/config.json and immediate data names were read once for this inventory.",
+    "current_remote_metadata_bytes": 1180,
+    "new_hashes_generated": false,
+    "old_files_modified": false
+  },
+  "historical_identity": {
+    "name": "F-FINAL-225",
+    "tag": "mcwm-f2-final-20261012",
+    "registration": "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006/README.md",
+    "protocol": "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006/protocol.json",
+    "training_records": "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006/training_summary.json",
+    "source_code_root": "/home/erzhu419/mine_code/Thesis",
+    "tag_checks": [
+      {
+        "command": "git tag -l mcwm-f2-final-20261012",
+        "exit_code": 0,
+        "stdout": "mcwm-f2-final-20261012\n"
+      },
+      {
+        "command": "git diff --name-only mcwm-f2-final-20261012 -- workpapers/最终控制器同条件比较_20261006/evaluate.py workpapers/最终控制器同条件比较_20261006/train_mcwm.py experiments/mcwm_bus/runtime/H2Oplus/bus_h2o/mdp_contract_v7.py experiments/mcwm_bus/runtime/H2Oplus/SimpleSAC/transit_v7/trainer.py experiments/mcwm_seed_confirmation_v13/run.py",
+        "exit_code": 0,
+        "stdout": "",
+        "compared_paths": [
+          "workpapers/最终控制器同条件比较_20261006/evaluate.py",
+          "workpapers/最终控制器同条件比较_20261006/train_mcwm.py",
+          "experiments/mcwm_bus/runtime/H2Oplus/bus_h2o/mdp_contract_v7.py",
+          "experiments/mcwm_bus/runtime/H2Oplus/SimpleSAC/transit_v7/trainer.py",
+          "experiments/mcwm_seed_confirmation_v13/run.py"
+        ],
+        "result": "No differences in the specified historical entry/runtime files"
+      }
+    ],
+    "artifact_kind": "Fixed final deployable actor, not best checkpoint or full optimizer initializer",
+    "current_standalone_mcwm_checkout_is_not_historical_bus_source": true
+  },
+  "source_sha": {
+    "value": null,
+    "reason": "No MC-WM training source_sha field was present in the inspected final protocol/ready/local registration metadata. H2O+ replay_reference source_sha256 is a different controller/runtime and is not substituted here. Existing tag and recorded direct file equality checks are retained."
+  },
+  "historical_save_code_identity": {
+    "command": "git diff --name-only mcwm-f2-final-20261012 -- experiments/mcwm_alignment_v2/adaptive_model.py experiments/mcwm_bus/control_model.py experiments/mcwm_context_v7/trainer.py",
+    "exit_code": 0,
+    "stdout": ""
+  },
+  "assets": [
+    {
+      "role": "historical_entry",
+      "path": "/home/zhengliang01/scheduleurm_work/Thesis/workpapers/最终控制器同条件比较_20261006/train_mcwm.py",
+      "exists": true,
+      "bytes": 10837,
+      "directory": false,
+      "verification": "nonrecursive stat; content not loaded"
+    },
+    {
+      "role": "offline_initializer_50000",
+      "path": "/home/zhengliang01/scheduleurm_work/Thesis/workpapers/最终控制器同条件比较_20261006/inputs/h2oplus_seed6201.pt",
+      "exists": true,
+      "bytes": 19088947,
+      "directory": false,
+      "verification": "nonrecursive stat; content not loaded"
+    },
+    {
+      "role": "archived_final_actor_70000",
+      "path": "/home/zhengliang01/scheduleurm_work/Thesis/workpapers/最终控制器同条件比较_20261006/train/seed6201/policy.pt",
+      "exists": true,
+      "bytes": 1541932,
+      "directory": false,
+      "verification": "nonrecursive stat; content not loaded"
+    },
+    {
+      "role": "fixed_offline_dataset",
+      "path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/dataset.h5",
+      "exists": true,
+      "bytes": 589504302,
+      "directory": false,
+      "verification": "nonrecursive stat; content not loaded"
+    },
+    {
+      "role": "source_environment",
+      "path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/source_env",
+      "exists": true,
+      "bytes": null,
+      "directory": true,
+      "verification": "nonrecursive stat; content not loaded"
+    },
+    {
+      "role": "historical_h2o_runtime",
+      "path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/H2Oplus",
+      "exists": true,
+      "bytes": null,
+      "directory": true,
+      "verification": "nonrecursive stat; content not loaded"
+    },
+    {
+      "role": "historical_mcwm_runtime",
+      "path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/MC-WM",
+      "exists": true,
+      "bytes": null,
+      "directory": true,
+      "verification": "nonrecursive stat; content not loaded"
+    },
+    {
+      "role": "python",
+      "path": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python",
+      "exists": true,
+      "bytes": 17216112,
+      "directory": false,
+      "verification": "nonrecursive stat; content not loaded"
+    }
+  ],
+  "source_environment_metadata": {
+    "source_config": {
+      "time_step": 1,
+      "route_state_update_freq": 300,
+      "passenger_state_update_freq": 20,
+      "max_time": 90000
+    },
+    "data_children": [
+      {
+        "name": "102S",
+        "directory": true,
+        "bytes": null
+      },
+      {
+        "name": "102X",
+        "directory": true,
+        "bytes": null
+      },
+      {
+        "name": "122S",
+        "directory": true,
+        "bytes": null
+      },
+      {
+        "name": "122X",
+        "directory": true,
+        "bytes": null
+      },
+      {
+        "name": "311S",
+        "directory": true,
+        "bytes": null
+      },
+      {
+        "name": "311X",
+        "directory": true,
+        "bytes": null
+      },
+      {
+        "name": "406S",
+        "directory": true,
+        "bytes": null
+      },
+      {
+        "name": "406X",
+        "directory": true,
+        "bytes": null
+      },
+      {
+        "name": "705S",
+        "directory": true,
+        "bytes": null
+      },
+      {
+        "name": "705X",
+        "directory": true,
+        "bytes": null
+      },
+      {
+        "name": "7S",
+        "directory": true,
+        "bytes": null
+      },
+      {
+        "name": "7X",
+        "directory": true,
+        "bytes": null
+      },
+      {
+        "name": "generate_calibrated_data.py",
+        "directory": false,
+        "bytes": 11896
+      },
+      {
+        "name": "passenger_OD.xlsx",
+        "directory": false,
+        "bytes": 27050
+      },
+      {
+        "name": "route_news.xlsx",
+        "directory": false,
+        "bytes": 9300
+      },
+      {
+        "name": "stop_news.xlsx",
+        "directory": false,
+        "bytes": 5308
+      },
+      {
+        "name": "time_table.xlsx",
+        "directory": false,
+        "bytes": 7025
+      }
+    ],
+    "current_runtime": {
+      "host": "node001",
+      "python": "3.10.14",
+      "torch": "2.5.1+cu121"
+    }
+  },
+  "original_successful_job": {
+    "task": {
+      "id": "t136338",
+      "signature": "thesis-final-controller-alignment-20261006/train/seed6201",
+      "description": "Final MC-WM aligned source schedule seed6201",
+      "require_node": null,
+      "require_gpu_idx": null,
+      "allowed_nodes": [
+        "node001",
+        "node002",
+        "node003",
+        "node004",
+        "node005",
+        "node006",
+        "node007"
+      ],
+      "cpu": 1,
+      "ram_mb": 13000,
+      "vram": 0
+    },
+    "command": "/home/zhengliang01/scheduleurm_work/conda_envs/csbapr-gpu-py310/bin/python -u '/home/zhengliang01/scheduleurm_work/Thesis/workpapers/最终控制器同条件比较_20261006/train_mcwm.py' --seed 6201 --out '/home/zhengliang01/scheduleurm_work/Thesis/workpapers/最终控制器同条件比较_20261006/train/seed6201' --initializer '/home/zhengliang01/scheduleurm_work/Thesis/workpapers/最终控制器同条件比较_20261006/inputs/h2oplus_seed6201.pt' --h2o-root /home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/H2Oplus --dataset /home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/dataset.h5 --source-env /home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/source_env --mcwm-root /home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_bus/runtime/MC-WM --device cpu",
+    "recorded_cwd": "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006",
+    "environment": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MPLBACKEND": "Agg",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "runtime": {
+      "host": "node005",
+      "python": "3.10.14",
+      "torch": "2.5.1+cu121",
+      "device": "cpu"
+    },
+    "training_wall_seconds": 3832.3168080751784,
+    "sources": [
+      "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006/train_corrected_submission.json",
+      "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006/train_jobs.json",
+      "/home/erzhu419/mine_code/Thesis/workpapers/最终控制器同条件比较_20261006/training_summary.json",
+      "/home/zhengliang01/scheduleurm_work/Thesis/workpapers/最终控制器同条件比较_20261006/train/seed6201/results/protocol.json"
+    ]
+  },
+  "cancelled_earlier_attempt": {
+    "reason": "Removed an over-strong all-demand-visited completion check; preserved the same source event budget and generation schedule",
+    "cancelled_tasks": [
+      "t136181",
+      "t136182",
+      "t136183",
+      "t136184",
+      "t136185"
+    ],
+    "processes_stopped": true,
+    "retained_directory": "/home/zhengliang01/scheduleurm_work/Thesis/workpapers/最终控制器同条件比较_20261006/train_interrupted_coverage_check"
+  },
+  "original_budget_and_endpoint": {
+    "seed": 6201,
+    "reused_offline_updates": 50000,
+    "continuation_updates": 20000,
+    "total_policy_updates": 70000,
+    "source_event_cap": 25000,
+    "realized_source_events": 24999,
+    "source_underfill_rule": "Atomic simultaneous batch does not fit final hard cap; do not extend collection to fill the remaining one event.",
+    "source_demand_scales": [
+      0.75,
+      1.0,
+      1.25
+    ],
+    "source_demand_episode_counts": {
+      "0.75": 1,
+      "1.0": 1,
+      "1.25": 0
+    },
+    "warmup_events": 5000,
+    "model_refresh_events": [
+      5000,
+      10000,
+      15000,
+      20000
+    ],
+    "model_ensemble_members": 3,
+    "model_updates_per_member": 1000,
+    "model_refit_updates": 300,
+    "model_batch_size": 128,
+    "trust_update_every": 4,
+    "qdelta_updates_per_extra_step": 1,
+    "actor_taper_event": 15000,
+    "actor_taper_multiplier": 0.25,
+    "real_td_coefficient": 0.75,
+    "model_td_coefficient": 0.25,
+    "offline_rows": 3284718,
+    "target_online_training_events": 0,
+    "source_horizon_seconds": 24000,
+    "source_passenger_arrival_end_seconds": 18000,
+    "source_observation_speed_seed": 6201,
+    "save_endpoint": "Fixed final state after exactly 20000 continuation updates; not validation-best selection.",
+    "saved_actor": "/home/zhengliang01/scheduleurm_work/Thesis/workpapers/最终控制器同条件比较_20261006/train/seed6201/policy.pt",
+    "saved_full_final_learner": false
+  },
+  "initial_checkpoint_contract": {
+    "source": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_bus/runtime/H2Oplus/SimpleSAC/transit_v7/trainer.py",
+    "save_lines": [
+      147,
+      199
+    ],
+    "load_lines": [
+      201,
+      250
+    ],
+    "states": [
+      "actor",
+      "critic",
+      "target_critic",
+      "value",
+      "ratio",
+      "actor/critic/value/ratio/alpha optimizer states",
+      "log_alpha",
+      "total_updates",
+      "online_critic_updates=0",
+      "empty delayed actor/temperature batches",
+      "learner and diagnostic NumPy RNG",
+      "global NumPy/Python/Torch CPU RNG",
+      "CUDA RNG when applicable"
+    ],
+    "new_payload_load_performed_in_this_audit": false,
+    "schema_evidence": "Historical saver/loader and original successful train metadata; current initializer presence/size only."
+  },
+  "terminal_learning_state_snapshot": {
+    "purpose": "Preserve final learning state for a separately declared new target day, not resume a paused source simulation.",
+    "base_save": {
+      "path": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_bus/runtime/H2Oplus/SimpleSAC/transit_v3/trainer.py",
+      "lines": [
+        1540,
+        1592
+      ],
+      "method": "learner.save(..., include_online_replay=True)",
+      "contains": [
+        "network state_dicts and all learner optimizer states",
+        "temperature",
+        "all learner RNGs",
+        "update counters and delayed actor/temperature batches",
+        "source replay arrays, capacity, size, write pointer, total_appended, episode/trajectory IDs, ratio-validation mask and delta_t"
+      ]
+    },
+    "additional_mcwm_state": [
+      "all final source/direct/residual model-bank state_dicts and normalizer",
+      "selected family and final calibration/refit history",
+      "trust net and target state_dicts, optimizer, tau and its configuration",
+      "augmentation NumPy bit_generator state and Torch generator state",
+      "fixed protocol/coefficient/model_seed and context consumption cursor/counters",
+      "fixed target split tensors/fit_ns and trust errors, or exact deterministic split references to the same immutable offline dataset"
+    ],
+    "no_persistent_world_optimizer": "fit_member constructs a new local Adam for each completed fit/refit; there is no unfinished world fit at the endpoint.",
+    "not_required_for_new_target_day": [
+      "old source environment physical state",
+      "old source sampler pending event batch and unfinished source-day state"
+    ],
+    "new_target_day_requirement": "Create a fresh declared target environment and stream; preserve restored learner RNG while constructing it. Do not silently discard source replay, reset Adam/trust, or replace the model-mixed update with real-only updates.",
+    "old_final_state_limit": "Archived actor can verify the rebuilt policy exactly; historical final Q/world/optimizer states do not exist for direct equality comparison."
+  },
+  "proposed_fixed_reconstruction_gate": {
+    "attempts": 1,
+    "training_seeds": [
+      6201
+    ],
+    "require_node": "node005",
+    "cpu": 1,
+    "ram_mb": 13000,
+    "vram": 0,
+    "device": "cpu",
+    "thread_count": 1,
+    "initialization": "Reuse the original50000-step initializer and restored RNG; do not retrain the prefix.",
+    "run_budget": "Exactly the original20000 continuation updates and25000 nominal source-event cap; expect24999 realized events.",
+    "actor_identity": "Same keys, shapes and dtypes; torch.equal for every raw actor state_dict tensor against archived seed6201 policy. Save max absolute difference for diagnosis, with no tolerance replacing exact equality.",
+    "round_trip": "Save/reload the complete70000 endpoint and compare all fields; also compare one original and one restored next update on existing replay. At most2 separately accounted real-data diagnostic updates, zero native interaction; restore unchanged70000 checkpoint afterward.",
+    "continue_if": "Historical actor exactly reproduced, source/update budget closes, and complete-state round trip preserves all saved learning state.",
+    "otherwise": "Retain this attempt and diagnostics; close expansion. Do not retry training to chase alignment, change tolerance, add seeds, or start target-day learning.",
+    "pass_meaning": "Historical actor reconstruction and a recoverable learning-state snapshot; not a fresh-data benefit or target-day performance result.",
+    "submitted": false
+  }
+}

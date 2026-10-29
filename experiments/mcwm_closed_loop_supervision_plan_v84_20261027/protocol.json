@@ -1,0 +1,92 @@
+{
+  "name": "thesis-mcwm-supervision-v84-20261027",
+  "priority": "high",
+  "stage": "native_preflight_only",
+  "horizon_seconds": 24000,
+  "feedback_delay_seconds": 30,
+  "label_available_at": 24030,
+  "reference": {
+    "source": "v75",
+    "arm": "fresh",
+    "packets": 37,
+    "covariates": 185,
+    "complete_outcomes": 185,
+    "counts": {
+      "critic": 296,
+      "value": 296,
+      "actor": 296,
+      "alpha": 296
+    },
+    "data_deadline": 12000,
+    "deterministic": true,
+    "actor_frozen": true
+  },
+  "preflight": {
+    "seed": 6207,
+    "scenario": "stable",
+    "line": "102X",
+    "issue_window": [
+      12000,
+      12600
+    ],
+    "pairs": 1,
+    "suffixes": 2,
+    "maximum_native_seconds": 36000
+  },
+  "proposed_collection": {
+    "seed": 6207,
+    "scenarios": [
+      "stable",
+      "local_speed_drop"
+    ],
+    "lines": [
+      "7X",
+      "102X",
+      "705X"
+    ],
+    "pairs": 6,
+    "preflight_pair_reused": true,
+    "authorized": false
+  },
+  "support": "F(s,-1),F(s,+1); gap>=2*max(simulation_step,action_step)",
+  "intervention": "Change only the root action; frozen reference actor thereafter",
+  "suffix_training_updates": 0,
+  "suffix_admitted_labels": 0,
+  "new_initializer_updates": 0,
+  "diagnostic_labels_fed_back": 0,
+  "original_v75_contract_unchanged": true,
+  "downloads": "Bounded JSON and necessary log tails; native data stay on server",
+  "reference_source_path": "experiments/mcwm_closed_loop_frozen_validation_v75_20261027",
+  "preflight_budget": {
+    "prefixes": 1,
+    "suffixes": 2,
+    "maximum_native_seconds": 36000,
+    "restoration_covariates": 185,
+    "restoration_complete_outcomes": 185,
+    "restoration_updates_per_optimizer": 296,
+    "remaining_day_labels": 2,
+    "initializer_updates": 0,
+    "suffix_updates": 0,
+    "labels_fed_back": 0
+  },
+  "conditional_collection_budget": {
+    "status": "not_started_pending_preflight_readout",
+    "total_pairs_including_preflight": 6,
+    "total_terminal_labels": 12,
+    "additional_prefix_restorations": 2,
+    "additional_suffixes": 10,
+    "additional_maximum_native_seconds": 145200,
+    "maximum_native_seconds_including_preflight": 181200,
+    "total_restoration_covariates_including_preflight": 555,
+    "total_restoration_complete_outcomes_including_preflight": 555,
+    "total_restoration_updates_per_optimizer_including_preflight": 888,
+    "preflight_label_pair_reused": true,
+    "prefix_replay_cost_not_free": true
+  },
+  "production_sampling": "First eligible issue per line in12000-12600 after packet37; selection only by issue-visible line,F,stop status and tick length.",
+  "policy_scope": "Each pair changes one root action; both suffixes follow the same packet37 deterministic frozen actor on their own real states until24000. Not evidence for repeated intervention.",
+  "random_scope": "Same native state and Python/NumPy/Torch initial states; SUMO uses the same external seed. No actor sampling since deterministic. Divergent event consumption is not identical per-event random draws.",
+  "label_scope": "Two full remaining-day physical passenger cost observations per counterfactual pair, one derived difference. No synthetic300-second state, entropy or terminal Q. observed_at24000, available_at24030; no same-day admission.",
+  "gates": "Original source prefix and37 receipts/74logged update rows exact; same fork root/actor/F/seeds, actual physical support, real terminal, zero suffix learning, actual overlap. Cost sign never selects roots or releases collection automatically.",
+  "execution_authorized": "Only one native preflight pair. Formal collection and response training require a subsequent decision. Prior v73/v75 contracts/results remain frozen."
+}

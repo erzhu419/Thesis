@@ -1,0 +1,93 @@
+{
+  "name": "mcwm_connection_full_day_v118_20261029",
+  "status": "FROZEN_FOR_AUTHORIZED_EXECUTION",
+  "purpose": "Full-day consequence of the two fixed stable root holds under common recorded-proposal continuation; no learning.",
+  "root": {
+    "scenario": "stable",
+    "trip_id": "122S_33",
+    "station_id": "122S17_311S23_406X15",
+    "sequence": 13151,
+    "clock": 18966.0,
+    "diagnostic_person_id": "transfer_8937.0"
+  },
+  "actions": {
+    "low": {
+      "proposal": [
+        0.32619690895080566
+      ],
+      "executed": [
+        -0.8342254161834717
+      ],
+      "hold_seconds": 4.97323751449585
+    },
+    "high": {
+      "proposal": [
+        1.0
+      ],
+      "executed": [
+        -0.75
+      ],
+      "hold_seconds": 7.5
+    }
+  },
+  "dose_selection": "Original proposal versus upper proposal1.0. At event18965 all original reserve/floor activations have ended; F=proposal hold*.125, range[0,7.5]. No dose search.",
+  "window_seconds": 5034.0,
+  "stop_clock": 24000.0,
+  "episode_horizon_seconds": 24000,
+  "external_seed": 106206,
+  "continuation": "Both arms use the same v114 stable-low recorded proposals, keyed by trip,stop and issue occurrence; apply the original F at each current state. This is a controlled logged-proposal continuation, not recovered actor or learner. Missing identity stops without fallback.",
+  "prefix_check": "Every issue through13150 exact; original root canonical state and ledger exact before live fork; both actual child root issues exact except the declared action fields.",
+  "low_suffix_check": "All534 nominal suffix issues and5034 old ticks plus full segmented native logs, passenger and visit accounts must reproduce v114 stable-low exactly.",
+  "fork": "Existing v34 libsumo COW fork; preserve full native state/RNG, detach route parser files, reserve2 CPUs and require concurrent suffixes.",
+  "observe": "Reuse v113 full native-tick accounting from time0. Inherit all cumulative per-person and visit accounts across fork. Root cohorts selected from actual native onboard IDs. Decompose whole day and root suffix into disjoint original13, target, other people.",
+  "positive_gate": "Technical and nominal complete-day reproduction pass, then full-day high-minus-low (2W+R)<0. This admits service-model design only, not the final dual cost gate.",
+  "negative_scope": "Technical failure holds; nonnegative full-day cost closes this fixed intervention. No retry, sweep, alternate root or extra seed.",
+  "stop_semantics": "Allow the original environment and EventStream to terminate naturally at24000. Count generated terminal transitions; no feedback admission or learning.",
+  "budget": {
+    "maximum_native_seconds": 29034,
+    "parent_prefix": 18966,
+    "child_suffix_each": 5034,
+    "learner_created": false,
+    "optimizer_updates": 0,
+    "feedback_admitted": 0,
+    "checkpoint_loaded": false,
+    "world_refits": 0
+  },
+  "shock": "Reuse v114 existing local_speed_drop results; no new shock native steps.",
+  "cost_gate_source": "experiments/mcwm_historical_coverage_v111_20261029/protocol.json:cost_gate",
+  "cost_gate": "Future deployed fresh must satisfy full-day fresh-minus-matched-no_fresh mean<0,stable<=0,shock<0; fresh-minus-same-actor-frozen<=0 per scenario and at least one<0. Early/tail descriptive. This one-root experiment does not establish the joint gate or reopen v111.",
+  "metadata": "experiments/mcwm_closed_loop_formal_20261020/inputs/history_metadata.json",
+  "edge_xml": "experiments/sumo_eval/runtime/H2Oplus/bus_h2o/network_data/a_sorted_busline_edge.xml",
+  "reference_root": "experiments/mcwm_same_state_holding_v114_20261029/runs/stable",
+  "action_parts": [
+    "actions.jsonl",
+    "branches/low/actions.jsonl"
+  ],
+  "tick_parts": [
+    "ticks.jsonl",
+    "branches/low/ticks.jsonl"
+  ],
+  "scenario_settings": {
+    "shock_at": 9000.0,
+    "factor": 0.65,
+    "metric_every": 300.0
+  },
+  "runtime": {
+    "device": "cpu",
+    "threads": 1,
+    "cpu": 2,
+    "ram_mb": 8000,
+    "allowed_nodes": [
+      "node001",
+      "node004"
+    ],
+    "child_timeout_seconds": 600
+  },
+  "no_automatic_followup": true,
+  "summary_max_bytes": 48000,
+  "old_code_and_results_read_only": true,
+  "native_passengers": 15079,
+  "reused_shock": "Retain the existing v114 high/low mechanism comparison; no new shock run and no spliced two-scenario candidate or pooled confirmation.",
+  "baseline_summary": "experiments/mcwm_same_state_holding_v114_20261029/summary.json",
+  "estimand": "Conditional effect of the second root intervention at18966 in the v114-low trajectory, which already includes the17235 intervention. This is not a fresh-data treatment effect."
+}

@@ -1,0 +1,357 @@
+{
+  "status": "review_complete",
+  "evidence": [
+    "service_gate.json",
+    "native_day_audit.json",
+    "parity_gate.json",
+    "continuation_result.json",
+    "execution_overlap_audit.json",
+    "history_design_diagnostic.json",
+    "training_prequential.json",
+    "training_sign_coverage.json"
+  ],
+  "native_integrity": {
+    "all_pass": true,
+    "check_count": 2,
+    "failed_checks": []
+  },
+  "scientific_gate": {
+    "passed": false,
+    "checks": {
+      "native_integrity": true,
+      "history_all_six": true,
+      "three_lines_two_windows": true,
+      "all_pairs_scored": true,
+      "macro_mae_improved": true,
+      "no_line_regression": false
+    },
+    "macro_mae_seconds": {
+      "shared": 2.8792793,
+      "history": 2.8777615
+    },
+    "by_line": {
+      "7X": {
+        "shared": 2.4544672,
+        "history": 2.4554532,
+        "states": 2
+      },
+      "102X": {
+        "shared": 4.5286295,
+        "history": 4.5242824,
+        "states": 2
+      },
+      "705X": {
+        "shared": 1.6547411,
+        "history": 1.653549,
+        "states": 2
+      }
+    },
+    "independent_states": 6,
+    "rule": "Mean endpoint MAE within each state, then equal state weights; correlated future stops are not independent samples."
+  },
+  "lines": [
+    {
+      "line": "7X",
+      "mae": {
+        "shared": 2.4544672,
+        "history": 2.4554532,
+        "states": 2
+      },
+      "mae_by_kind": {
+        "arrival": {
+          "shared": 2.438846,
+          "history": 2.4391163
+        },
+        "departure": {
+          "shared": 2.4700884,
+          "history": 2.471790033333333
+        }
+      },
+      "mae_by_stop": {
+        "1": {
+          "shared": 1.4284900249999999,
+          "history": 1.4277474
+        },
+        "2": {
+          "shared": 1.8783261,
+          "history": 1.8784871749999998
+        },
+        "3": {
+          "shared": 4.056585475,
+          "history": 4.060124925
+        }
+      },
+      "windows": [
+        {
+          "window": "heldout1",
+          "mae": {
+            "shared": 3.1865124,
+            "history": 3.1898658
+          }
+        },
+        {
+          "window": "heldout2",
+          "mae": {
+            "shared": 1.722422,
+            "history": 1.7210406
+          }
+        }
+      ],
+      "training_history_residual_range_seconds": [
+        -3.3598795701952135,
+        1.270307871942805
+      ],
+      "heldout_history": [
+        {
+          "id": "heldout/7X/heldout1",
+          "value_seconds": -2.35987957019582,
+          "extrapolation": false,
+          "ages": [
+            97.0,
+            48.0,
+            78.0
+          ]
+        },
+        {
+          "id": "heldout/7X/heldout2",
+          "value_seconds": -0.026546236862486694,
+          "extrapolation": false,
+          "ages": [
+            195.0,
+            155.0,
+            75.0
+          ]
+        }
+      ]
+    },
+    {
+      "line": "102X",
+      "mae": {
+        "shared": 4.5286295,
+        "history": 4.5242824,
+        "states": 2
+      },
+      "mae_by_kind": {
+        "arrival": {
+          "shared": 4.491692283333333,
+          "history": 4.485615466666666
+        },
+        "departure": {
+          "shared": 4.56556665,
+          "history": 4.562949333333333
+        }
+      },
+      "mae_by_stop": {
+        "1": {
+          "shared": 3.94576595,
+          "history": 3.949319925
+        },
+        "2": {
+          "shared": 3.97554495,
+          "history": 3.9758890750000004
+        },
+        "3": {
+          "shared": 5.6645775,
+          "history": 5.647638199999999
+        }
+      },
+      "windows": [
+        {
+          "window": "heldout1",
+          "mae": {
+            "shared": 1.4448902,
+            "history": 1.435633
+          }
+        },
+        {
+          "window": "heldout2",
+          "mae": {
+            "shared": 7.6123688,
+            "history": 7.6129318
+          }
+        }
+      ],
+      "training_history_residual_range_seconds": [
+        -0.06899952484369958,
+        6.60364120527629
+      ],
+      "heldout_history": [
+        {
+          "id": "heldout/102X/heldout1",
+          "value_seconds": -3.35987957019582,
+          "extrapolation": true,
+          "ages": [
+            24.0,
+            339.0,
+            266.0
+          ]
+        },
+        {
+          "id": "heldout/102X/heldout2",
+          "value_seconds": 2.64012042980418,
+          "extrapolation": false,
+          "ages": [
+            403.0,
+            364.0,
+            278.0
+          ]
+        }
+      ]
+    },
+    {
+      "line": "705X",
+      "mae": {
+        "shared": 1.6547411,
+        "history": 1.653549,
+        "states": 2
+      },
+      "mae_by_kind": {
+        "arrival": {
+          "shared": 1.9120322833333334,
+          "history": 1.9113730833333336
+        },
+        "departure": {
+          "shared": 1.3974499166666667,
+          "history": 1.3957248333333332
+        }
+      },
+      "mae_by_stop": {
+        "1": {
+          "shared": 1.61400845,
+          "history": 1.614721325
+        },
+        "2": {
+          "shared": 1.7738145500000002,
+          "history": 1.7737531000000002
+        },
+        "3": {
+          "shared": 1.5764003,
+          "history": 1.57217245
+        }
+      },
+      "windows": [
+        {
+          "window": "heldout1",
+          "mae": {
+            "shared": 1.5373152,
+            "history": 1.5371884
+          }
+        },
+        {
+          "window": "heldout2",
+          "mae": {
+            "shared": 1.772167,
+            "history": 1.7699095
+          }
+        }
+      ],
+      "training_history_residual_range_seconds": [
+        -0.06899952484369958,
+        2.306787096470847
+      ],
+      "heldout_history": [
+        {
+          "id": "heldout/705X/heldout1",
+          "value_seconds": 0.9734537631375133,
+          "extrapolation": false,
+          "ages": [
+            30.0,
+            85.0,
+            4.0
+          ]
+        },
+        {
+          "id": "heldout/705X/heldout2",
+          "value_seconds": 2.64012042980418,
+          "extrapolation": true,
+          "ages": [
+            395.0,
+            356.0,
+            270.0
+          ]
+        }
+      ]
+    }
+  ],
+  "signs": {
+    "shared": {
+      "correct": 32,
+      "endpoints": 36,
+      "reversal_correct": 0,
+      "reversal_endpoints": 4
+    },
+    "history": {
+      "correct": 32,
+      "endpoints": 36,
+      "reversal_correct": 0,
+      "reversal_endpoints": 4
+    }
+  },
+  "prediction_change_seconds": {
+    "mean_absolute": 0.0053421972222222275,
+    "maximum_absolute": 0.03770830000000025
+  },
+  "missing": {},
+  "censored_endpoint_count": 0,
+  "unsupported_states": 0,
+  "observations": {
+    "paired_states": 6,
+    "correlated_endpoint_differences": 36,
+    "individual_service_clocks": 72
+  },
+  "cumulative_budget": {
+    "main_days": 1,
+    "main_native_seconds": 24000,
+    "new_training_labels": 285,
+    "training_branches": 18,
+    "service_heldout_branches": 12,
+    "execution_parity_branches": 2,
+    "training_suffix_seconds": 5400,
+    "service_heldout_suffix_seconds": 3600,
+    "execution_parity_suffix_seconds": 600,
+    "branch_suffix_seconds": 9600,
+    "branch_prefix_replay_seconds": 417368.0,
+    "historical_label_replays": 6280,
+    "policy_update_replays": 10048,
+    "heldout_and_parity_labels_enter_training": 0,
+    "failed_branches": 0
+  },
+  "recovery": {
+    "status": "normal_scientific_stop",
+    "two_separate_ssh_polls_retried_once_each": true,
+    "response_stage_submitted": false
+  },
+  "parallel": {
+    "service_heldouts_actually_parallel": true,
+    "branch_execution_parity_passed": true,
+    "main_pair_parallel_implementation": "ready, tests passed; reserves2CPU/24GB",
+    "main_pair_parallel_native_run": "not_exercised; stageB scientifically blocked",
+    "measured_main_speedup": null
+  },
+  "decision": {
+    "response_stage": "do_not_advance",
+    "independent_confirmation": "do_not_advance",
+    "reason": "History covered all states but failed7X no-regression; millisecond changes do not resolve four7X downstream reversal endpoints.",
+    "current_scope": "Service prediction only; no stageB300-second direction/regret/stable-degradation result.",
+    "next": "Keep B and independent confirmation off. First use original training data to diagnose reversal coverage and endpoint-specific local history/timing information lost by the three-link mean. Do not select scale or ridge on these six heldout states. Require a fresh-prefix service-reversal check before300-second response validation."
+  },
+  "limitations": "One stable day,9training pairs and6heldout states. Correlated service endpoints are not36 independent trials. Tiny prediction changes do not establish actual control degradation.",
+  "fit_diagnostic": {
+    "finite_saved_forecasts": 144,
+    "max_abs_replay_error": 8.881784197001252e-16,
+    "rank_shared4": 4,
+    "rank_history5": 5,
+    "history_schur_energy": 0.01230738846240196,
+    "ridge": 1.0,
+    "training_supported_states": 6,
+    "training_prequential_mae_seconds": {
+      "shared": 1.840162322718978,
+      "history": 1.8403994711972256
+    },
+    "training_reversal_states": 1,
+    "training_reversal_endpoints": 2,
+    "training_reversal_scope": "Only earliest7X state, cold-start unsupported before own-line labels existed; subsequent six supported training states contain no reversal.",
+    "interpretation": "Exact original fit reproduced. Weak history scale relative to ridge is present; neither information sufficiency nor benefit of rescaling has been established."
+  },
+  "report": "RESULTS.md"
+}

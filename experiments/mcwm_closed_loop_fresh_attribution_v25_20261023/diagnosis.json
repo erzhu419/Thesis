@@ -1,0 +1,446 @@
+{
+  "status": "complete",
+  "source": "Existing local v21 design diagnostic and v23 training gate only",
+  "writes_to_old_sources": 0,
+  "new_native_seconds": 0,
+  "new_training_labels": 0,
+  "model_candidates_selected": 0,
+  "estimator": {
+    "prediction": "7.5 + xT (XTX + I)^-1 XT (delta_t - 7.5)",
+    "target_scale": "Dividing all targets by60 and multiplying predictions by60 cancels exactly for this fixed linear ridge; this is not an input rescaling.",
+    "raw_history_penalty": "For z=history_seconds/60 and beta=z_weight/60, ridge1 contributes3600*beta^2 in raw seconds coordinates; original four coefficient penalties stay unchanged.",
+    "intercept_prior": "Each penalized line intercept is shrunk toward zero residual, hence toward the +7.5-second service difference prior.",
+    "single_line_intercept_example": {
+      "observed_seconds": 0.0,
+      "samples": 1,
+      "ridge": 1.0,
+      "forecast_seconds": 3.75,
+      "actual_shared_response_arrival3": 3.7854476356064284
+    },
+    "v21_history_schur_energy": 0.01230738846240196,
+    "v21_history_schur_fraction": 0.012157758209288293,
+    "v21_max_abs_endpoint_change_seconds": 0.03770827161724726,
+    "v23_max_abs_endpoint_change_seconds": 0.0431188125733577,
+    "v23_history_extra_mae_improvement_seconds": 0.003919033357798085,
+    "conclusion": "Small input energy and penalized intercepts explain strong shrinkage. No lambda sweep or new fit is performed; this does not establish that removing regularization improves future control."
+  },
+  "common_support_service_metrics": {
+    "fixed_7p5": {
+      "states": 6,
+      "endpoints": 36,
+      "mae_seconds": 2.1944444444444446,
+      "sign_correct": 34,
+      "negative_truth_endpoints": 2,
+      "negative_hits": 0
+    },
+    "past_line_mean": {
+      "states": 6,
+      "endpoints": 36,
+      "mae_seconds": 2.2083333333333335,
+      "sign_correct": 32,
+      "negative_truth_endpoints": 2,
+      "negative_hits": 0
+    },
+    "shared": {
+      "states": 6,
+      "endpoints": 36,
+      "mae_seconds": 2.092500686173629,
+      "sign_correct": 34,
+      "negative_truth_endpoints": 2,
+      "negative_hits": 0
+    },
+    "history": {
+      "states": 6,
+      "endpoints": 36,
+      "mae_seconds": 2.0885816528158307,
+      "sign_correct": 34,
+      "negative_truth_endpoints": 2,
+      "negative_hits": 0
+    }
+  },
+  "by_line": {
+    "7X": {
+      "fixed_7p5": {
+        "states": 2,
+        "endpoints": 12,
+        "mae_seconds": 4.166666666666667,
+        "sign_correct": 10,
+        "negative_truth_endpoints": 2,
+        "negative_hits": 0
+      },
+      "past_line_mean": {
+        "states": 2,
+        "endpoints": 12,
+        "mae_seconds": 3.208333333333333,
+        "sign_correct": 8,
+        "negative_truth_endpoints": 2,
+        "negative_hits": 0
+      },
+      "shared": {
+        "states": 2,
+        "endpoints": 12,
+        "mae_seconds": 3.2825844414064074,
+        "sign_correct": 10,
+        "negative_truth_endpoints": 2,
+        "negative_hits": 0
+      },
+      "history": {
+        "states": 2,
+        "endpoints": 12,
+        "mae_seconds": 3.28105341958449,
+        "sign_correct": 10,
+        "negative_truth_endpoints": 2,
+        "negative_hits": 0
+      }
+    },
+    "102X": {
+      "fixed_7p5": {
+        "states": 2,
+        "endpoints": 12,
+        "mae_seconds": 0.75,
+        "sign_correct": 12,
+        "negative_truth_endpoints": 0,
+        "negative_hits": null
+      },
+      "past_line_mean": {
+        "states": 2,
+        "endpoints": 12,
+        "mae_seconds": 1.5,
+        "sign_correct": 12,
+        "negative_truth_endpoints": 0,
+        "negative_hits": null
+      },
+      "shared": {
+        "states": 2,
+        "endpoints": 12,
+        "mae_seconds": 1.1712114858237288,
+        "sign_correct": 12,
+        "negative_truth_endpoints": 0,
+        "negative_hits": null
+      },
+      "history": {
+        "states": 2,
+        "endpoints": 12,
+        "mae_seconds": 1.1610407748455154,
+        "sign_correct": 12,
+        "negative_truth_endpoints": 0,
+        "negative_hits": null
+      }
+    },
+    "705X": {
+      "fixed_7p5": {
+        "states": 2,
+        "endpoints": 12,
+        "mae_seconds": 1.6666666666666667,
+        "sign_correct": 12,
+        "negative_truth_endpoints": 0,
+        "negative_hits": null
+      },
+      "past_line_mean": {
+        "states": 2,
+        "endpoints": 12,
+        "mae_seconds": 1.9166666666666665,
+        "sign_correct": 12,
+        "negative_truth_endpoints": 0,
+        "negative_hits": null
+      },
+      "shared": {
+        "states": 2,
+        "endpoints": 12,
+        "mae_seconds": 1.8237061312907503,
+        "sign_correct": 12,
+        "negative_truth_endpoints": 0,
+        "negative_hits": null
+      },
+      "history": {
+        "states": 2,
+        "endpoints": 12,
+        "mae_seconds": 1.8236507640174873,
+        "sign_correct": 12,
+        "negative_truth_endpoints": 0,
+        "negative_hits": null
+      }
+    }
+  },
+  "prequential_rows": [
+    {
+      "id": "train/7X/bootstrap",
+      "issue_at": 1559.0,
+      "admitted_own_line_ids": [],
+      "truth_third_arrival": 0.0,
+      "prior_mean_third_arrival": null,
+      "shared_third_arrival": null,
+      "scored_endpoints": 0
+    },
+    {
+      "id": "train/7X/response",
+      "issue_at": 3815.0,
+      "admitted_own_line_ids": [
+        "train/7X/bootstrap"
+      ],
+      "truth_third_arrival": -6.0,
+      "prior_mean_third_arrival": 0.0,
+      "shared_third_arrival": 3.7854476356064284,
+      "scored_endpoints": 6
+    },
+    {
+      "id": "train/102X/bootstrap",
+      "issue_at": 4195.0,
+      "admitted_own_line_ids": [],
+      "truth_third_arrival": 9.0,
+      "prior_mean_third_arrival": null,
+      "shared_third_arrival": null,
+      "scored_endpoints": 0
+    },
+    {
+      "id": "train/705X/bootstrap",
+      "issue_at": 4544.0,
+      "admitted_own_line_ids": [],
+      "truth_third_arrival": 9.0,
+      "prior_mean_third_arrival": null,
+      "shared_third_arrival": null,
+      "scored_endpoints": 0
+    },
+    {
+      "id": "train/102X/response",
+      "issue_at": 7964.0,
+      "admitted_own_line_ids": [
+        "train/102X/bootstrap"
+      ],
+      "truth_third_arrival": 7.0,
+      "prior_mean_third_arrival": 9.0,
+      "shared_third_arrival": 7.581600894654566,
+      "scored_endpoints": 6
+    },
+    {
+      "id": "train/705X/response",
+      "issue_at": 10327.0,
+      "admitted_own_line_ids": [
+        "train/705X/bootstrap"
+      ],
+      "truth_third_arrival": 12.0,
+      "prior_mean_third_arrival": 9.0,
+      "shared_third_arrival": 7.498995832998437,
+      "scored_endpoints": 6
+    },
+    {
+      "id": "train/7X/late",
+      "issue_at": 16243.0,
+      "admitted_own_line_ids": [
+        "train/7X/bootstrap",
+        "train/7X/response"
+      ],
+      "truth_third_arrival": 3.0,
+      "prior_mean_third_arrival": -3.0,
+      "shared_third_arrival": 0.5024981200338603,
+      "scored_endpoints": 6
+    },
+    {
+      "id": "train/102X/late",
+      "issue_at": 16248.0,
+      "admitted_own_line_ids": [
+        "train/102X/bootstrap",
+        "train/102X/response"
+      ],
+      "truth_third_arrival": 8.0,
+      "prior_mean_third_arrival": 8.0,
+      "shared_third_arrival": 7.715474965911346,
+      "scored_endpoints": 6
+    },
+    {
+      "id": "train/705X/late",
+      "issue_at": 17232.0,
+      "admitted_own_line_ids": [
+        "train/705X/bootstrap",
+        "train/705X/response"
+      ],
+      "truth_third_arrival": 8.0,
+      "prior_mean_third_arrival": 10.5,
+      "shared_third_arrival": 9.464899488609207,
+      "scored_endpoints": 6
+    }
+  ],
+  "reversals": {
+    "first_negative_states": [
+      "train/7X/response"
+    ],
+    "repeated_negative_after_own_line_negative_states": [],
+    "nonnegative_after_own_line_negative_states": [
+      "train/7X/late"
+    ],
+    "first_negative_endpoint_count": 2,
+    "repeated_negative_endpoint_count": 0,
+    "unit": "Two negative arrival/departure endpoints belong to one physical state. Only own-line, same-endpoint admitted negative labels count as prior negative supervision."
+  },
+  "sampling_support": {
+    "rows": [
+      {
+        "id": "train/7X/bootstrap",
+        "line": "7X",
+        "headway_sign": 1,
+        "history_mean_seconds": 11.603641205276176,
+        "model_mean_bin": "above_hold",
+        "original_third_bin": "above_hold",
+        "bins_agree": true
+      },
+      {
+        "id": "train/7X/response",
+        "line": "7X",
+        "headway_sign": 1,
+        "history_mean_seconds": 1.6036412052762898,
+        "model_mean_bin": "within_hold",
+        "original_third_bin": "within_hold",
+        "bins_agree": true
+      },
+      {
+        "id": "train/102X/bootstrap",
+        "line": "102X",
+        "headway_sign": 1,
+        "history_mean_seconds": 5.60364120527629,
+        "model_mean_bin": "within_hold",
+        "original_third_bin": "above_hold",
+        "bins_agree": false
+      },
+      {
+        "id": "train/705X/bootstrap",
+        "line": "705X",
+        "headway_sign": 1,
+        "history_mean_seconds": 1.6036412052762898,
+        "model_mean_bin": "within_hold",
+        "original_third_bin": "within_hold",
+        "bins_agree": true
+      },
+      {
+        "id": "train/102X/response",
+        "line": "102X",
+        "headway_sign": 1,
+        "history_mean_seconds": 1.0380214520079487,
+        "model_mean_bin": "within_hold",
+        "original_third_bin": "within_hold",
+        "bins_agree": true
+      },
+      {
+        "id": "train/705X/response",
+        "line": "705X",
+        "headway_sign": 1,
+        "history_mean_seconds": -1.402332858177033,
+        "model_mean_bin": "within_hold",
+        "original_third_bin": "within_hold",
+        "bins_agree": true
+      },
+      {
+        "id": "train/7X/late",
+        "line": "7X",
+        "headway_sign": 1,
+        "history_mean_seconds": -4.026546236863093,
+        "model_mean_bin": "within_hold",
+        "original_third_bin": "below_minus_hold",
+        "bins_agree": false
+      },
+      {
+        "id": "train/102X/late",
+        "line": "102X",
+        "headway_sign": 1,
+        "history_mean_seconds": -4.026546236863093,
+        "model_mean_bin": "within_hold",
+        "original_third_bin": "below_minus_hold",
+        "bins_agree": false
+      },
+      {
+        "id": "train/705X/late",
+        "line": "705X",
+        "headway_sign": 1,
+        "history_mean_seconds": 2.306787096470847,
+        "model_mean_bin": "within_hold",
+        "original_third_bin": "within_hold",
+        "bins_agree": true
+      }
+    ],
+    "by_line": {
+      "7X": {
+        "selected_states": 3,
+        "original_joint_groups": 3,
+        "model_mean_joint_groups": 2,
+        "mean_seconds_range": [
+          -4.026546236863093,
+          11.603641205276176
+        ],
+        "headway_signs": [
+          1
+        ]
+      },
+      "102X": {
+        "selected_states": 3,
+        "original_joint_groups": 3,
+        "model_mean_joint_groups": 1,
+        "mean_seconds_range": [
+          -4.026546236863093,
+          5.60364120527629
+        ],
+        "headway_signs": [
+          1
+        ]
+      },
+      "705X": {
+        "selected_states": 3,
+        "original_joint_groups": 1,
+        "model_mean_joint_groups": 1,
+        "mean_seconds_range": [
+          -1.402332858177033,
+          2.306787096470847
+        ],
+        "headway_signs": [
+          1
+        ]
+      }
+    },
+    "bins_agree": 6,
+    "selected_states": 9,
+    "fallback": [
+      {
+        "id": "train/705X/response",
+        "issued_at": 10327.0,
+        "selection_reason": "last_third_first_eligible_fallback",
+        "eligible_examined": 3,
+        "candidates_after_selection": "not_observed"
+      },
+      {
+        "id": "train/705X/late",
+        "issued_at": 17232.0,
+        "selection_reason": "last_third_first_eligible_fallback",
+        "eligible_examined": 4,
+        "candidates_after_selection": "not_observed"
+      }
+    ],
+    "limit": "Selected states only. The same +/-7.5-second bins applied to the actual three-segment mean are descriptive, not a replacement gate or an identifiability test. Numeric headway covariates and full-window candidate states are absent from this small local summary; rank/support beyond the saved headway signs is unknown."
+  },
+  "execution_condition": {
+    "floor_clock_seconds": [
+      3600.0,
+      18000.0
+    ],
+    "clock_interval": "left_closed_right_open",
+    "additional_floor_conditions": "forward bus present, backward bus absent, demand_ratio>0, load_ratio<=0.25",
+    "reserve_conditions": "clock<18000 and positive proposal holding; actual increment depends on canonical forward/backward headway errors",
+    "selected_issue_floor": "Not active at all nine selected issue states: selector required both0/7.5s to be reachable under F, whereas an active floor makes minimum holding60s.",
+    "selected_clock_windows": {
+      "train/7X/bootstrap": "pre_floor",
+      "train/7X/response": "reserve_floor",
+      "train/102X/bootstrap": "reserve_floor",
+      "train/705X/bootstrap": "reserve_floor",
+      "train/102X/response": "reserve_floor",
+      "train/705X/response": "reserve_floor",
+      "train/7X/late": "reserve_floor",
+      "train/102X/late": "reserve_floor",
+      "train/705X/late": "reserve_floor"
+    },
+    "actual_suffix_floor_or_reserve_contribution": "unknown from current small summaries",
+    "boundary_scope": "7X bootstrap1559 and response3815 have different future-F clock regimes; both300-second suffixes stay within their own regime. Existing v19 late-to-tail interventions do not identify the3600 boundary effect.",
+    "decision": "Keep actual actor/environment clocks and F unchanged. Future auxiliary comparisons must declare future-F regime and log condition versus actual increment separately."
+  },
+  "limits": [
+    "This is development diagnosis of training forecasts, not independent confirmation or a control-improvement result.",
+    "No post-selection state census, numeric v23 headway design matrix, or actual future-F event accounting is present locally.",
+    "Old v21/v23 gates and saved predictions are unchanged; future method choice must not use old heldout truth."
+  ]
+}

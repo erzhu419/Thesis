@@ -1,0 +1,514 @@
+{
+  "reviewed_at": "2026-10-23T14:22:55.787317+00:00",
+  "status": "review_complete",
+  "native_complete": true,
+  "original_finalizer": "t211357failed:21705bytesexceeds20000; preserved",
+  "recovered_summary": "resident_summary.json",
+  "cases": [
+    {
+      "scenario": "stable",
+      "selected": {
+        "sequence": 12775,
+        "started_at": 18315.0,
+        "line_id": "7X",
+        "station_id": "7X04_311X17",
+        "vehicle_id": "7X_fleet_56",
+        "trip_id": "7X_50"
+      },
+      "all_main_checks_pass": true,
+      "main_failed": [],
+      "old_v29_truth_exact": true,
+      "common_native_overlap_seconds": 7.1980955600738525,
+      "issue_clock": 18315.0,
+      "action_step_length_seconds": 1.0,
+      "observed_registered_seconds": {
+        "low": 0.0,
+        "mid": 0.938,
+        "high": 1.875
+      },
+      "events": {
+        "low": {
+          "departure": {
+            "status": "observed",
+            "station_id": "7X04_311X17",
+            "clock_seconds": 18316.0,
+            "time_source": "traci_isAtBusStop_true_to_false"
+          },
+          "native_history_departure": {
+            "status": "observed",
+            "station_id": "7X04_311X17",
+            "clock_seconds": 18316.0,
+            "time_source": "native_bus_departure_history"
+          },
+          "next_same_vehicle_arrival": {
+            "status": "observed",
+            "station_id": "7X05_102X18",
+            "clock_seconds": 18386.0,
+            "time_source": "traci_isAtBusStop_false_to_true"
+          },
+          "native_history_next_arrival": {
+            "status": "observed",
+            "station_id": "7X05_102X18",
+            "clock_seconds": 18386.0,
+            "time_source": "native_bus_arrival_history"
+          }
+        },
+        "mid": {
+          "departure": {
+            "status": "observed",
+            "station_id": "7X04_311X17",
+            "clock_seconds": 18316.0,
+            "time_source": "traci_isAtBusStop_true_to_false"
+          },
+          "native_history_departure": {
+            "status": "observed",
+            "station_id": "7X04_311X17",
+            "clock_seconds": 18316.0,
+            "time_source": "native_bus_departure_history"
+          },
+          "next_same_vehicle_arrival": {
+            "status": "observed",
+            "station_id": "7X05_102X18",
+            "clock_seconds": 18386.0,
+            "time_source": "traci_isAtBusStop_false_to_true"
+          },
+          "native_history_next_arrival": {
+            "status": "observed",
+            "station_id": "7X05_102X18",
+            "clock_seconds": 18386.0,
+            "time_source": "native_bus_arrival_history"
+          }
+        },
+        "high": {
+          "departure": {
+            "status": "observed",
+            "station_id": "7X04_311X17",
+            "clock_seconds": 18317.0,
+            "time_source": "traci_isAtBusStop_true_to_false"
+          },
+          "native_history_departure": {
+            "status": "observed",
+            "station_id": "7X04_311X17",
+            "clock_seconds": 18317.0,
+            "time_source": "native_bus_departure_history"
+          },
+          "next_same_vehicle_arrival": {
+            "status": "observed",
+            "station_id": "7X05_102X18",
+            "clock_seconds": 18386.0,
+            "time_source": "traci_isAtBusStop_false_to_true"
+          },
+          "native_history_next_arrival": {
+            "status": "observed",
+            "station_id": "7X05_102X18",
+            "clock_seconds": 18386.0,
+            "time_source": "native_bus_arrival_history"
+          }
+        }
+      },
+      "contrasts": {
+        "mid_minus_low": {
+          "physical_status": "no_separation_observed",
+          "endpoints": {
+            "next_event": {
+              "dt": 0.0,
+              "wait": 0.0,
+              "ride": 0.0,
+              "cost": 0.0
+            },
+            "fixed300": {
+              "dt": 0.0,
+              "wait": 0.0,
+              "ride": 0.0,
+              "cost": 0.0
+            }
+          },
+          "min_q_delta": {
+            "fresh": {
+              "value": -0.00016021728515625,
+              "strict_300_sign_agreement": null
+            },
+            "no_fresh": {
+              "value": 0.00121307373046875,
+              "strict_300_sign_agreement": null
+            }
+          }
+        },
+        "high_minus_low": {
+          "physical_status": "separated",
+          "endpoints": {
+            "next_event": {
+              "dt": 0.0,
+              "wait": 0.0,
+              "ride": 0.0,
+              "cost": 0.0
+            },
+            "fixed300": {
+              "dt": 0.0,
+              "wait": 22.0,
+              "ride": 28.0,
+              "cost": 72.0
+            }
+          },
+          "min_q_delta": {
+            "fresh": {
+              "value": -0.000335693359375,
+              "strict_300_sign_agreement": true
+            },
+            "no_fresh": {
+              "value": 0.000457763671875,
+              "strict_300_sign_agreement": false
+            }
+          }
+        },
+        "high_minus_mid": {
+          "physical_status": "separated",
+          "endpoints": {
+            "next_event": {
+              "dt": 0.0,
+              "wait": 0.0,
+              "ride": 0.0,
+              "cost": 0.0
+            },
+            "fixed300": {
+              "dt": 0.0,
+              "wait": 22.0,
+              "ride": 28.0,
+              "cost": 72.0
+            }
+          },
+          "min_q_delta": {
+            "fresh": {
+              "value": -0.00017547607421875,
+              "strict_300_sign_agreement": true
+            },
+            "no_fresh": {
+              "value": -0.00075531005859375,
+              "strict_300_sign_agreement": true
+            }
+          }
+        }
+      },
+      "decisions": {
+        "fresh": {
+          "action": "low",
+          "regret": 0.0,
+          "rank": [
+            "low",
+            "mid",
+            "high"
+          ]
+        },
+        "no_fresh": {
+          "action": "mid",
+          "regret": 0.0,
+          "rank": [
+            "mid",
+            "high",
+            "low"
+          ]
+        }
+      },
+      "next_global_label_equal": true,
+      "physical_field_missing": {
+        "low": {},
+        "mid": {},
+        "high": {}
+      },
+      "all_branch_counter_deltas_zero": true,
+      "endpoint_zero_missing_truncated": {
+        "next_event": {
+          "zero_duration_arms": [],
+          "missing_arms": [],
+          "truncated_arms": []
+        },
+        "fixed300": {
+          "zero_duration_arms": [],
+          "missing_arms": [],
+          "truncated_arms": []
+        }
+      }
+    },
+    {
+      "scenario": "local_speed_drop",
+      "selected": {
+        "sequence": 12767,
+        "started_at": 18311.0,
+        "line_id": "7X",
+        "station_id": "7X22_102X35",
+        "vehicle_id": "7X_fleet_52",
+        "trip_id": "7X_46"
+      },
+      "all_main_checks_pass": true,
+      "main_failed": [],
+      "old_v29_truth_exact": true,
+      "common_native_overlap_seconds": 7.582402229309082,
+      "issue_clock": 18311.0,
+      "action_step_length_seconds": 1.0,
+      "observed_registered_seconds": {
+        "low": 0.0,
+        "mid": 0.938,
+        "high": 1.875
+      },
+      "events": {
+        "low": {
+          "departure": {
+            "status": "observed",
+            "station_id": "7X22_102X35",
+            "clock_seconds": 18312.0,
+            "time_source": "traci_isAtBusStop_true_to_false"
+          },
+          "native_history_departure": {
+            "status": "observed",
+            "station_id": "7X22_102X35",
+            "clock_seconds": 18312.0,
+            "time_source": "native_bus_departure_history"
+          },
+          "next_same_vehicle_arrival": {
+            "status": "observed",
+            "station_id": "7X23_102X36",
+            "clock_seconds": 18384.0,
+            "time_source": "traci_isAtBusStop_false_to_true"
+          },
+          "native_history_next_arrival": {
+            "status": "observed",
+            "station_id": "7X23_102X36",
+            "clock_seconds": 18384.0,
+            "time_source": "native_bus_arrival_history"
+          }
+        },
+        "mid": {
+          "departure": {
+            "status": "observed",
+            "station_id": "7X22_102X35",
+            "clock_seconds": 18312.0,
+            "time_source": "traci_isAtBusStop_true_to_false"
+          },
+          "native_history_departure": {
+            "status": "observed",
+            "station_id": "7X22_102X35",
+            "clock_seconds": 18312.0,
+            "time_source": "native_bus_departure_history"
+          },
+          "next_same_vehicle_arrival": {
+            "status": "observed",
+            "station_id": "7X23_102X36",
+            "clock_seconds": 18384.0,
+            "time_source": "traci_isAtBusStop_false_to_true"
+          },
+          "native_history_next_arrival": {
+            "status": "observed",
+            "station_id": "7X23_102X36",
+            "clock_seconds": 18384.0,
+            "time_source": "native_bus_arrival_history"
+          }
+        },
+        "high": {
+          "departure": {
+            "status": "observed",
+            "station_id": "7X22_102X35",
+            "clock_seconds": 18313.0,
+            "time_source": "traci_isAtBusStop_true_to_false"
+          },
+          "native_history_departure": {
+            "status": "observed",
+            "station_id": "7X22_102X35",
+            "clock_seconds": 18313.0,
+            "time_source": "native_bus_departure_history"
+          },
+          "next_same_vehicle_arrival": {
+            "status": "observed",
+            "station_id": "7X23_102X36",
+            "clock_seconds": 18385.0,
+            "time_source": "traci_isAtBusStop_false_to_true"
+          },
+          "native_history_next_arrival": {
+            "status": "observed",
+            "station_id": "7X23_102X36",
+            "clock_seconds": 18385.0,
+            "time_source": "native_bus_arrival_history"
+          }
+        }
+      },
+      "contrasts": {
+        "mid_minus_low": {
+          "physical_status": "no_separation_observed",
+          "endpoints": {
+            "next_event": {
+              "dt": 0.0,
+              "wait": 0.0,
+              "ride": 0.0,
+              "cost": 0.0
+            },
+            "fixed300": {
+              "dt": 0.0,
+              "wait": 0.0,
+              "ride": 0.0,
+              "cost": 0.0
+            }
+          },
+          "min_q_delta": {
+            "fresh": {
+              "value": 0.0003509521484375,
+              "strict_300_sign_agreement": null
+            },
+            "no_fresh": {
+              "value": -0.0001220703125,
+              "strict_300_sign_agreement": null
+            }
+          }
+        },
+        "high_minus_low": {
+          "physical_status": "separated",
+          "endpoints": {
+            "next_event": {
+              "dt": 0.0,
+              "wait": 0.0,
+              "ride": 0.0,
+              "cost": 0.0
+            },
+            "fixed300": {
+              "dt": 0.0,
+              "wait": 13.0,
+              "ride": 11.0,
+              "cost": 37.0
+            }
+          },
+          "min_q_delta": {
+            "fresh": {
+              "value": 0.00069427490234375,
+              "strict_300_sign_agreement": false
+            },
+            "no_fresh": {
+              "value": -0.0001983642578125,
+              "strict_300_sign_agreement": true
+            }
+          }
+        },
+        "high_minus_mid": {
+          "physical_status": "separated",
+          "endpoints": {
+            "next_event": {
+              "dt": 0.0,
+              "wait": 0.0,
+              "ride": 0.0,
+              "cost": 0.0
+            },
+            "fixed300": {
+              "dt": 0.0,
+              "wait": 13.0,
+              "ride": 11.0,
+              "cost": 37.0
+            }
+          },
+          "min_q_delta": {
+            "fresh": {
+              "value": 0.00034332275390625,
+              "strict_300_sign_agreement": false
+            },
+            "no_fresh": {
+              "value": -7.62939453125e-05,
+              "strict_300_sign_agreement": true
+            }
+          }
+        }
+      },
+      "decisions": {
+        "fresh": {
+          "action": "high",
+          "regret": 37.0,
+          "rank": [
+            "high",
+            "mid",
+            "low"
+          ]
+        },
+        "no_fresh": {
+          "action": "low",
+          "regret": 0.0,
+          "rank": [
+            "low",
+            "mid",
+            "high"
+          ]
+        }
+      },
+      "next_global_label_equal": true,
+      "physical_field_missing": {
+        "low": {
+          "is_at_bus_stop": 95,
+          "action_step_length_seconds": 95,
+          "last_action_time_seconds": 95,
+          "stop_state": 95,
+          "speed_mps": 95,
+          "lane_id": 95,
+          "lane_position_m": 95,
+          "position_xy": 95
+        },
+        "mid": {
+          "is_at_bus_stop": 95,
+          "action_step_length_seconds": 95,
+          "last_action_time_seconds": 95,
+          "stop_state": 95,
+          "speed_mps": 95,
+          "lane_id": 95,
+          "lane_position_m": 95,
+          "position_xy": 95
+        },
+        "high": {
+          "is_at_bus_stop": 93,
+          "action_step_length_seconds": 93,
+          "last_action_time_seconds": 93,
+          "stop_state": 93,
+          "speed_mps": 93,
+          "lane_id": 93,
+          "lane_position_m": 93,
+          "position_xy": 93
+        }
+      },
+      "all_branch_counter_deltas_zero": true,
+      "endpoint_zero_missing_truncated": {
+        "next_event": {
+          "zero_duration_arms": [],
+          "missing_arms": [],
+          "truncated_arms": []
+        },
+        "fixed300": {
+          "zero_duration_arms": [],
+          "missing_arms": [],
+          "truncated_arms": []
+        }
+      }
+    }
+  ],
+  "budget": {
+    "parent_full_day_replay_seconds": 48000.0,
+    "prefix_native_seconds": 36626.0,
+    "replayed_feedback_slots": 570,
+    "replayed_main_updates": 912,
+    "replayed_cumulative_shadow_updates": 992,
+    "planned_prefixes": 2,
+    "planned_control_branches": 6,
+    "completed_control_branches": 6,
+    "planned_suffix_seconds": 1800,
+    "observed_suffix_seconds": 1800.0,
+    "diagnostic_action_truths": 6,
+    "new_training_labels": 0,
+    "truth_labels_enter_training": 0,
+    "suffix_optimizer_updates": 0
+  },
+  "new_download_bytes": {
+    "resident_summary": 19943,
+    "late_missing_projection": 1572,
+    "bellman_visibility": 2283,
+    "total": 23798
+  },
+  "new_native_or_training_budget": 0,
+  "decision": {
+    "independent_confirmation": false,
+    "change_trust": false,
+    "change_model_now": false,
+    "next": "Cross-event Bellman visibility and past executed-action memory precheck; keep physical-equivalent0/.9375 asconsistencycontrol and use0/1.875 for response directions beforeonecriticchange.",
+    "submitted_new_native_tasks": false
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "name": "thesis-mcwm-mid-policy-exchange-v76-20261027",
+  "seeds": [
+    6208,
+    6207
+  ],
+  "bad_seed": 6208,
+  "positive_seed": 6207,
+  "scenario": "stable",
+  "entry_arms": [
+    "fresh",
+    "no_fresh"
+  ],
+  "policy_arms": {
+    "low": "fresh",
+    "high": "no_fresh"
+  },
+  "cutpoint": 16200,
+  "prefix_packets": 51,
+  "feedback_slots": 255,
+  "complete_outcomes_per_fresh_prefix": 255,
+  "complete_outcomes_per_no_fresh_prefix": 0,
+  "critic_updates": 408,
+  "value_updates": 408,
+  "actor_updates": 408,
+  "alpha_updates": 408,
+  "initializer_updates": 50000,
+  "horizon_seconds": 24000,
+  "post_window": 20100,
+  "external_seed_offset": 100000,
+  "priority": "high",
+  "prefixes": 4,
+  "suffixes": 8,
+  "maximum_simulated_seconds": 127200,
+  "total_restoration_covariates": 1020,
+  "total_restoration_complete_results": 510,
+  "total_restoration_updates_per_optimizer": 1632,
+  "new_initializer_training": 0,
+  "suffix_training_updates": 0,
+  "diagnostic_labels_fed_back": 0,
+  "old_code_and_results_read_only": true,
+  "summary_max_bytes": 48000,
+  "source_directory": "mcwm_closed_loop_frozen_validation_v75_20261027",
+  "summary_outputs": [
+    "results/diagnostic.json",
+    "results/evidence.json"
+  ],
+  "authorization": "User2026-10-27 authorized the next fixed diagnostic:6208stable failure and6207stable positive case, four restored prefixes and eight frozen-policy suffixes. No algorithm change,truth feedback,new cutpoint or seed expansion.",
+  "cut_definition": "After packet51 ending at deadline16200 is fully processed, publish actor and stop further admission/updates. At the next original native controllable policy event, before choosing its action, fork the complete state. Use its actual clock and passenger ledger, not an invented16200 state.",
+  "actor_information": "Both actors use only their own restored factual prefix through feedback deadline16200; max_available_at<=16200. Processed_at/publish clock and entry cut are separate native observations. Opposite actors come from the other original trajectory, not from future training or final456 models.",
+  "source_exactness": "Restore each own v75 prefix row-for-row. The own-actor branch first cut issue must match the next original issue; detach all old references afterward. Frozen suffixes do not reproduce v75 continued learning after packet51.",
+  "cost_scope": "Primary remaining costs are each entry actual cut ledger to24000 and are compared only within that same complete entry. Also report common18300-24000/post20100 costs and actual full-day cumulative ledgers for all four cells of this new408-frozen intervention family. Different entry remaining durations are not a fixed-clock state-effect decomposition.",
+  "budget_identity": "Actual simulated seconds=sum(cut)+2*sum(24000-cut)=192000-sum(cut)<=127200 when all four cuts>=16200. Add actual prefix restoration learner work separately:4*408 per optimizer. Reuse v75 initializers, no new50000 training. Prefix learner information union<=306 per entry; old v75 full-day285/456/342 contract remains frozen.",
+  "decision": "Report6208 remaining fresh-policy minus no_fresh-policy under both entrances. Future protection study may be considered if both are positive and6207 full-day J(fresh_entry,no_fresh_policy)<=J(no_fresh_entry,no_fresh_policy) within the new frozen intervention family. Report6207 remaining-policy advantages independently; not winning in remaining time does not imply earlier fresh prefix benefits were erased. No automatic protection method or new run.",
+  "resource_plan": "One2CPU/24GB task per seed starts both prefix processes concurrently. At their frozen entries both pause, then entrances use one tail slot in sequence; within each entry both policy suffixes execute concurrently. Two seed tasks submitted together at high priority. Preflight reuses first packet of existing prefixes; cost sign never controls which seed runs.",
+  "downloads": "Only two bounded JSON readouts and necessary small technical gates/log tails. All traces,passengerIDs,actors andweights remain server resident.",
+  "native_preflight": {
+    "seed": 6208,
+    "scenario": "stable",
+    "feedback_slots": 5,
+    "policy_updates": 8,
+    "critic_updates": 8,
+    "value_updates": 8,
+    "actor_updates": 8,
+    "alpha_updates": 8,
+    "reuse_prefix": true
+  },
+  "old_v73_gate_reopened": false,
+  "old_v75_result_modified": false,
+  "study_stage": "Exposed-case causal diagnostic,not independent confirmation",
+  "original_v75_response_budget": "285covariates,fresh285complete outcomes,456updates per day remains unchanged in the frozen original study"
+}

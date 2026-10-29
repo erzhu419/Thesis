@@ -1,0 +1,72 @@
+{
+  "name": "thesis-mcwm-critic-shadow-v33-20261024",
+  "training_seeds": [
+    6202
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "arms": [
+    "zero_memory",
+    "memory"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "target_record_budget": 285,
+  "policy_update_budget": 456,
+  "policy_updates_per_packet": 8,
+  "original_runs": {
+    "stable": "experiments/mcwm_closed_loop_critic_memory_v32_20261023/runs/seed6202/stable",
+    "local_speed_drop": "experiments/mcwm_closed_loop_critic_memory_v32_20261023/runs/seed6202/local_speed_drop"
+  },
+  "memory_dim": 84,
+  "memory_window_seconds": 300,
+  "window_edges": [
+    9000,
+    12000,
+    18000
+  ],
+  "focus_lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "fixed_proposal_hold_seconds": [
+    0.0,
+    7.5,
+    15.0
+  ],
+  "diagnostic_seed": 336202,
+  "summary_max_bytes": 20000,
+  "feedback_first_deadline": 1200,
+  "feedback_last_deadline": 18000,
+  "feedback_interval_seconds": 300,
+  "feedback_records_per_packet": 5,
+  "feedback_delay_seconds": 30,
+  "history_rows": 32768,
+  "source_rows": 4096,
+  "gate": "Local nonzero residual wiring tests before dispatch. Each native zero-memory worker is the original57-packet replay, with original metrics and factual actor proposals exact. Formal comparison runs only after both scenario gates pass. No duplicate preflight training.",
+  "learning": "Same old fresh complete285 factual outcomes in both treatments. Memory input only critic; old actor/V observations, F, sampler, source/history data, trust and actor-before-critic update schedule fixed. Retain params, Adam, target and RNG across57 packets.",
+  "critic": "v32 per-head zero-initialized level and normalized-executed-action memory residual. zero_memory is the mathematically identical native m=0 implementation, preserving exact diagnostic reductions and original optimizer state. Memory base parameter objects and Adam states retained; residual optimizer state starts empty.",
+  "evaluation": "Common current packet before/after probes and cumulative first-admitted focus-line/time-window bank, only after admission. Fixed0/7.5/15 proposal grid passes F once; factual executed action scored directly. Same diagnostic draws restored, fixed-weight m=0 probes on memory learner split direct residual effects from learned base/actor/V changes. No truth regret or control-outcome claims.",
+  "state_rights": "Use saved285 current/next contexts only. No missing tail-context backfill, no branch truth, no new target labels or simulator queries. Development bank is neither heldout nor independent confirmation.",
+  "concurrency": "Each scenario task reserves2 CPU, starts zero_memory and memory as two independent Python subprocesses at once; verify actual overlap from worker start/end clocks.",
+  "compute_budget": {
+    "scenarios": 2,
+    "arms_per_scenario": 2,
+    "feedback_slots_per_arm": 285,
+    "updates_per_arm": 456,
+    "new_shadow_updates_total": 1824,
+    "new_target_labels": 0,
+    "new_source_labels": 0,
+    "new_native_days": 0,
+    "new_native_suffixes": 0,
+    "shadow_scored_horizon_seconds": 24000
+  },
+  "scheduler_priority": "high",
+  "stages": {
+    "days": "Submit both CPU2 scenario pairs high; each worker retains one learner for all57 packets.",
+    "finalize": "Resident comparison only after exactzero57-gate, common sampling/RNG and concurrent worker proof. Export<=20000bytes; raw per-row scores stay resident."
+  }
+}

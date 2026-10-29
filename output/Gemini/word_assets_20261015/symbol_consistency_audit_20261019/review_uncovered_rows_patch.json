@@ -1,0 +1,410 @@
+{
+  "source": "source_snapshot.docx / formulas.json / paragraphs.json",
+  "scope": "仅root追加的未覆盖表10/11/57/62/63/69/79/93/96；不重复前次24项",
+  "table_row_notes": [
+    {
+      "row": 10,
+      "action": "replace_with_full_family",
+      "old_tex": "$d^{svc},d^{run},d^{exit}$",
+      "correct_tex": "d_{i,j}^{svc},d_{i,j}^{run},d_{i,j}^{exit},d^{svc}(h)",
+      "correct_definition": "第i个班次在第j个站点的必要上下客服务、驶往下一站的道路行驶及出站驶离等待耗时（第3.2.1节）；第4.2.1节以d^{svc}(h)表示随车头时距变化的必要服务耗时",
+      "evidence": [
+        {
+          "paragraph": 934,
+          "math_id": 530,
+          "equation": null,
+          "tex": "d_{i,j}^{svc}"
+        },
+        {
+          "paragraph": 934,
+          "math_id": 532,
+          "equation": null,
+          "tex": "d_{i,j}^{exit}"
+        },
+        {
+          "paragraph": 934,
+          "math_id": 533,
+          "equation": null,
+          "tex": "d_{i,j}^{run}"
+        },
+        {
+          "paragraph": 936,
+          "math_id": 534,
+          "equation": "3-1",
+          "tex": "y_{i,j}^{d} = y_{i,j}^{a} + d_{i,j}^{svc} + a_{i,j} + d_{i,j}^{exit},\\quad\\quad y_{i,j + 1}^{a} = y_{i,j}^{d} + d_{i,j}^{run}"
+        },
+        {
+          "paragraph": 940,
+          "math_id": 544,
+          "equation": "3-2",
+          "tex": "h_{j + 1} = h_{j} + \\left( d_{i + 1,j}^{svc} - d_{i,j}^{svc} \\right) + \\left( a_{i + 1,j} - a_{i,j} \\right) + \\left( d_{i + 1,j}^{exit} - d_{i,j}^{exit} \\right) + \\left( d_{i + 1,j}^{run} - d_{i,j}^{run} \\right)"
+        },
+        {
+          "paragraph": 1701,
+          "math_id": 1542,
+          "equation": null,
+          "tex": "d^{svc}(h)"
+        },
+        {
+          "paragraph": 1703,
+          "math_id": 1543,
+          "equation": "4-3",
+          "tex": "\\mathbb{E}\\left\\lbrack N(h) \\right\\rbrack = m_{dem}\\,\\lambda\\, h,\\quad\\quad d^{svc}(h) = d_{0}^{svc} + \\eta^{board}\\, m_{dem}\\,\\lambda\\, h"
+        }
+      ],
+      "reason": "d^run/d^exit不是无对应：表中只是省略班次/站点下标的家族名称。P934明确三类量，3-1/3-2重复使用；不可删除这两个持续时间。",
+      "accepted_family_abbreviation": true
+    },
+    {
+      "row": 11,
+      "action": "replace_with_actual_symbols",
+      "old_tex": "$\\lambda_{i},\\eta_{i}^{board}$",
+      "correct_tex": "\\lambda,\\eta^{board},\\lambda_{od,q},{\\widehat\\lambda}_{ol,q}",
+      "correct_definition": "单站客流到达强度与单位乘客上车服务时间（第4.2.1节）；时段q从起点o至目的地d的OD需求率，以及按计划频率分配至线路l的可服务到达率（第5.2.2节）",
+      "evidence": [
+        {
+          "paragraph": 1696,
+          "math_id": 1524,
+          "equation": null,
+          "tex": "\\lambda"
+        },
+        {
+          "paragraph": 1701,
+          "math_id": 1540,
+          "equation": null,
+          "tex": "\\eta^{board}"
+        },
+        {
+          "paragraph": 1703,
+          "math_id": 1543,
+          "equation": "4-3",
+          "tex": "\\mathbb{E}\\left\\lbrack N(h) \\right\\rbrack = m_{dem}\\,\\lambda\\, h,\\quad\\quad d^{svc}(h) = d_{0}^{svc} + \\eta^{board}\\, m_{dem}\\,\\lambda\\, h"
+        },
+        {
+          "paragraph": 2392,
+          "math_id": 2431,
+          "equation": null,
+          "tex": "{\\widehat{\\lambda}}_{ol,q}"
+        },
+        {
+          "paragraph": 2392,
+          "math_id": 2435,
+          "equation": null,
+          "tex": "\\lambda_{od,q}"
+        },
+        {
+          "paragraph": 2394,
+          "math_id": 2438,
+          "equation": "5-5",
+          "tex": "{\\widehat{\\lambda}}_{ol,q} = \\sum_{d:\\, l \\in \\mathcal{L}_{od}}^{}\\lambda_{od,q}\\,\\frac{H_{l}^{- 1}}{\\sum_{m \\in \\mathcal{L}_{od}}^{}H_{m}^{- 1}}"
+        }
+      ],
+      "reason": "η^{board}在第4章是实际符号，应保留；现有λ_i/η_i^{board}并未在正文完整写出。此建议按已定义的λ及第5章OD细分符号收表，不新增站点i下标。"
+    },
+    {
+      "row": 57,
+      "action": "remove_unused_items_only",
+      "old_tex": "$\\tau$，$n_{int}$，$N_{on}$，$n_{val}$",
+      "correct_tex": "\\tau",
+      "correct_definition": "乘客时间积分中的物理时刻（第5章）",
+      "evidence": [
+        {
+          "paragraph": 2396,
+          "math_id": 2439,
+          "equation": null,
+          "tex": "\\tau"
+        },
+        {
+          "paragraph": 2398,
+          "math_id": 2448,
+          "equation": "5-6",
+          "tex": "C_{k} = 2\\int_{t_{k}}^{t_{k} + \\Delta t_{k}}N^{w}(\\tau)\\, d\\tau + \\int_{t_{k}}^{t_{k} + \\Delta t_{k}}N^{b}(\\tau)\\, d\\tau,\\quad\\quad r_{k} = - C_{k}"
+        },
+        {
+          "paragraph": 2403,
+          "math_id": 2468,
+          "equation": "5-7",
+          "tex": "\\int_{0}^{T_{hor}}\\left( \\, 2\\, N^{w}(\\tau) + N^{b}(\\tau)\\, \\right)\\, d\\tau\\mspace{6mu} = \\mspace{6mu}"
+        }
+      ],
+      "reason": "n_int、N_on、n_val在全文非表数学对象中均无对应。正文用整数文字陈述交互预算和验证安排，没有可证实的同名n替代；仅删这三项，保留τ。",
+      "remove_symbols": [
+        "n_{int}",
+        "N_{on}",
+        "n_{val}"
+      ],
+      "merge_note": "其他τ的已确认局部用途由root全局τ条目合并；本补核只删除n_int/N_on/n_val。"
+    },
+    {
+      "row": 62,
+      "action": "remove_unused_items_only",
+      "old_tex": "$b_{env},m_{dem},H_{roll}$",
+      "correct_tex": "m_{dem}",
+      "correct_definition": "相对于基准客流到达强度的需求倍率（第4章）",
+      "evidence": [
+        {
+          "paragraph": 1700,
+          "math_id": 1530,
+          "equation": null,
+          "tex": "m_{dem}\\lambda"
+        },
+        {
+          "paragraph": 1700,
+          "math_id": 1531,
+          "equation": null,
+          "tex": "m_{dem} > 1"
+        },
+        {
+          "paragraph": 1701,
+          "math_id": 1536,
+          "equation": null,
+          "tex": "m_{dem}"
+        },
+        {
+          "paragraph": 1703,
+          "math_id": 1543,
+          "equation": "4-3",
+          "tex": "\\mathbb{E}\\left\\lbrack N(h) \\right\\rbrack = m_{dem}\\,\\lambda\\, h,\\quad\\quad d^{svc}(h) = d_{0}^{svc} + \\eta^{board}\\, m_{dem}\\,\\lambda\\, h"
+        },
+        {
+          "paragraph": 1848,
+          "math_id": 1879,
+          "equation": null,
+          "tex": "m_{dem} = 1.0"
+        },
+        {
+          "paragraph": 1848,
+          "math_id": 1880,
+          "equation": null,
+          "tex": "m_{dem}"
+        },
+        {
+          "paragraph": 1956,
+          "math_id": 1970,
+          "equation": null,
+          "tex": "m_{dem}(t)"
+        },
+        {
+          "paragraph": 1958,
+          "math_id": 1972,
+          "equation": "4-29",
+          "tex": "{\\bar{m}}_{dem} = \\frac{1}{T_{hor}}\\int_{0}^{T_{hor}}m_{dem}(t)\\, dt"
+        }
+      ],
+      "reason": "b_env及H_roll全文无对应；基础随机场景组与一步模型展开在正文有文字说明，但未以这两个符号命名。保留真正反复使用的m_dem。",
+      "remove_symbols": [
+        "b_{env}",
+        "H_{roll}"
+      ]
+    },
+    {
+      "row": 63,
+      "action": "replace_with_actual_symbols",
+      "old_tex": "$m_{cat},m_{batch},m_{act}$",
+      "correct_tex": "m,m_{grp},M",
+      "correct_definition": "状态中的离散类别变量个数m（第3.2.2节）；同一物理时刻到站车组内需依次决策的车辆数m_grp（第5.2.2节）；同一状态比较的候选驻站动作数M（第3.3.3节）",
+      "evidence": [
+        {
+          "paragraph": 953,
+          "math_id": 573,
+          "equation": null,
+          "tex": "m"
+        },
+        {
+          "paragraph": 953,
+          "math_id": 574,
+          "equation": null,
+          "tex": "c_{1},c_{2},\\ldots,c_{m}"
+        },
+        {
+          "paragraph": 2387,
+          "math_id": 2413,
+          "equation": null,
+          "tex": "m_{grp}"
+        },
+        {
+          "paragraph": 2400,
+          "math_id": 2450,
+          "equation": null,
+          "tex": "m_{grp}"
+        },
+        {
+          "paragraph": 2400,
+          "math_id": 2451,
+          "equation": null,
+          "tex": "m_{grp} - 1"
+        },
+        {
+          "paragraph": 2400,
+          "math_id": 2454,
+          "equation": null,
+          "tex": "m_{grp}"
+        },
+        {
+          "paragraph": 1146,
+          "math_id": 940,
+          "equation": null,
+          "tex": "M"
+        },
+        {
+          "paragraph": 1146,
+          "math_id": 941,
+          "equation": null,
+          "tex": "\\{ a_{1},\\ldots,a_{M}\\}"
+        },
+        {
+          "paragraph": 1146,
+          "math_id": 944,
+          "equation": null,
+          "tex": "{\\bar{e}}_{Q}(s) = \\frac{1}{M}\\sum_{i = 1}^{M}e_{Q,i}"
+        }
+      ],
+      "reason": "旧m_cat/m_batch/m_act均无对应，但三个角色确有现成记号。m与M的大小写应保留；不能把类别数m与第6章候选模型类别m混作同一作用域。"
+    },
+    {
+      "row": 69,
+      "action": "keep",
+      "old_tex": "$\\mu_{\\det},\\mu_{\\det,\\theta},f_{ref}$",
+      "correct_tex": "\\mu_{\\det},\\mu_{\\det,\\theta},f_{ref}",
+      "correct_definition": "确定性动作映射、其参数化形式及参考控制映射（附录D.1）",
+      "evidence": [
+        {
+          "paragraph": 3967,
+          "math_id": 4161,
+          "equation": null,
+          "tex": "\\mu_{\\det},f_{ref}\\mathbb{:R \\rightarrow R}"
+        },
+        {
+          "paragraph": 3969,
+          "math_id": 4164,
+          "equation": "D-1",
+          "tex": "|{\\mu_{\\det}}'(x) - {f_{ref}}'(x)| \\leq \\varepsilon_{der},\\quad\\quad x \\in X_{eval}."
+        },
+        {
+          "paragraph": 3986,
+          "math_id": 4183,
+          "equation": null,
+          "tex": "\\mu_{det,\\theta}(x)"
+        },
+        {
+          "paragraph": 3988,
+          "math_id": 4186,
+          "equation": "D-4a",
+          "tex": "\\begin{array}{r}\nq_{\\theta}(x) = \\beta_{0} + f_{\\theta}(x) - f_{\\theta}\\left( x_{ref}(x) \\right), \\\\\n\\mu_{det,\\theta}(x) = tanh\\left( q_{\\theta}(x) \\right), \\\\\na_{hold}(x) = 30\\,\\left\\lbrack 1 + \\mu_{det,\\theta}(x) \\right\\rbrack.\n\\end{array}"
+        },
+        {
+          "paragraph": 3991,
+          "math_id": 4193,
+          "equation": null,
+          "tex": "f_{ref}(x) \\equiv {\\widetilde{a}}_{sym}(x)"
+        },
+        {
+          "paragraph": 3995,
+          "math_id": 4195,
+          "equation": null,
+          "tex": "J_{\\mu}(x) = D\\mu_{det,\\theta}(x) \\equiv D\\pi(x)"
+        }
+      ],
+      "reason": "μ_det,θ确已使用，候选零匹配只是Pandoc TeX写法差异（\\det与det）。原生表M92与正文M4183/M4186的det都为m:sty=p，μ/θ都为原生数学样式；此行字体与角色都一致，不删参数化形式。",
+      "native_style_equivalent": true
+    },
+    {
+      "row": 79,
+      "action": "delete",
+      "old_tex": "$p_{sig},N_{win}$",
+      "correct_tex": null,
+      "correct_definition": null,
+      "evidence": [],
+      "reason": "p_sig与N_win全文非表数学对象均无对应；全文文字也没有以单侧符号检验定义这些变量。无证据把普通p、n或整数改善次数强配成此行，所以整行删除。"
+    },
+    {
+      "row": 93,
+      "action": "delete",
+      "old_tex": "$x_{obs,k},c_{obs}$",
+      "correct_tex": null,
+      "correct_definition": null,
+      "evidence": [],
+      "reason": "x_obs,k/c_obs均无对应。P887只说明按各物理量纲上界归一化，并未命名统一尺度c_obs；P953的粗体o只被定义为连续观测向量，不能自行改释为归一化前的整套公交观测。该嵌入输入已在其他实际表项覆盖，删除此旧行。",
+      "context_paragraphs": [
+        887,
+        953
+      ]
+    },
+    {
+      "row": 96,
+      "action": "remove_unused_items_only",
+      "old_tex": "$\\xi_{time},I_{f},I_{b}$",
+      "correct_tex": "I_f,I_b",
+      "correct_definition": "前向与后向同线路邻车存在的示性标记（第3.2.4节）",
+      "evidence": [
+        {
+          "paragraph": 980,
+          "math_id": 621,
+          "equation": null,
+          "tex": "I_{f},I_{b} \\in \\{ 0,1\\}"
+        },
+        {
+          "paragraph": 980,
+          "math_id": 622,
+          "equation": null,
+          "tex": "I_{f} = I_{b} = 1"
+        },
+        {
+          "paragraph": 988,
+          "math_id": 634,
+          "equation": "3-10",
+          "tex": "p_{f} = 20\\, I_{f}\\,\\tanh\\left( \\frac{e_{f} - 0.5\\, h_{f}^{*}}{30} \\right),\\quad"
+        },
+        {
+          "paragraph": 989,
+          "math_id": 635,
+          "equation": "3-10",
+          "tex": "\\quad p_{b} = 20\\, I_{b}\\,\\tanh\\left( \\frac{e_{b} - 0.5\\, h_{b}^{*}}{30} \\right),\\quad\\quad"
+        }
+      ],
+      "reason": "ξ_time全文无对应；I_f/I_b由P980明确定义并用于3-9。去掉旧进度别名及其释义，保留两个实际标记；不把t/T_hor新造为ξ_time。",
+      "remove_symbols": [
+        "\\xi_{time}"
+      ]
+    }
+  ],
+  "native_symbol_checks": {
+    "method": "检索全文非符号表OMML的m:sSub/m:sSubSup，按基字符与下标实际文本匹配，排除TeX命令拼法导致的零匹配。",
+    "confirmed_absent_symbols": [
+      "n_{int}",
+      "N_{on}",
+      "n_{val}",
+      "b_{env}",
+      "H_{roll}",
+      "m_{cat}",
+      "m_{batch}",
+      "m_{act}",
+      "p_{sig}",
+      "N_{win}",
+      "x_{obs,k}",
+      "c_{obs}",
+      "\\xi_{time}"
+    ],
+    "false_zero_match": {
+      "symbol": "\\mu_{\\det,\\theta}",
+      "occurrences": [
+        {
+          "paragraph": 3986,
+          "math_id": 4183
+        },
+        {
+          "paragraph": 3988,
+          "math_id": 4186,
+          "count": 2
+        },
+        {
+          "paragraph": 3995,
+          "math_id": 4195
+        }
+      ],
+      "native_det_style": "p（表与正文一致）"
+    }
+  },
+  "summary": "表10是有正文对应的持续时间家族，表69参数化映射实际存在，二者不能删；63可直接换成已定义m/m_grp/M；57/62/96只删未用项；79/93整行删；11保留第4章η^{board}并按真实客流记号收表。",
+  "document_modified": false
+}

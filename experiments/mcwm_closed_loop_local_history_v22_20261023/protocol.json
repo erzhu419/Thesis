@@ -1,0 +1,16 @@
+{
+  "name": "thesis-mcwm-local-history-v22-20261023",
+  "priority": "high",
+  "source": "mcwm_closed_loop_service_shift_v21_20261022/stage_a/runs/stable/seed6201",
+  "scope": "Training-only chronological diagnosis using the nine originally admitted pairs. No heldout truth is loaded, no new native run or fit of deployed parameters.",
+  "comparators": ["shared4", "mean5", "local5"],
+  "single_change": "For each arrival/departure endpoint k, replace the three-segment mean history by the residual of its own incoming segment k. Retain the original four columns, five-column dimension, ridge1 and scale60.",
+  "ridge": 1.0,
+  "target_scale_seconds": 60.0,
+  "history_scale_seconds": 60.0,
+  "prior_high_minus_low_seconds": 7.5,
+  "evaluation": "At each original training issue use exactly the original admitted-ID prefix; verify original shared4/mean5 forecasts before scoring the later training truth. Equal state weights; report line/window/endpoint metrics, cold-start, censoring, extrapolation and negative-shift coverage separately.",
+  "next_gate": "Only macro MAE improvement with no line regression can justify a fresh-prefix service preflight. With no scored negative shift, reversal ability is unassessable and B remains closed. No tuning scales/ridge on the six prior heldouts.",
+  "budget": {"new_training_labels": 0, "new_native_prefix_seconds": 0, "new_native_suffix_seconds": 0},
+  "preserved": "Initializer,285-label budget,24000-second target horizon,physical baseline and trust remain unchanged. Original frozen experiments, v21 results and recovery files remain read-only."
+}

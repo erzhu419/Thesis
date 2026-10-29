@@ -1,0 +1,68 @@
+{
+  "status": "complete",
+  "all_pass": true,
+  "checks": {
+    "both_child_initial_states_equal_parent": true,
+    "parent_native_and_rng_unchanged_while_children_run": true,
+    "both_children_same_first_suffix": true,
+    "low_matches_parent_continuation": true,
+    "high_matches_parent_continuation": true,
+    "child_clocks_advance_independently": true,
+    "native_rng_advanced": true,
+    "cpu_actor_after_fork_exact": true,
+    "parent_cpu_actor_unchanged": true,
+    "native_execution_overlaps": true,
+    "route_streams_observed": true,
+    "parent_route_offsets_unchanged": true
+  },
+  "scope": "native_fork_only_not_full_bus_replay",
+  "native_version": [
+    22,
+    "SUMO 1.25.0"
+  ],
+  "torch_version": "2.5.1+cu121",
+  "cpu_threads": 1,
+  "seed": 96201,
+  "prefix_ticks": 1000,
+  "suffix_ticks": 3000,
+  "parent_before_seconds": 1000.0,
+  "parent_after_children_seconds": 1000.0,
+  "child_final_seconds": [
+    4000.0,
+    7000.0
+  ],
+  "vehicle_counts": [
+    447,
+    3612
+  ],
+  "prefix_wall_seconds": 11.569742030464113,
+  "child_wait_wall_seconds": 432.9395719980821,
+  "child_overlap_seconds": 139.29794747103006,
+  "child_exitcodes": {
+    "459863": 0,
+    "459864": 0
+  },
+  "rng_blocks_compared": 65,
+  "route_streams": {
+    "count": 5,
+    "parent_offsets_before": {
+      "3": 1048576,
+      "4": 1048576,
+      "5": 1048576,
+      "6": 1048576,
+      "7": 326440
+    },
+    "parent_offsets_after": {
+      "3": 1048576,
+      "4": 1048576,
+      "5": 1048576,
+      "6": 1048576,
+      "7": 326440
+    },
+    "parent_offsets_unchanged": true
+  },
+  "limitations": [
+    "Current platform/build feasibility only; full Python bus state and model replay remain untested.",
+    "Official support is not asserted for forking a running libsumo instance."
+  ]
+}

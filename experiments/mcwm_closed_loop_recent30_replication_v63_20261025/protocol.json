@@ -1,0 +1,39 @@
+{
+  "name": "thesis-mcwm-recent30-replication-v63-20261025",
+  "candidate": "recent30",
+  "purpose": "One fixed independent actual-control replication of the first aggregate-positive ordinary-dripping candidate; not promotion under failed v61 development gate.",
+  "development_seeds": [
+    6201,
+    6202
+  ],
+  "confirmation_seeds": [
+    6203,
+    6204,
+    6205
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "feedback_slots": 285,
+  "policy_updates": 456,
+  "v61_development_directory": "mcwm_closed_loop_ordinary_control_v61_20261025",
+  "v61_development_relative": "results/recent30/development.json",
+  "original_development_gate": "FAILED: v61 overall difference=-1.0179056966640019, stable=-3.050202268054818, shock=+1.0143908747268142. That fixed gate failure remains unchanged.",
+  "native_algorithm": "Read-only v60/control.py --candidate recent30. Original 50000-step archive for each seed;285-feedback covariate pool;critic outcomes latest30;original mixed single-step .1V+.9SAC. Same F/trust,285labels57packets456updates24000seconds, no branches or extra feedback. No model/feature/weight/window/target changes.",
+  "primary_metric": "Full-day(2W+R)/all departed passengers including accrued unfinished-trip time, negative fresh-minus-no_fresh is better.",
+  "replication_gate": "Independently require all six new cells complete and audited, mean full-day fresh-minus-no_fresh<0, stable mean<=0, shock mean<0. Separately require the same cost gate on all ten cells retaining both old development seeds and all three new fixed seeds. Both gates must pass. No seed/window omission or future seed addition to rescue this replication.",
+  "new_native_days": 12,
+  "reused_development_days": 8,
+  "branch_queries": 0,
+  "priority": "high",
+  "summary_max_bytes": 48000,
+  "old_code_and_results_read_only": true,
+  "downloads": "Necessary small JSON/log tails only; native metrics and prefix streams analyzed server-side, no trajectory/CSV/checkpoint downloads.",
+  "technical_failure": "Preserve failures and consumed work; never encode missing as zero, retry unknown submissions, or restart native work on read timeout.",
+  "scientific_failure": "If independent or all-five-seed original cost gate fails, close this fixed replication. No extra seeds or parameter tuning for a rescue.",
+  "candidate_choice_if_both_qualify": "Prefer the unchanged recent30 candidate over line_cover because it changes only critic replay age; do not select the largest heldout cost gain. Retain and report both complete candidates.",
+  "goal_completion": "A complete confirmed control gain only requests root audit; no test/diagnostic or code flag automatically completes the research goal."
+}

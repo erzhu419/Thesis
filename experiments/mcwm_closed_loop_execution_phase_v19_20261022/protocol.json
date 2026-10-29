@@ -1,0 +1,81 @@
+{
+  "name": "thesis-mcwm-execution-phase-v19-20261022",
+  "scheduler_priority": "high",
+  "source_version": "mcwm_closed_loop_state_response_v18_20261022",
+  "source_protocol": "../mcwm_closed_loop_state_response_v18_20261022/protocol.json",
+  "fixed_seed": 6201,
+  "fixed_scenario": "stable",
+  "fixed_window": "late",
+  "fixed_lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "fixed_selection": "First original initializer/scenario and one already selected late training anchor per line. Locked before shadow results; never select by response truth or prediction error.",
+  "shadow": {
+    "main_days": 4,
+    "additional_native_seconds": 0,
+    "additional_training_labels": 0,
+    "max_export_bytes": 80000,
+    "comparisons": "Same observed state and latent proposal, recompute canonical native F and tail F=0.125*proposal holding. Report reserve/floor conditions separately from actual holding changes. Recorded action overrides at selected train issues are explicit."
+  },
+  "intervention": {
+    "status": "conditional_on_shadow",
+    "gate": "Review material holding differences within the fixed three factual300-second neighborhoods. Record the evidence and decision once, before submitting native branches; no reward-based anchor selection.",
+    "treatment": "Native replay and first action/batch unchanged. On subsequent batches only replace the execution mapping with tail F; actor inputs and environment keep actual time. Freeze all learning.",
+    "first_branch": {
+      "line": "7X",
+      "arm": "low",
+      "output_relative": "branches_retest/7X/low"
+    },
+    "preflight_reused": true,
+    "remaining_branches": 5,
+    "native_comparator": "Reuse v18 training_branches/{index}/{low,high}/summary.json; no native rerun.",
+    "first_action_seconds": {
+      "low": 0.0,
+      "high": 7.5
+    },
+    "suffix_seconds": 300
+  },
+  "invariants": {
+    "initializer_seeds": [
+      6201,
+      6202
+    ],
+    "intervention_initializer": 6201,
+    "initializer_updates": 50000,
+    "target_external_seed": 84201,
+    "training_labels_per_day": 285,
+    "training_pair_outcome_slots": 2,
+    "horizon_seconds": 24000,
+    "physical_source_intervals": 102,
+    "target_physical_updates": 0,
+    "trust": "Original v18 trust formula and prefix updates; zero suffix policy/world/trust/readout updates."
+  },
+  "diagnostic_compute_budget": {
+    "new_main_days": 0,
+    "new_training_labels": 0,
+    "new_response_pairs_for_training": 0,
+    "new_branch_queries_maximum": 6,
+    "new_suffix_seconds_maximum": 1800,
+    "prefix_replay": "Record native prefix seconds and replayed label/update counts separately. Prefix replays reproduce original285-budget history, not new independent labels.",
+    "existing_native_branches_reused": 6,
+    "shadow_queries": 0,
+    "failed_preflight_prefix": {
+      "task": "t211043",
+      "native_seconds_replayed": 2737,
+      "replayed_target_labels": 30,
+      "replayed_policy_updates": 48,
+      "new_suffix_seconds": 0,
+      "new_diagnostic_action_outcomes": 0,
+      "reason": "Saved source acquisitions carry nominal_a, not plan-only nominal_arm; preserve failed output and retest from the same fixed source.",
+      "last_packet_progress_seconds": 2703
+    }
+  },
+  "output_limits": {
+    "preflight_gate_bytes": 10000,
+    "intervention_summary_bytes": 30000
+  },
+  "independent_confirmation": "not_submitted",
+  "deployment": "not_enabled"
+}

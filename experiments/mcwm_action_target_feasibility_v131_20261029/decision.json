@@ -1,0 +1,50 @@
+{
+  "status": "COMPLETE_CLOSE_EXACT_SAME_DAY_SUPERVISION_BRANCH",
+  "scope": "The proposed exact full-day action-difference supervision using the passive v121/v127/v130 panel. Not all online RL or all dripping data.",
+  "correction": "Full-day2W+R remains the evaluation objective. Exact full-day outcome availability is not a universal requirement for TD learning; it is a requirement only if this exact observed difference is used as the training label.",
+  "findings": {
+    "passive_records": 570,
+    "distinct_recorded_contexts": 435,
+    "common_prefix_repeats": 135,
+    "common_prefix_different_actions": 0,
+    "exact_paired_labels_in_panel": 0,
+    "complete_outcome_endpoint": 24000,
+    "earliest_feedback": 24030,
+    "feedback_deadline": 18000,
+    "exact_same_day_labels_admissible": 0,
+    "original_global_reward_formula_correct": true
+  },
+  "decision": "Do not fit a standaloneR head, replace event reward with a long return while retaining the earlier bootstrap state, or relaunch an existing paired slope model. Retain v130 factual costs and FIFO as diagnostics.",
+  "conditional_cross_day_design": {
+    "status": "INFORMATION_REQUIREMENTS_ONLY_NOT_READY_TO_LAUNCH",
+    "timing": "Labels from a completed target day may be used only after24030 in an explicitly separate later target day; no reset of the clock can turn them into same-day feedback.",
+    "supervision": "Passive completed-day returns still do not provide both actions. Exact delta labels require separately budgeted same-state two-arm native simulation with one fixed frozen continuation, or a justified different causal identification design.",
+    "unit": "One root-action pair; passengers, repeated replays and multiple outcomes at one root are not independent root samples.",
+    "required_before_any_execution": [
+      "One concrete service-state mechanism beyond the closed line/headway slope and departure-risk heads.",
+      "Outcome-blind root selection,actual original-F action rule,and independent development/evaluation panels.",
+      "Separate simulator label-generation cost from ordinary passive285 feedback and offline initialization.",
+      "A new proposal must explain which actual new information resolves prior failures; moving the day boundary alone does not."
+    ],
+    "single_root_native_seconds": "t+2*(24000-t)=48000-t when one prefix is shared and both suffixes are executed; this is accounting for a proposed paired label, not an approved total budget.",
+    "registered_roots": 0,
+    "registered_new_doses": 0,
+    "authorized_new_collection": 0
+  },
+  "preserved": {
+    "F": "unchanged",
+    "cost_gate": "Complete four days and technical checks. fresh-minus-matched-no_fresh mean<0,stable<=0,shock<0; additionally fresh-minus-same-actor-frozen<=0 in each scenario and at least one<0. Report no_fresh-minus-frozen to distinguish baseline drift. Early and tail windows are descriptive, not new gates.",
+    "v73_v75": "retained",
+    "v85_v103_v129": "closed candidates remain closed"
+  },
+  "actual_work": {
+    "new_native_seconds": 0,
+    "new_collection": 0,
+    "new_fits": 0,
+    "control_changes": 0,
+    "new_server_summary_bytes": 1386,
+    "raw_logs_downloaded": false,
+    "checkpoints_downloaded": false
+  },
+  "automatic_launch": false
+}

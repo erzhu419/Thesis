@@ -1,0 +1,494 @@
+{
+  "finished": 2,
+  "cases": {
+    "local_speed_drop": {
+      "status": "integrity_failed",
+      "scenario": "local_speed_drop",
+      "integrity": {
+        "all_pass": false,
+        "checks": {
+          "recorded_issues": true,
+          "natural_end": true,
+          "exact_horizon": true,
+          "final_ledger_exact": true,
+          "reference_actions_exhausted": true,
+          "reference_ticks_exhausted": true,
+          "complete_native_logs": false,
+          "every_issue_has_pre_action_context": true,
+          "scenario_applied": true
+        }
+      },
+      "performance_evidence": false,
+      "replay": {
+        "all_pass": true,
+        "status": "target_reached",
+        "target_sequence": 13685,
+        "target_clock": 21199.0,
+        "actions_read": 13686,
+        "actions_checked": 13686,
+        "ticks_integrated": 24000,
+        "last_reference_ledger": {
+          "time_seconds": 24000.0,
+          "waiting_passengers": 333,
+          "in_vehicle_passengers": 0,
+          "accrued_wait_seconds": 8497390.0,
+          "accrued_in_vehicle_seconds": 16572332.0
+        },
+        "action_paths": [
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_behavior_replay_v113_20261029/runs/local_speed_drop/no_fresh/actions.jsonl"
+        ],
+        "tick_paths": [
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_behavior_replay_v113_20261029/runs/local_speed_drop/no_fresh/ticks.jsonl"
+        ],
+        "failure": null,
+        "action_comparison": "All recorded EventStream fields exact; observer visit_index excluded",
+        "ledger_semantics": "Integrate tick-start counts through end=issue clock; retain last tick counts"
+      },
+      "reproduction": {
+        "all_pass": false,
+        "files": {
+          "actions.jsonl": {
+            "all_pass": true,
+            "observed_rows": [
+              13686,
+              13686
+            ],
+            "unequal_rows": 0,
+            "first_difference": null
+          },
+          "commands.jsonl": {
+            "all_pass": true,
+            "observed_rows": [
+              14075,
+              14075
+            ],
+            "unequal_rows": 0,
+            "first_difference": null
+          },
+          "ticks.jsonl": {
+            "all_pass": true,
+            "observed_rows": [
+              24000,
+              24000
+            ],
+            "unequal_rows": 0,
+            "first_difference": null
+          },
+          "exchanges.jsonl": {
+            "all_pass": true,
+            "observed_rows": [
+              31178,
+              31178
+            ],
+            "unequal_rows": 0,
+            "first_difference": null
+          },
+          "waiting_changes.jsonl": {
+            "all_pass": true,
+            "observed_rows": [
+              12998,
+              12998
+            ],
+            "unequal_rows": 0,
+            "first_difference": null
+          },
+          "visit_events.jsonl": {
+            "all_pass": false,
+            "observed_rows": [
+              29130,
+              29130
+            ],
+            "unequal_rows": 8,
+            "first_difference": 3110
+          },
+          "passengers.jsonl": {
+            "all_pass": true,
+            "observed_rows": [
+              15079,
+              15079
+            ],
+            "unequal_rows": 0,
+            "first_difference": null
+          },
+          "visits.jsonl": {
+            "all_pass": true,
+            "observed_rows": [
+              14565,
+              14565
+            ],
+            "unequal_rows": 0,
+            "first_difference": null
+          }
+        },
+        "observer": {
+          "all_pass": true,
+          "fields_equal": {
+            "status": true,
+            "checks": true,
+            "errors": true,
+            "ledger_exact": true,
+            "start": true,
+            "end": true,
+            "ticks": true,
+            "issues": true,
+            "commands": true,
+            "passengers": true,
+            "visits": true,
+            "rejected_commands": true,
+            "passenger_totals": true,
+            "periods": true,
+            "ledger": true,
+            "maximum_count_gap": true,
+            "maximum_ledger_gap": true,
+            "traffic_or_other_reasons": true
+          },
+          "complete_horizon": {
+            "observed": true,
+            "reference": true
+          },
+          "row_counts": {
+            "observed": {
+              "actions": true,
+              "commands": true,
+              "ticks": true,
+              "passengers": true,
+              "visits": true
+            },
+            "reference": {
+              "actions": true,
+              "commands": true,
+              "ticks": true,
+              "passengers": true,
+              "visits": true
+            }
+          }
+        },
+        "final_ledger": {
+          "time_seconds": 24000.0,
+          "waiting_passengers": 333,
+          "in_vehicle_passengers": 0,
+          "accrued_wait_seconds": 8497390.0,
+          "accrued_in_vehicle_seconds": 16572332.0
+        },
+        "observed_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_service_replay_v120_20261029/runs/local_speed_drop",
+        "reference_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_behavior_replay_v113_20261029/runs/local_speed_drop/no_fresh",
+        "semantics": "Eight single-directory native JSONL streams compare field-for-field, including complete passenger/visit accounts and both 0-to-24000 receipts. No learner, optimizer or policy-equivalence claim."
+      },
+      "observation": {
+        "contexts": 13686,
+        "incomplete_contexts": 0
+      },
+      "final_ledger": {
+        "time_seconds": 24000.0,
+        "waiting_passengers": 333,
+        "in_vehicle_passengers": 0,
+        "accrued_wait_seconds": 8497390.0,
+        "accrued_in_vehicle_seconds": 16572332.0
+      },
+      "scenario_metadata": {
+        "name": "local_speed_drop",
+        "installed_at_seconds": 503.0,
+        "scheduled_shock_at_seconds": 9000.0,
+        "actual_shock_at_seconds": 9000.0,
+        "speed_factor": 0.65,
+        "edge_id": "E_J282_J328.50",
+        "lane_ids": [
+          "E_J282_J328.50_0",
+          "E_J282_J328.50_1",
+          "E_J282_J328.50_2",
+          "E_J282_J328.50_3"
+        ],
+        "edge_length_meters": 723.3,
+        "directly_affected_lines": [
+          "7X",
+          "102X",
+          "705X"
+        ],
+        "upstream_stop": "7X13_102X26_705X27",
+        "downstream_stop": "7X14_102X27_705X28",
+        "lane_caps": [
+          {
+            "lane_id": "E_J282_J328.50_0",
+            "original_mps": 13.89,
+            "requested_mps": 9.028500000000001,
+            "observed_mps": 9.028500000000001
+          },
+          {
+            "lane_id": "E_J282_J328.50_1",
+            "original_mps": 13.89,
+            "requested_mps": 9.028500000000001,
+            "observed_mps": 9.028500000000001
+          },
+          {
+            "lane_id": "E_J282_J328.50_2",
+            "original_mps": 13.89,
+            "requested_mps": 9.028500000000001,
+            "observed_mps": 9.028500000000001
+          },
+          {
+            "lane_id": "E_J282_J328.50_3",
+            "original_mps": 13.89,
+            "requested_mps": 9.028500000000001,
+            "observed_mps": 9.028500000000001
+          }
+        ],
+        "metric_every_seconds": 300.0,
+        "mechanism": "native lane speed cap; no intervention indicator in policy input",
+        "time_semantics": "after the native tick at actual_shock_at_seconds; subsequent motion uses the new cap",
+        "cost_semantics": "2*accrued_wait_seconds + accrued_in_vehicle_seconds; includes unfinished passengers"
+      },
+      "budget": {
+        "native_seconds": 24000.0,
+        "native_seconds_is_lower_bound": true,
+        "learner_created": false,
+        "optimizer_updates": 0,
+        "feedback_admitted": 0,
+        "world_refits": 0,
+        "checkpoint_loaded": false,
+        "source_collected": 0,
+        "terminal_transitions_generated": 1,
+        "released_transitions_discarded": 13685,
+        "physical_intervals_discarded": 13686,
+        "context_records": 13686,
+        "full_day_completed": true
+      },
+      "execution_wall": {
+        "native_started_wall": 1793255120.6199582,
+        "native_finished_wall": 1793255813.0725408,
+        "elapsed_seconds": 704.9489890141413
+      }
+    },
+    "stable": {
+      "status": "integrity_failed",
+      "scenario": "stable",
+      "integrity": {
+        "all_pass": false,
+        "checks": {
+          "recorded_issues": true,
+          "natural_end": true,
+          "exact_horizon": true,
+          "final_ledger_exact": true,
+          "reference_actions_exhausted": true,
+          "reference_ticks_exhausted": true,
+          "complete_native_logs": false,
+          "every_issue_has_pre_action_context": true,
+          "scenario_applied": true
+        }
+      },
+      "performance_evidence": false,
+      "replay": {
+        "all_pass": true,
+        "status": "target_reached",
+        "target_sequence": 13685,
+        "target_clock": 21198.0,
+        "actions_read": 13686,
+        "actions_checked": 13686,
+        "ticks_integrated": 24000,
+        "last_reference_ledger": {
+          "time_seconds": 24000.0,
+          "waiting_passengers": 334,
+          "in_vehicle_passengers": 0,
+          "accrued_wait_seconds": 8480581.0,
+          "accrued_in_vehicle_seconds": 16461062.0
+        },
+        "action_paths": [
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_behavior_replay_v113_20261029/runs/stable/no_fresh/actions.jsonl"
+        ],
+        "tick_paths": [
+          "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_behavior_replay_v113_20261029/runs/stable/no_fresh/ticks.jsonl"
+        ],
+        "failure": null,
+        "action_comparison": "All recorded EventStream fields exact; observer visit_index excluded",
+        "ledger_semantics": "Integrate tick-start counts through end=issue clock; retain last tick counts"
+      },
+      "reproduction": {
+        "all_pass": false,
+        "files": {
+          "actions.jsonl": {
+            "all_pass": true,
+            "observed_rows": [
+              13686,
+              13686
+            ],
+            "unequal_rows": 0,
+            "first_difference": null
+          },
+          "commands.jsonl": {
+            "all_pass": true,
+            "observed_rows": [
+              14075,
+              14075
+            ],
+            "unequal_rows": 0,
+            "first_difference": null
+          },
+          "ticks.jsonl": {
+            "all_pass": true,
+            "observed_rows": [
+              24000,
+              24000
+            ],
+            "unequal_rows": 0,
+            "first_difference": null
+          },
+          "exchanges.jsonl": {
+            "all_pass": true,
+            "observed_rows": [
+              31177,
+              31177
+            ],
+            "unequal_rows": 0,
+            "first_difference": null
+          },
+          "waiting_changes.jsonl": {
+            "all_pass": true,
+            "observed_rows": [
+              13055,
+              13055
+            ],
+            "unequal_rows": 0,
+            "first_difference": null
+          },
+          "visit_events.jsonl": {
+            "all_pass": false,
+            "observed_rows": [
+              29130,
+              29130
+            ],
+            "unequal_rows": 14,
+            "first_difference": 5470
+          },
+          "passengers.jsonl": {
+            "all_pass": true,
+            "observed_rows": [
+              15079,
+              15079
+            ],
+            "unequal_rows": 0,
+            "first_difference": null
+          },
+          "visits.jsonl": {
+            "all_pass": true,
+            "observed_rows": [
+              14565,
+              14565
+            ],
+            "unequal_rows": 0,
+            "first_difference": null
+          }
+        },
+        "observer": {
+          "all_pass": true,
+          "fields_equal": {
+            "status": true,
+            "checks": true,
+            "errors": true,
+            "ledger_exact": true,
+            "start": true,
+            "end": true,
+            "ticks": true,
+            "issues": true,
+            "commands": true,
+            "passengers": true,
+            "visits": true,
+            "rejected_commands": true,
+            "passenger_totals": true,
+            "periods": true,
+            "ledger": true,
+            "maximum_count_gap": true,
+            "maximum_ledger_gap": true,
+            "traffic_or_other_reasons": true
+          },
+          "complete_horizon": {
+            "observed": true,
+            "reference": true
+          },
+          "row_counts": {
+            "observed": {
+              "actions": true,
+              "commands": true,
+              "ticks": true,
+              "passengers": true,
+              "visits": true
+            },
+            "reference": {
+              "actions": true,
+              "commands": true,
+              "ticks": true,
+              "passengers": true,
+              "visits": true
+            }
+          }
+        },
+        "final_ledger": {
+          "time_seconds": 24000.0,
+          "waiting_passengers": 334,
+          "in_vehicle_passengers": 0,
+          "accrued_wait_seconds": 8480581.0,
+          "accrued_in_vehicle_seconds": 16461062.0
+        },
+        "observed_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_service_replay_v120_20261029/runs/stable",
+        "reference_root": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_behavior_replay_v113_20261029/runs/stable/no_fresh",
+        "semantics": "Eight single-directory native JSONL streams compare field-for-field, including complete passenger/visit accounts and both 0-to-24000 receipts. No learner, optimizer or policy-equivalence claim."
+      },
+      "observation": {
+        "contexts": 13686,
+        "incomplete_contexts": 0
+      },
+      "final_ledger": {
+        "time_seconds": 24000.0,
+        "waiting_passengers": 334,
+        "in_vehicle_passengers": 0,
+        "accrued_wait_seconds": 8480581.0,
+        "accrued_in_vehicle_seconds": 16461062.0
+      },
+      "scenario_metadata": {
+        "name": "stable",
+        "installed_at_seconds": 503.0,
+        "scheduled_shock_at_seconds": 9000.0,
+        "actual_shock_at_seconds": null,
+        "speed_factor": 0.65,
+        "edge_id": "E_J282_J328.50",
+        "lane_ids": [
+          "E_J282_J328.50_0",
+          "E_J282_J328.50_1",
+          "E_J282_J328.50_2",
+          "E_J282_J328.50_3"
+        ],
+        "edge_length_meters": 723.3,
+        "directly_affected_lines": [
+          "7X",
+          "102X",
+          "705X"
+        ],
+        "upstream_stop": "7X13_102X26_705X27",
+        "downstream_stop": "7X14_102X27_705X28",
+        "lane_caps": [],
+        "metric_every_seconds": 300.0,
+        "mechanism": "native lane speed cap; no intervention indicator in policy input",
+        "time_semantics": "after the native tick at actual_shock_at_seconds; subsequent motion uses the new cap",
+        "cost_semantics": "2*accrued_wait_seconds + accrued_in_vehicle_seconds; includes unfinished passengers"
+      },
+      "budget": {
+        "native_seconds": 24000.0,
+        "native_seconds_is_lower_bound": true,
+        "learner_created": false,
+        "optimizer_updates": 0,
+        "feedback_admitted": 0,
+        "world_refits": 0,
+        "checkpoint_loaded": false,
+        "source_collected": 0,
+        "terminal_transitions_generated": 1,
+        "released_transitions_discarded": 13685,
+        "physical_intervals_discarded": 13686,
+        "context_records": 13686,
+        "full_day_completed": true
+      },
+      "execution_wall": {
+        "native_started_wall": 1793255120.6198392,
+        "native_finished_wall": 1793255822.0025134,
+        "elapsed_seconds": 714.199454350397
+      }
+    }
+  }
+}

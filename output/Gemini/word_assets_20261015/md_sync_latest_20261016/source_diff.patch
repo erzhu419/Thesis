@@ -1,0 +1,1271 @@
+--- 上次MD.md
++++ 最新MD.md
+@@ -1236,7 +1236,7 @@
+ 
+ ### 4.2.3 近期统计反馈与软符号约束的策略价值模型
+ 
+-本章构建的非平稳公交车队驻站控制模型由四个核心功能模块组成：**车队共享驻站策略网络**、**动作价值网络集成**、**BAPR近期统计反馈置信调节器**以及**CS-BAPR可学习基准动作修正与SINDy软符号导数约束模块**；四者分别承担驻站动作生成、长期回报评估、新旧经验混杂下的动态保守强度调节以及极端分布外状态下的响应梯度规范，作用位置互不重叠。给定策略 $\pi$ 下同车相邻决策的动作价值 $Q^{\pi}(s,a)$、状态价值 $V^{\pi}(s)$ 以及 $K$ 个动作价值网络 $\{Q_{\phi_k}\}_{k=1}^{K}$ 的在线集成均值 $\bar{Q}(s,a)$ 与样本标准差 $\sigma_Q(s,a)$ 沿用第3章式(3-13)至式(3-15)的定义。与第3章RE-SAC完全依赖大集成规模（$K=10$）度量未知区域分歧不同，本章CS-BAPR完整配置在后继自举目标中引入了目标网络最小值聚合，并在策略端引入了参考状态归零输出结构与需要逐样本求解自动微分的软符号雅可比导数约束；得益于双重结构约束对分布外高估与动作突变的直接抑制，CS-BAPR仅需采用 $K = 3$ 个动作价值网络成员与 $B = 256$ 的紧凑小批量规模，即可在提供有效集成分歧信号的同时降低雅可比导数正则的训练计算开销。以下依次建立本章新增的三项核心模型机制：
++本章构建的非平稳公交车队驻站控制模型由四个核心功能模块组成：**车队共享驻站策略网络**、**动作价值网络集成**、**BAPR近期统计反馈置信调节器**以及**CS-BAPR可学习基准动作修正与SINDy软符号导数约束模块**；四者分别承担驻站动作生成、长期回报评估、新旧经验混杂下的动态保守强度调节以及极端分布外状态下的响应梯度规范，作用位置互不重叠。给定策略 $\pi$ 下同车相邻决策的动作价值 $Q^{\pi}(s,a)$、状态价值 $V^{\pi}(s)$ 以及 $K$ 个动作价值网络 $\{Q_{\phi_k}\}_{k=1}^{K}$ 的在线集成均值 $\bar{Q}(s,a)$ 与样本标准差 $\sigma_Q(s,a)$ 沿用第3章式(3-13)至式(3-15)的定义。与第3章RE-SAC完全依赖大集成规模（$K=10$）度量未知区域分歧不同，本章CS-BAPR完整配置在后继自举目标中引入了目标网络最小值聚合，并在策略端引入了均衡态归零差分输出结构与需要逐样本求解自动微分的软符号雅可比导数约束；得益于双重结构约束对分布外高估与动作突变的直接抑制，CS-BAPR仅需采用 $K = 3$ 个动作价值网络成员与 $B = 256$ 的紧凑小批量规模，即可在提供有效集成分歧信号的同时降低雅可比导数正则的训练计算开销。以下依次建立本章新增的三项核心模型机制：
+ 
+ #### （一）BAPR近期统计反馈与动态保守权重模型
+ 
+@@ -2022,7 +2022,7 @@
+ 
+ 为全面评估跨保真研究流程中的高保真仿真计算投入，并进一步检验第5.4.4节五个混合训练策略所附带的域分类器在训练结束后的新源域轨迹上是否仍具备判别能力，本节开展计算开销统计与独立新轨迹分类诊断。
+ 
+-在计算资源投入方面，尽管跨保真混合训练成功将训练期的全部新增在线试错交互（每个种子 $16,384\sim 25,000$ 次决策事件）完全转移至毫秒级的快速公交源仿真中，但为确保实验结论的科学严密性，**源仿真标定检验、方案开发筛选与最终测试验证仍需投入可观的SUMO高保真完整回合仿真**：仅第5.4.1节的30回合自然运行检验与210回合多策略驻站响应检验，按每回合 $24,000$ 秒（$6.67$ 小时）物理运营时长计算，即分别对应 **$200$ 小时**与 **$1,400$ 小时**的SUMO微观交通模拟物理时长（连同开发评估的405回合与多批次正式确认的1,350回合，分别对应 $2,700$ 小时与 $9,000$ 小时模拟物理时长）。这说明跨保真训练消除的是“策略训练过程中的目标环境在线试错依赖”，而在模型标定与最终上线前的高保真安全性验证环节，微观仿真检验依然不可或缺。
++在计算资源投入方面，尽管跨保真混合训练成功将训练期的全部新增在线试错交互（每个种子 $16,384\sim 25,000$ 次决策事件）完全转移至毫秒级的快速公交源仿真中，但为确保实验结论的科学严密性，**源仿真标定检验、方案开发筛选与最终测试验证仍需投入可观的SUMO高保真完整回合仿真**：仅第5.4.1节的30回合自然运行检验与210回合多策略驻站响应检验，按每回合 $24,000\text{ s}$（$6.67\text{ h}$）物理运营时长计算，即分别对应 **$200\text{ h}$** 与 **$1,400\text{ h}$** 的SUMO微观交通模拟物理时长（连同第5.4.4节的150回合对比评价及第6章多批次跨保真测试，累计折合数万小时的SUMO微观交通模拟物理时长）。这说明跨保真训练消除的是“策略训练过程中的目标环境在线试错依赖”，而在模型标定与最终上线前的高保真安全性验证环节，微观仿真检验依然不可或缺。
+ 
+ 针对第5.4.4节更新次数匹配实验中的5个跨保真混合训练策略及其配套域分类器，在训练全部结束后冻结策略与分类器参数，令每个最终策略在3个全新的随机运行日条件下生成源仿真轨迹（合计15个新源仿真运行日），同时从目标域未参与分类器拟合的独立验证场景组中抽取轨迹，每次从源侧与目标侧各抽取 $2,048$ 条转移数据，检验固定分类器对最终策略新生成轨迹的判别精度与重要性权重分布（式(5-13)），五次独立训练的诊断结果如表5-8所示。
+ 
+@@ -2583,39 +2583,39 @@
+ 
+ **推论A.1。** 对满足定理A.1条件的 $\mathcal{B}$，存在唯一不动点 $Q^{*}$。从任意 $Q_{0}$ 出发的精确迭代 $Q_{n + 1} = \mathcal{B}Q_{n}$ 收敛，且
+ 
+-$$\parallel Q_{n} - Q^{*} \parallel_{\infty} \leq \gamma^{n} \parallel Q_{0} - Q^{*} \parallel_{\infty}. \tag{A-15}$$
+-
+-**证明。** 当 $\gamma = 0$ 时，算子为常值映射，一次迭代即到达固定点。以下设 $0 < \gamma < 1$。收缩性给出 $\parallel Q_{j + 1} - Q_{j} \parallel_{\infty} \leq \gamma^{j} \parallel Q_{1} - Q_{0} \parallel_{\infty}$。对 $m > n$ 求和有
+-
+-$$\parallel Q_{m} - Q_{n} \parallel_{\infty} \leq \frac{\gamma^{n}}{1 - \gamma} \parallel Q_{1} - Q_{0} \parallel_{\infty}. \tag{A-16}$$
+-
+-右端趋于零，完备性保证迭代收敛。由收缩映射的连续性，极限满足固定点方程；两个固定点的距离不超过其自身的$\gamma$倍，故固定点唯一。将迭代与该固定点反复比较，即得式(A-15)。证毕。
+-
+-令前述 $m \rightarrow \infty$，还得到可由初始迭代差计算的界
+-
+-$$\parallel Q_{n} - Q^{*} \parallel_{\infty} \leq \frac{\gamma^{n}}{1 - \gamma} \parallel Q_{1} - Q_{0} \parallel_{\infty}. \tag{A-17}$$
+-
+-该推论统一适用于 $\mathcal{T}$、固定温度的 $\mathcal{T}_{\alpha_{ent}}$，以及附录C、D中满足共同条件的固定算子。
+-
+-**A.6 反馈影响。**考虑单状态单动作系统，价值函数退化为实数 $Q_{sc}$。定义
+-
+-$$\mathcal{T}_{fb}(Q_{sc}) = (\gamma + \lambda_{fb})Q_{sc},\quad\quad\gamma,\lambda_{fb} \geq 0. \tag{A-18}$$
+-
+-**命题A.1。** 该算子的精确距离因子为 $\gamma + \lambda_{fb}$；当此值不小于1时，不是严格收缩。
+-
+-**证明。** 两个输入相减，有
+-
+-$$|\mathcal{T}_{fb}(Q_{sc,1}) - \mathcal{T}_{fb}(Q_{sc,2})| = (\gamma + \lambda_{fb})|Q_{sc,1} - Q_{sc,2}|. \tag{A-19}$$
+-
+-若 $\gamma + \lambda_{fb} \geq 1$，取 $Q_{sc,1} = 1,Q_{sc,2} = 0$ 即排除任何小于1的收缩系数；大于1时，任意不同输入间距离均被放大。证毕。
+-
+-这一构造说明，输入相关项不再通过相减抵消，其反馈强度会改变算子性质。但输入依赖并不必然破坏收缩，例如 $\gamma = 0.5,\lambda_{fb} = 0.1$ 时距离因子为0.6。因而固定惩罚是保持原有收缩因子的充分条件，不是所有收缩算子的必要条件。此处采用正向反馈 $+ \lambda_{fb}Q_{sc}$；具体减法惩罚的输入依赖性仍需按其定义分析。
+-
+-**A.7 风险评价。**第3.2.5节从最不利运行后果引出保守价值学习。本节区分三种数学关系：指定分布集合对应的精确正则项、概率距离约束给出的可计算下界，以及CVaR对应的特定风险包络。它们回答评价目标如何转换，与前文固定贝尔曼更新是否收缩是两个相互衔接的问题。
+-
+-固定状态动作对，设$\mathcal{U}$是有限后继状态空间上的非空概率分布集合，$p^{\circ} \in \mathcal{U}$为名义分布，$V$为有限值状态价值向量。支持函数定义为$\sigma_{\mathcal{U}}(f) = \sup_{p \in \mathcal{U}}\langle p,f\rangle$。令$\Omega_{\mathcal{U}}(V) = \langle p^{\circ},V\rangle + \sigma_{\mathcal{U}}( - V)$。
+-
+-**命题A.2。** 最不利期望等于名义期望减去该正则项，且$\Omega_{\mathcal{U}}(V) \geq 0$。
++$$\| Q_{n} - Q^{*} \|_{\infty} \leq \gamma^{n} \| Q_{0} - Q^{*} \|_{\infty}. \tag{A-15}$$
++
++**证明。** 当 $\gamma = 0$ 时，算子为常值映射，一次迭代即到达不动点。以下设 $0 < \gamma < 1$。收缩性给出 $\| Q_{j + 1} - Q_{j} \|_{\infty} \leq \gamma^{j} \| Q_{1} - Q_{0} \|_{\infty}$。对 $m > n$ 求和有
++
++$$\| Q_{m} - Q_{n} \|_{\infty} \leq \frac{\gamma^{n}}{1 - \gamma} \| Q_{1} - Q_{0} \|_{\infty}. \tag{A-16}$$
++
++当 $n \to \infty$ 时右端趋于零，空间完备性保证迭代序列收敛。由收缩映射的连续性，极限满足不动点方程；两个不动点的距离不超过其自身的 $\gamma$ 倍，故不动点唯一。将迭代序列与该不动点反复比较，即得式(A-15)。证毕。
++
++令式(A-16)中 $m \rightarrow \infty$，还可得由初始一步迭代差给出的误差上界：
++
++$$\| Q_{n} - Q^{*} \|_{\infty} \leq \frac{\gamma^{n}}{1 - \gamma} \| Q_{1} - Q_{0} \|_{\infty}. \tag{A-17}$$
++
++该推论统一适用于 $\mathcal{T}$、固定温度的 $\mathcal{T}_{\alpha_{\mathrm{ent}}}$，以及附录C、D中满足共同条件的固定算子。
++
++**A.6 反馈影响。**考虑单状态单动作系统，价值函数退化为实数 $Q_{\mathrm{sc}}$。定义含输入相关反馈的算子
++
++$$\mathcal{T}_{\mathrm{fb}}(Q_{\mathrm{sc}}) = (\gamma + \lambda_{\mathrm{fb}})Q_{\mathrm{sc}},\qquad \gamma,\lambda_{\mathrm{fb}} \geq 0. \tag{A-18}$$
++
++**命题A.1。** 该算子的精确距离扩张因子为 $\gamma + \lambda_{\mathrm{fb}}$；当 $\gamma + \lambda_{\mathrm{fb}} \geq 1$ 时，算子不再是严格压缩映射。
++
++**证明。** 对任意两个输入作差，有
++
++$$|\mathcal{T}_{\mathrm{fb}}(Q_{\mathrm{sc},1}) - \mathcal{T}_{\mathrm{fb}}(Q_{\mathrm{sc},2})| = (\gamma + \lambda_{\mathrm{fb}})|Q_{\mathrm{sc},1} - Q_{\mathrm{sc},2}|. \tag{A-19}$$
++
++若 $\gamma + \lambda_{\mathrm{fb}} \geq 1$，取 $Q_{\mathrm{sc},1} = 1, Q_{\mathrm{sc},2} = 0$ 即排除任何小于1的收缩系数；当 $\gamma + \lambda_{\mathrm{fb}} > 1$ 时，任意不同输入间的距离均被严格放大。证毕。
++
++这一构造说明，当惩罚项直接依赖当前在训输入价值函数时，该项不再于相减时抵消，其反馈增益会直接改变算子的收缩系数；固定目标网络惩罚则是保持原有 $\gamma$-收缩因子的充分条件。
++
++**A.7 风险评价。**第3.2.5节从最不利运行后果引出保守价值学习。本节梳理三种数学关系：指定分布集合对应的精确对偶正则项、Wasserstein概率距离约束给出的可计算下界，以及CVaR对应的风险包络对偶表示。
++
++固定状态动作对，设 $\mathcal{U}$ 是有限后继状态空间上的非空概率分布集合，$p^{\circ} \in \mathcal{U}$ 为名义分布，$V$ 为有限值状态价值向量。支持函数定义为 $\sigma_{\mathcal{U}}(f) = \sup_{p \in \mathcal{U}}\langle p,f\rangle$。令 $\Omega_{\mathcal{U}}(V) = \langle p^{\circ},V\rangle + \sigma_{\mathcal{U}}( - V)$。
++
++**命题A.2。** 最不利期望等于名义期望减去正则项 $\Omega_{\mathcal{U}}(V)$，且 $\Omega_{\mathcal{U}}(V) \geq 0$。
+ 
+ **证明。** 根据上确界与下确界的关系，
+ 
+@@ -2634,42 +2634,38 @@
+ 
+ $$\inf_{p \in \mathcal{U}}\mathbb{E}_{p}[ V] \geq \mathbb{E}_{p^{\circ}}[ V] - \varepsilon_{\mathrm{ipm}}L_{V}. \tag{A-21}$$
+ 
+-**证明。** 对任意边缘为$p,p^{\circ}$的耦合$\chi$，有
+-
+-$$\left| \mathbb{E}_{p}\lbrack V\rbrack - \mathbb{E}_{p^{\circ}}\lbrack V\rbrack \right| = \left| \mathbb{E}_{(x,y) \sim \chi}\lbrack V(x) - V(y)\rbrack \right| \leq L_{V}\mathbb{E}_{\chi}\lbrack d_{\mathcal{S}}(x,y)\rbrack. \tag{A-22}$$
+-
+-由前式的绝对值界，目标分布下的价值期望不小于名义期望减去距离成本与价值敏感度的乘积。先对耦合取下确界得到Wasserstein距离，再使用给定的距离半径界，再对集合内的$p$取下确界，即得式(A-21)。证毕。
+-
+-这个不等式给出了名义价值减去敏感度惩罚的理论依据，等号还要求允许的分布移动能够达到相应最不利变化。对采用1-Lipschitz激活的前馈网络，其输入敏感度可由相容诱导矩阵范数的乘积$\prod_{l}^{} \parallel W_{l} \parallel$上界。RE-SAC采用的逐层元素绝对值之和$\sum_{l}^{} \parallel W_{l} \parallel_{1}$是另一种参数量，不能直接替换这个乘积。例如，两层标量权重均为5、正半轴上激活为恒等映射时，函数斜率为25，而两层权重绝对值之和为10。因此，第3章将该范数和用于固定目标偏移，算法性质按实际定义分析；命题A.3本身不赋予任意范数和一个精确鲁棒下界的含义。
++**证明。** 对任意边缘分布为 $p,p^{\circ}$ 的耦合 $\chi$，有
++
++$$\left| \mathbb{E}_{p}[ V] - \mathbb{E}_{p^{\circ}}[ V] \right| = \left| \mathbb{E}_{(x,y) \sim \chi}[ V(x) - V(y)] \right| \leq L_{V}\mathbb{E}_{\chi}[ d_{\mathcal{S}}(x,y)]. \tag{A-22}$$
++
++先对耦合 $\chi$ 取下确界得到Wasserstein距离 $W_{1}(p,p^{\circ}) \leq \varepsilon_{\mathrm{ipm}}$，再对集合 $\mathcal{U}$ 内的分布 $p$ 取下确界，即得式(A-21)。证毕。
++
++式(A-21)给出了从名义期望价值中扣除敏感度惩罚项的理论依据。对于采用1-Lipschitz激活函数的前馈神经网络，其全局输入敏感度受各层诱导矩阵范数乘积 $\prod_{l} \| W_{l} \|$ 控制；RE-SAC在工程实现中采用计算简便的逐层权重 $\ell_1$ 范数之和 $\sum_{l} \| W_{l} \|_{1}$ 作为结构化正则代理。
+ 
+ 以 $C_{\mathrm{traj}}$ 表示一条运行轨迹的有界可测累计成本，$\mathbb{P}_{0}$ 为固定策略和名义环境诱导的轨迹概率分布。取 $\beta_{\mathrm{tail}} \in (0,1]$ 表示所关注的最差尾部概率质量，$\eta_{\mathrm{risk}}$ 为成本阈值，$(x)_{+} = \max(x,0)$。按这一尾部概率约定，定义
+ 
+ $$\mathrm{CVaR}_{\beta_{\mathrm{tail}}}(C_{\mathrm{traj}}) = \inf_{\eta_{\mathrm{risk}} \in \mathbb{R}}\left\{ \eta_{\mathrm{risk}} + \frac{1}{\beta_{\mathrm{tail}}}\mathbb{E}_{\mathbb{P}_{0}}[(C_{\mathrm{traj}} - \eta_{\mathrm{risk}})_{+}] \right\}. \tag{A-23}$$
+ 
+-令$\zeta_{risk}$为可测的非负轨迹重加权密度，定义风险包络
+-
+-$$\mathcal{Z}_{\beta_{tail}} = \left\{ \zeta_{risk}:\ 0 \leq \zeta_{risk} \leq \frac{1}{\beta_{tail}},\quad\mathbb{E}_{\mathbb{P}_{0}}\lbrack\zeta_{risk}\rbrack = 1 \right\}. \tag{A-24}$$
+-
+-**命题A.4。** 在上述定义下，
+-
+-$${CVaR}_{\beta_{tail}}(C_{traj}) = \sup_{\zeta_{risk} \in \mathcal{Z}_{\beta_{tail}}}\mathbb{E}_{\mathbb{P}_{0}}\lbrack\zeta_{risk}C_{traj}\rbrack. \tag{A-25}$$
+-
+-**证明。** 对任意可行$\zeta_{risk}$和阈值$\eta_{risk}$，非负密度在阈值以下产生非正项，在阈值以上至多等于$1/\beta_{tail}$，故
++令 $\zeta_{\mathrm{risk}}$ 为可测的非负轨迹重加权似然比密度，定义风险包络集合
++
++$$\mathcal{Z}_{\beta_{\mathrm{tail}}} = \left\{ \zeta_{\mathrm{risk}}:\ 0 \leq \zeta_{\mathrm{risk}} \leq \frac{1}{\beta_{\mathrm{tail}}},\quad\mathbb{E}_{\mathbb{P}_{0}}[\zeta_{\mathrm{risk}}] = 1 \right\}. \tag{A-24}$$
++
++**命题A.4。** 在上述定义下，有如下对偶表示：
++
++$$\mathrm{CVaR}_{\beta_{\mathrm{tail}}}(C_{\mathrm{traj}}) = \sup_{\zeta_{\mathrm{risk}} \in \mathcal{Z}_{\beta_{\mathrm{tail}}}}\mathbb{E}_{\mathbb{P}_{0}}[\zeta_{\mathrm{risk}}C_{\mathrm{traj}}]. \tag{A-25}$$
++
++**证明。** 对任意可行密度 $\zeta_{\mathrm{risk}} \in \mathcal{Z}_{\beta_{\mathrm{tail}}}$ 和任意实数阈值 $\eta_{\mathrm{risk}}$，由于 $\zeta_{\mathrm{risk}}$ 在阈值以下产生非正项、在阈值以上不超过 $1/\beta_{\mathrm{tail}}$，结合 $\mathbb{E}_{\mathbb{P}_{0}}[\zeta_{\mathrm{risk}}] = 1$ 有
+ 
+ $$\begin{aligned}
+-\mathbb{E}_{\mathbb{P}_{0}}\lbrack\zeta_{risk}C_{traj}\rbrack & = \eta_{risk} + \mathbb{E}_{\mathbb{P}_{0}}\lbrack\zeta_{risk}(C_{traj} - \eta_{risk})\rbrack \\
+- & \leq \eta_{risk} + \frac{1}{\beta_{tail}}\mathbb{E}_{\mathbb{P}_{0}}\lbrack(C_{traj} - \eta_{risk})_{+}\rbrack.
++\mathbb{E}_{\mathbb{P}_{0}}[\zeta_{\mathrm{risk}}C_{\mathrm{traj}}] &= \eta_{\mathrm{risk}} + \mathbb{E}_{\mathbb{P}_{0}}[\zeta_{\mathrm{risk}}(C_{\mathrm{traj}} - \eta_{\mathrm{risk}})] \\
++ &\leq \eta_{\mathrm{risk}} + \frac{1}{\beta_{\mathrm{tail}}}\mathbb{E}_{\mathbb{P}_{0}}[(C_{\mathrm{traj}} - \eta_{\mathrm{risk}})_{+}].
+ \end{aligned} \tag{A-26}$$
+ 
+-尾部概率小于1时，累计成本的分布函数单调且右连续，在两端分别趋于0和1，因而存在一个分位阈值$\eta_{risk}^{*}$，使严格超过它的概率不大于$\beta_{tail}$，大于等于它的概率不小于$\beta_{tail}$。在严格超过阈值的轨迹上令$\zeta_{risk} = 1/\beta_{tail}$，在低于阈值的轨迹上令$\zeta_{risk} = 0$，并在等于阈值处选择区间$\lbrack 0,1/\beta_{tail}\rbrack$内的常数补足期望1。该密度可测且可行；密度有界、成本有界，故相应乘积可积，并使上式取得等号。若阈值处无概率质量，严格上尾概率即为$\beta_{tail}$，不需要补足。因此上、下两个优化问题具有相同值。若尾部概率等于1，所有可行密度均在几乎处处等于1；取不大于成本下界的阈值时，原优化目标也等于期望成本。因此该端点的风险包络表示同样成立。证毕。
+-
+-由于每个可行密度都定义一个轨迹分布，命题A.4把尾部成本评价写成指定分布集合内的最坏期望。CVaR决策研究据此连接风险敏感目标与有预算的模型扰动。[chow2015risk] 这里的约束施加于完整轨迹概率；若转成逐阶段递推，还需保留风险预算的演化，不能任意改成各阶段独立使用同一尾部水平的更新。本文的跨种子尾部统计用于描述学习结果，RE-SAC训练仍采用第3章给出的保守目标，而非直接优化这一轨迹CVaR。
+-
+-**A.8 适用范围。**本附录的价值算子结论针对有限状态动作、精确期望及固定参数；第A.7节的风险包络表示则适用于一般概率空间上的有界可测累计成本。RE-SAC实际使用函数逼近、随机小批量、目标网络及策略更新；网络更新使惩罚、策略或温度发生变化时，训练对应一列不同算子，其收敛还取决于逼近误差与算子漂移。权重范数作为固定标量进入证明，也不赋予它识别环境随机方差的统计含义。
+-
+-软聚合证明采用有限动作集。公交连续动作策略的参数化采样与优化不由这一证明直接覆盖。第3章的理论说明固定惩罚对理想价值算子的作用，实际运行效果由公交实验判断。
+-
+-第A.7节说明三类评价的联系及条件，不把任意熵项、权重惩罚或风险指标视为同一个目标。特别地，固定目标范数的收缩证明、Wasserstein敏感度下界和CVaR轨迹重加权分别有不同假设；这些假设决定了理论解释能够覆盖的算法部分。
++当 $\beta_{\mathrm{tail}} \in (0,1)$ 时，累计成本分布函数单调右连续，故存在分位阈值 $\eta_{\mathrm{risk}}^{*}$，使得 $\mathbb{P}_{0}(C_{\mathrm{traj}} > \eta_{\mathrm{risk}}^{*}) \leq \beta_{\mathrm{tail}} \leq \mathbb{P}_{0}(C_{\mathrm{traj}} \geq \eta_{\mathrm{risk}}^{*})$。在 $C_{\mathrm{traj}} > \eta_{\mathrm{risk}}^{*}$ 处取 $\zeta_{\mathrm{risk}} = 1/\beta_{\mathrm{tail}}$，在 $C_{\mathrm{traj}} < \eta_{\mathrm{risk}}^{*}$ 处取 $\zeta_{\mathrm{risk}} = 0$，并在 $C_{\mathrm{traj}} = \eta_{\mathrm{risk}}^{*}$ 处取区间 $[0,1/\beta_{\mathrm{tail}}]$ 内的常数以补足期望1，所得密度可行且使式(A-26)取等号；当 $\beta_{\mathrm{tail}} = 1$ 时，所有可行密度几乎处处等于1，取不大于成本下界的阈值时两端同等于期望成本 $\mathbb{E}_{\mathbb{P}_{0}}[C_{\mathrm{traj}}]$。证毕。
++
++命题A.4表明，最小化尾部风险 $\mathrm{CVaR}_{\beta_{\mathrm{tail}}}$ 等价于在有界似然比重加权分布集合上最小化最坏期望成本[chow2015risk]。
++
++**A.8 适用范围。**本附录的价值算子结论建立在有限状态动作空间、精确条件期望及单步冻结参数条件之上；当神经网络参数、策略或熵温度随梯度更新演进时，训练过程对应一列时变算子，其渐近误差由式(3-36)的逼近误差与算子漂移共同界定。
+ 
+ # 附录B BAPR动作补偿与模式误判的数学证明
+ 
+@@ -2721,112 +2717,98 @@
+ 
+ $$G_{\mathrm{act}}\,\mathrm{clip}(a_{\mathrm{inv}}) = v_{\mathrm{nom}}^{*}\quad \Leftrightarrow \quad a_{\mathrm{inv}} \in \mathcal{A}. \tag{B-9}$$
+ 
+-**证明。** 因 $g_{j} \neq 0$，逐坐标有 $g_{j}(v_{nom,j}^{*}/g_{j}) = v_{nom,j}^{*}$，即 $G_{act}a_{inv} = {v_{nom}}^{*}$。若 $G_{act}clip(a_{inv}) = {v_{nom}}^{*}$，则 $G_{act}clip(a_{inv}) = G_{act}a_{inv}$，从而
+-
+-$$g_{j}\left( {clip}_{1}(a_{inv,j}) - a_{inv,j} \right) = 0 \tag{B-10}$$
+-
+-对每个 $j$ 成立。非零增益意味着 ${clip}_{1}(a_{inv,j}) = a_{inv,j}$，由引理B.1得到 $a_{inv,j} \in \lbrack - 1,1\rbrack$，即 $a_{inv} \in \mathcal{A}$。
+-
+-反之，若 $a_{inv} \in \mathcal{A}$，截断不改变 $a_{inv}$，所以 $G_{act}clip(a_{inv}) = G_{act}a_{inv} = {v_{nom}}^{*}$。证毕。
+-
+-代入 ${v_{nom}}^{*} = G_{ref}a^{ref}$，精确补偿条件为
+-
+-$$G_{z}^{- 1}G_{ref}a^{ref} \in \lbrack - 1,1\rbrack^{n_{a}}. \tag{B-11}$$
+-
+-可逆性与可行性在这里是两个不同要求。例如单维增益 $g_{z} = 1/2$、参考增益为1、参考模式下的动作 $a^{ref} = 1$，逆命令为2。截断后命令为1，实际名义信号为 $1/2$，无法恢复目标信号1。这是定理的直接数值例子。
+-
+-将对角元素只取 $+ 1$ 或 $- 1$ 的增益称为极性变换。对任意这样的 $G_{z}$，以$I_{n_{a}}$表示动作维数对应的单位矩阵，有
+-
+-$$G_{z}^{2} = I_{n_{a}},\quad\quad G_{z}^{- 1} = G_{z}. \tag{B-12}$$
+-
+-**定理B.2。** 若当前模式 $G_{z}$ 与参考模式 $G_{ref}$ 均为极性变换，且 $a^{ref} \in \mathcal{A}$，则补偿命令
+-
+-$$a_{z} = G_{z}G_{ref}a^{ref} \tag{B-13}$$
+-
+-仍在 $\mathcal{A}$ 中，并满足
+-
+-$$G_{z}a_{z} = G_{ref}a^{ref}. \tag{B-14}$$
+-
+-**证明。** 每个分量为 $a_{z,j} = g_{z,j}g_{ref,j}{a^{ref}}_{j}$。两个符号的乘积为 $+ 1$ 或 $- 1$，所以 $|a_{z,j}| = |{a^{ref}}_{j}| \leq 1$，即补偿命令不越界。另一方面，
+-
+-$$g_{z,j}a_{z,j} = g_{z,j}^{2}g_{ref,j}{a^{ref}}_{j} = g_{ref,j}{a^{ref}}_{j}. \tag{B-15}$$
+-
+-逐坐标合并得到信号等式。证毕。
+-
+-极性结构的作用因此有两层：自逆性提供代数补偿，保持逐维动作上下界提供执行可行性。二者共同使正确模式下的补偿无需额外近似。
++**证明。** 因 $g_{j} \neq 0$，逐坐标有 $g_{j}(v_{\mathrm{nom},j}^{*}/g_{j}) = v_{\mathrm{nom},j}^{*}$，即 $G_{\mathrm{act}}a_{\mathrm{inv}} = v_{\mathrm{nom}}^{*}$。若 $G_{\mathrm{act}}\,\mathrm{clip}(a_{\mathrm{inv}}) = v_{\mathrm{nom}}^{*}$，则 $G_{\mathrm{act}}\,\mathrm{clip}(a_{\mathrm{inv}}) = G_{\mathrm{act}}a_{\mathrm{inv}}$，从而
++
++$$g_{j}\left( \mathrm{clip}_{1}(a_{\mathrm{inv},j}) - a_{\mathrm{inv},j} \right) = 0 \tag{B-10}$$
++
++对每个 $j$ 成立。非零增益意味着 $\mathrm{clip}_{1}(a_{\mathrm{inv},j}) = a_{\mathrm{inv},j}$，由引理B.1得到 $a_{\mathrm{inv},j} \in [-1,1]$，即 $a_{\mathrm{inv}} \in \mathcal{A}$。反之，若 $a_{\mathrm{inv}} \in \mathcal{A}$，截断映射不改变 $a_{\mathrm{inv}}$，故 $G_{\mathrm{act}}\,\mathrm{clip}(a_{\mathrm{inv}}) = G_{\mathrm{act}}a_{\mathrm{inv}} = v_{\mathrm{nom}}^{*}$。证毕。
++
++代入 $v_{\mathrm{nom}}^{*} = G_{\mathrm{ref}}a^{\mathrm{ref}}$，精确补偿的可行性条件为
++
++$$G_{z}^{- 1}G_{\mathrm{ref}}a^{\mathrm{ref}} \in [-1,1]^{n_{a}}. \tag{B-11}$$
++
++例如单维增益 $g_{z} = 1/2$、参考增益为1、参考动作为 $a^{\mathrm{ref}} = 1$ 时，逆指令为2，经区间 $[-1,1]$ 截断后实际名义信号仅为 $1/2$，无法恢复目标信号1。
++
++将对角元素仅取 $+ 1$ 或 $- 1$ 的增益矩阵称为极性变换。对任意极性变换矩阵 $G_{z}$，以 $I_{n_{a}}$ 表示 $n_{a}$ 阶单位矩阵，有
++
++$$G_{z}^{2} = I_{n_{a}},\qquad G_{z}^{- 1} = G_{z}. \tag{B-12}$$
++
++**定理B.2。** 若当前模式 $G_{z}$ 与参考模式 $G_{\mathrm{ref}}$ 均为极性变换，且 $a^{\mathrm{ref}} \in \mathcal{A}$，则补偿指令
++
++$$a_{z} = G_{z}G_{\mathrm{ref}}a^{\mathrm{ref}} \tag{B-13}$$
++
++仍属于 $\mathcal{A}$，并满足
++
++$$G_{z}a_{z} = G_{\mathrm{ref}}a^{\mathrm{ref}}. \tag{B-14}$$
++
++**证明。** 每个分量为 $a_{z,j} = g_{z,j}g_{\mathrm{ref},j}a^{\mathrm{ref}}_{j}$。两个符号的乘积为 $\pm 1$，故 $|a_{z,j}| = |a^{\mathrm{ref}}_{j}| \leq 1$，即补偿指令不越界；同时
++
++$$g_{z,j}a_{z,j} = g_{z,j}^{2}g_{\mathrm{ref},j}a^{\mathrm{ref}}_{j} = g_{\mathrm{ref},j}a^{\mathrm{ref}}_{j}. \tag{B-15}$$
++
++逐坐标合并即得式(B-14)。证毕。
+ 
+ **B.3 补偿效果。**
+ 
+-**引理B.2。** 若两个名义信号 $v_{nom,1} = v_{nom,2}$，且使用同一执行噪声 $\varepsilon$，则
+-
+-$$clip(v_{nom,1} + \varepsilon) = clip(v_{nom,2} + \varepsilon). \tag{B-16}$$
+-
+-**证明。** 两个截断输入相同，函数作用结果也相同。证毕。
+-
+-结合定理B.2，正确极性补偿与参考模式不仅在名义信号上相同，加上共同噪声并截断后的实际执行量也相同。
+-
+-固定执行噪声序列 $\{\varepsilon_{k}\}$ 与外生事件序列 $\{ e_{k}\}$。给定名义信号规则 $v_{nom}(k,x_{phys})$，从状态 $x_{phys,k}$ 出发定义
+-
+-$$u_{exec,k} = clip(v_{nom}(k,x_{phys,k}) + \varepsilon_{k}),\quad\quad x_{phys,k + 1} = F_{phys}(x_{phys,k},u_{exec,k},e_{k}). \tag{B-17}$$
+-
+-剩余 $n$ 步的累计奖励为
+-
+-$$J_{n,k}^{v_{nom}}(x_{phys,k}) = \sum_{i = 0}^{n - 1}r(x_{phys,k + i},u_{exec,k + i},e_{k + i}),\quad\quad J_{0,k}^{v_{nom}} = 0. \tag{B-18}$$
+-
+-下面在有限时域内进一步说明，相同的名义信号规则如何使两条轨迹的状态与累计奖励保持一致。
+-
+-**引理B.3。** 若两个信号规则对所有 $k,x_{phys}$ 满足 $v_{nom,1}(k,x_{phys}) = v_{nom,2}(k,x_{phys})$，则从同一初始状态、使用同一噪声与事件序列运行任意有限步数后，末状态及累计奖励相同。
+-
+-**证明。**零步结论成立；若当前状态相同，相同名义信号和共同外生量给出相同执行量、奖励与后继状态。逐步归纳，末状态与累计奖励均相同。证毕。
+-
+-**定理B.3。** 设 $z_{k}$ 为任意给定模式序列，所有 $G_{z}$ 均为极性变换。比较以下两个控制过程：参考过程始终产生名义信号 $G_{ref}a^{ref}(x_{phys,k})$；切换过程在每步正确获知 $z_{k}$，执行命令 $G_{z_{k}}G_{ref}a^{ref}(x_{phys,k})$。若初始状态及外生噪声相同，则两过程在任意有限时域内逐路径具有相同状态、执行量、奖励和累计回报。
+-
+-**证明。** 对任意时间与状态，切换过程的名义信号为
+-
+-$$G_{z_{k}}\left( G_{z_{k}}G_{ref}a^{ref}(x_{phys}) \right) = G_{ref}a^{ref}(x_{phys}), \tag{B-19}$$
+-
+-与参考过程相同。由引理B.3，任意有限步数的末状态及回报相同；由于该结论对每个前缀长度都成立，整个状态序列逐项相同。执行量与奖励的一致性随之由共同状态、共同信号和共同外生量得到。证毕。
+-
+-若再对同一外生噪声分布取平均，逐路径相等直接推出回报分布及期望相等。上述代数恢复不要求模式切换之间有最小间隔；模式持续性主要影响基于已完成转移的模式识别能否及时提供正确模式。
+-
+-**B.4 模式识别。**本附录中的“因果”仅指动作使用当前及历史信息，而不使用未来观测；它不表示已经识别环境的真实因果结构。下文据此称为基于历史信息的控制器。
+-
+-设初始置信为 $\rho_{0}$，转移记录为 $\xi_{0},\xi_{1},\ldots$，更新映射为 $U$。递归更新映射由已完成转移和旧置信形成新置信，动作选择映射再由当前置信及状态形成命令。第 $k$ 个动作仅使用前 $k$ 个已完成转移：
+-
+-$$\rho_{k} = U(\cdots U(U(\rho_{0},\xi_{0}),\xi_{1})\cdots,\xi_{k - 1}),\quad 其中\quad a_{k} = S(\rho_{k},s_{k}). \tag{B-20}$$
+-
+-**命题B.1。** 若两条记录流的前 $k$ 个转移完全相同，当前状态也相同，则由上述规则生成的第 $k$ 个动作相同，无论后续记录如何变化。
+-
+-**证明。**相同记录前缀依次产生相同置信，再由相同选择映射得到相同动作。证毕。
+-
+-这一性质给出控制器的信息时序：产生 $a_{k}$ 时尚未使用由 $a_{k}$ 形成的后继转移。它与模式识别精度是不同命题，按上述信息时序执行本身不意味着一定能识别模式。
+-
+-**命题B.2。** 给定相同的命令规则 $a(k,x_{phys})$，若两条模式序列对所有 $k,x_{phys}$ 满足
+-
+-$$G_{z_{k}}a(k,x_{phys}) = G_{z_{k}'}a(k,x_{phys}), \tag{B-21}$$
+-
+-则在共同初始状态和共同外生噪声下，两个系统的有限时域末状态与累计奖励相同。
+-
+-**证明。** 两系统对每个时间、状态提供相同名义信号，直接应用引理B.3即可。证毕。
+-
+-例如两个极性模式只在某一坐标的符号上不同，而命令始终将该坐标置零，则执行信号无法暴露这一符号差异。已知变换可逆并不能消除缺少激励导致的信息不足。
+-
+-设有限噪声样本空间为 $\Omega$，质量函数 $p(\omega) \geq 0$ 且 $\sum_{\omega}^{}p(\omega) = 1$。两模式对应观察 $Y_{1}(\omega)$、$Y_{2}(\omega)$，且对每个 $\omega$ 都相同。令判别器 $D_{cls}(Y) \in \{ 1,2\}$。两个观测映射分别给出两种模式下的观测，判别器根据观测输出模式标签。
+-
+-**定理B.4。** 在两模式先验概率均为 $1/2$ 时，判别器平均正确率为 $1/2$。
+-
+-**证明。** 正确率可写为
++**引理B.2。** 若两个名义信号满足 $v_{\mathrm{nom},1} = v_{\mathrm{nom},2}$，且经历同一执行噪声 $\varepsilon$，则
++
++$$\mathrm{clip}(v_{\mathrm{nom},1} + \varepsilon) = \mathrm{clip}(v_{\mathrm{nom},2} + \varepsilon). \tag{B-16}$$
++
++**证明。** 两个截断输入恒等，映射输出亦恒等。证毕。
++
++固定执行噪声序列 $\{\varepsilon_{k}\}$ 与外生事件序列 $\{ e_{k}\}$。给定名义信号规则 $v_{\mathrm{nom}}(k,x_{\mathrm{phys}})$，从状态 $x_{\mathrm{phys},k}$ 出发定义轨迹递推：
++
++$$u_{\mathrm{exec},k} = \mathrm{clip}\big(v_{\mathrm{nom}}(k,x_{\mathrm{phys},k}) + \varepsilon_{k}\big),\qquad x_{\mathrm{phys},k + 1} = F_{\mathrm{phys}}(x_{\mathrm{phys},k},u_{\mathrm{exec},k},e_{k}). \tag{B-17}$$
++
++剩余 $n$ 步的累计奖励记为
++
++$$J_{n,k}^{v_{\mathrm{nom}}}(x_{\mathrm{phys},k}) = \sum_{i = 0}^{n - 1}r(x_{\mathrm{phys},k + i},u_{\mathrm{exec},k + i},e_{k + i}),\qquad J_{0,k}^{v_{\mathrm{nom}}} = 0. \tag{B-18}$$
++
++**引理B.3。** 若两个信号规则对所有 $k,x_{\mathrm{phys}}$ 满足 $v_{\mathrm{nom},1}(k,x_{\mathrm{phys}}) = v_{\mathrm{nom},2}(k,x_{\mathrm{phys}})$，则从同一初始状态、使用同一噪声与事件序列运行任意有限步数后，末状态及累计奖励完全相同。
++
++**证明。** 零步时结论显然成立；若当前状态相同，相同的名义信号与共同外生量给出相同的实际执行量、即时奖励与后继状态，对步数 $n$ 数学归纳即得结论。证毕。
++
++**定理B.3。** 设 $z_{k}$ 为任意给定模式序列，所有 $G_{z}$ 均为极性变换。比较以下两个控制过程：参考过程始终产生名义信号 $G_{\mathrm{ref}}a^{\mathrm{ref}}(x_{\mathrm{phys},k})$；切换过程在每步获知真实模式 $z_{k}$ 并执行指令 $G_{z_{k}}G_{\mathrm{ref}}a^{\mathrm{ref}}(x_{\mathrm{phys},k})$。若初始状态及外生噪声序列相同，则两过程在任意有限时域内逐路径具有相同的物理状态、执行量、即时奖励和累计回报。
++
++**证明。** 对任意步数与状态，切换过程的名义信号为
++
++$$G_{z_{k}}\left( G_{z_{k}}G_{\mathrm{ref}}a^{\mathrm{ref}}(x_{\mathrm{phys}}) \right) = G_{\mathrm{ref}}a^{\mathrm{ref}}(x_{\mathrm{phys}}), \tag{B-19}$$
++
++与参考过程完全一致。由引理B.3，任意有限前缀步数的末状态、执行量与累计回报逐项相同。证毕。
++
++**B.4 基于历史观测的模式识别与可辨识性。**在实际运行中，控制器仅能利用当前状态及已完成的历史转移记录进行在线模式识别（即非超前的历史反馈控制器）。设初始模式信念为 $\rho_{0}$，已完成的历史转移记录序列为 $\xi_{0},\xi_{1},\ldots$，递归信念更新映射为 $U$，动作选择映射为 $S$，则第 $k$ 步控制指令仅依赖前 $k$ 个已完成转移：
++
++$$\rho_{k} = U(\cdots U(U(\rho_{0},\xi_{0}),\xi_{1})\cdots,\xi_{k - 1}),\qquad a_{k} = S(\rho_{k},s_{k}). \tag{B-20}$$
++
++**命题B.1。** 若两条轨迹记录流的前 $k$ 个转移完全相同且当前状态 $s_k$ 相同，则由式(B-20)生成的第 $k$ 个动作必相同。
++
++**证明。** 相同的记录前缀经确定性映射 $U$ 依次产生相同的信念状态 $\rho_{k}$，再经映射 $S$ 得到相同动作 $a_{k}$。证毕。
++
++**命题B.2。** 给定相同的控制指令规则 $a(k,x_{\mathrm{phys}})$，若两条模式序列对所有 $k,x_{\mathrm{phys}}$ 满足
++
++$$G_{z_{k}}a(k,x_{\mathrm{phys}}) = G_{z_{k}'}a(k,x_{\mathrm{phys}}), \tag{B-21}$$
++
++则在共同初始状态和共同外生噪声下，两个系统的有限时域末状态与累计奖励完全相同。
++
++**证明。** 两系统在每一步均提供相同的名义控制信号，直接应用引理B.3即得。证毕。
++
++命题B.2表明，若两个极性模式仅在某单一动作坐标的符号上相反，而控制策略始终将该坐标指令置零，则系统轨迹无法暴露两模式的符号差异（即缺乏持续激励会导致模式不可辨识）。
++
++进一步地，设有限噪声样本空间为 $\Omega$，概率质量函数满足 $p(\omega) \geq 0$ 且 $\sum_{\omega} p(\omega) = 1$。若两种模式在每个样本点 $\omega$ 上产生的观测完全相同，即 $Y_{1}(\omega) = Y_{2}(\omega)$，令任意二元判别器为 $D_{\mathrm{cls}}(Y) \in \{ 1,2\}$。
++
++**定理B.4。** 在两模式先验概率均为 $1/2$ 时，当 $Y_{1}(\omega) \equiv Y_{2}(\omega)$ 时，任意判别器 $D_{\mathrm{cls}}$ 的平均识别正确率恒为 $1/2$。
++
++**证明。** 平均识别正确率可写为
+ 
+ $$\begin{aligned}
+-p_{correct} = & \frac{1}{2}\sum_{\omega}^{}p(\omega)\mathbf{1}\{ D_{cls}(Y_{1}(\omega)) = 1\} \\
+- & + \frac{1}{2}\sum_{\omega}^{}p(\omega)\mathbf{1}\{ D_{cls}(Y_{2}(\omega)) = 2\}.
++p_{\mathrm{correct}} &= \frac{1}{2}\sum_{\omega}p(\omega)\mathbf{1}\{ D_{\mathrm{cls}}(Y_{1}(\omega)) = 1\} \\
++ &\quad + \frac{1}{2}\sum_{\omega}p(\omega)\mathbf{1}\{ D_{\mathrm{cls}}(Y_{2}(\omega)) = 2\}.
+ \end{aligned} \tag{B-22}$$
+ 
+-由观察相同，两个指标在每个 $\omega$ 上互补，相加为1。于是
+-
+-$$p_{correct} = \frac{1}{2}\sum_{\omega}^{}p(\omega) = \frac{1}{2}. \tag{B-23}$$
+-
+-证毕。该结论适用于确定性二元判别器；若判别器使用独立有限随机种子，可将种子并入共同样本空间得到相同结论。
++由于 $Y_{1}(\omega) = Y_{2}(\omega)$，两个示性函数在每个 $\omega$ 上互斥且互补，相加恒为1，于是
++
++$$p_{\mathrm{correct}} = \frac{1}{2}\sum_{\omega}p(\omega) = \frac{1}{2}. \tag{B-23}$$
++
++证毕。
+ 
+ 设历史观测轨迹变量为 $H_{\mathrm{obs}}$，下一步观测变量为 $Y$，二者取值集合均有限。在两种候选模式假设下，历史边缘分布分别为 $p(h_{\mathrm{obs}})$ 与 $q(h_{\mathrm{obs}})$，下一步观测的条件转移核分别为 $P_{\mathrm{obs},1}(y \mid h_{\mathrm{obs}})$ 与 $P_{\mathrm{obs},2}(y \mid h_{\mathrm{obs}})$（假设各概率质量严格为正且满足归一化条件）。
+ 
+@@ -2834,134 +2816,116 @@
+ 
+ $$D_{\mathrm{KL}}(p \parallel q) = \sum_{h_{\mathrm{obs}}}p(h_{\mathrm{obs}})\log\frac{p(h_{\mathrm{obs}})}{q(h_{\mathrm{obs}})}. \tag{B-24}$$
+ 
+-**定理B.5。** 联合分布满足
+-
+-$$\begin{array}{r}
+-D_{KL}(pP_{obs,1} \parallel qP_{obs,2}) = D_{KL}(p \parallel q) \\
+- + \sum_{h_{obs}}^{}p(h_{obs}) \\
+- \times D_{KL}\left( P_{obs,1}( \cdot \mid h_{obs}) \parallel P_{obs,2}( \cdot \mid h_{obs}) \right).
+-\end{array} \tag{B-25}$$
+-
+-**证明。** 严格正性保证对数的商与乘积展开有效。对每个 $(h_{obs},y)$，
+-
+-$$\log\frac{p(h_{obs})P_{obs,1}(y \mid h_{obs})}{q(h_{obs})P_{obs,2}(y \mid h_{obs})} = log\frac{p(h_{obs})}{q(h_{obs})} + log\frac{P_{obs,1}(y \mid h_{obs})}{P_{obs,2}(y \mid h_{obs})}. \tag{B-26}$$
+-
+-乘以 $p(h_{obs})P_{obs,1}(y \mid h_{obs})$ 后对 $y$ 求和，第一项变为
+-
+-$$p(h_{obs})log\frac{p(h_{obs})}{q(h_{obs})}\sum_{y}^{}P_{obs,1}(y \mid h_{obs}) = p(h_{obs})log\frac{p(h_{obs})}{q(h_{obs})}. \tag{B-27}$$
+-
+-第二项为
+-
+-$$p(h_{obs})\sum_{y}^{}P_{obs,1}(y \mid h_{obs})log\frac{P_{obs,1}(y \mid h_{obs})}{P_{obs,2}(y \mid h_{obs})}. \tag{B-28}$$
+-
+-最后对 $h_{obs}$ 求和即得结论。证毕。
+-
+-在固定模式驻留区间内逐次应用该等式，并使用共同初始历史分布，可将轨迹相对熵展开为条件相对熵的期望和：
+-
+-$$D_{KL}(\mathsf{P}_{z}^{\pi_{beh}} \parallel \mathsf{P}_{z'}^{\pi_{beh}}) = \sum_{k = 0}^{N_{hor} - 1}\mathbb{E}_{\mathsf{P}_{z}^{\pi_{beh}}}\left\lbrack D_{KL}(P_{z}( \cdot \mid H_{k},a_{k}) \parallel P_{z'}( \cdot \mid H_{k},a_{k})) \right\rbrack. \tag{B-29}$$
+-
+-这里 $\pi_{beh}$ 是两个假设下使用的同一基于已有信息的行为规则，$H_{k}$ 为已获得历史。逐步的共同动作选择在给定历史后不额外提供模式标签。若访问到的条件观察核相同，则各项为零，轨迹不能提供区分这两种模式的信息。正信息量说明有可区分信号，但其大小与有限驻留时间内能否可靠识别仍是不同问题。
+-
+-**B.5 动作误差。**设真实模式为 $z$，用于补偿的估计模式为 $\widehat{z}$。基于历史信息的控制器实际名义信号与参考信号分别为
+-
+-$${v_{nom}}^{C} = G_{z}G_{\widehat{z}}G_{ref}a^{ref},\quad\quad{v_{nom}}^{O} = G_{ref}a^{ref}. \tag{B-30}$$
+-
+-二者之差记为 $\Delta v_{nom} = {v_{nom}}^{C} - {v_{nom}}^{O}$，其第 $j$ 个分量为
+-
+-$$\Delta v_{nom,j} = (g_{z,j}g_{\widehat{z},j} - 1)g_{ref,j}{a^{ref}}_{j}. \tag{B-31}$$
+-
+-该表达式比较同一个状态下的两个信号，尚未将未来状态变化包含在内。
++**定理B.5（KL散度链式法则）。** 联合分布的KL散度满足
++
++$$D_{\mathrm{KL}}(pP_{\mathrm{obs},1} \parallel qP_{\mathrm{obs},2}) = D_{\mathrm{KL}}(p \parallel q) + \sum_{h_{\mathrm{obs}}}p(h_{\mathrm{obs}})\,D_{\mathrm{KL}}\!\left( P_{\mathrm{obs},1}( \cdot \mid h_{\mathrm{obs}}) \parallel P_{\mathrm{obs},2}( \cdot \mid h_{\mathrm{obs}}) \right). \tag{B-25}$$
++
++**证明。** 严格正性保证对数商与乘积展开良定义。对每个 $(h_{\mathrm{obs}},y)$，有
++
++$$\log\frac{p(h_{\mathrm{obs}})P_{\mathrm{obs},1}(y \mid h_{\mathrm{obs}})}{q(h_{\mathrm{obs}})P_{\mathrm{obs},2}(y \mid h_{\mathrm{obs}})} = \log\frac{p(h_{\mathrm{obs}})}{q(h_{\mathrm{obs}})} + \log\frac{P_{\mathrm{obs},1}(y \mid h_{\mathrm{obs}})}{P_{\mathrm{obs},2}(y \mid h_{\mathrm{obs}})}. \tag{B-26}$$
++
++两端同乘 $p(h_{\mathrm{obs}})P_{\mathrm{obs},1}(y \mid h_{\mathrm{obs}})$ 后对 $y$ 求和，第一项利用条件概率归一化 $\sum_{y}P_{\mathrm{obs},1}(y \mid h_{\mathrm{obs}}) = 1$ 化为
++
++$$p(h_{\mathrm{obs}})\log\frac{p(h_{\mathrm{obs}})}{q(h_{\mathrm{obs}})}\sum_{y}P_{\mathrm{obs},1}(y \mid h_{\mathrm{obs}}) = p(h_{\mathrm{obs}})\log\frac{p(h_{\mathrm{obs}})}{q(h_{\mathrm{obs}})}, \tag{B-27}$$
++
++第二项即为条件KL散度加权项：
++
++$$p(h_{\mathrm{obs}})\sum_{y}P_{\mathrm{obs},1}(y \mid h_{\mathrm{obs}})\log\frac{P_{\mathrm{obs},1}(y \mid h_{\mathrm{obs}})}{P_{\mathrm{obs},2}(y \mid h_{\mathrm{obs}})}. \tag{B-28}$$
++
++最后对 $h_{\mathrm{obs}}$ 求和即得式(B-25)。证毕。
++
++在固定模式驻留区间内逐次应用式(B-25)，并使用共同初始历史分布，可将长度为 $N_{\mathrm{hor}}$ 的轨迹相对熵展开为单步条件相对熵的期望之和：
++
++$$D_{\mathrm{KL}}(\mathsf{P}_{z}^{\pi_{\mathrm{beh}}} \parallel \mathsf{P}_{z'}^{\pi_{\mathrm{beh}}}) = \sum_{k = 0}^{N_{\mathrm{hor}} - 1}\mathbb{E}_{\mathsf{P}_{z}^{\pi_{\mathrm{beh}}}}\left\lbrack D_{\mathrm{KL}}\big(P_{z}( \cdot \mid H_{k},a_{k}) \parallel P_{z'}( \cdot \mid H_{k},a_{k})\big) \right\rbrack, \tag{B-29}$$
++
++式中，$\pi_{\mathrm{beh}}$ 为基于历史信息 $H_{k}$ 的行为策略。若两模式在所访问状态动作上的条件观测核完全相同，则式(B-29)各项恒为零，观测轨迹不提供区分两模式的統計信息。
++
++**B.5 动作误差。**设真实模式为 $z$，用于补偿的估计模式为 $\widehat{z}$。基于历史信息的控制器实际产生的名义信号与参考信号分别为
++
++$$v_{\mathrm{nom}}^{C} = G_{z}G_{\widehat{z}}G_{\mathrm{ref}}a^{\mathrm{ref}},\qquad v_{\mathrm{nom}}^{O} = G_{\mathrm{ref}}a^{\mathrm{ref}}. \tag{B-30}$$
++
++二者之差记为 $\Delta v_{\mathrm{nom}} = v_{\mathrm{nom}}^{C} - v_{\mathrm{nom}}^{O}$，其第 $j$ 个分量为
++
++$$\Delta v_{\mathrm{nom},j} = (g_{z,j}g_{\widehat{z},j} - 1)g_{\mathrm{ref},j}a^{\mathrm{ref}}_{j}. \tag{B-31}$$
+ 
+ **定理B.6。** 若真实、估计及参考增益均为极性变换，则
+ 
+-$$(\Delta v_{nom,j})^{2} = \left\{ \begin{matrix}
++$$(\Delta v_{\mathrm{nom},j})^{2} = \begin{cases}
+ 0, & g_{z,j} = g_{\widehat{z},j}, \\
+-4{a^{ref}}_{j}^{2}, & g_{z,j} \neq g_{\widehat{z},j},
+-\end{matrix} \right.\  \tag{B-32}$$
+-
+-从而
+-
+-$$\parallel \Delta v_{nom} \parallel_{2}^{2} = 4\sum_{j = 1}^{n_{a}}{a^{ref}}_{j}^{2}\mathbf{1}\{ g_{z,j} \neq g_{\widehat{z},j}\}, \tag{B-33}$$
+-
+-以及
+-
+-$$\parallel \Delta v_{nom} \parallel_{2} = 2\sqrt{\sum_{j = 1}^{n_{a}}{a^{ref}}_{j}^{2}\mathbf{1}\{ g_{z,j} \neq g_{\widehat{z},j}\}}. \tag{B-34}$$
+-
+-**证明。** 若两模式在第 $j$ 维符号相同，则乘积为1，差分因子为0。若符号不同，则乘积为 $- 1$，差分因子为 $- 2$。参考符号平方为1，所以第二种情形的误差平方为 $( - 2)^{2}g_{ref,j}^{2}{a^{ref}}_{j}^{2} = 4{a^{ref}}_{j}^{2}$。对坐标求和得到平方范数，再利用非负平方根及 $\sqrt{4x} = 2\sqrt{x}$ 得到范数表达式。证毕。
+-
+-当误判发生在参考模式下的动作接近零的坐标时，名义信号误差较小；同样的模式误判发生在大幅动作坐标时，误差更大。因此未加权模式准确率不能完整描述控制误差。下一节进一步说明，长期回报还取决于这些局部动作差异所处状态的价值敏感性。
+-
+-**B.6 路径分析。**为将含记忆的控制规则表示为当前状态的函数，自本节起用$x_{aug}$表示增广状态。它包含物理状态、已完成的观测与命令历史$H_{k}$以及置信$\rho_{k}$；真实执行模式不能由时刻与物理状态确定时，也作为分析用隐变量纳入，但控制器不读取该隐变量。第B.3节比较的是物理轨迹，本节的增广还需保留控制器用于后续判断的信息。
+-
+-名义信号$v_{nom}$在真实模式$z$下对应命令$a = G_{z}^{- 1}v_{nom}$，实际执行信号则为$clip(v_{nom} + \varepsilon_{k})$。本节只考虑满足命令边界的名义信号；极性补偿自动满足这一条件，一般增益须满足式(B-11)。一次转移完成后，以实际观测、所发命令和对应反馈构造记录$\xi_{k}$，更新$H_{k + 1} = H_{k} \frown \xi_{k}$及$\rho_{k + 1} = U(\rho_{k},\xi_{k})$，其中$\frown$表示追加记录。
+-
+-将物理转移、命令记录、置信更新及模式演化共同记为$F_{aug}(x_{aug},v_{nom},e_{k})$。本节固定的外生序列提供$e_{k}$与执行噪声$\varepsilon_{k}$。这一映射的动作输入是加噪和截断前的名义信号，而不是截断后的执行信号：截断可能使不同命令产生相同执行结果，仅保留执行结果不足以重建命令历史。映射的物理状态分量仍按$F_{phys}(x_{phys},clip(v_{nom} + \varepsilon_{k}),e_{k})$更新，奖励仍由物理状态与实际执行信号计算。
+-
+-固定同一外生序列，在相同真实模式演化和信息记录规则下，比较待评价控制器的名义信号$v_{nom}^{C}(k,x_{aug})$与参照规则$v_{nom}^{O}(k,x_{aug})$。参照可以取正确模式补偿后的参考信号，不要求它是全局最优策略。以$V_{n,k}^{O,path}$表示按参照规则继续执行$n$步的路径回报；先执行一个可行名义信号，再执行参照规则$n$步，定义
++4(a^{\mathrm{ref}}_{j})^{2}, & g_{z,j} \neq g_{\widehat{z},j},
++\end{cases} \tag{B-32}$$
++
++从而欧氏范数平方与范数分别为
++
++$$\| \Delta v_{\mathrm{nom}} \|_{2}^{2} = 4\sum_{j = 1}^{n_{a}}(a^{\mathrm{ref}}_{j})^{2}\mathbf{1}\{ g_{z,j} \neq g_{\widehat{z},j}\}, \tag{B-33}$$
++
++$$\| \Delta v_{\mathrm{nom}} \|_{2} = 2\sqrt{\sum_{j = 1}^{n_{a}}(a^{\mathrm{ref}}_{j})^{2}\mathbf{1}\{ g_{z,j} \neq g_{\widehat{z},j}\}}. \tag{B-34}$$
++
++**证明。** 若两模式在第 $j$ 维极性符号相同，则 $g_{z,j}g_{\widehat{z},j} = 1$，误差分量为0；若符号相反，则 $g_{z,j}g_{\widehat{z},j} = - 1$，差分因子为 $- 2$，结合 $g_{\mathrm{ref},j}^{2} = 1$ 可得误差平方为 $(-2)^{2}g_{\mathrm{ref},j}^{2}(a^{\mathrm{ref}}_{j})^{2} = 4(a^{\mathrm{ref}}_{j})^{2}$。对坐标求和并开方即得式(B-33)与式(B-34)。证毕。
++
++定理B.6表明，当模式误判发生在参考动作幅值 $|a^{\mathrm{ref}}_{j}|$ 接近零的通道上时，名义信号误差较小；反之，发生在大幅值动作通道上的误判则会产生显著的执行偏差。
++
++**B.6 路径分析。**为将含历史记忆的控制规则统一表示为当前状态的函数，自本节起用 $x_{\mathrm{aug}}$ 表示包含物理状态 $x_{\mathrm{phys}}$、历史记录 $H_{k}$、模式信念 $\rho_{k}$ 及隐含模式变量的增广状态。一次转移完成后，以实际观测、所发指令和即时反馈构造记录 $\xi_{k}$，更新 $H_{k + 1} = H_{k} \frown \xi_{k}$ 及 $\rho_{k + 1} = U(\rho_{k},\xi_{k})$，并将增广状态的整体一步演化映射记为 $F_{\mathrm{aug}}(x_{\mathrm{aug}},v_{\mathrm{nom}},e_{k})$（其物理状态分量仍按 $F_{\mathrm{phys}}(x_{\mathrm{phys}},\mathrm{clip}(v_{\mathrm{nom}} + \varepsilon_{k}),e_{k})$ 更新）。
++
++固定同一外生事件与噪声序列，比较待评价控制器的名义信号 $v_{\mathrm{nom}}^{C}(k,x_{\mathrm{aug}})$ 与参照规则 $v_{\mathrm{nom}}^{O}(k,x_{\mathrm{aug}})$。以 $V_{n,k}^{O,\mathrm{path}}$ 表示按参照规则继续执行 $n$ 步的路径累积回报；先执行一个可行名义信号 $v_{\mathrm{nom}}$、随后按参照规则执行 $n$ 步的路径动作价值定义为
+ 
+ $$\begin{aligned}
+-Q_{n,k}^{O,path}(x_{aug},v_{nom}) = & r(x_{phys},clip(v_{nom} + \varepsilon_{k}),e_{k}) \\
+- & + V_{n,k + 1}^{O,path}\left( F_{aug}(x_{aug},v_{nom},e_{k}) \right).
++Q_{n,k}^{O,\mathrm{path}}(x_{\mathrm{aug}},v_{\mathrm{nom}}) &= r\big(x_{\mathrm{phys}},\mathrm{clip}(v_{\mathrm{nom}} + \varepsilon_{k}),e_{k}\big) \\
++ &\quad + V_{n,k + 1}^{O,\mathrm{path}}\!\left( F_{\mathrm{aug}}(x_{\mathrm{aug}},v_{\mathrm{nom}},e_{k}) \right).
+ \end{aligned} \tag{B-35}$$
+ 
+-其中$x_{phys}$是$x_{aug}$的物理分量。动作价值下标$n$只计首步之后执行参照规则的步数，因此$V_{n + 1,k}^{O,path}$对应$Q_{n,k}^{O,path}$。
+-
+-定义当前信号相对参照信号的路径动作价值差为
++定义当前信号相对于参照信号的单步路径动作价值差（优势差）为
+ 
+ $$\begin{aligned}
+-\Delta_{n,k}^{O}(x_{aug}) = & Q_{n,k}^{O,path}(x_{aug},{v_{nom}}^{C}(k,x_{aug})) \\
+- & - Q_{n,k}^{O,path}(x_{aug},{v_{nom}}^{O}(k,x_{aug})).
++\Delta_{n,k}^{O}(x_{\mathrm{aug}}) &= Q_{n,k}^{O,\mathrm{path}}\big(x_{\mathrm{aug}},v_{\mathrm{nom}}^{C}(k,x_{\mathrm{aug}})\big) \\
++ &\quad - Q_{n,k}^{O,\mathrm{path}}\big(x_{\mathrm{aug}},v_{\mathrm{nom}}^{O}(k,x_{\mathrm{aug}})\big).
+ \end{aligned} \tag{B-36}$$
+ 
+-**定理B.7。** 从同一 $x_{aug,k}$ 出发，令 $x_{aug,k + i}^{C}$ 为基于历史信息的控制器形成的状态。运行 $N$ 步时，
+-
+-$$J_{N,k}^{C}(x_{aug,k}) - J_{N,k}^{O}(x_{aug,k}) = \sum_{i = 0}^{N - 1}\Delta_{N - 1 - i,k + i}^{O}(x_{aug,k + i}^{C}). \tag{B-37}$$
+-
+-**证明。** 记 ${\Delta J}_{n,k}(x_{aug}) = J_{n,k}^{C}(x_{aug}) - J_{n,k}^{O}(x_{aug})$。零步时为0。考虑 $n + 1$ 步，并令
+-
+-$$x_{aug,C}' = F_{aug}\left( x_{aug},v_{nom}^{C}(k,x_{aug}),e_{k} \right). \tag{B-38}$$
+-
+-展开两个路径回报，再在待评价控制器分支中加入并减去 $V_{n,k + 1}^{O,path}(x_{aug,C}')$，得到
++**定理B.7（路径性能差分解恒等式）。** 从同一初态 $x_{\mathrm{aug},k}$ 出发，令 $x_{\mathrm{aug},k + i}^{C}$ 为待评价控制器轨迹所访问的增广状态序列，则运行 $N$ 步的路径累计回报之差满足
++
++$$J_{N,k}^{C}(x_{\mathrm{aug},k}) - J_{N,k}^{O}(x_{\mathrm{aug},k}) = \sum_{i = 0}^{N - 1}\Delta_{N - 1 - i,k + i}^{O}(x_{\mathrm{aug},k + i}^{C}). \tag{B-37}$$
++
++**证明。** 记 ${\Delta J}_{n,k}(x_{\mathrm{aug}}) = J_{n,k}^{C}(x_{\mathrm{aug}}) - J_{n,k}^{O}(x_{\mathrm{aug}})$。当 $n=0$ 时差值为0。考虑 $n + 1$ 步，令一步后继状态为
++
++$$x_{\mathrm{aug},C}' = F_{\mathrm{aug}}\!\left( x_{\mathrm{aug}},v_{\mathrm{nom}}^{C}(k,x_{\mathrm{aug}}),e_{k} \right). \tag{B-38}$$
++
++展开两个路径回报，并在待评价控制器分支中加减中间项 $V_{n,k + 1}^{O,\mathrm{path}}(x_{\mathrm{aug},C}')$，可得递推关系
+ 
+ $$\begin{aligned}
+-{\Delta J}_{n + 1,k}(x_{aug}) = & Q_{n,k}^{O,path}(x_{aug},{v_{nom}}^{C}(k,x_{aug})) - Q_{n,k}^{O,path}(x_{aug},{v_{nom}}^{O}(k,x_{aug})) \\
+- & + {\Delta J}_{n,k + 1}(x_{aug,C}').
++{\Delta J}_{n + 1,k}(x_{\mathrm{aug}}) &= Q_{n,k}^{O,\mathrm{path}}\big(x_{\mathrm{aug}},v_{\mathrm{nom}}^{C}(k,x_{\mathrm{aug}})\big) - Q_{n,k}^{O,\mathrm{path}}\big(x_{\mathrm{aug}},v_{\mathrm{nom}}^{O}(k,x_{\mathrm{aug}})\big) \\
++ &\quad + {\Delta J}_{n,k + 1}(x_{\mathrm{aug},C}').
+ \end{aligned} \tag{B-39}$$
+ 
+-逐步对最后一项展开，直到剩余步数为0，全部项都在待评价控制器轨迹访问的状态上计算，得到所述求和。证毕。
+-
+-该恒等式不要求两种控制器第一步之后仍处于相同状态。每一项都在待评价控制器实际访问的状态上，比较先执行两种名义信号、再按参照规则运行的回报。因此，该分解已考虑动作不同所引起的后续状态差异。
+-
+-**推论B.1。** 若存在局部界 $b_{Q,loc}(k,x_{aug})$，使任意相关剩余步数满足
+-
+-$$|Q_{n,k}^{O,path}(x_{aug},{v_{nom}}^{C}(k,x_{aug})) - Q_{n,k}^{O,path}(x_{aug},{v_{nom}}^{O}(k,x_{aug}))| \leq b_{Q,loc}(k,x_{aug}), \tag{B-40}$$
++沿待评价控制器轨迹 $x_{\mathrm{aug},k+i}^{C}$ 依次展开裂项求和直至剩余步数为0，即得式(B-37)。证毕。
++
++**推论B.1。** 若存在局部界函数 $b_{Q,\mathrm{loc}}(k,x_{\mathrm{aug}})$，使得对任意相关剩余步数有
++
++$$\big|Q_{n,k}^{O,\mathrm{path}}\big(x_{\mathrm{aug}},v_{\mathrm{nom}}^{C}(k,x_{\mathrm{aug}})\big) - Q_{n,k}^{O,\mathrm{path}}\big(x_{\mathrm{aug}},v_{\mathrm{nom}}^{O}(k,x_{\mathrm{aug}})\big)\big| \leq b_{Q,\mathrm{loc}}(k,x_{\mathrm{aug}}), \tag{B-40}$$
+ 
+ 则
+ 
+-$$|J_{N,k}^{C}(x_{aug,k}) - J_{N,k}^{O}(x_{aug,k})| \leq \sum_{i = 0}^{N - 1}b_{Q,loc}(k + i,x_{aug,k + i}^{C}). \tag{B-41}$$
+-
+-**证明。** 对定理B.7右侧应用有限和的三角不等式，再逐项应用局部界即可。也可以按剩余步数归纳得到同一累计界。证毕。
+-
+-**B.7 期望分析。**设外生事件集合 $\mathcal{E}$ 有限，质量函数满足 $p(e) \geq 0$、$\sum_{e}^{}p(e) = 1$，每步独立按该质量函数抽取事件。事件同时决定执行噪声 $\varepsilon(e)$、奖励及转移中的外生量。
+-
+-沿用第B.6节以名义信号为动作输入的增广转移。期望分析中，外生事件$e$同时确定执行噪声$\varepsilon(e)$及其余随机量，定义
++$$\big|J_{N,k}^{C}(x_{\mathrm{aug},k}) - J_{N,k}^{O}(x_{\mathrm{aug},k})\big| \leq \sum_{i = 0}^{N - 1}b_{Q,\mathrm{loc}}(k + i,x_{\mathrm{aug},k + i}^{C}). \tag{B-41}$$
++
++**证明。** 对定理B.7式(B-37)右端应用有限和三角不等式并逐项代入式(B-40)即得。证毕。
++
++**B.7 期望分析。**设外生事件集合 $\mathcal{E}$ 有限，概率质量函数满足 $p(e) \geq 0$、$\sum_{e} p(e) = 1$，每步独立抽取外生事件 $e$（同时确定执行噪声 $\varepsilon(e)$ 与转移随机量），记
+ 
+ $$\begin{aligned}
+-F_{dyn,e}(x_{aug},v_{nom}) & = F_{aug}(x_{aug},v_{nom},e), \\
+-r_{e}(x_{aug},v_{nom}) & = r(x_{phys},clip(v_{nom} + \varepsilon(e)),e).
++F_{\mathrm{dyn},e}(x_{\mathrm{aug}},v_{\mathrm{nom}}) &= F_{\mathrm{aug}}(x_{\mathrm{aug}},v_{\mathrm{nom}},e), \\
++r_{e}(x_{\mathrm{aug}},v_{\mathrm{nom}}) &= r\big(x_{\mathrm{phys}},\mathrm{clip}(v_{\mathrm{nom}} + \varepsilon(e)),e\big).
+ \end{aligned} \tag{B-42}$$
+ 
+-上述转移同时更新物理状态与命令历史，奖励由物理状态及实际执行信号确定。以下价值递推和性能差分析均基于这两个定义。任意名义信号规则 ${v_{nom}}^{\pi}(k,x_{aug})$ 的期望价值递归为
+-
+-$$V_{0,k}^{\pi}(x_{aug}) = 0, \tag{B-43}$$
+-
+-$$V_{n + 1,k}^{\pi}(x_{aug}) = \sum_{e}^{}p(e)\left\lbrack r_{e}(x_{aug},{v_{nom}}^{\pi}(k,x_{aug})) + V_{n,k + 1}^{\pi}(F_{dyn,e}(x_{aug},{v_{nom}}^{\pi}(k,x_{aug}))) \right\rbrack. \tag{B-44}$$
+-
+-先执行给定名义信号、此后按参照规则继续运行的期望动作价值为
+-
+-$$Q_{n,k}^{O}(x_{aug},v_{nom}) = \sum_{e}^{}p(e)\left\lbrack r_{e}(x_{aug},v_{nom}) + V_{n,k + 1}^{O}(F_{dyn,e}(x_{aug},v_{nom})) \right\rbrack. \tag{B-45}$$
+-
+-本节的 $V,Q$ 为对外生事件分布求平均的价值量；B.6带path上标的价值量则固定单条外生序列。状态 $x_{aug}$ 可以包含实现控制所需的历史或置信，使因果选择写成时间和当前增广状态的函数。
++任意名义信号规则 $v_{\mathrm{nom}}^{\pi}(k,x_{\mathrm{aug}})$ 的期望价值递推定义为
++
++$$V_{0,k}^{\pi}(x_{\mathrm{aug}}) = 0, \tag{B-43}$$
++
++$$V_{n + 1,k}^{\pi}(x_{\mathrm{aug}}) = \sum_{e}p(e)\left\lbrack r_{e}\big(x_{\mathrm{aug}},v_{\mathrm{nom}}^{\pi}(k,x_{\mathrm{aug}})\big) + V_{n,k + 1}^{\pi}\!\big(F_{\mathrm{dyn},e}(x_{\mathrm{aug}},v_{\mathrm{nom}}^{\pi}(k,x_{\mathrm{aug}}))\big) \right\rbrack. \tag{B-44}$$
++
++先执行给定名义信号 $v_{\mathrm{nom}}$、此后按参照规则继续运行的期望动作价值为
++
++$$Q_{n,k}^{O}(x_{\mathrm{aug}},v_{\mathrm{nom}}) = \sum_{e}p(e)\left\lbrack r_{e}(x_{\mathrm{aug}},v_{\mathrm{nom}}) + V_{n,k + 1}^{O}\!\big(F_{\mathrm{dyn},e}(x_{\mathrm{aug}},v_{\mathrm{nom}})\big) \right\rbrack. \tag{B-45}$$
++
++增广状态 $x_{\mathrm{aug}}$ 已包含历史观测与模式信念，故基于历史信息的动作选择可直接表示为步数 $k$ 与当前增广状态 $x_{\mathrm{aug}}$ 的函数。
+ 
+ 令
+ 
+@@ -3058,7 +3022,7 @@
+ 
+ 分析依次讨论固定权重混合、概率归一化及边缘分布，并进一步考察价值依赖权重对收缩性的影响，以及持续证据对模式置信的作用。
+ 
+-**C.1 基本定义。**$\mathcal{Z}$为候选模式集合，$z$为其元素；$\rho$为单模式置信，$\rho^{joint}$为联合模式置信，$\rho^{(2)}$为第二模式变量的边缘分布。${\overline{R}}_{pen,\rho}$表示按置信加权的固定奖励与惩罚项。本附录固定标量惩罚是给定的合并量，区别于第3章未加权的网络权重范数。
++**C.1 基本定义。**记 $\mathcal{Z}$ 为有限非空的候选模式集合，$z \in \mathcal{Z}$ 为其元素；$\rho$ 为单模式信念分布，$\rho^{\mathrm{joint}}$ 为联合模式信念分布，$\rho^{(2)}$ 为第二模式变量的边缘分布；${\overline{R}}_{\mathrm{pen},\rho}$ 表示按模式信念加权后的等效即时奖励项。
+ 
+ 设状态集 $\mathcal{S}$、动作集 $\mathcal{A}$ 和模式集 $\mathcal{Z}$ 均有限非空。模式 $z$ 可以表示候选运行模式或距上次变化的持续长度。每个模式具有奖励 $R_{z}(s,a)$、转移核 $P_{z}(s' \mid s,a)$ 和固定惩罚 $\Gamma_{z}(s,a)$，满足
+ 
+@@ -3110,126 +3074,106 @@
+ \parallel \mathcal{T}_{\rho}Q_{1} - \mathcal{T}_{\rho}Q_{2} \parallel_{\infty} \leq \gamma \parallel Q_{1} - Q_{2} \parallel_{\infty}.
+ \end{aligned} \tag{C-9}$$
+ 
+-**证明。** 命题C.1给出合法随机核 ${\overline{P}}_{\rho}$ 和固定项 ${\overline{R}}_{pen,\rho}$；最大值聚合满足引理A.1的条件。将三者代入定理A.1即可。单一模式 $\mathcal{T}_{z}$ 对应把置信集中于该模式，因而具有相同性质。由推论A.1，固定的 $\mathcal{T}_{\rho}$ 具有唯一固定点及精确迭代的几何误差界。证毕。
+-
+-固定置信使模式平均成为当前模型的一部分。模式是否可辨识、平稳阶段持续多久，影响置信估计与随时间变化的外层过程，而不进入这一次固定算子的收缩系数。
+-
+-若同时跟踪持续长度 $z \in \mathcal{Z}$ 与运行类别 $z^{(2)} \in \mathcal{Z}$，并给定合法联合置信 $\rho^{joint}(z,z^{(2)})$，则
+-
+-$$\mathcal{T}_{\rho^{joint}}Q = \sum_{z,z^{(2)}}^{}\rho^{joint}(z,z^{(2)})\mathcal{T}_{z,z^{(2)}}Q \tag{C-10}$$
+-
+-具有相同结论。其依据是有限乘积集 $\mathcal{Z} \times \mathcal{Z}$ 仍有限非空，可以作为命题C.1及定理C.1中的模式集。
+-
+-**C.4 更新性质。**证据分数只要求非负；归一化常数是各模式证据分数的置信加权和。设原权重 $\rho(z) \geq 0$，证据分数 $L(z) \geq 0$，归一化常数为
+-
+-$$Z_{norm} = \sum_{z}^{}\rho(z)L(z) > 0. \tag{C-11}$$
+-
+-更新权重定义为
+-
+-$$\rho'(z) = \frac{\rho(z)L(z)}{Z_{norm}}. \tag{C-12}$$
+-
+-**命题C.2。** 更新权重非负且和为1。
+-
+-**证明。**非负分子除以正归一化常数仍非负，且
+-
+-$$\sum_{z}^{}\rho'(z) = \frac{\sum_{z}^{}\rho(z)L(z)}{Z_{norm}} = \frac{Z_{norm}}{Z_{norm}} = 1. \tag{C-13}$$
+-
+-证毕。证据分数本身无需预先归一化。
+-
+-**推论C.1。** 用上述 $\rho'$ 替代 $\rho$，并在下一次贝尔曼更新比较中固定 $\rho'$，则对应算子仍为 $\gamma$ 收缩。
+-
+-**证明。** 命题C.2提供定理C.1的全部置信条件，直接代入即可。证毕。
+-
+-若 $L$ 来自恰当概率模型中的似然，上述式子具有相应后验更新解释；从本命题本身能够得到的是非负权重的归一化性质。
+-
+-给定合法联合置信 $\rho^{joint}(z,z^{(2)})$，定义
+-
+-$$\rho(z) = \sum_{z^{(2)}}^{}\rho^{joint}(z,z^{(2)}),\quad\quad\rho^{(2)}(z^{(2)}) = \sum_{z}^{}\rho^{joint}(z,z^{(2)}). \tag{C-14}$$
+-
+-**命题C.3。** $\rho$ 和 $\rho^{(2)}$ 均非负且归一化。
+-
+-**证明。**有限非负和保持非负；两种边缘的总质量分别为
+-
+-$$\sum_{z}^{}\rho(z) = \sum_{z}^{}{\sum_{z^{(2)}}^{}\rho^{joint}}(z,z^{(2)}) = 1. \tag{C-15}$$
+-
+-以及
+-
+-$$\sum_{z^{(2)}}^{}\rho^{(2)}(z^{(2)}) = \sum_{z^{(2)}}^{}{\sum_{z}^{}\rho^{joint}}(z,z^{(2)}) = \sum_{z}^{}{\sum_{z^{(2)}}^{}\rho^{joint}}(z,z^{(2)}) = 1. \tag{C-16}$$
+-
+-证毕。因此，仅用 $z$ 条件算子进行混合时，可以将提取出的 $\rho$ 代入定理C.1，得到对应收缩性质。
+-
+-边缘分布合法并不意味着两个边缘能够恢复任意联合分布。取二元 $\mathcal{Z = \{}0,1\}$，考虑
++**证明。** 命题C.1给出了合法随机转移核 ${\overline{P}}_{\rho}$ 和固定即时项 ${\overline{R}}_{\mathrm{pen},\rho}$；最大值聚合满足引理A.1的非扩张条件。将三者代入定理A.1即得结论。单一模式算子 $\mathcal{T}_{z}$ 对应将置信权重完全集中于该模式的特例。由推论A.1，固定置信下的 $\mathcal{T}_{\rho}$ 存在唯一不动点及精确迭代的几何收敛界。证毕。
++
++若同时跟踪运行持续长度 $z \in \mathcal{Z}$ 与外部运行模式类别 $z^{(2)} \in \mathcal{Z}$，并给定合法的联合置信分布 $\rho^{\mathrm{joint}}(z,z^{(2)})$，则联合加权算子
++
++$$\mathcal{T}_{\rho^{\mathrm{joint}}}Q = \sum_{z,z^{(2)}}\rho^{\mathrm{joint}}(z,z^{(2)})\mathcal{T}_{z,z^{(2)}}Q \tag{C-10}$$
++
++同样满足定理C.1的收缩性质（因有限笛卡尔积 $\mathcal{Z} \times \mathcal{Z}$ 仍为有限非空集合）。
++
++**C.4 更新性质。**设先验模式权重满足 $\rho(z) \geq 0$，非负观测似然评分为 $L(z) \geq 0$，且归一化分母满足
++
++$$Z_{\mathrm{norm}} = \sum_{z}\rho(z)L(z) > 0, \tag{C-11}$$
++
++则贝叶斯后验更新权重定义为
++
++$$\rho'(z) = \frac{\rho(z)L(z)}{Z_{\mathrm{norm}}}. \tag{C-12}$$
++
++**命题C.2。** 更新后的权重 $\rho'(z)$ 保持非负且满足概率归一化。
++
++**证明。** 非负分子除以正归一化常数仍非负，且
++
++$$\sum_{z}\rho'(z) = \frac{\sum_{z}\rho(z)L(z)}{Z_{\mathrm{norm}}} = \frac{Z_{\mathrm{norm}}}{Z_{\mathrm{norm}}} = 1. \tag{C-13}$$
++
++证毕。
++
++**推论C.1。** 以更新后的 $\rho'$ 替代 $\rho$，并在下一次贝尔曼更新比较中固定 $\rho'$，所得算子 $\mathcal{T}_{\rho'}$ 仍为 $\gamma$-压缩映射。
++
++**证明。** 命题C.2提供了定理C.1所需的全部置信权重条件，直接代入即得。证毕。
++
++给定合法联合置信分布 $\rho^{\mathrm{joint}}(z,z^{(2)})$，定义其关于两个分量的边缘分布分别为
++
++$$\rho(z) = \sum_{z^{(2)}}\rho^{\mathrm{joint}}(z,z^{(2)}),\qquad \rho^{(2)}(z^{(2)}) = \sum_{z}\rho^{\mathrm{joint}}(z,z^{(2)}). \tag{C-14}$$
++
++**命题C.3。** 边缘分布 $\rho$ 和 $\rho^{(2)}$ 均非负且满足概率归一化。
++
++**证明。** 有限非负项求和保持非负，且两边缘分布的总质量分别为
++
++$$\sum_{z}\rho(z) = \sum_{z}\sum_{z^{(2)}}\rho^{\mathrm{joint}}(z,z^{(2)}) = 1, \tag{C-15}$$
++
++$$\sum_{z^{(2)}}\rho^{(2)}(z^{(2)}) = \sum_{z^{(2)}}\sum_{z}\rho^{\mathrm{joint}}(z,z^{(2)}) = \sum_{z}\sum_{z^{(2)}}\rho^{\mathrm{joint}}(z,z^{(2)}) = 1. \tag{C-16}$$
++
++证毕。
++
++需指出，边缘分布合法并不意味着仅凭两个边缘分布即可唯一还原联合分布。例如取二元集合 $\mathcal{Z} = \{0,1\}$，考察两个联合分布矩阵：
+ 
+ $$B_{1} = \begin{pmatrix}
+ 1/2 & 0 \\
+ 0 & 1/2
+-\end{pmatrix},\quad\quad B_{2} = \begin{pmatrix}
++\end{pmatrix},\qquad B_{2} = \begin{pmatrix}
+ 0 & 1/2 \\
+ 1/2 & 0
+ \end{pmatrix}. \tag{C-17}$$
+ 
+-两个联合分布的行边缘与列边缘都为 $(1/2,1/2)$，但一个集中于相同索引，另一个集中于不同索引。因此仅保留双边缘会丢失相关结构。
+-
+-如果模式算子本来就与 $z^{(2)}$ 无关，即 $\mathcal{T}_{z,z^{(2)}} = \mathcal{T}_{z}$，则可按有限求和直接化简
+-
+-$$\sum_{z,z^{(2)}}^{}\rho^{joint}(z,z^{(2)})\mathcal{T}_{z,z^{(2)}}Q = \sum_{z}^{}\left( \sum_{z^{(2)}}^{}\rho^{joint}(z,z^{(2)}) \right)\mathcal{T}_{z}Q = \mathcal{T}_{\rho}Q. \tag{C-18}$$
+-
+-该相等性依赖算子对被边缘化索引不敏感。联合收缩与边缘收缩分别成立，并不自动提供一般联合条件控制器的信息等价性。
+-
+-**C.5 保守性。**定义保守评价系数
+-
+-$$\beta_{eff} = \beta_{base} - \lambda_{w}c_{bel}, \tag{C-19}$$
+-
+-其中 $\lambda_{w} \geq 0$、$c_{bel} \geq 0$。基础系数表示置信调节前的取值，有效系数表示调节后的取值。比较不同调节强度时，基础系数和置信调节量均保持不变。$c_{bel}$为非负的置信调节量，与合成价值惩罚$c_{pen}(s,a)$区分。
+-
+-**命题C.4。** 有 $\beta_{eff} \leq \beta_{base}$。若 $\lambda_{w,1} \leq \lambda_{w,2}$，则
+-
+-$$\beta_{eff}(\lambda_{w,2}) \leq \beta_{eff}(\lambda_{w,1}). \tag{C-20}$$
+-
+-**证明。** 第一式由 $\lambda_{w}c_{bel} \geq 0$ 得到。第二式由
+-
+-$$\beta_{eff}(\lambda_{w,2}) - \beta_{eff}(\lambda_{w,1}) = - (\lambda_{w,2} - \lambda_{w,1})c_{bel} \leq 0 \tag{C-21}$$
+-
+-得到。证毕。
+-
+-在固定集成均值与非负标准差下，评价 $\bar{Q} + \beta_{eff}\sigma_{Q}$ 随该系数减小而不增。这给出评价式保守方向的代数解释。实际控制是否安全或回报是否改善，还取决于动作选择与环境后果。
+-
+-**C.6 共享表示。**给定任意模式函数族 $\{ Q_{z}(s,a)\}_{z \in \mathcal{Z}}$，定义
+-
+-$$Q_{shared}(z,s,a) = Q_{z}(s,a). \tag{C-22}$$
+-
+-这是将模式索引作为函数输入的定义，联合模式也可按相同方式组织。固定某一模式后，共享函数在该模式下的取值与原模式函数逐点相同，因此代入同一算子时得到相同结果。它说明的是模式条件函数的组织方式，不给出有限神经网络无误差表示任意函数族的保证。
+-
+-**C.7 反馈影响。**考虑单状态单动作，两个模式奖励为 $R_{1},R_{2}$，共同后继项为 $\gamma Q_{sc}$。若代数权重取 $\rho_{1}(Q_{sc}) = \lambda_{fb}Q_{sc}$，则混合展开为
++$B_1$ 与 $B_2$ 的行边缘与列边缘分布均为 $(1/2,1/2)$，但前者完全正相关、后者完全负相关。唯有当模式算子本身不依赖于第二分量（即 $\mathcal{T}_{z,z^{(2)}} = \mathcal{T}_{z}$）时，方可按有限求和直接约化为边缘加权算子：
++
++$$\sum_{z,z^{(2)}}\rho^{\mathrm{joint}}(z,z^{(2)})\mathcal{T}_{z,z^{(2)}}Q = \sum_{z}\left( \sum_{z^{(2)}}\rho^{\mathrm{joint}}(z,z^{(2)}) \right)\mathcal{T}_{z}Q = \mathcal{T}_{\rho}Q. \tag{C-18}$$
++
++**C.5 保守性。**对应正文第4.2.3节式(4-11)，定义策略更新中的有效保守评价系数为
++
++$$\beta_{\mathrm{eff}}(\lambda_{w}) = \beta_{\mathrm{base}} - c_{\mathrm{pen}}\lambda_{w}, \tag{C-19}$$
++
++式中，$\beta_{\mathrm{base}}$ 为基准保守系数（正文取 $-2$），$\lambda_{w} \geq 0$ 为运行长度反馈证据权重，$c_{\mathrm{pen}} \geq 0$ 为惩罚放大系数。
++
++**命题C.4。** 对任意 $\lambda_{w} \geq 0$ 有 $\beta_{\mathrm{eff}}(\lambda_{w}) \leq \beta_{\mathrm{base}}$；且当 $0 \leq \lambda_{w,1} \leq \lambda_{w,2}$ 时，有
++
++$$\beta_{\mathrm{eff}}(\lambda_{w,2}) \leq \beta_{\mathrm{eff}}(\lambda_{w,1}). \tag{C-20}$$
++
++**证明。** 第一式由 $c_{\mathrm{pen}}\lambda_{w} \geq 0$ 直接得到；第二式由
++
++$$\beta_{\mathrm{eff}}(\lambda_{w,2}) - \beta_{\mathrm{eff}}(\lambda_{w,1}) = - (\lambda_{w,2} - \lambda_{w,1})c_{\mathrm{pen}} \leq 0 \tag{C-21}$$
++
++即得。证毕。在给定集成价值均值 $\bar{Q}$ 与非负标准差 $\sigma_{Q} \geq 0$ 下，下置信界评价指标 $\bar{Q} + \beta_{\mathrm{eff}}\sigma_{Q}$ 随反馈证据权重 $\lambda_{w}$ 的增大而单调降低（即保守压制强度增大）。
++
++**C.6 共享表示。**给定模式条件价值函数族 $\{ Q_{z}(s,a)\}_{z \in \mathcal{Z}}$，可通过增广输入定义模式共享表示函数
++
++$$Q_{\mathrm{shared}}(z,s,a) = Q_{z}(s,a). \tag{C-22}$$
++
++固定任一模式 $z$ 后，$Q_{\mathrm{shared}}(z,s,a)$ 与原模式函数逐点恒等，代入同一模式条件算子时给出完全相同的更新结果。
++
++**C.7 反馈影响。**考虑单状态单动作系统，两个候选模式的即时奖励分别为 $R_{1},R_{2}$，共同后继折扣项为 $\gamma Q_{\mathrm{sc}}$。若模式权重直接耦合依赖于当前价值输入，取 $\rho_{1}(Q_{\mathrm{sc}}) = \lambda_{\mathrm{fb}}Q_{\mathrm{sc}}$，则加权算子展开为如下仿射映射 $\mathcal{F}$：
+ 
+ $$\begin{aligned}
+-\mathcal{F(}Q_{sc}) & = \lambda_{fb}Q_{sc}(\gamma Q_{sc} + R_{1}) + (1 - \lambda_{fb}Q_{sc})(\gamma Q_{sc} + R_{2}) \\
+- & = (\gamma + \lambda_{fb}\Delta R)Q_{sc} + R_{2},\quad 其中\quad\Delta R = R_{1} - R_{2}.
++\mathcal{F}(Q_{\mathrm{sc}}) &= \lambda_{\mathrm{fb}}Q_{\mathrm{sc}}(\gamma Q_{\mathrm{sc}} + R_{1}) + (1 - \lambda_{\mathrm{fb}}Q_{\mathrm{sc}})(\gamma Q_{\mathrm{sc}} + R_{2}) \\
++ &= (\gamma + \lambda_{\mathrm{fb}}\Delta R)Q_{\mathrm{sc}} + R_{2},\qquad \Delta R = R_{1} - R_{2}.
+ \end{aligned} \tag{C-23}$$
+ 
+-以下以该仿射函数为分析对象。在全实轴上，$\lambda_{fb}Q_{sc}$ 不一定在 $\lbrack 0,1\rbrack$ 内，因此下列完整实数域定理首先是仿射反馈算子的结论。
+-
+-**定理C.2。** 对任意 ${Q_{sc}}_{1},{Q_{sc}}_{2}$，
+-
+-$$\mathcal{F(}{Q_{sc}}_{1}\mathcal{) - F(}{Q_{sc}}_{2}) = (\gamma + \lambda_{fb}\Delta R)({Q_{sc}}_{1} - {Q_{sc}}_{2}). \tag{C-24}$$
+-
+-若 $\gamma,\lambda_{fb},\Delta R \geq 0$，则
+-
+-$$\mathcal{|F(}{Q_{sc}}_{1}\mathcal{) - F(}{Q_{sc}}_{2})| = (\gamma + \lambda_{fb}\Delta R)|{Q_{sc}}_{1} - {Q_{sc}}_{2}|. \tag{C-25}$$
+-
+-**证明。** 两个仿射函数值相减，常数 $R_{2}$ 抵消；提取公共因子后，再利用非负系数的绝对值等于其本身即可。证毕。
+-
+-记 $c_{fb} = \gamma + \lambda_{fb}\Delta R$。若 $c_{fb} < 1$，该式给出严格收缩；若 $c_{fb} \geq 1$，取 ${Q_{sc}}_{1} = 1,{Q_{sc}}_{2} = 0$，输出距离至少等于输入距离，不能存在统一小于1的收缩因子；若 $c_{fb} > 1$，任意不同输入的距离都被放大。
+-
+-因此该非负参数仿射族的阈值为
+-
+-$$\lambda_{fb}\Delta R = 1 - \gamma. \tag{C-26}$$
+-
+-该乘积增大时，算子的距离放大系数也增大。在本节的非负参数条件下，乘积低于式(C-26)的阈值时仍保持严格收缩，达到或超过阈值时则不再严格收缩。
+-
+-在 $0 \leq \lambda_{fb}Q_{sc} \leq 1$ 的输入范围，前述混合还具有合法概率权重解释。例如取 $\gamma = 0.5$、$\lambda_{fb} = 1$、$\Delta R = 0.6$，在 ${Q_{sc}}_{1} = 1,{Q_{sc}}_{2} = 0$ 处权重分别为1和0，均合法，但输出距离为1.1，大于输入距离1。
+-
+-这一有限输入对说明，即使比较点上的权重合法，随价值改变的模式加权也可能放大差异。它不把线性权重在全实轴上的每个取值都解释为概率，也不构成关于所有贝叶斯置信更新的普遍不可能性结论。
++**定理C.2。** 对任意实数输入 $Q_{\mathrm{sc},1},Q_{\mathrm{sc},2}$，有
++
++$$\mathcal{F}(Q_{\mathrm{sc},1}) - \mathcal{F}(Q_{\mathrm{sc},2}) = (\gamma + \lambda_{\mathrm{fb}}\Delta R)(Q_{\mathrm{sc},1} - Q_{\mathrm{sc},2}). \tag{C-24}$$
++
++若 $\gamma,\lambda_{\mathrm{fb}},\Delta R \geq 0$，则
++
++$$\big|\mathcal{F}(Q_{\mathrm{sc},1}) - \mathcal{F}(Q_{\mathrm{sc},2})\big| = (\gamma + \lambda_{\mathrm{fb}}\Delta R)\big|Q_{\mathrm{sc},1} - Q_{\mathrm{sc},2}\big|. \tag{C-25}$$
++
++**证明。** 将式(C-23)在两个输入处相减，常数项 $R_{2}$ 抵消；提取公共因子并利用非负系数的绝对值性质即得式(C-24)与式(C-25)。证毕。
++
++记有效距离因子为 $c_{\mathrm{fb}} = \gamma + \lambda_{\mathrm{fb}}\Delta R$。当且仅当 $\lambda_{\mathrm{fb}}\Delta R < 1 - \gamma$ 时，$c_{\mathrm{fb}} < 1$，算子保持严格收缩；一旦达到或超过临界阈值
++
++$$\lambda_{\mathrm{fb}}\Delta R = 1 - \gamma, \tag{C-26}$$
++
++即有 $c_{\mathrm{fb}} \geq 1$，算子丧失严格收缩性。例如取 $\gamma = 0.5$、$\lambda_{\mathrm{fb}} = 1$、$\Delta R = 0.6$，在 $Q_{\mathrm{sc},1} = 1, Q_{\mathrm{sc},2} = 0$ 处模式权重分别为 $1$ 和 $0$（均属于 $[0,1]$ 合法概率区间），但输出距离为 $1.1 > 1$。这证明了在单步贝尔曼更新中冻结模式信念权重、阻断价值输入向模式权重的直接反馈，是保证算子具有 $\gamma$-收缩性质的重要条件。
+ 
+ **C.8 持续证据下的后验阈值。**设初始旧模式与新模式概率之比为 $\Omega_{prior} > 0$，并假定每一步有利于新模式的两个相对证据因子分别为 $L_{evid}$ 与 ${L_{evid}}^{- 1}$，其中 $L_{evid} > 1$。在这种给定形式下，单步新旧证据之比为 ${L_{evid}}^{2}$，累计新旧概率比定义为
+ 
+@@ -3265,7 +3209,7 @@
+ 
+ 在初始先验比 $\Omega_{\mathrm{prior}}$ 与单步证据强度 $L_{\mathrm{evid}} > 1$ 固定、$\delta_{\mathrm{post}} \to 0$ 时，上述步数下界的渐近阶为 $\mathcal{O}(\log(1/\delta_{\mathrm{post}}))$。
+ 
+-**C.9 适用范围。**固定置信混合保持收缩，更新后合法置信也可重新形成收缩算子；但随时间变化的一列收缩算子不因此自动共享固定点，也不因此保证整个学习过程收敛。定理没有将某个实际残差或权重范数证明为正确后验似然。
++**C.9 适用范围。**固定置信混合保持收缩，更新后合法置信也可重新形成收缩算子；但随时间变化的一列收缩算子不因此自动共享同一不动点，也不因此保证整个学习过程收敛。定理没有将某个实际残差或权重范数证明为正确后验似然。
+ 
+ 联合与边缘分布的概率性质不等于信息完备性，抽象共享函数存在也不等于有限神经网络的表示或训练保证。保守系数的单调性只规定评价式方向，不能从中推出误报变化点不会损害控制安全或性能。
+ 
+@@ -3496,7 +3440,7 @@
+ 
+ 上述结论精确适用于标量二次函数。更高次乘积的导数条件取决于次数和定义域。例如 $x^{3}$ 的导数在全实线上不是Lipschitz的，但在任意给定有界区间上具有有限Lipschitz常数。
+ 
+-**命题D.7。** 令 $r_{ReLU}(x) = max\{ 0,x\}$。不存在有限非负 $L$，使在全部非零点上有
++**命题D.7。** 令 $r_{\mathrm{ReLU}}(x) = \max\{ 0,x\}$。不存在有限非负常数 $L$，使在全部非零点上有
+ 
+ $$|{r_{ReLU}}'(x) - {r_{ReLU}}'(y)| \leq L|x - y|. \tag{D-33}$$
+ 
+@@ -3561,74 +3505,60 @@
+ 
+ 对向量映射，链式法则为 $D(f_{out} \circ g)(x) = Df_{out}(g(x))Dg(x)$。按上述方式加减中间项，并使用算子范数的次乘性，可得到相同常数形式。这是对标量论证的直接数学推广。
+ 
+-特征函数的Lipschitz常数不能替代其导数Lipschitz常数。取 $f_{out}(u) = u$、$g(x) = max\{ 0,x\}$，则 $L_{out} = 0$，$K_{g} = 1$，但 $f_{out} \circ g$ 的导数在原点两侧跳跃。由 $L_{out}K_{g}$ 或 $L_{out}K_{g}^{2}$ 单独构造复合导数上界都会错误地得到0。
+-
+-外层平滑饱和也不能一般性消除内部导数跳跃。若 $g$ 为左右斜率不同的分段线性函数，且 $g(0) = 0$，由于 $\tanh'(0) = 1$，$\tanh \circ g$ 在原点两侧保留不同的一侧导数。只有完整映射确实满足相应条件时，才能应用前述二次误差界。
+-
+-**D.6 基本性质。**前述分析关注完整策略对状态的响应。下面单独研究固定惩罚价值算子。实际公交配置同时使用式(D-4c)的策略正则和式(D-4e)的价值目标，两种训练操作不相互替代。本节以固定参数、精确期望和有限集合为条件分析理想价值更新，不将其直接等同于随机梯度训练。
+-
+-设状态、动作和模式集合 $\mathcal{S,A,Z}$ 有限非空。令 $0 \leq \gamma < 1$，模式转移核满足
+-
+-$$P_{z}(s' \mid s,a) \geq 0,\quad\quad\sum_{s'}^{}P_{z}(s' \mid s,a) = 1. \tag{D-41}$$
+-
+-给定固定奖励 $R_{z}$、认知惩罚 $\Gamma_{epi,z}$、符号惩罚 $\Gamma_{sym,z}$ 以及非负系数 $\lambda_{epi},\lambda_{sym}$。定义
++特征函数的Lipschitz常数 $K_g$ 不能替代其一阶导数的Lipschitz常数 $L_g$。例如取 $f_{\mathrm{out}}(u) = u$、$g(x) = \max\{ 0,x\}$，虽有 $L_{\mathrm{out}} = 0$、$K_{g} = 1$，但 $f_{\mathrm{out}} \circ g$ 的导数在原点两侧发生阶跃跳变；同理，若内部特征网络 $g$ 在原点处存在左右斜率不等的折角且 $g(0) = 0$，由于 $\tanh'(0) = 1$，外层叠加平滑变换 $\tanh \circ g$ 在原点两侧仍保留不同的单侧导数。因此，唯当内部特征变换与外层输出映射同时满足可微与导数Lipschitz条件时，方可应用上述二阶泰勒误差界。
++
++**D.6 固定符号惩罚下价值算子的基本性质。**设状态、动作和模式集合 $\mathcal{S},\mathcal{A},\mathcal{Z}$ 均有限非空。令 $0 \leq \gamma < 1$，模式条件转移核满足
++
++$$P_{z}(s' \mid s,a) \geq 0,\qquad \sum_{s'}P_{z}(s' \mid s,a) = 1. \tag{D-41}$$
++
++给定固定奖励 $R_{z}$、认知不确定性惩罚 $\Gamma_{\mathrm{epi},z}$、符号导数偏差惩罚 $\Gamma_{\mathrm{sym},z}$ 以及非负系数 $\lambda_{\mathrm{epi}},\lambda_{\mathrm{sym}}$，记
+ 
+ $$V_{Q}(s) = \max_{a}Q(s,a), \tag{D-42}$$
+ 
+ $$\begin{aligned}
+-(\mathcal{T}_{z}Q)(s,a) = R_{z}(s,a) + \gamma\lbrack & \sum_{s'}^{}P_{z}(s' \mid s,a)V_{Q}(s') \\
+- & - \lambda_{epi}\Gamma_{epi,z}(s,a) \\
+- & - \lambda_{sym}\Gamma_{sym,z}(s,a) - \kappa_{fix}\rbrack.
++(\mathcal{T}_{z}Q)(s,a) = R_{z}(s,a) + \gamma\Big\lbrack & \sum_{s'}P_{z}(s' \mid s,a)V_{Q}(s') \\
++ & - \lambda_{\mathrm{epi}}\Gamma_{\mathrm{epi},z}(s,a) \\
++ & - \lambda_{\mathrm{sym}}\Gamma_{\mathrm{sym},z}(s,a) - \kappa_{\mathrm{fix}}\Big\rbrack.
+ \end{aligned} \tag{D-43}$$
+ 
+-给定固定置信 $\rho(z) \geq 0$、$\sum_{z}^{}\rho(z) = 1$，混合算子为
+-
+-$$(\mathcal{T}_{CS}Q)(s,a) = \sum_{z}^{}\rho(z)(\mathcal{T}_{z}Q)(s,a). \tag{D-44}$$
+-
+-范数取有限状态动作空间上的最大范数。固定是指比较两个输入 $Q_{1},Q_{2}$ 时，上述奖励、惩罚、置信和转移均相同。
+-
+-使用C.2的混合随机核 ${\overline{P}}_{\rho}$，将固定项记为
++给定固定模式信念 $\rho(z) \geq 0$、$\sum_{z}\rho(z) = 1$，CS-BAPR的置信加权算子定义为
++
++$$(\mathcal{T}_{\mathrm{CS}}Q)(s,a) = \sum_{z}\rho(z)(\mathcal{T}_{z}Q)(s,a). \tag{D-44}$$
++
++沿用附录C.2的混合随机转移核 ${\overline{P}}_{\rho}$，将与输入价值函数 $Q$ 无关的固定项合并记为
+ 
+ $$\begin{aligned}
+-{\overline{R}}_{pen,CS}(s,a) = \sum_{z}^{}\rho(z)\lbrack & R_{z}(s,a) - \gamma\lambda_{epi}\Gamma_{epi,z}(s,a) \\
+- & - \gamma\lambda_{sym}\Gamma_{sym,z}(s,a) - \gamma\kappa_{fix}\rbrack.
++{\overline{R}}_{\mathrm{pen,CS}}(s,a) = \sum_{z}\rho(z)\Big\lbrack & R_{z}(s,a) - \gamma\lambda_{\mathrm{epi}}\Gamma_{\mathrm{epi},z}(s,a) \\
++ & - \gamma\lambda_{\mathrm{sym}}\Gamma_{\mathrm{sym},z}(s,a) - \gamma\kappa_{\mathrm{fix}}\Big\rbrack.
+ \end{aligned} \tag{D-45}$$
+ 
+-**命题D.11。** 在D.6的条件下，$\mathcal{T}_{CS}$ 单调，满足折扣平移性质，且
+-
+-$$\parallel \mathcal{T}_{CS}Q_{1} - \mathcal{T}_{CS}Q_{2} \parallel_{\infty} \leq \gamma \parallel Q_{1} - Q_{2} \parallel_{\infty}. \tag{D-46}$$
+-
+-**证明。** 按有限求和重排，$\mathcal{T}_{CS}Q = {\overline{R}}_{pen,CS} + \gamma{\overline{P}}_{\rho}V_{Q}$。命题C.1保证 ${\overline{P}}_{\rho}$ 是随机核，符号惩罚在此次比较中固定，因而并入 ${\overline{R}}_{pen,CS}$ 后满足定理A.1的条件。三项结论直接成立，唯一固定点及精确迭代的几何误差界由推论A.1给出。证毕。
+-
+-对一次给定的小批量，固定策略、符号参考和奖励缩放量后，式(D-4d)的平均导数误差可以作为式(D-43)中的固定符号项，并对各模式使用同一数值。该项在同一小批量内由全部记录共享，但可随下一次采样或策略更新改变；停止梯度不意味着它在整个训练过程中保持不变。
+-
+-最终公交配置的符号系数为0.01，价值目标中的权重范数项关闭。实际更新对三个目标价值网络取较小估计，并从当前策略采样后继动作；式(D-42)则使用理想最大值聚合，公交实现也不显式构造模式转移核后再混合。因此，命题D.11用于说明固定加性惩罚不改变所分析价值算子的收缩性质，不将理想模式算子与实际小批量更新视为同一算法，也不据此证明策略与价值网络的联合训练收敛。
+-
+-**D.7 反馈影响。**给定非负证据 $\mathcal{L}(z)$，若 $Z_{norm} = \sum_{z}^{}\rho(z)\mathcal{L}(z) > 0$，则更新 $\rho^{+}(z) = \rho(z)\mathcal{L}(z)/Z_{norm}$ 由命题C.2保持非负且归一化。在下一次输入比较中固定 $\rho^{+}$，便可继续使用命题D.11。
+-
+-考虑单状态单动作模型，令符号惩罚随输入值变化：$\Gamma(Q_{sc}) = C_{pen} - \mu_{fb}Q_{sc}$。其中固定截距取实数，反馈斜率非负；沿用非负符号惩罚系数与严格折扣条件。把与 $Q_{sc}$ 无关的常数合并为固定即时项，该项不随被比较的动作价值输入变化，算子为
+-
+-$$T_{symfb}(Q_{sc}) = R_{0} + \gamma(1 + \lambda_{sym}\mu_{fb})Q_{sc}. \tag{D-47}$$
+-
+-记 $c_{symfb} = \gamma(1 + \lambda_{sym}\mu_{fb}) \geq 0$，则
+-
+-$$|T_{symfb}(Q_{sc,1}) - T_{symfb}(Q_{sc,2})| = c_{symfb}|Q_{sc,1} - Q_{sc,2}|. \tag{D-48}$$
+-
+-当 $c_{symfb} < 1$ 时该算子仍是收缩；当 $c_{symfb} = 1$ 时为非扩张但不是严格收缩；当 $c_{symfb} > 1$ 时任意不同输入间距离都扩大。后两种情形取 $Q_{sc,1} = 1,Q_{sc,2} = 0$ 就足以排除小于1的全局收缩系数。
+-
+-若 $0 < \gamma < 1$、$\lambda_{sym} > 0$，临界反馈强度为
+-
+-$$\mu_{fb,crit} = \frac{1/\gamma - 1}{\lambda_{sym}}. \tag{D-49}$$
+-
+-例如 $\gamma = 0.99$、$\lambda_{sym} = 0.01$ 时，临界值约为1.0101。若要求所考察两个输入上的惩罚非负，可取 $C_{pen} \geq \mu_{fb}$，则 $\Gamma(0),\Gamma(1) \geq 0$，仍得到相同反例。
+-
+-该模型说明固定惩罚是收缩性的充分条件，而不是必要条件。输入依赖反馈是否破坏收缩，取决于其增益与折扣共同决定的距离放大系数。
+-
+-**D.8 误差关系。**本节在动作映射层面引入一个有限基函数模型，分析它与给定参考动作及学习策略之间的导数误差。设$\varphi_{i}:X_{in} \rightarrow X_{out}$为可微基函数，$i = 1,\ldots,n$，实系数向量为$c_{coef}$，相应模型记为$f_{c_{coef}}$。
+-
+-这里的有限线性组合是用于误差分解的一般动作模型，不等同于第D.1节预测一步代价的${\widehat{c}}_{l}(s,a)$。第D.1节先拟合代价，再经过指数加权及截断构造动作参考$f_{ref}$，因而不能把代价模型的系数误差或预测误差直接当作动作参考的导数误差。将本节结论用于该配置时，需要对完整参考构造另外建立相应误差条件。以下先在这些导数误差界已经给定的条件下展开分析。符号模型写为
+-
+-$$f_{c_{coef}}(x) = \sum_{i = 1}^{n}c_{coef,i}\varphi_{i}(x). \tag{D-50}$$
++**命题D.11。** 在D.6节的固定信念与固定惩罚条件下，$\mathcal{T}_{\mathrm{CS}}$ 单调，满足折扣平移性质，且为无穷范数下的 $\gamma$-压缩映射：
++
++$$\| \mathcal{T}_{\mathrm{CS}}Q_{1} - \mathcal{T}_{\mathrm{CS}}Q_{2} \|_{\infty} \leq \gamma \| Q_{1} - Q_{2} \|_{\infty}. \tag{D-46}$$
++
++**证明。** 按有限求和重排可得 $\mathcal{T}_{\mathrm{CS}}Q = {\overline{R}}_{\mathrm{pen,CS}} + \gamma{\overline{P}}_{\rho}V_{Q}$。由命题C.1知 ${\overline{P}}_{\rho}$ 为合法随机核，而单步冻结的符号惩罚并入 ${\overline{R}}_{\mathrm{pen,CS}}$ 后在两输入相减时精确抵消，故直接满足定理A.1的条件，唯一不动点及精确迭代的几何误差界由推论A.1给出。证毕。
++
++在式(D-4e)的小批量更新中，通过停止梯度算子 $\mathrm{sg}(\bar{\mathcal{L}}_{\mathrm{JC}}')$ 阻断符号导数误差项对价值网络参数的耦合反馈，即可使单步更新内的符号惩罚项作为固定标量进入自举目标。
++
++**D.7 符号惩罚耦合于价值输入时的反馈影响。**给定非负似然证据 $L(z)$，当归一化常数 $Z_{\mathrm{norm}} = \sum_{z}\rho(z)L(z) > 0$ 时，更新后的信念 $\rho^{+}(z) = \rho(z)L(z)/Z_{\mathrm{norm}}$ 由命题C.2保持非负归一化，在下一单步更新内固定 $\rho^{+}$ 仍满足命题D.11。
++
++反之，若在单状态单动作模型中令符号惩罚随当前在训价值输入线性变化：$\Gamma(Q_{\mathrm{sc}}) = C_{\mathrm{pen}} - \mu_{\mathrm{fb}}Q_{\mathrm{sc}}$（其中 $\mu_{\mathrm{fb}} \geq 0$），合并与 $Q_{\mathrm{sc}}$ 无关的常数项 $R_{0}$ 后，更新算子变为
++
++$$T_{\mathrm{symfb}}(Q_{\mathrm{sc}}) = R_{0} + \gamma(1 + \lambda_{\mathrm{sym}}\mu_{\mathrm{fb}})Q_{\mathrm{sc}}. \tag{D-47}$$
++
++记有效距离因子为 $c_{\mathrm{symfb}} = \gamma(1 + \lambda_{\mathrm{sym}}\mu_{\mathrm{fb}}) \geq 0$，则有
++
++$$|T_{\mathrm{symfb}}(Q_{\mathrm{sc},1}) - T_{\mathrm{symfb}}(Q_{\mathrm{sc},2})| = c_{\mathrm{symfb}}|Q_{\mathrm{sc},1} - Q_{\mathrm{sc},2}|. \tag{D-48}$$
++
++当 $0 < \gamma < 1$、$\lambda_{\mathrm{sym}} > 0$ 时，保持严格收缩（$c_{\mathrm{symfb}} < 1$）的临界反馈斜率阈值为
++
++$$\mu_{\mathrm{fb,crit}} = \frac{1/\gamma - 1}{\lambda_{\mathrm{sym}}}. \tag{D-49}$$
++
++例如当 $\gamma = 0.99$、$\lambda_{\mathrm{sym}} = 0.01$ 时，$\mu_{\mathrm{fb,crit}} \approx 1.0101$；一旦反馈斜率 $\mu_{\mathrm{fb}} \geq \mu_{\mathrm{fb,crit}}$（取 $C_{\mathrm{pen}} \geq \mu_{\mathrm{fb}}$ 可同时保证 $\Gamma(0),\Gamma(1) \geq 0$），算子即丧失严格收缩性质。
++
++**D.8 符号基函数展开的导数误差传递关系。**本节在动作映射层面引入有限基函数展开模型，分析其与参考动作映射 $f_{\mathrm{ref}}$ 及学习策略映射 $\mu_{\mathrm{det}}$ 之间的导数误差传递关系。设 $\varphi_{i}:X_{\mathrm{in}} \rightarrow X_{\mathrm{out}}$（$i = 1,\ldots,n$）为可微基函数，实系数向量为 $c_{\mathrm{coef}}$，对应的线性组合动作模型记为
++
++$$f_{c_{\mathrm{coef}}}(x) = \sum_{i = 1}^{n}c_{\mathrm{coef},i}\varphi_{i}(x). \tag{D-50}$$
+ 
+ 有限和与标量乘法保持可微性，因而
+ 
+@@ -3774,150 +3704,129 @@
+ 
+ 由于E.1已经保证${\widehat{P}}_{R}$合法，将$P$替换为${\widehat{P}}_{R}$便得到残差模型的收缩性质。它不需要残差拟合误差为零，也不要求残差来自某种特定回归算法。
+ 
+-固定策略后的状态核仍非负且归一化，期望奖励仍满足式(E-2)。由有限维空间的完备性、定理E.1及收缩映射不动点定理，存在唯一价值固定点$V_{P}^{\pi}$，精确迭代$V_{n + 1} = T_{P}^{\pi}V_{n}$满足
+-
+-$$\parallel V_{n} - V_{P}^{\pi} \parallel_{\infty} \leq \gamma^{n} \parallel V_{0} - V_{P}^{\pi} \parallel_{\infty}. \tag{E-11}$$
+-
+-进一步，对固定点方程取绝对值并使用奖励界，得到
+-
+-$$\parallel V_{P}^{\pi} \parallel_{\infty} \leq R_{\max} + \gamma \parallel V_{P}^{\pi} \parallel_{\infty}. \tag{E-12}$$
+-
+-移项并除以$1 - \gamma > 0$，有
+-
+-$$\parallel V_{P}^{\pi} \parallel_{\infty} \leq \frac{R_{\max}}{1 - \gamma}. \tag{E-13}$$
+-
+-该上界由奖励有界性与折扣条件共同决定，对所有状态成立。
+-
+-**E.3 误差关系。**对两个有限概率分布$p,q$，定义
+-
+-$$TV(p,q) = \frac{1}{2}\sum_{j}^{}|p_{j} - q_{j}|. \tag{E-14}$$
+-
+-**引理E.2。** 对任意有界函数$f$，
+-
+-$$\left| \sum_{j}^{}(p_{j} - q_{j})f_{j} \right| \leq 2 \parallel f \parallel_{\infty}TV(p,q). \tag{E-15}$$
+-
+-**证明。** 使用三角不等式，
+-
+-$$\left| \sum_{j}^{}(p_{j} - q_{j})f_{j} \right| \leq \sum_{j}^{}|p_{j} - q_{j}|\,|f_{j}| \leq \parallel f \parallel_{\infty}\sum_{j}^{}|p_{j} - q_{j}|. \tag{E-16}$$
+-
+-代入总变差定义即得。证毕。系数2不能在奖励可以正负取值的这一论证中直接省略。
+-
+-设目标模型$P_{tgt}$与残差模型${\widehat{P}}_{R}$共享奖励$R$和折扣$\gamma$。定义
+-
+-$$\varepsilon_{P} = \max_{s,a}TV\left( P_{tgt}( \cdot \mid s,a),{\widehat{P}}_{R}( \cdot \mid s,a) \right). \tag{E-17}$$
+-
+-**定理E.2。** 对任意固定合法策略$\pi$，
+-
+-$$\parallel V_{tgt}^{\pi} - {\widehat{V}}_{R}^{\pi} \parallel_{\infty} \leq \frac{2\gamma R_{\max}}{(1 - \gamma)^{2}}\varepsilon_{P}. \tag{E-18}$$
+-
+-**证明。** 记价值差$\varepsilon_{V} = \parallel V_{tgt}^{\pi} - {\widehat{V}}_{R}^{\pi} \parallel_{\infty}$。由引理E.2及价值上界，
++固定策略后的状态转移核仍保持非负与概率归一化，期望奖励仍满足式(E-2)。由有限维赋范空间的完备性、定理E.1及巴拿赫不动点定理，算子存在唯一价值不动点 $V_{P}^{\pi}$，精确迭代 $V_{n + 1} = T_{P}^{\pi}V_{n}$ 满足
++
++$$\| V_{n} - V_{P}^{\pi} \|_{\infty} \leq \gamma^{n} \| V_{0} - V_{P}^{\pi} \|_{\infty}. \tag{E-11}$$
++
++进一步，对不动点方程取绝对值并代入奖励有界条件，可得
++
++$$\| V_{P}^{\pi} \|_{\infty} \leq R_{\max} + \gamma \| V_{P}^{\pi} \|_{\infty}. \tag{E-12}$$
++
++移项并除以 $1 - \gamma > 0$，即得状态价值函数的一致有界估计：
++
++$$\| V_{P}^{\pi} \|_{\infty} \leq \frac{R_{\max}}{1 - \gamma}. \tag{E-13}$$
++
++**E.3 误差关系。**对两个有限离散概率分布 $p,q$，定义总变差距离（Total Variation Distance）为
++
++$$\mathrm{TV}(p,q) = \frac{1}{2}\sum_{j}|p_{j} - q_{j}|. \tag{E-14}$$
++
++**引理E.2。** 对任意有界函数 $f$，有
++
++$$\left| \sum_{j}(p_{j} - q_{j})f_{j} \right| \leq 2 \| f \|_{\infty}\,\mathrm{TV}(p,q). \tag{E-15}$$
++
++**证明。** 由三角不等式，
++
++$$\left| \sum_{j}(p_{j} - q_{j})f_{j} \right| \leq \sum_{j}|p_{j} - q_{j}|\,|f_{j}| \leq \| f \|_{\infty}\sum_{j}|p_{j} - q_{j}|. \tag{E-16}$$
++
++代入式(E-14)总变差定义即得。证毕。
++
++设目标环境转移核 $P_{\mathrm{tgt}}$ 与残差修正转移核 ${\widehat{P}}_{R}$ 共享奖励函数 $R$ 和折扣因子 $\gamma$，记一致总变差误差上界为
++
++$$\varepsilon_{P} = \max_{s,a}\mathrm{TV}\!\left( P_{\mathrm{tgt}}( \cdot \mid s,a),\ {\widehat{P}}_{R}( \cdot \mid s,a) \right). \tag{E-17}$$
++
++**定理E.2。** 对任意固定合法策略 $\pi$，有
++
++$$\| V_{\mathrm{tgt}}^{\pi} - {\widehat{V}}_{R}^{\pi} \|_{\infty} \leq \frac{2\gamma R_{\max}}{(1 - \gamma)^{2}}\varepsilon_{P}. \tag{E-18}$$
++
++**证明。** 记价值不动点之差为 $\varepsilon_{V} = \| V_{\mathrm{tgt}}^{\pi} - {\widehat{V}}_{R}^{\pi} \|_{\infty}$。由引理E.2及式(E-13)价值上界，有
+ 
+ $$\begin{aligned}
+- & \parallel T_{P_{tgt}}^{\pi}V_{tgt}^{\pi} - T_{{\widehat{P}}_{R}}^{\pi}V_{tgt}^{\pi} \parallel_{\infty} \\
+- & \quad\quad \leq 2\gamma \parallel V_{tgt}^{\pi} \parallel_{\infty}\varepsilon_{P} \leq \frac{2\gamma R_{\max}}{1 - \gamma}\varepsilon_{P}.
++\| T_{P_{\mathrm{tgt}}}^{\pi}V_{\mathrm{tgt}}^{\pi} - T_{{\widehat{P}}_{R}}^{\pi}V_{\mathrm{tgt}}^{\pi} \|_{\infty} &\leq 2\gamma \| V_{\mathrm{tgt}}^{\pi} \|_{\infty}\varepsilon_{P} \\
++ &\leq \frac{2\gamma R_{\max}}{1 - \gamma}\varepsilon_{P}.
+ \end{aligned} \tag{E-19}$$
+ 
+-在两个固定点之间加减$T_{{\widehat{P}}_{R}}^{\pi}V_{tgt}^{\pi}$，再结合式(E-9)与式(E-19)，得到
++在两个不动点之间加减中间项 $T_{{\widehat{P}}_{R}}^{\pi}V_{\mathrm{tgt}}^{\pi}$，再结合式(E-9)与式(E-19)，可得
+ 
+ $$\begin{aligned}
+-\varepsilon_{V} & \leq \parallel T_{P_{tgt}}^{\pi}V_{tgt}^{\pi} - T_{{\widehat{P}}_{R}}^{\pi}V_{tgt}^{\pi} \parallel_{\infty} \\
+- & \quad + \parallel T_{{\widehat{P}}_{R}}^{\pi}V_{tgt}^{\pi} - T_{{\widehat{P}}_{R}}^{\pi}{\widehat{V}}_{R}^{\pi} \parallel_{\infty} \\
+- & \leq \frac{2\gamma R_{\max}}{1 - \gamma}\varepsilon_{P} + \gamma\varepsilon_{V}.
++\varepsilon_{V} &\leq \| T_{P_{\mathrm{tgt}}}^{\pi}V_{\mathrm{tgt}}^{\pi} - T_{{\widehat{P}}_{R}}^{\pi}V_{\mathrm{tgt}}^{\pi} \|_{\infty} + \| T_{{\widehat{P}}_{R}}^{\pi}V_{\mathrm{tgt}}^{\pi} - T_{{\widehat{P}}_{R}}^{\pi}{\widehat{V}}_{R}^{\pi} \|_{\infty} \\
++ &\leq \frac{2\gamma R_{\max}}{1 - \gamma}\varepsilon_{P} + \gamma\varepsilon_{V}.
+ \end{aligned} \tag{E-20}$$
+ 
+-将式(E-20)中的$\gamma\varepsilon_{V}$移至左侧，再除以$1 - \gamma > 0$，得到式(E-18)。固定策略对动作的概率加权不放大式(E-17)的统一总变差界，因此该论证同样适用于状态动作转移核。证毕。
+-
+-该定理说明：固定模型上的贝尔曼迭代误差可以随迭代消失，但模型相对目标环境的误差仍由$\varepsilon_{P}$控制。算子收缩和模型正确性不能相互替代。
+-
+-若奖励也不同，设两模型的奖励绝对值均不超过$R_{\max}$，并令
+-
+-$$\varepsilon_{r} = \max_{s,a}|R_{tgt}(s,a) - \widehat{R}(s,a)|. \tag{E-21}$$
+-
+-对同一价值函数，两种模型的一步贝尔曼更新还会因奖励不同而产生至多$\varepsilon_{r}$的误差。沿用前述分解，有
++将 $\gamma\varepsilon_{V}$ 移至左端并除以 $1 - \gamma > 0$，即得式(E-18)。证毕。
++
++若两模型的奖励函数亦存在差异，设两模型奖励绝对值均不超过 $R_{\max}$，且单步期望奖励的一致误差上界为
++
++$$\varepsilon_{r} = \max_{s,a}|R_{\mathrm{tgt}}(s,a) - \widehat{R}(s,a)|, \tag{E-21}$$
++
++则一步贝尔曼更新额外引入至多 $\varepsilon_{r}$ 的即时奖励偏差：
+ 
+ $$\varepsilon_{V} \leq \varepsilon_{r} + \frac{2\gamma R_{\max}}{1 - \gamma}\varepsilon_{P} + \gamma\varepsilon_{V}, \tag{E-22}$$
+ 
+-从而
++移项化简即得正文第6.3.4节式(6-13)的完整误差上界：
+ 
+ $$\varepsilon_{V} \leq \frac{\varepsilon_{r}}{1 - \gamma} + \frac{2\gamma R_{\max}}{(1 - \gamma)^{2}}\varepsilon_{P}. \tag{E-23}$$
+ 
+-式(E-23)将奖励误差与转移误差对固定策略价值的影响分别列出，对应正文第6.3.4节的误差分析。
+-
+-**无折扣有限事件时域。** 对第5、6章的公交任务，将运营时刻、待决策事件及终止信息纳入状态，并将终止后补齐为零奖励吸收状态。本补充允许可测状态动作空间，假定策略、奖励和转移核均可测，总变差定义为可测集合上的概率差上确界。两概率测度之差的全变差质量等于这一上确界的两倍，故式(E-15)的有界函数估计仍适用于积分形式。比较模型共用状态、动作及终止定义；在对两模型均封闭的分析范围内，另假设每条路径至多有$K_{\max}$个决策事件，各模型每事件奖励绝对值不超过$R_{\max}$，期望即时奖励的统一误差不超过$\varepsilon_{r}$，后继事件、运行状态、事件间隔和终止信息的联合转移核总变差误差不超过$\varepsilon_{P}$。对同一固定策略，令剩余$n_{rem}$个事件的价值误差为
+-
+-$$e_{n_{rem}} = \parallel V_{n_{rem}}^{\pi} - {\widehat{V}}_{n_{rem}}^{\pi} \parallel_{\infty},\quad\quad e_{0} = 0. \tag{E-23a}$$
+-
+-在两个有限时域递推式之间加入并减去使用同一后继价值的中间项。即时奖励贡献至多$\varepsilon_{r}$，后继价值差贡献至多$e_{n_{rem}}$；剩余$n_{rem}$个事件的价值绝对值不超过$n_{rem}R_{\max}$，由式(E-15)得到联合转移误差项。因此
+-
+-$$e_{n_{rem} + 1} \leq \varepsilon_{r} + e_{n_{rem}} + 2n_{rem}R_{\max}\varepsilon_{P}. \tag{E-23b}$$
+-
+-从$e_{0} = 0$开始对$n_{rem} = 0,\ldots,K_{\max} - 1$逐项求和，使用$2\sum_{n_{rem} = 0}^{K_{\max} - 1}n_{rem} = K_{\max}(K_{\max} - 1)$，得到
+-
+-$$\parallel V_{K_{\max}}^{\pi} - {\widehat{V}}_{K_{\max}}^{\pi} \parallel_{\infty} \leq K_{\max}\varepsilon_{r} + K_{\max}(K_{\max} - 1)R_{\max}\varepsilon_{P}. \tag{E-23c}$$
+-
+-该推导不使用严格折扣，且把事件时间和结束条件包含在转移中。$K_{\max}$是决策事件数上界，不是24,000秒运营时长；同时到站车辆的序贯选择即使不推进物理时间，也占据决策事件。现有预测均方误差不是上述联合核的总变差，已有实验也未估计统一的$K_{\max}$、奖励界和转移误差界。因此式(E-23c)用于说明有限时域的误差传播条件，不作为已经验证的公交数值性能保证，也不将$\gamma = 1$代入式(E-23)。
+-
+-回到本附录前述有限状态设定，还可以只在状态子集$\mathcal{C \subseteq S}$上比较模型。此时，奖励与转移误差界只需覆盖$s\mathcal{\in C}$及策略赋予正概率的动作，但两种模型在这些状态动作下都必须以概率1留在$\mathcal{C}$。贝尔曼算子因而可限制在仅记录$\mathcal{C}$内各状态价值的有限维空间上，前述证明继续成立，结论中的范数相应改为$\parallel \cdot \parallel_{\mathcal{\infty,C}}$。
+-
+-这一局部结论要求分析范围对两种模型均封闭。仅列出目标策略在某些运行轨迹中访问过的状态，既不能保证近似模型也留在其中，也不足以控制其余状态的最大价值误差。
+-
+-例如，取两个状态0、1，只有一个动作，初始状态为0，奖励为$R(0) = 0,R(1) = 1$。目标模型令两个状态各自吸收，近似模型令状态0吸收、状态1下一步转移到0。两模型在从0开始的全部访问轨迹上完全相同，访问范围内的转移误差为零。然而
+-
+-$$V_{tgt}(1) = \frac{1}{1 - \gamma},\quad\quad\widehat{V}(1) = 1, \tag{E-24}$$
+-
+-所以当$0 < \gamma < 1$时，全局价值误差至少为$\gamma/(1 - \gamma) > 0$。该例表明，仅控制已访问状态上的模型误差，不能得到覆盖全部状态的最大范数误差界；还需对其余状态建立相应的误差条件。
+-
+-若一列近似模型在同一固定策略、同一奖励界及同一封闭分析范围上满足$\varepsilon_{P,n} \rightarrow 0$和$\varepsilon_{r,n} \rightarrow 0$，则上述界给出
+-
+-$$\parallel V_{tgt}^{\pi} - {\widehat{V}}_{n}^{\pi} \parallel_{\infty} \rightarrow 0. \tag{E-25}$$
+-
+-**证明。** 价值误差非负，并由式(E-23)中两个非负项之和控制。固定折扣条件下，两项的系数均为有限常数；当奖励误差和转移误差分别趋于零时，上界趋于零。由夹逼定理得到式(E-25)。证毕。
+-
+-**E.4 数据覆盖。**模型在数据采集策略下准确，不等于对任意新策略准确。下面给出一个有限且可直接计算的例子。
+-
+-设状态为$\{ 0,1\}$，动作为$\{ a_{0},a_{1}\}$，初始状态为0，奖励为$R(0,a) = 0$、$R(1,a) = 1$，$0 < \gamma < 1$。目标模型在状态0执行$a_{0}$时留在0，执行$a_{1}$时转移到1；状态1在任一动作下都吸收。近似模型在状态0执行任一动作都留在0，状态1也吸收。
+-
+-数据采集策略始终选择$a_{0}$，因此只能观察$(0,a_{0},0)$。在这一数据支持集上，近似模型与目标模型完全一致，增加同一策略下的样本数量不会暴露$(0,a_{1})$上的差异。
+-
+-若新策略在状态0选择$a_{1}$，则目标环境在第一步之后获得持续奖励1，而近似模型始终停留在零奖励状态。因此
+-
+-$$V_{tgt}^{\pi'}(0) = \sum_{k = 1}^{\infty}\gamma^{k} = \frac{\gamma}{1 - \gamma},\quad\quad{\widehat{V}}^{\pi'}(0) = 0. \tag{E-26}$$
+-
+-该例说明，模型在已有数据支持集上的零误差，可以与新策略下的正价值误差同时存在。数据覆盖是把预测误差用于控制分析的重要条件。
+-
+-这一结论与公交离线学习中的覆盖问题一致：只观察某类停站行为，并不足以辨识所有其他停站行为的运行后果。它指出的是数据条件，而不是否定利用仿真补充经验的价值。
+-
+-**E.5 更新条件。**在式(E-6)的概率约束下，将合法转移残差集合写为闭集，并直接分析保持该集合的更新映射：
++**无折扣有限事件时域下的误差界。** 针对第5、6章采用有限时域无折扣（$\gamma = 1$）设置的公交事件决策任务，将运营时刻、待决策事件及终止标记纳入增广状态，并将终止后补齐为零奖励吸收态。设在对两模型均封闭的分析范围内，每条运行轨迹至多包含 $K_{\max}$ 个决策事件，单次事件奖励绝对值不超过 $R_{\max}$，期望即时奖励的一致误差不超过 $\varepsilon_{r}$，联合转移核的总变差误差不超过 $\varepsilon_{P}$。对同一固定策略 $\pi$，记剩余 $n_{\mathrm{rem}}$ 个事件时的价值误差为
++
++$$e_{n_{\mathrm{rem}}} = \| V_{n_{\mathrm{rem}}}^{\pi} - {\widehat{V}}_{n_{\mathrm{rem}}}^{\pi} \|_{\infty},\qquad e_{0} = 0. \tag{E-23a}$$
++
++在两个有限时域递推式之间加减使用同一后继价值的中间项：即时奖励误差贡献至多 $\varepsilon_{r}$，后继价值误差贡献至多 $e_{n_{\mathrm{rem}}}$；同时，剩余 $n_{\mathrm{rem}}$ 个事件的累积价值绝对值不超过 $n_{\mathrm{rem}}R_{\max}$，由式(E-15)可得转移核误差项至多为 $2n_{\mathrm{rem}}R_{\max}\varepsilon_{P}$。因此递推不等式为
++
++$$e_{n_{\mathrm{rem}} + 1} \leq \varepsilon_{r} + e_{n_{\mathrm{rem}}} + 2n_{\mathrm{rem}}R_{\max}\varepsilon_{P}. \tag{E-23b}$$
++
++从 $e_{0} = 0$ 出发对 $n_{\mathrm{rem}} = 0,\ldots,K_{\max} - 1$ 累加求和，利用 $\sum_{n_{\mathrm{rem}} = 0}^{K_{\max} - 1}2n_{\mathrm{rem}} = K_{\max}(K_{\max} - 1)$，即得有限事件步时域的价值评估误差上界：
++
++$$\| V_{K_{\max}}^{\pi} - {\widehat{V}}_{K_{\max}}^{\pi} \|_{\infty} \leq K_{\max}\varepsilon_{r} + K_{\max}(K_{\max} - 1)R_{\max}\varepsilon_{P}. \tag{E-23c}$$
++
++回到有限状态折扣设定，若仅在状态子集 $\mathcal{C} \subseteq \mathcal{S}$ 上比较两模型，当奖励与转移误差界覆盖所有 $s \in \mathcal{C}$ 及策略赋予正概率的动作、且两模型在这些状态动作下均以概率1保持在子集 $\mathcal{C}$ 内（即 $\mathcal{C}$ 对两模型后继转移封闭）时，贝尔曼算子可限制在子集价值空间 $\mathbb{R}^{|\mathcal{C}|}$ 上，上述定理结论对子集上确界范数 $\|\cdot\|_{\infty,\mathcal{C}}$ 同样成立。
++
++反之，若缺乏全状态空间或封闭子集上的误差控制，仅在初始轨迹访问的局部状态上满足零误差，并不能控制其余状态上的价值偏差。例如设状态集为 $\{0,1\}$、单动作、初始状态为 $0$，奖励为 $R(0) = 0, R(1) = 1$：目标模型令状态 $0,1$ 均自吸收，近似模型令状态 $0$ 自吸收、状态 $1$ 一步转移至状态 $0$。从初态 $0$ 出发的轨迹仅访问状态 $0$，两模型在该轨迹上的转移误差为零；然而在状态 $1$ 上有
++
++$$V_{\mathrm{tgt}}(1) = \frac{1}{1 - \gamma},\qquad \widehat{V}(1) = 1, \tag{E-24}$$
++
++当 $0 < \gamma < 1$ 时，全局最大范数价值误差为 $\gamma/(1 - \gamma) > 0$。
++
++若一列近似模型在同一固定策略、同一奖励上界及同一封闭状态子集上满足 $\varepsilon_{P,n} \rightarrow 0$ 和 $\varepsilon_{r,n} \rightarrow 0$，则由式(E-23)及夹逼定理立得一致收敛性：
++
++$$\| V_{\mathrm{tgt}}^{\pi} - {\widehat{V}}_{n}^{\pi} \|_{\infty} \rightarrow 0. \tag{E-25}$$
++
++**E.4 数据覆盖。**模型在历史数据采集策略下预测准确，并不自动保证对任意新策略同样准确。考察如下双状态双动作反例：设状态集为 $\{ 0,1\}$，动作集为 $\{ a_{0},a_{1}\}$，初始状态为 $0$，奖励为 $R(0,a) = 0$、$R(1,a) = 1$，$0 < \gamma < 1$。目标模型在状态 $0$ 执行 $a_{0}$ 时留在 $0$、执行 $a_{1}$ 时转移至吸收态 $1$；近似模型则在状态 $0$ 执行任一动作均留在 $0$。
++
++若历史数据采集策略始终选择动作 $a_{0}$，则数据集仅包含转移 $(0,a_{0},0)$，近似模型在历史数据支撑集上的预测误差恒为零；然而当新策略 $\pi'$ 在状态 $0$ 选择动作 $a_{1}$ 时，两模型下的状态价值分别为
++
++$$V_{\mathrm{tgt}}^{\pi'}(0) = \sum_{k = 1}^{\infty}\gamma^{k} = \frac{\gamma}{1 - \gamma},\qquad {\widehat{V}}^{\pi'}(0) = 0. \tag{E-26}$$
++
++该反例直观印证了第5章与第6章在固定离线数据之外引入源仿真在线探索以拓展动作覆盖范围的理论必要性。
++
++**E.5 更新条件。**在式(E-6)的概率约束下，合法转移残差集合构成有限维空间 $X_{\delta} = \mathbb{R}^{|\mathcal{S}|\,|\mathcal{A}|\,|\mathcal{S}|}$ 中的非空紧致凸闭集：
+ 
+ $$\begin{aligned}
+-X_{\delta} & = \mathbb{R}^{|S|\,|A|\,|S|}, \\
+-\mathcal{C}_{\delta} & = \{\delta \in X_{\delta}:P_{sim} + \delta \geq 0,\ \sum_{s'}^{}\delta(s,a,s') = 0\}, \\
+-F & :\mathcal{C}_{\delta} \rightarrow \mathcal{C}_{\delta}.
++X_{\delta} &= \mathbb{R}^{|\mathcal{S}|\,|\mathcal{A}|\,|\mathcal{S}|}, \\
++\mathcal{C}_{\delta} &= \Big\{\delta \in X_{\delta}:\ P_{\mathrm{sim}} + \delta \geq 0,\ \sum_{s'}\delta(s,a,s') = 0\Big\}, \\
++F &:\mathcal{C}_{\delta} \rightarrow \mathcal{C}_{\delta},
+ \end{aligned} \tag{E-27}$$
+ 
+-其中，$X_{\delta}$是按各状态动作对及其后继状态排列残差分量所得的有限维实向量空间，$\mathcal{C}_{\delta}$是使组合转移概率合法的残差集合。非负概率与各行残差和为0构成闭约束；零残差属于该集合，因此$\mathcal{C}_{\delta}$非空，并在最大范数下完备。$F(\delta)$表示由当前残差所对应的策略、数据条件及下一次模型拟合共同确定的更新，假定$F$将合法残差仍映射为合法残差。范数仍为
+-
+-$$\parallel \delta \parallel_{\infty} = \max_{s,a,s'}|\delta(s,a,s')|. \tag{E-28}$$
+-
+-若直接假设
+-
+-$$\parallel F(\delta_{1}) - F(\delta_{2}) \parallel_{\infty} \leq L \parallel \delta_{1} - \delta_{2} \parallel_{\infty},\quad\quad 0 \leq L < 1, \tag{E-29}$$
+-
+-则$F$是收缩映射。这一前提与贝尔曼算子的收缩前提不同。前者需要描述策略更新、数据分布变化和回归优化共同形成的映射，后者只需要固定合法随机核与折扣。
+-
+-**定理E.3。** 若$F$在上述合法残差闭集上满足收缩条件，则存在唯一$\delta^{*}$满足$F(\delta^{*}) = \delta^{*}$。迭代$\delta_{n + 1} = F(\delta_{n})$满足
+-
+-$$\parallel \delta_{n} - \delta^{*} \parallel_{\infty} \leq L^{n} \parallel \delta_{0} - \delta^{*} \parallel_{\infty}. \tag{E-30}$$
+-
+-**证明。**非空闭集$\mathcal{C}_{\delta}$完备，$F$保持该集合并满足式(E-29)，由收缩映射不动点定理得到唯一固定点；反复比较迭代与固定点即得式(E-30)。证毕。
+-
+-这是以完整残差更新收缩为前提的条件结论，不是对实际MC-WM拟合过程已经满足该条件的证明。唯一固定点也不必等于真实转移差，识别真实残差仍需数据可辨识性及拟合一致性。
+-
+-若残差更新由策略调整、访问分布变化及模型再拟合复合而成，可分别以 $L_{adj}$、$L_{occ}$ 和 $B$ 描述其敏感性。要应用收缩定理，仍需证明完整映射满足
+-
+-$$\parallel F(\delta_{1}) - F(\delta_{2}) \parallel_{\infty} \leq L_{adj}L_{occ}B \parallel \delta_{1} - \delta_{2} \parallel_{\infty} \tag{E-31}$$
+-
+-且 $L_{adj}L_{occ}B < 1$。这一乘积形式要求各组件之间具有可复合的Lipschitz关系。若实际策略优化或回归步骤不满足其中某项条件，则应直接分析完整更新映射，不能仅凭组件名称确定其收缩系数。
++赋予无穷范数
++
++$$\| \delta \|_{\infty} = \max_{s,a,s'}|\delta(s,a,s')|. \tag{E-28}$$
++
++若由策略更新、访问分布变化与模型重拟合复合而成的完整残差更新映射 $F:\mathcal{C}_{\delta} \rightarrow \mathcal{C}_{\delta}$ 满足压缩条件
++
++$$\| F(\delta_{1}) - F(\delta_{2}) \|_{\infty} \leq L \| \delta_{1} - \delta_{2} \|_{\infty},\qquad 0 \leq L < 1, \tag{E-29}$$
++
++则可得如下不动点存在唯一性定理：
++
++**定理E.3。** 若映射 $F$ 在非空完备闭集 $\mathcal{C}_{\delta}$ 上满足式(E-29)，则存在唯一残差不动点 $\delta^{*} \in \mathcal{C}_{\delta}$ 满足 $F(\delta^{*}) = \delta^{*}$，且迭代序列 $\delta_{n + 1} = F(\delta_{n})$ 满足
++
++$$\| \delta_{n} - \delta^{*} \|_{\infty} \leq L^{n} \| \delta_{0} - \delta^{*} \|_{\infty}. \tag{E-30}$$
++
++**证明。** 非空闭集 $\mathcal{C}_{\delta}$ 在无穷范数下完备，$F$ 映射 $\mathcal{C}_{\delta}$ 至自身且满足式(E-29)，由巴拿赫不动点定理立得唯一不动点 $\delta^{*}$ 及几何收敛界式(E-30)。证毕。
++
++若复合更新映射 $F$ 由策略调整、访问分布映射与回归拟合三步串联而成，それぞれのLipschitz常数分别为 $L_{\mathrm{adj}}$、$L_{\mathrm{occ}}$ 和 $B$，则当乘积满足 $L = L_{\mathrm{adj}}L_{\mathrm{occ}}B < 1$ 时：
++
++$$\| F(\delta_{1}) - F(\delta_{2}) \|_{\infty} \leq L_{\mathrm{adj}}L_{\mathrm{occ}}B \| \delta_{1} - \delta_{2} \|_{\infty}, \tag{E-31}$$
++
++即可满足定理E.3的压缩前提条件。
+ 
+ **E.6 置信排序。**本节分析一个静态排序问题：按预测误差构造的正值置信评分与二元判别后验评分在何种条件下对同一批输入给出相同的严格排序。
+ 
+@@ -3973,52 +3882,40 @@
+ 
+ 对于差值不超过阈值 $2\varepsilon_{\mathrm{rank}}/\tau_{\mathrm{rank}}$ 的点对，当 $e_{\mathrm{resid}}(x)$ 随状态显著波动时，两类评分可能给出不同的局部排序。
+ 
+-**E.7 理论解释。**合法残差核保持了固定策略评价的收缩结构，但所得固定点是否接近目标价值，还取决于模型与目标环境之间的误差。因而，源结构的保留、目标数据拟合和策略评价承担不同作用：源结构提供先验表达，目标数据修正分布差异，策略评价检验这些修正的控制效果。
+-
+-第6章使用标准化一步预测误差比较模型类别，并通过一步模型样本参与策略更新。预测误差与转移核总变差不是同一度量；把前者代入后者的价值界，需要额外建立概率模型与误差度量之间的关系。本附录的有限模型分析提供误差分解，连续动力学中的实际适应效果由相应实验考察。
+-
+-E.6研究的是指数型误差关系下的静态排序。第6章的置信评价还包含后继置信度递推更新，二者具有不同时间结构。静态排序结论用于说明分数一致性的条件，不能直接替代动态置信评价的性能分析。E.9进一步分析固定传播关系下归一化对数置信的尺度变化。
+-
+-**E.8 适用范围。**价值误差界要求误差控制覆盖被评价的状态空间，或者限定在对两种模型均封闭的状态子集内。采集策略的访问集合未必覆盖新策略可能到达的状态；E.4的反例说明，仅在原有数据上降低预测误差不足以保证全局价值误差降低。
+-
+-残差拟合的收敛分析以完整更新映射满足收缩条件为前提。策略、数据分布和模型参数共同变化时，各部分的正则性必须能够组合为该条件，单独一次拟合误差下降并不能给出固定点收敛结论。
+-
+-置信排序分析要求正值信号、指定的对数关系及相应误差间隔。上述关系需要由所采用的概率模型或信号定义得到；对任意评分函数并不成立。因此，条件排序等价、预测风险降低和控制收益改善应分别论证。
+-
+-**E.9 尺度分析。**第6.3.2节改变即时对数置信的系数。本节固定策略、局部置信函数及传播关系，分析这一改变对精确评价固定点的作用。令$x = (s,a)$，$c(x) \in \lbrack c_{\min}^{\Delta},1\rbrack$为局部置信，其中$c_{\min}^{\Delta} > 0$是给定下界；$K_{\Delta}^{\pi}(x' \mid x)$为策略$\pi$下包含非终止条件的置信传播核，满足非负性及$\sum_{x'}^{}K_{\Delta}^{\pi}(x' \mid x) \leq 1$。不足1的概率质量表示终止后不再传播置信。状态动作集合$\mathcal{S} \times \mathcal{A}$取为有限集，$Q^{\Delta}$表示其上的任意实值置信评价函数，定义原算子与归一化算子
++**E.7 理论解释。**合法残差转移核保持了固定策略评价算子的收缩结构，而所得价值不动点与真实目标价值的接近程度则由两者的单步奖励误差 $\varepsilon_{r}$ 与转移总变差误差 $\varepsilon_{P}$ 共同决定（定理E.2）：源模型结构提供基础动力学先验，目标域离线数据修正跨域分布偏移，验证集误差准则则在残差修正与直接建模之间客观择优。
++
++**E.8 适用范围。**定理E.2的价值误差上界要求误差控制覆盖整个状态空间或对两模型后继转移均封闭的状态子集；E.4节的反例表明，仅在历史采集策略支撑集上降低预测误差不足以保证新策略下的全局价值精度，需结合源仿真在线探索扩展动作覆盖。
++
++**E.9 对数置信度递推的尺度归一化分析。**本节在固定策略、固定局部可靠性评分函数及状态转移核的条件下，严格证明正文第6.2.3节原始对数置信度递推（式(6-5)）与归一化对数置信度递推（式(6-7)）的不动点幂次尺度关系。记状态—动作对为 $x = (s,a)$，局部预测可靠性评分为 $c(x) \in [c_{\min}^{\Delta}, 1]$（其中下界 $c_{\min}^{\Delta} > 0$）；记 $K_{\Delta}^{\pi}(x' \mid x)$ 为策略 $\pi$ 下包含非终止条件 $(1-d)$ 的一步转移核，满足非负性及次概率行和条件 $\sum_{x'}K_{\Delta}^{\pi}(x' \mid x) \leq 1$（严格小于1的部分对应终止事件）。在有限状态动作集合 $\mathcal{S} \times \mathcal{A}$ 上，定义原始对数置信度算子 $T_{\Delta}^{\pi}$ 与归一化对数置信度算子 ${\widetilde{T}}_{\Delta}^{\pi}$ 分别为：
+ 
+ $$\begin{aligned}
+-(T_{\Delta}^{\pi}Q^{\Delta})(x) & = logc(x) + \gamma_{\Delta}\sum_{x'}^{}K_{\Delta}^{\pi}(x' \mid x)Q^{\Delta}(x'), \\
+-({\widetilde{T}}_{\Delta}^{\pi}Q^{\Delta})(x) & = (1 - \gamma_{\Delta})logc(x) + \gamma_{\Delta}\sum_{x'}^{}K_{\Delta}^{\pi}(x' \mid x)Q^{\Delta}(x'),
++(T_{\Delta}^{\pi}Q^{\Delta})(x) &= \log c(x) + \gamma_{\Delta}\sum_{x'}K_{\Delta}^{\pi}(x' \mid x)Q^{\Delta}(x'), \\
++({\widetilde{T}}_{\Delta}^{\pi}Q^{\Delta})(x) &= (1 - \gamma_{\Delta})\log c(x) + \gamma_{\Delta}\sum_{x'}K_{\Delta}^{\pi}(x' \mid x)Q^{\Delta}(x'),
+ \end{aligned} \tag{E-43}$$
+ 
+-其中$0 \leq \gamma_{\Delta} < 1$，$T_{\Delta}^{\pi}$和${\widetilde{T}}_{\Delta}^{\pi}$分别作用于原对数置信与归一化对数置信。
+-
+-**命题E.1。** （置信尺度归一化）两算子均为无穷范数下的$\gamma_{\Delta}$收缩，具有唯一固定点$Q^{\Delta,*}$和${\widetilde{Q}}^{\Delta,*}$，且
++式中，递推折扣系数满足 $0 \leq \gamma_{\Delta} < 1$。
++
++**命题E.1（对数置信度不动点尺度归一化定理）。** 算子 $T_{\Delta}^{\pi}$ 与 ${\widetilde{T}}_{\Delta}^{\pi}$ 均为无穷范数下的 $\gamma_{\Delta}$-压缩映射，各自存在唯一不动点 $Q^{\Delta,*}$ 与 ${\widetilde{Q}}^{\Delta,*}$，且两不动点及其对应的指数样本权重满足如下精确恒等关系：
+ 
+ $$\begin{aligned}
+-{\widetilde{Q}}^{\Delta,*} & = (1 - \gamma_{\Delta})Q^{\Delta,*}, \\
+-exp({\widetilde{Q}}^{\Delta,*}) & = \lbrack exp(Q^{\Delta,*})\rbrack^{1 - \gamma_{\Delta}}.
++{\widetilde{Q}}^{\Delta,*}(x) &= (1 - \gamma_{\Delta})\,Q^{\Delta,*}(x), \\
++\exp\!\big({\widetilde{Q}}^{\Delta,*}(x)\big) &= \Big\lbrack \exp\!\big(Q^{\Delta,*}(x)\big)\Big\rbrack^{1 - \gamma_{\Delta}}.
+ \end{aligned} \tag{E-44}$$
+ 
+-**证明。** 对任意有界置信评价函数$Q_{1}^{\Delta},Q_{2}^{\Delta}$，即时项在算子相减时抵消。利用传播核非负且行和不超过1，得到
+-
+-$$\parallel {\widetilde{T}}_{\Delta}^{\pi}Q_{1}^{\Delta} - {\widetilde{T}}_{\Delta}^{\pi}Q_{2}^{\Delta} \parallel_{\infty} \leq \gamma_{\Delta} \parallel Q_{1}^{\Delta} - Q_{2}^{\Delta} \parallel_{\infty}. \tag{E-45}$$
+-
+-原算子同理；行和小于1只会减弱后继项的传播，不影响这一收缩界。两个算子均作用于有限维完备空间，因此分别存在唯一固定点。将原固定点等式两侧乘以1−$\gamma_{\Delta}$，并利用有限概率加权对评价函数的线性性，得到
++**证明。** 对任意两个有界置信评价函数 $Q_{1}^{\Delta},Q_{2}^{\Delta}$，即时项在算子作差时精确抵消；利用传播核 $K_{\Delta}^{\pi}$ 非负且行和不超过1，有
++
++$$\| {\widetilde{T}}_{\Delta}^{\pi}Q_{1}^{\Delta} - {\widetilde{T}}_{\Delta}^{\pi}Q_{2}^{\Delta} \|_{\infty} \leq \gamma_{\Delta} \| Q_{1}^{\Delta} - Q_{2}^{\Delta} \|_{\infty}. \tag{E-45}$$
++
++原始算子 $T_{\Delta}^{\pi}$ 同理。由于两算子均作用于有限维完备赋范空间，故各自存在唯一不动点 $Q^{\Delta,*}$ 与 ${\widetilde{Q}}^{\Delta,*}$。将原始算子的不动点方程 $Q^{\Delta,*}(x) = (T_{\Delta}^{\pi}Q^{\Delta,*})(x)$ 两端同乘常数 $(1 - \gamma_{\Delta})$，并利用线性性将 $(1 - \gamma_{\Delta})$ 移入求和号内，可得
+ 
+ $$\begin{aligned}
+- & (1 - \gamma_{\Delta})Q^{\Delta,*}(x) \\
+- & = (1 - \gamma_{\Delta})logc(x) + \gamma_{\Delta}\sum_{x'}^{}K_{\Delta}^{\pi}(x' \mid x)(1 - \gamma_{\Delta})Q^{\Delta,*}(x').
++(1 - \gamma_{\Delta})Q^{\Delta,*}(x) &= (1 - \gamma_{\Delta})\log c(x) + \gamma_{\Delta}\sum_{x'}K_{\Delta}^{\pi}(x' \mid x)\,\big[(1 - \gamma_{\Delta})Q^{\Delta,*}(x')\big] \\
++ &= \Big({\widetilde{T}}_{\Delta}^{\pi}\big[(1 - \gamma_{\Delta})Q^{\Delta,*}\big]\Big)(x).
+ \end{aligned} \tag{E-46}$$
+ 
+-因此$(1 - \gamma_{\Delta})Q^{\Delta,*}$也是归一化算子的固定点，由唯一性得到式(E-44)的第一式，再取指数得到第二式。证毕。
+-
+-若无终止且局部置信恒定为$c_{const}$，传播核行和为1，常数函数$Q^{\Delta,*} = logc_{const}/(1 - \gamma_{\Delta})$和${\widetilde{Q}}^{\Delta,*} = logc_{const}$分别满足两固定点方程。原权重因而为$c_{const}^{1/(1 - \gamma_{\Delta})}$，归一化权重为$c_{const}$，得到正文的尺度解释。
+-
+-例如无终止、局部评分恒为0.5且$\gamma_{\Delta} = 0.9$时，原精确权重为${0.5}^{10} \approx 0.00098$，归一化权重为0.5。该例解释的是更新强度的尺度差。第6章同时设置固定0.5样本权重的对照，用于区分权重整体增大与状态相关加权的作用；相应收益不能全部解释为状态排序更加准确。
+-
+-函数$z \mapsto z^{1 - \gamma_{\Delta}}$在正实数上严格递增，故两种精确权重保持相同排序。归一化没有据此获得更准确的概率解释，也不保证控制回报提高；它改变的是该评分进入价值损失时的数值强度。实际训练中策略和预测误差随更新变化，两个神经网络也未必达到精确固定点，因此本命题用于解释第6.3.2节的改造方向，控制效果另由第6.4.2至6.4.3节的配对实验给出。
++式(E-46)表明 $(1 - \gamma_{\Delta})Q^{\Delta,*}$ 恰好满足归一化算子 ${\widetilde{T}}_{\Delta}^{\pi}$ 的不动点方程；由不动点的唯一性立得 ${\widetilde{Q}}^{\Delta,*} = (1 - \gamma_{\Delta})Q^{\Delta,*}$，两端取指数即得式(E-44)第二式。证毕。
++
++特别地，当过程非终止（$\sum_{x'}K_{\Delta}^{\pi}(x' \mid x) = 1$）且局部可靠性评分恒为常数 $c_{\mathrm{const}} \in (0,1)$ 时，常值函数 $Q^{\Delta,*} = \frac{\log c_{\mathrm{const}}}{1 - \gamma_{\Delta}}$ 与 ${\widetilde{Q}}^{\Delta,*} = \log c_{\mathrm{const}}$ 分别为两算子的唯一不动点，取指数后原始不动点权重为 $c_{\mathrm{const}}^{1/(1 - \gamma_{\Delta})}$，而归一化不动点权重恰为 $c_{\mathrm{const}}$（即正文第6.3.4节式(6-15)）。例如当 $c_{\mathrm{const}} = 0.5$ 且 $\gamma_{\Delta} = 0.9$ 时，原始递推不动点权重坍缩为 $0.5^{10} \approx 0.000977$，而归一化递推不动点权重保持为 $0.5$；同时，由于幂变换 $z \mapsto z^{1 - \gamma_{\Delta}}$ 在正实数域 $(0,\infty)$ 上严格单调递增，归一化递推在不改变各状态动作对之间相对可靠性排序的前提下，消除了折现深度引起的幂次衰减，恢复了模型辅助分支在动作价值更新中的有效梯度尺度。
+ 
+ # 附录F 公交世界模型的补充实验
+ 

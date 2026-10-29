@@ -1,0 +1,13 @@
+timed out after 2.0s waiting for scheduler state lock (status:readonly); try `status --readonly` or wait for dispatch/cancel to finish
+Traceback (most recent call last):
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_trace_target_v44_20261024/continue_batch.py", line 54, in <module>
+    main()
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_trace_target_v44_20261024/continue_batch.py", line 39, in main
+    await_outputs([[f'runs/{case}/summary.json', f'runs/{case}/failure.json']
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_trace_target_v44_20261024/continue_batch.py", line 23, in await_outputs
+    rows = json.loads(subprocess.check_output([
+  File "/usr/lib/python3.10/subprocess.py", line 421, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+  File "/usr/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/bin/python3', '/home/erzhu419/mine_code/scheduleurm/skill/scheduler.py', 'status', '--readonly', '--json', '--ids', 't211519,t211520']' returned non-zero exit status 1.

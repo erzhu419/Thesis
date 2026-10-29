@@ -1,0 +1,49 @@
+{
+  "status": "DESIGN_DIRECTION_ONLY_NOT_A_RUNNABLE_PROTOCOL",
+  "purpose": "Test whether dripping feedback can add action-relevant service prediction beyond frozen MC-WM.",
+  "candidate_direction": "Action-conditioned short-term service model with frozen MC-WM actor,critic,V,temperature and original F.",
+  "supervision_targets": [
+    "feeder actual alighting time",
+    "receiver actual departure time",
+    "actual connecting onboard count"
+  ],
+  "critical_prerequisite": "Prediction responds correctly to changed holding actions, not merely fits arrival times under the behavior policy.",
+  "current_support": "v114 shock same complete root: both feeder alighting times14552, receiver service window and connection differ. v116 has current-state observations but no new outcome labels.",
+  "unresolved_before_execution": [
+    "Label maturity and feedback quota must be fixed; these two retrospectively selected snapshots are insufficient training data.",
+    "Action support and continuation policy must be specified; v116 does not restore the learner.",
+    "Separate current-stage facts from additional planned itinerary and next-leg permission.",
+    "A matched no_fresh must share the new observations, predictor initialization and control mechanism; fresh updates are the treatment."
+  ],
+  "cost_gate_source": "experiments/mcwm_historical_coverage_v111_20261029/protocol.json:cost_gate",
+  "cost_gate": {
+    "metric": "full-day (2W+R)/15079 including unfinished passenger time",
+    "vs_matched_no_fresh": {
+      "mean": "<0",
+      "stable": "<=0",
+      "local_speed_drop": "<0"
+    },
+    "vs_same_actor_frozen_MCWM": "each scenario<=0 and at least one<0",
+    "early_tail": "descriptive"
+  },
+  "automatic_launch": false,
+  "new_jobs_authorized_by_this_file": 0,
+  "minimum_next_diagnostic": {
+    "root": "stable v114 low receiver122S_33 at18966 before apply",
+    "comparison": "original holding vs one longer holding shown statically reachable through original F",
+    "freeze_before_run": [
+      "actual executable dose",
+      "common continuation policy",
+      "fixed short horizon",
+      "complete prefix and suffix compute budget"
+    ],
+    "measure": [
+      "receiver departure",
+      "feeder actual arrival and alighting",
+      "actual receiver boarding"
+    ],
+    "reuse": "shock v114 existing same-state comparison; do not repeat it",
+    "stop": "No controllable connection window within F closes this route; no dose sweep.",
+    "scope": "One mechanism identification, not performance or independent confirmation; new replay is separately charged."
+  }
+}

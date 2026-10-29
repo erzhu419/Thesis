@@ -1,0 +1,75 @@
+{
+  "name": "thesis-mcwm-sync-pilot-v43-20261024",
+  "training_seed": 6202,
+  "native_external_seed": 106243,
+  "action_seed": 436243,
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "learner_arm": "shared_level",
+  "focus_lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "target_lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "memory_window_seconds": 300,
+  "feedback_delay_seconds": 30,
+  "warmup_deadlines": [
+    1200,
+    1500,
+    1800
+  ],
+  "feedback_records_per_packet": 5,
+  "feedback_interval_seconds": 300,
+  "issue_window": [
+    9000,
+    9300
+  ],
+  "release_clock": 9630,
+  "events_per_arm": 45,
+  "branch_seconds": 300,
+  "root_holds_seconds": [
+    0.0,
+    1.875
+  ],
+  "minimum_gap_steps": 1.5,
+  "target_record_budget": 285,
+  "ordinary_records": 15,
+  "response_records": 270,
+  "policy_update_budget": 456,
+  "warmup_updates": 24,
+  "response_updates": 432,
+  "policy_updates_per_packet": 8,
+  "shock_at_seconds": 9000,
+  "speed_factor": 0.65,
+  "metric_interval_seconds": 300,
+  "diagnostic_seed": 436202,
+  "snapshot_checkpoints": [
+    "actual_post24",
+    "post456"
+  ],
+  "credit_score_after_updates": [
+    24,
+    32,
+    48,
+    80,
+    144,
+    272,
+    400,
+    456
+  ],
+  "scheduler_priority": "high",
+  "summary_max_bytes": 24000,
+  "collection": "new common native prefix; frozen complete stochastic original50000 until warmup24 actually completes, then frozen complete stochastic actual_post24 through unchanged F; root interventions0/1.875",
+  "budget": "15 new ordinary rows + six new45-closure chains; all270 admitted at real9630 before432 native one-step updates; no old truth or trace targets",
+  "limits": "Missing/short/late chains are not replaced; zero-duration closures occupy slots; no synthetic300 state; no suffix training; post9630 zero training",
+  "scientific_scope": "Prospective one-step feasibility pilot, one fixed algorithm and one seed per scenario. Not a trace treatment or realized policy control comparison. Conditional expected-log products are fixed-state proxies."
+}

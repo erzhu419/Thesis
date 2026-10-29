@@ -1,0 +1,117 @@
+{
+  "status": "complete",
+  "reusable": true,
+  "integrity": {
+    "all_pass": true,
+    "checks": {
+      "source_contract": true,
+      "only_incorrect_clock_gate_failed": true,
+      "original_native_complete": true,
+      "selected_and_predictions_exact": true,
+      "first_zero_exact": true,
+      "fork_batch_other_controls_exact": true,
+      "fixed_zero_exact": true,
+      "suffix300": true,
+      "suffix_frozen": true,
+      "truth_not_fit": true,
+      "actor_input_source": true,
+      "full_prefix_exact": true,
+      "native_event_clock_exact": true,
+      "raw_event_clock_exact": true,
+      "delivery_clock_exact": true,
+      "prefix_issue_count_exact": true,
+      "failed_prefix_accounted": true
+    }
+  },
+  "original_status": "integrity_failed",
+  "original_failed_checks": [
+    "actor_real_clock"
+  ],
+  "first_branch_relative": "branches_retest/7X/low",
+  "prefix": {
+    "checks": {
+      "full_prefix_exact": true,
+      "native_event_clock_exact": true,
+      "raw_event_clock_exact": true,
+      "delivery_clock_exact": true,
+      "prefix_issue_count_exact": true
+    },
+    "issue_count": 11756,
+    "delivery_minus_event_seconds": {
+      "min": 1.0,
+      "max": 1.0
+    }
+  },
+  "source": {
+    "integrity": {
+      "all_pass": true,
+      "check_count": 14,
+      "failed_checks": []
+    },
+    "budget": {
+      "target_labels": 285,
+      "ordinary_labels": 267,
+      "paired_action_labels": 18,
+      "training_pairs": 9,
+      "paired_outcomes_per_pair": 2,
+      "packets": 57,
+      "native_seconds": 24000.0,
+      "policy_updates": 456,
+      "trust_updates": 456,
+      "world_updates": 1140
+    },
+    "initializer": {
+      "path": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_formal_20261020/inputs/h2oplus_seed6201.pt",
+      "initial_updates": 50000,
+      "history_rows": 32768,
+      "source_rows": 4096
+    }
+  },
+  "actor_source_inspection": {
+    "actor_receives_original_state": true,
+    "no_state_clock_assignment": true,
+    "method_lines": [
+      22,
+      32
+    ]
+  },
+  "suffix_evidence": {
+    "per_issue_clock_records_saved": false,
+    "basis": "Original PhasePolicy passes state[None] directly; PairedControlledStream constructs canonical state from the unmodified native event batch. The saved summary verifies the exact300 native steps, tail formula and zero training. This is source-path evidence, not a new per-issue suffix replay.",
+    "references": [
+      "phase_stream.py:22-33",
+      "experiments/mcwm_closed_loop_response_residual_v11_20261021/paired_stream.py:120-126",
+      "experiments/mcwm_closed_loop_response_residual_v11_20261021/paired_stream.py:80-81"
+    ]
+  },
+  "clock": {
+    "event": "Original SUMO event detection clock used by actor.",
+    "delivery": "Native passenger ledger issue clock; not substituted into actor state.",
+    "original_max_delivery_vs_actor_error_seconds": 1.0007133483886719,
+    "no_new_tolerance": true
+  },
+  "budget": {
+    "first_branch_reused": true,
+    "new_rerun_outcomes": 0,
+    "completed_diagnostic_outcomes": 1,
+    "completed_suffix_seconds": 300,
+    "prefix_replay_seconds": 16865.0,
+    "replayed_target_labels": 265,
+    "replayed_policy_updates": 424,
+    "failed_prefix_replay": {
+      "task": "t211043",
+      "native_seconds_replayed": 2737,
+      "replayed_target_labels": 30,
+      "replayed_policy_updates": 48,
+      "new_suffix_seconds": 0,
+      "new_diagnostic_action_outcomes": 0,
+      "reason": "Saved source acquisitions carry nominal_a, not plan-only nominal_arm; preserve failed output and retest from the same fixed source.",
+      "last_packet_progress_seconds": 2703
+    },
+    "new_training_labels": 0,
+    "remaining_new_outcomes": 5,
+    "total_outcome_limit": 6,
+    "total_suffix_seconds_limit": 1800
+  },
+  "raw_results_modified": false
+}

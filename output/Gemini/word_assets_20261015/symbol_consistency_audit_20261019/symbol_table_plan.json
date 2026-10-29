@@ -1,0 +1,987 @@
+{
+  "intro": "数学记号按字母、上下标及字体识别。下标sim、tgt分别表示源仿真和目标环境。帽号表示估计或预测；目标网络的撇号及目标参数的横线按各节定义识别。星号表示相应问题的最优解或计划目标。同一字母在不同章节或局部证明中的含义依其作用域区分，求和、积分及定理中临时定义的局部变量不逐一列入。",
+  "rows": [
+    {
+      "source_row": 1,
+      "action": "update",
+      "original_symbol": "$\\mathcal{L,l}$",
+      "original_definition": "方向性线路服务集合及其元素",
+      "correct_tex": "\\mathcal L_{od},l",
+      "correct_definition": "OD对(o,d)的可服务线路集合及线路索引（式5-5）",
+      "reason": "保留第5章确实使用的线路集合，删除表中未对应的泛称。"
+    },
+    {
+      "source_row": 2,
+      "action": "update",
+      "original_symbol": "$b,j_{tr},i$",
+      "original_definition": "车辆、班次和线路内站点位置索引",
+      "correct_tex": "v,i,j",
+      "correct_definition": "车辆索引v；同车事件序号i（2.7.1节）；班次索引i与站点序号j（3.2.2节）",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 3,
+      "action": "keep",
+      "original_symbol": "$t,t_{k},\\Delta t_{k}$",
+      "original_definition": "物理时刻、第$k$次决策时刻和相邻决策持续时间",
+      "correct_tex": "$t,t_{k},\\Delta t_{k}$",
+      "correct_definition": "物理时刻、第$k$次决策时刻和相邻决策持续时间",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 4,
+      "action": "update",
+      "original_symbol": "$T_{hor},K_{evt}$",
+      "original_definition": "控制时域终点和回合内事件数",
+      "correct_tex": "T_{\\mathrm{hor}}",
+      "correct_definition": "规定评价与控制时域的终点",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 5,
+      "action": "update",
+      "original_symbol": "$t_{j_{tr}}^{plan},t_{j_{tr}}^{act}$",
+      "original_definition": "班次计划与实际发车时刻",
+      "correct_tex": "t^{d},t^{s},y_{i,j}^{a},y_{i,j}^{d}",
+      "correct_definition": "本站计划离站时刻、完成必要上下客的时刻；班次i在站点j的实际到站与离站时刻（第2、3章）",
+      "reason": "采用原公式实际时刻记号，上标字体随原定义。"
+    },
+    {
+      "source_row": 6,
+      "action": "update",
+      "original_symbol": "$h^{f},h^{b}$；$h_{f},h_{b},{\\widehat{h}}_{b}$",
+      "original_definition": "前向与后向车头时距",
+      "correct_tex": "h_f,h_b,\\widehat h_b",
+      "correct_definition": "前向、后向车头时距及决策时刻可得的后向车头时距估计值",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 7,
+      "action": "update",
+      "original_symbol": "$h^{f,*},h^{b,*}$；$h_{f}^{*},h_{b}^{*}$",
+      "original_definition": "前向与后向计划间隔",
+      "correct_tex": "h_f^*,h_b^*,h_s",
+      "correct_definition": "前向与后向计划间隔；单线路等间隔场景的共同计划间隔h_s",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 8,
+      "action": "update",
+      "original_symbol": "$u,u_{\\max}$",
+      "original_definition": "以秒计的驻站时长及其上限",
+      "correct_tex": "a,a_{\\max}",
+      "correct_definition": "以秒计的附加驻站时长及其上限",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 9,
+      "action": "update",
+      "original_symbol": "$a,a^{n}$",
+      "original_definition": "决策模型动作变量及归一化附加驻站动作编码",
+      "correct_tex": "\\widetilde a",
+      "correct_definition": "策略网络内部的归一化附加驻站动作，取值范围[-1,1]",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 10,
+      "action": "update",
+      "original_symbol": "$d^{svc},d^{run},d^{exit}$",
+      "original_definition": "必要上下客、道路行驶及驶离等待的持续时间",
+      "correct_tex": "d_{i,j}^{svc},d_{i,j}^{run},d_{i,j}^{exit},d^{svc}(h)",
+      "correct_definition": "第i个班次在第j个站点的必要上下客服务、驶往下一站的道路行驶及出站驶离等待耗时（第3.2.2节）；第4.2.1节以d^{svc}(h)表示随车头时距变化的必要服务耗时",
+      "reason": "d^run/d^exit不是无对应：表中只是省略班次/站点下标的家族名称。P934明确三类量，3-1/3-2重复使用；不可删除这两个持续时间。"
+    },
+    {
+      "source_row": 11,
+      "action": "update",
+      "original_symbol": "$\\lambda_{i},\\eta_{i}^{board}$",
+      "original_definition": "站点客流到达率及单位乘客上车服务时间",
+      "correct_tex": "\\lambda,\\eta^{board}",
+      "correct_definition": "局部乘客到达率与单位乘客上车服务时间（第3、4章；OD分时到达率另依式5-5定义）",
+      "reason": "保留第4章确实使用的上车服务时间，去掉未用的站点索引别名。"
+    },
+    {
+      "source_row": 12,
+      "action": "update",
+      "original_symbol": "$N_{w}(t),N_{v}(t)$",
+      "original_definition": "时刻$t$的候车与车内人数",
+      "correct_tex": "N^{w}(t),N^{b}(t)",
+      "correct_definition": "物理时刻t全系统候车与车内乘客人数",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 13,
+      "action": "update",
+      "original_symbol": "$C_{veh},n_{on}$",
+      "original_definition": "车辆容量与当前载客人数",
+      "correct_tex": "C_{\\mathrm{veh}},n",
+      "correct_definition": "车辆容量；局部乘客成本解析中已在车内的乘客人数n（3.2.6节）",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 14,
+      "action": "update",
+      "original_symbol": "$W,T^{ride},T^{trip}$",
+      "original_definition": "候车时间、车内时间与总出行时间；单位随对应统计协议给出",
+      "correct_tex": "W,T_p^w,T_p^b",
+      "correct_definition": "随机到达乘客的候车时间W；乘客p在规定评价时域内累计的候车与车内时间",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 15,
+      "action": "keep",
+      "original_symbol": "$C_{k},G$",
+      "original_definition": "事件区间乘客成本和人均广义时间成本",
+      "correct_tex": "$C_{k},G$",
+      "correct_definition": "事件区间乘客成本和人均广义时间成本",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 16,
+      "action": "update",
+      "original_symbol": "$N_{dep},N_{cmp}$",
+      "original_definition": "已出发及已完成行程的乘客数",
+      "correct_tex": "N_{\\mathrm{dep}},\\mathcal P_{\\mathrm{dep}}",
+      "correct_definition": "规定评价时域内进入系统的独立出行乘客数及其集合",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 17,
+      "action": "update",
+      "original_symbol": "${CV}_{H}$",
+      "original_definition": "车头时距的变异系数（Coefficient of Variation，CV）",
+      "correct_tex": "H,\\mathrm{CV}_H",
+      "correct_definition": "随机车头时距及其变异系数",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 18,
+      "action": "keep",
+      "original_symbol": "$\\mathcal{S,A,}s,a$",
+      "original_definition": "状态空间、动作空间及其元素",
+      "correct_tex": "$\\mathcal{S,A,}s,a$",
+      "correct_definition": "状态空间、动作空间及其元素",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 19,
+      "action": "keep",
+      "original_symbol": "$P,R,r$",
+      "original_definition": "环境转移核、期望即时奖励函数与实际转移奖励",
+      "correct_tex": "$P,R,r$",
+      "correct_definition": "环境转移核、期望即时奖励函数与实际转移奖励",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 20,
+      "action": "keep",
+      "original_symbol": "$\\iota$",
+      "original_definition": "源仿真或目标环境的索引，取$sim$或$tgt$",
+      "correct_tex": "$\\iota$",
+      "correct_definition": "源仿真或目标环境的索引，取$sim$或$tgt$",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 21,
+      "action": "keep",
+      "original_symbol": "$\\pi_{\\theta},Q_{\\phi},V_{\\nu}$",
+      "original_definition": "参数化策略、动作价值函数与状态价值函数",
+      "correct_tex": "$\\pi_{\\theta},Q_{\\phi},V_{\\nu}$",
+      "correct_definition": "参数化策略、动作价值函数与状态价值函数",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 22,
+      "action": "update",
+      "original_symbol": "$Q_{\\min},Q_{\\min}^{-}$",
+      "original_definition": "当前两个动作价值网络与两个目标动作价值网络各自的较小估计",
+      "correct_tex": "\\widehat Q_{\\min}",
+      "correct_definition": "两个目标动作价值网络输出的较小估计（5.2节）",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 23,
+      "action": "update",
+      "original_symbol": "$\\xi_{\\pi}$",
+      "original_definition": "驻站时长大于0的连续分支重参数化所用的标准高斯噪声",
+      "correct_tex": "\\xi,\\bar\\xi",
+      "correct_definition": "第6章对数置信评价网络及其目标网络的参数；第2章的同形ξ另为CVaR成本阈值",
+      "reason": "原ξ_π高斯噪声无对应，改列实际使用的置信网络参数及其作用域。"
+    },
+    {
+      "source_row": 24,
+      "action": "delete",
+      "original_symbol": "$\\varepsilon_{fp}$",
+      "original_definition": "混合动作数值变换采用的浮点机器精度",
+      "correct_tex": null,
+      "correct_definition": null,
+      "reason": "ε_fp在当前正文和附录无对应，删除旧别名。"
+    },
+    {
+      "source_row": 25,
+      "action": "keep",
+      "original_symbol": "$\\theta,\\phi,\\nu$",
+      "original_definition": "策略、动作价值网络和状态价值网络的参数",
+      "correct_tex": "$\\theta,\\phi,\\nu$",
+      "correct_definition": "策略、动作价值网络和状态价值网络的参数",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": null,
+      "action": "add",
+      "original_symbol": "",
+      "original_definition": "",
+      "correct_tex": "\\mathcal L_Q,\\mathcal L_\\pi,\\mathcal L_V",
+      "correct_definition": "动作价值、策略与状态价值的训练损失；各章按相应目标定义",
+      "reason": "补入全书反复使用的训练损失记号。",
+      "after_row": 25
+    },
+    {
+      "source_row": 26,
+      "action": "update",
+      "original_symbol": "$\\gamma,\\Gamma_{k},d_{k}^{term}$",
+      "original_definition": "折扣因子、事件延续因子和终止标记",
+      "correct_tex": "\\gamma,\\Gamma_k,d_t,d_k,d_i,d",
+      "correct_definition": "回报折扣因子、事件延续因子与回合终止标记；终止标记索引随对应事件定义",
+      "reason": "使用已有终止记号，删除从未采用的term上标。"
+    },
+    {
+      "source_row": 27,
+      "action": "keep",
+      "original_symbol": "$\\alpha_{ent}$；$\\alpha$",
+      "original_definition": "熵温度",
+      "correct_tex": "$\\alpha_{ent}$；$\\alpha$",
+      "correct_definition": "熵温度",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 28,
+      "action": "update",
+      "original_symbol": "$p^{\\circ},\\mathcal{U}_{s,a}$",
+      "original_definition": "固定状态动作对上的名义后继分布与允许的分布集合",
+      "correct_tex": "p^\\circ,\\mathcal P_{s,a},\\mathcal U_{s,a}",
+      "correct_definition": "固定状态动作对的名义后继分布及允许后继分布集合；主文用𝒫，附录A另用𝒰",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 29,
+      "action": "update",
+      "original_symbol": "$\\sigma_{\\mathcal{U}}(f),\\Omega_{\\mathcal{U}}(V)$",
+      "original_definition": "分布集合的支持函数与其对应的价值正则项",
+      "correct_tex": "\\sigma_{\\mathcal P_{s,a}}(u),\\sigma_{\\mathcal U}(f),\\Omega_{\\mathcal U}(V)",
+      "correct_definition": "允许分布集合相对于名义分布的支持函数及相应价值正则项；集合记号按章节区分",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 30,
+      "action": "update",
+      "original_symbol": "$W_{1},d_{\\mathcal{S}},L_{V},\\varepsilon_{ipm}$",
+      "original_definition": "一阶Wasserstein距离、状态距离、状态价值的Lipschitz上界与分布距离半径",
+      "correct_tex": "W_1,d_{\\mathcal S},L_V,\\varepsilon_{\\mathrm{ipm}},\\rho_{\\mathrm{ipm}},\\operatorname{Lip}(V)",
+      "correct_definition": "一阶Wasserstein距离、状态距离、价值Lipschitz上界及分布距离半径；第3章相应记作ρ_ipm与Lip(V)",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 31,
+      "action": "update",
+      "original_symbol": "$C_{traj},\\mathbb{P}_{0}$",
+      "original_definition": "轨迹累计成本与固定策略下的名义轨迹分布",
+      "correct_tex": "C_{\\mathrm{traj}},\\mathbb P_0,Z",
+      "correct_definition": "轨迹累计成本与固定策略下名义轨迹分布；第2.3节的累计成本（及分布RL语境中的随机回报）记为Z",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 32,
+      "action": "update",
+      "original_symbol": "$\\beta_{tail},\\eta_{risk},\\zeta_{risk},\\mathcal{Z}_{\\beta_{tail}}$",
+      "original_definition": "条件风险价值（Conditional Value-at-Risk，CVaR）尾部概率质量、成本阈值、轨迹重加权密度及其风险包络",
+      "correct_tex": "\\beta_{\\mathrm{tail}},\\eta_{\\mathrm{risk}},\\zeta_{\\mathrm{risk}},\\mathcal Z_{\\beta_{\\mathrm{tail}}},\\nu,\\xi,\\zeta",
+      "correct_definition": "CVaR尾部概率质量、成本阈值、轨迹重加权密度及风险包络；第2.3节前三者分别用ν、ξ、ζ",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 33,
+      "action": "update",
+      "original_symbol": "$\\mathcal{D}_{off},\\mathcal{D}_{sim}$",
+      "original_definition": "固定目标离线数据与源仿真交互数据",
+      "correct_tex": "\\mathcal D,\\mathcal D_{\\mathrm{off}},\\mathcal D_{\\mathrm{sim}}",
+      "correct_definition": "通用经验回放数据、固定目标域离线数据与源仿真交互数据",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 34,
+      "action": "update",
+      "original_symbol": "$z^{emb},e_{i},E_{i}$",
+      "original_definition": "拼接后的网络输入、类别编码映射与嵌入矩阵",
+      "correct_tex": "\\boldsymbol{x},\\boldsymbol{o},E_j",
+      "correct_definition": "拼接后的网络输入、连续运行观测与第j类离散变量的嵌入矩阵（式3-4至3-6）",
+      "reason": "与类别变量行分工，避免把第6章模型误差e_i解释为类别编码映射。"
+    },
+    {
+      "source_row": 35,
+      "action": "keep",
+      "original_symbol": "$\\overline{Q},\\sigma_{Q},\\Gamma_{epi}$",
+      "original_definition": "在线价值集成均值、在线集成标准差与目标集成方差",
+      "correct_tex": "$\\overline{Q},\\sigma_{Q},\\Gamma_{epi}$",
+      "correct_definition": "在线价值集成均值、在线集成标准差与目标集成方差",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": null,
+      "action": "add",
+      "original_symbol": "",
+      "original_definition": "",
+      "correct_tex": "K",
+      "correct_definition": "动作价值网络集成的成员数，各章按具体方法设置",
+      "reason": "补入核心集成规模，区别于事件数上界。",
+      "after_row": 35
+    },
+    {
+      "source_row": 36,
+      "action": "update",
+      "original_symbol": "$\\beta_{BC},\\beta_{ood},\\beta_{lcb}$；$\\beta_{bc}$",
+      "original_definition": "行为克隆（Behavior Cloning，BC）、价值网络分歧惩罚及策略保守评价项的系数",
+      "correct_tex": "\\beta_{\\mathrm{bc}},\\beta_{\\mathrm{ood}},\\beta_{\\mathrm{lcb}}",
+      "correct_definition": "行为克隆辅助项、当前在线价值集成分歧惩罚与策略下置信界保守评价的系数",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 37,
+      "action": "update",
+      "original_symbol": "$\\mathcal{L}_{BC},\\widetilde{a}$；$\\mathcal{L}_{bc}$",
+      "original_definition": "未加权的动作平方误差及其中当前策略的采样动作",
+      "correct_tex": "\\mathcal L_{bc}",
+      "correct_definition": "行为克隆辅助项的未加权动作平方误差（式4-18）",
+      "reason": "归一化动作已在原第9行说明，此处不重复列ã。"
+    },
+    {
+      "source_row": 38,
+      "action": "update",
+      "original_symbol": "$z,\\rho(z),G_{z}$",
+      "original_definition": "隐含运行模式、模式置信（模式后验概率）及模式条件执行增益",
+      "correct_tex": "\\mathcal Z,z,b(z),\\rho(z),G_z",
+      "correct_definition": "候选运行模式集合、模式元素、依据历史的模式信念b(z)、冻结备份的模式权重ρ(z)及模式条件执行增益",
+      "reason": "补入实际模式集合与正文信念写法，保留附录使用的ρ(z)。"
+    },
+    {
+      "source_row": null,
+      "action": "add",
+      "original_symbol": "",
+      "original_definition": "",
+      "correct_tex": "\\chi_j^{(r)},\\chi_j^{(q)},\\chi_j^{(w)},\\chi_j,{\\widetilde\\chi}_j,\\mu_j,v_j",
+      "correct_definition": "BAPR的奖励偏差、集成分歧增量和权重范数漂移三项诊断量，其最大值与指数平滑值，以及诊断窗口奖励均值和方差（第4.2.3节）",
+      "reason": "4-7至4-10的核心诊断链未入表；v_j为拉丁v而不是希腊ν。",
+      "after_row": 38
+    },
+    {
+      "source_row": null,
+      "action": "add",
+      "original_symbol": "",
+      "original_definition": "",
+      "correct_tex": "\\mathcal l,\\rho_j(\\mathcal l),L_j(\\mathcal l),\\lambda_w,\\beta_{eff},p_{reset}",
+      "correct_definition": "BAPR历史运行长度、运行长度权重分布、长度似然、反馈证据权重、动态保守系数与变化点先验重置率（第4.2.3及4.3.1节）",
+      "reason": "4-10/4-11/4-19共同定义的核心机制；不能用表38的ρ(z)或旧c_bel代替这一组完整记号。",
+      "after_row": 38
+    },
+    {
+      "source_row": 39,
+      "action": "update",
+      "original_symbol": "$\\mathsf{H}_{k},K_{z}(z' \\mid z)$",
+      "original_definition": "模式推断使用的状态动作历史与隐模式转移概率",
+      "correct_tex": "H_{k},\\Psi(z^{\\prime}\\mid z)",
+      "correct_definition": "模式推断使用的状态动作历史（第4.2.2节、附录B.4和B.6）与隐模式转移概率（式4-6）",
+      "reason": "主文与附录的实际记号核对。"
+    },
+    {
+      "source_row": 40,
+      "action": "keep",
+      "original_symbol": "$\\Omega_{prior},O_{belief,n}$",
+      "original_definition": "初始旧模式对新模式的概率比，以及第$n$步新模式对旧模式的概率比",
+      "correct_tex": "$\\Omega_{prior},O_{belief,n}$",
+      "correct_definition": "初始旧模式对新模式的概率比，以及第$n$步新模式对旧模式的概率比",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 41,
+      "action": "update",
+      "original_symbol": "$\\mathcal{T,B,}V_{Q}$",
+      "original_definition": "贝尔曼更新映射、其统一表示和动作价值聚合",
+      "correct_tex": "\\mathcal T,\\mathcal B,V_Q,V^Q,\\Lambda(s,a)",
+      "correct_definition": "贝尔曼更新映射；𝒝表示有界函数空间或相应局部反例算子；动作价值聚合；单步更新内冻结的合成保守惩罚Λ",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 42,
+      "action": "update",
+      "original_symbol": "$c_{pen}，c_{j}^{\\pi},\\mathcal{V}_{\\pi}Q$",
+      "original_definition": "固定惩罚、固定策略下第$j$个成员的有效惩罚与含熵动作价值平均",
+      "correct_tex": "c_{pen},c_{pen}(s,a),\\mathcal{V}_{\\pi}Q",
+      "correct_definition": "第4章及附录C中的反馈惩罚放大系数c_pen；附录A中的固定有效惩罚函数c_pen(s,a)；附录A固定策略下的含熵动作价值平均𝒱_πQ",
+      "reason": "当前表把c_pen只解释为固定惩罚，会误导4-11的系数。c_j^π无实际对应；按既有不同作用域补释义，不改正文。"
+    },
+    {
+      "source_row": 43,
+      "action": "update",
+      "original_symbol": "${\\widehat{M}}_{R},{\\widehat{M}}_{D}$",
+      "original_definition": "残差世界模型与直接目标世界模型",
+      "correct_tex": "{\\widehat y}_{res}(x),{\\widehat y}_{dir}(x)",
+      "correct_definition": "残差世界模型与直接目标世界模型的预测输出（第6.2.3节）",
+      "reason": "表内M帽_R/M帽_D全文未使用；主文采用y帽_res/y帽_dir表示预测输出。"
+    },
+    {
+      "source_row": 44,
+      "action": "update",
+      "original_symbol": "$\\mathcal{R}_{m},m^{*}$",
+      "original_definition": "模型$m$的留出预测误差及选定模型类别",
+      "correct_tex": "R_m,m^{\\star}",
+      "correct_definition": "候选模型m在独立模型选择验证集上的综合预测误差及所选模型类别（第6.3.1节）",
+      "reason": "R_m的表内R为script正体、正文R无script，真实字体不同；应以正文普通R_m为准。星号使用正文⋆，不重排公式。"
+    },
+    {
+      "source_row": 45,
+      "action": "update",
+      "original_symbol": "${\\widehat{\\Delta}}_{s},{\\widehat{\\Delta}}_{r},\\psi_{s},\\psi_{r}$",
+      "original_definition": "状态、奖励残差预测及两类神经修正参数",
+      "correct_tex": "\\widehat\\Delta(x),{\\widehat f}_{dir}(x)",
+      "correct_definition": "利用目标域离线数据学习的残差修正网络，以及不依赖源预测的直接目标预测网络（第6.2.3节）",
+      "reason": "旧表的带s/r下标残差与ψ_s/ψ_r全文无对应；当前模型以联合预测网络Δ帽、f帽_dir表达。"
+    },
+    {
+      "source_row": null,
+      "action": "add",
+      "original_symbol": "",
+      "original_definition": "",
+      "correct_tex": "\\mathcal L_{wm},\\sigma_{wm},\\mathcal I_{cal}",
+      "correct_definition": "公交混合事件世界模型的六类综合预测损失、置信网络输入的世界模型逐维预测标准差，以及独立模型选择验证集（第6.2.2–6.3.2节）",
+      "reason": "MC-WM的模型选择及样本可靠性链中反复出现；σ_wm与动作价值集成σ_Q已由正文明确区分。",
+      "after_row": 45
+    },
+    {
+      "source_row": 46,
+      "action": "update",
+      "original_symbol": "$\\tau_{e},c_{i},Q^{\\Delta},w_{i},e_{mdl,i}$",
+      "original_definition": "误差尺度、局部预测可靠性评分、对数置信评价、模型样本权重和对应预测误差",
+      "correct_tex": "\\tau_e,c_i,Q_{\\xi}^{\\Delta},Q_{\\bar\\xi}^{\\Delta},w_i^{\\Delta},e_i",
+      "correct_definition": "第6章的局部预测误差尺度、局部可靠性评分、参数化对数置信评价网络及其目标网络、模型样本置信权重和综合预测误差",
+      "reason": "保留τ_e/c_i的正确解释；主文完整记号是Q_ξ^Δ、Q_barξ^Δ、w_i^Δ、e_i。裸w_i在5.4.3用于重要性权重ESS，不能让表把它定义成MC-WM权重；e_mdl,i无对应。"
+    },
+    {
+      "source_row": 47,
+      "action": "keep",
+      "original_symbol": "$\\gamma_{\\Delta}$",
+      "original_definition": "对数置信度递推的折扣系数，区别于策略回报的折扣因子",
+      "correct_tex": "$\\gamma_{\\Delta}$",
+      "correct_definition": "对数置信度递推的折扣系数，区别于策略回报的折扣因子",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 48,
+      "action": "update",
+      "original_symbol": "$c_{const}$",
+      "original_definition": "置信尺度分析中假设恒定的局部预测可靠性评分",
+      "correct_tex": "c,c_{const}",
+      "correct_definition": "置信尺度分析中假设恒定的局部可靠性评分：第6.3.4节记c，附录E.9记c_const",
+      "reason": "c_const确实在附录E使用，不是未用符号；只补主文同义且明确作用域的c。"
+    },
+    {
+      "source_row": 49,
+      "action": "update",
+      "original_symbol": "${\\widetilde{Q}}^{\\Delta},{\\widetilde{y}}^{\\Delta},\\widetilde{w}$",
+      "original_definition": "公交归一化对数置信评价、相应递推目标及模型样本权重",
+      "correct_tex": "q_i^{norm},Q_{norm}^{\\Delta},w_{norm}^{\\star},{\\widetilde Q}^{\\Delta,*}",
+      "correct_definition": "第6章归一化对数置信递推目标、恒定局部评分情形的归一化置信不动点及其指数权重；附录E.9一般情形的归一化置信不动点",
+      "reason": "Q波浪在附录E的确出现，不能整行判未用；y波浪^Δ和w波浪全文无对应，主文分别用q_i^norm和w_norm^⋆。"
+    },
+    {
+      "source_row": 50,
+      "action": "keep",
+      "original_symbol": "$T_{\\Delta}^{\\pi},{\\widetilde{T}}_{\\Delta}^{\\pi},K_{\\Delta}^{\\pi}$",
+      "original_definition": "固定策略下原置信算子、归一化置信算子及含终止条件的传播核",
+      "correct_tex": "$T_{\\Delta}^{\\pi},{\\widetilde{T}}_{\\Delta}^{\\pi},K_{\\Delta}^{\\pi}$",
+      "correct_definition": "固定策略下原置信算子、归一化置信算子及含终止条件的传播核",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 51,
+      "action": "keep",
+      "original_symbol": "$c_{\\min}^{\\Delta}$",
+      "original_definition": "置信尺度证明中局部置信的正下界",
+      "correct_tex": "$c_{\\min}^{\\Delta}$",
+      "correct_definition": "置信尺度证明中局部置信的正下界",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 52,
+      "action": "update",
+      "original_symbol": "$y_{i}^{Q,sim},y_{i}^{Q,mdl},y_{i}^{Q,corr}$",
+      "original_definition": "源转移、目标模型预测及源目标修正对应的标量贝尔曼目标",
+      "correct_tex": "y_{mix},{\\widehat y}_i,{\\widehat y}_{mix}",
+      "correct_definition": "双域真实转移的混合自举目标（第5–6章）、一步模型样本的标量价值目标，以及目标世界模型直接替换源样本目标时的标量目标（第6章）",
+      "reason": "y_i^{Q,sim/mdl/corr}三记号全文未出现；按现有三种目标更新符号表即可。"
+    },
+    {
+      "source_row": 53,
+      "action": "keep",
+      "original_symbol": "$\\varepsilon_{P},\\varepsilon_{r},\\varepsilon_{V}$",
+      "original_definition": "转移核、奖励和价值误差的相应界",
+      "correct_tex": "$\\varepsilon_{P},\\varepsilon_{r},\\varepsilon_{V}$",
+      "correct_definition": "转移核、奖励和价值误差的相应界",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 54,
+      "action": "update",
+      "original_symbol": "$\\mathcal{l}_{Hub},\\tau_{IQL}$",
+      "original_definition": "Huber损失与隐式Q学习（Implicit Q-Learning，IQL）的期望分位水平",
+      "correct_tex": "\\mathcal l_H,\\tau_{IQL},\\tau_e",
+      "correct_definition": "Huber损失及IQL期望分位水平；IQL在第2章记τ_e、第5章记τ_IQL，第6章τ_e另为预测误差尺度",
+      "reason": "补足同形τ_e的两个明确作用域，不改变任何原公式。"
+    },
+    {
+      "source_row": 55,
+      "action": "update",
+      "original_symbol": "$\\parallel \\cdot \\parallel_{\\infty}, \\parallel \\cdot \\parallel_{2}$",
+      "original_definition": "最大范数与欧氏范数",
+      "correct_tex": "\\|\\cdot\\|_\\infty,\\|\\cdot\\|_2,\\|\\cdot\\|_F",
+      "correct_definition": "最大范数、欧氏范数与矩阵Frobenius范数",
+      "reason": "补入雅可比误差反复使用的Frobenius范数。"
+    },
+    {
+      "source_row": 56,
+      "action": "update",
+      "original_symbol": "$r_{k}$，$R_{\\iota}$",
+      "original_definition": "一次实际奖励与环境条件下的期望单步奖励；二者通过条件期望联系",
+      "correct_tex": "r_k,R(s,a)",
+      "correct_definition": "一次事件区间的实际奖励与给定状态动作下的期望即时奖励；二者通过条件期望联系",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 57,
+      "action": "update",
+      "original_symbol": "$\\tau$，$n_{int}$，$N_{on}$，$n_{val}$",
+      "original_definition": "乘客时间积分中的物理时刻、累计在线交互次数及总在线交互预算；验证时点序号",
+      "correct_tex": "\\tau,\\tau_h",
+      "correct_definition": "τ为乘客积分时刻（第5章）或目标网络软更新系数（第3章）；τ_h为式3-11奖励衰减尺度，后续实验简写为τ",
+      "reason": "删除未用预算别名，明确原文中τ的分域用法及奖励尺度别名，正文不改。"
+    },
+    {
+      "source_row": 58,
+      "action": "keep",
+      "original_symbol": "$c_{fb}$，$c_{symfb}$",
+      "original_definition": "置信价值反馈与符号反馈反例中的距离因子，不表示决策序号",
+      "correct_tex": "$c_{fb}$，$c_{symfb}$",
+      "correct_definition": "置信价值反馈与符号反馈反例中的距离因子，不表示决策序号",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 59,
+      "action": "update",
+      "original_symbol": "$f_{sh}$，$f_{c_{coef}}$，$\\varepsilon_{sh}$",
+      "original_definition": "共享真实映射、拟合符号模型及二者的导数误差上界",
+      "correct_tex": "f_{sh},\\varepsilon_{sh}",
+      "correct_definition": "跨环境共享真实映射与其相对于拟合符号模型的导数误差上界（附录D）",
+      "reason": "拟合符号模型f_c_coef统一在原第73行说明，清理重复。"
+    },
+    {
+      "source_row": 60,
+      "action": "update",
+      "original_symbol": "$\\mathbf{1}\\{ \\cdot \\},clip, \\odot$",
+      "original_definition": "条件指示函数、区间截断和逐元素乘积",
+      "correct_tex": "\\mathbb I\\{\\cdot\\},\\mathbf1\\{\\cdot\\},\\operatorname{clip},\\odot",
+      "correct_definition": "条件示性函数的两种实际书写、区间截断和逐元素乘积",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 61,
+      "action": "update",
+      "original_symbol": "$\\phi_{j},\\phi_{j}^{-},Q_{\\phi_{j}^{-}}$",
+      "original_definition": "第$j$个当前动作价值网络参数、目标网络参数及相应目标动作价值函数",
+      "correct_tex": "\\phi_k,\\phi_k^\\prime,\\widehat Q_{\\phi_k^\\prime}",
+      "correct_definition": "第k个当前动作价值网络参数、对应目标网络参数及目标动作价值函数",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 62,
+      "action": "update",
+      "original_symbol": "$b_{env},m_{dem},H_{roll}$",
+      "original_definition": "基础随机场景组索引、需求倍率及模型展开的事件步数",
+      "correct_tex": "m_{dem}",
+      "correct_definition": "相对于基准客流到达强度的需求倍率（第4章）",
+      "reason": "b_env及H_roll全文无对应；基础随机场景组与一步模型展开在正文有文字说明，但未以这两个符号命名。保留真正反复使用的m_dem。"
+    },
+    {
+      "source_row": null,
+      "action": "add",
+      "original_symbol": "",
+      "original_definition": "",
+      "correct_tex": "\\delta_{mis}",
+      "correct_definition": "第6.4.1节源仿真四类标定参数联合偏差的幅度比例",
+      "reason": "联合25%/50%/75%偏差实验的关键自变量；区别于动作误差δ与模式检测时延δ_det。",
+      "after_row": 62
+    },
+    {
+      "source_row": 63,
+      "action": "update",
+      "original_symbol": "$m_{cat},m_{batch},m_{act}$",
+      "original_definition": "类别变量个数、同一物理时刻待收集动作数及同一状态候选动作数",
+      "correct_tex": "m,m_{grp},M",
+      "correct_definition": "状态中的离散类别变量个数m（第3.2.3节）；同一物理时刻到站车组内需依次决策的车辆数m_grp（第5.2.2节）；同一状态比较的候选驻站动作数M（第3.3.3节）",
+      "reason": "旧m_cat/m_batch/m_act均无对应，但三个角色确有现成记号。m与M的大小写应保留；不能把类别数m与第6章候选模型类别m混作同一作用域。"
+    },
+    {
+      "source_row": 64,
+      "action": "update",
+      "original_symbol": "$c_{cat,j},n_{cat},p_{hid},d_{emb}$",
+      "original_definition": "类别变量取值、类别取值数、隐藏层宽度及嵌入维数",
+      "correct_tex": "c_j,n_j,h,d_j,n,d",
+      "correct_definition": "类别取值、类别数、隐藏层宽度与嵌入维数；单类别分析以n、d分别记类别数与嵌入维数（第3章）",
+      "reason": "按实际定义对应每个量，删除未用语义下标。"
+    },
+    {
+      "source_row": 65,
+      "action": "update",
+      "original_symbol": "$N_{off},N_{buf},N_{buf,b}$",
+      "original_definition": "固定目标离线转移数、共享经验回放中的转移总数及车辆$b$贡献的转移数",
+      "correct_tex": "N,N_v",
+      "correct_definition": "共享经验回放中的转移总数及车辆v贡献的转移数（3.2.2节）",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 66,
+      "action": "keep",
+      "original_symbol": "$H_{obs},h_{obs},P_{obs,1},P_{obs,2}$",
+      "original_definition": "观测历史随机变量、已获得的一组历史观测及两个模式假设下的条件观测核",
+      "correct_tex": "$H_{obs},h_{obs},P_{obs,1},P_{obs,2}$",
+      "correct_definition": "观测历史随机变量、已获得的一组历史观测及两个模式假设下的条件观测核",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 67,
+      "action": "update",
+      "original_symbol": "$\\delta_{dual},\\rho_{dual},f_{dual}$",
+      "original_definition": "线性特征扰动、该扰动的范数约束半径及特征向量",
+      "correct_tex": "\\delta,\\rho,V",
+      "correct_definition": "线性后继分布扰动、扰动范数约束半径及后继状态价值向量（2.3节）",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 68,
+      "action": "keep",
+      "original_symbol": "$\\delta_{h},\\delta_{\\det},\\delta_{post}$",
+      "original_definition": "前后车头时距之差、模式检测时延及后验概率容差",
+      "correct_tex": "$\\delta_{h},\\delta_{\\det},\\delta_{post}$",
+      "correct_definition": "前后车头时距之差、模式检测时延及后验概率容差",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 69,
+      "action": "keep",
+      "original_symbol": "$\\mu_{\\det},\\mu_{\\det,\\theta},f_{ref}$",
+      "original_definition": "确定性动作映射、其参数化形式及参考控制映射",
+      "correct_tex": "$\\mu_{\\det},\\mu_{\\det,\\theta},f_{ref}$",
+      "correct_definition": "确定性动作映射、其参数化形式及参考控制映射",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 70,
+      "action": "keep",
+      "original_symbol": "$\\varepsilon_{val},\\varepsilon_{der},L_{D\\mu},L_{Df}$",
+      "original_definition": "函数值误差、导数误差及两种映射导数的Lipschitz上界",
+      "correct_tex": "$\\varepsilon_{val},\\varepsilon_{der},L_{D\\mu},L_{Df}$",
+      "correct_definition": "函数值误差、导数误差及两种映射导数的Lipschitz上界",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 71,
+      "action": "update",
+      "original_symbol": "$\\varepsilon_{dist},\\varepsilon_{iter},\\varepsilon_{Q,act},\\varepsilon_{path}$",
+      "original_definition": "最大范数距离、逐次逼近误差的统一上界、动作相关剩余误差上界及误差路径导数界的常数项",
+      "correct_tex": "\\varepsilon_{\\mathrm{dist}},\\varepsilon,\\varepsilon_{\\mathrm{act}},\\varepsilon_{\\mathrm{path}}",
+      "correct_definition": "最大范数距离；逐次逼近误差的统一上界ε（3-36）；动作相关剩余误差上界ε_act（3-40）；误差路径导数界的常数项",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 72,
+      "action": "keep",
+      "original_symbol": "$X_{eval},X_{in},X_{out}$",
+      "original_definition": "误差分析域及微分分析的输入、输出赋范空间",
+      "correct_tex": "$X_{eval},X_{in},X_{out}$",
+      "correct_definition": "误差分析域及微分分析的输入、输出赋范空间",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": null,
+      "action": "add",
+      "original_symbol": "",
+      "original_definition": "",
+      "correct_tex": "G,H,\\mathcal X_{feat}",
+      "correct_definition": "第4.3.2节复合策略表示H∘G中的特征网络、输出映射及中间特征空间（此处G不同于乘客广义时间成本G）",
+      "reason": "4-20至4-22的复合导数分析反复使用G/H而现表只列了输入/输出空间。",
+      "after_row": 72
+    },
+    {
+      "source_row": 73,
+      "action": "update",
+      "original_symbol": "$f_{c_{coef}},c_{coef},c_{coef,i}$",
+      "original_definition": "拟合符号模型、其系数向量及第i个系数分量",
+      "correct_tex": "f_{c_{\\mathrm{coef}}},c_{\\mathrm{coef}},c_{\\mathrm{coef},i}",
+      "correct_definition": "拟合符号模型、其系数向量及第i个系数分量",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 74,
+      "action": "keep",
+      "original_symbol": "$u_{exec},v_{nom},\\mu_{ref},\\pi_{beh}$",
+      "original_definition": "执行器实际信号、名义信号、确定性参考策略及两个模式假设下共用且仅使用已有信息的行为规则",
+      "correct_tex": "$u_{exec},v_{nom},\\mu_{ref},\\pi_{beh}$",
+      "correct_definition": "执行器实际信号、名义信号、确定性参考策略及两个模式假设下共用且仅使用已有信息的行为规则",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 75,
+      "action": "update",
+      "original_symbol": "$V^{O,path},Q^{O,path},\\Delta J,\\Delta V$",
+      "original_definition": "固定外生序列下的参照路径价值及动作价值、路径回报差及期望价值差",
+      "correct_tex": "V_{n,k}^{O,\\mathrm{path}},Q_{n,k}^{O,\\mathrm{path}},\\Delta J,\\Delta V",
+      "correct_definition": "固定外生序列下的参照路径价值及动作价值、路径回报差与期望价值差；n、k为对应路径推导的步数和时刻索引",
+      "reason": "按第1–3章及相应附录的实际记号调整；详见逐项证据。"
+    },
+    {
+      "source_row": 76,
+      "action": "keep",
+      "original_symbol": "$\\kappa_{fix},L_{Q,act},\\mu_{fb},C_{pen}$",
+      "original_definition": "固定标量惩罚、动作价值敏感性、非负反馈斜率及固定惩罚截距",
+      "correct_tex": "$\\kappa_{fix},L_{Q,act},\\mu_{fb},C_{pen}$",
+      "correct_definition": "固定标量惩罚、动作价值敏感性、非负反馈斜率及固定惩罚截距",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 77,
+      "action": "update",
+      "original_symbol": "$\\mathcal{A}_{learn},\\mathcal{A}_{off},\\mathcal{A}_{ft},\\mathcal{A}_{cf}$",
+      "original_definition": "学习映射统称及仅用固定离线数据、追加目标交互、追加源交互条件下的对应学习映射",
+      "correct_tex": "\\mathcal L,\\pi_{off},\\pi_{on},\\pi_{cf}",
+      "correct_definition": "第5.2.1节的学习映射，以及仅用固定离线数据、追加目标环境交互、追加源仿真交互三种条件下得到的策略",
+      "reason": "A_learn/A_off/A_ft/A_cf全文未用；5-1明确用同一学习映射𝓛和三种数据输入得到三类策略。𝓛的本行释义限第5.2.1节。"
+    },
+    {
+      "source_row": 78,
+      "action": "update",
+      "original_symbol": "$g_{gate,\\theta},\\mu_{\\theta},\\sigma_{\\theta},p_{\\theta}^{+}$",
+      "original_definition": "额外驻站选择的对数几率、连续分支高斯潜变量的均值和标准差，以及选择额外驻站的概率",
+      "correct_tex": "\\mu_\\theta(s)",
+      "correct_definition": "DDPG中参数化的确定性策略（式2-9）",
+      "reason": "删除不存在的混合零动作门控释义，保留实际确定性策略。"
+    },
+    {
+      "source_row": 79,
+      "action": "delete",
+      "original_symbol": "$p_{sig},N_{win}$",
+      "original_definition": "单侧符号检验p值及满足相应改善判据的场景组数",
+      "correct_tex": null,
+      "correct_definition": null,
+      "reason": "p_sig与N_win全文非表数学对象均无对应；全文文字也没有以单侧符号检验定义这些变量。无证据把普通p、n或整数改善次数强配成此行，所以整行删除。"
+    },
+    {
+      "source_row": 80,
+      "action": "delete",
+      "original_symbol": "$j_{\\dim},\\varsigma_{j_{\\dim}},p_{\\Theta}$",
+      "original_definition": "联合预测输出的维度索引、该维度在拟合集上的标准差及模型实际采用的特征数",
+      "correct_tex": null,
+      "correct_definition": null,
+      "reason": "j_dim、varsigma_jdim、p_Θ当前全文除符号表之外没有对应记号；不为这条旧表另造主文符号。"
+    },
+    {
+      "source_row": 81,
+      "action": "keep",
+      "original_symbol": "$\\psi_{J},\\psi_{M}$",
+      "original_definition": "条件转移比率的联合分类器参数及边缘分类器参数",
+      "correct_tex": "$\\psi_{J},\\psi_{M}$",
+      "correct_definition": "条件转移比率的联合分类器参数及边缘分类器参数",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 82,
+      "action": "delete",
+      "original_symbol": "$\\hat{\\mathcal{D}},{\\hat{y}}^{Q}$",
+      "original_definition": "模型生成的一步转移样本集及本组后继价值规则下的模型目标",
+      "correct_tex": null,
+      "correct_definition": null,
+      "reason": "D帽及y帽^Q全文无对应；真实模型标量目标y帽_i已由建议修正的第52行涵盖，删除此旧别名行可避免重复。"
+    },
+    {
+      "source_row": 83,
+      "action": "update",
+      "original_symbol": "$\\mathcal{X}_{\\delta},L_{adj},L_{occ}$",
+      "original_definition": "由各状态动作对及其后继状态对应的概率残差组成的实向量空间；策略调整敏感性及访问分布敏感性上界",
+      "correct_tex": "X_{\\delta},L_{adj},L_{occ}",
+      "correct_definition": "由状态动作对及后继状态的概率残差组成的实向量空间，以及策略调整映射和访问分布映射的Lipschitz常数（附录E.5）",
+      "reason": "主文与附录的实际记号核对。"
+    },
+    {
+      "source_row": 84,
+      "action": "update",
+      "original_symbol": "$\\varphi_{cls},Q^{\\Delta, -},{\\widetilde{Q}}^{\\Delta, -},v_{trf}$",
+      "original_definition": "静态分类信号、原及归一化置信目标网络、持续时间或成本变换的标量实参",
+      "correct_tex": "\\varphi_{cls}",
+      "correct_definition": "静态分类信号（附录E.6）",
+      "reason": "varphi_cls在附录E确有对应，须保留；Q^{Δ,-}和Q波浪^{Δ,-}全文未出现，主文慢速目标网实际为Q_barξ^Δ（并入第46行）；v_trf也无对应。此行附录部分请与附录审查合并。"
+    },
+    {
+      "source_row": 85,
+      "action": "update",
+      "original_symbol": "$\\lambda_{ale},\\lambda_{epi},\\kappa_{j}$",
+      "original_definition": "目标网络权重范数项系数、目标集成方差项系数及第j个目标网络的未加权权重范数",
+      "correct_tex": "\\lambda_{ale},\\lambda_{epi},\\kappa_k,\\kappa_k^{\\prime},\\kappa_{ale}",
+      "correct_definition": "范数项与集成方差项系数；第3章κ_k为目标网络权重范数，第4章κ_k、κ′_k分别为当前与目标网络范数；附录A的κ_ale为加权固定正则量",
+      "reason": "按实际上下文区分在线、目标与加权固定范数项，不统一改动正文。"
+    },
+    {
+      "source_row": 86,
+      "action": "update",
+      "original_symbol": "$B_{batch},K_{\\max},n_{rem}$",
+      "original_definition": "训练小批量大小、有限时域分析的决策事件数上界及剩余事件数",
+      "correct_tex": "B,K_{\\max},n_{rem}",
+      "correct_definition": "训练小批量大小、有限事件数上界及剩余事件数；附录E.5中B另为回归拟合映射的Lipschitz常数",
+      "reason": "以B代替未用的B_batch，同时说明附录的合法局部复用。"
+    },
+    {
+      "source_row": 87,
+      "action": "update",
+      "original_symbol": "$w_{IS,i},c_{NAU,i},c_{bel}$",
+      "original_definition": "条件转移比率权重、NAU线性权重及置信反馈调节量",
+      "correct_tex": "w_{sim},c_{NAU,i}",
+      "correct_definition": "第5章条件转移比率形成的源域样本损失权重，以及附录D的NAU线性权重",
+      "reason": "w_IS,i和c_bel全文无对应；第5章核心权重完整名为w_sim。BAPR反馈应另列真实λ_w，不把它改名c_bel。"
+    },
+    {
+      "source_row": 88,
+      "action": "keep",
+      "original_symbol": "$G_{act},a_{inv},I_{n_{a}}$",
+      "original_definition": "一般对角执行器增益矩阵、逆变换命令及动作维数对应的单位矩阵",
+      "correct_tex": "$G_{act},a_{inv},I_{n_{a}}$",
+      "correct_definition": "一般对角执行器增益矩阵、逆变换命令及动作维数对应的单位矩阵",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 89,
+      "action": "keep",
+      "original_symbol": "$x_{phys},x_{aug},F_{phys},F_{aug}$",
+      "original_definition": "执行器物理状态、包含命令历史的增广状态、物理状态转移及以名义执行信号为动作输入的增广状态转移",
+      "correct_tex": "$x_{phys},x_{aug},F_{phys},F_{aug}$",
+      "correct_definition": "执行器物理状态、包含命令历史的增广状态、物理状态转移及以名义执行信号为动作输入的增广状态转移",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 90,
+      "action": "keep",
+      "original_symbol": "$e_{map},e_{path}$",
+      "original_definition": "策略与参考的输入误差映射，以及沿指定路径形成的误差函数",
+      "correct_tex": "$e_{map},e_{path}$",
+      "correct_definition": "策略与参考的输入误差映射，以及沿指定路径形成的误差函数",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 91,
+      "action": "keep",
+      "original_symbol": "$\\varepsilon_{sym},\\varepsilon_{pol},\\varepsilon_{IRM}$",
+      "original_definition": "符号模型误差、策略拟合误差及跨环境统一导数误差的上界",
+      "correct_tex": "$\\varepsilon_{sym},\\varepsilon_{pol},\\varepsilon_{IRM}$",
+      "correct_definition": "符号模型误差、策略拟合误差及跨环境统一导数误差的上界",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 92,
+      "action": "keep",
+      "original_symbol": "$\\varepsilon_{emp},\\Delta_{gen}$",
+      "original_definition": "给定的经验导数误差界及其推广误差界",
+      "correct_tex": "$\\varepsilon_{emp},\\Delta_{gen}$",
+      "correct_definition": "给定的经验导数误差界及其推广误差界",
+      "reason": "实际使用及定义已核对，保留。"
+    },
+    {
+      "source_row": 93,
+      "action": "delete",
+      "original_symbol": "$x_{obs,k},c_{obs}$",
+      "original_definition": "归一化前的公交观测与各坐标的固定归一化尺度",
+      "correct_tex": null,
+      "correct_definition": null,
+      "reason": "x_obs,k/c_obs均无对应。P887只说明按各物理量纲上界归一化，并未命名统一尺度c_obs；P953的粗体o只被定义为连续观测向量，不能自行改释为归一化前的整套公交观测。该嵌入输入已在其他实际表项覆盖，删除此旧行。"
+    },
+    {
+      "source_row": 94,
+      "action": "update",
+      "original_symbol": "$B_{SAC},B_{mix},B_{SAC,i}^{-}$",
+      "original_definition": "后继软价值、与离线状态价值组合后的后继价值及第i条样本的目标软价值",
+      "correct_tex": "V_{soft},B_{mix}",
+      "correct_definition": "当前策略在后继状态上的软状态价值，以及与冻结离线状态价值组合后的混合后继价值（第5.2.3节）",
+      "reason": "B_SAC和B_SAC,i^-全文未用；实际软后继价值是V_soft。B_mix当前正确。"
+    },
+    {
+      "source_row": 95,
+      "action": "update",
+      "original_symbol": "$e_{IQL},w_{IQL}$",
+      "original_definition": "IQL期望分位回归残差及数据内动作的优势权重",
+      "correct_tex": "A(s,a),w_{IQL}(s,a)",
+      "correct_definition": "IQL样本内优势残差及其形成的数据内动作优势权重（第2章及第5.2.3节）",
+      "reason": "e_IQL全文未用，5-10/5-11一致采用A(s,a)=Q帽_min−V_ν；w_IQL正确。"
+    },
+    {
+      "source_row": 96,
+      "action": "update",
+      "original_symbol": "$\\xi_{time},I_{f},I_{b}$",
+      "original_definition": "运营进度与前后邻车存在标记",
+      "correct_tex": "I_f,I_b",
+      "correct_definition": "前向与后向同线路邻车存在的示性标记（第3.2.4节）",
+      "reason": "ξ_time全文无对应；I_f/I_b由P980明确定义并用于3-9。去掉旧进度别名及其释义，保留两个实际标记；不把t/T_hor新造为ξ_time。"
+    },
+    {
+      "source_row": 97,
+      "action": "update",
+      "original_symbol": "$\\mathcal{l}_{sym},{\\bar{\\mathcal{l}}}_{sym}^{+}$",
+      "original_definition": "策略与符号参考的归一化导数误差及一批后继状态上的均值",
+      "correct_tex": "\\mathcal l_{sym},\\mathcal L_{JC},\\bar{\\mathcal L}_{JC}^{\\prime}",
+      "correct_definition": "逐状态归一化雅可比导数误差、当前训练批次均值及后继状态批次均值（式4-15、4-16及D-4c至D-4e）",
+      "reason": "采用实际均值下标、大小写及撇号，不再列旧的bar(l_sym)^+。"
+    },
+    {
+      "source_row": null,
+      "action": "add",
+      "original_symbol": "",
+      "original_definition": "",
+      "correct_tex": "\\beta_0,x_{ref}(x),f_{\\theta}(x)",
+      "correct_definition": "CS-BAPR的可学习全局基准动作潜变量、计划均衡参考输入，以及参考状态归零差分中的神经网络分支（第4.2.3节）",
+      "reason": "解耦输出核心记号在4-13及解释中反复使用，现有表没有对应条目；β0不等于保守权重β_bc或β_lcb。",
+      "after_row": 97
+    },
+    {
+      "source_row": null,
+      "action": "add",
+      "original_symbol": "",
+      "original_definition": "",
+      "correct_tex": "\\lambda_{jc},\\lambda_{sym},\\tau_{boltz},\\sigma_r",
+      "correct_definition": "CS-BAPR策略雅可比正则系数、价值目标中的符号误差惩罚系数、软最小化参考动作温度和奖励标准差缩放因子（第4.2.3–4.3.1节）",
+      "reason": "直接作用于4-14/4-16/4-17的关键系数，现表未说明；与客流到达率λ和物理积分时刻τ为不同完整记号。",
+      "after_row": 97
+    },
+    {
+      "source_row": 98,
+      "action": "update",
+      "original_symbol": "$\\zeta$",
+      "original_definition": "混合驻站策略连续分支的高斯潜变量，与运行模式z区分",
+      "correct_tex": "\\zeta,\\zeta(u)",
+      "correct_definition": "第2章CVaR的非负重加权密度；4.3.3节连接基准点与评价点的线段（式4-23），两者作用域不同",
+      "reason": "删除不存在的连续分支潜变量释义。"
+    },
+    {
+      "source_row": null,
+      "action": "add",
+      "original_symbol": "",
+      "original_definition": "",
+      "correct_tex": "\\Delta d",
+      "correct_definition": "第4.3.3节状态外推偏移向量Δd=x−x_0，用于4-23/4-24的动作误差展开及上界",
+      "reason": "用户刚明确的Δd已在该节一致使用；新增表项即可，勿再改回d。ζ(u)已由建议第98行覆盖。",
+      "after_row": 98
+    }
+  ]
+}

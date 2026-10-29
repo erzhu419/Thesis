@@ -1,0 +1,241 @@
+{
+  "read_only": true,
+  "table_row_notes": [
+    {
+      "row": 22,
+      "status": "replace_actual",
+      "actual_notation": "\\widehat Q_{\\min}",
+      "evidence": [
+        {
+          "M": 2497,
+          "P": 2413,
+          "formula": null,
+          "tex": "{\\widehat{Q}}_{\\min}(s,a) = \\min_{k \\in \\{ 1,2\\}}{\\widehat{Q}}_{\\phi_{k}'}(s,a)"
+        },
+        {
+          "M": 2501,
+          "P": 2415,
+          "formula": "5-9",
+          "tex": "V_{soft}(s')\\mspace{6mu} = \\mspace{6mu}\\mathbb{E}_{a' \\sim \\pi_{\\theta}( \\cdot \\mid s')}\\left\\lbrack \\,\\min_{k \\in \\{ 1,2\\}}{\\widehat{Q}}_{\\phi_{k}'}(s',\\ a') - \\alpha\\log\\pi_{\\theta}(a' \\mid s')\\, \\right\\rbrack"
+        },
+        {
+          "M": 2508,
+          "P": 2418,
+          "formula": null,
+          "tex": "A(s,a) = {\\widehat{Q}}_{\\min}(s,a) - V_{\\nu}(s)"
+        }
+      ],
+      "note": "P2413明确是两个目标动作价值网络较小估计，现有帽号不可丢。原生Q带m:acc，min正体；不是无帽当前Q_min或上标负号Q_min^-。",
+      "suggested_symbol_tex": "$\\widehat Q_{\\min}$",
+      "suggested_definition": "两个目标动作价值网络输出的较小估计（5.2节）"
+    },
+    {
+      "row": 24,
+      "status": "unused_replace_with_existing_constant",
+      "actual_notation": "\\epsilon",
+      "evidence": [
+        {
+          "M": 612,
+          "P": 973,
+          "formula": null,
+          "tex": "\\epsilon > 0"
+        },
+        {
+          "M": 613,
+          "P": 973,
+          "formula": null,
+          "tex": "10^{- 6}"
+        }
+      ],
+      "note": "ε_fp仅符号表出现，全文没有浮点机器精度的定义。原生M612字形为ϵ，普通斜体；它是人为取定的防零常数，不能释为机器精度。也可直接删除原24行。",
+      "suggested_symbol_tex": "$\\epsilon$",
+      "suggested_definition": "奖励权重分母中避免除零的极小正数，取10^-6（2.7.4及3.2.4节）"
+    },
+    {
+      "row": 56,
+      "status": "replace_unused_alias",
+      "actual_notation": "r_k,R(s,a)",
+      "evidence": [
+        {
+          "M": 153,
+          "P": 617,
+          "formula": null,
+          "tex": "R(s,a\\mathbb{) = E\\lbrack}r_{t} \\mid s_{t} = s,a_{t} = a\\rbrack"
+        },
+        {
+          "M": 2448,
+          "P": 2398,
+          "formula": "5-6",
+          "tex": "C_{k} = 2\\int_{t_{k}}^{t_{k} + \\Delta t_{k}}N^{w}(\\tau)\\, d\\tau + \\int_{t_{k}}^{t_{k} + \\Delta t_{k}}N^{b}(\\tau)\\, d\\tau,\\quad\\quad r_{k} = - C_{k}"
+        },
+        {
+          "M": 2667,
+          "P": 2501,
+          "formula": null,
+          "tex": "\\iota \\in \\{ sim,tgt\\}"
+        },
+        {
+          "M": 2669,
+          "P": 2501,
+          "formula": null,
+          "tex": "\\Delta M_{\\iota}(\\pi)"
+        },
+        {
+          "M": 2671,
+          "P": 2503,
+          "formula": "5-20",
+          "tex": "\\Delta M_{\\iota}(\\pi) = {\\bar{M}}_{\\iota}(\\pi) - {\\bar{M}}_{\\iota}(\\pi_{0}),\\quad\\quad e_{M}(\\pi) = \\frac{\\Delta M_{sim}(\\pi) - \\Delta M_{tgt}(\\pi)}{{\\bar{M}}_{tgt}(\\pi_{0})}"
+        }
+      ],
+      "note": "R_iota仅表中出现；全书实际ι用于环境指标M_iota及ΔM_iota，不能据此创造奖励R_iota。一般期望即时奖励已在P617定义为R(s,a)。可与19行合并以免重复。",
+      "suggested_symbol_tex": "$r_k,R(s,a)$",
+      "suggested_definition": "一次事件区间的实际奖励与给定状态动作下的期望即时奖励；二者通过条件期望联系"
+    },
+    {
+      "row": 73,
+      "status": "match_native",
+      "actual_notation": "f_{c_{\\mathrm{coef}}},c_{\\mathrm{coef}},c_{\\mathrm{coef},i}",
+      "evidence": [
+        {
+          "M": 4415,
+          "P": 4220,
+          "formula": null,
+          "tex": "c_{coef}"
+        },
+        {
+          "M": 4416,
+          "P": 4222,
+          "formula": "D-50",
+          "tex": "f_{c_{coef}}(x) = \\sum_{i = 1}^{n}c_{coef,i}\\varphi_{i}(x)."
+        },
+        {
+          "M": 4417,
+          "P": 4226,
+          "formula": "D-51",
+          "tex": "Df_{c_{coef}}(x) = \\sum_{i = 1}^{n}c_{coef,i}D\\varphi_{i}(x)."
+        }
+      ],
+      "note": "D-50/51实际直接采用c_{coef,i}，其原生结构为c加单层下标coef,i，非仅(c_coef)_i的括号写法。coef正体、i普通斜体，原表此含义和写法正确。",
+      "suggested_symbol_tex": "$f_{c_{\\mathrm{coef}}},c_{\\mathrm{coef}},c_{\\mathrm{coef},i}$",
+      "suggested_definition": "拟合符号模型、其系数向量及第i个系数分量"
+    },
+    {
+      "row": 75,
+      "status": "match_role_add_actual_local_indices",
+      "actual_notation": "V_{n,k}^{O,\\mathrm{path}},Q_{n,k}^{O,\\mathrm{path}}",
+      "evidence": [
+        {
+          "M": 3960,
+          "P": 3692,
+          "formula": null,
+          "tex": "V_{n,k}^{O,path}"
+        },
+        {
+          "M": 3964,
+          "P": 3694,
+          "formula": "B-35",
+          "tex": "\\begin{array}{r}\nQ_{n,k}^{O,path}(x_{aug},v_{nom}) = r\\left( x_{phys},clip(v_{nom} + \\varepsilon_{k}),e_{k} \\right) \\\\\n\\quad + V_{n,k + 1}^{O,path}\\left( F_{aug}(x_{aug},v_{nom},e_{k}) \\right).\n\\end{array}"
+        },
+        {
+          "M": 3965,
+          "P": 3698,
+          "formula": "B-36",
+          "tex": "\\begin{array}{r}\n\\Delta_{n,k}^{O}(x_{aug}) = Q_{n,k}^{O,path}\\left( x_{aug},v_{nom}^{C}(k,x_{aug}) \\right) \\\\\n\\quad - Q_{n,k}^{O,path}\\left( x_{aug},v_{nom}^{O}(k,x_{aug}) \\right).\n\\end{array}"
+        },
+        {
+          "M": 3974,
+          "P": 3708,
+          "formula": null,
+          "tex": "V_{n,k + 1}^{O,path}(x_{aug,C}')"
+        },
+        {
+          "M": 3975,
+          "P": 3710,
+          "formula": "B-39",
+          "tex": "\\begin{array}{r}\n{\\Delta J}_{n + 1,k}(x_{aug}) = Q_{n,k}^{O,path}\\left( x_{aug},v_{nom}^{C}(k,x_{aug}) \\right) \\\\\n\\quad - Q_{n,k}^{O,path}\\left( x_{aug},v_{nom}^{O}(k,x_{aug}) \\right) \\\\\n + {\\Delta J}_{n,k + 1}(x_{aug,C}').\n\\end{array}"
+        },
+        {
+          "M": 3978,
+          "P": 3715,
+          "formula": "B-40",
+          "tex": "|Q_{n,k}^{O,path}\\left( x_{aug},v_{nom}^{C}(k,x_{aug}) \\right) - Q_{n,k}^{O,path}\\left( x_{aug},v_{nom}^{O}(k,x_{aug}) \\right)| \\leq b_{Q,loc}(k,x_{aug}),"
+        }
+      ],
+      "note": "原生O没有m:scr，确为普通斜体O，不是mathcal O；path正体。零匹配来自实际增加n,k下标，含义一致，保留并可列全实际记号。",
+      "suggested_symbol_tex": "$V_{n,k}^{O,\\mathrm{path}},Q_{n,k}^{O,\\mathrm{path}},\\Delta J,\\Delta V$",
+      "suggested_definition": "固定外生序列下的参照路径价值及动作价值、路径回报差与期望价值差；n、k为对应路径推导的步数和时刻索引"
+    }
+  ],
+  "table_patches": [
+    {
+      "row": 22,
+      "operation": "replace",
+      "old_symbol": "$Q_{\\min},Q_{\\min}^{-}$",
+      "old_definition": "当前两个动作价值网络与两个目标动作价值网络各自的较小估计",
+      "suggested_symbol_tex": "$\\widehat Q_{\\min}$",
+      "suggested_definition": "两个目标动作价值网络输出的较小估计（5.2节）",
+      "evidence_math_ids": [
+        2497,
+        2501,
+        2508
+      ]
+    },
+    {
+      "row": 24,
+      "operation": "replace",
+      "old_symbol": "$\\varepsilon_{fp}$",
+      "old_definition": "混合动作数值变换采用的浮点机器精度",
+      "suggested_symbol_tex": "$\\epsilon$",
+      "suggested_definition": "奖励权重分母中避免除零的极小正数，取10^-6（2.7.4及3.2.4节）",
+      "evidence_math_ids": [
+        612,
+        613
+      ]
+    },
+    {
+      "row": 56,
+      "operation": "replace",
+      "old_symbol": "$r_{k}$，$R_{\\iota}$",
+      "old_definition": "一次实际奖励与环境条件下的期望单步奖励；二者通过条件期望联系",
+      "suggested_symbol_tex": "$r_k,R(s,a)$",
+      "suggested_definition": "一次事件区间的实际奖励与给定状态动作下的期望即时奖励；二者通过条件期望联系",
+      "evidence_math_ids": [
+        153,
+        2448,
+        2667,
+        2669,
+        2671
+      ]
+    },
+    {
+      "row": 73,
+      "operation": "replace",
+      "old_symbol": "$f_{c_{coef}},c_{coef},c_{coef,i}$",
+      "old_definition": "拟合符号模型、其系数向量及第i个系数分量",
+      "suggested_symbol_tex": "$f_{c_{\\mathrm{coef}}},c_{\\mathrm{coef}},c_{\\mathrm{coef},i}$",
+      "suggested_definition": "拟合符号模型、其系数向量及第i个系数分量",
+      "evidence_math_ids": [
+        4415,
+        4416,
+        4417
+      ]
+    },
+    {
+      "row": 75,
+      "operation": "replace",
+      "old_symbol": "$V^{O,path},Q^{O,path},\\Delta J,\\Delta V$",
+      "old_definition": "固定外生序列下的参照路径价值及动作价值、路径回报差及期望价值差",
+      "suggested_symbol_tex": "$V_{n,k}^{O,\\mathrm{path}},Q_{n,k}^{O,\\mathrm{path}},\\Delta J,\\Delta V$",
+      "suggested_definition": "固定外生序列下的参照路径价值及动作价值、路径回报差与期望价值差；n、k为对应路径推导的步数和时刻索引",
+      "evidence_math_ids": [
+        3960,
+        3964,
+        3965,
+        3974,
+        3975,
+        3978
+      ]
+    }
+  ],
+  "document_modified": false
+}

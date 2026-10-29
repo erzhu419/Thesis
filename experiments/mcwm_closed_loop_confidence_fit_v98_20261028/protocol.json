@@ -1,0 +1,67 @@
+{
+  "name": "mcwm_closed_loop_confidence_fit_v98_20261028",
+  "version": 98,
+  "priority": "high",
+  "stage": "One fixed bias fit after complete v97 T; no native simulation",
+  "source_summary": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_collection_domain_v97_20261028/summary.json",
+  "source_protocol": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_collection_domain_v97_20261028/protocol.json",
+  "source_model": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_collection_domain_v97_20261028/source_model.json",
+  "confidence_implementation": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_state_confidence_v95_20261028/confidence.py",
+  "T": [
+    309177151,
+    1476154684
+  ],
+  "C": [
+    178102402,
+    1119764361,
+    1386094634,
+    536907412
+  ],
+  "V": [
+    5696843
+  ],
+  "primary_model": "service_history6",
+  "q_range_for_scaling_only": [
+    0.007957623402277628,
+    0.4999144673347473
+  ],
+  "candidate_deployment_domain": {
+    "frozen_before_new_labels": true,
+    "eligibility": "Same valid native context, finite strictly historical q and original action domain as collection; old empirical q min/max do not exclude a root",
+    "old_q_range_role": "Frozen scaling and an explicit interpolation/extrapolation annotation only; not a confidence interval",
+    "activation": "No deployment in v97. A separately fitted fixed b/u and independently calibrated C must be frozen before any validation; original m<0 AND U<0; at most one intervention then original reference",
+    "calibration_population": "All potentially accepted first-line roots from this same domain in each independent seed block, including old-q-range extrapolation; no selective omission",
+    "claim": "At most the original exchangeability-dependent80% marginal seed-block upper coverage; no per-action or universal no-harm guarantee",
+    "validation_gate": "A real nonzero intervention; mean actual full-day cost improves vs reference and raw history6; no valid scenario worse than reference; stable tail nonpositive; report stale/line3/service5 and worst cell. All-reference is not a benefit.",
+    "remaining_C_V_seeds": "Unchanged sealed v95 C and V cohorts; not collected or exposed in v97"
+  },
+  "fit": {
+    "parameters": 2,
+    "ridge": 1.0,
+    "penalize_intercept": true,
+    "target": "D-m using every one of the12 mature paired labels, including positive labels, nonnegative m and complete physical-noop pairs",
+    "solves": 1,
+    "no_model_selection": true
+  },
+  "gates": {
+    "before_fit": "Complete original T12 pairs/24 physical labels, all technical integrity and rank2 finite residual design; no replacement, no rank1 rescue",
+    "before_C": "At least one T root satisfies original m<0 and corrected center m+b(q)<0 with C=0. This is a predeclared resource-feasibility gate on observed T roots only, not an independent performance or whole-domain theorem.",
+    "before_V": "Complete independent C blocks and finite C; at least one potential intervention among the observed C roots under the frozen calibrated rule; no retuning or extra seeds if all rejected.",
+    "final": "A real nonzero intervention; mean actual full-day cost improves vs reference and raw history6; no valid scenario worse than reference; stable tail nonpositive; report stale/line3/service5 and worst cell. All-reference is not a benefit."
+  },
+  "calibration": {
+    "blocks": 4,
+    "alpha": 0.2,
+    "score": "max(0,max_m<0((D-m-b(q))/u(q))) over every eligible first-line root in each seed, both scenes",
+    "missing": "Do not drop required labels or blocks; missing required truth means incomplete/HOLD, with infinite conservative score where applicable"
+  },
+  "budget": {
+    "native_seconds": 0,
+    "new_labels": 0,
+    "real_bias_fits": 1,
+    "optimizer_updates": 0,
+    "new_initialization_updates": 0
+  },
+  "claim": "Training fit and feasibility only; no independent fresh control success",
+  "stop": "Save fixed model and diagnostics. Root reviews the frozen feasibility decision before separately launching the original C cohort."
+}

@@ -1,0 +1,170 @@
+{
+  "name": "thesis-mcwm-fresh-attribution-v25-20261023",
+  "training_seeds": [
+    6201
+  ],
+  "target_seed_offset": 100000,
+  "arms": [
+    "fresh",
+    "no_fresh"
+  ],
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "history_seed": 72021,
+  "history_rows": 32768,
+  "history_blocks": [
+    1201,
+    1202,
+    1203,
+    1204,
+    1205,
+    1206,
+    1207,
+    1208,
+    1209,
+    1210
+  ],
+  "recent_window": 285,
+  "source_rows": 4096,
+  "model_init_updates": 0,
+  "model_refit_updates": 0,
+  "policy_updates_per_packet": 8,
+  "feedback_first_deadline": 1200,
+  "feedback_last_deadline": 18000,
+  "feedback_interval_seconds": 300,
+  "feedback_records_per_packet": 5,
+  "feedback_delay_seconds": 30,
+  "target_record_budget": 285,
+  "policy_update_budget": 456,
+  "shock_at_seconds": 9000,
+  "speed_factor": 0.65,
+  "metric_interval_seconds": 300,
+  "recovery_interval_seconds": [
+    9000,
+    18000
+  ],
+  "recovery_tolerance_fraction": 0.1,
+  "recovery_consecutive_bins": 3,
+  "model_td_fraction": 0.0,
+  "selection": "Freeze this protocol before reading formal outcomes; no seed, model, packet or checkpoint selection based on outcomes.",
+  "data_rights": "Both arms admit285 factual current-state/action slots; fresh may train with their complete outcomes, no_fresh stores only s/a and replaces its64 critic slots with complete historical transitions. Diagnostic factual-history counts never enter learning. No target counterfactual queries.",
+  "prediction_comparison": "No model-prediction candidate or family selection in this attribution pilot.",
+  "control_comparison": "Each arm controls its own complete target day under equal seeds, scenario, history, source buffer, initialization, feedback times/record counts and policy-update budget. The full passenger ledger including unfinished passengers determines costs.",
+  "source_budget": "Same archived4096 source rows; no additional source interaction.",
+  "interpretation": "One paired initialization seed in stable/shock, four days total; development pilot, no confidence interval or independent confirmation claim. Absolute costs are primary; preserve missing and untriggered recovery.",
+  "scheduler_priority": "high",
+  "preflight_seed": 6201,
+  "estimation_target": "Total effect of using admitted fresh factual outcomes for critic supervision, conditional on the same current-state/action access rule and matched optimization. Closed-loop trajectories may differ.",
+  "data_permissions": {
+    "factual_feedback_slots_per_day": 285,
+    "counterfactual_queries": 0,
+    "paired_training_labels": 0,
+    "fresh": {
+      "actor_value_temperature": "current s,a",
+      "critic": "fresh complete outcomes"
+    },
+    "no_fresh": {
+      "actor_value_temperature": "current s,a",
+      "critic": "complete historical transition replacement; no fresh r/ns/dt/terminal stored"
+    },
+    "diagnostic_native_history": "Completed factual runs only; IssueAudit counts never enter actor, value, critic or label selection."
+  },
+  "runtime_contract": {
+    "action_transform": "ExecutionAction",
+    "real_td_coefficient": 1,
+    "world_enabled": false,
+    "ratio_correction": false,
+    "temperature_states": "current",
+    "actor_value_covariates": "fresh_current_s_a",
+    "proposal_entropy": "unchanged latent proposal entropy",
+    "optimizer_schedule": "resident actor-before-critic including IQL V and Adam state"
+  },
+  "diagnostic_station_id": "7X13_102X26_705X27",
+  "primary_endpoint": "Absolute full-day 2W+R per all departed passengers, fresh minus no_fresh separately in stable and shock.",
+  "secondary_endpoints": [
+    "full-day raw wait/ride person-seconds",
+    "18300–24000 post-update costs using same final departed denominator",
+    "shock-minus-stable excess, secondary only",
+    "recovery if and only if preregistered early degradation exists"
+  ],
+  "recovery": {
+    "tolerance_fraction": 0.1,
+    "early_seconds": 3000,
+    "consecutive_bins": 3,
+    "when_untriggered": "no_detectable_early_degradation; onset and confirmed remain null"
+  },
+  "stages": {
+    "stable": "Two full days concurrently; reuse as native implementation preflight and pilot data.",
+    "shock": "Two full days concurrently only after stable integrity gate, irrespective of its effect sign.",
+    "expansion": "Not automatically submitted; one seed pilot cannot establish generalization."
+  },
+  "compute_budget": {
+    "pilot_main_days": 4,
+    "pilot_main_sim_seconds": 96000,
+    "pilot_feedback_slots": 1140,
+    "pilot_fresh_supervised_outcomes": 570,
+    "pilot_policy_updates": 1824,
+    "counterfactual_branches": 0,
+    "heldout_queries": 0,
+    "world_updates": 0,
+    "trust_updates": 0,
+    "extra_short_preflights": 0
+  },
+  "diagnostic_windows": {
+    "7X": [
+      {
+        "name": "bootstrap",
+        "start": 1200,
+        "end": 2700
+      },
+      {
+        "name": "response",
+        "start": 3000,
+        "end": 6600
+      },
+      {
+        "name": "late",
+        "start": 15000,
+        "end": 17670
+      }
+    ],
+    "102X": [
+      {
+        "name": "bootstrap",
+        "start": 3600,
+        "end": 6600
+      },
+      {
+        "name": "response",
+        "start": 7200,
+        "end": 11700
+      },
+      {
+        "name": "late",
+        "start": 15000,
+        "end": 17670
+      }
+    ],
+    "705X": [
+      {
+        "name": "bootstrap",
+        "start": 3600,
+        "end": 6600
+      },
+      {
+        "name": "response",
+        "start": 7200,
+        "end": 11700
+      },
+      {
+        "name": "late",
+        "start": 15000,
+        "end": 17670
+      }
+    ]
+  }
+}

@@ -1,0 +1,1188 @@
+{
+  "source_md": "/home/erzhu419/mine_code/Thesis/output/Gemini/重构论文.md",
+  "reference_document": "/home/erzhu419/mine_code/Thesis/output/Gemini/Gemini_problem_v2.md",
+  "approach": "仅把附件中的可核实事项作为查证线索，不采纳AI作者归因、检测比例或学术质量断言。未使用skill；未修改MD/Word；未新跑实验、未读ckpt、未拉服务器文件或大型CSV。读取的是既有本地小JSON/代码和已汇总表（5KB及9KB）。",
+  "table_5_5": {
+    "status": "全部缺项可补；合并的前向比例/自适应行需拆为两行；现有部分数字与同批冻结汇总不一致。",
+    "protocol": {
+      "run_root": "/home/erzhu419/mine_code/offline-sumo/experiment_output/revision_hold_v3_20260718",
+      "task_horizon_seconds": 18000,
+      "all_baseline_task_horizons": [
+        18000
+      ],
+      "all_learned_task_horizons": [
+        18000
+      ],
+      "baseline_sumo_seeds": [
+        42,
+        123,
+        456,
+        789,
+        1024,
+        2027,
+        2028,
+        2029,
+        2030,
+        2031
+      ],
+      "learned_sumo_seeds": [
+        42,
+        123,
+        456,
+        789,
+        1024,
+        2027,
+        2028,
+        2029,
+        2030,
+        2031
+      ],
+      "training_seeds": [
+        42,
+        123,
+        456,
+        789,
+        1024
+      ],
+      "manifest_path": "/home/erzhu419/mine_code/offline-sumo/experiment_output/revision_hold_v3_20260718/manifest/manifest_meta.json",
+      "baseline_tasks_path": "/home/erzhu419/mine_code/offline-sumo/experiment_output/revision_hold_v3_20260718/manifest/baseline_eval_tasks.json",
+      "learned_tasks_path": "/home/erzhu419/mine_code/offline-sumo/experiment_output/revision_hold_v3_20260718/manifest/learned_eval_tasks_expected.json",
+      "input_consistency_audit": {
+        "all_lines_pass": true,
+        "audit_type": "input-consistency validation; not observed-data calibration",
+        "line_count": 12,
+        "network_edge_xml": "/home/erzhu419/mine_code/offline-sumo/env/network_data/a_sorted_busline_edge.xml",
+        "observed_reference_series_available": false,
+        "od_rows_total": 5376,
+        "per_line_stop_entries_total": 459,
+        "route_rows_total": 447,
+        "source_data_root": "/home/erzhu419/mine_code/offline-sumo/env/calibrated_env/data",
+        "timetable_rows_total": 389,
+        "unique_physical_stop_ids_total": 353,
+        "xml_stop_elements_total": 459
+      },
+      "aggregation_code": "/home/erzhu419/mine_code/offline-sumo/scripts/analyze_revision_results.py:410-460",
+      "metric_semantics": "乘客指标按已完成乘车段；间隔偏差为前后车头时距相对计划间隔的绝对偏差；串车率为比例；±均为相应统计单位的样本标准差，不是CI。",
+      "already_filled_values_to_correct": [
+        "CQL车内时间945±18→945.72±19.36（整数显示946±19）",
+        "离线RE-SAC车内时间958±16→958.70±15.92（整数显示959±16）",
+        "RLPD-0.50车内时间982±28→981.48±23.05（整数显示981±23）",
+        "RLPD-0.50计划间隔偏差27±1→27.54±0.87（整数显示28±1）",
+        "WSRL-E10车内时间955±15→954.64±15.91（整数显示955±16）",
+        "RLPD-E10车内时间960±22→960.06±21.19（整数显示960±21）"
+      ],
+      "shared_evaluator": {
+        "path": "/home/erzhu419/mine_code/offline-sumo/eval_revision_metrics.py",
+        "evidence": "35–46行定义同一SUMO_DIR和EDGE_XML；209–212行仅按kind选择规则/学习策略；279–286行所有任务共用SumoGymEnv构造，输入SUMO_DIR/EDGE_XML，max_steps来自task，line_id默认7X、od_scale默认1.0。两任务清单均无line_id/od_scale覆盖且max_steps全部18000。",
+        "sumo_dir": "/home/erzhu419/mine_code/sumo-rl/_standalone_f543609/SUMO_ruiguang/online_control",
+        "edge_xml": "/home/erzhu419/mine_code/offline-sumo/env/network_data/a_sorted_busline_edge.xml",
+        "line_id_default": "7X",
+        "od_scale_default": 1.0,
+        "input_scope_note": "输入审计calibrated_env/data记录用于源仿真映射；规则与学习方法的同一目标SUMO输入还由共用评价器同一SUMO_DIR和无输入覆盖清单直接支持。"
+      }
+    },
+    "sources": [
+      "/home/erzhu419/mine_code/offline-sumo/experiment_output/revision_hold_v3_20260718/analysis/table_main_methods_best.csv",
+      "/home/erzhu419/mine_code/offline-sumo/experiment_output/revision_hold_v3_20260718/analysis/table_transportation_baselines.csv",
+      "/home/erzhu419/mine_code/offline-sumo/paper/generated/table_operational_metrics.tex",
+      "/home/erzhu419/mine_code/offline-sumo/paper/generated/table_transportation_baselines.tex"
+    ],
+    "rows": [
+      {
+        "method": "BC",
+        "label": "BC（纯离线）",
+        "statistical_unit": "独立训练种子的10场景均值",
+        "n": 5,
+        "horizon_seconds": 18000.0,
+        "horizon_sd": 0.0,
+        "metrics": {
+          "wait_seconds": {
+            "mean": 308.84794712011075,
+            "sample_sd": 5.026210032660468,
+            "n": 5
+          },
+          "ride_seconds": {
+            "mean": 918.8938615450961,
+            "sample_sd": 29.539450428308296,
+            "n": 5
+          },
+          "total_seconds": {
+            "mean": 1227.741808665207,
+            "sample_sd": 27.419967736446573,
+            "n": 5
+          },
+          "headway_deviation_seconds": {
+            "mean": 43.38598842423622,
+            "sample_sd": 6.622411702855499,
+            "n": 5
+          },
+          "bunching_ratio": {
+            "mean": 0.024753804237374992,
+            "sample_sd": 0.005895424500976716,
+            "n": 5
+          }
+        }
+      },
+      {
+        "method": "CQL",
+        "label": "CQL（纯离线）",
+        "statistical_unit": "独立训练种子的10场景均值",
+        "n": 5,
+        "horizon_seconds": 18000.0,
+        "horizon_sd": 0.0,
+        "metrics": {
+          "wait_seconds": {
+            "mean": 307.6077523686005,
+            "sample_sd": 5.508992239253042,
+            "n": 5
+          },
+          "ride_seconds": {
+            "mean": 945.7168261319799,
+            "sample_sd": 19.362761925528563,
+            "n": 5
+          },
+          "total_seconds": {
+            "mean": 1253.3245785005804,
+            "sample_sd": 19.053269341599222,
+            "n": 5
+          },
+          "headway_deviation_seconds": {
+            "mean": 38.92323612987132,
+            "sample_sd": 1.642073620232668,
+            "n": 5
+          },
+          "bunching_ratio": {
+            "mean": 0.016672618728539514,
+            "sample_sd": 0.002612509954764473,
+            "n": 5
+          }
+        }
+      },
+      {
+        "method": "RE-SAC",
+        "label": "离线 RE-SAC（纯离线）",
+        "statistical_unit": "独立训练种子的10场景均值",
+        "n": 5,
+        "horizon_seconds": 18000.0,
+        "horizon_sd": 0.0,
+        "metrics": {
+          "wait_seconds": {
+            "mean": 301.77212914395324,
+            "sample_sd": 1.9754002684307306,
+            "n": 5
+          },
+          "ride_seconds": {
+            "mean": 958.7018397778174,
+            "sample_sd": 15.923494616617477,
+            "n": 5
+          },
+          "total_seconds": {
+            "mean": 1260.4739689217706,
+            "sample_sd": 16.983857261312565,
+            "n": 5
+          },
+          "headway_deviation_seconds": {
+            "mean": 27.643756704624174,
+            "sample_sd": 0.3613897443197567,
+            "n": 5
+          },
+          "bunching_ratio": {
+            "mean": 0.010939530172394777,
+            "sample_sd": 0.0010474939951206385,
+            "n": 5
+          }
+        }
+      },
+      {
+        "method": "OnlineSAC",
+        "label": "在线 SAC（目标域在线）",
+        "statistical_unit": "独立训练种子的10场景均值",
+        "n": 5,
+        "horizon_seconds": 18000.0,
+        "horizon_sd": 0.0,
+        "metrics": {
+          "wait_seconds": {
+            "mean": 296.255036465523,
+            "sample_sd": 6.573350914024243,
+            "n": 5
+          },
+          "ride_seconds": {
+            "mean": 1061.617827783662,
+            "sample_sd": 56.48321001559049,
+            "n": 5
+          },
+          "total_seconds": {
+            "mean": 1357.8728642491853,
+            "sample_sd": 57.00373330834381,
+            "n": 5
+          },
+          "headway_deviation_seconds": {
+            "mean": 30.635792026175626,
+            "sample_sd": 1.5897414151907336,
+            "n": 5
+          },
+          "bunching_ratio": {
+            "mean": 0.014395239576129776,
+            "sample_sd": 0.004699980384060657,
+            "n": 5
+          }
+        }
+      },
+      {
+        "method": "WSRL",
+        "label": "WSRL（离线到在线微调）",
+        "statistical_unit": "独立训练种子的10场景均值",
+        "n": 5,
+        "horizon_seconds": 18000.0,
+        "horizon_sd": 0.0,
+        "metrics": {
+          "wait_seconds": {
+            "mean": 300.6254653187917,
+            "sample_sd": 3.8415912109322274,
+            "n": 5
+          },
+          "ride_seconds": {
+            "mean": 965.1988034395292,
+            "sample_sd": 17.49935180291048,
+            "n": 5
+          },
+          "total_seconds": {
+            "mean": 1265.824268758321,
+            "sample_sd": 18.136613071369926,
+            "n": 5
+          },
+          "headway_deviation_seconds": {
+            "mean": 26.66745237989279,
+            "sample_sd": 0.5755149622874477,
+            "n": 5
+          },
+          "bunching_ratio": {
+            "mean": 0.013117668276747253,
+            "sample_sd": 0.0025945220611574716,
+            "n": 5
+          }
+        }
+      },
+      {
+        "method": "RLPD-0.50",
+        "label": "RLPD-0.50（离线到在线微调）",
+        "statistical_unit": "独立训练种子的10场景均值",
+        "n": 5,
+        "horizon_seconds": 18000.0,
+        "horizon_sd": 0.0,
+        "metrics": {
+          "wait_seconds": {
+            "mean": 301.26886060501954,
+            "sample_sd": 9.884361384539169,
+            "n": 5
+          },
+          "ride_seconds": {
+            "mean": 981.4798836542761,
+            "sample_sd": 23.053424952391435,
+            "n": 5
+          },
+          "total_seconds": {
+            "mean": 1282.7487442592958,
+            "sample_sd": 32.50251560781385,
+            "n": 5
+          },
+          "headway_deviation_seconds": {
+            "mean": 27.539749311553987,
+            "sample_sd": 0.8712750142308735,
+            "n": 5
+          },
+          "bunching_ratio": {
+            "mean": 0.010098636465245892,
+            "sample_sd": 0.002237512672910631,
+            "n": 5
+          }
+        }
+      },
+      {
+        "method": "WSRL-E10",
+        "label": "WSRL-E10（离线到在线微调）",
+        "statistical_unit": "独立训练种子的10场景均值",
+        "n": 5,
+        "horizon_seconds": 18000.0,
+        "horizon_sd": 0.0,
+        "metrics": {
+          "wait_seconds": {
+            "mean": 306.293988395601,
+            "sample_sd": 1.7562716175794735,
+            "n": 5
+          },
+          "ride_seconds": {
+            "mean": 954.6403512011353,
+            "sample_sd": 15.907300077274163,
+            "n": 5
+          },
+          "total_seconds": {
+            "mean": 1260.9343395967364,
+            "sample_sd": 15.876650448194061,
+            "n": 5
+          },
+          "headway_deviation_seconds": {
+            "mean": 29.295802484009737,
+            "sample_sd": 1.1685714303976171,
+            "n": 5
+          },
+          "bunching_ratio": {
+            "mean": 0.009565713531606842,
+            "sample_sd": 0.002573882098706918,
+            "n": 5
+          }
+        }
+      },
+      {
+        "method": "RLPD-E10",
+        "label": "RLPD-E10（离线到在线微调）",
+        "statistical_unit": "独立训练种子的10场景均值",
+        "n": 5,
+        "horizon_seconds": 18000.0,
+        "horizon_sd": 0.0,
+        "metrics": {
+          "wait_seconds": {
+            "mean": 298.8131591081322,
+            "sample_sd": 2.4584451560763445,
+            "n": 5
+          },
+          "ride_seconds": {
+            "mean": 960.0595331719702,
+            "sample_sd": 21.18970805051666,
+            "n": 5
+          },
+          "total_seconds": {
+            "mean": 1258.8726922801022,
+            "sample_sd": 23.186771545946797,
+            "n": 5
+          },
+          "headway_deviation_seconds": {
+            "mean": 27.036394979138784,
+            "sample_sd": 0.709661943559733,
+            "n": 5
+          },
+          "bunching_ratio": {
+            "mean": 0.009750043714103278,
+            "sample_sd": 0.0009622311981455805,
+            "n": 5
+          }
+        }
+      },
+      {
+        "method": "nohold",
+        "label": "无附加驻站基线",
+        "statistical_unit": "共同SUMO环境种子",
+        "n": 10,
+        "horizon_seconds": 18000.0,
+        "horizon_sd": 0.0,
+        "metrics": {
+          "wait_seconds": {
+            "mean": 311.0758199630103,
+            "sample_sd": 2.6842765021653645,
+            "n": 10
+          },
+          "ride_seconds": {
+            "mean": 860.1052911991895,
+            "sample_sd": 15.228613830149923,
+            "n": 10
+          },
+          "total_seconds": {
+            "mean": 1171.1811111621998,
+            "sample_sd": 16.207850090422355,
+            "n": 10
+          },
+          "headway_deviation_seconds": {
+            "mean": 58.35874449463455,
+            "sample_sd": 1.6738559130526198,
+            "n": 10
+          },
+          "bunching_ratio": {
+            "mean": 0.035411884283944615,
+            "sample_sd": 0.003287839067086288,
+            "n": 10
+          }
+        }
+      },
+      {
+        "method": "schedule_hold",
+        "label": "时刻表驻站规则",
+        "statistical_unit": "共同SUMO环境种子",
+        "n": 10,
+        "horizon_seconds": 18000.0,
+        "horizon_sd": 0.0,
+        "metrics": {
+          "wait_seconds": {
+            "mean": 310.95313576264175,
+            "sample_sd": 3.374675036480253,
+            "n": 10
+          },
+          "ride_seconds": {
+            "mean": 856.4131395995043,
+            "sample_sd": 11.85095504309094,
+            "n": 10
+          },
+          "total_seconds": {
+            "mean": 1167.366275362146,
+            "sample_sd": 11.261196373591714,
+            "n": 10
+          },
+          "headway_deviation_seconds": {
+            "mean": 57.42946494300759,
+            "sample_sd": 1.3161214096156568,
+            "n": 10
+          },
+          "bunching_ratio": {
+            "mean": 0.034303951059255336,
+            "sample_sd": 0.0017479352589986588,
+            "n": 10
+          }
+        }
+      },
+      {
+        "method": "daganzo",
+        "label": "前向比例反馈规则",
+        "statistical_unit": "共同SUMO环境种子",
+        "n": 10,
+        "horizon_seconds": 18000.0,
+        "horizon_sd": 0.0,
+        "metrics": {
+          "wait_seconds": {
+            "mean": 301.3537066609711,
+            "sample_sd": 4.540564622781053,
+            "n": 10
+          },
+          "ride_seconds": {
+            "mean": 926.7670380359217,
+            "sample_sd": 18.64045429783455,
+            "n": 10
+          },
+          "total_seconds": {
+            "mean": 1228.1207446968929,
+            "sample_sd": 18.096652182461412,
+            "n": 10
+          },
+          "headway_deviation_seconds": {
+            "mean": 27.109970763610818,
+            "sample_sd": 0.6367754416434489,
+            "n": 10
+          },
+          "bunching_ratio": {
+            "mean": 0.015565704790214779,
+            "sample_sd": 0.0007695887306339061,
+            "n": 10
+          }
+        }
+      },
+      {
+        "method": "adaptive_headway",
+        "label": "自适应间隔规则",
+        "statistical_unit": "共同SUMO环境种子",
+        "n": 10,
+        "horizon_seconds": 18000.0,
+        "horizon_sd": 0.0,
+        "metrics": {
+          "wait_seconds": {
+            "mean": 306.36313502180053,
+            "sample_sd": 3.5701406728361973,
+            "n": 10
+          },
+          "ride_seconds": {
+            "mean": 925.6598686845994,
+            "sample_sd": 16.263454103900067,
+            "n": 10
+          },
+          "total_seconds": {
+            "mean": 1232.0230037063998,
+            "sample_sd": 17.02652627123747,
+            "n": 10
+          },
+          "headway_deviation_seconds": {
+            "mean": 27.112268631270744,
+            "sample_sd": 0.6831373515080624,
+            "n": 10
+          },
+          "bunching_ratio": {
+            "mean": 0.01624887888529172,
+            "sample_sd": 0.0009751437891502418,
+            "n": 10
+          }
+        }
+      }
+    ],
+    "incorrect_old_interpretation": {
+      "old": "前向比例反馈与自适应间隔规则虽将串车率降至0.016，但因频繁驻站推高车内时间而使总旅行时间高于强化学习微调策略",
+      "actual": "前向比例反馈/自适应总时间1228.12/1232.02秒，低于本表4种微调方法1258.87–1282.75秒；其串车率均约0.016，高于本表微调方法约0.010–0.013。车内时间926.77/925.66秒高于无驻站860.11/时刻表856.41秒，但低于本表微调方法954.64–981.48秒。",
+      "basis": "同一revision_hold_v3_20260718冻结汇总；均值比较，不附显著性或全局优越性推断。"
+    }
+  },
+  "table_6_3": {
+    "status": "全部定性占位和缺项均有原已计算均值及95%配对自助法区间。",
+    "source": "/home/erzhu419/mine_code/MC-WM/paper/generated/final_confirmation/algorithm_confirmation_results.json",
+    "statistic": {
+      "bootstrap": "percentile bootstrap of the paired cross-seed mean",
+      "bootstrap_resamples": 20000,
+      "bootstrap_seed": 20260911,
+      "confidence_level": 0.95,
+      "cross_environment_pooling": "No return average is pooled across environments because reward scales differ.",
+      "difference_orientation": "candidate minus control",
+      "multiplicity": "Intervals are reported per registered comparison; no unregistered family-wise claim is made.",
+      "pairing": "within environment and training seed",
+      "unit": "independent training seed"
+    },
+    "rows": [
+      {
+        "control": "target_sac",
+        "label": "仅目标数据 SAC",
+        "environments": {
+          "ant_wall_broken_soft_ceiling": {
+            "return_difference": {
+              "mean": 1925.7101632296828,
+              "ci95": [
+                715.6073447081119,
+                3322.2991207036825
+              ],
+              "n": 10
+            },
+            "violation_difference": {
+              "mean": -2.56,
+              "ci95": [
+                -3.7449999999999997,
+                -1.45
+              ],
+              "n": 10
+            }
+          },
+          "gravity_soft_ceiling": {
+            "return_difference": {
+              "mean": 1184.4795822477652,
+              "ci95": [
+                724.5192487544832,
+                1752.6895131866138
+              ],
+              "n": 10
+            },
+            "violation_difference": {
+              "mean": -9.32,
+              "ci95": [
+                -15.790125000000003,
+                -3.71
+              ],
+              "n": 10
+            }
+          },
+          "friction_walker_soft_ceiling": {
+            "return_difference": {
+              "mean": 133.40111474522354,
+              "ci95": [
+                67.55091913276574,
+                197.85070237760914
+              ],
+              "n": 10
+            },
+            "violation_difference": {
+              "mean": -6.85,
+              "ci95": [
+                -11.84,
+                -2.255
+              ],
+              "n": 10
+            }
+          }
+        }
+      },
+      {
+        "control": "darc",
+        "label": "DARC（分类器修正）",
+        "environments": {
+          "ant_wall_broken_soft_ceiling": {
+            "return_difference": {
+              "mean": 2222.6720970701167,
+              "ci95": [
+                931.6522870025899,
+                3603.396442686931
+              ],
+              "n": 10
+            },
+            "violation_difference": {
+              "mean": -0.42000000000000004,
+              "ci95": [
+                -1.485,
+                0.54
+              ],
+              "n": 10
+            }
+          },
+          "gravity_soft_ceiling": {
+            "return_difference": {
+              "mean": 3686.1863297708537,
+              "ci95": [
+                3181.7220199881053,
+                4179.897092628217
+              ],
+              "n": 10
+            },
+            "violation_difference": {
+              "mean": -44.029999999999994,
+              "ci95": [
+                -60.115125000000006,
+                -29.739750000000022
+              ],
+              "n": 10
+            }
+          },
+          "friction_walker_soft_ceiling": {
+            "return_difference": {
+              "mean": 142.0812578144568,
+              "ci95": [
+                55.91358721618914,
+                224.73739250783842
+              ],
+              "n": 10
+            },
+            "violation_difference": {
+              "mean": -16.945,
+              "ci95": [
+                -29.189999999999998,
+                -7.2
+              ],
+              "n": 10
+            }
+          }
+        }
+      },
+      {
+        "control": "direct_target_mbpo",
+        "label": "直接目标 MBPO",
+        "environments": {
+          "ant_wall_broken_soft_ceiling": {
+            "return_difference": {
+              "mean": 73.4422146941509,
+              "ci95": [
+                -1947.615460016953,
+                1568.9951197881292
+              ],
+              "n": 10
+            },
+            "violation_difference": {
+              "mean": 0.12500000000000006,
+              "ci95": [
+                -1.015125,
+                1.0399999999999998
+              ],
+              "n": 10
+            }
+          },
+          "gravity_soft_ceiling": {
+            "return_difference": {
+              "mean": 127.28992326076518,
+              "ci95": [
+                -398.29400087665516,
+                731.4604323534256
+              ],
+              "n": 10
+            },
+            "violation_difference": {
+              "mean": -0.45499999999999996,
+              "ci95": [
+                -1.065,
+                0.12499999999999997
+              ],
+              "n": 10
+            }
+          },
+          "friction_walker_soft_ceiling": {
+            "return_difference": {
+              "mean": 43.85213263376373,
+              "ci95": [
+                -32.23741956438951,
+                120.42633985935186
+              ],
+              "n": 10
+            },
+            "violation_difference": {
+              "mean": -23.285000000000004,
+              "ci95": [
+                -36.18,
+                -11.20962500000003
+              ],
+              "n": 10
+            }
+          }
+        }
+      },
+      {
+        "control": "mcwm_core",
+        "label": "固定残差方法",
+        "environments": {
+          "ant_wall_broken_soft_ceiling": {
+            "return_difference": {
+              "mean": 2723.2466648812488,
+              "ci95": [
+                1502.9441032822617,
+                4056.2802515091266
+              ],
+              "n": 10
+            },
+            "violation_difference": {
+              "mean": 0.010000000000000009,
+              "ci95": [
+                -1.09,
+                1.105
+              ],
+              "n": 10
+            }
+          },
+          "gravity_soft_ceiling": {
+            "return_difference": {
+              "mean": 344.91142711618295,
+              "ci95": [
+                -130.37037268834075,
+                805.4310231471512
+              ],
+              "n": 10
+            },
+            "violation_difference": {
+              "mean": -2.285,
+              "ci95": [
+                -5.8401250000000005,
+                0.005000000000000049
+              ],
+              "n": 10
+            }
+          },
+          "friction_walker_soft_ceiling": {
+            "return_difference": {
+              "mean": -39.8059413402004,
+              "ci95": [
+                -194.7818464062363,
+                78.84195943953979
+              ],
+              "n": 10
+            },
+            "violation_difference": {
+              "mean": -24.67,
+              "ci95": [
+                -64.28,
+                -0.525
+              ],
+              "n": 10
+            }
+          }
+        }
+      },
+      {
+        "control": "raw_sim",
+        "label": "仅源仿真 SAC",
+        "environments": {
+          "ant_wall_broken_soft_ceiling": {
+            "return_difference": {
+              "mean": 2496.313545752483,
+              "ci95": [
+                1245.7073248412212,
+                3894.085617251961
+              ],
+              "n": 10
+            },
+            "violation_difference": {
+              "mean": 0.9800000000000001,
+              "ci95": [
+                0.38,
+                1.6199999999999999
+              ],
+              "n": 10
+            }
+          },
+          "gravity_soft_ceiling": {
+            "return_difference": {
+              "mean": 3866.030397437672,
+              "ci95": [
+                3396.701540979097,
+                4348.421008688977
+              ],
+              "n": 10
+            },
+            "violation_difference": {
+              "mean": -9.66,
+              "ci95": [
+                -12.559999999999999,
+                -6.415000000000001
+              ],
+              "n": 10
+            }
+          },
+          "friction_walker_soft_ceiling": {
+            "return_difference": {
+              "mean": -14.25594643677083,
+              "ci95": [
+                -188.37938090819557,
+                142.11871068552261
+              ],
+              "n": 10
+            },
+            "violation_difference": {
+              "mean": -32.815,
+              "ci95": [
+                -77.93525,
+                -4.824625000000033
+              ],
+              "n": 10
+            }
+          }
+        }
+      }
+    ]
+  },
+  "table_6_6": {
+    "status": "全部占位数可补，原自动选择均值及CI和原耗时精确对应ratio_split_v2，而非旧enhancement_v1批次。",
+    "source": "/home/erzhu419/mine_code/Thesis/experiments/ratio_split_v2/summary.json",
+    "complete": true,
+    "training_seeds": [
+      22101,
+      22102,
+      22103,
+      22104,
+      22105
+    ],
+    "interval": "Student t, 4 df; unit is training seed after within-seed test-day averaging",
+    "rows": [
+      {
+        "arm": "mixed_nomodel",
+        "label": "无世界模型混合训练基线",
+        "time_minutes": 21.53186841054366,
+        "inference_ms": 2.8736125614246704,
+        "demand_differences": {},
+        "selected_family_counts": {}
+      },
+      {
+        "arm": "calibrated_selection",
+        "label": "MC-WM（一次拟合·自动选择）",
+        "time_minutes": 23.514988155618486,
+        "inference_ms": 2.4423230348766083,
+        "demand_differences": {
+          "demand1": {
+            "mean": -0.03526759068909087,
+            "ci95": [
+              -4.768236441681592,
+              4.69770126030341
+            ],
+            "by_training_seed": {
+              "22101": 1.7181378075470093,
+              "22102": 5.6659062272033225,
+              "22103": -2.498056900325082,
+              "22104": -1.1139465481796833,
+              "22105": -3.9483785396910207
+            }
+          },
+          "demand1.25": {
+            "mean": -3.741959558142753,
+            "ci95": [
+              -9.511727826841028,
+              2.0278087105555214
+            ],
+            "by_training_seed": {
+              "22101": -11.906165271409009,
+              "22102": -0.4637402511284563,
+              "22103": -1.9224451804207092,
+              "22104": -1.5166664258326819,
+              "22105": -2.9007806619229086
+            }
+          }
+        },
+        "selected_family_counts": {
+          "residual": 3,
+          "direct": 2
+        }
+      },
+      {
+        "arm": "fixed_direct",
+        "label": "MC-WM（一次拟合·固定直接模型）",
+        "time_minutes": 22.971510561453396,
+        "inference_ms": 2.981555497509544,
+        "demand_differences": {
+          "demand1": {
+            "mean": -12.83444260229453,
+            "ci95": [
+              -44.99864276994189,
+              19.32975756535283
+            ],
+            "by_training_seed": {
+              "22101": 2.212255454605838,
+              "22102": -0.9457656343256531,
+              "22103": -2.498056900325082,
+              "22104": -58.99226739173673,
+              "22105": -3.9483785396910207
+            }
+          },
+          "demand1.25": {
+            "mean": -22.26055625496938,
+            "ci95": [
+              -76.8946816188045,
+              32.37356910886573
+            ],
+            "by_training_seed": {
+              "22101": -2.897719007764863,
+              "22102": -2.6136158886561134,
+              "22103": -1.9224451804207092,
+              "22104": -100.9682205360823,
+              "22105": -2.9007806619229086
+            }
+          }
+        },
+        "selected_family_counts": {
+          "direct": 5
+        }
+      },
+      {
+        "arm": "fixed_residual",
+        "label": "MC-WM（一次拟合·固定残差模型）",
+        "time_minutes": 22.98792885519205,
+        "inference_ms": 2.2178196216598733,
+        "demand_differences": {
+          "demand1": {
+            "mean": 0.30152132104249174,
+            "ci95": [
+              -4.606698265730374,
+              5.209740907815357
+            ],
+            "by_training_seed": {
+              "22101": 1.7181378075470093,
+              "22102": 5.6659062272033225,
+              "22103": 0.3865508322833193,
+              "22104": -1.1139465481796833,
+              "22105": -5.149041713641509
+            }
+          },
+          "demand1.25": {
+            "mean": -4.216174203604896,
+            "ci95": [
+              -9.866804817913508,
+              1.4344564107037163
+            ],
+            "by_training_seed": {
+              "22101": -11.906165271409009,
+              "22102": -0.4637402511284563,
+              "22103": -2.710974634262584,
+              "22104": -1.5166664258326819,
+              "22105": -4.483324435391751
+            }
+          }
+        },
+        "selected_family_counts": {
+          "residual": 5
+        }
+      }
+    ]
+  },
+  "unrounded_12_46": {
+    "status": "12.46正确",
+    "source": "/home/erzhu419/mine_code/Thesis/experiments/resac_native_recipe_v8/analysis_summary.json",
+    "aggregation": "holding/headway/budget100，normal、pulse5、repeated5、static5、static10、burst50六场景等权平均",
+    "resac": -101.42814443633037,
+    "sac": -113.88375616545716,
+    "difference": 12.455611729126787,
+    "round_two_decimals": 12.46,
+    "proposed_display": "由-113.884升至-101.428，平均每次决策奖励提高12.46。"
+  },
+  "controlled_environments": {
+    "chapter4": {
+      "environment": "HalfCheetah（Brax spring后端；配置别名HalfCheetah-v2）",
+      "observation_dim": 17,
+      "action_dim": 6,
+      "horizon_steps": 1000,
+      "mode_dwell_steps": 250,
+      "training_steps_per_policy": 8400000,
+      "sources": [
+        "/home/erzhu419/mine_code/BAPR/reproducibility/v32/training_metadata.json",
+        "/home/erzhu419/mine_code/BAPR/reports/regime_polarity_action_compensation_power_v32_preregistration_2026-09-13.md",
+        "/home/erzhu419/mine_code/BAPR/jax_experiments/envs/brax_env.py:185",
+        "/home/erzhu419/mine_code/BAPR/jax_experiments/analysis/regime_polarity_anchored_eval.py:102",
+        "/home/erzhu419/mine_code/BAPR/jax_experiments/tests/test_v32_halfcheetah_reward_contract.py:26"
+      ],
+      "note": "真实后端是Brax spring；不能从6维动作反推为MuJoCo-v5运行。"
+    },
+    "chapter6": [
+      {
+        "task": "执行器偏移",
+        "recorded_env": "ant_wall_broken_soft_ceiling",
+        "gymnasium_base": "Ant-v5",
+        "observation_dim": 27,
+        "action_dim": 8,
+        "source": "/home/erzhu419/mine_code/MC-WM/mc_wm/envs/hp_mujoco/ant_wall_broken.py",
+        "run_manifest": "/home/erzhu419/mine_code/MC-WM/artifacts/experiments/final_confirmation_v1/ant_wall_broken_soft_ceiling/mcwm_calibration_risk_target_done/seed_173749511/manifest.json"
+      },
+      {
+        "task": "重力偏移",
+        "recorded_env": "gravity_soft_ceiling",
+        "gymnasium_base": "HalfCheetah-v5",
+        "observation_dim": 17,
+        "action_dim": 6,
+        "source": "/home/erzhu419/mine_code/MC-WM/mc_wm/envs/hp_mujoco/gravity_cheetah.py",
+        "run_manifest": "/home/erzhu419/mine_code/MC-WM/artifacts/experiments/final_confirmation_v1/gravity_soft_ceiling/mcwm_calibration_risk_target_done/seed_173749511/manifest.json"
+      },
+      {
+        "task": "摩擦偏移",
+        "recorded_env": "friction_walker_soft_ceiling",
+        "gymnasium_base": "Walker2d-v5",
+        "observation_dim": 17,
+        "action_dim": 6,
+        "source": "/home/erzhu419/mine_code/MC-WM/mc_wm/envs/hp_mujoco/friction_walker.py",
+        "run_manifest": "/home/erzhu419/mine_code/MC-WM/artifacts/experiments/final_confirmation_v1/friction_walker_soft_ceiling/mcwm_calibration_risk_target_done/seed_173749511/manifest.json"
+      }
+    ],
+    "attachment_correction": "第6章不是附件猜测的HalfCheetah/Hopper/Walker2d；应为Ant/HalfCheetah/Walker2d。"
+  },
+  "turnaround": {
+    "status": "数值可复现；不能把两策略的平均休息时间当作同车同班次固定衔接裕量的配对差。",
+    "source": "/home/erzhu419/mine_code/Thesis/experiments/review_round3/completed_operational_summary.json",
+    "rows": [
+      {
+        "scene": "normal",
+        "arm": "ridge",
+        "training_seeds": 3,
+        "metrics": {
+          "generalized_seconds": 1575.0002936349986,
+          "completion_fraction": 0.9469239248746406,
+          "front_plan_absolute_seconds": 46.50650517680594,
+          "back_plan_absolute_seconds": 41.89497241986527,
+          "departure_lateness_seconds": 0.0,
+          "trip_duration_seconds": 2983.6854588182273,
+          "terminal_turnaround_seconds": 355.7661835748792,
+          "inference_ms": 0.35880296491086483,
+          "launched_trips": 134,
+          "completed_trips": 117.11111111111111
+        }
+      },
+      {
+        "scene": "normal",
+        "arm": "exp60_hold",
+        "training_seeds": 3,
+        "metrics": {
+          "generalized_seconds": 1394.5421564371463,
+          "completion_fraction": 0.9526711753711843,
+          "front_plan_absolute_seconds": 48.393870789155535,
+          "back_plan_absolute_seconds": 44.573806099673874,
+          "departure_lateness_seconds": 0.0,
+          "trip_duration_seconds": 2599.554821514293,
+          "terminal_turnaround_seconds": 335.1077953224846,
+          "inference_ms": 0.3336729326595863,
+          "launched_trips": 134,
+          "completed_trips": 119.0
+        }
+      },
+      {
+        "scene": "fast_switch",
+        "arm": "ridge",
+        "training_seeds": 3,
+        "metrics": {
+          "generalized_seconds": 2123.4747118226014,
+          "completion_fraction": 0.9316342395139154,
+          "front_plan_absolute_seconds": 59.74139321495266,
+          "back_plan_absolute_seconds": 54.06589411076218,
+          "departure_lateness_seconds": 0.0,
+          "trip_duration_seconds": 3078.339002151346,
+          "terminal_turnaround_seconds": 358.0703873209594,
+          "inference_ms": 0.34447441187997657,
+          "launched_trips": 134,
+          "completed_trips": 116.11111111111111
+        }
+      },
+      {
+        "scene": "fast_switch",
+        "arm": "exp60_hold",
+        "training_seeds": 3,
+        "metrics": {
+          "generalized_seconds": 1955.0785491904899,
+          "completion_fraction": 0.9370703041953449,
+          "front_plan_absolute_seconds": 62.54526365794306,
+          "back_plan_absolute_seconds": 58.00374100327311,
+          "departure_lateness_seconds": 0.0,
+          "trip_duration_seconds": 2752.056431438286,
+          "terminal_turnaround_seconds": 370.43155786778976,
+          "inference_ms": 0.347218450365795,
+          "launched_trips": 134,
+          "completed_trips": 118.0
+        }
+      }
+    ],
+    "measurement_code": "/home/erzhu419/mine_code/Thesis/experiments/review_round3/legacy.py:26",
+    "dispatch_code": "/home/erzhu419/mine_code/Thesis/experiments/legacy_bus/runtime/BAPR/env/sim.py:265",
+    "supported_mechanism": "周转时间仅在同一bus_id再次发车时记录current_time-previous_finish；同向可用车按最早到站复用，无可用车则新建Bus补充并按时刻表发车。策略改变到站时间和车辆可用集合，均值分母及班次衔接可变化。",
+    "missing_for_stronger_claim": "现有汇总未给两策略逐bus_id/班次衔接配对表及补车次数，因此不能断言某一策略具体通过多少备用车/顺延多少班次导致20.66秒差。"
+  },
+  "pulse_return": {
+    "status": "同策略同评价seed的配对记录确认均值反转，跨两个训练重复方向不一致；两种因果解释都未被现有日志识别。",
+    "sources": [
+      "/home/erzhu419/mine_code/Thesis/experiments/csbapr_bus/evaluate_recovery.py:88",
+      "/home/erzhu419/mine_code/Thesis/experiments/csbapr_bus/runs/recovery_v1"
+    ],
+    "pairs": [
+      {
+        "method": "bapr-pristine",
+        "training_seed": 0,
+        "common_evaluation_seed": 14301,
+        "normal_return": -816196.9867876539,
+        "pulse_return": -826668.554222933,
+        "pulse_minus_normal": -10471.56743527914,
+        "normal_decisions": 9492,
+        "pulse_decisions": 9439
+      },
+      {
+        "method": "bapr-pristine",
+        "training_seed": 1,
+        "common_evaluation_seed": 14302,
+        "normal_return": -765798.7325676187,
+        "pulse_return": -808359.0788115299,
+        "pulse_minus_normal": -42560.34624391119,
+        "normal_decisions": 9347,
+        "pulse_decisions": 9352
+      },
+      {
+        "method": "csbapr-no-nau",
+        "training_seed": 0,
+        "common_evaluation_seed": 14301,
+        "normal_return": -744422.2341867555,
+        "pulse_return": -739750.1073907221,
+        "pulse_minus_normal": 4672.12679603335,
+        "normal_decisions": 9489,
+        "pulse_decisions": 9456
+      },
+      {
+        "method": "csbapr-no-nau",
+        "training_seed": 1,
+        "common_evaluation_seed": 14302,
+        "normal_return": -734589.3345779739,
+        "pulse_return": -777448.6627058567,
+        "pulse_minus_normal": -42859.32812788279,
+        "normal_decisions": 9376,
+        "pulse_decisions": 9404
+      },
+      {
+        "method": "csbapr",
+        "training_seed": 0,
+        "common_evaluation_seed": 14301,
+        "normal_return": -766454.3896753582,
+        "pulse_return": -769830.3224872819,
+        "pulse_minus_normal": -3375.9328119236743,
+        "normal_decisions": 9469,
+        "pulse_decisions": 9445
+      },
+      {
+        "method": "csbapr",
+        "training_seed": 1,
+        "common_evaluation_seed": 14302,
+        "normal_return": -752744.3291994274,
+        "pulse_return": -737410.7050341675,
+        "pulse_minus_normal": 15333.624165259884,
+        "normal_decisions": 9446,
+        "pulse_decisions": 9442
+      }
+    ],
+    "arithmetic_output_mean_gain": 5978.845676668105,
+    "supported_statement": "算术输出两次配对回报变化分别为-3375.93及+15333.62，均值为+5978.85（约5.98千）。这只能说明累计间隔奖励变化不与滞留队列代价同向。",
+    "not_supported": [
+      "不能把固定seed配对反转直接归因为两次训练的随机波动。",
+      "现有窗口只保存平均在车人数、候车人数、动作及间隔；没有满载车辆比例、逐站上下客服务时长上限截断统计，不能据此认定附件的满载/服务时间同上限机制。"
+    ],
+    "missing_for_mechanism": "逐车站点载客率、上客拒载/容量截断、必要服务时长与相应奖励分项的联合记录；不建议为此重跑实验，直接删去未经识别的因果解释。"
+  }
+}

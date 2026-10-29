@@ -1,0 +1,41 @@
+{"at": "2026-10-20T06:33:55.929999+00:00", "stage": "waiting_native_preflight", "preflight_started": false, "preflight_complete": false, "preflight_failed": false, "failures": [], "result_exists": false}
+{"at": "2026-10-20T07:13:06.394429+00:00", "stage": "stopped", "error_type": "RuntimeError", "error": "[node001] cmd failed (rc=255): kex_exchange_identification: Connection closed by remote host\nConnection closed by UNKNOWN port 65535"}
+Traceback (most recent call last):
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_context_shadow_v5_20261020/continue_stage_a.py", line 80, in <module>
+    main()
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_context_shadow_v5_20261020/continue_stage_a.py", line 45, in main
+    value = metadata()
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_context_shadow_v5_20261020/continue_stage_a.py", line 34, in metadata
+    _, output, _ = infra.scheduler.run_on("node001", shlex.join([infra.PYTHON, "-c", script]),
+  File "/home/erzhu419/mine_code/scheduleurm/skill/scheduler_transport/remote_runtime.py", line 184, in run_on
+    return _run_on_impl(
+  File "/home/erzhu419/mine_code/scheduleurm/skill/scheduler_remote/exec.py", line 558, in run_on
+    raise RuntimeError(f"[{node}] cmd failed (rc={proc.returncode}): {proc.stderr.strip()[:300]}")
+RuntimeError: [node001] cmd failed (rc=255): kex_exchange_identification: Connection closed by remote host
+Connection closed by UNKNOWN port 65535
+{"at": "2026-10-20T10:42:47.853637+00:00", "stage": "waiting_native_preflight", "preflight_started": false, "preflight_complete": false, "preflight_failed": false, "failures": [], "result_exists": false}
+{"at": "2026-10-20T12:42:23.155071+00:00", "stage": "waiting_native_preflight", "preflight_started": true, "preflight_complete": false, "preflight_failed": false, "failures": [], "result_exists": false}
+{"at": "2026-10-20T12:43:23.963524+00:00", "stage": "waiting_native_preflight", "preflight_started": true, "preflight_complete": false, "preflight_failed": true, "failures": [], "result_exists": false}
+{"at": "2026-10-20T12:43:23.963663+00:00", "stage": "stopped", "error_type": "RuntimeError", "error": "Native preflight failed; inspect resident failure record"}
+Traceback (most recent call last):
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_context_shadow_v5_20261020/continue_stage_a.py", line 91, in <module>
+    main()
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_context_shadow_v5_20261020/continue_stage_a.py", line 61, in main
+    raise RuntimeError("Native preflight failed; inspect resident failure record")
+RuntimeError: Native preflight failed; inspect resident failure record
+{"at": "2026-10-20T12:54:39.389097+00:00", "stage": "continuation_started", "preflight_directory": "preflight_device_fix"}
+{"at": "2026-10-20T12:54:40.910194+00:00", "stage": "waiting_native_preflight", "preflight_started": false, "preflight_complete": false, "preflight_failed": false, "failures": [], "result_exists": false}
+{"at": "2026-10-20T12:55:41.905304+00:00", "stage": "waiting_native_preflight", "preflight_started": true, "preflight_complete": false, "preflight_failed": false, "failures": [], "result_exists": false}
+{"at": "2026-10-20T12:58:47.026256+00:00", "stage": "waiting_native_preflight", "preflight_started": true, "preflight_complete": true, "preflight_failed": false, "failures": [], "result_exists": false}
+{"at": "2026-10-20T12:59:11.084295+00:00", "stage": "stage_a_submitted", "ids": ["t204577", "t204578", "t204579", "t204580"]}
+{"at": "2026-10-20T12:59:43.102720+00:00", "stage": "finalizer_submitted", "ids": ["t204581"]}
+{"at": "2026-10-20T13:18:12.081982+00:00", "stage": "resident_diagnosis", "status": "complete", "bytes": 602088, "complete": 4, "errors": 0}
+{"at": "2026-10-20T13:18:12.801285+00:00", "stage": "stopped", "error_type": "RuntimeError", "error": "Resident summary exceeds the small-result budget; reduce it on server first"}
+Traceback (most recent call last):
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_context_shadow_v5_20261020/continue_stage_a.py", line 93, in <module>
+    main()
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_context_shadow_v5_20261020/continue_stage_a.py", line 84, in main
+    infra.collect_json("context_shadow_summary.json")
+  File "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_context_shadow_v5_20261020/infra.py", line 113, in collect_json
+    raise RuntimeError("Resident summary exceeds the small-result budget; reduce it on server first")
+RuntimeError: Resident summary exceeds the small-result budget; reduce it on server first

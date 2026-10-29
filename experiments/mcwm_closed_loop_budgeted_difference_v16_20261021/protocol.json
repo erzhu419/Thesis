@@ -1,0 +1,150 @@
+{
+  "training_seeds": [
+    6201,
+    6202
+  ],
+  "target_seed_offset": 77000,
+  "scenarios": [
+    "stable",
+    "local_speed_drop"
+  ],
+  "target_lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "history_rows": 32768,
+  "source_rows": 4096,
+  "recent_window": 285,
+  "model_init_updates": 400,
+  "model_refit_updates": 10,
+  "policy_updates_per_packet": 8,
+  "feedback_first_deadline": 1200,
+  "feedback_last_deadline": 18000,
+  "feedback_interval_seconds": 300,
+  "feedback_records_per_packet": 5,
+  "feedback_delay_seconds": 30,
+  "target_record_budget": 285,
+  "policy_update_budget": 456,
+  "shock_at_seconds": 9000,
+  "speed_factor": 0.65,
+  "metric_interval_seconds": 300,
+  "model_td_fraction": 0.25,
+  "response_endpoint_seconds": 300,
+  "response_ridge": 1.0,
+  "calibration_seed_offset": 410000,
+  "calibration_first_issue_seconds": 570,
+  "calibration_heldout_first_issue_seconds": 18000,
+  "source_intervals_per_line_minimum": 5,
+  "source_intervals_per_line_limit": 64,
+  "reference_source_intervals": "../mcwm_closed_loop_diagnostic_v2_20261020/inputs/source_intervals.json",
+  "reference_inputs": "../mcwm_closed_loop_formal_20261020/inputs",
+  "paired_suffix_seconds": 300,
+  "name": "thesis-mcwm-budgeted-difference-v16-20261021",
+  "scheduler_priority": "high",
+  "training_windows": [
+    {
+      "name": "early",
+      "start": 2700,
+      "end": 5400
+    },
+    {
+      "name": "post1",
+      "start": 9900,
+      "end": 12300
+    },
+    {
+      "name": "post2",
+      "start": 13200,
+      "end": 15600
+    }
+  ],
+  "preflight_directory": "preflight",
+  "preflight": {
+    "seed": 6201,
+    "scenario": "stable",
+    "target_lines": [
+      "7X"
+    ],
+    "model_init_updates": 2,
+    "model_refit_updates": 1,
+    "feedback_last_deadline": 3900,
+    "target_record_budget": 50,
+    "policy_update_budget": 80,
+    "preflight_stop_seconds": 5000,
+    "training_windows": [
+      {
+        "name": "preflight_train",
+        "start": 1200,
+        "end": 2700
+      }
+    ],
+    "heldout_windows": [
+      {
+        "name": "preflight_holdout",
+        "start": 4050,
+        "end": 4600
+      }
+    ],
+    "training_pairs_per_day_maximum": 1,
+    "training_pair_slots_per_day_maximum": 2,
+    "ordinary_slots_when_complete": 48
+  },
+  "scope": "Four new common-prefix days (two unchanged initializer seeds x stable/shock), up to36 fresh training pairs and24 new heldout states. Main day jobs perform bounded sequential subprocess collection of training branches; evaluation branches are separate. Existing v15 diagnostic targets remain read only and are not fitted.",
+  "selection": "First jointly executable issue per line in each predefined window; never inspect truth/error for selection. Training nominal commands use seed-fixed balanced low/high. Heldout anchors retain nominal controller commands and are selected after actual final packet. Missing cells remain missing.",
+  "common_prefix": "Each child replays its own new main-day native prefix, observed commands, past admitted paired feedback, saved predictions and packet receipts exactly through the selected issue. Prefix traces/cache/journals remain resident.",
+  "continuation": "Main native clock pauses while two training children replay the available prefix and run300 frozen native seconds. Children replay earlier pair caches only, never recursively collect or use future labels; both siblings share the same external seed and nominal other-batch commands. Every training and evaluation suffix has zero policy/world/trust/readout updates and no future calibration.",
+  "endpoint_clock": "Exact native300-second ledger window. Global and same-car endpoints retain their native event clocks; endpoints not observed by cutoff remain missing.",
+  "trust": "Original action_model trust formula and eight policy/trust updates per packet unchanged; trained parameters follow the new budgeted data stream. Both difference readouts share this common flow and remain passive.",
+  "physical_covariate": "Reuse fixed102source physical intervals. No extra unbudgeted target physical labels. The new endpoint models use only selected controlled bundles.",
+  "independent_confirmation": {
+    "status": "not_submitted",
+    "reason": "Small passive difference-learning development comparison only."
+  },
+  "heldout_windows": [
+    {
+      "name": "heldout1",
+      "start": 19000,
+      "end": 20700
+    },
+    {
+      "name": "heldout2",
+      "start": 21600,
+      "end": 23100
+    }
+  ],
+  "training_pairs_per_day_maximum": 9,
+  "training_outcome_slots_per_pair": 2,
+  "training_pair_slots_per_day_maximum": 18,
+  "ordinary_slots_when_complete": 267,
+  "feedback_pair_limit_per_packet": 1,
+  "paired_endpoint_seconds": 300,
+  "difference_ridge": 1.0,
+  "difference_target_scale": 1000.0,
+  "difference_features": [
+    "7X",
+    "102X",
+    "705X",
+    "forward_headway_deviation_minus_backward_headway_deviation"
+  ],
+  "candidate_deployment": "not_enabled; both paired readouts are passive on one new common action_model trajectory",
+  "budget": "57 packets x5 outcomes=285/day. At most one available pair replaces2 ordinary slots in a packet, leaving3 ordinary; otherwise5 ordinary. Exclude its factual main-flow issue from the ordinary pool. Each paired action has one distinct negative label ID and a real native global transition; zero-duration rows still consume their label slot and supervise the300s response but are excluded from world/trust transition fitting by the original rule. Only admitted paired labels fit difference models.",
+  "feedback_release": "A pair is unavailable before issue+300+30 seconds and before both native global endpoints complete+30; branch wall-clock completion never advances the main native clock or permits early training.",
+  "targets": "Learn low-minus-high waiting/ride gains at exactly300 native seconds, normalized by1000, ridge1. Cost gain=2*waiting gain+ride gain. Full model uses route3+one observable headway-imbalance feature; comparator route3, no background or learned propensity. No v15 target/feature/lambda search.",
+  "compute_budget": {
+    "main_days": 4,
+    "main_native_seconds": 96000,
+    "training_pairs_maximum": 36,
+    "training_branches_maximum": 72,
+    "training_native_suffix_seconds_maximum": 21600,
+    "heldout_states": 24,
+    "heldout_branches": 48,
+    "heldout_native_suffix_seconds": 14400,
+    "training_labels_per_day": 285,
+    "training_pair_outcomes_replace_ordinary": true,
+    "replay": "All child prefix seconds, replayed training labels and updates counted separately, not pooled as new labels.",
+    "preflight": "One short day, two training children and two heldout branches separately reported."
+  }
+}

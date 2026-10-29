@@ -1,0 +1,74 @@
+{
+  "source": "/mnt/c/Users/erzhu/Documents/kimi/tasks/2026-10-12/20-17-12-1f6303e5/review/v3版引用文献列表.txt",
+  "range": [76, 150],
+  "reviewed_count": 75,
+  "summary": "作者、题名、年份、卷期页码及已有标识符未发现错配；74条正确，第147条核心书目信息正确但DOI字段为空，可补齐。未将标点、大小写或初次上传年份与指定修订版本年份的差异认定为错误。",
+  "correct_ranges": [[76, 146], [148, 150]],
+  "findings": [
+    {
+      "number": 147,
+      "status": "incomplete_doi",
+      "issue": "条目末尾仅有空的DOI:，尚未填写标识符。作者、题名、2024年50卷5期831-842页均正确。",
+      "correction": "补为 DOI:10.3969/j.issn.1003-3114.2024.05.001。",
+      "corrected_text": "陈锶奇, 耿婕, 汪云飞, 等. 基于离线强化学习的研究综述[J]. 无线电通信技术, 2024, 50(5): 831-842. DOI:10.3969/j.issn.1003-3114.2024.05.001.",
+      "source_url": "https://wxdt.cbpt.cnki.net/portal/journal/portal/client/paper/c4632864a2c1c2b0fb849e733d34bf7f",
+      "doi_url": "https://doi.org/10.3969/j.issn.1003-3114.2024.05.001",
+      "evidence": "原刊官方CNKI平台核实题名、六位作者、年份、卷期页码；DOI注册解析成功落至万方该刊wxdtxjs202405001条目。"
+    }
+  ],
+  "live_confirmations": [
+    {
+      "number": 87,
+      "status": "correct",
+      "source_url": "https://arxiv.org/abs/2508.20784v2",
+      "note": "原稿指定v2；arXiv明确v1为2025-08-28、v2为2026-03-19，题名和作者Yifan Zhang一致。因此2026正确，不改为2025。"
+    },
+    {
+      "number": 94,
+      "status": "correct",
+      "source_url": "https://www.chndoi.org/Resolution/Handler?doi=10.16097/j.cnki.1009-6744.2021.03.008",
+      "note": "DOI官方登记解析页明确列出本文题名、尚春琳等四位作者及DOI，2021-06-29注册；原刊卷页为2021,21(3):64-70。补表中该DOI正确。"
+    },
+    {
+      "number": 114,
+      "status": "correct",
+      "source_url": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.2019.20170812",
+      "note": "原刊DOI页面核实题名及白辰甲、刘鹏、赵巍、唐降龙；年份卷页与已有作者和期刊元数据缓存一致。"
+    },
+    {
+      "number": 119,
+      "status": "correct",
+      "source_url": "https://arxiv.org/abs/2603.18396v4",
+      "note": "原稿指定v4；arXiv作者Yifan Zhang、Liang Zheng及题名一致，v4日期2026-05-19。"
+    },
+    {
+      "number": 132,
+      "status": "correct",
+      "source_url": "https://arxiv.org/abs/2605.16170v2",
+      "note": "原稿指定v2；arXiv题名作者一致，v2日期2026-05-19。"
+    },
+    {
+      "number": 139,
+      "status": "correct",
+      "source_url": "https://doi.org/10.11897/SP.J.1016.2019.01812",
+      "note": "作者、题名及2019,42(8):1812-1826与已有期刊正文参考文献缓存一致；DOI可经注册解析转至论文原刊资源。"
+    },
+    {
+      "number": 142,
+      "status": "correct",
+      "source_url": "https://arxiv.org/abs/2610.05143v1",
+      "note": "原稿指定v1；arXiv题名作者一致，发布日期2026-10-04。"
+    }
+  ],
+  "reused_evidence": [
+    "output/Gemini/word_assets_20261015/original_word_reference_index.json",
+    "output/Gemini/word_assets_20261015/citation_key_map.json",
+    "manuscript/reference_preprints.json",
+    "manuscript/reference_metadata.json",
+    "workpapers/综述新增中文文献_20261006/sources/19.json",
+    "output/Gemini/word_assets_20261015/citation_additions_chinese_a.json",
+    "output/Gemini/word_assets_20261015/citation_additions_chinese_b.json",
+    "output/Gemini/word_assets_20261015/citation_additions_chinese_c.json"
+  ],
+  "method": "先按DOI或arXiv标识符匹配旧稿与已核实元数据，比较作者及题名并忽略标点和大小写；复用64条原Word匹配和本轮原刊核验记录。仅对新增标识符、未覆盖条目及版本年份另查小型HTML元数据。未改Word，未下载全文PDF。"
+}

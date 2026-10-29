@@ -1,0 +1,87 @@
+{
+  "version": "v57",
+  "status": "complete",
+  "integrity_all_pass": true,
+  "task_ids": [
+    "t211615",
+    "t211616",
+    "t211617"
+  ],
+  "priority": "high",
+  "source_models": "v54 frozen one_step and trace",
+  "beta_comparison": [
+    0,
+    1
+  ],
+  "lambda_zero_native_target_Adam_RNG_exact": true,
+  "beta0_original_float32_recursion_exact": true,
+  "source_feedback_slots": 285,
+  "source_optimizer_updates": 456,
+  "initializer_updates": 50000,
+  "horizon_seconds": 24000,
+  "new_optimizer_updates": 0,
+  "new_native_branches": 0,
+  "new_training_labels": 0,
+  "truth_admitted": 0,
+  "F_unchanged": true,
+  "trust_unchanged": true,
+  "old_results_read_only": true,
+  "downloaded_final_summary_bytes": 28203,
+  "scene_results": {
+    "stable": {
+      "supported_factual_roots": 270,
+      "beta0_mean_correction": 1.2953918351067437,
+      "beta1_mean_correction": -0.6997253824163366,
+      "shift_std": 0.9846238619182043,
+      "line_centered_shift_rms": 0.9810035400085229,
+      "future_mass_fit_R2": 0.9997080140410316,
+      "after_mass_fit_residual_std": 0.016824855395643764,
+      "target_std_beta0": 2.253474493080274,
+      "target_std_beta1": 1.3035284687095683,
+      "adjacent_factual_difference_sign_changes": 19,
+      "adjacent_factual_pairs": 258,
+      "zero_duration_supported_roots": 89,
+      "real_remaining_span_at_least300_roots": 11,
+      "max_real_remaining_span": 321.0,
+      "cross_arm_beta_difference_in_differences": {
+        "mean": -2.1148610998083045e-05,
+        "std": 1.0551672530172981e-05,
+        "max_abs": 4.00543212890625e-05,
+        "interpretation": "Change in trace-minus-single frozen target contrast at identical factual roots; not action benefit."
+      }
+    },
+    "local_speed_drop": {
+      "supported_factual_roots": 270,
+      "beta0_mean_correction": 1.3485675070020888,
+      "beta1_mean_correction": -0.6886288554580123,
+      "shift_std": 0.9924640517510229,
+      "line_centered_shift_rms": 0.9898920163161663,
+      "future_mass_fit_R2": 0.9993720246785045,
+      "after_mass_fit_residual_std": 0.024870589166508125,
+      "target_std_beta0": 2.054745495033296,
+      "target_std_beta1": 1.1103855308868043,
+      "adjacent_factual_difference_sign_changes": 15,
+      "adjacent_factual_pairs": 258,
+      "zero_duration_supported_roots": 95,
+      "real_remaining_span_at_least300_roots": 9,
+      "max_real_remaining_span": 313.0,
+      "cross_arm_beta_difference_in_differences": {
+        "mean": -1.9931793212890624e-05,
+        "std": 9.974448627715751e-06,
+        "max_abs": 3.814697265625e-05,
+        "interpretation": "Change in trace-minus-single frozen target contrast at identical factual roots; not action benefit."
+      }
+    }
+  },
+  "is_pure_constant_shift": false,
+  "action_response_improvement_established": false,
+  "advance_to_training": false,
+  "advance_to_control": false,
+  "decision": "Target changes are real and nonconstant, predominantly aligned with future exposure. Evidence does not establish correction of same-state action credit; mean sign reversal alone is insufficient.",
+  "limitations": [
+    "Future-mass fit is descriptive; state and chain position covary.",
+    "No legitimate alternative-action successor chains are present in this precheck.",
+    "Similar shifts on the two frozen endpoints do not prove cumulative training would behave identically.",
+    "Beta1 changes the lambda>0 soft fixed point; original entropy was not shown to be double counted."
+  ]
+}

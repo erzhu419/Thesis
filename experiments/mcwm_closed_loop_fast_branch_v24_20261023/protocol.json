@@ -1,0 +1,246 @@
+{
+  "training_seeds": [
+    6201
+  ],
+  "target_seed_offset": 90000,
+  "scenarios": [
+    "stable"
+  ],
+  "target_lines": [
+    "7X",
+    "102X",
+    "705X"
+  ],
+  "horizon_seconds": 24000,
+  "initializer_updates": 50000,
+  "history_rows": 32768,
+  "source_rows": 4096,
+  "recent_window": 285,
+  "model_init_updates": 400,
+  "model_refit_updates": 10,
+  "policy_updates_per_packet": 8,
+  "feedback_first_deadline": 1200,
+  "feedback_last_deadline": 18000,
+  "feedback_interval_seconds": 300,
+  "feedback_records_per_packet": 5,
+  "feedback_delay_seconds": 30,
+  "target_record_budget": 285,
+  "policy_update_budget": 456,
+  "shock_at_seconds": 9000,
+  "speed_factor": 0.65,
+  "metric_interval_seconds": 300,
+  "model_td_fraction": 0.25,
+  "response_endpoint_seconds": 300,
+  "response_ridge": 1.0,
+  "calibration_seed_offset": 410000,
+  "source_intervals_per_line_minimum": 5,
+  "source_intervals_per_line_limit": 64,
+  "reference_source_intervals": "../mcwm_closed_loop_diagnostic_v2_20261020/inputs/source_intervals.json",
+  "reference_inputs": "../mcwm_closed_loop_formal_20261020/inputs",
+  "paired_suffix_seconds": 300,
+  "name": "thesis-mcwm-fast-branch-v24-20261023",
+  "scheduler_priority": "high",
+  "training_windows": [
+    {
+      "name": "bootstrap",
+      "start": 1200,
+      "end": 2700
+    },
+    {
+      "name": "response",
+      "start": 3000,
+      "end": 6600
+    },
+    {
+      "name": "late",
+      "start": 15000,
+      "end": 17670
+    }
+  ],
+  "preflight": {
+    "seed": 6201,
+    "scenario": "stable",
+    "target_seed_offset": 90000
+  },
+  "scope": "Execution-only acceleration preflight. Reuse existing v23 first training issue as a fixed parity benchmark. Reconstruct common prefix once, fork two native300s suffixes, then parent low300s continuation. No v23 run is modified; no new scientific fit or B task.",
+  "selection": "Three pairs per line: bootstrap first jointly executable, strict-history-supported issue. response/late prefer first unseen joint stratum in first2/3 of window; final1/3 first eligible fallback. Joint=(headway difference sign, incoming third-segment residual below-7.5/within±7.5/above7.5). Nonbootstrap requires prior own-line admitted pair. No outcome/error/predicted gain enters selection; no retrospective selection or outcome-driven replacement. Retain missing and unmet strata.",
+  "common_prefix": "Fresh native v23 target96201. Initializer6201 unchanged. Children replay only this day own admitted caches and nominal controls. No old heldout truth or previous-version truth enters selection or fit.",
+  "continuation": "Each pair launches two isolated single-thread libsumo children on two reserved CPUs before any wait. Parent native clock pauses. Record child native wall intervals, actual overlap and fixed parent clock. Admission order stays low/high and causal; zero suffix updates.",
+  "endpoint_clock": "Exact native300-second ledger window. Global and same-car endpoints retain their native event clocks; endpoints not observed by cutoff remain missing.",
+  "trust": "Original action_model trust formula and eight policy/trust updates per packet unchanged; trained parameters follow the new budgeted data stream. All three learned difference readouts share this common flow and remain passive.",
+  "physical_covariate": "Reuse fixed102source physical intervals. No extra unbudgeted target physical labels. The new endpoint models use only selected controlled bundles.",
+  "independent_confirmation": {
+    "status": "not_submitted",
+    "reason": "Sampling and service-response development only; B remains an explicit later decision."
+  },
+  "heldout_windows": [
+    {
+      "name": "heldout1",
+      "start": 18010,
+      "end": 18700
+    },
+    {
+      "name": "heldout2",
+      "start": 18700,
+      "end": 20000
+    }
+  ],
+  "training_pairs_per_day_maximum": 9,
+  "training_outcome_slots_per_pair": 2,
+  "training_pair_slots_per_day_maximum": 18,
+  "ordinary_slots_when_complete": 267,
+  "feedback_pair_limit_per_packet": 1,
+  "paired_endpoint_seconds": 300,
+  "difference_ridge": 1.0,
+  "difference_target_scale": 1000.0,
+  "difference_features": [
+    "7X",
+    "102X",
+    "705X",
+    "forward_headway_deviation_minus_backward_headway_deviation"
+  ],
+  "candidate_deployment": "All models passive; no candidate action deployment or independent confirmation.",
+  "budget": "57 packets x5 outcomes=285/day. At most one available pair replaces2 ordinary slots in a packet, leaving3 ordinary; otherwise5 ordinary. Exclude its factual main-flow issue from the ordinary pool. Each paired action has one distinct negative label ID and a real native global transition; zero-duration rows still consume their label slot and supervise the300s response but are excluded from world/trust transition fitting by the original rule. Only admitted paired labels fit difference models.",
+  "feedback_release": "A pair is unavailable before issue+300+30 seconds and before both native global endpoints complete+30; branch wall-clock completion never advances the main native clock or permits early training.",
+  "targets": "Service models unchanged: shared4 and three-link-history5 predict high7.5-minus-low0 service shifts relative to7.5s. No v22local candidate and no300-second response candidate in this stage.",
+  "compute_budget": {
+    "main_days": 1,
+    "main_native_seconds": 24000,
+    "training_labels_per_day": 285,
+    "total_training_labels_maximum": 285,
+    "training_pairs_maximum": 9,
+    "training_branches_maximum": 18,
+    "training_native_suffix_seconds_maximum": 5400,
+    "heldout_states": 6,
+    "heldout_branches_maximum": 12,
+    "conditional_heldout_native_suffix_seconds": 3600,
+    "total_native_suffix_seconds_maximum": 9000,
+    "prefix_replay_seconds": "Report actual accumulated separately, including failures.",
+    "heldout_truth_enters_training": 0
+  },
+  "timing_design": {
+    "bootstrap": "7X[1200,2700);102X/705X[3600,6600), based on pre-issue-only station reachability, not truth.",
+    "response": "7X[3000,6600);102X/705X[7200,11700); requires prior same-line admission.",
+    "late": "[15000,17670), requires prior same-line admission.",
+    "feedback": "Last deadline18000, one pair replaces2 ordinary slots; missing/late unadmitted pairs remain explicit.",
+    "heldout": "Unchanged two post-training windows; validation only after training scientific gate.",
+    "preflight_reuse": "One new day only, no duplicate preflight/campaign day."
+  },
+  "external_randomness": {
+    "initializer_seeds_unchanged": [
+      6201
+    ],
+    "stage_a_external_seeds": [
+      96201
+    ],
+    "stage_b_external_seeds": [],
+    "reason": "Fresh v23 common prefix and own training pairs; no B scheduled."
+  },
+  "state_response_features": [
+    "7X",
+    "102X",
+    "705X",
+    "forward_minus_backward_headway_deviation",
+    "mean_recent_completed_same_link_runtime_residual_over60"
+  ],
+  "service_preflight": {
+    "next_stops": 3,
+    "history_scale_seconds": 60.0,
+    "ridge": 1.0,
+    "service_target_scale_seconds": 60.0,
+    "first_action_prior_seconds": 7.5,
+    "history": "Most recent observed completed traversal strictly before issue on each of the next3 directed physical links, matched edge path. Actual departure-to-arrival minus unchanged native static running timetable increment. Mean across3 links supplies one model column. Missing link means unsupported, never zero.",
+    "gate": "Fresh service shared4/history5 only: complete paired evidence, macro history MAE improvement and no line regression; at least one fresh reversal state and at least one correct negative history forecast. Report correlated endpoints, missing/censor, support and extrapolation separately. Review before deciding B; never auto-submit B.",
+    "not_fitted": "No300-second history candidate or v22 local candidate; all service readouts passive. Service heldout truth never fits."
+  },
+  "stages": {
+    "service": {
+      "seed": 6201,
+      "scenario": "stable"
+    },
+    "response": []
+  },
+  "service_seed": 6201,
+  "sampling": {
+    "joint_stratum": [
+      "headway_sign",
+      "third_residual_bin"
+    ],
+    "residual_threshold_seconds": 7.5,
+    "preferred_fraction": 0.6666666666666666,
+    "minimum_joint_strata_per_line": 2,
+    "nonbootstrap_requires_prior_line_admission": true
+  },
+  "training_gate": "Native integrity,9 admitted pairs/3 per line,285 labels,strict history and exact saved forecast reproduction,actual sibling overlap and fixed parent clock,>=2 joint strata per line and>=2 supported training states per line,>=1 chronologically scoreable reversal state. No training-MAE model selection. Cold-start negative truth is not scoreable reversal.",
+  "service_gate": "Fresh service shared4/history5 only: complete paired evidence, macro history MAE improvement and no line regression; at least one fresh reversal state and at least one correct negative history forecast. Report correlated endpoints, missing/censor, support and extrapolation separately. Review before deciding B; never auto-submit B.",
+  "training_windows_by_line": {
+    "102X": [
+      {
+        "name": "bootstrap",
+        "start": 3600,
+        "end": 6600
+      },
+      {
+        "name": "response",
+        "start": 7200,
+        "end": 11700
+      },
+      {
+        "name": "late",
+        "start": 15000,
+        "end": 17670
+      }
+    ],
+    "705X": [
+      {
+        "name": "bootstrap",
+        "start": 3600,
+        "end": 6600
+      },
+      {
+        "name": "response",
+        "start": 7200,
+        "end": 11700
+      },
+      {
+        "name": "late",
+        "start": 15000,
+        "end": 17670
+      }
+    ]
+  },
+  "service_comparison_models": [
+    "shared",
+    "history"
+  ],
+  "passive300_comparators": [
+    "shared",
+    "route",
+    "zero"
+  ],
+  "diagnostic_budget": {
+    "new_training_labels": 0,
+    "prefix_replays": 1,
+    "child_suffixes": 2,
+    "parent_control_suffixes": 1,
+    "native_suffix_seconds": 900,
+    "target_id": "train/7X/bootstrap",
+    "source": "mcwm_closed_loop_stratified_pairs_v23_20261023/stage_a/runs/stable/seed6201"
+  },
+  "acceleration_scope": "Linux live-process copy-on-write at the action fork_selector boundary. Preserve complete Python/native state and same-batch locals. Restore Python RNG after os.fork auto-reseed. Child-specific file descriptors, no child bridge cleanup, zero suffix updates. Deployment waits for native parity.",
+  "whole_day_execution_benchmark": {
+    "source": "mcwm_closed_loop_stratified_pairs_v23_20261023/stage_a/runs/stable/seed6201",
+    "seed": 6201,
+    "external_seed": 96201,
+    "pairs": 9,
+    "labels": 285,
+    "main_seconds": 24000,
+    "branch_seconds": 5400,
+    "child_prefix_seconds": 0,
+    "scope": "Same-seed execution reproduction, not an independent scientific day. Full trace/acquisition/model/truth equivalence before use in next new experiment; current v23 remains untouched."
+  },
+  "native_precheck_attempts": {
+    "first": "native_probe.json: input list whitespace conversion error before stepping; preserved",
+    "retest": "native_probe_retest.json: explicit separate high task after script correction"
+  }
+}

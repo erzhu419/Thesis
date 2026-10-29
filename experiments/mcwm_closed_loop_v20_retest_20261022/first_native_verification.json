@@ -1,0 +1,156 @@
+{
+  "status": "complete",
+  "integrity": {
+    "all_pass": true,
+    "checks": {
+      "initializer_50000": true,
+      "history_source_budget": true,
+      "target_horizon_unchanged": true,
+      "physical_source_fixed": true,
+      "original_trust_rule": true,
+      "readouts_admitted_pairs_only": true,
+      "no_heldout_fit": true,
+      "full_native_prefix_exact": true,
+      "acquisition_predictions_exact": true,
+      "selected_evidence_exact": true,
+      "source_receipts_exact": true,
+      "source_counters_exact": true,
+      "suffix_zero_training": true,
+      "native_suffix_exact": true,
+      "actual_action_exact": true,
+      "fixed300_truth": true,
+      "no_future_calibration": true,
+      "global_transition_observed": true,
+      "native_reference_complete": true,
+      "native_reference_fork_exact": true,
+      "native_reference_other_batch_exact": true,
+      "native_mapping_unchanged": true,
+      "actor_real_clock": true,
+      "tail_formula_exact": true,
+      "no_new_training_labels": true,
+      "old_native_truth_exact": true,
+      "service_observation_complete": true,
+      "service_ledger_truth_exact": true
+    }
+  },
+  "execution": {
+    "requested_hold_seconds": 0.0,
+    "executed_hold_seconds": 0.0
+  },
+  "suffix": {
+    "seconds": 300,
+    "training_delta": {
+      "policy": 0,
+      "world": 0,
+      "trust": 0,
+      "physical": 0,
+      "target_labels": 0,
+      "shared_pairs": 0,
+      "route_pairs": 0,
+      "candidate_pairs": 0,
+      "readout_refits": 0
+    }
+  },
+  "phase_intervention": {
+    "mapping": "native_all_suffix",
+    "source_native_summary": "/home/zhengliang01/scheduleurm_work/Thesis/experiments/mcwm_closed_loop_state_response_v18_20261022/runs/stable/seed6201/training_branches/2/low/summary.json",
+    "first_tail_sequence": null,
+    "first_tail_time": null,
+    "native_policy_issues": 11977,
+    "tail_policy_issues": 0,
+    "actor_real_clock": true,
+    "actor_clock_max_abs_error": 0.0,
+    "actor_clock_error_unit": "native_seconds",
+    "fork_batch_native": true,
+    "tail_formula_exact": true,
+    "ledger_vs_event_lag": {
+      "count": 11977,
+      "min_seconds": 1.0,
+      "max_seconds": 1.0
+    },
+    "tail_batches": 0
+  },
+  "budget": {
+    "prefix_sim_seconds": 16865.0,
+    "suffix_sim_seconds": 300,
+    "replay_target_labels": 265,
+    "replay_policy_updates": 424,
+    "truth_labels_enter_training": 0,
+    "new_target_training_labels": 0,
+    "new_diagnostic_action_outcomes": 1,
+    "reused_native_action_outcomes": 1
+  },
+  "service": {
+    "status": "complete",
+    "integrity": {
+      "all_pass": true,
+      "checks": {
+        "fixed_clock_complete": true,
+        "exact_native_cutoff": true,
+        "final_ledger_exact": true,
+        "fork_vehicle_baseline_visible": true,
+        "real_capacity_observed": true,
+        "fork_queue_observed": true,
+        "native_arrival_observed": true,
+        "native_departure_observed": true,
+        "native_service_ready_observed": true
+      }
+    },
+    "start_time": 16865.0,
+    "cutoff_time": 17165.0,
+    "clock_rows": 301,
+    "event_counts": {
+      "issue": 222,
+      "arrival": 224,
+      "departure": 229,
+      "board": 364,
+      "alight": 367,
+      "service_ready": 230
+    },
+    "line_event_counts": {
+      "7X": 113,
+      "102X": 151,
+      "705S": 106,
+      "406S": 122,
+      "406X": 163,
+      "102S": 158,
+      "7S": 106,
+      "122S": 94,
+      "705X": 165,
+      "311S": 146,
+      "122X": 151,
+      "311X": 161
+    },
+    "missing_counts": {},
+    "coverage": {
+      "valid_capacity_events": 1414,
+      "fork_queue_samples": 301,
+      "fork_vehicle_baseline_visible": true
+    },
+    "fixed300": {
+      "dt": 300.0,
+      "wait": 249610.0,
+      "ride": 393256.0,
+      "cost": 892476.0
+    },
+    "paths": {
+      "clock": "service_clock.json",
+      "events": "service_events.json",
+      "trace": "service_trace.jsonl"
+    },
+    "clocks": "Clock rows are ledger delivery times; service_ready retains the bridge-calculated history time, native_detection_time and observed_at. Person changes retain observation intervals. Use cumulative ledger differences.",
+    "service_scope": "All native bus service boundaries and every-tick actual person-set changes including the cutoff; each-second queue at the fork shared station. Passenger changes are interval-observed, simultaneous events have no asserted physical ordering. No future observation enters training."
+  },
+  "prefix_counters": {
+    "policy": 50424,
+    "world": 1060,
+    "trust": 424,
+    "physical": 0,
+    "target_labels": 265,
+    "shared_pairs": 6,
+    "route_pairs": 6,
+    "candidate_pairs": 6,
+    "readout_refits": 53
+  },
+  "prefix_issued_count": 11756
+}

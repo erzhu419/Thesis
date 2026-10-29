@@ -1,0 +1,32 @@
+{
+  "status": "Small probe prepared only; no Word instance started, no large export, no DOCX edits.",
+  "existing_route": "Word Page.EnhMetaFileBits -> GDI+ Metafile -> Graphics.DrawImage -> PNG. All reviewed thesis preview scripts use this same replay route.",
+  "cause_boundary": "False boldness is not yet attributed conclusively. The same EMF must be compared through native GDI and GDI+; font weight records distinguish a bold recording from a replay difference.",
+  "preferred_probe": {
+    "capture": "capture_three_pages.ps1",
+    "raster": "raster_emf_compare.ps1",
+    "targets": "probe_targets.json",
+    "labels": [
+      "2-33",
+      "5-3",
+      "C-31"
+    ],
+    "expected_outputs_per_page": [
+      "original .emf",
+      "_gdi.png",
+      "_gdiplus.png",
+      "_replay.json with font weight/italic"
+    ],
+    "word_mode": "Separate hidden COM application; read-only input; no Save; Close(0); no screen activation; no PDF."
+  },
+  "next_if_native_GDI_matches_actual_Word_window": "Use exactly this Word EMF capture and Win32 PlayEnhMetaFile playback for every physical page, around 2000 px wide. Export the document OMath count plus each OMath Range start/end physical page in the same Word session. All pages containing each of the 4738 objects must appear in a contiguous review assignment; inspect full-size pages or overlapping vertical crops, not contact-sheet thumbnails.",
+  "next_if_native_GDI_also_disagrees": "Do not accept either replay path as visual truth. Compare one saved original EMF in the actual Word/window renderer before choosing a different export route.",
+  "window_screenshot_tradeoff": "Window.GetPoint requires the entire range on screen. Full-document screenshots need scrolling and a visible viewport; they are slower and can interfere with the user. Hidden window PrintWindow capture is not established here as complete or reliable.",
+  "validation_not_run": "A PowerShell parser-only attempt failed before execution with WSL UtilBindVsockAnyPort socket failed 1; no Word was launched. Parent should run the 3-page probe through its working Windows path.",
+  "primary_documentation": [
+    "https://learn.microsoft.com/en-us/dotnet/api/microsoft.office.interop.word.page.enhmetafilebits?view=word-pia",
+    "https://learn.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-playenhmetafile",
+    "https://learn.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-setenhmetafilebits",
+    "https://learn.microsoft.com/en-us/office/vba/api/word.window.getpoint"
+  ]
+}

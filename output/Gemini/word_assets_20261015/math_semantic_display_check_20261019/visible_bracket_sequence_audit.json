@@ -1,0 +1,492 @@
+{
+  "groups_checked": 1914,
+  "native_d_count": 346,
+  "native_one_sided": [
+    {
+      "source": "native_d",
+      "xpath": "/w:document/w:body/w:tbl[104]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath/m:d",
+      "begin": "{",
+      "end": "",
+      "one_sided": true
+    },
+    {
+      "source": "native_d",
+      "xpath": "/w:document/w:body/w:tbl[176]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath/m:d",
+      "begin": "{",
+      "end": "",
+      "one_sided": true
+    },
+    {
+      "source": "native_d",
+      "xpath": "/w:document/w:body/w:tbl[177]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath/m:d",
+      "begin": "{",
+      "end": "",
+      "one_sided": true
+    },
+    {
+      "source": "native_d",
+      "xpath": "/w:document/w:body/w:tbl[246]/w:tr/w:tc[2]/w:p/m:oMathPara/m:oMath/m:d",
+      "begin": "{",
+      "end": "",
+      "one_sided": true
+    }
+  ],
+  "candidates": [],
+  "allowed_mixed_interval_pairs": [
+    {
+      "group_xpath": "/w:document/w:body/w:p[287]",
+      "math_ids": [
+        "M000147",
+        "M000148",
+        "M000149",
+        "M000150",
+        "M000151",
+        "M000152",
+        "M000153",
+        "M000154",
+        "M000155",
+        "M000156",
+        "M000157",
+        "M000158",
+        "M000159",
+        "M000160",
+        "M000161",
+        "M000162"
+      ],
+      "labels": [],
+      "visible_sequence": "SAP(s'∣s,a)s∈Sa∈As'∈SR(s,a)=E[rt∣st=s,at=a]ρ0γ∈[0,1)st+1rtstatΔtt=tt+1-tt(st+1,Δtt)∼P(⋅∣st,at)γ",
+      "paragraph_context": "式中，S 为状态空间，A 为动作空间，P(s'∣s,a) 为在状态 s∈S 执行动作 a∈A 后转移至后继状态 s'∈S 的条件概率分布（状态转移核），R(s,a)=E[rt∣st=s,at=a] 为期望即时奖励函数，ρ0 为初始状态分布，γ∈[0,1) 为折扣因子。式(2-3)的马尔可夫性意味着后继状态 st+1 与即时奖励 rt 的条件分布仅取决于当前状态 st 与当前动作 at，而与此前经历的历史轨迹无关。映射到公交逐站驻站控制问题中，车辆到站完成必要上下客时的运行观测、所选附加驻站时长以及相邻决策区间内的间隔偏差或乘客时间成本，即分别对应状态、动作与奖励；由于实际公交观测无法穷尽路网中每一辆社会车辆的微观位置，所构造的控制状态仅作为马尔可夫状态的工程近似。此外，由于公交车辆到站决策由异步运行事件触发，相邻两次决策之间的物理持续时间 Δtt=tt+1-tt 随站间行驶与停站过程动态变化，该过程在严格意义上属于半马尔可夫决策过程（Semi-Markov Decision Process，SMDP）[204]：环境联合生成后继状态与事件持续时间 (st+1,Δtt)∼P(⋅∣st,at)，区间奖励按实际经过的物理时间积分累计，而按决策事件步施加的折扣因子 γ 则反映按事件次序计算的远期权重衰减。",
+      "allowed_pairs": [
+        {
+          "pair": "[)",
+          "contents": "0,1",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:p[288]",
+      "math_ids": [
+        "M000163",
+        "M000164",
+        "M000165",
+        "M000166",
+        "M000167",
+        "M000168"
+      ],
+      "labels": [],
+      "visible_sequence": "π(a∣s)μ(s)saγ∈[0,1)π*",
+      "paragraph_context": "智能体的行为由随机策略 π(a∣s)（或确定性策略 μ(s)）刻画，其规定了在状态 s 下选择动作 a 的条件概率密度。对于即时奖励有界且 γ∈[0,1) 的折扣决策问题，强化学习的优化目标是寻找最优策略 π* 以最大化期望折扣累积回报[203]：",
+      "allowed_pairs": [
+        {
+          "pair": "[)",
+          "contents": "0,1",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:p[291]",
+      "math_ids": [
+        "M000183",
+        "M000184",
+        "M000185",
+        "M000186",
+        "M000187",
+        "M000188",
+        "M000189"
+      ],
+      "labels": [],
+      "visible_sequence": "∥⋅∥∞T*∥T*Q1-T*Q2∥∞≤γ ∥Q1-Q2∥∞γ∈[0,1)T*γkQ*",
+      "paragraph_context": "由于条件数学期望与取最大值算子在无穷范数（上确界范数）∥⋅∥∞ 下均具有非扩张性（Non-Expansiveness），算子 T* 满足 ∥T*Q1-T*Q2∥∞≤γ ∥Q1-Q2∥∞；当 γ∈[0,1) 时，由巴拿赫不动点定理（Banach Fixed-Point Theorem）可知 T* 为严格压缩映射，从任意有界初值出发反复应用精确算子迭代必以几何速率 γk 收敛至唯一最优不动点 Q*[69,203]。",
+      "allowed_pairs": [
+        {
+          "pair": "[)",
+          "contents": "0,1",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:p[309]",
+      "math_ids": [
+        "M000258",
+        "M000259",
+        "M000260",
+        "M000261",
+        "M000262",
+        "M000263",
+        "M000264",
+        "M000265",
+        "M000266",
+        "M000267"
+      ],
+      "labels": [],
+      "visible_sequence": "γ∈[0,1)TRγinfp∈Ps,a(s,a)p∘δV∥δ∥≤ρ∥⋅∥*",
+      "paragraph_context": "当 γ∈[0,1) 时，TR 同样是无穷范数下的 γ-压缩映射。然而，在连续高维状态空间中直接按式(2-18)在每次价值更新时求解内层下确界优化问题（infp∈Ps,a）计算代价极为高昂；鲁棒—正则对偶理论（Robustness-Regularization Duality）为此提供了高效的可计算转化途径[206,117,118]。设固定状态动作对 (s,a) 下的名义后继分布为 p∘，若线性扰动向量 δ 作用于后继状态价值向量 V 且受范数球 ∥δ∥≤ρ 约束，则由共轭对偶范数 ∥⋅∥* 的定义可直接导出：",
+      "allowed_pairs": [
+        {
+          "pair": "[)",
+          "contents": "0,1",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:p[312]",
+      "math_ids": [
+        "M000281",
+        "M000282",
+        "M000283",
+        "M000284"
+      ],
+      "labels": [],
+      "visible_sequence": "Zν∈(0,1](1-ν)ν",
+      "paragraph_context": "除防范环境模型集合偏移外，风险敏感强化学习（Risk-Sensitive RL）直接改变智能体对随机累积成本分布尾部风险的偏好。记一条完整运营轨迹的随机累积成本为 Z，给定所关注的不利尾部概率质量水平 ν∈(0,1]，条件风险价值（Conditional Value-at-Risk，CVaR）定义为超过 (1-ν) 分位数的最差 ν 比例运行结果的平均成本，其Rockafellar-Uryasev变分优化形式与概率重加权对偶形式为[108,109]：",
+      "allowed_pairs": [
+        {
+          "pair": "(]",
+          "contents": "0,1",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:p[335]",
+      "math_ids": [
+        "M000381",
+        "M000382",
+        "M000383",
+        "M000384",
+        "M000385",
+        "M000386",
+        "M000387",
+        "M000388"
+      ],
+      "labels": [],
+      "visible_sequence": "γ∈[0,1)|R(s,a)|≤rmaxsups,a|R(s,a)-R(s,a)|≤εrTV(P,P)=12∫|P(s'∣s,a)-P(s'∣s,a)| ds'sups,aTV(P(⋅∣s,a),P(⋅∣s,a))≤εPπVtrueπVmdlπ",
+      "paragraph_context": "单步模型预测误差对长期策略价值评估的传播上界，可通过经典的模拟引理（Simulation Lemma）在固定策略与严格折扣条件下给出定量刻画[192,189,68]。设真实环境模型与学习得到的近似世界模型具有相同的折扣因子 γ∈[0,1)，即时奖励绝对值有界（|R(s,a)|≤rmax）；若在两个模型后继转移封闭的状态集合内，近似模型相对于真实环境的一致期望奖励误差满足 sups,a|R(s,a)-R(s,a)|≤εr，且条件转移分布之间的总变差距离（Total Variation Distance，TV(P,P)=12∫|P(s'∣s,a)-P(s'∣s,a)| ds'）满足 sups,aTVP(⋅∣s,a),P(⋅∣s,a)≤εP，则任意固定策略 π 在真实环境下的价值函数 Vtrueπ 与在近似模型下的价值函数 Vmdlπ 之差满足如下一致上界：",
+      "allowed_pairs": [
+        {
+          "pair": "[)",
+          "contents": "0,1",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:p[451]",
+      "math_ids": [
+        "M000776",
+        "M000777",
+        "M000778",
+        "M000779",
+        "M000780",
+        "M000781"
+      ],
+      "labels": [],
+      "visible_sequence": "n2λ<Δ<nλa∈(ac, Δ2]a=Δ/2|hf(a)-hb(a)|=Δ-2a<ΔacΔC(a)>0",
+      "paragraph_context": "当 n2λ<Δ<nλ 时，存在一个危险的“目标背离区间” a∈ac, Δ2：在此区间内选择驻站时长（例如直接执行完全时距均衡规则 a=Δ/2），虽然确实缩小了前后车头时距不均衡度（|hf(a)-hb(a)|=Δ-2a<Δ），但由于驻站时长越过了成本平衡临界点 ac，局部乘客广义时间总成本反而净增加（ΔC(a)>0）。",
+      "allowed_pairs": [
+        {
+          "pair": "(]",
+          "contents": "ac, Δ2",
+          "same_native": true
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:p[475]",
+      "math_ids": [
+        "M000875",
+        "M000876",
+        "M000877",
+        "M000878",
+        "M000879",
+        "M000880"
+      ],
+      "labels": [],
+      "visible_sequence": "P(⋅∣s,a)γ∈[0,1)Λ(s,a)QQ1,Q2∈B(S×A)TΛ",
+      "paragraph_context": "命题3.1（冻结惩罚下正则化贝尔曼算子的收缩性）：设状态转移核 P(⋅∣s,a) 满足非负性与概率归一性，折扣因子 γ∈[0,1)，且在单次价值迭代步内合成惩罚项 Λ(s,a) 由冻结的目标网络给出（即不随被更新的当前输入价值函数 Q 变化），则对任意有界动作价值函数 Q1,Q2∈B(S×A)，算子 TΛ 在无穷范数下满足严格收缩性质：",
+      "allowed_pairs": [
+        {
+          "pair": "[)",
+          "contents": "0,1",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:p[645]",
+      "math_ids": [
+        "M001846",
+        "M001847",
+        "M001848",
+        "M001849",
+        "M001850",
+        "M001851",
+        "M001852",
+        "M001853"
+      ],
+      "labels": [],
+      "visible_sequence": "{Pz}z∈Zγ∈[0,1)ρpθαTρ∥⋅∥∞γ",
+      "paragraph_context": "命题4.1（冻结信念加权算子的收缩性）：对于任意合法的概率转移核族 {Pz}z∈Z 与折扣因子 γ∈[0,1)，在单次更新内固定模式信念 ρ、策略密度 pθ、熵温度 α 与有界惩罚项函数，置信加权贝尔曼算子 Tρ 是有界动作价值函数空间上关于无穷范数 ∥⋅∥∞ 的 γ-压缩映射，存在唯一不动点。",
+      "allowed_pairs": [
+        {
+          "pair": "[)",
+          "contents": "0,1",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:tbl[170]/w:tr[7]/w:tc[5]/w:p",
+      "math_ids": [
+        "M003052"
+      ],
+      "labels": [],
+      "visible_sequence": "wiΔ∈(0,1]",
+      "paragraph_context": "取指数生成模型样本权重 wiΔ∈(0,1]，调节模型样本对价值学习的贡献",
+      "allowed_pairs": [
+        {
+          "pair": "(]",
+          "contents": "0,1",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:p[890]",
+      "math_ids": [
+        "M003060",
+        "M003061",
+        "M003062",
+        "M003063"
+      ],
+      "labels": [],
+      "visible_sequence": "ieiτe>0ci∈(0,1]",
+      "paragraph_context": "由于世界模型在不同状态—动作区域的预测精度存在差异，不能令所有模型生成样本以等权重参与动作价值更新。为此，构建由局部预测可靠性评分与对数置信度贝尔曼递推组成的置信评价机制。对于目标数据集中的第 i 条转移数据，记所选世界模型在该样本输入上的综合预测误差为 ei（公交任务按式(6-2)计算六类综合误差），动态维护的误差尺度参数为 τe>0，则该样本的局部预测可靠性评分 ci∈(0,1] 定义为：",
+      "allowed_pairs": [
+        {
+          "pair": "(]",
+          "contents": "0,1",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:tbl[173]/w:tr[2]",
+      "math_ids": [
+        "M003086"
+      ],
+      "labels": [
+        "(6-6)"
+      ],
+      "visible_sequence": "wiΔ = exp​( QξΔ(si, ai, σwm(si, ai)) ) ∈ (0, 1]",
+      "paragraph_context": "wiΔ = exp​ QξΔsi, ai, σwm(si, ai)  ∈ (0, 1]",
+      "allowed_pairs": [
+        {
+          "pair": "(]",
+          "contents": "0, 1",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:p[894]",
+      "math_ids": [
+        "M003109",
+        "M003110",
+        "M003111",
+        "M003112"
+      ],
+      "labels": [],
+      "visible_sequence": "lH(⋅)10.25wiΔ∈(0,1]",
+      "paragraph_context": "式中，lH(⋅) 为阈值设为 1 的Huber损失函数（见式(6-10)），用于抑制个别大偏差模型样本引起的梯度冲击。在式(6-8)中，全局系数 0.25 控制模型辅助分支的整体更新占比，而逐样本权重 wiΔ∈(0,1] 则根据状态局部与后继预测可靠性精细调节每条一步转移数据的相对贡献。",
+      "allowed_pairs": [
+        {
+          "pair": "(]",
+          "contents": "0,1",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:p[902]",
+      "math_ids": [
+        "M003120",
+        "M003121",
+        "M003122",
+        "M003123",
+        "M003124",
+        "M003125",
+        "M003126",
+        "M003127",
+        "M003128",
+        "M003129",
+        "M003130",
+        "M003131",
+        "M003132",
+        "M003133"
+      ],
+      "labels": [],
+      "visible_sequence": "m⋆τeτe10-3{ei}emed10-80.90.1τe←0.9 τe+0.1 max(emed,10-8)ci∈[10-8,1]Δti>0QξΔ(s,a,σwm(s,a))wiΔ∈(0,1]",
+      "paragraph_context": "在选定预测模型类别 m⋆ 后，置信评价器按如下流程评估每条预测样本的可靠性并更新参数： 首先，动态维护式(6-4)中的局部误差尺度参数 τe：τe 初值设为 10-3，在每次更新时提取当前训练小批量样本预测误差 {ei} 的中位数 emed（设下界 10-8），按平滑系数 0.9 与 0.1 进行指数移动平均更新，即 τe←0.9 τe+0.1 max(emed,10-8)；随后代入式(6-4)计算各样本的局部评分 ci∈[10-8,1]。 其次，在目标域固定离线数据集中非终止且事件时间间隔大于零（Δti>0）的真实转移数据上，按式(6-5)（原始递推配置）或式(6-7)（归一化递推配置）计算回归目标，通过最小化均方误差更新对数置信度网络 QξΔs,a,σwm(s,a)（其中直接目标模型输入目标模型集成的逐维标准差，残差模型输入冻结源模型集成的逐维标准差），再经式(6-6)指数变换得到样本置信权重 wiΔ∈(0,1]。",
+      "allowed_pairs": [
+        {
+          "pair": "(]",
+          "contents": "0,1",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:p[915]",
+      "math_ids": [
+        "M003156",
+        "M003157",
+        "M003158"
+      ],
+      "labels": [],
+      "visible_sequence": "γ∈[0,1)Psim(⋅∣s,a)ΔP(⋅∣s,a)",
+      "paragraph_context": "首先分析世界模型误差对长期价值评估的影响。考虑有限状态动作空间、严格折扣因子 γ∈[0,1) 的马尔可夫决策过程，将残差修正表示为源域转移概率核 Psim(⋅∣s,a) 上的加性概率测度修正 ΔP(⋅∣s,a)：",
+      "allowed_pairs": [
+        {
+          "pair": "[)",
+          "contents": "0,1",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:p[917]",
+      "math_ids": [
+        "M003170",
+        "M003171",
+        "M003172",
+        "M003173",
+        "M003174",
+        "M003175",
+        "M003176",
+        "M003177",
+        "M003178",
+        "M003179",
+        "M003180"
+      ],
+      "labels": [],
+      "visible_sequence": "π(Ptgt,Rtgt)(Pmdl,Rmdl)VtgtπVmdlπγ∈[0,1)|Rtgt(s,a)|≤Rmax,|Rmdl(s,a)|≤Rmaxπ|Rtgt(s,a)-Rmdl(s,a)|≤εrTV(p,q)=12s'​|p(s')-q(s')|TV(Ptgt(⋅∣s,a),Pmdl(⋅∣s,a))≤εP",
+      "paragraph_context": "进一步比较固定策略 π 在真实目标环境转移模型 Ptgt,Rtgt 与学习得到的近似世界模型 Pmdl,Rmdl 下的长期状态价值函数 Vtgtπ 与 Vmdlπ。设两模型采用相同折扣因子 γ∈[0,1)，单步奖励绝对值一致有界 |Rtgt(s,a)|≤Rmax,|Rmdl(s,a)|≤Rmax；若在策略 π 访问且对两模型后继转移封闭的状态子集内，近似模型的单步期望奖励误差满足一致上界 |Rtgt(s,a)-Rmdl(s,a)|≤εr，且条件转移分布之间的总变差距离（Total Variation Distance，TV(p,q)=12s'​|p(s')-q(s')|）满足一致上界 TVPtgt(⋅∣s,a),Pmdl(⋅∣s,a)≤εP，则由两模型的贝尔曼方程作差并利用总变差对有界函数期望差的界定，可得长期价值评估偏差上界：",
+      "allowed_pairs": [
+        {
+          "pair": "[)",
+          "contents": "0,1",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:p[920]",
+      "math_ids": [
+        "M003201",
+        "M003202",
+        "M003203",
+        "M003204",
+        "M003205",
+        "M003206",
+        "M003207",
+        "M003208",
+        "M003209",
+        "M003210"
+      ],
+      "labels": [],
+      "visible_sequence": "c(s,a)∈(0,1]γΔ∈(0,1)c∈(0,1)di=0QorigΔ=logc+γΔ QorigΔQorigΔ=logc1-γΔQnormΔ=(1-γΔ)logc+γΔ QnormΔQnormΔ=logcworig⋆wnorm⋆",
+      "paragraph_context": "其次推导置信度递推的不动点权重尺度关系。在固定策略、固定局部评分函数 c(s,a)∈(0,1] 与转移核的条件下，原始对数置信度算子（式(6-5)）与归一化对数置信度算子（式(6-7)）在无穷范数下均为压缩因子为 γΔ∈(0,1) 的严格压缩映射（完整证明见附录E.9命题E.1）。为直观揭示两者的数值尺度差异，考虑局部预测可靠性评分恒为常数 c∈(0,1) 且过程非终止（di=0）的均匀稳态情形：令原始递推式(6-5)达到不动点 QorigΔ=logc+γΔ QorigΔ，解得 QorigΔ=logc1-γΔ；令归一化递推式(6-7)达到不动点 QnormΔ=(1-γΔ)logc+γΔ QnormΔ，解得 QnormΔ=logc。将两者分别代入式(6-6)取指数，即得两种递推格式下的稳态不动点样本权重 worig⋆ 与 wnorm⋆：",
+      "allowed_pairs": [
+        {
+          "pair": "(]",
+          "contents": "0,1",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:p[1284]",
+      "math_ids": [
+        "M003764",
+        "M003765",
+        "M003766",
+        "M003767",
+        "M003768"
+      ],
+      "labels": [],
+      "visible_sequence": "CtrajP0βtail∈(0,1]ηrisk(x)+=max(x,0)",
+      "paragraph_context": "以 Ctraj 表示一条运行轨迹的有界可测累计成本，P0 为固定策略和名义环境诱导的轨迹概率分布。取 βtail∈(0,1] 表示所关注的最差尾部概率质量，ηrisk 为成本阈值，(x)+=max(x,0)。按这一尾部概率约定，定义",
+      "allowed_pairs": [
+        {
+          "pair": "(]",
+          "contents": "0,1",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:p[1472]",
+      "math_ids": [
+        "M004206",
+        "M004207",
+        "M004208",
+        "M004209",
+        "M004210"
+      ],
+      "labels": [],
+      "visible_sequence": "a≤bμdet,fref[a,b](a,b)x∈[a,b)",
+      "paragraph_context": "命题D.1。 设区间端点满足 a≤b，标量函数 μdet,fref 在 [a,b] 上连续、在 (a,b) 上可微，且对任意 x∈[a,b) 满足",
+      "allowed_pairs": [
+        {
+          "pair": "[)",
+          "contents": "a,b",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:tbl[314]/w:tr",
+      "math_ids": [
+        "M004225"
+      ],
+      "labels": [
+        "(D-9)"
+      ],
+      "visible_sequence": "|emap(a)|≤εval,  |emap'(x)|≤εder+L(x-a), x∈[a,b).",
+      "paragraph_context": "|emap(a)|≤εval,  |emap'(x)|≤εder+L(x-a), x∈[a,b).",
+      "allowed_pairs": [
+        {
+          "pair": "[)",
+          "contents": "a,b",
+          "same_native": false
+        }
+      ]
+    },
+    {
+      "group_xpath": "/w:document/w:body/w:p[1494]",
+      "math_ids": [
+        "M004257",
+        "M004258",
+        "M004259",
+        "M004260",
+        "M004261"
+      ],
+      "labels": [],
+      "visible_sequence": "Xoutepath:[0,1]→Xout[0,1)epath,+'(t)εval,εpath,Lpath≥0",
+      "paragraph_context": "命题D.5。 设 Xout 为实Banach空间，epath:[0,1]→Xout 连续，且在 [0,1) 的每一点存在右导数 epath,+'(t)。给定非负常数 εval,εpath,Lpath≥0，若",
+      "allowed_pairs": [
+        {
+          "pair": "[)",
+          "contents": "0,1",
+          "same_native": false
+        }
+      ]
+    }
+  ],
+  "source_modified": false
+}

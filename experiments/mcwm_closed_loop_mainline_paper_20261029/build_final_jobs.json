@@ -1,0 +1,29 @@
+[
+  {
+    "project": "Thesis",
+    "description": "Final manuscript compile after bounded causal discussion update",
+    "signature": "mcwm_closed_loop_mainline_paper_20261029/build_paper_final",
+    "cwd": "/home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_mainline_paper_20261029",
+    "cmd": "/usr/bin/python3 -u /home/erzhu419/mine_code/Thesis/experiments/mcwm_closed_loop_mainline_paper_20261029/build_paper.py",
+    "priority": "high",
+    "allowed_nodes": [
+      "local"
+    ],
+    "require_node": "local",
+    "preferred_node": "local",
+    "cpu": 1,
+    "ram_mb": 1000,
+    "vram": 0,
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "allow_cpu_training": true,
+    "cpu_training_justification": "Compile only a new IEEE manuscript from fixed local result summaries; no experiment, fitting, simulation or GPU. Validate150-250word abstract and completed bibliography.",
+    "allow_no_ckpt": true,
+    "allow_no_resume": true,
+    "skip_launch_staging": true,
+    "no_auto_requeue": true
+  }
+]
